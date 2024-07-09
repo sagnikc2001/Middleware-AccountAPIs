@@ -106,9 +106,6 @@ public class GetCMSAccountTransactionsTest {
 		CMSAccountTransactions oCMSAccountTransactionsResponse = producerTemplate.requestBodyAndHeaders(
 				"direct:GetCMSAccountTransactions", oCMSAccountTransactionsRequest, headers, CMSAccountTransactions.class);
 		
-		System.out.println("Response : "
-				+ oCMSAccountTransactionsResponse.getoCMSAccountTransactionsResponse().getSuccess().getStatusCode());
-		
 		Assertions.assertTrue(null != oCMSAccountTransactionsResponse.getoCMSAccountTransactionsResponse().getSuccess().getStatusCode());
 	}
 	
@@ -155,8 +152,6 @@ public class GetCMSAccountTransactionsTest {
 		
 		String faultResponse = producerTemplate.requestBodyAndHeaders("direct:GetCMSAccountTransactions",
 				oCMSAccountTransactionsRequest_Fault, headers, String.class);
-		
-		System.out.println(faultResponse);
 
 		Assertions.assertTrue(faultResponse.contains("fault"));
 		

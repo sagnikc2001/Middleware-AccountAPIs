@@ -38,14 +38,14 @@ public class MaintainCMSAccountRouteBuilder extends RouteBuilder {
 		from("direct:MaintainCMSAccount").routeId("MaintainCMSAccount")
 		.setHeader("system", constant("MW"))
 		.to("bean:maintainCMSAccountService?method=setCMSAccountMaintenanceRequestIn")
-		.to("bean:maintainCMSAccountService?method=prepareProcessRequest")
+		.to("bean:maintainCMSAccountService?method=processRequest")
 
 		.marshal(getProcessRequest)
 
 		.setHeader("system", constant("CMS"))
 		.setHeader("SOAPAction", constant("http://com.tcs.bancs.rm/processRequest"))
 		.to("{{UDDIConnector.host}}{{UDDIConnector.contextPath}}/cms/v1/ProcessRequest?bridgeEndpoint=true")
-		.to("bean:maintainCMSAccountService?method=prepareCMSAccountMaintainanceFinalResponse")
+		.to("bean:maintainCMSAccountService?method=processResponse")
 		.setHeader("Content-Type", constant("application/json"));
 
 	}

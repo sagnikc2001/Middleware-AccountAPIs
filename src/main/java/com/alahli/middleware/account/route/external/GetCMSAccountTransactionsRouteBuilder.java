@@ -13,8 +13,6 @@ import com.alahli.middleware.account.models.backends.cms.GetCMSAccountTransactio
 
 @Component
 public class GetCMSAccountTransactionsRouteBuilder extends RouteBuilder{
-	
-	private static Namespaces ns = new Namespaces("ns2", "http://web.cse.com");
 
 	@Override
 	public void configure() throws Exception {
@@ -41,8 +39,8 @@ public class GetCMSAccountTransactionsRouteBuilder extends RouteBuilder{
 		from("direct:GetCMSAccountTransactions").routeId("GetCMSAccountTransactions")
 		.streamCaching()
 		.setHeader("system", constant("MW"))
-		.to("bean:getCMSAccountTransactionsService?method=setGetCMSAccountTransactionsRequestIn")
-		.to("bean:getCMSAccountTransactionsService?method=prepareProcessRequest")
+		.to("bean:getCMSAccountTransactionsService?method=setCMSAccountTransactionsRequestIn")
+		.to("bean:getCMSAccountTransactionsService?method=processRequest")
 		
 		.marshal(getProcessRequest)
 		
@@ -50,7 +48,7 @@ public class GetCMSAccountTransactionsRouteBuilder extends RouteBuilder{
 		.setHeader("SOAPAction", constant("http://com.tcs.bancs.rm/processRequest"))
 		.setHeader("Content-Type", constant("application/xml"))
 		.to("{{UDDIConnector.host}}{{UDDIConnector.contextPath}}/cms/v1/ProcessRequest?bridgeEndpoint=true")
-		.to("bean:getCMSAccountTransactionsService?method=prepareCMSAccountTransactionsFinalResponse")
+		.to("bean:getCMSAccountTransactionsService?method=processResponse")
 		.setHeader("Content-Type", constant("application/json"));
 		
 	}

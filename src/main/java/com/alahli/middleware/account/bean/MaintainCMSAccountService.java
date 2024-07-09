@@ -48,7 +48,7 @@ public class MaintainCMSAccountService {
 
 	@Autowired
 	StringUtil oStringUtil;
-	
+
 	@Autowired
 	Utils oUtils;
 
@@ -88,7 +88,7 @@ public class MaintainCMSAccountService {
 	 * @return ProcessRequest class
 	 * @throws Exception
 	 */
-	public ProcessRequest prepareProcessRequest() throws Exception {
+	public ProcessRequest processRequest() throws Exception {
 
 		ProcessRequest oProcessRequest = new ProcessRequest();
 		Arg0 oArg0 = new Arg0();
@@ -168,32 +168,30 @@ public class MaintainCMSAccountService {
 	}
 
 	/**
-	 * Prepare final response by mapping the retrieved response from the external
+	 * Prepare final processResponse by mapping the retrieved response from the external
 	 * api
 	 * 
 	 * @param ex Exchange body
 	 * @throws Exception
 	 */
-	public void prepareCMSAccountMaintainanceFinalResponse(Exchange ex) throws Exception {
+	public void processResponse(Exchange ex) throws Exception {
 
 		Message message = ex.getIn();
 
 		Document oDocument = oAccountUtils.getDomObject((InputStream) ex.getIn().getBody(InputStream.class));
 
 		String responseStringXML = ex.getIn().getBody(String.class);
-		
+
 		// removing %17, %3D and %2C charecters
-		String decodedResponseStringXML = URLDecoder.decode(responseStringXML,"CP1256");
-				
+		String decodedResponseStringXML = URLDecoder.decode(responseStringXML, "CP1256");
+
 		String returnCode = this.oAccountUtils.getValueFromCMSResponse("RETURNCODE", decodedResponseStringXML);
-		
+
 		NodeList processRequestResponseNode = (NodeList) xPath.compile("//processRequestResponse/success")
 				.evaluate(oDocument, XPathConstants.NODE);
 
 		NodeList accountListNode = (NodeList) xPath.compile("//processRequestResponse/success/account")
 				.evaluate(oDocument, XPathConstants.NODESET);
-
-//		String statusCode = (String) xPath.evaluate("statusCode", processRequestResponseNode, XPathConstants.STRING);
 
 		if (returnCode.equals("1113")) {
 
@@ -244,16 +242,13 @@ public class MaintainCMSAccountService {
 
 			message.setBody(oCMSAccountMaintainance);
 
-		}
-		else {
-			
-//			String nativeDescription = (String) xPath.evaluate("statusDescription", processRequestResponseNode, XPathConstants.STRING);
-			
+		} else {
+
 			String nativeDescription = oAccountUtils.getValueFromCMSResponse("DESCRIPTION", decodedResponseStringXML);
-			
+
 			message.setBody(oUtils.prepareFaultNodeStr("CMSAccountsResponse", "CMS", "", returnCode, nativeDescription,
 					"sysOrAppWithBkndError", ex));
-			
+
 		}
 	}
 

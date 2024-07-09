@@ -105,9 +105,6 @@ public class MaintainCMSAccountTest {
 		CMSAccountMaintainance oCMSAccountMaintainanceResponse = producerTemplate.requestBodyAndHeaders(
 				"direct:MaintainCMSAccount", oCMSAccountMaintainanceRequest, headers, CMSAccountMaintainance.class);
 
-		System.out.println("Response : "
-				+ oCMSAccountMaintainanceResponse.getcMSAccountMaintenanceResponse().getSuccess().getStatusCode());
-
 		Assertions.assertTrue(null != oCMSAccountMaintainanceResponse.getcMSAccountMaintenanceResponse().getSuccess().getStatusCode());
 	}
 
@@ -155,8 +152,6 @@ public class MaintainCMSAccountTest {
 		
 		String faultResponse = producerTemplate.requestBodyAndHeaders("direct:MaintainCMSAccount",
 				oCMSAccountMaintainanceRequest_Fault, headers, String.class);
-		
-		System.out.println(faultResponse);
 
 		Assertions.assertTrue(faultResponse.contains("fault"));
 	}

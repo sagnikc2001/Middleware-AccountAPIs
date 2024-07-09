@@ -2,9 +2,10 @@ package com.alahli.middleware.account;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.ImportResource;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 @ImportResource({"classpath:spring/camel-context.xml"})
 public class MiddlewareAccountApIsApplication {
 

@@ -147,11 +147,6 @@
 			<artifactId>Middleware-Utility</artifactId>
 			<version>1.0.1</version>
 		</dependency>
-		<dependency>
-			<groupId>com.alahli.middleware.customer</groupId>
-			<artifactId>GetAMLPurposeCodes</artifactId>
-			<version>1.0.1</version>
-		</dependency>
 	</dependencies>
 
 	<build>

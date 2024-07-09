@@ -1,0 +1,33 @@
+{
+	"CMSAccountTransactionsRequest": {
+		"omniMappedCode": "string",
+		"accountNumber": "10263567860888",
+		"omniAccountNumber": "92896328270310",
+		"messageStartDate": "34244764",
+		"messageEndDate": "25682993",
+		"transactionStartDate": "32981932",
+		"transactionEndDate": "49580183",
+		"debitCreditFlag": "string",
+		"fromAmount": 0,
+		"toAmount": 0,
+		"returnCode": "string",
+		"mainStatus": "string",
+		"createDate": "53088475",
+		"createStartDate": "",
+		"createEndDate": "18832531",
+		"approveDate": "",
+		"approveStartDate": "",
+		"approveEndDate": "",
+		"getBasicData": "string",
+		"accountStartSeq": "string",
+		"accountEndSeq": "string",
+		"ibanAccountNumber": "string",
+		"reference1": "string",
+		"reference2": "string",
+		"reference3": "string",
+		"reference4": "string",
+		"reference5": "string",
+		"sourceReference": "string",
+		"uniqueReference": "string"
+	}
+}

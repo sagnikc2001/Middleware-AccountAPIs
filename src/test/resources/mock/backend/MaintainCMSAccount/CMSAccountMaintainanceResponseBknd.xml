@@ -1,0 +1,40 @@
+<ns2:processRequestResponse
+	xmlns=""
+	xmlns:SOAP="
+http://schemas.xmlsoap.org/soap/envelope/"
+	xmlns:ns2="
+http://web.cse.com/"
+	xmlns:soapenv="
+http://schemas.xmlsoap.org/soap/envelope/"
+	logcontexttoken="376d277a-b5ad-11ef-e300-b4be40531dd2:b7187323-d02b-11ef-e300-b4cc069817fe:1.003.001:">
+	<return
+		xmlns=""
+		xmlns:soapenv="
+http://schemas.xmlsoap.org/soap/envelope/"
+		xmlns:ns2="
+http://web.cse.com/">
+		RETURNCODE%3D1113%17NOTES%3DAccount+Approved+Successfully%17ADDTIONALNOTES%3D%17DESCRIPTION%3DAccount+Approved+Successfully%17SERVICEID%3DIOMSRV99026%17PRODUCT%3DCMS%17SUBPRODUCT%3D%17CHANNEL%3DDTOP%17CHANNELUSERID%3Dnewb2bGen%17UNIQUEREFERENCE%3DCOR1716932728582%17MESSAGETIME%3D20240522-09%3A36%3A50.455%17REQREFERENCE1%3D%17REQREFERENCE2%3D%17REQREFERENCE3%3D%17MESSAGEFORMAT%3D%17MESSAGEVERSION%3D%17CONSUMERID%3D%17PROVIDERID%3D%17PROCESSTIME%3D188%17VALIDATIONFIELD%3D%17COMPRESSDATA%3DNO%17MOREDATA%3DN%17XMLMSG%3D%7B%22ACCDATA%22%3A%5B%7B%22OMNIACCOUNTNB%22%3A%2262200000005000%22%2C%22OMNIMAPPEDCODE%22%3A%2279212%22%2C%22ACCOUNTNB%22%3A%2279212000419001%22%2C%22NICKENAME%22%3A%22401024500729115_SAMA%22%2C%22IBANACCOUNTNB%22%3A%22SA3810000079212000419001%22%2C%22NICKANAME%22%3A%22%22%2C%22CURRENCY%22%3A%22SAR%22%2C%22MINIMUMLIMIT%22%3A0%2C%22MAXIMUMLIMIT%22%3A1000%2C%22DEBITFLAG%22%3A%22Y%22%2C%22CREDITFLAG%22%3A%22Y%22%2C%22MT940SUBSCRIPTIONFLAG%22%3A%22N%22%2C%22ACCOUNTSEQUENCENB%22%3A0%2C%22CUSTOMERNB%22%3A0%7D%5D%7D%17
+	</return>
+	<success
+		xmlns=""
+		xmlns:soapenv="
+http://schemas.xmlsoap.org/soap/envelope/"
+		xmlns:ns2="
+http://web.cse.com/">
+		<statusCode>1113</statusCode>
+		<statusDescription>Account Approved Successfully</statusDescription>
+		<notes>Account Approved Successfully</notes>
+		<account>
+			<accountNumber>79212000419001</accountNumber>
+			<ibanAccountNumber>SA3810000079212000419001</ibanAccountNumber>
+			<remitterId>0</remitterId>
+			<blockedTransactions />
+			<debitFlag>Y</debitFlag>
+			<creditFlag>Y</creditFlag>
+			<minimumAccountBalanceLimit>0</minimumAccountBalanceLimit>
+			<maximumAccountBalanceLimit>1000</maximumAccountBalanceLimit>
+			<subscriptionFlag>N</subscriptionFlag>
+			<accountResetFlag />
+		</account>
+	</success>
+</ns2:processRequestResponse>

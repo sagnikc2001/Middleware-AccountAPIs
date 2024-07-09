@@ -1,0 +1,326 @@
+{
+	"info": {
+		"_postman_id": "9aa05623-2722-4153-b892-8380b5e439a0",
+		"name": "MW-AccountAPIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29365190"
+	},
+	"item": [
+		{
+			"name": "GetCMSAccountTransactions",
+			"item": [
+				{
+					"name": "GetCMSAccountTransactions_Sucess",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/accounts/v1/GetCMSAccountTransactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"accounts",
+								"v1",
+								"GetCMSAccountTransactions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GetCMSAccountTransactions_Sucess",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"CMSAccountsRequest\": {\r\n    \"omniMappedCode\": \"795189\",\r\n    \"accountNumber\": \"79518900000203\",\r\n    \"omniAccountNumber\": \"05100012683003\",\r\n    \"messageStartDate\": \"98505270\",\r\n    \"messageEndDate\": \"90873399\",\r\n    \"transactionStartDate\": \"20240604\",\r\n    \"transactionEndDate\": \"20240604\",\r\n    \"debitCreditFlag\": \"string\",\r\n    \"fromAmount\": 0,\r\n    \"toAmount\": 0,\r\n    \"returnCode\": \"string\",\r\n    \"mainStatus\": \"string\",\r\n    \"createDate\": \"\",\r\n    \"createStartDate\": \"41727347\",\r\n    \"createEndDate\": \"\",\r\n    \"approveDate\": \"10418957\",\r\n    \"approveStartDate\": \"\",\r\n    \"approveEndDate\": \"\",\r\n    \"getBasicData\": \"string\",\r\n    \"accountStartSeq\": \"string\",\r\n    \"accountEndSeq\": \"string\",\r\n    \"ibanAccountNumber\": \"string\",\r\n    \"reference1\": \"string\",\r\n    \"reference2\": \"string\",\r\n    \"reference3\": \"string\",\r\n    \"reference4\": \"string\",\r\n    \"reference5\": \"string\",\r\n    \"sourceReference\": \"string\",\r\n    \"uniqueReference\": \"string\"\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/accounts/v1/GetCMSAccountTransactions",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"accounts",
+										"v1",
+										"GetCMSAccountTransactions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"CMSAccountTransactionsResponse\": {\r\n        \"success\": {\r\n            \"statusCode\": \"0000\",\r\n            \"statusDescription\": \"Process Success\",\r\n            \"notes\": \"Process Success\",\r\n            \"transaction\": []\r\n        }\r\n    }\r\n}"
+						}
+					]
+				},
+				{
+					"name": "GetCMSAccountTransactions_Fault",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/accounts/v1/GetCMSAccountTransactions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"accounts",
+								"v1",
+								"GetCMSAccountTransactions"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GetCMSAccountTransactions_Fault",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"CMSAccountsRequest\": {\r\n    \r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/accounts/v1/GetCMSAccountTransactions",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"accounts",
+										"v1",
+										"GetCMSAccountTransactions"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"CMSAccountsResponse\": {\r\n        \"fault\": {\r\n            \"number\": 670,\r\n            \"description\": \"CMS Error\",\r\n            \"system\": \"CMS\",\r\n            \"nativeError\": \"0001\",\r\n            \"nativeDescription\": \"Process Fault\"\r\n        }\r\n    }\r\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "MaintainCMSAccount",
+			"item": [
+				{
+					"name": "MaintainCMSAccount_Success",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/accounts/v1/MaintainCMSAccount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"accounts",
+								"v1",
+								"MaintainCMSAccount"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "MaintainCMSAccount_Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"CMSRequest\": {\r\n    \"requestMode\": \"string\",\r\n    \"accountNumber\": \"28297858645231\",\r\n    \"omniAccountNumber\": \"41435461824356\",\r\n    \"englishNickName\": \"string\",\r\n    \"arabicNickName\": \"string\",\r\n    \"currency\": \"\",\r\n    \"omniMappedCode\": \"string\",\r\n    \"externalLinkCode1\": \"string\",\r\n    \"externalLinkCode2\": \"string\",\r\n    \"referenceNumber1\": \"string\",\r\n    \"referenceNumber2\": \"string\",\r\n    \"notes1\": \"string\",\r\n    \"notes2\": \"string\",\r\n    \"remitterId\": \"string\",\r\n    \"blockedTransactions\": \"string\",\r\n    \"transactionNotificationFlag\": \"string\",\r\n    \"debitFlag\": \"string\",\r\n    \"creditFlag\": \"string\",\r\n    \"minimumAccountBalanceLimit\": 0,\r\n    \"maximumAccountBalanceLimit\": 0,\r\n    \"subscriptionFlag\": \"string\",\r\n    \"accountResetFlag\": \"string\",\r\n    \"uniqueReference\": \"string\",\r\n    \"skipCapLimit\": \"string\"\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/accounts/v1/MaintainCMSAccount",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"accounts",
+										"v1",
+										"MaintainCMSAccount"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"CMSAccountMaintenanceResponse\": {\n        \"success\": {\n            \"statusCode\": \"1113\",\n            \"statusDescription\": \"Account Approved Successfully\",\n            \"notes\": \"Account Approved Successfully\",\n            \"account\": [\n                {\n                    \"accountNumber\": \"79212000419001\",\n                    \"ibanAccountNumber\": \"SA3810000079212000419001\",\n                    \"remitterId\": \"0\",\n                    \"blockedTransactions\": \"\",\n                    \"minimumAccountBalanceLimit\": 0,\n                    \"maximumAccountBalanceLimit\": 1000,\n                    \"subscriptionFlag\": \"N\",\n                    \"debitFlag\": \"Y\",\n                    \"creditFlag\": \"Y\",\n                    \"accountResetFlag\": \"\"\n                }\n            ]\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "MaintainCMSAccount_Fault",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/accounts/v1/MaintainCMSAccount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"accounts",
+								"v1",
+								"MaintainCMSAccount"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "MaintainCMSAccount_Fault",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"CMSAccountsRequest\": {\r\n    \"requestMode\": \"\",\r\n    \"accountNumber\": \"\",\r\n    \"omniAccountNumber\": \"\",\r\n    \"englishNickName\": \"\",\r\n    \"arabicNickName\": \"\",\r\n    \"currency\": \"\",\r\n    \"omniMappedCode\": \"string\",\r\n    \"externalLinkCode1\": \"string\",\r\n    \"externalLinkCode2\": \"string\",\r\n    \"referenceNumber1\": \"string\",\r\n    \"referenceNumber2\": \"string\",\r\n    \"notes1\": \"string\",\r\n    \"notes2\": \"string\",\r\n    \"remitterId\": \"string\",\r\n    \"blockedTransactions\": \"string\",\r\n    \"transactionNotificationFlag\": \"string\",\r\n    \"debitFlag\": \"string\",\r\n    \"creditFlag\": \"string\",\r\n    \"minimumAccountBalanceLimit\": 0,\r\n    \"maximumAccountBalanceLimit\": 0,\r\n    \"subscriptionFlag\": \"string\",\r\n    \"accountResetFlag\": \"string\",\r\n    \"uniqueReference\": \"string\",\r\n    \"skipCapLimit\": \"string\"\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/accounts/v1/MaintainCMSAccount",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"accounts",
+										"v1",
+										"MaintainCMSAccount"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"CMSAccountsResponse\": {\r\n        \"fault\": {\r\n            \"number\": 670,\r\n            \"description\": \"CMS Error\",\r\n            \"system\": \"CMS\",\r\n            \"nativeError\": \"1114\",\r\n            \"nativeDescription\": \"Account Failed\"\r\n        }\r\n    }\r\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

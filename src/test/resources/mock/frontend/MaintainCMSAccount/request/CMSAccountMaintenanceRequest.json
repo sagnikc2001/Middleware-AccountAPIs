@@ -1,0 +1,28 @@
+{
+  "CMSAccountsRequest": {
+    "requestMode": "string",
+    "accountNumber": "28297858645231",
+    "omniAccountNumber": "41435461824356",
+    "englishNickName": "string",
+    "arabicNickName": "string",
+    "currency": "",
+    "omniMappedCode": "string",
+    "externalLinkCode1": "string",
+    "externalLinkCode2": "string",
+    "referenceNumber1": "string",
+    "referenceNumber2": "string",
+    "notes1": "string",
+    "notes2": "string",
+    "remitterId": "string",
+    "blockedTransactions": "string",
+    "transactionNotificationFlag": "string",
+    "debitFlag": "string",
+    "creditFlag": "string",
+    "minimumAccountBalanceLimit": 0,
+    "maximumAccountBalanceLimit": 0,
+    "subscriptionFlag": "string",
+    "accountResetFlag": "string",
+    "uniqueReference": "string",
+    "skipCapLimit": "string"
+  }
+}

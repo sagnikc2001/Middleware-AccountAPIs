@@ -1,0 +1,28 @@
+{
+	"CMSAccountMaintenanceRequest": {
+		"requestMode": "string",
+		"accountNumber": "SA0893AI5cbNGV0zrozdTeIF",
+		"omniAccountNumber": "59244586475306",
+		"englishNickName": "string",
+		"arabicNickName": "string",
+		"currency": "LEB",
+		"omniMappedCode": "string",
+		"externalLinkCode1": "string",
+		"externalLinkCode2": "string",
+		"referenceNumber1": "string",
+		"referenceNumber2": "string",
+		"notes1": "string",
+		"notes2": "string",
+		"remitterId": "string",
+		"blockedTransactions": "string",
+		"transactionNotificationFlag": "string",
+		"debitFlag": "string",
+		"creditFlag": "string",
+		"minimumAccountBalanceLimit": 0,
+		"maximumAccountBalanceLimit": 0,
+		"subscriptionFlag": "string",
+		"accountResetFlag": "string",
+		"uniqueReference": "string",
+		"skipCapLimit": "string"
+	}
+}

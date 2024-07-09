@@ -1,0 +1,54 @@
+{
+  "CMSAccountTransactionsResponse": {
+    "success": {
+      "statusCode": "string",
+      "statusDescription": "string",
+      "notes": "string",
+      "transaction": [
+        {
+          "messageID": "string",
+          "accountNumber": "79113003538941",
+          "omniMappedCode": "string",
+          "messageDate": "",
+          "omniAccountNumber": "02936792109636",
+          "transactionDate": "22696185",
+          "currency": "ZSP",
+          "valueDate": "",
+          "amount": 0,
+          "debitCreditFlag": "string",
+          "debitCreditDescription": "string",
+          "mainStatus": "string",
+          "mainStatusDesciption": "string",
+          "channel": "string",
+          "requestUser": "string",
+          "omniName": "string",
+          "nickName": "string",
+          "reference1": "string",
+          "reference2": "string",
+          "reference3": "string",
+          "reference4": "string",
+          "reference5": "string",
+          "reference6": "string",
+          "sourceReference": "string",
+          "uniqueReference": "string",
+          "englishLine1": "string",
+          "englishLine2": "string",
+          "arabicLine1": "string",
+          "arabicLine2": "string",
+          "returnCode": "string",
+          "notes1": "string",
+          "notes2": "string",
+          "createUserCode": "string",
+          "createDate": "90153237",
+          "approveUserCode": "string",
+          "approveDate": "61193905",
+          "tagDetails": "string",
+          "ibanAccountNumber": "string",
+          "transactionFeeAmount": 0,
+          "transactionTaxAmount": 0,
+          "transactionTotalAmount": 0
+        }
+      ]
+    }
+  }
+}

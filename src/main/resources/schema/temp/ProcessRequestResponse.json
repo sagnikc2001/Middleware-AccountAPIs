@@ -1,0 +1,22 @@
+{
+  "processRequestResponse": {
+    "return": "RETURNCODE=1113\nNOTES=Account Approved Successfully\nADDTIONALNOTES=\nDESCRIPTION=Account Approved Successfully\nSERVICEID=IOMSRV99026\nPRODUCT=CMS\nSUBPRODUCT=\nCHANNEL=DTOP\nCHANNELUSERID=newb2bGen\nUNIQUEREFERENCE=COR1716932728582\nMESSAGETIME=20240522-09:36:50.455\nREQREFERENCE1=\nREQREFERENCE2=\nREQREFERENCE3=\nMESSAGEFORMAT=\nMESSAGEVERSION=\nCONSUMERID=\nPROVIDERID=\nPROCESSTIME=188\nVALIDATIONFIELD=\nCOMPRESSDATA=NO\nMOREDATA=N\nXMLMSG={\"ACCDATA\":[{\"OMNIACCOUNTNB\":\"62200000005000\",\"OMNIMAPPEDCODE\":\"79212\",\"ACCOUNTNB\":\"79212000419001\",\"NICKENAME\":\"401024500729115_SAMA\",\"IBANACCOUNTNB\":\"SA3810000079212000419001\",\"NICKANAME\":\"\",\"CURRENCY\":\"SAR\",\"MINIMUMLIMIT\":0,\"MAXIMUMLIMIT\":1000,\"DEBITFLAG\":\"Y\",\"CREDITFLAG\":\"Y\",\"MT940SUBSCRIPTIONFLAG\":\"N\",\"ACCOUNTSEQUENCENB\":0,\"CUSTOMERNB\":0}]}\n",
+    "success": {
+      "statusCode": 1113,
+      "statusDescription": "Account Approved Successfully",
+      "notes": "Account Approved Successfully",
+      "account": {
+        "accountNumber": "79212000419001",
+        "ibanAccountNumber": "SA3810000079212000419001",
+        "remitterId": 0,
+        "blockedTransactions": "",
+        "debitFlag": "Y",
+        "creditFlag": "Y",
+        "minimumAccountBalanceLimit": 0,
+        "maximumAccountBalanceLimit": 1000,
+        "subscriptionFlag": "N",
+        "accountResetFlag": ""
+      }
+    }
+  }
+}

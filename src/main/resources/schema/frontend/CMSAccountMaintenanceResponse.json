@@ -1,0 +1,23 @@
+{
+	"CMSAccountMaintenanceResponse": {
+		"success": {
+			"statusCode": "string",
+			"statusDescription": "string",
+			"notes": "string",
+			"account": [
+				{
+					"accountNumber": "SA3996WCwCSaUf3nosLTlwUk",
+					"ibanAccountNumber": "90056214561422",
+					"remitterId": "string",
+					"blockedTransactions": "string",
+					"minimumAccountBalanceLimit": 0,
+					"maximumAccountBalanceLimit": 0,
+					"subscriptionFlag": "string",
+					"debitFlag": "string",
+					"creditFlag": "string",
+					"accountResetFlag": "string"
+				}
+			]
+		}
+	}
+}

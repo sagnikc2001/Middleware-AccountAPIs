@@ -1,0 +1,59 @@
+{
+  "processRequest": {
+    "arg0": {
+      "INPUTMESSAGE": {
+        "CMSAccountMaintenanceRequest": {
+          "requestMode": "ADD",
+          "accountNumber": "",
+          "omniAccountNumber": "62200000005000",
+          "englishNickName": "401024500729115_SAMA",
+          "arabicNickName": "",
+          "currency": "",
+          "omniMappedCode": "",
+          "externalLinkCode1": "",
+          "externalLinkCode2": "",
+          "referenceNumber1": "",
+          "referenceNumber2": "",
+          "notes1": "",
+          "notes2": "",
+          "remitterId": "",
+          "blockedTransactions": "",
+          "transactionNotificationFlag": "",
+          "debitFlag": "",
+          "creditFlag": "",
+          "minimumAccountBalanceLimit": "",
+          "maximumAccountBalanceLimit": "1000.0000",
+          "subscriptionFlag": "",
+          "accountResetFlag": "",
+          "uniqueReference": "",
+          "skipCapLimit": "S",
+          "ServiceHeader": {
+            "loggerContext": {
+              "headerTimestamp": "1716359800979",
+              "context": "376d277a-b5ad-11ef-e300-b4be40531dd2:9f042891-0a3d-0a5d-3bf7-ca3729605010:1.003:"
+            },
+            "transactionCode": "",
+            "retryTransaction": "true",
+            "tellerId": "0",
+            "terminalId": "0",
+            "workstationId": "0",
+            "override": "false",
+            "correction": "",
+            "supervisor": "00",
+            "supervisorId": "00",
+            "overrideCode": "00",
+            "employeeId": "yasser",
+            "branchId": "00557",
+            "functionId": "0490",
+            "channelId": "7",
+            "bancsPwd": "",
+            "languageCode": "01",
+            "authenticationType": "NONE"
+          },
+          "startedBy": "cn=newb2bGen,cn=organizational users,o=NextGen,cn=cordys,cn=UATEnv,o=alahli.com"
+        }
+      },
+      "SERVICEID": "IOMSRV99026"
+    }
+  }
+}

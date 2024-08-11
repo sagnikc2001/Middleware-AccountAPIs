@@ -1,0 +1,8 @@
+{
+	"CustAcctsCumulativeBalRequest": {
+		"cifNumber": "0",
+		"type": {
+			"isDep": "string"
+		}
+	}
+}

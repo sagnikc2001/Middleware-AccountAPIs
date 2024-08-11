@@ -321,6 +321,285 @@
 					]
 				}
 			]
+		},
+		{
+			"name": "GetCustAcctsCumulativeBal",
+			"item": [
+				{
+					"name": "GetCustAcctsCumulativeBal_Success",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "ServiceHeader",
+								"value": "{\"tellerId\": \"T123\",\"branchId\": \"B001\",\"channelId\": \"WEB\"}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"CustAcctsCumulativeBalRequest\": {\r\n    \"cifNumber\": \"CIF123456\",\r\n    \"type\": {\r\n      \"isDep\": \"Y\"\r\n    }\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/accounts/v1/GetCustAcctsCumulativeBal",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"accounts",
+								"v1",
+								"GetCustAcctsCumulativeBal"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GetCustAcctsCumulativeBal_Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "ServiceHeader",
+										"value": "{\"tellerId\": \"T123\",\"branchId\": \"B001\",\"channelId\": \"WEB\"}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"CustAcctsCumulativeBalRequest\": {\r\n    \"cifNumber\": \"CIF123456\",\r\n    \"type\": {\r\n      \"isDep\": \"Y\"\r\n    }\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/accounts/v1/GetCustAcctsCumulativeBal",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"accounts",
+										"v1",
+										"GetCustAcctsCumulativeBal"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "accept",
+									"value": "*/*"
+								},
+								{
+									"key": "accept-encoding",
+									"value": "gzip, deflate, br"
+								},
+								{
+									"key": "beanpath",
+									"value": "com.alahli.middleware.account.dao.ODSDBConnectorImplDao"
+								},
+								{
+									"key": "operation",
+									"value": "CallProcedureToGetCustAcctCumulativeBalance"
+								},
+								{
+									"key": "postman-token",
+									"value": "c7424cc5-39e4-45eb-98f3-40caff28293b"
+								},
+								{
+									"key": "serviceheader",
+									"value": "{\"tellerId\": \"T123\",\"branchId\": \"B001\",\"channelId\": \"WEB\"}"
+								},
+								{
+									"key": "system",
+									"value": "ODS"
+								},
+								{
+									"key": "user-agent",
+									"value": "PostmanRuntime/7.40.0"
+								},
+								{
+									"key": "version",
+									"value": "v1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Aug 2024 20:39:26 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"CustAcctsCumulativeBalResponse\": {\n        \"success\": {\n            \"cumulativeBalance\": 15234.56\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "GetCustAcctsCumulativeBal_Fault",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "ServiceHeader",
+								"value": "{\"tellerId\": \"T123\",\"branchId\": \"B001\",\"channelId\": \"WEB\"}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"CustAcctsCumulativeBalRequest\": {\r\n    \"cifNumber\": \"C\",\r\n    \"type\": {\r\n      \"isDep\": \"N\"\r\n    }\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/accounts/v1/GetCustAcctsCumulativeBal",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"accounts",
+								"v1",
+								"GetCustAcctsCumulativeBal"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "GetCustAcctsCumulativeBal_Fault",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "ServiceHeader",
+										"value": "{\"tellerId\": \"T123\",\"branchId\": \"B001\",\"channelId\": \"WEB\"}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"CustAcctsCumulativeBalRequest\": {\r\n    \"cifNumber\": \"C\",\r\n    \"type\": {\r\n      \"isDep\": \"N\"\r\n    }\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/accounts/v1/GetCustAcctsCumulativeBal",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"accounts",
+										"v1",
+										"GetCustAcctsCumulativeBal"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "accept",
+									"value": "*/*"
+								},
+								{
+									"key": "accept-encoding",
+									"value": "gzip, deflate, br"
+								},
+								{
+									"key": "beanpath",
+									"value": "com.alahli.middleware.account.dao.ODSDBConnectorImplDao"
+								},
+								{
+									"key": "operation",
+									"value": "CallProcedureToGetCustAcctCumulativeBalance"
+								},
+								{
+									"key": "postman-token",
+									"value": "4c065837-31c3-4a8b-baf6-b90f347bc608"
+								},
+								{
+									"key": "serviceheader",
+									"value": "{\"tellerId\": \"T123\",\"branchId\": \"B001\",\"channelId\": \"WEB\"}"
+								},
+								{
+									"key": "system",
+									"value": "ODS"
+								},
+								{
+									"key": "user-agent",
+									"value": "PostmanRuntime/7.40.0"
+								},
+								{
+									"key": "version",
+									"value": "v1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 07 Aug 2024 20:45:19 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"CustAcctsCumulativeBalResponse\": {\n        \"fault\": {\n            \"number\": 30,\n            \"description\": \"Record not found\",\n            \"system\": \"ODS\",\n            \"nativeError\": \"\",\n            \"nativeDescription\": \"\"\n        }\n    }\n}"
+						}
+					]
+				}
+			]
 		}
 	]
 }

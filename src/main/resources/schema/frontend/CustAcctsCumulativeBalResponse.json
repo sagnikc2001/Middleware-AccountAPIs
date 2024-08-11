@@ -1,0 +1,7 @@
+{
+	"CustAcctsCumulativeBalResponse": {
+		"success": {
+			"cumulativeBalance": 0
+		}
+	}
+}

@@ -173,10 +173,10 @@
 							<includeAdditionalProperties>false</includeAdditionalProperties>
 
 							<sourceDirectory>
-								${project.basedir}/src/main/resources/schema/backend</sourceDirectory>
+								${project.basedir}/src/main/resources/schema/frontend</sourceDirectory>
 
 							<targetPackage>
-								com.alahli.middleware.account.models.backends.cms</targetPackage>
+								com.alahli.middleware.account.models.backends.ods</targetPackage>
 							<sourceType>json</sourceType>
 						</configuration>
 						<goals>

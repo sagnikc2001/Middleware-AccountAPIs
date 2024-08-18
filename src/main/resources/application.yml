@@ -19,6 +19,10 @@ ODSDBConnector:
   host : ${ODS_DB_HOST}
   contextPath : ${ODS_DB_CONTEXTPATH}
   
+BANCSDBConnector:
+  host: ${BANCS_DB_HOST}
+  contextPath : ${BANCS_DB_CONTEXTPATH}
+  
 spring:
    application:
      name: ${OPENSHIFT_APP_NAME:database-connector-app}

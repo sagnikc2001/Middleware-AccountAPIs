@@ -36,7 +36,6 @@ public class GetCustAcctsCumulativeBalRouteBuilder extends RouteBuilder {
 		.marshal(new JacksonDataFormat(CustAcctsCumulativeBalRequestBackend.class))
 		.setHeader("system",constant("ODS"))
 		.to("{{ODSDBConnector.host}}{{ODSDBConnector.contextPath}}"+"/v1/CallProcedureToGetCustAcctCumulativeBalance?bridgeEndpoint=true")
-		.log("After ODSDB : ${body}")
 		.choice()
 		.when().jsonpath("$.CustAcctsCumulativeBalResponse[?(@.success != null && @.success.size()>0)]")
 			.to("bean:getCustAcctsCumulativeBalService?method=prepareCustAcctsCumulativeBalFinalResponse")

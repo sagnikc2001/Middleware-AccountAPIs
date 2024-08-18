@@ -1,0 +1,7 @@
+{
+	"InquireAccountStatusRequest": {
+		"Transaction": {
+			"accntNumber1": "###########"
+		}
+	}
+}

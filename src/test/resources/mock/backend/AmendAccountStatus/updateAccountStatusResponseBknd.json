@@ -1,0 +1,7 @@
+{
+	"UpdateAccountStatusResponse": {
+		"status": {
+			"updateStatus": true
+		}
+	}
+}

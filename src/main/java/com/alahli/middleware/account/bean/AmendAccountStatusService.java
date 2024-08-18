@@ -71,7 +71,7 @@ public class AmendAccountStatusService {
 
 		oInquireAccountStatusRequest.setInquireAccountStatusRequest(oInquireAccountStatusRequestType);
 
-		oInquireAccountStatusRequestType.setAccntNumber1(accountStatusAmendmentRequest.getAccountNumber());
+		oInquireAccountStatusRequestType.setAccntNumber1(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getAccountNumber(), ""));
 
 		return oInquireAccountStatusRequest;
 	}
@@ -157,49 +157,49 @@ public class AmendAccountStatusService {
 		
 		oUpdateAccountStatusRequest.setUpdateAccountStatusRequest(oUpdateAccountStatusRequestType);
 		
-		oUpdateAccountStatusRequestType.setAccntNumber1(accountStatusAmendmentRequest.getAccountNumber());
-		oUpdateAccountStatusRequestType.setCurrentStatus(accountStatusAmendmentRequest.getCurrentStatus());
-		oUpdateAccountStatusRequestType.setNewStatus(accountStatusAmendmentRequest.getNewStatus());
-		oUpdateAccountStatusRequestType.setCurrKycStatus(accountStatusAmendmentRequest.getCurrentKYCStatus());
-		oUpdateAccountStatusRequestType.setNewKycStatus(accountStatusAmendmentRequest.getNewKYCStatus());
-		oUpdateAccountStatusRequestType.setCurrSamaStatus(accountStatusAmendmentRequest.getCurrentSamaStatus());
-		oUpdateAccountStatusRequestType.setNewSamaStatus(accountStatusAmendmentRequest.getNewSamaStatus());
-		oUpdateAccountStatusRequestType.setReasonAcctStatus(accountStatusAmendmentRequest.getReasonAccountStatus());
-		oUpdateAccountStatusRequestType.setReasonSamaStatus(accountStatusAmendmentRequest.getReasonSamaStatus());
-		oUpdateAccountStatusRequestType.setReasonKycStatus(accountStatusAmendmentRequest.getReasonKYCStatus());
-		oUpdateAccountStatusRequestType.setKycUnfreezeDate(accountStatusAmendmentRequest.getKycUnfreezeDate());
-		oUpdateAccountStatusRequestType.setLetterNo(accountStatusAmendmentRequest.getLetterNumber());
-		oUpdateAccountStatusRequestType.setLetterDate(accountStatusAmendmentRequest.getLetterDate());
-		oUpdateAccountStatusRequestType.setBlockDate(accountStatusAmendmentRequest.getBlockDate());
-		oUpdateAccountStatusRequestType.setNote(accountStatusAmendmentRequest.getNote());
-		oUpdateAccountStatusRequestType.setInacStat(accountStatusAmendmentRequest.getInacStat());
-		oUpdateAccountStatusRequestType.setEnfBlockStatus(accountStatusAmendmentRequest.getEnfBlockStatus());
-		oUpdateAccountStatusRequestType.setSsuBlockStatus(accountStatusAmendmentRequest.getSsuBlockStatus());
-		oUpdateAccountStatusRequestType.setLegalBlockStatus(accountStatusAmendmentRequest.getLegalBlockStatus());
-		oUpdateAccountStatusRequestType.setEffEnfBlockDate(accountStatusAmendmentRequest.getEffENFBlockDate());
-		oUpdateAccountStatusRequestType.setEffEnfBlockDateFlag(accountStatusAmendmentRequest.getEffENFBlockDateFlag());
-		oUpdateAccountStatusRequestType.setEffSsuBlockDate(accountStatusAmendmentRequest.getEffSSUBlockDate());
-		oUpdateAccountStatusRequestType.setEffSsuBlockDateFlag(accountStatusAmendmentRequest.getEffSSUBlockDateFlag());
-		oUpdateAccountStatusRequestType.setEffLegalBlockDate(accountStatusAmendmentRequest.getEffLegalBlockDate());
-		oUpdateAccountStatusRequestType.setEffLegalBlockDateFlag(accountStatusAmendmentRequest.getEffLegalBlockDateFlag());
-		oUpdateAccountStatusRequestType.setEnfBlockReasonStat(accountStatusAmendmentRequest.getEnfBlockReasonStat());
-		oUpdateAccountStatusRequestType.setSsuBlockReasonStat(accountStatusAmendmentRequest.getSsuBlockReasonStat());
-		oUpdateAccountStatusRequestType.setLegalBlockReasonStat(accountStatusAmendmentRequest.getLegalBlockReasonStat());
-		oUpdateAccountStatusRequestType.setEnfStopPeriod(accountStatusAmendmentRequest.getEnfStopPeriod());
-		oUpdateAccountStatusRequestType.setSsuStopPeriod(accountStatusAmendmentRequest.getSsuStopPeriod());
-		oUpdateAccountStatusRequestType.setEnfBlockDate(accountStatusAmendmentRequest.getEnfBlockDate());
-		oUpdateAccountStatusRequestType.setSsuBlockLetterNo(accountStatusAmendmentRequest.getSsuBlockLetterNumber());
-		oUpdateAccountStatusRequestType.setLegalBlockLetterNo(accountStatusAmendmentRequest.getLegalBlockLetterNumber());
-		oUpdateAccountStatusRequestType.setSsuBlockLttrDate(accountStatusAmendmentRequest.getSsuBlockLetterDate());
-		oUpdateAccountStatusRequestType.setLegalBlockLttrDate(accountStatusAmendmentRequest.getLegalBlockLetterDate());
-		oUpdateAccountStatusRequestType.setSsuBlockNote(accountStatusAmendmentRequest.getSsuBlockNote());
-		oUpdateAccountStatusRequestType.setLegalBlockNote(accountStatusAmendmentRequest.getLegalBlockNote());
-		oUpdateAccountStatusRequestType.setLstAcctStatDate(accountStatusAmendmentRequest.getLastAccountStatDate());
-		oUpdateAccountStatusRequestType.setFatcaFreze(accountStatusAmendmentRequest.getFatcaFreeze());
-		oUpdateAccountStatusRequestType.setWorkFlowFlag(accountStatusAmendmentRequest.getWorkFlowFlag());
-		oUpdateAccountStatusRequestType.setReasonPendActiveStat("");
-		oUpdateAccountStatusRequestType.setKyccriteriaFlag("");
-		oUpdateAccountStatusRequestType.setIdentifierFlag("");
+		oUpdateAccountStatusRequestType.setAccntNumber1(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getAccountNumber(), ""));
+		oUpdateAccountStatusRequestType.setCurrentStatus(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getCurrentStatus(), ""));
+		oUpdateAccountStatusRequestType.setNewStatus(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getNewStatus(), ""));
+		oUpdateAccountStatusRequestType.setCurrKycStatus(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getCurrentKYCStatus(), ""));
+		oUpdateAccountStatusRequestType.setNewKycStatus(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getNewKYCStatus(), ""));
+		oUpdateAccountStatusRequestType.setCurrSamaStatus(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getCurrentSamaStatus(), ""));
+		oUpdateAccountStatusRequestType.setNewSamaStatus(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getNewSamaStatus(), ""));
+		oUpdateAccountStatusRequestType.setReasonAcctStatus(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getReasonAccountStatus(), ""));
+		oUpdateAccountStatusRequestType.setReasonSamaStatus(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getReasonSamaStatus(), ""));
+		oUpdateAccountStatusRequestType.setReasonKycStatus(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getReasonKYCStatus(), ""));
+		oUpdateAccountStatusRequestType.setKycUnfreezeDate(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getKycUnfreezeDate(), ""));
+		oUpdateAccountStatusRequestType.setLetterNo(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getLetterNumber(), ""));
+		oUpdateAccountStatusRequestType.setLetterDate(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getLetterDate(), ""));
+		oUpdateAccountStatusRequestType.setBlockDate(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getBlockDate(), ""));
+		oUpdateAccountStatusRequestType.setNote(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getNote(), ""));
+		oUpdateAccountStatusRequestType.setInacStat(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getInacStat(), ""));
+		oUpdateAccountStatusRequestType.setEnfBlockStatus(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getEnfBlockStatus(), ""));
+		oUpdateAccountStatusRequestType.setSsuBlockStatus(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getSsuBlockStatus(), ""));
+		oUpdateAccountStatusRequestType.setLegalBlockStatus(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getLegalBlockStatus(), ""));
+		oUpdateAccountStatusRequestType.setEffEnfBlockDate(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getEffENFBlockDate(), ""));
+		oUpdateAccountStatusRequestType.setEffEnfBlockDateFlag(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getEffENFBlockDateFlag(), ""));
+		oUpdateAccountStatusRequestType.setEffSsuBlockDate(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getEffSSUBlockDate(), ""));
+		oUpdateAccountStatusRequestType.setEffSsuBlockDateFlag(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getEffSSUBlockDateFlag(), ""));
+		oUpdateAccountStatusRequestType.setEffLegalBlockDate(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getEffLegalBlockDate(), ""));
+		oUpdateAccountStatusRequestType.setEffLegalBlockDateFlag(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getEffLegalBlockDateFlag(), ""));
+		oUpdateAccountStatusRequestType.setEnfBlockReasonStat(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getEnfBlockReasonStat(), ""));
+		oUpdateAccountStatusRequestType.setSsuBlockReasonStat(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getSsuBlockReasonStat(), ""));
+		oUpdateAccountStatusRequestType.setLegalBlockReasonStat(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getLegalBlockReasonStat(), ""));
+		oUpdateAccountStatusRequestType.setEnfStopPeriod(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getEnfStopPeriod(), ""));
+		oUpdateAccountStatusRequestType.setSsuStopPeriod(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getSsuStopPeriod(), ""));
+		oUpdateAccountStatusRequestType.setEnfBlockDate(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getEnfBlockDate(), ""));
+		oUpdateAccountStatusRequestType.setSsuBlockLetterNo(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getSsuBlockLetterNumber(), ""));
+		oUpdateAccountStatusRequestType.setLegalBlockLetterNo(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getLegalBlockLetterNumber(), ""));
+		oUpdateAccountStatusRequestType.setSsuBlockLttrDate(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getSsuBlockLetterDate(), ""));
+		oUpdateAccountStatusRequestType.setLegalBlockLttrDate(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getLegalBlockLetterDate(), ""));
+		oUpdateAccountStatusRequestType.setSsuBlockNote(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getSsuBlockNote(), ""));
+		oUpdateAccountStatusRequestType.setLegalBlockNote(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getLegalBlockNote(), ""));
+		oUpdateAccountStatusRequestType.setLstAcctStatDate(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getLastAccountStatDate(), ""));
+		oUpdateAccountStatusRequestType.setFatcaFreze(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getFatcaFreeze(), ""));
+		oUpdateAccountStatusRequestType.setWorkFlowFlag(oStringUtil.setDefaultValue(accountStatusAmendmentRequest.getWorkFlowFlag(), ""));
+		oUpdateAccountStatusRequestType.setReasonPendActiveStat(oStringUtil.setDefaultValue("", ""));
+		oUpdateAccountStatusRequestType.setKyccriteriaFlag(oStringUtil.setDefaultValue("", ""));
+		oUpdateAccountStatusRequestType.setIdentifierFlag(oStringUtil.setDefaultValue("", ""));
 		
 		return oUpdateAccountStatusRequest;
 	}

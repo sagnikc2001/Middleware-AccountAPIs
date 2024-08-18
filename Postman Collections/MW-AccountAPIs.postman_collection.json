@@ -600,6 +600,684 @@
 					]
 				}
 			]
+		},
+		{
+			"name": "AmendAccountStatus",
+			"item": [
+				{
+					"name": "AmendAccountStatus_ inquirySuccess",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "ServiceHeader",
+								"value": "{\"tellerId\": \"T123\",\"branchId\": \"B001\",\"channelId\": \"WEB\"}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"AccountStatusAmendmentRequest\": {\r\n    \"accountNumber\": \"ACC1234567890\",\r\n    \"operationMode\": \"R\",\r\n    \"override\": true,\r\n    \"overrideCode\": \"string\",\r\n    \"currentStatus\": \"string\",\r\n    \"newStatus\": \"string\",\r\n    \"currentKYCStatus\": \"string\",\r\n    \"newKYCStatus\": \"string\",\r\n    \"currentSamaStatus\": \"string\",\r\n    \"newSamaStatus\": \"string\",\r\n    \"reasonAccountStatus\": \"string\",\r\n    \"reasonSamaStatus\": \"string\",\r\n    \"reasonKYCStatus\": \"string\",\r\n    \"kycUnfreezeDate\": \"string\",\r\n    \"letterNumber\": \"string\",\r\n    \"letterDate\": \"string\",\r\n    \"blockDate\": \"99893765\",\r\n    \"note\": \"string\",\r\n    \"inacStat\": \"s\",\r\n    \"enfBlockStatus\": \"string\",\r\n    \"ssuBlockStatus\": \"string\",\r\n    \"legalBlockStatus\": \"string\",\r\n    \"effENFBlockDate\": \"string\",\r\n    \"effENFBlockDateFlag\": \"s\",\r\n    \"effSSUBlockDate\": \"string\",\r\n    \"effSSUBlockDateFlag\": \"s\",\r\n    \"effLegalBlockDate\": \"string\",\r\n    \"effLegalBlockDateFlag\": \"s\",\r\n    \"enfBlockReasonStat\": \"string\",\r\n    \"ssuBlockReasonStat\": \"string\",\r\n    \"legalBlockReasonStat\": \"string\",\r\n    \"enfStopPeriod\": \"string\",\r\n    \"ssuStopPeriod\": \"string\",\r\n    \"enfBlockDate\": \"string\",\r\n    \"ssuBlockLetterNumber\": \"string\",\r\n    \"legalBlockLetterNumber\": \"string\",\r\n    \"ssuBlockLetterDate\": \"string\",\r\n    \"legalBlockLetterDate\": \"string\",\r\n    \"ssuBlockNote\": \"string\",\r\n    \"legalBlockNote\": \"string\",\r\n    \"lastAccountStatDate\": \"string\",\r\n    \"fatcaFreeze\": \"s\",\r\n    \"workFlowFlag\": \"s\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/accounts/v1/AmendAccountStatus",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"accounts",
+								"v1",
+								"AmendAccountStatus"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "AmendAccountStatus_ inquirySuccess",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "ServiceHeader",
+										"value": "{\"tellerId\": \"T123\",\"branchId\": \"B001\",\"channelId\": \"WEB\"}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"AccountStatusAmendmentRequest\": {\r\n    \"accountNumber\": \"ACC1234567890\",\r\n    \"operationMode\": \"R\",\r\n    \"override\": true,\r\n    \"overrideCode\": \"string\",\r\n    \"currentStatus\": \"string\",\r\n    \"newStatus\": \"string\",\r\n    \"currentKYCStatus\": \"string\",\r\n    \"newKYCStatus\": \"string\",\r\n    \"currentSamaStatus\": \"string\",\r\n    \"newSamaStatus\": \"string\",\r\n    \"reasonAccountStatus\": \"string\",\r\n    \"reasonSamaStatus\": \"string\",\r\n    \"reasonKYCStatus\": \"string\",\r\n    \"kycUnfreezeDate\": \"string\",\r\n    \"letterNumber\": \"string\",\r\n    \"letterDate\": \"string\",\r\n    \"blockDate\": \"99893765\",\r\n    \"note\": \"string\",\r\n    \"inacStat\": \"s\",\r\n    \"enfBlockStatus\": \"string\",\r\n    \"ssuBlockStatus\": \"string\",\r\n    \"legalBlockStatus\": \"string\",\r\n    \"effENFBlockDate\": \"string\",\r\n    \"effENFBlockDateFlag\": \"s\",\r\n    \"effSSUBlockDate\": \"string\",\r\n    \"effSSUBlockDateFlag\": \"s\",\r\n    \"effLegalBlockDate\": \"string\",\r\n    \"effLegalBlockDateFlag\": \"s\",\r\n    \"enfBlockReasonStat\": \"string\",\r\n    \"ssuBlockReasonStat\": \"string\",\r\n    \"legalBlockReasonStat\": \"string\",\r\n    \"enfStopPeriod\": \"string\",\r\n    \"ssuStopPeriod\": \"string\",\r\n    \"enfBlockDate\": \"string\",\r\n    \"ssuBlockLetterNumber\": \"string\",\r\n    \"legalBlockLetterNumber\": \"string\",\r\n    \"ssuBlockLetterDate\": \"string\",\r\n    \"legalBlockLetterDate\": \"string\",\r\n    \"ssuBlockNote\": \"string\",\r\n    \"legalBlockNote\": \"string\",\r\n    \"lastAccountStatDate\": \"string\",\r\n    \"fatcaFreeze\": \"s\",\r\n    \"workFlowFlag\": \"s\"\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/accounts/v1/AmendAccountStatus",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"accounts",
+										"v1",
+										"AmendAccountStatus"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "accept",
+									"value": "*/*"
+								},
+								{
+									"key": "accept-encoding",
+									"value": "gzip, deflate, br"
+								},
+								{
+									"key": "beanpath",
+									"value": "com.alahli.middleware.account.dao.BANCSDBConnectorImplDao"
+								},
+								{
+									"key": "operation",
+									"value": "InquiryAccountStatusProcedure"
+								},
+								{
+									"key": "postman-token",
+									"value": "fc78299c-9e71-4e66-b9fe-b47fc30e4a82"
+								},
+								{
+									"key": "serviceheader",
+									"value": "{\"tellerId\": \"T123\",\"branchId\": \"B001\",\"channelId\": \"WEB\"}"
+								},
+								{
+									"key": "system",
+									"value": "MW"
+								},
+								{
+									"key": "user-agent",
+									"value": "PostmanRuntime/7.41.1"
+								},
+								{
+									"key": "version",
+									"value": "v1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 18 Aug 2024 19:30:54 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"AccountStatusAmendmentResponse\": {\n        \"success\": {\n            \"accountNumber\": \"ACC1234567890\",\n            \"currentStatus\": \"string\",\n            \"newStatus\": \"string\",\n            \"currentKYCStatus\": \"string\",\n            \"newKYCStatus\": \"string\",\n            \"currentSamaStatus\": \"string\",\n            \"newSamaStatus\": \"string\",\n            \"reasonAccountStatus\": \"string\",\n            \"reasonSamaStatus\": \"string\",\n            \"reasonKYCStatus\": \"string\",\n            \"kycUnfreezeDate\": \"string\",\n            \"letterNumber\": \"string\",\n            \"letterDate\": \"string\",\n            \"blockDate\": \"99893765\",\n            \"note\": \"string\",\n            \"inacStat\": \"s         \",\n            \"enfBlockStatus\": \"string\",\n            \"ssuBlockStatus\": \"string\",\n            \"legalBlockStatus\": \"string\",\n            \"effENFBlockDate\": \"string\",\n            \"effENFBlockDateFlag\": \"s         \",\n            \"effSSUBlockDate\": \"string\",\n            \"effSSUBlockDateFlag\": \"s         \",\n            \"effLegalBlockDate\": \"string\",\n            \"effLegalBlockDateFlag\": \"s         \",\n            \"enfBlockReasonStat\": \"string\",\n            \"ssuBlockReasonStat\": \"string\",\n            \"legalBlockReasonStat\": \"string\",\n            \"enfStopPeriod\": \"string\",\n            \"ssuStopPeriod\": \"string\",\n            \"enfBlockDate\": \"string\",\n            \"ssuBlockLetterNumber\": \"string\",\n            \"legalBlockLetterNumber\": \"string\",\n            \"ssuBlockLetterDate\": \"string\",\n            \"legalBlockLetterDate\": \"string\",\n            \"ssuBlockNote\": \"string\",\n            \"legalBlockNote\": \"string\",\n            \"lastAccountStatDate\": \"string\",\n            \"highRiskAccount\": \"N         \",\n            \"fatcaFreeze\": \"s         \",\n            \"workFlowFlag\": \"s         \"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "AmendAccountStatus_InquiryFault",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "ServiceHeader",
+								"value": "{\"tellerId\": \"T123\",\"branchId\": \"B001\",\"channelId\": \"WEB\"}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"AccountStatusAmendmentRequest\": {\r\n    \"accountNumber\": \"\",\r\n    \"operationMode\": \"R\",\r\n    \"override\": \"\",\r\n    \"overrideCode\": \"\",\r\n    \"currentStatus\": \"\",\r\n    \"newStatus\": \"\",\r\n    \"currentKYCStatus\": \"\",\r\n    \"newKYCStatus\": \"\",\r\n    \"currentSamaStatus\": \"\",\r\n    \"newSamaStatus\": \"\",\r\n    \"reasonAccountStatus\": \"\",\r\n    \"reasonSamaStatus\": \"\",\r\n    \"reasonKYCStatus\": \"\",\r\n    \"kycUnfreezeDate\": \"\",\r\n    \"letterNumber\": \"\",\r\n    \"letterDate\": \"\",\r\n    \"blockDate\": \"\",\r\n    \"note\": \"\",\r\n    \"inacStat\": \"\",\r\n    \"enfBlockStatus\": \"\",\r\n    \"ssuBlockStatus\": \"\",\r\n    \"legalBlockStatus\": \"\",\r\n    \"effENFBlockDate\": \"\",\r\n    \"effENFBlockDateFlag\": \"\",\r\n    \"effSSUBlockDate\": \"\",\r\n    \"effSSUBlockDateFlag\": \"\",\r\n    \"effLegalBlockDate\": \"\",\r\n    \"effLegalBlockDateFlag\": \"\",\r\n    \"enfBlockReasonStat\": \"\",\r\n    \"ssuBlockReasonStat\": \"\",\r\n    \"legalBlockReasonStat\": \"\",\r\n    \"enfStopPeriod\": \"\",\r\n    \"ssuStopPeriod\": \"\",\r\n    \"enfBlockDate\": \"\",\r\n    \"ssuBlockLetterNumber\": \"\",\r\n    \"legalBlockLetterNumber\": \"\",\r\n    \"ssuBlockLetterDate\": \"\",\r\n    \"legalBlockLetterDate\": \"\",\r\n    \"ssuBlockNote\": \"\",\r\n    \"legalBlockNote\": \"\",\r\n    \"lastAccountStatDate\": \"\",\r\n    \"fatcaFreeze\": \"\",\r\n    \"workFlowFlag\": \"\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/accounts/v1/AmendAccountStatus",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"accounts",
+								"v1",
+								"AmendAccountStatus"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "AmendAccountStatus_InquiryFault",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "ServiceHeader",
+										"value": "{\"tellerId\": \"T123\",\"branchId\": \"B001\",\"channelId\": \"WEB\"}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"AccountStatusAmendmentRequest\": {\r\n    \"accountNumber\": \"\",\r\n    \"operationMode\": \"R\",\r\n    \"override\": \"\",\r\n    \"overrideCode\": \"\",\r\n    \"currentStatus\": \"\",\r\n    \"newStatus\": \"\",\r\n    \"currentKYCStatus\": \"\",\r\n    \"newKYCStatus\": \"\",\r\n    \"currentSamaStatus\": \"\",\r\n    \"newSamaStatus\": \"\",\r\n    \"reasonAccountStatus\": \"\",\r\n    \"reasonSamaStatus\": \"\",\r\n    \"reasonKYCStatus\": \"\",\r\n    \"kycUnfreezeDate\": \"\",\r\n    \"letterNumber\": \"\",\r\n    \"letterDate\": \"\",\r\n    \"blockDate\": \"\",\r\n    \"note\": \"\",\r\n    \"inacStat\": \"\",\r\n    \"enfBlockStatus\": \"\",\r\n    \"ssuBlockStatus\": \"\",\r\n    \"legalBlockStatus\": \"\",\r\n    \"effENFBlockDate\": \"\",\r\n    \"effENFBlockDateFlag\": \"\",\r\n    \"effSSUBlockDate\": \"\",\r\n    \"effSSUBlockDateFlag\": \"\",\r\n    \"effLegalBlockDate\": \"\",\r\n    \"effLegalBlockDateFlag\": \"\",\r\n    \"enfBlockReasonStat\": \"\",\r\n    \"ssuBlockReasonStat\": \"\",\r\n    \"legalBlockReasonStat\": \"\",\r\n    \"enfStopPeriod\": \"\",\r\n    \"ssuStopPeriod\": \"\",\r\n    \"enfBlockDate\": \"\",\r\n    \"ssuBlockLetterNumber\": \"\",\r\n    \"legalBlockLetterNumber\": \"\",\r\n    \"ssuBlockLetterDate\": \"\",\r\n    \"legalBlockLetterDate\": \"\",\r\n    \"ssuBlockNote\": \"\",\r\n    \"legalBlockNote\": \"\",\r\n    \"lastAccountStatDate\": \"\",\r\n    \"fatcaFreeze\": \"\",\r\n    \"workFlowFlag\": \"\"\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/accounts/v1/AmendAccountStatus",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"accounts",
+										"v1",
+										"AmendAccountStatus"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "accept",
+									"value": "*/*"
+								},
+								{
+									"key": "accept-encoding",
+									"value": "gzip, deflate, br"
+								},
+								{
+									"key": "beanpath",
+									"value": "com.alahli.middleware.account.dao.BANCSDBConnectorImplDao"
+								},
+								{
+									"key": "operation",
+									"value": "InquiryAccountStatusProcedure"
+								},
+								{
+									"key": "postman-token",
+									"value": "fe385075-bcb6-442a-8b00-09e47dcc5209"
+								},
+								{
+									"key": "serviceheader",
+									"value": "{\"tellerId\": \"T123\",\"branchId\": \"B001\",\"channelId\": \"WEB\"}"
+								},
+								{
+									"key": "system",
+									"value": "MW"
+								},
+								{
+									"key": "user-agent",
+									"value": "PostmanRuntime/7.41.1"
+								},
+								{
+									"key": "version",
+									"value": "v1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 18 Aug 2024 19:33:07 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"AccountStatusAmendmentResponse\": {\n        \"fault\": {\n            \"number\": 30,\n            \"description\": \"Record not found\",\n            \"system\": \"MW\",\n            \"nativeError\": \"\",\n            \"nativeDescription\": \"\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "AmendAccountStatus_UpdateSuccess",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "ServiceHeader",
+								"value": "{\"tellerId\": \"T123\",\"branchId\": \"B001\",\"channelId\": \"WEB\"}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"AccountStatusAmendmentRequest\": {\r\n    \"accountNumber\": \"ACC1234567890\",\r\n    \"operationMode\": \"U\",\r\n    \"override\": true,\r\n    \"overrideCode\": \"string\",\r\n    \"currentStatus\": \"string\",\r\n    \"newStatus\": \"string\",\r\n    \"currentKYCStatus\": \"string\",\r\n    \"newKYCStatus\": \"string\",\r\n    \"currentSamaStatus\": \"string\",\r\n    \"newSamaStatus\": \"string\",\r\n    \"reasonAccountStatus\": \"string\",\r\n    \"reasonSamaStatus\": \"string\",\r\n    \"reasonKYCStatus\": \"string\",\r\n    \"kycUnfreezeDate\": \"string\",\r\n    \"letterNumber\": \"string\",\r\n    \"letterDate\": \"string\",\r\n    \"blockDate\": \"99893765\",\r\n    \"note\": \"string\",\r\n    \"inacStat\": \"s\",\r\n    \"enfBlockStatus\": \"string\",\r\n    \"ssuBlockStatus\": \"string\",\r\n    \"legalBlockStatus\": \"string\",\r\n    \"effENFBlockDate\": \"string\",\r\n    \"effENFBlockDateFlag\": \"s\",\r\n    \"effSSUBlockDate\": \"string\",\r\n    \"effSSUBlockDateFlag\": \"s\",\r\n    \"effLegalBlockDate\": \"string\",\r\n    \"effLegalBlockDateFlag\": \"s\",\r\n    \"enfBlockReasonStat\": \"string\",\r\n    \"ssuBlockReasonStat\": \"string\",\r\n    \"legalBlockReasonStat\": \"string\",\r\n    \"enfStopPeriod\": \"string\",\r\n    \"ssuStopPeriod\": \"string\",\r\n    \"enfBlockDate\": \"string\",\r\n    \"ssuBlockLetterNumber\": \"string\",\r\n    \"legalBlockLetterNumber\": \"string\",\r\n    \"ssuBlockLetterDate\": \"string\",\r\n    \"legalBlockLetterDate\": \"string\",\r\n    \"ssuBlockNote\": \"string\",\r\n    \"legalBlockNote\": \"string\",\r\n    \"lastAccountStatDate\": \"string\",\r\n    \"fatcaFreeze\": \"s\",\r\n    \"workFlowFlag\": \"s\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/accounts/v1/AmendAccountStatus",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"accounts",
+								"v1",
+								"AmendAccountStatus"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "AmendAccountStatus_UpdateSuccess",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "ServiceHeader",
+										"value": "{\"tellerId\": \"T123\",\"branchId\": \"B001\",\"channelId\": \"WEB\"}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"AccountStatusAmendmentRequest\": {\r\n    \"accountNumber\": \"ACC1234567890\",\r\n    \"operationMode\": \"U\",\r\n    \"override\": true,\r\n    \"overrideCode\": \"string\",\r\n    \"currentStatus\": \"string\",\r\n    \"newStatus\": \"string\",\r\n    \"currentKYCStatus\": \"string\",\r\n    \"newKYCStatus\": \"string\",\r\n    \"currentSamaStatus\": \"string\",\r\n    \"newSamaStatus\": \"string\",\r\n    \"reasonAccountStatus\": \"string\",\r\n    \"reasonSamaStatus\": \"string\",\r\n    \"reasonKYCStatus\": \"string\",\r\n    \"kycUnfreezeDate\": \"string\",\r\n    \"letterNumber\": \"string\",\r\n    \"letterDate\": \"string\",\r\n    \"blockDate\": \"99893765\",\r\n    \"note\": \"string\",\r\n    \"inacStat\": \"s\",\r\n    \"enfBlockStatus\": \"string\",\r\n    \"ssuBlockStatus\": \"string\",\r\n    \"legalBlockStatus\": \"string\",\r\n    \"effENFBlockDate\": \"string\",\r\n    \"effENFBlockDateFlag\": \"s\",\r\n    \"effSSUBlockDate\": \"string\",\r\n    \"effSSUBlockDateFlag\": \"s\",\r\n    \"effLegalBlockDate\": \"string\",\r\n    \"effLegalBlockDateFlag\": \"s\",\r\n    \"enfBlockReasonStat\": \"string\",\r\n    \"ssuBlockReasonStat\": \"string\",\r\n    \"legalBlockReasonStat\": \"string\",\r\n    \"enfStopPeriod\": \"string\",\r\n    \"ssuStopPeriod\": \"string\",\r\n    \"enfBlockDate\": \"string\",\r\n    \"ssuBlockLetterNumber\": \"string\",\r\n    \"legalBlockLetterNumber\": \"string\",\r\n    \"ssuBlockLetterDate\": \"string\",\r\n    \"legalBlockLetterDate\": \"string\",\r\n    \"ssuBlockNote\": \"string\",\r\n    \"legalBlockNote\": \"string\",\r\n    \"lastAccountStatDate\": \"string\",\r\n    \"fatcaFreeze\": \"s\",\r\n    \"workFlowFlag\": \"s\"\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/accounts/v1/AmendAccountStatus",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"accounts",
+										"v1",
+										"AmendAccountStatus"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "accept",
+									"value": "*/*"
+								},
+								{
+									"key": "accept-encoding",
+									"value": "gzip, deflate, br"
+								},
+								{
+									"key": "beanpath",
+									"value": "com.alahli.middleware.account.dao.BANCSDBConnectorImplDao"
+								},
+								{
+									"key": "operation",
+									"value": "UpdateAccountStatusProcedure"
+								},
+								{
+									"key": "postman-token",
+									"value": "554294cd-7bb9-4210-8789-fa42adcf7987"
+								},
+								{
+									"key": "serviceheader",
+									"value": "{\"tellerId\": \"T123\",\"branchId\": \"B001\",\"channelId\": \"WEB\"}"
+								},
+								{
+									"key": "system",
+									"value": "MW"
+								},
+								{
+									"key": "user-agent",
+									"value": "PostmanRuntime/7.41.1"
+								},
+								{
+									"key": "version",
+									"value": "v1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 18 Aug 2024 19:36:20 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"AccountStatusAmendmentResponse\": {\n        \"success\": {}\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "AmendAccountStatus_UpdateFault",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "ServiceHeader",
+								"value": "{\"tellerId\": \"T123\",\"branchId\": \"B001\",\"channelId\": \"WEB\"}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"AccountStatusAmendmentRequest\": {\r\n\t\t\"accountNumber\": \"\",\r\n\t\t\"operationMode\": \"U\",\r\n\t\t\"override\": \"\",\r\n\t\t\"overrideCode\": \"\",\r\n\t\t\"currentStatus\": \"\",\r\n\t\t\"newStatus\": \"\",\r\n\t\t\"currentKYCStatus\": \"\",\r\n\t\t\"newKYCStatus\": \"\",\r\n\t\t\"currentSamaStatus\": \"\",\r\n\t\t\"newSamaStatus\": \"\",\r\n\t\t\"reasonAccountStatus\": \"\",\r\n\t\t\"reasonSamaStatus\": \"\",\r\n\t\t\"reasonKYCStatus\": \"\",\r\n\t\t\"kycUnfreezeDate\": \"\",\r\n\t\t\"letterNumber\": \"\",\r\n\t\t\"letterDate\": \"\",\r\n\t\t\"blockDate\": \"\",\r\n\t\t\"note\": \"\",\r\n\t\t\"inacStat\": \"\",\r\n\t\t\"enfBlockStatus\": \"\",\r\n\t\t\"ssuBlockStatus\": \"\",\r\n\t\t\"legalBlockStatus\": \"\",\r\n\t\t\"effENFBlockDate\": \"\",\r\n\t\t\"effENFBlockDateFlag\": \"\",\r\n\t\t\"effSSUBlockDate\": \"\",\r\n\t\t\"effSSUBlockDateFlag\": \"\",\r\n\t\t\"effLegalBlockDate\": \"\",\r\n\t\t\"effLegalBlockDateFlag\": \"\",\r\n\t\t\"enfBlockReasonStat\": \"\",\r\n\t\t\"ssuBlockReasonStat\": \"\",\r\n\t\t\"legalBlockReasonStat\": \"\",\r\n\t\t\"enfStopPeriod\": \"\",\r\n\t\t\"ssuStopPeriod\": \"\",\r\n\t\t\"enfBlockDate\": \"\",\r\n\t\t\"ssuBlockLetterNumber\": \"\",\r\n\t\t\"legalBlockLetterNumber\": \"\",\r\n\t\t\"ssuBlockLetterDate\": \"\",\r\n\t\t\"legalBlockLetterDate\": \"\",\r\n\t\t\"ssuBlockNote\": \"\",\r\n\t\t\"legalBlockNote\": \"\",\r\n\t\t\"lastAccountStatDate\": \"\",\r\n\t\t\"fatcaFreeze\": \"\",\r\n\t\t\"workFlowFlag\": \"\"\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/accounts/v1/AmendAccountStatus",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"accounts",
+								"v1",
+								"AmendAccountStatus"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "AmendAccountStatus_UpdateFault",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "ServiceHeader",
+										"value": "{\"tellerId\": \"T123\",\"branchId\": \"B001\",\"channelId\": \"WEB\"}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"AccountStatusAmendmentRequest\": {\r\n\t\t\"accountNumber\": \"\",\r\n\t\t\"operationMode\": \"U\",\r\n\t\t\"override\": \"\",\r\n\t\t\"overrideCode\": \"\",\r\n\t\t\"currentStatus\": \"\",\r\n\t\t\"newStatus\": \"\",\r\n\t\t\"currentKYCStatus\": \"\",\r\n\t\t\"newKYCStatus\": \"\",\r\n\t\t\"currentSamaStatus\": \"\",\r\n\t\t\"newSamaStatus\": \"\",\r\n\t\t\"reasonAccountStatus\": \"\",\r\n\t\t\"reasonSamaStatus\": \"\",\r\n\t\t\"reasonKYCStatus\": \"\",\r\n\t\t\"kycUnfreezeDate\": \"\",\r\n\t\t\"letterNumber\": \"\",\r\n\t\t\"letterDate\": \"\",\r\n\t\t\"blockDate\": \"\",\r\n\t\t\"note\": \"\",\r\n\t\t\"inacStat\": \"\",\r\n\t\t\"enfBlockStatus\": \"\",\r\n\t\t\"ssuBlockStatus\": \"\",\r\n\t\t\"legalBlockStatus\": \"\",\r\n\t\t\"effENFBlockDate\": \"\",\r\n\t\t\"effENFBlockDateFlag\": \"\",\r\n\t\t\"effSSUBlockDate\": \"\",\r\n\t\t\"effSSUBlockDateFlag\": \"\",\r\n\t\t\"effLegalBlockDate\": \"\",\r\n\t\t\"effLegalBlockDateFlag\": \"\",\r\n\t\t\"enfBlockReasonStat\": \"\",\r\n\t\t\"ssuBlockReasonStat\": \"\",\r\n\t\t\"legalBlockReasonStat\": \"\",\r\n\t\t\"enfStopPeriod\": \"\",\r\n\t\t\"ssuStopPeriod\": \"\",\r\n\t\t\"enfBlockDate\": \"\",\r\n\t\t\"ssuBlockLetterNumber\": \"\",\r\n\t\t\"legalBlockLetterNumber\": \"\",\r\n\t\t\"ssuBlockLetterDate\": \"\",\r\n\t\t\"legalBlockLetterDate\": \"\",\r\n\t\t\"ssuBlockNote\": \"\",\r\n\t\t\"legalBlockNote\": \"\",\r\n\t\t\"lastAccountStatDate\": \"\",\r\n\t\t\"fatcaFreeze\": \"\",\r\n\t\t\"workFlowFlag\": \"\"\r\n\t}\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/accounts/v1/AmendAccountStatus",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"accounts",
+										"v1",
+										"AmendAccountStatus"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "accept",
+									"value": "*/*"
+								},
+								{
+									"key": "accept-encoding",
+									"value": "gzip, deflate, br"
+								},
+								{
+									"key": "beanpath",
+									"value": "com.alahli.middleware.account.dao.BANCSDBConnectorImplDao"
+								},
+								{
+									"key": "operation",
+									"value": "UpdateAccountStatusProcedure"
+								},
+								{
+									"key": "postman-token",
+									"value": "4aa68d13-221f-4631-9d9e-58fb8983ec9d"
+								},
+								{
+									"key": "serviceheader",
+									"value": "{\"tellerId\": \"T123\",\"branchId\": \"B001\",\"channelId\": \"WEB\"}"
+								},
+								{
+									"key": "system",
+									"value": "MW"
+								},
+								{
+									"key": "user-agent",
+									"value": "PostmanRuntime/7.41.1"
+								},
+								{
+									"key": "version",
+									"value": "v1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 18 Aug 2024 19:37:46 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"AccountStatusAmendmentResponse\": {\n        \"fault\": {\n            \"number\": 30,\n            \"description\": \"Record not found\",\n            \"system\": \"MW\",\n            \"nativeError\": \"\",\n            \"nativeDescription\": \"\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "AmendAccountStatus_OperationModeValidation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "ServiceHeader",
+								"value": "{\"tellerId\": \"T123\",\"branchId\": \"B001\",\"channelId\": \"WEB\"}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"AccountStatusAmendmentRequest\": {\r\n\t\t\"accountNumber\": \"\",\r\n\t\t\"operationMode\": \"A\",\r\n\t\t\"override\": \"\",\r\n\t\t\"overrideCode\": \"\",\r\n\t\t\"currentStatus\": \"\",\r\n\t\t\"newStatus\": \"\",\r\n\t\t\"currentKYCStatus\": \"\",\r\n\t\t\"newKYCStatus\": \"\",\r\n\t\t\"currentSamaStatus\": \"\",\r\n\t\t\"newSamaStatus\": \"\",\r\n\t\t\"reasonAccountStatus\": \"\",\r\n\t\t\"reasonSamaStatus\": \"\",\r\n\t\t\"reasonKYCStatus\": \"\",\r\n\t\t\"kycUnfreezeDate\": \"\",\r\n\t\t\"letterNumber\": \"\",\r\n\t\t\"letterDate\": \"\",\r\n\t\t\"blockDate\": \"\",\r\n\t\t\"note\": \"\",\r\n\t\t\"inacStat\": \"\",\r\n\t\t\"enfBlockStatus\": \"\",\r\n\t\t\"ssuBlockStatus\": \"\",\r\n\t\t\"legalBlockStatus\": \"\",\r\n\t\t\"effENFBlockDate\": \"\",\r\n\t\t\"effENFBlockDateFlag\": \"\",\r\n\t\t\"effSSUBlockDate\": \"\",\r\n\t\t\"effSSUBlockDateFlag\": \"\",\r\n\t\t\"effLegalBlockDate\": \"\",\r\n\t\t\"effLegalBlockDateFlag\": \"\",\r\n\t\t\"enfBlockReasonStat\": \"\",\r\n\t\t\"ssuBlockReasonStat\": \"\",\r\n\t\t\"legalBlockReasonStat\": \"\",\r\n\t\t\"enfStopPeriod\": \"\",\r\n\t\t\"ssuStopPeriod\": \"\",\r\n\t\t\"enfBlockDate\": \"\",\r\n\t\t\"ssuBlockLetterNumber\": \"\",\r\n\t\t\"legalBlockLetterNumber\": \"\",\r\n\t\t\"ssuBlockLetterDate\": \"\",\r\n\t\t\"legalBlockLetterDate\": \"\",\r\n\t\t\"ssuBlockNote\": \"\",\r\n\t\t\"legalBlockNote\": \"\",\r\n\t\t\"lastAccountStatDate\": \"\",\r\n\t\t\"fatcaFreeze\": \"\",\r\n\t\t\"workFlowFlag\": \"\"\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/api/accounts/v1/AmendAccountStatus",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"accounts",
+								"v1",
+								"AmendAccountStatus"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "AmendAccountStatus_OperationModeValidation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "ServiceHeader",
+										"value": "{\"tellerId\": \"T123\",\"branchId\": \"B001\",\"channelId\": \"WEB\"}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"AccountStatusAmendmentRequest\": {\r\n\t\t\"accountNumber\": \"\",\r\n\t\t\"operationMode\": \"A\",\r\n\t\t\"override\": \"\",\r\n\t\t\"overrideCode\": \"\",\r\n\t\t\"currentStatus\": \"\",\r\n\t\t\"newStatus\": \"\",\r\n\t\t\"currentKYCStatus\": \"\",\r\n\t\t\"newKYCStatus\": \"\",\r\n\t\t\"currentSamaStatus\": \"\",\r\n\t\t\"newSamaStatus\": \"\",\r\n\t\t\"reasonAccountStatus\": \"\",\r\n\t\t\"reasonSamaStatus\": \"\",\r\n\t\t\"reasonKYCStatus\": \"\",\r\n\t\t\"kycUnfreezeDate\": \"\",\r\n\t\t\"letterNumber\": \"\",\r\n\t\t\"letterDate\": \"\",\r\n\t\t\"blockDate\": \"\",\r\n\t\t\"note\": \"\",\r\n\t\t\"inacStat\": \"\",\r\n\t\t\"enfBlockStatus\": \"\",\r\n\t\t\"ssuBlockStatus\": \"\",\r\n\t\t\"legalBlockStatus\": \"\",\r\n\t\t\"effENFBlockDate\": \"\",\r\n\t\t\"effENFBlockDateFlag\": \"\",\r\n\t\t\"effSSUBlockDate\": \"\",\r\n\t\t\"effSSUBlockDateFlag\": \"\",\r\n\t\t\"effLegalBlockDate\": \"\",\r\n\t\t\"effLegalBlockDateFlag\": \"\",\r\n\t\t\"enfBlockReasonStat\": \"\",\r\n\t\t\"ssuBlockReasonStat\": \"\",\r\n\t\t\"legalBlockReasonStat\": \"\",\r\n\t\t\"enfStopPeriod\": \"\",\r\n\t\t\"ssuStopPeriod\": \"\",\r\n\t\t\"enfBlockDate\": \"\",\r\n\t\t\"ssuBlockLetterNumber\": \"\",\r\n\t\t\"legalBlockLetterNumber\": \"\",\r\n\t\t\"ssuBlockLetterDate\": \"\",\r\n\t\t\"legalBlockLetterDate\": \"\",\r\n\t\t\"ssuBlockNote\": \"\",\r\n\t\t\"legalBlockNote\": \"\",\r\n\t\t\"lastAccountStatDate\": \"\",\r\n\t\t\"fatcaFreeze\": \"\",\r\n\t\t\"workFlowFlag\": \"\"\r\n\t}\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8081/api/accounts/v1/AmendAccountStatus",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8081",
+									"path": [
+										"api",
+										"accounts",
+										"v1",
+										"AmendAccountStatus"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "accept",
+									"value": "*/*"
+								},
+								{
+									"key": "accept-encoding",
+									"value": "gzip, deflate, br"
+								},
+								{
+									"key": "postman-token",
+									"value": "9393ecf4-ff15-4abe-9e17-7436b0bcf775"
+								},
+								{
+									"key": "serviceheader",
+									"value": "{\"tellerId\": \"T123\",\"branchId\": \"B001\",\"channelId\": \"WEB\"}"
+								},
+								{
+									"key": "system",
+									"value": "MW"
+								},
+								{
+									"key": "user-agent",
+									"value": "PostmanRuntime/7.41.1"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 18 Aug 2024 19:40:27 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"AccountStatusAmendmentResponse\": {\n        \"fault\": {\n            \"number\": 612,\n            \"description\": \"Mandatory Value is missing\",\n            \"system\": \"MW\",\n            \"nativeError\": \"\",\n            \"nativeDescription\": \"\"\n        }\n    }\n}"
+						}
+					]
+				}
+			]
 		}
 	]
 }

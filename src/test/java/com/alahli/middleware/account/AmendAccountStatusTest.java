@@ -23,9 +23,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.test.context.web.WebAppConfiguration;
-
 import com.alahli.middleware.account.models.AccountStatusAmendment;
-import com.alahli.middleware.account.models.GetCustAcctsCumulativeBal;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Charsets;
 import com.google.common.io.Resources;

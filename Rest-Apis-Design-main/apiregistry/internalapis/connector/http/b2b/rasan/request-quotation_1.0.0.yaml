@@ -1,0 +1,301 @@
+---
+swagger: "2.0"
+info:
+  x-ibm-name: "request-quotation"
+  title: "request quotation"
+  version: "1.0.0"
+schemes:
+- "https"
+host: "$(catalog.host)"
+basePath: "/request"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+securityDefinitions:
+  clientSecretHeader:
+    type: "apiKey"
+    description: ""
+    in: "header"
+    name: "X-IBM-Client-Secret"
+  clientIdHeader:
+    type: "apiKey"
+    in: "header"
+    name: "X-IBM-Client-Id"
+security:
+- clientIdHeader: []
+  clientSecretHeader: []
+x-ibm-configuration:
+  testable: false
+  enforced: true
+  cors:
+    enabled: true
+  assembly:
+    execute:
+    - invoke:
+        target-url: "$(target-url)"
+        verb: "POST"
+        title: "Invoke"
+  phase: "realized"
+paths:
+  /quotation:
+    patch:
+      responses:
+        200:
+          description: "200 OK"
+definitions:
+  InputRequest:
+    description: ""
+    type: "object"
+    properties:
+      RQRequestReferenceNo:
+        type: "string"
+      ApplicationID:
+        type: "string"
+      ApplicationTenure:
+        type: "number"
+      EmployeeID:
+        type: "string"
+      BranchCode:
+        type: "string"
+      LesseeID:
+        type: "number"
+      LesseeDateOfBirthG:
+        type: "string"
+      LesseeDateOfBirthH:
+        type: "string"
+      LesseeEducation:
+        type: "string"
+      LesseeChildrenBelow16:
+        type: "number"
+      LesseeWorkCompanyName:
+        type: "string"
+      LesseeWorkCityID:
+        type: "number"
+      LesseeLicenseType:
+        type: "number"
+      LesseeLicenseOwnYears:
+        type: "number"
+      LesseeCountriesValidLicense:
+        type: "array"
+        items:
+          properties:
+            DrivingLicenseCountryID:
+              type: "number"
+            DrivingLicenseYears:
+              type: "number"
+          type: "object"
+      LesseeNoOfClaims:
+        type: "number"
+      LesseeNoOfAccidents:
+        type: "number"
+      LesseeTrafficViolationsCode:
+        type: "string"
+      LesseeHealthConditionsCode:
+        type: "string"
+      VehicleInfoType:
+        type: "number"
+      VehicleSequenceNumber: {}
+      VehicleCustomID: {}
+      VehicleMakeCodeTria:
+        type: "number"
+      VehicleMakeCodeLessor:
+        type: "string"
+      VehicleModelCodeTria:
+        type: "number"
+      VehicleModelCodeLessor:
+        type: "string"
+      AssetID: {}
+      ManufactureYear:
+        type: "number"
+      VehicleColorCode:
+        type: "number"
+      VehicleSumInsured:
+        type: "number"
+      VehicleExpectedMileageYear:
+        type: "number"
+      VehicleTransmission:
+        type: "number"
+      VehicleNightParking:
+        type: "number"
+      VehicleModifications:
+        type: "string"
+      DriverDetails:
+        type: "array"
+        items:
+          properties:
+            DriverID:
+              type: "number"
+            DriverRelation:
+              type: "number"
+            VehicleUsagePercentage:
+              type: "number"
+            DriverDateOfBirthG:
+              type: "string"
+            DriverDateOfBirthH:
+              type: "string"
+            DriverEducation:
+              type: "string"
+            DriverChildrenBelow16:
+              type: "number"
+            DriverWorkCompanyName:
+              type: "string"
+            DriverWorkCityID:
+              type: "number"
+            DriverHomeAddressCity:
+              type: "string"
+            DriverHomeAddress:
+              type: "string"
+            CountriesValidDrivingLicense:
+              type: "array"
+              items:
+                properties:
+                  DrivingLicenseCountryID:
+                    type: "number"
+                  DrivingLicenseYears:
+                    type: "number"
+                type: "object"
+            DriverLicenseType:
+              type: "number"
+            DriverLicenseOwnYears:
+              type: "number"
+            DriverNoOfClaims:
+              type: "number"
+            DriverNoOfAccidents:
+              type: "number"
+            DriverTrafficViolationsCode:
+              type: "string"
+            DriverHealthConditionsCode:
+              type: "string"
+          type: "object"
+      RepairMethod:
+        type: "number"
+      DepreciationByYear:
+        type: "array"
+        items:
+          properties:
+            Year: {}
+            DepreciationPercentage:
+              type: "number"
+          type: "object"
+      DepreciationType:
+        type: "number"
+      FixedDepreciation:
+        type: "boolean"
+      PurposeofVehicleUseID:
+        type: "number"
+      CustomizedParameter: {}
+    example: "{\"RQRequestReferenceNo\":\"REQ323132\",\"ApplicationID\":\"APP323132\"\
+      ,\"ApplicationTenure\":48,\"EmployeeID\":\"EMP943082\",\"BranchCode\":\"RUH1\"\
+      ,\"LesseeID\":1087002323,\"LesseeDateOfBirthG\":\"\",\"LesseeDateOfBirthH\"\
+      :\"29-07-1409\",\"LesseeEducation\":\"Bachelor\",\"LesseeChildrenBelow16\":3,\"\
+      LesseeWorkCompanyName\":\"Tria Company\",\"LesseeWorkCityID\":4,\"LesseeLicenseType\"\
+      :1,\"LesseeLicenseOwnYears\":5,\"LesseeCountriesValidLicense\":[{\"DrivingLicenseCountryID\"\
+      :104,\"DrivingLicenseYears\":5}],\"LesseeNoOfClaims\":1,\"LesseeNoOfAccidents\"\
+      :1,\"LesseeTrafficViolationsCode\":\"1,3,4\",\"LesseeHealthConditionsCode\"\
+      :\"2,5\",\"VehicleInfoType\":1,\"VehicleSequenceNumber\":null,\"VehicleCustomID\"\
+      :null,\"VehicleMakeCodeTria\":26,\"VehicleMakeCodeLessor\":\"LSRMAK456987\"\
+      ,\"VehicleModelCodeTria\":4526,\"VehicleModelCodeLessor\":\"LSRMDL456987\",\"\
+      AssetID\":null,\"ManufactureYear\":2021,\"VehicleColorCode\":19,\"VehicleSumInsured\"\
+      :999999,\"VehicleExpectedMileageYear\":25000,\"VehicleTransmission\":1,\"VehicleNightParking\"\
+      :2,\"VehicleModifications\":\"Extra Metal Pumper\",\"DriverDetails\":[{\"DriverID\"\
+      :2320749007,\"DriverRelation\":1,\"VehicleUsagePercentage\":50,\"DriverDateOfBirthG\"\
+      :\"07-11-1997\",\"DriverDateOfBirthH\":\"\",\"DriverEducation\":\"Bachelor\"\
+      ,\"DriverChildrenBelow16\":3,\"DriverWorkCompanyName\":\"Tria Company\",\"DriverWorkCityID\"\
+      :4,\"DriverHomeAddressCity\":\"Riyadh\",\"DriverHomeAddress\":\"Ibn Sina, ALmassif\"\
+      ,\"CountriesValidDrivingLicense\":[{\"DrivingLicenseCountryID\":103,\"DrivingLicenseYears\"\
+      :3}],\"DriverLicenseType\":1,\"DriverLicenseOwnYears\":5,\"DriverNoOfClaims\"\
+      :0,\"DriverNoOfAccidents\":0,\"DriverTrafficViolationsCode\":\"1,2\",\"DriverHealthConditionsCode\"\
+      :\"1,3,5\"}],\"RepairMethod\":1,\"DepreciationByYear\":[{\"Year\":null,\"DepreciationPercentage\"\
+      :15}],\"DepreciationType\":1,\"FixedDepreciation\":true,\"PurposeofVehicleUseID\"\
+      :1,\"CustomizedParameter\":null}"
+  OutputResponse:
+    description: ""
+    type: "object"
+    properties:
+      RQRequestReferenceNo:
+        type: "string"
+      RQResponseReferenceNo:
+        type: "string"
+      LesseeID:
+        type: "number"
+      ArabicFirstName:
+        type: "string"
+      ArabicMiddleName:
+        type: "string"
+      ArabicLastName:
+        type: "string"
+      EnglishFirstName:
+        type: "string"
+      EnglishMiddleName:
+        type: "string"
+      EnglishLastName:
+        type: "string"
+      LesseeNationalityID:
+        type: "number"
+      LesseeOccupation:
+        type: "string"
+      LesseeGender:
+        type: "number"
+      LesseeMaritalStatus:
+        type: "number"
+      LesseeNationalAddress:
+        type: "array"
+        items:
+          properties:
+            BuildingNumber:
+              type: "number"
+            Street:
+              type: "string"
+            District:
+              type: "string"
+            City:
+              type: "string"
+            ZipCode:
+              type: "number"
+            AdditionalNumber:
+              type: "number"
+          type: "object"
+      DriverDetails:
+        type: "array"
+        items:
+          properties:
+            DriverID:
+              type: "number"
+            ArabicFirstName:
+              type: "string"
+            ArabicMiddleName:
+              type: "string"
+            ArabicLastName:
+              type: "string"
+            EnglishFirstName:
+              type: "string"
+            EnglishMiddleName:
+              type: "string"
+            EnglishLastName:
+              type: "string"
+            DriverNationalityID:
+              type: "number"
+            DriverOccupation:
+              type: "string"
+            DriverGender:
+              type: "number"
+            DriverMaritalStatus:
+              type: "number"
+          type: "object"
+      Status:
+        type: "boolean"
+      Errors: {}
+    example: "{\"RQRequestReferenceNo\":\"REQ323132\",\"RQResponseReferenceNo\":\"\
+      RES323132\",\"LesseeID\":1087002323,\"ArabicFirstName\":\"سالم\",\"ArabicMiddleName\"\
+      :\"سعود\",\"ArabicLastName\":\"بدر\",\"EnglishFirstName\":\"Salem\",\"EnglishMiddleName\"\
+      :\"Saud\",\"EnglishLastName\":\"Bader\",\"LesseeNationalityID\":104,\"LesseeOccupation\"\
+      :\"طبيب\",\"LesseeGender\":1,\"LesseeMaritalStatus\":1,\"LesseeNationalAddress\"\
+      :[{\"BuildingNumber\":1234,\"Street\":\"637292\",\"District\":\"Jeddah\",\"\
+      City\":\"جدة\",\"ZipCode\":12345,\"AdditionalNumber\":1234}],\"DriverDetails\"\
+      :[{\"DriverID\":2320749007,\"ArabicFirstName\":\"سليم\",\"ArabicMiddleName\"\
+      :\"سعود\",\"ArabicLastName\":\"قمر\",\"EnglishFirstName\":\"Saleem\",\"EnglishMiddleName\"\
+      :\"Saud\",\"EnglishLastName\":\"Qamar\",\"DriverNationalityID\":103,\"DriverOccupation\"\
+      :\"محامي\",\"DriverGender\":1,\"DriverMaritalStatus\":1}],\"Status\":true,\"\
+      Errors\":null}"
+tags: []

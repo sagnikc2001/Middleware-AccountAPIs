@@ -1,0 +1,449 @@
+{
+  "ECNId": {
+    "maxLength": 8,
+    "minLength": 8,
+    "type": "string",
+    "description": "Ecn Identification.Valid values are :23747091,12948435, 11408939 etc"
+  },
+  "AccountId": {
+    "maxLength": 24,
+    "minLength": 14,
+    "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})",
+    "type": "string",
+    "description": "Id of the accounts in NCB BaNCS system.Valid values are : 05516500010102, 36160988000108, 10518651000108 etc"
+  },
+  "AccountType": {
+    "maxLength": 4,
+    "type": "string",
+    "description": "Represents the type of the account. Valid values : 0200, 0100, 0203 etc"
+  },
+  "accountStatus": {
+    "maxLength": 4,
+    "type": "string",
+    "description": "A code representing the status of the account. Valid values : 00 , 01 etc"
+  },
+  "accountStatusDesc": {
+    "maxLength": 60,
+    "type": "string",
+    "description": "A description of the status code of the account. Valid values : Active , Inactive etc"
+  },
+  "accountSubStatus": {
+    "maxLength": 2,
+    "type": "string",
+    "description": "A code representing the sub status of the account. Valid values : 00 , 01 etc"
+  },
+  "accountSubStatusDesc": {
+    "type": "string",
+    "maxLength": 60,
+    "description": "A description of the sub status code of the account. Valid values : Active , Inactive etc"
+  },
+  "Branch": {
+    "type": "string"
+  },
+  "AccountIdOptional": {
+    "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})|()",
+    "type": "string",
+    "description": "Id of the accounts in NCB BaNCS system. This is optional. Empty values are allowed. Valid values are : 05516500010102, 36160988000108, 10518651000108 etc"
+  },
+  "trueOrFalseTypeOptional": {
+    "title": "trueOrFalseTypeOptional",
+    "enum": [
+      "true",
+      "false",
+      "True",
+      "False"
+    ],
+    "type": "string",
+    "description": "Optional. Valid values are : true, false, True,False etc"
+  },
+  "MobileNumber": {
+    "pattern": "[0-9]{9,15}",
+    "type": "string",
+    "description": "Mobile phone number.Valid Values are :966554325688 , 00966554325688, 554325688 etc"
+  },
+  "CIF": {
+    "pattern": "([0-9]){14}|([0]){1}",
+    "type": "string",
+    "description": "Customer identification number Valid Values are : 12948435765223, 11408939762911 etc"
+  },
+  "EncryptedText": {
+    "type": "string",
+    "description": "Represents encrypted data"
+  },
+  "Amount": {
+    "maxLength": 18,
+    "type": "number",
+    "format": "double",
+    "description": "This element represents amount of money in the format xxxx.xxx or -xxxx.xxx. It can have maximum 15 decimal places and can have 18 total digits. Valid values are : 232334.454 , 65717171772372.5562 etc"
+  },
+  "HolderName": {
+    "maxLength": 102,
+    "type": "string",
+    "description": "This element represents Holder Name"
+  },
+  "ShortCIF": {
+    "pattern": "([0-9]){8}|([0]){1}",
+    "type": "string",
+    "description": "First 8 characters of complete CIF (customer identification number) Valid Values are : 72415789, 70000036, 70000045, 70000007 etc"
+  },
+  "MoneyOptional": {
+    "title": "MoneyOptional",
+    "required": [
+      "isoCurrencyCode"
+    ],
+    "type": "object",
+    "properties": {
+      "value": {
+        "$ref": "#/Amount"
+      },
+      "isoCurrencyCode": {
+        "$ref": "#/ISOCurrencyCodeOptional"
+      }
+    }
+  },
+  "AmountOptional": {
+    "oneOf": [
+      {
+        "$ref": "#/Amount"
+      },
+      {
+        "type": "string"
+      }
+    ]
+  },
+  "StatusCode": {
+    "maxLength": 3,
+    "type": "string",
+    "description": "Status Code"
+  },
+  "StatusDesc": {
+    "maxLength": 30,
+    "type": "string",
+    "description": "Status Description"
+  },
+  "MWTimeOptional": {
+    "pattern": "([0-9]){4}|([0-9]){6}|()",
+    "type": "string",
+    "description": "Represents the time in the format of hhmm or hhmmss (hh-hours ; mm - minutes; ss - seconds). Empty value is allowed. Valid values are : 053456 etc"
+  },
+  "Active": {
+    "maxLength": 1,
+    "type": "string",
+    "description": "Active"
+  },
+  "TokenReferenceId": {
+    "maxLength": 10,
+    "type": "string",
+    "description": "Token Reference Id"
+  },
+  "MWDateOptional": {
+    "pattern": "([0-9]){8}|()",
+    "type": "string",
+    "description": "Represents the date in the format of yyyymmdd. Empty value is allowed Valid values are : 20130522 etc"
+  },
+  "MWDateOptional1": {
+    "pattern": "([0-9]){8}|()",
+    "type": "string",
+    "description": "Represents the date in the format of ddmmyyyy. Empty value is allowed Valid values are : 15052013 etc"
+  },
+  "DateOptional": {
+    "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01])))|()",
+    "type": "string",
+    "description": "Represents the date in the format of yyyy-mm-dd. Empty value is allowed Valid values are : 2013-05-22 etc"
+  },
+  "Max16Text": {
+    "maxLength": 16,
+    "minLength": 0,
+    "type": "string",
+    "description": "Any string of maximum length 16"
+  },
+  "YorNType": {
+    "enum": [
+      "Y",
+      "N"
+    ],
+    "type": "string",
+    "description": "Valid values are : Y, N"
+  },
+  "PostalAddress": {
+    "type": "object",
+    "title": "PostalAddress",
+    "properties": {
+      "addressLine1": {
+        "$ref": "#/Max70Text"
+      },
+      "addressLine2": {
+        "$ref": "#/Max70Text"
+      },
+      "addressLine3": {
+        "$ref": "#/Max70Text"
+      },
+      "city": {
+        "$ref": "#/Max35Text"
+      },
+      "region": {
+        "$ref": "#/Max35Text"
+      },
+      "postalCode": {
+        "$ref": "#/Max16Text"
+      },
+      "country": {
+        "$ref": "#/ISOCountryCodeOptional"
+      }
+    }
+  },
+  "Max70Text": {
+    "maxLength": 70,
+    "minLength": 0,
+    "type": "string",
+    "description": "Any string of maximum length 70"
+  },
+  "Max35Text": {
+    "maxLength": 35,
+    "minLength": 0,
+    "type": "string",
+    "description": "Any string of maximum length 35"
+  },
+  "ISOCountryCodeOptional": {
+    "pattern": "([A-Z]{2,2})|()",
+    "type": "string",
+    "description": " International Standard for country codes. Empty value is allowed. The format is two upper case letters. for ex SA, US, CA etc Below is the list of all ISO country codes (Country Name -- Code) AFGHANISTAN -- AF Ã…LAND ISLANDS -- AX ALBANIA -- AL ALGERIA -- DZ AMERICAN SAMOA -- AS ANDORRA -- AD ANGOLA -- AO ANGUILLA -- AI ANTARCTICA -- AQ ANTIGUA AND BARBUDA -- AG ARGENTINA -- AR ARMENIA -- AM ARUBA -- AW AUSTRALIA -- AU AUSTRIA -- AT AZERBAIJAN -- AZ BAHAMAS -- BS BAHRAIN -- BH BANGLADESH -- BD BARBADOS -- BB BELARUS -- BY BELGIUM -- BE BELIZE -- BZ BENIN -- BJ BERMUDA -- BM BHUTAN -- BT BOLIVIA, PLURINATIONAL STATE OF -- BO BONAIRE, SINT EUSTATIUS AND SABA -- BQ BOSNIA AND HERZEGOVINA -- BA BOTSWANA -- BW BOUVET ISLAND -- BV BRAZIL -- BR BRITISH INDIAN OCEAN TERRITORY -- IO BRUNEI DARUSSALAM -- BN BULGARIA -- BG BURKINA FASO -- BF BURUNDI -- BI CAMBODIA -- KH CAMEROON -- CM CANADA -- CA CAPE VERDE -- CV CAYMAN ISLANDS -- KY CENTRAL AFRICAN REPUBLIC -- CF CHAD -- TD CHILE -- CL CHINA -- CN CHRISTMAS ISLAND -- CX COCOS (KEELING) ISLANDS -- CC COLOMBIA -- CO COMOROS -- KM CONGO -- CG CONGO, THE DEMOCRATIC REPUBLIC OF THE -- CD COOK ISLANDS -- CK COSTA RICA -- CR CÃ”TE D'IVOIRE -- CI CROATIA -- HR CUBA -- CU CURAÃ‡AO -- CW CYPRUS -- CY CZECH REPUBLIC -- CZ DENMARK -- DK DJIBOUTI -- DJ DOMINICA -- DM DOMINICAN REPUBLIC -- DO ECUADOR -- EC EGYPT -- EG EL SALVADOR -- SV EQUATORIAL GUINEA -- GQ ERITREA -- ER ESTONIA -- EE ETHIOPIA -- ET FALKLAND ISLANDS (MALVINAS) -- FK FAROE ISLANDS -- FO FIJI -- FJ FINLAND -- FI FRANCE -- FR FRENCH GUIANA -- GF FRENCH POLYNESIA -- PF FRENCH SOUTHERN TERRITORIES -- TF GABON -- GA GAMBIA -- GM GEORGIA -- GE GERMANY -- DE GHANA -- GH GIBRALTAR -- GI GREECE -- GR GREENLAND -- GL GRENADA -- GD GUADELOUPE -- GP GUAM -- GU GUATEMALA -- GT GUERNSEY -- GG GUINEA -- GN GUINEA-BISSAU -- GW GUYANA -- GY HAITI -- HT HEARD ISLAND AND MCDONALD ISLANDS -- HM HOLY SEE (VATICAN CITY STATE) -- VA HONDURAS -- HN HONG KONG -- HK HUNGARY -- HU ICELAND -- IS INDIA -- IN INDONESIA -- ID IRAN, ISLAMIC REPUBLIC OF -- IR IRAQ -- IQ IRELAND -- IE ISLE OF MAN -- IM ISRAEL -- IL ITALY -- IT JAMAICA -- JM JAPAN -- JP JERSEY -- JE JORDAN -- JO KAZAKHSTAN -- KZ KENYA -- KE KIRIBATI -- KI KOREA, DEMOCRATIC PEOPLE'S REPUBLIC OF -- KP KOREA, REPUBLIC OF -- KR KUWAIT -- KW KYRGYZSTAN -- KG LAO PEOPLE'S DEMOCRATIC REPUBLIC -- LA LATVIA -- LV LEBANON -- LB LESOTHO -- LS LIBERIA -- LR LIBYA -- LY LIECHTENSTEIN -- LI LITHUANIA -- LT LUXEMBOURG -- LU MACAO -- MO MACEDONIA, THE FORMER YUGOSLAV REPUBLIC OF -- MK MADAGASCAR -- MG MALAWI -- MW MALAYSIA -- MY MALDIVES -- MV MALI -- ML MALTA -- MT MARSHALL ISLANDS -- MH MARTINIQUE -- MQ MAURITANIA -- MR MAURITIUS -- MU MAYOTTE -- YT MEXICO -- MX MICRONESIA, FEDERATED STATES OF -- FM MOLDOVA, REPUBLIC OF -- MD MONACO -- MC MONGOLIA -- MN MONTENEGRO -- ME MONTSERRAT -- MS MOROCCO -- MA MOZAMBIQUE -- MZ MYANMAR -- MM NAMIBIA -- NA NAURU -- NR NEPAL -- NP NETHERLANDS -- NL NEW CALEDONIA -- NC NEW ZEALAND -- NZ NICARAGUA -- NI NIGER -- NE NIGERIA -- NG NIUE -- NU NORFOLK ISLAND -- NF NORTHERN MARIANA ISLANDS -- MP NORWAY -- NO OMAN -- OM PAKISTAN -- PK PALAU -- PW PALESTINE, STATE OF -- PS PANAMA -- PA PAPUA NEW GUINEA -- PG PARAGUAY -- PY PERU -- PE PHILIPPINES -- PH PITCAIRN -- PN POLAND -- PL PORTUGAL -- PT PUERTO RICO -- PR QATAR -- QA RÉUNION -- RE ROMANIA -- RO RUSSIAN FEDERATION -- RU RWANDA -- RW SAINT BARTHÉLEMY -- BL SAINT HELENA, ASCENSION AND TRISTAN DA CUNHA -- SH SAINT KITTS AND NEVIS -- KN SAINT LUCIA -- LC SAINT MARTIN (FRENCH PART) -- MF SAINT PIERRE AND MIQUELON -- PM SAINT VINCENT AND THE GRENADINES -- VC SAMOA -- WS SAN MARINO -- SM SAO TOME AND PRINCIPE -- ST SAUDI ARABIA -- SA SENEGAL -- SN SERBIA -- RS SEYCHELLES -- SC SIERRA LEONE -- SL SINGAPORE -- SG SINT MAARTEN (DUTCH PART) -- SX SLOVAKIA -- SK SLOVENIA -- SI SOLOMON ISLANDS -- SB SOMALIA -- SO SOUTH AFRICA -- ZA SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS -- GS SOUTH SUDAN -- SS SPAIN -- ES SRI LANKA -- LK SUDAN -- SD SURINAME -- SR SVALBARD AND JAN MAYEN -- SJ SWAZILAND -- SZ SWEDEN -- SE SWITZERLAND -- CH SYRIAN ARAB REPUBLIC -- SY TAIWAN, PROVINCE OF CHINA -- TW TAJIKISTAN -- TJ TANZANIA, UNITED REPUBLIC OF -- TZ THAILAND -- TH TIMOR-LESTE -- TL TOGO -- TG TOKELAU -- TK TONGA -- TO TRINIDAD AND TOBAGO -- TT TUNISIA -- TN TURKEY -- TR TURKMENISTAN -- TM TURKS AND CAICOS ISLANDS -- TC TUVALU -- TV UGANDA -- UG UKRAINE -- UA UNITED ARAB EMIRATES -- AE UNITED KINGDOM -- GB UNITED STATES -- US UNITED STATES MINOR OUTLYING ISLANDS -- UM URUGUAY -- UY UZBEKISTAN -- UZ VANUATU -- VU VENEZUELA, BOLIVARIAN REPUBLIC OF -- VE VIET NAM -- VN VIRGIN ISLANDS, BRITISH -- VG VIRGIN ISLANDS, U.S. -- VI WALLIS AND FUTUNA -- WF WESTERN SAHARA -- EH YEMEN -- YE ZAMBIA -- ZM ZIMBABWE -- ZW"
+  },
+  "PhoneNumberOptional": {
+    "type": "string",
+    "description": "Full international telephone number is up to 15 digits long. The country code is up to 3 digits long. The area code is country-dependent and is not used for some countries. If used, it seems to be from 1 to 5 digits long. This leaves the subscriber number up to 14 digits. Plus there is the optional extension. Putting this all together, we get: country-area-subscriber-extension The area code and extension are optional. Here are a few examples: 1-800-1234567 (country-area-subscriber) 1-800-1234567-89 (country-area-subscriber-extension) 34-912345678 (country-subscriber) 34-912345678-9 (country-subscriber-extension)"
+  },
+  "Money": {
+    "title": "Money",
+    "required": [
+      "isoCurrencyCode"
+    ],
+    "type": "object",
+    "properties": {
+      "value": {
+        "$ref": "#/Amount"
+      },
+      "isoCurrencyCode": {
+        "$ref": "#/ISOCurrencyCode"
+      }
+    }
+  },
+  "ISOCurrencyCodeOptional": {
+    "type": "string",
+    "pattern": "([A-Z]{3,3})|()"
+  },
+  "DateTimeOptional3": {
+    "type": "string",
+    "description": "Represents the date in the format of yyyy-mm-ddThh:mm:ss Valid values are : 2019-09-08T03:00:25 etc",
+    "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))[T](0[0-9]|1[0-9]|2[0-3]|[0-9])[:]([0-5][0-9])[:]([0-5][0-9])|()"
+  },
+  "DateTimeOptional": {
+    "type": "string",
+    "description": "Represents the date in the format of yyyymmdd.Empty value is allowed Valid values are : 20130522 etc",
+    "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])"
+  },
+  "ISOCurrencyCode": {
+    "type": "string",
+    "description": "The standard currency codes published by ISO. The format is three upper case letters. Valid values are : AED, SAR, USD, EUR etc",
+    "format": "[A-Z]{3,3}"
+  },
+  "GlClassificationCode": {
+    "type": "string",
+    "maxLength": 40,
+    "description": "A string of maximum length 40 Valid values : 90601201990100310101 etc"
+  },
+  "DateFormat": {
+    "type": "string",
+    "pattern": "((0[1-9])|([12][0-9])|(3[01]))/((0[1-9])|(1[012]))/((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))|()",
+    "description": "Represents the date in the format of dd/mm/yyyy Valid values are : 22/05/2013 etc"
+  },
+  "CIFOptional": {
+    "type": "string",
+    "pattern": "([0-9]){14}|([0]){1}|()",
+    "description": "Customer identification number Valid Values are : 12948435765223, 11408939762911 etc"
+  },
+  "BBAN": {
+    "type": "string",
+    "description": "Valid values of BBAN : 59200000027005, 59200000324005 etc",
+    "minLength": "14",
+    "maxLength": "14"
+  },
+  "Date": {
+    "type": "string",
+    "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+    "description": "Represents the date in the format of yyyy-mm-dd Valid values are : 2013-05-22 etc"
+  },
+  "MWTime": {
+    "type": "string",
+    "pattern": "([0-9]){4}|([0-9]){6})",
+    "description": "Represents the time in the format of hhmm or hhmmss (hh-hours ; mm - minutes; ss - seconds). Valid values are : 053456 etc"
+  },
+  "MobileNumberOptional": {
+    "type": "string",
+    "pattern": "[0-9]{9,15}|()",
+    "description": "Mobile phone number. Valid Values are : 966554325688 , 00966554325688, 554325688 etc"
+  },
+  "PageNumber": {
+    "type": "integer",
+    "format": "int32",
+    "minimum": 0,
+    "maxLength": 2,
+    "description": "Page Number"
+  },
+  "Merchant": {
+    "type": "string",
+    "maxLength": 25,
+    "description": "A string of maximum length 25"
+  },
+  "ExchangeRate": {
+    "type": "number",
+    "format": "double",
+    "maxLength": 12
+  },
+  "ApplicationId": {
+    "type": "string",
+    "minLength": 0
+  },
+  "Logo": {
+    "type": "integer",
+    "format": "int32",
+    "minLength": 0,
+    "maxLength": 3
+  },
+  "Gender": {
+    "enum": [
+      "M",
+      "F"
+    ],
+    "description": "Valid values are : M , F etc",
+    "type": "string",
+    "minLength": 1
+  },
+  "EmailAddressOptional": {
+    "type": "string",
+    "description": "Optional Email address. Valid Values are : johndoe@cordys.com, john9_doe@cordys.com etc",
+    "pattern": "([a-zA-Z0-9_\\-])([a-zA-Z0-9_\\-\\.]*)@(\\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\\.){3}|((([a-zA-Z0-9\\-]+)\\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\\])|()"
+  },
+  "YorNTypeOptional": {
+    "description": "Optional. Valid values are : Y, N",
+    "type": "string",
+    "enum": [
+      "Y",
+      "N",
+      ""
+    ]
+  },
+  "FullName": {
+    "type": "string",
+    "minLength": 0,
+    "maxLength": 75,
+    "description": "A string of maximum length 75"
+  },
+  "FirstName": {
+    "type": "string",
+    "minLength": 0,
+    "maxLength": 25,
+    "description": "A string of maximum length 25"
+  },
+  "TransactionId": {
+    "minimum": 0,
+    "type": "integer",
+    "format": "int32"
+  },
+  "TermsAndConditionsReferenceId": {
+    "minLength": 0,
+    "maxLength": 2,
+    "type": "integer",
+    "format": "int32"
+  },
+  "MWISOCountryCodeOptional": {
+    "pattern": "([A-Z]{3,3})|()",
+    "type": "string",
+    "description": "Empty value is allowed. Valid values : IDN, YEM, LKA, PHL, EGY etc"
+  },
+  "MWISOCountryCode": {
+    "pattern": "[A-Z]{3,3}",
+    "type": "string",
+    "description": "Valid values : IDN, YEM, LKA, PHL, EGY etc"
+  },
+  "JournalId": {
+    "type": "string",
+    "description": "An integer with maximum of 9 digits"
+  },
+  "ShortCIFOptional": {
+    "type": "string",
+    "pattern": "([0-9]){8}|([0]){1}|()",
+    "description": "First 8 characters of complete CIF (customer identification number) Valid Values are : 72415789, 70000036,70000045, 70000007 etc"
+  },
+  "Location": {
+    "maxLength": 25,
+    "type": "string"
+  },
+  "MWDate": {
+    "pattern": "([0-9]){8}",
+    "type": "string",
+    "description": "Represents the date in the format of yyyymmdd. Valid values are : 20130522 etc"
+  },
+  "TrueOrFalseType": {
+    "enum": [
+      "true",
+      "false",
+      "True",
+      "False"
+    ],
+    "type": "string",
+    "description": "Valid values are : true, false, True, False"
+  },
+  "EmailAddress": {
+    "type": "string",
+    "description": "Email address. Valid Values are : johndoe@cordys.com, john9_doe@cordys.com etc",
+    "pattern": "([a-zA-Z0-9_\\-])([a-zA-Z0-9_\\-\\.]*)@(\\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\\.){3}|((([a-zA-Z0-9\\-]+)\\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\\])"
+  },
+  "Cursor": {
+    "title": "Cursor",
+    "required": [
+      "position",
+      "noOfRows"
+    ],
+    "type": "object",
+    "properties": {
+      "position": {
+        "minimum": 0,
+        "maxLength": 4,
+        "type": "integer",
+        "format": "int32"
+      },
+      "noOfRows": {
+        "minimum": 0,
+        "maxLength": 4,
+        "type": "integer",
+        "format": "int32"
+      }
+    },
+    "description": ""
+  },
+  "RecordId": {
+    "minimum": 0,
+    "type": "integer",
+    "format": "int32",
+    "default": 0
+  },
+  "LanguageCodeOptional": {
+    "type": "string"
+  },
+  "DateTimeOptional5": {
+    "type": "string",
+    "description": "Represents the date in the format of dd/mm/yyyy hh:mm:ss Valid values are : 08/09/2019 03: 00: 25 etc",
+    "pattern": "((0[1-9])|([12][0-9])|(3[01]))/((0[1-9])|(1[012]))/((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))[ ](0[0-9]|1[0-9]|2[0-3]|[0-9])[:]([0-5][0-9])[:]([0-5][0-9])|()"
+  },
+  "ShortAndCIF": {
+    "pattern": "([0-9]){8}|([0-9]){14}",
+    "type": "string",
+    "description": "ShortAndCIF consists either 8 or 14. First 8 characters of complete CIF (customer identification number) Valid Values are : 72415789, 70000036,70000045, 70000007 etc"
+  },
+  "SalaryAccountIdOptional": {
+    "pattern": "([0-9]{17})|()",
+    "type": "string",
+    "description": "Account Number"
+  }
+}

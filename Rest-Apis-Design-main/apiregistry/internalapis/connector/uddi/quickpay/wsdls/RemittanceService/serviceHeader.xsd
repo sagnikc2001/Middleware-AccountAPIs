@@ -1,0 +1,38 @@
+<xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://com.tcs.bancs.rm/header/">
+<element name="ServiceHeader">
+<complexType>
+<sequence>
+<element name="loggerContext" type="xsd:string"/>
+<element name="transactionCode" type="xsd:string"/>
+<element name="retryTransaction" type="xsd:boolean"/>
+<element name="tellerId" type="xsd:string"/>
+<element name="terminalId" type="xsd:string"/>
+<element name="workstationId" type="xsd:string"/>
+<element name="override" type="xsd:boolean"/>
+<element name="correction" type="xsd:string"/>
+<element name="supervisor" type="xsd:string"/>
+<element name="supervisorId" type="xsd:string"/>
+<element name="overrideCode" type="xsd:string"/>
+<element name="employeeId" type="xsd:string"/>
+<element name="branchId" type="xsd:string"/>
+<element name="functionId" type="xsd:string"/>
+<element name="channelId" type="xsd:string"/>
+<element name="bancsPwd" type="xsd:string"/>
+<element name="languageCode" type="xsd:string"/>
+<xsd:element name="authenticationType" maxOccurs="1" minOccurs="0" default="NONE">
+<xsd:annotation>
+<xsd:documentation> Can be: NONE, OTP, TOKEN </xsd:documentation>
+</xsd:annotation>
+<xsd:simpleType>
+<xsd:restriction base="xsd:string">
+<xsd:enumeration value="NONE"/>
+<xsd:enumeration value="OTP"/>
+<xsd:enumeration value="TOKEN"/>
+</xsd:restriction>
+</xsd:simpleType>
+</xsd:element>
+<element name="IvrTransactionID" type="xsd:string" maxOccurs="1" minOccurs="0"/>
+</sequence>
+</complexType>
+</element>
+</xsd:schema>

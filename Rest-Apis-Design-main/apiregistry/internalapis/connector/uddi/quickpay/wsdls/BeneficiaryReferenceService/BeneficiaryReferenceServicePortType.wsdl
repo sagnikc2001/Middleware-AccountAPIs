@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions targetNamespace="http://com.tcs.bancs.rm/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://com.tcs.bancs.rm/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <types>
+    <xsd:schema>
+      <xsd:import namespace="http://com.tcs.bancs.rm/schemas/" schemaLocation="BeneficiaryReferenceServicePortType_schema1.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://com.tcs.bancs.rm/header/" schemaLocation="BeneficiaryReferenceServicePortType_schema2.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://com.tcs.bancs.rm/fault/" schemaLocation="BeneficiaryReferenceServicePortType_schema3.xsd"/>
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import namespace="http://com.tcs.bancs.rm/" schemaLocation="BeneficiaryReferenceServicePortType_schema4.xsd"/>
+    </xsd:schema>
+  </types>
+  <message name="RetrieveAgents">
+    <part name="body" element="tns:RetrieveAgentsRequest">
+    </part>
+  </message>
+  <message name="RetrieveAgentTypeCurrency">
+    <part name="body" element="tns:RetrieveAgentTypeCurrencyRequest">
+    </part>
+  </message>
+  <message name="RetrieveMGDynamicFields">
+    <part name="body" element="tns:RetrieveMGDynamicFieldsRequest">
+    </part>
+  </message>
+  <message name="RetrieveAgentTypeCurrencyResponse">
+    <part name="body" element="tns:RetrieveAgentTypeCurrencyResponse">
+    </part>
+  </message>
+  <message name="RetrieveDeliveryTypes">
+    <part name="body" element="tns:RetrieveDeliveryTypesRequest">
+    </part>
+  </message>
+  <message name="RetrieveBranchCurrency">
+    <part name="body" element="tns:RetrieveBranchCurrencyRequest">
+    </part>
+  </message>
+  <message name="RetrieveDirCourierResponse">
+    <part name="body" element="tns:RetrieveDirCourierResponse">
+    </part>
+  </message>
+  <message name="RetrieveMGAgents">
+    <part name="body" element="tns:RetrieveMGAgentsRequest">
+    </part>
+  </message>
+  <message name="RetrieveLocationCurrencyResponse">
+    <part name="body" element="tns:RetrieveLocationCurrencyResponse">
+    </part>
+  </message>
+  <message name="RetrieveMGAgentsResponse">
+    <part name="body" element="tns:RetrieveMGAgentsResponse">
+    </part>
+  </message>
+  <message name="RetrieveCities">
+    <part name="body" element="tns:RetrieveCitiesRequest">
+    </part>
+  </message>
+  <message name="RetrieveCourierCurrencyResponse">
+    <part name="body" element="tns:RetrieveCourierCurrencyResponse">
+    </part>
+  </message>
+  <message name="RetrieveDirCourierCurrencyResponse">
+    <part name="body" element="tns:RetrieveDirCourierCurrencyResponse">
+    </part>
+  </message>
+  <message name="RetrieveLocationsResponse">
+    <part name="body" element="tns:RetrieveLocationsResponse">
+    </part>
+  </message>
+  <message name="RetrieveCountries">
+    <part name="body" element="tns:RetrieveCountriesRequest">
+    </part>
+  </message>
+  <message name="RetrieveCountriesResponse">
+    <part name="body" element="tns:RetrieveCountriesResponse">
+    </part>
+  </message>
+  <message name="RetrieveLocationCurrency">
+    <part name="body" element="tns:RetrieveLocationCurrencyRequest">
+    </part>
+  </message>
+  <message name="RetrieveMGDeliveryTypes">
+    <part name="body" element="tns:RetrieveMGDeliveryTypesRequest">
+    </part>
+  </message>
+  <message name="RetrieveAgentsResponse">
+    <part name="body" element="tns:RetrieveAgentsResponse">
+    </part>
+  </message>
+  <message name="RetrieveMGDynamicFieldsResponse">
+    <part name="body" element="tns:RetrieveMGDynamicFieldsResponse">
+    </part>
+  </message>
+  <message name="RetrieveBranches">
+    <part name="body" element="tns:RetrieveBranchesRequest">
+    </part>
+  </message>
+  <message name="RetrieveBanks">
+    <part name="body" element="tns:RetrieveBanksRequest">
+    </part>
+  </message>
+  <message name="RetrieveMGCurrency">
+    <part name="body" element="tns:RetrieveMGCurrencyRequest">
+    </part>
+  </message>
+  <message name="RetrieveCourierResponse">
+    <part name="body" element="tns:RetrieveCourierResponse">
+    </part>
+  </message>
+  <message name="RetrieveCourierCurrency">
+    <part name="body" element="tns:RetrieveCourierCurrencyRequest">
+    </part>
+  </message>
+  <message name="RetrieveMGDeliveryTypesResponse">
+    <part name="body" element="tns:RetrieveMGDeliveryTypesResponse">
+    </part>
+  </message>
+  <message name="RetrieveDeliveryTypesResponse">
+    <part name="body" element="tns:RetrieveDeliveryTypesResponse">
+    </part>
+  </message>
+  <message name="RetrieveDirCourierCurrency">
+    <part name="body" element="tns:RetrieveDirCourierCurrencyRequest">
+    </part>
+  </message>
+  <message name="RetrieveBranchesResponse">
+    <part name="body" element="tns:RetrieveBranchesResponse">
+    </part>
+  </message>
+  <message name="RetrieveCitiesResponse">
+    <part name="body" element="tns:RetrieveCitiesResponse">
+    </part>
+  </message>
+  <message name="RetrieveMGCurrencyResponse">
+    <part name="body" element="tns:RetrieveMGCurrencyResponse">
+    </part>
+  </message>
+  <message name="RetrieveStates">
+    <part name="body" element="tns:RetrieveStatesRequest">
+    </part>
+  </message>
+  <message name="RetrieveCourier">
+    <part name="body" element="tns:RetrieveCourierRequest">
+    </part>
+  </message>
+  <message name="RetrieveDirCourier">
+    <part name="body" element="tns:RetrieveDirCourierRequest">
+    </part>
+  </message>
+  <message name="RetrieveBranchCurrencyResponse">
+    <part name="body" element="tns:RetrieveBranchCurrencyResponse">
+    </part>
+  </message>
+  <message name="RetrieveStatesResponse">
+    <part name="body" element="tns:RetrieveStatesResponse">
+    </part>
+  </message>
+  <message name="RetrieveBanksResponse">
+    <part name="body" element="tns:RetrieveBanksResponse">
+    </part>
+  </message>
+  <message name="RetrieveLocations">
+    <part name="body" element="tns:RetrieveLocationsRequest">
+    </part>
+  </message>
+  <portType name="BeneficiaryReferenceService">
+    <operation name="RetrieveCountries">
+      <input message="tns:RetrieveCountries" ns1:Action="http://com.tcs.bancs.rm/RetrieveCountries">
+    </input>
+      <output message="tns:RetrieveCountriesResponse" ns1:Action="http://com.tcs.bancs.rm/BeneficiaryReferenceService/RetrieveCountriesResponse">
+    </output>
+    </operation>
+    <operation name="RetrieveDeliveryTypes">
+      <input message="tns:RetrieveDeliveryTypes" ns1:Action="http://com.tcs.bancs.rm/RetrieveDeliveryTypes">
+    </input>
+      <output message="tns:RetrieveDeliveryTypesResponse" ns1:Action="http://com.tcs.bancs.rm/BeneficiaryReferenceService/RetrieveDeliveryTypesResponse">
+    </output>
+    </operation>
+    <operation name="RetrieveStates">
+      <input message="tns:RetrieveStates" ns1:Action="http://com.tcs.bancs.rm/RetrieveStates">
+    </input>
+      <output message="tns:RetrieveStatesResponse" ns1:Action="http://com.tcs.bancs.rm/BeneficiaryReferenceService/RetrieveStatesResponse">
+    </output>
+    </operation>
+    <operation name="RetrieveCities">
+      <input message="tns:RetrieveCities" ns1:Action="http://com.tcs.bancs.rm/RetrieveCities">
+    </input>
+      <output message="tns:RetrieveCitiesResponse" ns1:Action="http://com.tcs.bancs.rm/BeneficiaryReferenceService/RetrieveCitiesResponse">
+    </output>
+    </operation>
+    <operation name="RetrieveBanks">
+      <input message="tns:RetrieveBanks" ns1:Action="http://com.tcs.bancs.rm/RetrieveBanks">
+    </input>
+      <output message="tns:RetrieveBanksResponse" ns1:Action="http://com.tcs.bancs.rm/BeneficiaryReferenceService/RetrieveBanksResponse">
+    </output>
+    </operation>
+    <operation name="RetrieveBranches">
+      <input message="tns:RetrieveBranches" ns1:Action="http://com.tcs.bancs.rm/RetrieveBranches">
+    </input>
+      <output message="tns:RetrieveBranchesResponse" ns1:Action="http://com.tcs.bancs.rm/BeneficiaryReferenceService/RetrieveBranchesResponse">
+    </output>
+    </operation>
+    <operation name="RetrieveBranchCurrency">
+      <input message="tns:RetrieveBranchCurrency" ns1:Action="http://com.tcs.bancs.rm/RetrieveBranchCurrency">
+    </input>
+      <output message="tns:RetrieveBranchCurrencyResponse" ns1:Action="http://com.tcs.bancs.rm/BeneficiaryReferenceService/RetrieveBranchCurrencyResponse">
+    </output>
+    </operation>
+    <operation name="RetrieveAgents">
+      <input message="tns:RetrieveAgents" ns1:Action="http://com.tcs.bancs.rm/RetrieveAgents">
+    </input>
+      <output message="tns:RetrieveAgentsResponse" ns1:Action="http://com.tcs.bancs.rm/BeneficiaryReferenceService/RetrieveAgentsResponse">
+    </output>
+    </operation>
+    <operation name="RetrieveCourier">
+      <input message="tns:RetrieveCourier" ns1:Action="http://com.tcs.bancs.rm/RetrieveCourier">
+    </input>
+      <output message="tns:RetrieveCourierResponse" ns1:Action="http://com.tcs.bancs.rm/BeneficiaryReferenceService/RetrieveCourierResponse">
+    </output>
+    </operation>
+    <operation name="RetrieveCourierCurrency">
+      <input message="tns:RetrieveCourierCurrency" ns1:Action="http://com.tcs.bancs.rm/RetrieveCourierCurrency">
+    </input>
+      <output message="tns:RetrieveCourierCurrencyResponse" ns1:Action="http://com.tcs.bancs.rm/BeneficiaryReferenceService/RetrieveCourierCurrencyResponse">
+    </output>
+    </operation>
+    <operation name="RetrieveDirCourier">
+      <input message="tns:RetrieveDirCourier" ns1:Action="http://com.tcs.bancs.rm/RetrieveDirCourier">
+    </input>
+      <output message="tns:RetrieveDirCourierResponse" ns1:Action="http://com.tcs.bancs.rm/BeneficiaryReferenceService/RetrieveDirCourierResponse">
+    </output>
+    </operation>
+    <operation name="RetrieveDirCourierCurrency">
+      <input message="tns:RetrieveDirCourierCurrency" ns1:Action="http://com.tcs.bancs.rm/RetrieveDirCourierCurrency">
+    </input>
+      <output message="tns:RetrieveDirCourierCurrencyResponse" ns1:Action="http://com.tcs.bancs.rm/BeneficiaryReferenceService/RetrieveDirCourierCurrencyResponse">
+    </output>
+    </operation>
+    <operation name="RetrieveLocations">
+      <input message="tns:RetrieveLocations" ns1:Action="http://com.tcs.bancs.rm/RetrieveLocations">
+    </input>
+      <output message="tns:RetrieveLocationsResponse" ns1:Action="http://com.tcs.bancs.rm/BeneficiaryReferenceService/RetrieveLocationsResponse">
+    </output>
+    </operation>
+    <operation name="RetrieveLocationCurrency">
+      <input message="tns:RetrieveLocationCurrency" ns1:Action="http://com.tcs.bancs.rm/RetrieveLocationCurrency">
+    </input>
+      <output message="tns:RetrieveLocationCurrencyResponse" ns1:Action="http://com.tcs.bancs.rm/BeneficiaryReferenceService/RetrieveLocationCurrencyResponse">
+    </output>
+    </operation>
+    <operation name="RetrieveMGAgents">
+      <input message="tns:RetrieveMGAgents" ns1:Action="http://com.tcs.bancs.rm/RetrieveMGAgents">
+    </input>
+      <output message="tns:RetrieveMGAgentsResponse" ns1:Action="http://com.tcs.bancs.rm/BeneficiaryReferenceService/RetrieveMGAgentsResponse">
+    </output>
+    </operation>
+    <operation name="RetrieveMGCurrency">
+      <input message="tns:RetrieveMGCurrency" ns1:Action="http://com.tcs.bancs.rm/RetrieveMGCurrency">
+    </input>
+      <output message="tns:RetrieveMGCurrencyResponse" ns1:Action="http://com.tcs.bancs.rm/BeneficiaryReferenceService/RetrieveMGCurrencyResponse">
+    </output>
+    </operation>
+    <operation name="RetrieveAgentTypeCurrency">
+      <input message="tns:RetrieveAgentTypeCurrency" ns1:Action="http://com.tcs.bancs.rm/RetrieveAgentTypeCurrency">
+    </input>
+      <output message="tns:RetrieveAgentTypeCurrencyResponse" ns1:Action="http://com.tcs.bancs.rm/BeneficiaryReferenceService/RetrieveAgentTypeCurrencyResponse">
+    </output>
+    </operation>
+    <operation name="RetrieveMGDynamicFields">
+      <input message="tns:RetrieveMGDynamicFields" ns1:Action="http://com.tcs.bancs.rm/RetrieveMGDynamicFields">
+    </input>
+      <output message="tns:RetrieveMGDynamicFieldsResponse" ns1:Action="http://com.tcs.bancs.rm/BeneficiaryReferenceService/RetrieveMGDynamicFieldsResponse">
+    </output>
+    </operation>
+    <operation name="RetrieveMGDeliveryTypes">
+      <input message="tns:RetrieveMGDeliveryTypes" ns1:Action="http://com.tcs.bancs.rm/RetrieveMGDeliveryTypes">
+    </input>
+      <output message="tns:RetrieveMGDeliveryTypesResponse" ns1:Action="http://com.tcs.bancs.rm/BeneficiaryReferenceService/RetrieveMGDeliveryTypesResponse">
+    </output>
+    </operation>
+  </portType>
+</definitions>

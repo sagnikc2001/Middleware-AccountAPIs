@@ -234,6 +234,8 @@ public class BANCSDBConnectorImplDao {
 			} else {
 				oStatus.put("updateStatus", false);
 			}
+			
+			oStatus.put("accntNumber1", accntNumber1);
 
 			return oUpdateAccountStatusResponseNode;
 

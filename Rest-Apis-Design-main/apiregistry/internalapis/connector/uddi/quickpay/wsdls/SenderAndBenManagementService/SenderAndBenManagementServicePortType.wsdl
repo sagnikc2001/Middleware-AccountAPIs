@@ -1,0 +1,104 @@
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://com.tcs.bancs.rm/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.tcs.bancs.rm/">
+<types>
+<xsd:schema>
+<xsd:import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" schemaLocation="SenderAndBenManagementServicePortType_schema1.xsd"/>
+</xsd:schema>
+<xsd:schema>
+<xsd:import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="SenderAndBenManagementServicePortType_schema2.xsd"/>
+</xsd:schema>
+<xsd:schema>
+<xsd:import namespace="http://com.tcs.bancs.rm/schemas/" schemaLocation="SenderAndBenManagementServicePortType_schema3.xsd"/>
+</xsd:schema>
+<xsd:schema>
+<xsd:import namespace="http://com.tcs.bancs.rm/header/" schemaLocation="SenderAndBenManagementServicePortType_schema4.xsd"/>
+</xsd:schema>
+<xsd:schema>
+<xsd:import namespace="http://com.tcs.bancs.rm/fault/" schemaLocation="SenderAndBenManagementServicePortType_schema5.xsd"/>
+</xsd:schema>
+<xsd:schema>
+<xsd:import namespace="http://com.tcs.bancs.rm/" schemaLocation="SenderAndBenManagementServicePortType_schema6.xsd"/>
+</xsd:schema>
+</types>
+<message name="ModifyBeneficiaryResponse">
+<part name="body" element="tns:ModifyBeneficiaryResponse"> </part>
+</message>
+<message name="RetrieveSender">
+<part name="body" element="tns:RetrieveSenderRequest"> </part>
+</message>
+<message name="RetrieveBeneficiaryResponse">
+<part name="body" element="tns:RetrieveBeneficiaryResponse"> </part>
+</message>
+<message name="AddBeneficiaryResponse">
+<part name="body" element="tns:AddBeneficiaryResponse"> </part>
+</message>
+<message name="ActivateBeneficiary">
+<part name="body" element="tns:ActivateBeneficiaryRequest"> </part>
+</message>
+<message name="DeleteBeneficiary">
+<part name="body" element="tns:DeleteBeneficiaryRequest"> </part>
+</message>
+<message name="AddSenderResponse">
+<part name="body" element="tns:AddSenderResponse"> </part>
+</message>
+<message name="ActivateSender">
+<part name="body" element="tns:ActivateSenderRequest"> </part>
+</message>
+<message name="AddSender">
+<part name="body" element="tns:AddSenderRequest"> </part>
+</message>
+<message name="RetrieveBeneficiary">
+<part name="body" element="tns:RetrieveBeneficiaryRequest"> </part>
+</message>
+<message name="ModifyBeneficiary">
+<part name="body" element="tns:ModifyBeneficiaryRequest"> </part>
+</message>
+<message name="RetrieveSenderResponse">
+<part name="body" element="tns:RetrieveSenderResponse"> </part>
+</message>
+<message name="ActivateSenderResponse">
+<part name="body" element="tns:ActivateSenderResponse"> </part>
+</message>
+<message name="DeleteBeneficiaryResponse">
+<part name="body" element="tns:DeleteBeneficiaryResponse"> </part>
+</message>
+<message name="ActivateBeneficiaryResponse">
+<part name="body" element="tns:ActivateBeneficiaryResponse"> </part>
+</message>
+<message name="AddBeneficiary">
+<part name="body" element="tns:AddBeneficiaryRequest"> </part>
+</message>
+<portType name="SenderAndBenManagementService">
+<operation name="AddSender">
+<input message="tns:AddSender" ns1:Action="http://com.tcs.bancs.rm/AddSender"> </input>
+<output message="tns:AddSenderResponse" ns1:Action="http://com.tcs.bancs.rm/SenderAndBenManagementService/AddSenderResponse"> </output>
+</operation>
+<operation name="ActivateSender">
+<input message="tns:ActivateSender" ns1:Action="http://com.tcs.bancs.rm/ActivateSender"> </input>
+<output message="tns:ActivateSenderResponse" ns1:Action="http://com.tcs.bancs.rm/SenderAndBenManagementService/ActivateSenderResponse"> </output>
+</operation>
+<operation name="RetrieveSender">
+<input message="tns:RetrieveSender" ns1:Action="http://com.tcs.bancs.rm/RetrieveSender"> </input>
+<output message="tns:RetrieveSenderResponse" ns1:Action="http://com.tcs.bancs.rm/SenderAndBenManagementService/RetrieveSenderResponse"> </output>
+</operation>
+<operation name="AddBeneficiary">
+<input message="tns:AddBeneficiary" ns1:Action="http://com.tcs.bancs.rm/AddBeneficiary"> </input>
+<output message="tns:AddBeneficiaryResponse" ns1:Action="http://com.tcs.bancs.rm/SenderAndBenManagementService/AddBeneficiaryResponse"> </output>
+</operation>
+<operation name="ActivateBeneficiary">
+<input message="tns:ActivateBeneficiary" ns1:Action="http://com.tcs.bancs.rm/ActivateBeneficiary"> </input>
+<output message="tns:ActivateBeneficiaryResponse" ns1:Action="http://com.tcs.bancs.rm/SenderAndBenManagementService/ActivateBeneficiaryResponse"> </output>
+</operation>
+<operation name="RetrieveBeneficiary">
+<input message="tns:RetrieveBeneficiary" ns1:Action="http://com.tcs.bancs.rm/RetrieveBeneficiary"> </input>
+<output message="tns:RetrieveBeneficiaryResponse" ns1:Action="http://com.tcs.bancs.rm/SenderAndBenManagementService/RetrieveBeneficiaryResponse"> </output>
+</operation>
+<operation name="ModifyBeneficiary">
+<input message="tns:ModifyBeneficiary" ns1:Action="http://com.tcs.bancs.rm/ModifyBeneficiary"> </input>
+<output message="tns:ModifyBeneficiaryResponse" ns1:Action="http://com.tcs.bancs.rm/SenderAndBenManagementService/ModifyBeneficiaryResponse"> </output>
+</operation>
+<operation name="DeleteBeneficiary">
+<input message="tns:DeleteBeneficiary" ns1:Action="http://com.tcs.bancs.rm/DeleteBeneficiary"> </input>
+<output message="tns:DeleteBeneficiaryResponse" ns1:Action="http://com.tcs.bancs.rm/SenderAndBenManagementService/DeleteBeneficiaryResponse"> </output>
+</operation>
+</portType>
+</definitions>

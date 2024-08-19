@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://com.tcs.bancs.rm/TransactionInquiryService"
+	elementFormDefault="qualified"
+	xmlns:tns="http://com.tcs.bancs.rm/TransactionInquiryService"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fault="http://com.tcs.bancs.rm/fault/"
+	xmlns:Q1="http://com.tcs.bancs.rm/schemas/">
+	<xsd:import namespace="http://com.tcs.bancs.rm/fault/"
+		schemaLocation="./fault.xsd"/>
+	<xsd:import namespace="http://com.tcs.bancs.rm/schemas/" schemaLocation="./SenderAndBenMgmtSchemas.xsd"/>
+
+	<xsd:element name="StatusInquiryRequest">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="custCif" type="Q1:custCif" maxOccurs="1" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Customer Number</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="numberOfTransaction" default="10" type="xsd:int" maxOccurs="1" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Enter number of transaction which needs to be fetched
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="transactionType" type="xsd:string" maxOccurs="1" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+							Select Type of transaction, Quickpay, XpressMoney and ALL
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="pageNumber" default="1" type="xsd:int" maxOccurs="1" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Enter Page number needs to be fetched
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="bankRefNo" type="xsd:string" maxOccurs="1" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Bank referrence number</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="senderID" type="xsd:string" maxOccurs="1" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Sender Identification number</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="fromDate" type="Q1:date" maxOccurs="1" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Enter from Date
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="toDate" type="Q1:date" maxOccurs="1" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Enter to Date
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="StatusInquiryResponse">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element maxOccurs="1" minOccurs="1" ref="tns:StatusLists"/>
+				<xsd:element maxOccurs="1" minOccurs="0" ref="fault:fault"/>
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="StatusLists">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="statusInfo" type="tns:statusInfoType" maxOccurs="unbounded" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="statusInfoType">
+		<xsd:all>
+			<xsd:element name="custCif" type="Q1:custCif" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="remittanceDate" type="Q1:date" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="remittanceTime" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="beneficiaryFirstName" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="beneficiaryMiddleName" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="beneficiaryLastName" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="bankRefNumber" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="pickupCode" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="remittanceAmount" type="tns:Amount" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="transactionStatus" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="accountNumber" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="exchangeRate" type="tns:Amount" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="feeAmount" type="tns:Amount" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="destinationAmount" type="tns:Amount" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="duefromCustomer" type="tns:Amount" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="destinationAmountCurrency" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="transferAmountCurrency" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="samaStatus" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="correspondentGLAccountNumber" type="xsd:string" maxOccurs="1" minOccurs="0" />
+		</xsd:all>
+	</xsd:complexType>
+	
+	<xsd:element name="DetailInquiryRequest">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="custCif" type="Q1:custCif" maxOccurs="1" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Customer Number</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="numberOfTransaction" default="10" type="xsd:int" maxOccurs="1" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Enter number of transaction which needs to be fetched
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="transactionType" type="xsd:string" maxOccurs="1" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+							Select Type of transaction, Quickpay, XpressMoney and ALL
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="pageNumber" default="1" type="xsd:int" maxOccurs="1" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Enter Page number needs to be fetched
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="bankRefNo" type="xsd:string" maxOccurs="1" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Bank referrence number</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="senderID" type="xsd:string" maxOccurs="1" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Sender Identification number</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="fromDate" type="Q1:date" maxOccurs="1" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Enter from Date
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="toDate" type="Q1:date" maxOccurs="1" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Enter to Date
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="DetailInquiryResponse">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element ref="tns:transactionLists" maxOccurs="1" minOccurs="0"/>
+				<xsd:element maxOccurs="1" minOccurs="0" ref="fault:fault"/>
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+	
+		<xsd:element name="TransactionEnquiryRequest">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="custCif" type="Q1:custCif" maxOccurs="1" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Customer Number</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="senderID" type="xsd:string" maxOccurs="1" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Sender Identification number</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="bankRefNo" type="xsd:string" maxOccurs="1" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Bank referrence number</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="bankRefNoFrom" type="xsd:string" maxOccurs="1" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Bank referrence number from</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="bankRefNoTo" type="xsd:string" maxOccurs="1" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Bank referrence number to</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="numberOfTransaction" default="10" type="xsd:int" maxOccurs="1" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Enter number of transaction which needs to be fetched
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="transactionType" type="xsd:string" maxOccurs="1" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>
+							Select Type of transaction, Quickpay, XpressMoney and ALL
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="pageNumber" default="1" type="xsd:int" maxOccurs="1" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Enter Page number needs to be fetched
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="fromDate" type="Q1:date" maxOccurs="1" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Enter from Date
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="toDate" type="Q1:date" maxOccurs="1" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Enter to Date
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="samaStatusType" type="tns:SamaStatusType" maxOccurs="1" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+							Select Type of sama status, Dormant, Unclaimed and Abandoned
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="TransactionEnquiryResponse">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="recordCount" type="xsd:int" maxOccurs="1" minOccurs="0" />
+				<xsd:element ref="tns:remittanceTxnLists" maxOccurs="1" minOccurs="0"/>
+				<xsd:element maxOccurs="1" minOccurs="0" ref="fault:fault"/>
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="transactionLists">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="transactionInfoType" type="tns:transactionInfoType" maxOccurs="unbounded" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="transactionInfoType">
+		<xsd:all>
+			<xsd:element name="accountNumber" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="custCif" type="Q1:custCif" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="remittanceDate" type="Q1:date" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="remittanceTime" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="senderId" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="beneficiaryId" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="correspondentId" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="beneficiaryFirstName" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="beneficiaryMiddleName" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="beneficiaryLastName" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="bankRefNumber" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="payQuickRefNumber" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="deliveryType" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="pickupCode" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="remittanceAmount" type="tns:Amount" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="feeAmount" type="tns:Amount" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="destinationAmount" type="tns:Amount" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="duefromCustomer" type="tns:Amount" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="dnetCharge" type="tns:Amount" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="spreadRate" type="tns:Amount" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="teller" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="destinationDnetCharge" type="tns:Amount" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="transactionStatus" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="exchangeRate" type="tns:Amount" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="gainLossAmount" type="tns:Amount" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="channel" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="journal1" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="journal2" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="correctionJournal1" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="correctionJournal2" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="tranRecordNumber" type="xsd:int" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="destinationAmountCurrency" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="dnetType" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="samaStatus" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="correspondentGLAccountNumber" type="xsd:string" maxOccurs="1" minOccurs="0" />
+		</xsd:all>
+	</xsd:complexType>
+	
+	<xsd:element name="remittanceTxnLists">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="remittanceTxnInfoType" type="tns:remittanceTxnInfoType" maxOccurs="unbounded" minOccurs="0"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="remittanceTxnInfoType">
+		<xsd:all>
+			<xsd:element name="accountNumber" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="custCif" type="Q1:custCif" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="remittanceDate" type="Q1:date" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="remittanceTime" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="senderId" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="beneficiaryId" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="correspondentId" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="beneficiaryFirstName" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="beneficiaryMiddleName" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="beneficiaryLastName" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="bankRefNumber" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="payQuickRefNumber" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="deliveryType" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="pickupCode" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="remittanceAmount" type="tns:Amount" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="feeAmount" type="tns:Amount" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="destinationAmount" type="tns:Amount" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="duefromCustomer" type="tns:Amount" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="dnetCharge" type="tns:Amount" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="spreadRate" type="tns:Amount" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="teller" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="destinationDnetCharge" type="tns:Amount" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="transactionStatus" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="exchangeRate" type="tns:Amount" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="gainLossAmount" type="tns:Amount" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="channel" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="journal1" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="journal2" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="correctionJournal1" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="correctionJournal2" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="tranRecordNumber" type="xsd:int" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="destinationAmountCurrency" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="dnetType" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="samaStatus" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="samaStatusLastUpdatedDate" type="Q1:date" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="samaCurrency" type="Q1:isoCurrencyCode" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="samaAuxBglAcntNumber" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="eligibleAmount" type="tns:Amount" maxOccurs="1" minOccurs="0" />
+		</xsd:all>
+	</xsd:complexType>
+	
+	<xsd:simpleType name="Amount">
+		<xsd:annotation>
+			<xsd:documentation>
+				This element represents amount of money in the
+				format xxxx.xxx or -xxxx.xxx.
+				It can have maximum 15 decimal places
+				and can have 18 total digits.
+				Valid values are : 232334.454 ,
+				65717171772372.5562 etc
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+			<xsd:fractionDigits value="15" />
+			<xsd:totalDigits value="18" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="SamaStatusType">
+		<xsd:restriction base = "xsd:string">
+			<xsd:enumeration value = "ACTIVE"/>
+			<xsd:enumeration value = "DORMANT"/>
+			<xsd:enumeration value = "UNCLAIMED"/>
+			<xsd:enumeration value = "ABANDONED"/>
+			<xsd:enumeration value = "CLOSED"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	
+</xsd:schema>

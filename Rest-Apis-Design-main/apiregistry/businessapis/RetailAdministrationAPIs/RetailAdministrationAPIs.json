@@ -1,0 +1,6339 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "MW RetailAdminstration APIs",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://mw-api-3scale-apicast-staging.apps.com:443/api/retailadminstration"
+    }
+  ],
+  "paths": {
+    "/GetAOLUserInformation": {
+      "post": {
+        "tags": [
+          "RetailAdministration APIs Stage"
+        ],
+        "summary": "GetAOLUserInformation",
+        "operationId": "GetAOLUserInformation",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/GetAOLUserInformationRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/GetAOLUserInformationResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/GetRetailBeneficiaryList": {
+      "post": {
+        "tags": [
+          "RetailAdministration APIs"
+        ],
+        "description": "GetRetailBeneficiaryList",
+        "operationId": "GetRetailBeneficiaryList",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT bearer token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "having channel details , locale",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetRetailBeneficiaryListRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetRetailBeneficiaryListResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetRetailBeneficiaryListResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized Request"
+          },
+          "404": {
+            "description": "404 API Not Found"
+          },
+          "405": {
+            "description": "405 Method Not Allowed"
+          },
+          "429": {
+            "description": "429 Too Many Requests"
+          },
+          "500": {
+            "description": "500 Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetRetailBeneficiaryListResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503 Service Unavailable"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ActivateRetailServiceLevel": {
+      "post": {
+        "tags": [
+          "RetailAdministration APIs Stage"
+        ],
+        "summary": "ActivateRetailServiceLevel",
+        "operationId": "ActivateRetailServiceLevel",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ActivateRetailServiceLevelRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ActivateRetailServiceLevelResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/AuthenticateMobileBankingLogin": {
+      "post": {
+        "tags": [
+          "RetailAdministration APIs Stage"
+        ],
+        "summary": "AuthenticateMobileBankingLogin",
+        "operationId": "AuthenticateMobileBankingLogin",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/AuthenticateMobileBankingLoginRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/AuthenticateMobileBankingLoginResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ActivateRetailBeneficiary": {
+      "post": {
+        "tags": [
+          "RetailAdministration APIs Stage"
+        ],
+        "summary": "ActivateRetailBeneficiary",
+        "operationId": "ActivateRetailBeneficiary",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ActivateRetailBeneficiaryRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ActivateRetailBeneficiaryResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ActivateRetailPassword": {
+      "post": {
+        "tags": [
+          "RetailAdministration APIs Stage"
+        ],
+        "summary": "ActivateRetailPassword",
+        "operationId": "ActivateRetailPassword",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ActivateRetailPasswordRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ActivateRetailPasswordResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/GetBeneficiary": {
+      "post": {
+        "tags": [
+          "RetailAdministration APIs"
+        ],
+        "description": "GetBeneficiary",
+        "operationId": "GetBeneficiary",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT bearer token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "having channel details , locale",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BeneficiaryRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BeneficiaryResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BeneficiaryResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized Request"
+          },
+          "404": {
+            "description": "404 API Not Found"
+          },
+          "405": {
+            "description": "405 Method Not Allowed"
+          },
+          "429": {
+            "description": "429 Too Many Requests"
+          },
+          "500": {
+            "description": "500 Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BeneficiaryResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503 Service Unavailable"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/UpdateMobileBeneficiary": {
+      "post": {
+        "tags": [
+          "RetailAdministration APIs"
+        ],
+        "description": "This api is used to update Mobile Beneficiary",
+        "operationId": "UpdateMobileBeneficiary",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT bearer token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateMobileBeneficiaryRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateMobileBeneficiaryResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateMobileBeneficiaryResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized Request"
+          },
+          "404": {
+            "description": "404 API Not Found"
+          },
+          "405": {
+            "description": "405 Method Not Allowed"
+          },
+          "429": {
+            "description": "429 Too Many Requests"
+          },
+          "500": {
+            "description": "500 Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateMobileBeneficiaryResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503 Service Unavailable"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/RegisterMobileUser": {
+      "post": {
+        "tags": [
+          "RetailAdministration APIs Stage"
+        ],
+        "summary": "RegisterMobileUser",
+        "operationId": "RegisterMobileUser",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/RegisterMobileUserRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/RegisterMobileUserResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/UpdateMOIBeneficiary": {
+      "post": {
+        "tags": [
+          "RetailAdministration APIs Stage"
+        ],
+        "summary": "UpdateMOIBeneficiary",
+        "operationId": "UpdateMOIBeneficiary",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/UpdateMOIBeneficiaryRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/UpdateMOIBeneficiaryResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/GetBeneficiaryListDetails": {
+      "post": {
+        "tags": [
+          "RetailAdministration APIs Stage"
+        ],
+        "summary": "GetBeneficiaryListDetails",
+        "operationId": "GetBeneficiaryListDetails",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/BeneficiaryListDetailsRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/BeneficiaryListDetailsResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/GetPayersByUser": {
+      "post": {
+        "tags": [
+          "RetailAdministration APIs Stage"
+        ],
+        "summary": "GetPayersByUser",
+        "operationId": "GetPayersByUser",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/GetPayersByUserRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/GetPayersByUserResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/GetIntraBeneficiaryList": {
+      "post": {
+        "tags": [
+          "RetailAdministration APIs Stage"
+        ],
+        "summary": "GetIntraBeneficiaryList",
+        "operationId": "GetIntraBeneficiaryList",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/GetIntraBeneficiaryListRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/GetIntraBeneficiaryListResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/GetUserInfoByToken": {
+      "post": {
+        "tags": [
+          "RetailAdministration APIs Stage"
+        ],
+        "summary": "GetUserInfoByToken",
+        "description": "Integration between AlahliOnline and eGain chat. In order to validate the Token, a Rest service is required. After call the service, if the token is correct, this will return the username and CIF",
+        "operationId": "GetUserInfoByToken",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/UserInfoByTokenRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/UserInfoByTokenResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/MaintainPayers": {
+      "post": {
+        "tags": [
+          "RetailAdministration APIs Stage"
+        ],
+        "summary": "MaintainPayers",
+        "operationId": "MaintainPayers",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/MaintainPayersRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/MaintainPayersResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/InquireActivateCorpBeneficiary": {
+      "post": {
+        "tags": [
+          "RetailAdministration APIs Stage"
+        ],
+        "summary": "InquireActivateCorpBeneficiary",
+        "operationId": "InquireActivateCorpBeneficiary",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/InquireActivateCorpBeneficiaryRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/InquireActivateCorpBeneficiaryResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/RetailBeneficiaryActivation": {
+      "post": {
+        "tags": [
+          "RetailAdministration APIs Stage"
+        ],
+        "summary": "RetailBeneficiaryActivation",
+        "operationId": "RetailBeneficiaryActivation",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/RetailBeneficiaryActivationRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/RetailBeneficiaryActivationResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/CorporateBeneficiaryActivation": {
+      "post": {
+        "tags": [
+          "RetailAdministration APIs Stage"
+        ],
+        "summary": "CorporateBeneficiaryActivation",
+        "operationId": "CorporateBeneficiaryActivation",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/CorporateBeneficiaryActivationRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/CorporateBeneficiaryActivationResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/UpdateCorporateBeneMigrationStatus": {
+      "post": {
+        "tags": [
+          "RetailAdministration APIs Stage"
+        ],
+        "summary": "UpdateCorporateBeneMigrationStatus",
+        "operationId": "UpdateCorporateBeneMigrationStatus",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/UpdateCorporateBeneMigrationStatusRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/UpdateCorporateBeneMigrationStatusResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/InquireCorporateBeneMigrationStatus": {
+      "post": {
+        "tags": [
+          "RetailAdministration APIs Stage"
+        ],
+        "summary": "InquireCorporateBeneMigrationStatus",
+        "operationId": "InquireCorporateBeneMigrationStatus",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/InquireCorporateBeneMigrationStatusRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/InquireCorporateBeneMigrationStatusResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/GetCorporateUtilityBillList": {
+      "post": {
+        "tags": [
+          "RetailAdministration APIs Stage"
+        ],
+        "summary": "GetCorporateUtilityBillList",
+        "operationId": "GetCorporateUtilityBillList",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/GetCorporateUtilityBillListRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/GetCorporateUtilityBillListResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ManageCorporateSadadBill": {
+      "post": {
+        "tags": [
+          "RetailAdministration APIs Stage"
+        ],
+        "summary": "ManageCorporateSadadBill",
+        "operationId": "ManageCorporateSadadBill",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ManageCorporateSadadBillRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ManageCorporateSadadBillResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "tns_AOLUserInformationRequest": {
+        "title": "tns_AOLUserInformationRequest",
+        "required": [
+          "cif",
+          "incomingType"
+        ],
+        "type": "object",
+        "properties": {
+          "cif": {
+            "pattern": "([0-9]){14}|([0]){1}",
+            "type": "string",
+            "description": "CIF Is Customer Information Number"
+          },
+          "userId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "incomingType": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_incomingType"
+              },
+              {
+                "description": "Can be: USERINFO, USERID, LINKSERVICE"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_AOLUserInformationResponse": {
+        "title": "tns_AOLUserInformationResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_AOLUserInformationType"
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "../../commonschemas/fault.json#/FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "RetailBeneficiaryListRequestType": {
+        "title": "RetailBeneficiaryListRequestType",
+        "required": [
+          "userName"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/type",
+            "description": "Beneficiary Types\r\n\t\t\t\t\t\t\tUSERINFO\r\n\t\t\t\t\t\t\tCURRENT ( defult)\r\n\t\t\t\t\t\t\tSADAD\r\n\t\t\t\t\t\t\tSAWA\r\n\t\t\t\t\t\t\tWALLET"
+          },
+          "userName": {
+            "type": "string",
+            "description": "User Name"
+          },
+          "status": {
+            "$ref": "#/components/schemas/status",
+            "description": "This field helps to find Active or All beneficiaries."
+          }
+        },
+        "description": ""
+      },
+      "RetailBeneficiaryListResponseType": {
+        "title": "RetailBeneficiaryListResponseType",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/RetailBeneficiaryListServiceType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "RetailBeneficiaryListServiceType": {
+        "title": "RetailBeneficiaryListServiceType",
+        "type": "object",
+        "properties": {
+          "sadadRecord": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RetailBeneficiaryListType"
+            },
+            "description": "Success Indication tag (generated successfully )"
+          },
+          "sawaRecord": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SawaRecordTypes"
+            },
+            "description": ""
+          },
+          "walletRecord": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CurrentWalletRecordType"
+            },
+            "description": ""
+          },
+          "currentRecord": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CurrentWalletRecordType"
+            },
+            "description": ""
+          },
+          "userInfoRecord": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserInfoRecordType"
+            }
+          }
+        },
+        "description": ""
+      },
+      "tns_ActivateRetailServiceLevelRequest": {
+        "title": "tns_ActivateRetailServiceLevelRequest",
+        "required": [
+          "cif",
+          "option",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "cif": {
+            "pattern": "([0-9]){14}|([0]){1}",
+            "type": "string",
+            "description": "CIF Customer Information Number"
+          },
+          "option": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/option"
+              },
+              {
+                "description": "Option"
+              }
+            ]
+          },
+          "type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/type"
+              },
+              {
+                "description": "Type"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_ActivateRetailServiceLevelResponse": {
+        "title": "tns_ActivateRetailServiceLevelResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_ActivateRetailServiceLevelType"
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "../../commonschemas/fault.json#/FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_AuthenticateMobileBankingLoginRequest": {
+        "title": "tns_AuthenticateMobileBankingLoginRequest",
+        "required": [
+          "userName",
+          "userPassword"
+        ],
+        "type": "object",
+        "properties": {
+          "userName": {
+            "type": "string",
+            "description": "User Name"
+          },
+          "userPassword": {
+            "type": "string",
+            "description": "User password encrypted by channel"
+          }
+        },
+        "description": ""
+      },
+      "tns_AuthenticateMobileBankingLoginResponse": {
+        "title": "tns_AuthenticateMobileBankingLoginResponse",
+        "type": "object",
+        "properties": {
+          "mobileAuthResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_MobileAuthResponseType"
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "../../commonschemas/fault.json#/FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_ActivateRetailBeneficiaryRequest": {
+        "title": "tns_ActivateRetailBeneficiaryRequest",
+        "required": [
+          "cif",
+          "option",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "cif": {
+            "pattern": "([0-9]){14}|([0]){1}",
+            "type": "string",
+            "description": "Customer CIF"
+          },
+          "option": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/option"
+              },
+              {
+                "description": "Can be: â€œUpdateâ€ â€œInquiryâ€"
+              }
+            ]
+          },
+          "type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/type"
+              },
+              {
+                "description": "Beneficiary type"
+              }
+            ]
+          },
+          "referenceId": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          "journalId": {
+            "type": "string",
+            "default": "0"
+          },
+          "templateId": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_ActivateRetailBeneficiaryResponse": {
+        "title": "tns_ActivateRetailBeneficiaryResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_successType"
+              }
+            ]
+          },
+          "fault": {
+            "type": "array",
+            "items": {
+              "$ref": "../../commonschemas/fault.json#/FaultType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_ActivateRetailPasswordRequest": {
+        "title": "tns_ActivateRetailPasswordRequest",
+        "required": [
+          "cif",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "cif": {
+            "pattern": "([0-9]){14}|([0]){1}",
+            "type": "string",
+            "description": "CIF Is Customer Information Number"
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of transaction"
+          }
+        },
+        "description": ""
+      },
+      "tns_ActivateRetailPasswordResponse": {
+        "title": "tns_ActivateRetailPasswordResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_ActivateRetailPasswordResponseType"
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "../../commonschemas/fault.json#/FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_ActivateRetailPasswordResponseType": {
+        "title": "tns_ActivateRetailPasswordResponseType",
+        "required": [
+          "isRetailPasswordActivated"
+        ],
+        "type": "object",
+        "properties": {
+          "isRetailPasswordActivated": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_isRetailPasswordActivated"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "RetailBeneficiaryListType": {
+        "title": "RetailBeneficiaryListType",
+        "type": "object",
+        "properties": {
+          "beneficiaryId": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          "billerId": {
+            "type": "string"
+          },
+          "billAccount": {
+            "maxLength": 13,
+            "minLength": 0,
+            "type": "string"
+          },
+          "shortName": {
+            "type": "string"
+          },
+          "createDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "type": "string"
+          },
+          "isSadadMOI": {
+            "$ref": "../../commonschemas/schemas.json#/trueOrFalseTypeOptional"
+          }
+        },
+        "description": ""
+      },
+      "tns_MobileAuthResponseType": {
+        "title": "tns_MobileAuthResponseType",
+        "type": "object",
+        "properties": {
+          "extensionData": {
+            "type": "string"
+          },
+          "accounts": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_AccountsType"
+              }
+            ]
+          },
+          "forcePasswordMode": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_forcePasswordMode"
+              }
+            ]
+          },
+          "forceTxnPasswordMode": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_forceTxnPasswordMode"
+              }
+            ]
+          },
+          "noOfDaysToSignonPasswordExpiry": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          "noOfDaysToTxnPasswordExpiry": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          "primaryLocationId": {
+            "type": "string"
+          },
+          "problemLoadingAccounts": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_problemLoadingAccounts"
+              }
+            ]
+          },
+          "showHideBalanceFlag": {
+            "maximum": 1.0,
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "timeLastLoggedIn": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_TimeLastLoggedInType"
+              }
+            ]
+          },
+          "userFirstName": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "userLangFirstName": {
+            "type": "string"
+          },
+          "userLangLastName": {
+            "type": "string"
+          },
+          "userLastName": {
+            "type": "string"
+          },
+          "userMenuProfileCode": {
+            "type": "string"
+          },
+          "userPrimaryAccount": {
+            "maxLength": 14,
+            "minLength": 0,
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_AccountsType": {
+        "title": "tns_AccountsType",
+        "type": "object",
+        "properties": {
+          "accountInfo": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_AccountInfoType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_AccountInfoType": {
+        "title": "tns_AccountInfoType",
+        "required": [
+          "extensionData",
+          "accountId",
+          "accNicName",
+          "accStat",
+          "accType",
+          "crnCode",
+          "defBil",
+          "showHideFlag"
+        ],
+        "type": "object",
+        "properties": {
+          "extensionData": {
+            "type": "string"
+          },
+          "accountId": {
+            "maxLength": 24,
+            "minLength": 14,
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})",
+            "type": "string"
+          },
+          "accNicName": {
+            "type": "string"
+          },
+          "accStat": {
+            "type": "string"
+          },
+          "accType": {
+            "type": "string"
+          },
+          "crnCode": {
+            "type": "string"
+          },
+          "defBil": {
+            "type": "string"
+          },
+          "showHideFlag": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_TimeLastLoggedInType": {
+        "title": "tns_TimeLastLoggedInType",
+        "type": "object",
+        "properties": {
+          "extensionData": {
+            "type": "string"
+          },
+          "dateTime": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "description": ""
+      },
+      "tns_ActivateRetailBeneficiaryType": {
+        "title": "tns_ActivateRetailBeneficiaryType",
+        "required": [
+          "recordNo",
+          "beneficiaryType",
+          "referenceId",
+          "shortName",
+          "beneficiaryName",
+          "beneficiaryAddress1",
+          "beneficiaryAddress2",
+          "beneficiaryAddress3",
+          "bankName",
+          "localBankCode",
+          "bankAddress1",
+          "bankAddress2",
+          "bankAddress3",
+          "currency",
+          "beneficiaryAccountId",
+          "statusFlag",
+          "service",
+          "bankRouteCode",
+          "swiftBic",
+          "instructions1",
+          "instructions2",
+          "instructions3",
+          "remitterName",
+          "remitterAddress1",
+          "remitterAddress2",
+          "remitterAddress3",
+          "reasonCode",
+          "chargesPaidBy"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "recordNo": {
+            "type": "integer",
+            "description": "Record Number",
+            "format": "int32"
+          },
+          "beneficiaryType": {
+            "type": "string",
+            "description": "Error Number"
+          },
+          "referenceId": {
+            "type": "string",
+            "description": "Error Description"
+          },
+          "shortName": {
+            "type": "string",
+            "description": "Native Error"
+          },
+          "beneficiaryName": {
+            "type": "string",
+            "description": "Native Description"
+          },
+          "beneficiaryAddress1": {
+            "type": "string"
+          },
+          "beneficiaryAddress2": {
+            "type": "string"
+          },
+          "beneficiaryAddress3": {
+            "type": "string"
+          },
+          "bankName": {
+            "type": "string"
+          },
+          "localBankCode": {
+            "type": "string"
+          },
+          "bankAddress1": {
+            "type": "string"
+          },
+          "bankAddress2": {
+            "type": "string"
+          },
+          "bankAddress3": {
+            "type": "string"
+          },
+          "currency": {
+            "pattern": "([A-Z]{3,3})|()",
+            "type": "string"
+          },
+          "beneficiaryAccountId": {
+            "type": "string"
+          },
+          "statusFlag": {
+            "type": "string"
+          },
+          "service": {
+            "type": "string"
+          },
+          "bankRouteCode": {
+            "type": "string"
+          },
+          "swiftBic": {
+            "type": "string"
+          },
+          "instructions1": {
+            "type": "string"
+          },
+          "instructions2": {
+            "type": "string"
+          },
+          "instructions3": {
+            "type": "string"
+          },
+          "remitterName": {
+            "type": "string"
+          },
+          "remitterAddress1": {
+            "type": "string"
+          },
+          "remitterAddress2": {
+            "type": "string"
+          },
+          "remitterAddress3": {
+            "type": "string"
+          },
+          "reasonCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "chargesPaidBy": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_RetailServiceInfoType": {
+        "title": "tns_RetailServiceInfoType",
+        "type": "object",
+        "properties": {
+          "service": {
+            "type": "string",
+            "description": "Service"
+          },
+          "profile": {
+            "type": "string",
+            "description": "Profile"
+          }
+        },
+        "description": ""
+      },
+      "tns_AOLUserInformationType": {
+        "title": "tns_AOLUserInformationType",
+        "type": "object",
+        "properties": {
+          "userList": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_UserListType"
+              }
+            ]
+          },
+          "userInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_UserInfoType"
+              }
+            ]
+          },
+          "linkedToServices": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_LinkedToServiceType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_LinkedToServiceType": {
+        "title": "tns_LinkedToServiceType",
+        "type": "object",
+        "properties": {
+          "linkedService": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_LinkedServiceAccountType"
+            },
+            "description": "Success Indication tag (generated successfully\r\n\t\t\t\t\t\t)"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserListType": {
+        "title": "tns_UserListType",
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "array",
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_LinkedServiceAccountType": {
+        "title": "tns_LinkedServiceAccountType",
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})|()",
+            "type": "string"
+          },
+          "service": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserInfoType": {
+        "title": "tns_UserInfoType",
+        "type": "object",
+        "properties": {
+          "lastLoginDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01])))|()",
+            "type": "string"
+          },
+          "loginPasswordStatus": {
+            "type": "string"
+          },
+          "loginStatus": {
+            "type": "string"
+          },
+          "registrationDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01])))|()",
+            "type": "string"
+          },
+          "registrationThrough": {
+            "type": "string"
+          },
+          "serviceStatus": {
+            "type": "string"
+          },
+          "transactionPasswordStatus": {
+            "type": "string"
+          },
+          "userMenuServices": {
+            "type": "string"
+          },
+          "userName": {
+            "type": "string"
+          },
+          "userStatus": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_ActivateRetailServiceLevelType": {
+        "title": "tns_ActivateRetailServiceLevelType",
+        "type": "object",
+        "properties": {
+          "updateRetailServiceInformation": {
+            "type": "string"
+          },
+          "retailServiceInformation": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_RetailServiceInfoType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "BeneficiaryRequestType": {
+        "title": "BeneficiaryRequestType",
+        "type": "object",
+        "properties": {
+          "cif": {
+            "$ref": "../../commonschemas/schemas.json#/CIF"
+          },
+          "corpId": {
+            "type": "string"
+          },
+          "ecnId": {
+            "$ref": "../../commonschemas/schemas.json#/ECNId"
+          },
+          "aolUserId": {
+            "type": "string"
+          },
+          "beneficiaryId": {
+            "type": "string"
+          },
+          "beneficiaryType": {
+            "$ref": "#/components/schemas/beneficiaryType2"
+          },
+          "beneficiaryName": {
+            "type": "string"
+          },
+          "beneficiaryNickName": {
+            "type": "string"
+          },
+          "adminLockFlag": {
+            "$ref": "#/components/schemas/adminLockFlag"
+          },
+          "quantity": {
+            "minimum": 0,
+            "maxLength": 4,
+            "type": "integer",
+            "format": "int32"
+          },
+          "nextRecordId": {
+            "$ref": "../../commonschemas/schemas.json#/RecordId"
+          },
+          "beneficiaryAccountNumber": {
+            "type": "string"
+          },
+          "beneficiaryCountry": {
+            "type": "string",
+            "description": "BeneficiaryCountry"
+          }
+        },
+        "description": ""
+      },
+      "BeneficiaryResponseType": {
+        "title": "BeneficiaryResponseType",
+        "type": "object",
+        "properties": {
+          "record": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BeneficiaryType"
+            },
+            "description": ""
+          },
+          "totalRecords": {
+            "type": "string"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "UpdateMobileBeneficiaryRequestType": {
+        "title": "UpdateMobileBeneficiaryRequestType",
+        "required": [
+          "option",
+          "aolUserId",
+          "beneficiaryType"
+        ],
+        "type": "object",
+        "properties": {
+          "option": {
+            "$ref": "#/components/schemas/option1"
+          },
+          "cif": {
+            "$ref": "../../commonschemas/schemas.json#/CIF",
+            "description": "Customer CIF"
+          },
+          "channel": {
+            "$ref": "#/components/schemas/channel",
+            "description": "Can be:AOL for AlAhlionline, MOB for Mobile banking"
+          },
+          "aolUserId": {
+            "type": "string",
+            "description": "AlAhliOnline User ID"
+          },
+          "corpId": {
+            "type": "string"
+          },
+          "beneficiaryId": {
+            "type": "string",
+            "description": "BeneficiaryId"
+          },
+          "beneficiaryType": {
+            "type": "string",
+            "description": "Beneficiary Type"
+          },
+          "beneficiaryNickName": {
+            "type": "string",
+            "description": "BeneficiaryNickName"
+          },
+          "beneficiaryName": {
+            "type": "string",
+            "description": "BeneficiaryName"
+          },
+          "beneficiaryAccountNumber": {
+            "type": "string",
+            "description": "BeneficiaryAccountNumber"
+          },
+          "beneficiaryPostalAddress": {
+            "type": "string",
+            "description": "BeneficiaryPoastalAddress"
+          },
+          "beneficiaryCountry": {
+            "type": "string",
+            "description": "BeneficiaryCountry"
+          },
+          "beneficiaryCity": {
+            "type": "string",
+            "description": "BeneficiaryCity"
+          },
+          "beneficiaryTeleNumber": {
+            "type": "string",
+            "description": "BeneficiaryTeleNumber"
+          },
+          "beneficiaryBankName": {
+            "type": "string",
+            "description": "BeneficiaryBankName"
+          },
+          "beneficiaryBranchId": {
+            "type": "string",
+            "description": "BeneficiaryBranchId"
+          },
+          "beneficiaryBankCity": {
+            "type": "string",
+            "description": "BeneficiaryBankCity"
+          },
+          "beneficiaryBankCountry": {
+            "type": "string",
+            "description": "BeneficiaryBankCountry"
+          },
+          "beneficiaryBankId": {
+            "type": "string",
+            "description": "BeneficiaryBankId"
+          },
+          "beneficiaryAccountCurrency": {
+            "type": "string",
+            "description": "BeneficiaryAccountCurrency"
+          },
+          "beneficiaryZip": {
+            "type": "string"
+          },
+          "beneficiaryState": {
+            "type": "string"
+          },
+          "beneficiaryFax": {
+            "type": "string"
+          },
+          "beneficiaryStatus": {
+            "$ref": "#/components/schemas/beneficiaryStatus",
+            "description": "For Beneficiary status can be: â€œNâ€ â€“\r\n\t\t\t\t\t\t\tfor Active â€œYâ€ â€“ for Pending For\r\n\t\t\t\t\t\t\te-Wallet Beneficiary can be: â€œACTIVEâ€\r\n\t\t\t\t\t\t\tâ€“ for Active â€œPENDINGâ€ â€“ for Pending"
+          },
+          "iBanApprove": {
+            "type": "string"
+          },
+          "remitterName": {
+            "type": "string",
+            "description": "RemitterName"
+          },
+          "remitterAddress": {
+            "type": "string",
+            "description": "RemitterAddress"
+          },
+          "remitterCity": {
+            "type": "string",
+            "description": "RemitterCity"
+          },
+          "remitterCountry": {
+            "type": "string",
+            "description": "RemitterCountry"
+          },
+          "remitterZip": {
+            "type": "string"
+          },
+          "swiftBranchId": {
+            "type": "string",
+            "description": "SWIFT branch ID"
+          },
+          "bankRouteCode": {
+            "type": "string",
+            "description": "Bank route code"
+          },
+          "transferCode": {
+            "maximum": 9,
+            "minimum": 1,
+            "type": "integer",
+            "description": "Can be: â€œ1â€ â€“ for Import Financing\r\n\t\t\t\t\t\t\tâ€œ2â€ â€“ for Remittance to foreign\r\n\t\t\t\t\t\t\tCompanies for Goods Import â€œ3â€ â€“ for\r\n\t\t\t\t\t\t\tForeign Company Remittances for Other\r\n\t\t\t\t\t\t\tpurposes â€œ4â€ â€“ for Personal\r\n\t\t\t\t\t\t\tremittances â€œ5â€ â€“ for Customer Foreign\r\n\t\t\t\t\t\t\tTravel â€œ6â€ â€“ for Customer Overseas\r\n\t\t\t\t\t\t\tInvestments â€œ7â€ â€“ for Remittance for\r\n\t\t\t\t\t\t\tMoney Changers â€œ8â€ â€“ for Government\r\n\t\t\t\t\t\t\tAgencies Remittance â€œ9â€ â€“ for\r\n\t\t\t\t\t\t\tMinistries or municipalities remittance",
+            "format": "int32"
+          },
+          "action": {
+            "$ref": "#/components/schemas/action",
+            "description": "ADD (normal user) / ADD_APPROVE (vip user)\r\n\t\t\t\t\t\t\tFor SAWA delete ...DELETE / REVOKE / APPROVE"
+          },
+          "actionType": {
+            "type": "string"
+          },
+          "adminId": {
+            "type": "string"
+          },
+          "templateId": {
+            "type": "string",
+            "description": "It is a unique reference number for the\r\n\t\t\t\t\t\t\tpayment template."
+          },
+          "draftSendMode": {
+            "type": "string"
+          },
+          "beneficiaryName2": {
+            "type": "string"
+          },
+          "beneficiaryName3": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "UpdateMobileBeneficiaryResponseTypes": {
+        "title": "UpdateMobileBeneficiaryResponseTypes",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/UpdateMobileBeneficiaryResponseType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_RegisterMobileUserRequest": {
+        "title": "tns_RegisterMobileUserRequest",
+        "required": [
+          "cif",
+          "userName",
+          "password",
+          "ncbStaffFlag",
+          "goldFlag",
+          "platinumFlag",
+          "ajyalFlag",
+          "asriyyahFlag",
+          "privateFlag",
+          "maziahFlag",
+          "sexFlag",
+          "name1",
+          "birthDate",
+          "customerId",
+          "nationality"
+        ],
+        "type": "object",
+        "properties": {
+          "cif": {
+            "pattern": "([0-9]){14}|([0]){1}",
+            "type": "string",
+            "description": "Customer CIF"
+          },
+          "userName": {
+            "type": "string",
+            "description": "userName"
+          },
+          "password": {
+            "type": "string",
+            "description": "Login password"
+          },
+          "ncbStaffFlag": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_ncbStaffFlag"
+              },
+              {
+                "description": "ncbStaffFlag"
+              }
+            ]
+          },
+          "goldFlag": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_goldFlag"
+              },
+              {
+                "description": "goldFlag"
+              }
+            ]
+          },
+          "platinumFlag": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_platinumFlag"
+              },
+              {
+                "description": "platinumFlag"
+              }
+            ]
+          },
+          "ajyalFlag": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_ajyalFlag"
+              },
+              {
+                "description": "ajyalFlag"
+              }
+            ]
+          },
+          "asriyyahFlag": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_asriyyahFlag"
+              },
+              {
+                "description": "asriyyahFlag"
+              }
+            ]
+          },
+          "privateFlag": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_privateFlag"
+              },
+              {
+                "description": "privateFlag"
+              }
+            ]
+          },
+          "maziahFlag": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_maziahFlag"
+              },
+              {
+                "description": "maziahFlag"
+              }
+            ]
+          },
+          "sexFlag": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_sexFlag"
+              },
+              {
+                "description": "sexFlag"
+              }
+            ]
+          },
+          "name1": {
+            "type": "string",
+            "description": "Customer name1"
+          },
+          "birthDate": {
+            "pattern": "([0-9]){8}",
+            "type": "string",
+            "description": "Customer birthDate"
+          },
+          "customerId": {
+            "type": "string",
+            "description": "Customer id"
+          },
+          "nationality": {
+            "type": "string",
+            "description": "Customer nationality"
+          }
+        },
+        "description": ""
+      },
+      "tns_RegisterMobileUserResponse": {
+        "title": "tns_RegisterMobileUserResponse",
+        "type": "object",
+        "properties": {
+          "record": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_registerMobileUserType"
+            },
+            "description": ""
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "../../commonschemas/fault.json#/FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_UpdateMOIBeneficiaryRequest": {
+        "title": "tns_UpdateMOIBeneficiaryRequest",
+        "required": [
+          "option",
+          "shortCIF",
+          "billNumber",
+          "shortName",
+          "billStatus"
+        ],
+        "type": "object",
+        "properties": {
+          "option": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/option"
+              },
+              {
+                "description": "Can be: â€œADDâ€ â€“ to Add new Beneficiary\r\n\t\t\t\t\t\t\tâ€œDELETEâ€ â€“ to Delete an existing\r\n\t\t\t\t\t\t\tBeneficiary â€œUPDATEâ€ â€“ to Update an\r\n\t\t\t\t\t\t\texisting Beneficiary"
+              }
+            ]
+          },
+          "shortCIF": {
+            "pattern": "([0-9]){8}|([0]){1}",
+            "type": "string"
+          },
+          "sequenceNumber": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          "billNumber": {
+            "type": "string"
+          },
+          "shortName": {
+            "type": "string"
+          },
+          "billStatus": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_UpdateMOIBeneficiaryResponse": {
+        "title": "tns_UpdateMOIBeneficiaryResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_MOIBeneficiaryType"
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "../../commonschemas/fault.json#/FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_MOIBeneficiaryType": {
+        "title": "tns_MOIBeneficiaryType",
+        "type": "object",
+        "properties": {
+          "sequenceNumber": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          }
+        },
+        "description": ""
+      },
+      "tns_registerMobileUserType": {
+        "title": "tns_registerMobileUserType",
+        "required": [
+          "userName",
+          "cif",
+          "sequenceNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "userName": {
+            "type": "string",
+            "description": "UserName"
+          },
+          "cif": {
+            "pattern": "([0-9]){14}|([0]){1}",
+            "type": "string",
+            "description": "Customer CIF"
+          },
+          "sequenceNumber": {
+            "type": "integer",
+            "description": "Transaction sequence number",
+            "format": "int32"
+          }
+        },
+        "description": ""
+      },
+      "BeneficiaryType": {
+        "title": "BeneficiaryType",
+        "type": "object",
+        "properties": {
+          "cif": {
+            "type": "string"
+          },
+          "beneficiaryId": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          "beneficiaryType": {
+            "type": "string"
+          },
+          "beneficiaryName": {
+            "type": "string"
+          },
+          "beneficiaryNickName": {
+            "type": "string"
+          },
+          "beneficiaryAccountNumber": {
+            "type": "string"
+          },
+          "beneficiaryAccountCurrency": {
+            "$ref": "../../commonschemas/schemas.json#/ISOCurrencyCodeOptional"
+          },
+          "status": {
+            "type": "string"
+          },
+          "corpId": {
+            "type": "string"
+          },
+          "beneficiaryCity": {
+            "type": "string"
+          },
+          "beneficiaryZip": {
+            "type": "string"
+          },
+          "beneficiaryRef": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          "beneficiaryState": {
+            "type": "string"
+          },
+          "beneficiaryCountry": {
+            "type": "string"
+          },
+          "beneficiaryBankId": {
+            "type": "string"
+          },
+          "beneficiaryBankName": {
+            "type": "string"
+          },
+          "beneficiaryBankCity": {
+            "type": "string"
+          },
+          "beneficiaryBankCountry": {
+            "$ref": "../../commonschemas/schemas.json#/ISOCountryCodeOptional"
+          },
+          "swiftbic": {
+            "type": "string"
+          },
+          "branchSortCode": {
+            "type": "string"
+          },
+          "reasonCode": {
+            "type": "string"
+          },
+          "postalAddress": {
+            "type": "string"
+          },
+          "routeCode": {
+            "type": "string"
+          },
+          "beneficiaryPhone": {
+            "type": "string"
+          },
+          "remitterName": {
+            "type": "string"
+          },
+          "remitterAddress": {
+            "type": "string"
+          },
+          "remitterCity": {
+            "type": "string"
+          },
+          "remitterCountry": {
+            "type": "string"
+          },
+          "iBanApprove": {
+            "type": "string"
+          },
+          "beneficiaryFax": {
+            "type": "string"
+          },
+          "beneficiaryBankBranchId": {
+            "type": "string"
+          },
+          "beneficiaryName2": {
+            "type": "string"
+          },
+          "beneficiaryName3": {
+            "type": "string"
+          },
+          "templateId": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_BeneficiaryListDetailsRequest": {
+        "title": "tns_BeneficiaryListDetailsRequest",
+        "type": "object",
+        "properties": {
+          "cif": {
+            "pattern": "([0-9]){14}|([0]){1}",
+            "type": "string",
+            "description": "CIF Is Customer Information Number"
+          },
+          "type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/type"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_BeneficiaryListDetailsResponse": {
+        "title": "tns_BeneficiaryListDetailsResponse",
+        "type": "object",
+        "properties": {
+          "record": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_BeneficiaryListDetails"
+            },
+            "description": "Success Indication tag (generated successfully\r\n\t\t\t\t\t\t\t)"
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "../../commonschemas/fault.json#/FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_BeneficiaryListDetails": {
+        "title": "tns_BeneficiaryListDetails",
+        "type": "object",
+        "properties": {
+          "beneficiaryId": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          "beneficiaryName": {
+            "type": "string"
+          },
+          "bankName": {
+            "type": "string"
+          },
+          "beneficiaryAccountId": {
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})|()",
+            "type": "string"
+          },
+          "currency": {
+            "pattern": "([A-Z]{3,3})|()",
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_successType": {
+        "title": "tns_successType",
+        "type": "object",
+        "properties": {
+          "sarieRecord": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_ActivateRetailBeneficiaryType"
+            },
+            "description": ""
+          },
+          "swiftRecord": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_ActivateRetailBeneficiaryType"
+            },
+            "description": ""
+          },
+          "sawaRecord": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_SawaRecordType"
+            },
+            "description": ""
+          },
+          "sadadRecord": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_SadadRecordType"
+            },
+            "description": ""
+          },
+          "ncbAccountRecord": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_AccountRecordType"
+            },
+            "description": ""
+          },
+          "eWalletAccountRecord": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_AccountRecordType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_SawaRecordType": {
+        "title": "tns_SawaRecordType",
+        "required": [
+          "recordNo",
+          "referenceId",
+          "billerAccountId",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "recordNo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "referenceId": {
+            "type": "string"
+          },
+          "billerAccountId": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_SadadRecordType": {
+        "title": "tns_SadadRecordType",
+        "required": [
+          "recordNo",
+          "referenceId",
+          "billerId",
+          "billerAccountId",
+          "shortName",
+          "createdDate",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "recordNo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "referenceId": {
+            "type": "string"
+          },
+          "billerId": {
+            "type": "string"
+          },
+          "billerAccountId": {
+            "type": "string"
+          },
+          "shortName": {
+            "type": "string"
+          },
+          "createdDate": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_AccountRecordType": {
+        "title": "tns_AccountRecordType",
+        "required": [
+          "recordNo",
+          "referenceId",
+          "beneficiaryAccountId",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "recordNo": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "referenceId": {
+            "type": "string"
+          },
+          "beneficiaryAccountId": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "SawaRecordTypes": {
+        "title": "SawaRecordTypes",
+        "type": "object",
+        "properties": {
+          "referneceId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "billAccount": {
+            "maxLength": 13,
+            "minLength": 0,
+            "type": "string"
+          },
+          "shortName": {
+            "type": "string"
+          },
+          "fullName": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "CurrentWalletRecordType": {
+        "title": "CurrentWalletRecordType",
+        "type": "object",
+        "properties": {
+          "beneficiaryId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "beneficiaryName": {
+            "type": "string"
+          },
+          "beneficiaryAccountId": {
+            "$ref": "../../commonschemas/schemas.json#/AccountIdOptional"
+          },
+          "beneficiaryAccountCurrency": {
+            "$ref": "../../commonschemas/schemas.json#/ISOCurrencyCodeOptional"
+          },
+          "beneficiaryNickName": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "UserInfoRecordType": {
+        "title": "UserInfoRecordType",
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "cif": {
+            "$ref": "../../commonschemas/schemas.json#/CIF"
+          },
+          "customerLastName": {
+            "type": "string"
+          },
+          "customerMiddleName": {
+            "type": "string"
+          },
+          "customerFirstName": {
+            "type": "string"
+          },
+          "lCustomerLastName": {
+            "type": "string"
+          },
+          "lCustomerMiddleName": {
+            "type": "string"
+          },
+          "lCustomerFirstName": {
+            "type": "string"
+          },
+          "menuProfile": {
+            "type": "string"
+          },
+          "primaryAccountNumber": {
+            "$ref": "../../commonschemas/schemas.json#/AccountIdOptional"
+          },
+          "loginPasswordExpiryDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "numberOfLoginAttempts": {
+            "type": "string"
+          },
+          "transactionpasswordExpiryDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "numberOfTransactionAttempts": {
+            "type": "string"
+          },
+          "transactionPasswordEnabledFlag": {
+            "$ref": "../../commonschemas/schemas.json#/YorNTypeOptional"
+          },
+          "lastLoginDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "totalNumberOfLogins": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "forcePasswordFlag": {
+            "$ref": "../../commonschemas/schemas.json#/YorNTypeOptional"
+          },
+          "deleteFlag": {
+            "type": "string"
+          },
+          "recordCreateId": {
+            "type": "string"
+          },
+          "recordCreateDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "showHideBalance": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "UpdateMobileBeneficiaryResponseType": {
+        "title": "UpdateMobileBeneficiaryResponseType",
+        "type": "object",
+        "properties": {
+          "beneficiaryId": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_GetPayersByUserRequest": {
+        "title": "tns_GetPayersByUserRequest",
+        "required": [
+          "accountNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "accountNumber": {
+            "type": "string",
+            "description": "To retrieve details for multiple accounts please provide the comma separated account numbers otherwise just provide single account number\r\n\t\t\t\t\t\tlike ...    11447187000104,09047513000101,08747170000108\r\n\t\t\t\t\t\t or  08747170000108"
+          }
+        },
+        "description": ""
+      },
+      "tns_GetPayersByUserResponse": {
+        "title": "tns_GetPayersByUserResponse",
+        "type": "object",
+        "properties": {
+          "record": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_recordType"
+            },
+            "description": ""
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "../../commonschemas/fault.json#/FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_recordType": {
+        "title": "tns_recordType",
+        "type": "object",
+        "properties": {
+          "payerName": {
+            "type": "string"
+          },
+          "payerAccountNumber": {
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})|()",
+            "type": "string"
+          },
+          "myAccountNumber": {
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})|()",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_GetIntraBeneficiaryListRequest": {
+        "title": "tns_GetIntraBeneficiaryListRequest",
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "beneficiaryType": {
+            "type": "string"
+          },
+          "accountNumber": {
+            "maxLength": 24,
+            "minLength": 14,
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})",
+            "type": "string"
+          },
+          "quantity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nextRecordId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "description": ""
+      },
+      "tns_GetIntraBeneficiaryListResponse": {
+        "title": "tns_GetIntraBeneficiaryListResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_GetIntraBeneficiaryListType"
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "../../commonschemas/fault.json#/FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_GetIntraBeneficiaryListType": {
+        "title": "tns_GetIntraBeneficiaryListType",
+        "type": "object",
+        "properties": {
+          "customerId": {
+            "type": "string"
+          },
+          "customerIdType": {
+            "type": "string"
+          },
+          "customerName": {
+            "type": "string"
+          },
+          "customerName2": {
+            "type": "string"
+          },
+          "record": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_NCBBeneficiaryType"
+            },
+            "description": ""
+          },
+          "totalBeneficiaryRecords": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "description": ""
+      },
+      "tns_NCBBeneficiaryType": {
+        "title": "tns_NCBBeneficiaryType",
+        "type": "object",
+        "properties": {
+          "cif": {
+            "pattern": "([0-9]){14}|([0]){1}|()",
+            "type": "string"
+          },
+          "beneficiaryAccountCurrency": {
+            "pattern": "([A-Z]{3,3})|()",
+            "type": "string"
+          },
+          "beneficiaryAccountNumber": {
+            "type": "string"
+          },
+          "beneficiaryBankCountry": {
+            "pattern": "([A-Z]{2,2})|()",
+            "type": "string"
+          },
+          "beneficiaryBankCity": {
+            "type": "string"
+          },
+          "beneficiaryBankId": {
+            "type": "string"
+          },
+          "beneficiaryCity": {
+            "type": "string"
+          },
+          "beneficiaryId": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          "beneficiaryName": {
+            "type": "string"
+          },
+          "beneficiaryNickName": {
+            "type": "string"
+          },
+          "beneficiaryRef": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          "branchSortCode": {
+            "type": "string"
+          },
+          "beneficiaryBankName": {
+            "type": "string"
+          },
+          "corpId": {
+            "type": "string"
+          },
+          "swiftbic": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "reasonCode": {
+            "type": "string"
+          },
+          "postalAddress": {
+            "type": "string"
+          },
+          "beneficiaryPhone": {
+            "type": "string"
+          },
+          "remitterName": {
+            "type": "string"
+          },
+          "remitterCity": {
+            "type": "string"
+          },
+          "remitterCountry": {
+            "type": "string"
+          },
+          "routeCode": {
+            "type": "string"
+          },
+          "remitterAddress": {
+            "type": "string"
+          },
+          "beneficiaryType": {
+            "type": "string"
+          },
+          "beneficiaryZip": {
+            "type": "string"
+          },
+          "beneficiaryState": {
+            "type": "string"
+          },
+          "beneficiaryCountry": {
+            "type": "string"
+          },
+          "iBanApprove": {
+            "type": "string"
+          },
+          "beneficiaryFax": {
+            "type": "string"
+          },
+          "beneficiaryBankBranchId": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserInfoByTokenRequest": {
+        "title": "tns_UserInfoByTokenRequest",
+        "required": [
+          "tokenId",
+          "source"
+        ],
+        "type": "object",
+        "properties": {
+          "tokenId": {
+            "type": "string"
+          },
+          "source": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_source"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_UserInfoByTokenResponse": {
+        "title": "tns_UserInfoByTokenResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_UserInfoByTokenSuccessType"
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "../../commonschemas/fault.json#/FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_UserInfoByTokenSuccessType": {
+        "title": "tns_UserInfoByTokenSuccessType",
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "cif": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "language": {
+            "type": "string"
+          },
+          "segment": {
+            "type": "string"
+          },
+          "subject": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_MaintainPayersRequest": {
+        "title": "tns_MaintainPayersRequest",
+        "required": [
+          "action"
+        ],
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "description": "Action can have below values\r\n        \t\t\t\t\t\t A = ADD\r\n                                 U = UPDATE\r\n                                 G = GET\r\n                                 D = DELETE"
+          },
+          "cif": {
+            "pattern": "([0-9]){14}|([0]){1}|()",
+            "type": "string",
+            "description": "Customer Number"
+          },
+          "corporateId": {
+            "type": "string",
+            "description": "Corporate ID"
+          },
+          "payerId": {
+            "type": "string",
+            "description": "Payer ID"
+          },
+          "payerShortName": {
+            "type": "string",
+            "description": "Payer Short tName"
+          },
+          "payerName": {
+            "type": "string",
+            "description": "Payer  Name"
+          }
+        },
+        "description": ""
+      },
+      "tns_MaintainPayersResponse": {
+        "title": "tns_MaintainPayersResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_MaintainPayersSuccessType"
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "../../commonschemas/fault.json#/FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_MaintainPayersSuccessType": {
+        "title": "tns_MaintainPayersSuccessType",
+        "type": "object",
+        "properties": {
+          "record": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_MaintainPayersRecordType"
+            },
+            "description": "Records"
+          }
+        },
+        "description": ""
+      },
+      "tns_MaintainPayersRecordType": {
+        "title": "tns_MaintainPayersRecordType",
+        "type": "object",
+        "properties": {
+          "cif": {
+            "pattern": "([0-9]){14}|([0]){1}|()",
+            "type": "string",
+            "description": "Customer Number"
+          },
+          "corporateId": {
+            "type": "string",
+            "description": "Corporate ID"
+          },
+          "payerId": {
+            "type": "string",
+            "description": "Payer ID"
+          },
+          "payerShortName": {
+            "type": "string",
+            "description": "Payer Short Name"
+          },
+          "payerName": {
+            "type": "string",
+            "description": "Payer Name"
+          }
+        },
+        "description": ""
+      },
+      "tns_InquireActivateCorpBeneficiaryRequest": {
+        "title": "tns_InquireActivateCorpBeneficiaryRequest",
+        "required": [
+          "corpId",
+          "option",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "corpId": {
+            "type": "string"
+          },
+          "option": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/option"
+              },
+              {
+                "description": "Can be: â€œUpdateâ€ â€œInquiryâ€"
+              }
+            ]
+          },
+          "type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_BeneficiaryEnumType"
+              }
+            ]
+          },
+          "referenceId": {
+            "type": "string",
+            "default": "0"
+          }
+        },
+        "description": ""
+      },
+      "tns_BeneficiaryEnumType": {
+        "title": "tns_BeneficiaryEnumType",
+        "enum": [
+          "ALL",
+          "SARIE",
+          "SWIFT",
+          "NCB",
+          "EWALLET"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "tns_InquireActivateCorpBeneficiaryResponse": {
+        "title": "tns_InquireActivateCorpBeneficiaryResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_InquireActivateCorpBeneficiaryType"
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "../../commonschemas/fault.json#/FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_InquireActivateCorpBeneficiaryType": {
+        "title": "tns_InquireActivateCorpBeneficiaryType",
+        "type": "object",
+        "properties": {
+          "record": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_InquireActivateCorpBeneficiaryRecordType"
+            },
+            "description": "Records"
+          }
+        },
+        "description": ""
+      },
+      "tns_InquireActivateCorpBeneficiaryRecordType": {
+        "title": "tns_InquireActivateCorpBeneficiaryRecordType",
+        "required": [
+          "beneficiaryType",
+          "referenceId",
+          "shortName",
+          "beneficiaryAccountId",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "beneficiaryType": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_BeneficiaryEnumType"
+              }
+            ]
+          },
+          "referenceId": {
+            "type": "string",
+            "description": "Error Description"
+          },
+          "shortName": {
+            "type": "string",
+            "description": "Native Error"
+          },
+          "beneficiaryName": {
+            "type": "string",
+            "description": "Native Description"
+          },
+          "beneficiaryAddress1": {
+            "type": "string"
+          },
+          "beneficiaryAddress2": {
+            "type": "string"
+          },
+          "beneficiaryAddress3": {
+            "type": "string"
+          },
+          "bankName": {
+            "type": "string"
+          },
+          "localBankCode": {
+            "type": "string"
+          },
+          "bankAddress1": {
+            "type": "string"
+          },
+          "bankAddress2": {
+            "type": "string"
+          },
+          "bankAddress3": {
+            "type": "string"
+          },
+          "currency": {
+            "pattern": "([A-Z]{3,3})|()",
+            "type": "string"
+          },
+          "beneficiaryAccountId": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "bankRouteCode": {
+            "type": "string"
+          },
+          "swiftBic": {
+            "type": "string"
+          },
+          "instructions1": {
+            "type": "string"
+          },
+          "instructions2": {
+            "type": "string"
+          },
+          "instructions3": {
+            "type": "string"
+          },
+          "remitterName": {
+            "type": "string"
+          },
+          "remitterAddress1": {
+            "type": "string"
+          },
+          "remitterAddress2": {
+            "type": "string"
+          },
+          "remitterAddress3": {
+            "type": "string"
+          },
+          "reasonCode": {
+            "type": "string",
+            "default": "0"
+          },
+          "chargesPaidBy": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_RetailBeneficiaryActivationRequest": {
+        "title": "tns_RetailBeneficiaryActivationRequest",
+        "required": [
+          "activationType",
+          "cif"
+        ],
+        "type": "object",
+        "properties": {
+          "activationType": {
+            "type": "string",
+            "description": "Required, 'O' = one by one, 'A' = All"
+          },
+          "cif": {
+            "pattern": "([0-9]){14}|([0]){1}",
+            "type": "string",
+            "description": "Required, full CIF"
+          },
+          "beneficiaryId": {
+            "type": "string",
+            "description": "Optional, Required if @ACTIVATION_TYPE = 'O', can take one or  more than one beneficiary Id, ex: '123' or '123,368,445,...'"
+          }
+        },
+        "description": ""
+      },
+      "tns_RetailBeneficiaryActivationResponse": {
+        "title": "tns_RetailBeneficiaryActivationResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "../../commonschemas/fault.json#/FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_CorporateBeneficiaryActivationRequest": {
+        "title": "tns_CorporateBeneficiaryActivationRequest",
+        "required": [
+          "corporateId",
+          "beneficiaryId"
+        ],
+        "type": "object",
+        "properties": {
+          "corporateId": {
+            "type": "string"
+          },
+          "beneficiaryId": {
+            "type": "string",
+            "description": "can take one or  more than one beneficiary Id, ex: '123' or '123,368,445,...'"
+          }
+        },
+        "description": ""
+      },
+      "tns_CorporateBeneficiaryActivationResponse": {
+        "title": "tns_CorporateBeneficiaryActivationResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "../../commonschemas/fault.json#/FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_UpdateCorporateBeneMigrationStatusRequest": {
+        "title": "tns_UpdateCorporateBeneMigrationStatusRequest",
+        "required": [
+          "corporateId",
+          "userId"
+        ],
+        "type": "object",
+        "properties": {
+          "corporateId": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "beneficiaryId": {
+            "type": "string",
+            "description": "can take one or  more than one beneficiary Id, ex: '123' or '123,368,445,...'"
+          }
+        },
+        "description": ""
+      },
+      "tns_UpdateCorporateBeneMigrationStatusResponse": {
+        "title": "tns_UpdateCorporateBeneMigrationStatusResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "../../commonschemas/fault.json#/FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_InquireCorporateBeneMigrationStatusRequest": {
+        "title": "tns_InquireCorporateBeneMigrationStatusRequest",
+        "required": [
+          "idNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "idNumber": {
+            "type": "string"
+          },
+          "beneficiaryType": {
+            "type": "string"
+          },
+          "beneficiaryId": {
+            "type": "string"
+          },
+          "beneficiaryName": {
+            "type": "string"
+          },
+          "beneficiaryNickName": {
+            "type": "string"
+          },
+          "beneficiaryAccountNumber": {
+            "type": "string"
+          },
+          "beneficiaryBankCountry": {
+            "type": "string"
+          },
+          "numberOfRecords": {
+            "type": "string"
+          },
+          "startIndex": {
+            "type": "string"
+          },
+          "migrated": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_InquireCorporateBeneMigrationStatusResponse": {
+        "title": "tns_InquireCorporateBeneMigrationStatusResponse",
+        "type": "object",
+        "properties": {
+          "record": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_InquireCorporateBeneMigrationStatusResponseType"
+            },
+            "description": ""
+          },
+          "totalRecords": {
+            "type": "string"
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "../../commonschemas/fault.json#/FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_InquireCorporateBeneMigrationStatusResponseType": {
+        "title": "tns_InquireCorporateBeneMigrationStatusResponseType",
+        "type": "object",
+        "properties": {
+          "beneficiaryId": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          "beneficiaryType": {
+            "type": "string"
+          },
+          "beneficiaryName": {
+            "type": "string"
+          },
+          "beneficiaryNickName": {
+            "type": "string"
+          },
+          "beneficiaryAccountNumber": {
+            "type": "string"
+          },
+          "beneficiaryAccountCurrency": {
+            "pattern": "([A-Z]{3,3})|()",
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "corpId": {
+            "type": "string"
+          },
+          "beneficiaryCity": {
+            "type": "string"
+          },
+          "beneficiaryZip": {
+            "type": "string"
+          },
+          "beneficiaryRef": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          "beneficiaryState": {
+            "type": "string"
+          },
+          "beneficiaryCountry": {
+            "type": "string"
+          },
+          "beneficiaryBankId": {
+            "type": "string"
+          },
+          "beneficiaryBankName": {
+            "type": "string"
+          },
+          "beneficiaryBankCity": {
+            "type": "string"
+          },
+          "beneficiaryBankCountry": {
+            "pattern": "([A-Z]{2,2})|()",
+            "type": "string"
+          },
+          "swiftbic": {
+            "type": "string"
+          },
+          "branchSortCode": {
+            "type": "string"
+          },
+          "reasonCode": {
+            "type": "string"
+          },
+          "postalAddress": {
+            "type": "string"
+          },
+          "routeCode": {
+            "type": "string"
+          },
+          "beneficiaryPhone": {
+            "type": "string"
+          },
+          "remitterName": {
+            "type": "string"
+          },
+          "remitterAddress": {
+            "type": "string"
+          },
+          "remitterCity": {
+            "type": "string"
+          },
+          "remitterCountry": {
+            "type": "string"
+          },
+          "iBanApprove": {
+            "type": "string"
+          },
+          "beneficiaryFax": {
+            "type": "string"
+          },
+          "beneficiaryBankBranchId": {
+            "type": "string"
+          },
+          "beneficiaryName2": {
+            "type": "string"
+          },
+          "beneficiaryName3": {
+            "type": "string"
+          },
+          "templateId": {
+            "type": "string"
+          },
+          "idType": {
+            "type": "string"
+          },
+          "idNumber": {
+            "type": "string"
+          },
+          "migrated": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_GetCorporateUtilityBillListRequest": {
+        "title": "tns_GetCorporateUtilityBillListRequest",
+        "required": [
+          "idNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "idNumber": {
+            "type": "string"
+          },
+          "subsNumber": {
+            "type": "string"
+          },
+          "billType": {
+            "type": "string"
+          },
+          "startIndex": {
+            "type": "string"
+          },
+          "noOfRecords": {
+            "type": "string"
+          },
+          "nicName": {
+            "type": "string"
+          },
+          "migrated": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_GetCorporateUtilityBillListResponse": {
+        "title": "tns_GetCorporateUtilityBillListResponse",
+        "type": "object",
+        "properties": {
+          "billInformation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_GetCorporateUtilityBillListResponseType"
+            },
+            "description": ""
+          },
+          "totalRecords": {
+            "type": "string"
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "../../commonschemas/fault.json#/FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_GetCorporateUtilityBillListResponseType": {
+        "title": "tns_GetCorporateUtilityBillListResponseType",
+        "type": "object",
+        "properties": {
+          "billId": {
+            "type": "string"
+          },
+          "billType": {
+            "type": "string"
+          },
+          "corporateId": {
+            "type": "string"
+          },
+          "nickName": {
+            "type": "string"
+          },
+          "subscriberNumber": {
+            "type": "string"
+          },
+          "createdTime": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))[T](0[0-9]|1[0-9]|2[0-3]|[0-9])[:]([0-5][0-9])[:]([0-5][0-9])|()",
+            "type": "string"
+          },
+          "deleteFlag": {
+            "type": "string"
+          },
+          "migrated": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_ManageCorporateSadadBillRequest": {
+        "title": "tns_ManageCorporateSadadBillRequest",
+        "required": [
+          "corporateId"
+        ],
+        "type": "object",
+        "properties": {
+          "corporateId": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "billId": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_ManageCorporateSadadBillResponse": {
+        "title": "tns_ManageCorporateSadadBillResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "../../commonschemas/fault.json#/FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "wsse_Security": {
+        "title": "wsse_Security",
+        "required": [
+          "UsernameToken"
+        ],
+        "type": "object",
+        "properties": {
+          "UsernameToken": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/wsse_UsernameToken"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "header_ServiceHeader": {
+        "title": "header_ServiceHeader",
+        "required": [
+          "loggerContext",
+          "transactionCode",
+          "retryTransaction",
+          "tellerId",
+          "terminalId",
+          "workstationId",
+          "override",
+          "correction",
+          "supervisor",
+          "supervisorId",
+          "overrideCode",
+          "employeeId",
+          "branchId",
+          "functionId",
+          "channelId",
+          "bancsPwd",
+          "languageCode"
+        ],
+        "type": "object",
+        "properties": {
+          "loggerContext": {
+            "type": "string"
+          },
+          "transactionCode": {
+            "type": "string"
+          },
+          "retryTransaction": {
+            "type": "boolean"
+          },
+          "tellerId": {
+            "type": "string"
+          },
+          "terminalId": {
+            "type": "string"
+          },
+          "workstationId": {
+            "type": "string"
+          },
+          "override": {
+            "type": "boolean"
+          },
+          "correction": {
+            "type": "string"
+          },
+          "supervisor": {
+            "type": "string"
+          },
+          "supervisorId": {
+            "type": "string"
+          },
+          "overrideCode": {
+            "type": "string"
+          },
+          "employeeId": {
+            "type": "string"
+          },
+          "branchId": {
+            "type": "string"
+          },
+          "functionId": {
+            "type": "string"
+          },
+          "channelId": {
+            "type": "string"
+          },
+          "bancsPwd": {
+            "type": "string"
+          },
+          "languageCode": {
+            "type": "string"
+          },
+          "authenticationType": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/header_authenticationType"
+              },
+              {
+                "description": "Can be: NONE, OTP, TOKEN"
+              }
+            ]
+          },
+          "IvrTransactionID": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "fault_FaultType": {
+        "title": "fault_FaultType",
+        "required": [
+          "number",
+          "description"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "description": {
+            "type": "string"
+          },
+          "retryAfter": {
+            "type": "string"
+          },
+          "system": {
+            "type": "string"
+          },
+          "nativeError": {
+            "type": "string"
+          },
+          "nativeDescription": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_PostalAddress": {
+        "title": "Q1_PostalAddress",
+        "type": "object",
+        "properties": {
+          "addressLine1": {
+            "maxLength": 70,
+            "minLength": 0,
+            "type": "string"
+          },
+          "addressLine2": {
+            "maxLength": 70,
+            "minLength": 0,
+            "type": "string"
+          },
+          "addressLine3": {
+            "maxLength": 70,
+            "minLength": 0,
+            "type": "string"
+          },
+          "city": {
+            "maxLength": 35,
+            "minLength": 0,
+            "type": "string"
+          },
+          "region": {
+            "maxLength": 35,
+            "minLength": 0,
+            "type": "string"
+          },
+          "postalCode": {
+            "maxLength": 16,
+            "minLength": 0,
+            "type": "string"
+          },
+          "country": {
+            "pattern": "([A-Z]{2,2})|()",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_Money": {
+        "title": "Q1_Money",
+        "required": [
+          "isoCurrencyCode"
+        ],
+        "type": "object",
+        "properties": {
+          "isoCurrencyCode": {
+            "pattern": "[A-Z]{3,3}",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_MoneyOptional": {
+        "title": "Q1_MoneyOptional",
+        "required": [
+          "isoCurrencyCode"
+        ],
+        "type": "object",
+        "properties": {
+          "isoCurrencyCode": {
+            "pattern": "([A-Z]{3,3})|()",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_Cursor": {
+        "title": "Q1_Cursor",
+        "required": [
+          "position",
+          "noOfRows"
+        ],
+        "type": "object",
+        "properties": {
+          "position": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "noOfRows": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "description": ""
+      },
+      "Q1_Biller": {
+        "title": "Q1_Biller",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "Q1_DocumentType": {
+        "title": "Q1_DocumentType",
+        "required": [
+          "documentId",
+          "documentSubId",
+          "totalPages",
+          "documentType",
+          "archivedDate",
+          "page"
+        ],
+        "type": "object",
+        "properties": {
+          "documentId": {
+            "type": "string"
+          },
+          "documentSubId": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "documentType": {
+            "type": "string"
+          },
+          "archivedDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          },
+          "page": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Q1_PageType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "Q1_PageType": {
+        "title": "Q1_PageType",
+        "required": [
+          "pageNo",
+          "pageExt",
+          "pageContent"
+        ],
+        "type": "object",
+        "properties": {
+          "pageNo": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageExt": {
+            "type": "string"
+          },
+          "pageContent": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_BillCycle": {
+        "title": "Q1_BillCycle",
+        "enum": [
+          "New",
+          "XXX",
+          "YYY"
+        ],
+        "type": "string",
+        "description": "Valid Values : New, XXX, YYY"
+      },
+      "Q1_Flag": {
+        "title": "Q1_Flag",
+        "enum": [
+          "Y",
+          "N"
+        ],
+        "type": "string",
+        "description": "Valid Values : Y or N"
+      },
+      "Q1_OfferToTag": {
+        "title": "Q1_OfferToTag",
+        "enum": [
+          "Yes",
+          "No"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "Q1_CustomerId": {
+        "title": "Q1_CustomerId",
+        "required": [
+          "id",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_CustomerId2": {
+        "title": "Q1_CustomerId2",
+        "required": [
+          "id",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_Parameter": {
+        "title": "Q1_Parameter",
+        "required": [
+          "name",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_TransactionType": {
+        "title": "Q1_TransactionType",
+        "enum": [
+          "BIANNUALCYCLE",
+          "TODAY",
+          "CYCLETODATE",
+          "CTD"
+        ],
+        "type": "string",
+        "description": "Valid values are BIANNUALCYCLE, TODAY,\n\t\t\t\tCYCLETODATE, CTD etc"
+      },
+      "Q1_BeneficiaryId": {
+        "title": "Q1_BeneficiaryId",
+        "required": [
+          "id",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_DeviceDetails": {
+        "title": "Q1_DeviceDetails",
+        "required": [
+          "machineNonce",
+          "sequenceNonce",
+          "machineLabel",
+          "machineProperties",
+          "createDate",
+          "lastUsedDate",
+          "expiryDate"
+        ],
+        "type": "object",
+        "properties": {
+          "machineNonce": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "sequenceNonce": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "machineLabel": {
+            "type": "string"
+          },
+          "machineProperties": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_MachineProperties"
+              }
+            ]
+          },
+          "createDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          },
+          "lastUsedDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          },
+          "expiryDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_AuthenticationDeviceDetails": {
+        "title": "Q1_AuthenticationDeviceDetails",
+        "required": [
+          "machineNonce",
+          "sequenceNonce",
+          "machineLabel",
+          "machineProperties"
+        ],
+        "type": "object",
+        "properties": {
+          "machineNonce": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "sequenceNonce": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "machineLabel": {
+            "type": "string"
+          },
+          "machineProperties": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_MachineProperties"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "Q1_MachineProperties": {
+        "title": "Q1_MachineProperties",
+        "required": [
+          "applicationData"
+        ],
+        "type": "object",
+        "properties": {
+          "applicationData": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Q1_ApplicationData"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "Q1_ApplicationData": {
+        "title": "Q1_ApplicationData",
+        "required": [
+          "name",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "value": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_AuthenticationInfo": {
+        "title": "Q1_AuthenticationInfo",
+        "required": [
+          "methods"
+        ],
+        "type": "object",
+        "properties": {
+          "methods": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Methods"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "Q1_Methods": {
+        "title": "Q1_Methods",
+        "required": [
+          "hardToken",
+          "softToken",
+          "siteImage",
+          "trustedPC",
+          "callerId",
+          "oneTimePass"
+        ],
+        "type": "object",
+        "properties": {
+          "hardToken": {
+            "type": "boolean"
+          },
+          "softToken": {
+            "type": "boolean"
+          },
+          "siteImage": {
+            "type": "boolean"
+          },
+          "trustedPC": {
+            "type": "boolean"
+          },
+          "callerId": {
+            "type": "boolean"
+          },
+          "oneTimePass": {
+            "type": "boolean"
+          }
+        },
+        "description": ""
+      },
+      "Q1_TokenDetails": {
+        "title": "Q1_TokenDetails",
+        "required": [
+          "userId",
+          "userName",
+          "userGroup",
+          "vendorId",
+          "serialNumber",
+          "tokenType",
+          "signatureSupported",
+          "loadDate",
+          "lastUsedDate"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "userName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "userGroup": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "vendorId": {
+            "type": "string"
+          },
+          "serialNumber": {
+            "type": "string"
+          },
+          "tokenType": {
+            "type": "string"
+          },
+          "signatureSupported": {
+            "type": "boolean"
+          },
+          "loadDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          },
+          "lastUsedDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_AccountDetails": {
+        "title": "Q1_AccountDetails",
+        "required": [
+          "accountId",
+          "balance",
+          "overdraft",
+          "balanceSAR",
+          "availableSAR",
+          "averageLastSixMonths",
+          "isoCurrencyCode",
+          "division",
+          "statusCode",
+          "accountType",
+          "glClassificationCode"
+        ],
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "maxLength": 24,
+            "minLength": 14,
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})",
+            "type": "string"
+          },
+          "balance": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Money"
+              }
+            ]
+          },
+          "overdraft": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Money"
+              }
+            ]
+          },
+          "balanceSAR": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Money"
+              }
+            ]
+          },
+          "availableSAR": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Money"
+              }
+            ]
+          },
+          "averageLastSixMonths": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Money"
+              }
+            ]
+          },
+          "isoCurrencyCode": {
+            "pattern": "[A-Z]{3,3}",
+            "type": "string"
+          },
+          "division": {
+            "type": "string"
+          },
+          "statusCode": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "accountType": {
+            "maxLength": 4,
+            "type": "string"
+          },
+          "glClassificationCode": {
+            "maxLength": 40,
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_Gender": {
+        "title": "Q1_Gender",
+        "enum": [
+          "M",
+          "F"
+        ],
+        "type": "string",
+        "description": "Valid values are : M , F etc"
+      },
+      "Q1_trueOrFalseType": {
+        "title": "Q1_trueOrFalseType",
+        "enum": [
+          "true",
+          "false",
+          "True",
+          "False"
+        ],
+        "type": "string",
+        "description": "Valid values are : true, false, True, False"
+      },
+      "Q1_trueOrFalseTypeOptional": {
+        "title": "Q1_trueOrFalseTypeOptional",
+        "enum": [
+          "true",
+          "false",
+          "True",
+          "False"
+        ],
+        "type": "string",
+        "description": "Optional.\n\t\t\t\tValid values are : true, false, True,\n\t\t\t\tFalse etc"
+      },
+      "Q1_YorNType": {
+        "title": "Q1_YorNType",
+        "enum": [
+          "Y",
+          "N"
+        ],
+        "type": "string",
+        "description": "Valid values are : Y, N"
+      },
+      "Q1_YorNTypeOptional": {
+        "title": "Q1_YorNTypeOptional",
+        "enum": [
+          "Y",
+          "N"
+        ],
+        "type": "string",
+        "description": "Optional.\n\t\t\t\tValid values are : Y, N"
+      },
+      "Q1_contactlessIndicatorTypeOptional": {
+        "title": "Q1_contactlessIndicatorTypeOptional",
+        "enum": [
+          "Y",
+          "N",
+          "V"
+        ],
+        "type": "string",
+        "description": "Optional.\n\t\t\t\tValid values are : Y, N, V"
+      },
+      "Q1_CustomerChannelType": {
+        "title": "Q1_CustomerChannelType",
+        "enum": [
+          "BOTH",
+          "MOBILE",
+          "AOL"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "Q1_ErrorCategoryType": {
+        "title": "Q1_ErrorCategoryType",
+        "enum": [
+          "BUSINESS",
+          "SYSTEM"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "Q1_CommonServiceFaultType": {
+        "title": "Q1_CommonServiceFaultType",
+        "required": [
+          "category",
+          "code",
+          "message",
+          "detail"
+        ],
+        "type": "object",
+        "properties": {
+          "category": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ErrorCategoryType"
+              }
+            ]
+          },
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_ServicesStatusType": {
+        "title": "Q1_ServicesStatusType",
+        "enum": [
+          "ACTIVE",
+          "DISABLE_USER",
+          "DISABLE_ADMIN",
+          "DELETED"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "Q1_ServiceLevelType": {
+        "title": "Q1_ServiceLevelType",
+        "enum": [
+          "INQUIRY",
+          "FULL"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "Q1_CustomerStatusType": {
+        "title": "Q1_CustomerStatusType",
+        "required": [
+          "userId",
+          "aol",
+          "mobile",
+          "emergencyCash"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "aol": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_AolStatusType"
+              }
+            ]
+          },
+          "mobile": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_MobileStatusType"
+              }
+            ]
+          },
+          "emergencyCash": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_EmergencyCashStatus"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "Q1_AolStatusType": {
+        "title": "Q1_AolStatusType",
+        "required": [
+          "createdBy",
+          "createdDate",
+          "lastLoginDate",
+          "serviceLevel",
+          "serviceStatus",
+          "passwordRevoked"
+        ],
+        "type": "object",
+        "properties": {
+          "createdBy": {
+            "type": "string"
+          },
+          "createdDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string"
+          },
+          "lastLoginDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string"
+          },
+          "serviceLevel": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ServiceLevelType"
+              }
+            ]
+          },
+          "serviceStatus": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ServicesStatusType"
+              }
+            ]
+          },
+          "passwordRevoked": {
+            "type": "boolean"
+          }
+        },
+        "description": ""
+      },
+      "Q1_MobileStatusType": {
+        "title": "Q1_MobileStatusType",
+        "required": [
+          "registeredBy",
+          "registeredDate",
+          "lastLoginDate",
+          "serviceLevel",
+          "serviceStatus"
+        ],
+        "type": "object",
+        "properties": {
+          "registeredBy": {
+            "type": "string"
+          },
+          "registeredDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string"
+          },
+          "lastLoginDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string"
+          },
+          "serviceLevel": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ServiceLevelType"
+              }
+            ]
+          },
+          "serviceStatus": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ServicesStatusType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "Q1_EmergencyCashStatus": {
+        "title": "Q1_EmergencyCashStatus",
+        "required": [
+          "registrationDate",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "registrationDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_TransactionInfo": {
+        "title": "Q1_TransactionInfo",
+        "required": [
+          "transactionType"
+        ],
+        "type": "object",
+        "properties": {
+          "transactionId": {
+            "type": "string"
+          },
+          "relatedTransactionId": {
+            "type": "string"
+          },
+          "transactionType": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_ClientInfo": {
+        "title": "Q1_ClientInfo",
+        "required": [
+          "clientId"
+        ],
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_SecurityInfo": {
+        "title": "Q1_SecurityInfo",
+        "required": [
+          "username",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_CreationInfo": {
+        "title": "Q1_CreationInfo",
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string"
+          },
+          "branch": {
+            "maxLength": 5,
+            "type": "string"
+          },
+          "institution": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "teller": {
+            "maxLength": 8,
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_RequestHeader": {
+        "title": "Q1_RequestHeader",
+        "type": "object",
+        "properties": {
+          "transactionInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_TransactionInfo"
+              }
+            ]
+          },
+          "clientInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ClientInfo"
+              }
+            ]
+          },
+          "securityInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_SecurityInfo"
+              }
+            ]
+          },
+          "creationInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_CreationInfo"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "Q1_ErrorInfo": {
+        "title": "Q1_ErrorInfo",
+        "required": [
+          "level"
+        ],
+        "type": "object",
+        "properties": {
+          "level": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_level"
+              }
+            ]
+          },
+          "code": {
+            "type": "string"
+          },
+          "context": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_ReplyHeader": {
+        "title": "Q1_ReplyHeader",
+        "type": "object",
+        "properties": {
+          "transactionInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_TransactionInfo"
+              }
+            ]
+          },
+          "clientInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ClientInfo"
+              }
+            ]
+          },
+          "errorInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ErrorInfo"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "ActivateRetailBeneficiaryRequest": {
+        "title": "ActivateRetailBeneficiaryRequest",
+        "required": [
+          "ActivateRetailBeneficiaryRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "ActivateRetailBeneficiaryRequest": {
+            "$ref": "#/components/schemas/tns_ActivateRetailBeneficiaryRequest"
+          }
+        }
+      },
+      "ActivateRetailBeneficiaryResponse": {
+        "title": "ActivateRetailBeneficiaryResponse",
+        "required": [
+          "ActivateRetailBeneficiaryResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "ActivateRetailBeneficiaryResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_ActivateRetailBeneficiaryResponse"
+              }
+            ]
+          }
+        }
+      },
+      "ActivateRetailPasswordRequest": {
+        "title": "ActivateRetailPasswordRequest",
+        "required": [
+          "ActivateRetailPasswordRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "ActivateRetailPasswordRequest": {
+            "$ref": "#/components/schemas/tns_ActivateRetailPasswordRequest"
+          }
+        }
+      },
+      "ActivateRetailPasswordResponse": {
+        "title": "ActivateRetailPasswordResponse",
+        "required": [
+          "ActivateRetailPasswordResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "ActivateRetailPasswordResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_ActivateRetailPasswordResponse"
+              }
+            ]
+          }
+        }
+      },
+      "ActivateRetailServiceLevelRequest": {
+        "title": "ActivateRetailServiceLevelRequest",
+        "required": [
+          "ActivateRetailServiceLevelRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "ActivateRetailServiceLevelRequest": {
+            "$ref": "#/components/schemas/tns_ActivateRetailServiceLevelRequest"
+          }
+        }
+      },
+      "ActivateRetailServiceLevelResponse": {
+        "title": "ActivateRetailServiceLevelResponse",
+        "required": [
+          "ActivateRetailServiceLevelResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "ActivateRetailServiceLevelResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_ActivateRetailServiceLevelResponse"
+              }
+            ]
+          }
+        }
+      },
+      "AuthenticateMobileBankingLoginRequest": {
+        "title": "AuthenticateMobileBankingLoginRequest",
+        "required": [
+          "AuthenticateMobileBankingLoginRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "AuthenticateMobileBankingLoginRequest": {
+            "$ref": "#/components/schemas/tns_AuthenticateMobileBankingLoginRequest"
+          }
+        }
+      },
+      "AuthenticateMobileBankingLoginResponse": {
+        "title": "AuthenticateMobileBankingLoginResponse",
+        "required": [
+          "AuthenticateMobileBankingLoginResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "AuthenticateMobileBankingLoginResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_AuthenticateMobileBankingLoginResponse"
+              }
+            ]
+          }
+        }
+      },
+      "BeneficiaryListDetailsRequest": {
+        "title": "BeneficiaryListDetailsRequest",
+        "required": [
+          "BeneficiaryListDetailsRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "BeneficiaryListDetailsRequest": {
+            "$ref": "#/components/schemas/tns_BeneficiaryListDetailsRequest"
+          }
+        }
+      },
+      "BeneficiaryListDetailsResponse": {
+        "title": "BeneficiaryListDetailsResponse",
+        "required": [
+          "BeneficiaryListDetailsResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "BeneficiaryListDetailsResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_BeneficiaryListDetailsResponse"
+              }
+            ]
+          }
+        }
+      },
+      "BeneficiaryRequest": {
+        "title": "BeneficiaryRequest",
+        "required": [
+          "BeneficiaryRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "BeneficiaryRequest": {
+            "$ref": "#/components/schemas/BeneficiaryRequestType"
+          }
+        }
+      },
+      "BeneficiaryResponse": {
+        "title": "BeneficiaryResponse",
+        "required": [
+          "BeneficiaryResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "BeneficiaryResponse": {
+            "$ref": "#/components/schemas/BeneficiaryResponseType"
+          }
+        }
+      },
+      "CorporateBeneficiaryActivationRequest": {
+        "title": "CorporateBeneficiaryActivationRequest",
+        "required": [
+          "CorporateBeneficiaryActivationRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "CorporateBeneficiaryActivationRequest": {
+            "$ref": "#/components/schemas/tns_CorporateBeneficiaryActivationRequest"
+          }
+        }
+      },
+      "CorporateBeneficiaryActivationResponse": {
+        "title": "CorporateBeneficiaryActivationResponse",
+        "required": [
+          "CorporateBeneficiaryActivationResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "CorporateBeneficiaryActivationResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_CorporateBeneficiaryActivationResponse"
+              }
+            ]
+          }
+        }
+      },
+      "GetAOLUserInformationRequest": {
+        "title": "GetAOLUserInformationRequest",
+        "required": [
+          "AOLUserInformationRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "AOLUserInformationRequest": {
+            "$ref": "#/components/schemas/tns_AOLUserInformationRequest"
+          }
+        }
+      },
+      "GetAOLUserInformationResponse": {
+        "title": "GetAOLUserInformationResponse",
+        "required": [
+          "AOLUserInformationResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "AOLUserInformationResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_AOLUserInformationResponse"
+              }
+            ]
+          }
+        }
+      },
+      "GetCorporateUtilityBillListRequest": {
+        "title": "GetCorporateUtilityBillListRequest",
+        "required": [
+          "GetCorporateUtilityBillListRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "GetCorporateUtilityBillListRequest": {
+            "$ref": "#/components/schemas/tns_GetCorporateUtilityBillListRequest"
+          }
+        }
+      },
+      "GetCorporateUtilityBillListResponse": {
+        "title": "GetCorporateUtilityBillListResponse",
+        "required": [
+          "GetCorporateUtilityBillListResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "GetCorporateUtilityBillListResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_GetCorporateUtilityBillListResponse"
+              }
+            ]
+          }
+        }
+      },
+      "GetIntraBeneficiaryListRequest": {
+        "title": "GetIntraBeneficiaryListRequest",
+        "required": [
+          "GetIntraBeneficiaryListRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "GetIntraBeneficiaryListRequest": {
+            "$ref": "#/components/schemas/tns_GetIntraBeneficiaryListRequest"
+          }
+        }
+      },
+      "GetIntraBeneficiaryListResponse": {
+        "title": "GetIntraBeneficiaryListResponse",
+        "required": [
+          "GetIntraBeneficiaryListResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "GetIntraBeneficiaryListResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_GetIntraBeneficiaryListResponse"
+              }
+            ]
+          }
+        }
+      },
+      "GetPayersByUserRequest": {
+        "title": "GetPayersByUserRequest",
+        "required": [
+          "GetPayersByUserRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "GetPayersByUserRequest": {
+            "$ref": "#/components/schemas/tns_GetPayersByUserRequest"
+          }
+        }
+      },
+      "GetPayersByUserResponse": {
+        "title": "GetPayersByUserResponse",
+        "required": [
+          "GetPayersByUserResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "GetPayersByUserResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_GetPayersByUserResponse"
+              }
+            ]
+          }
+        }
+      },
+      "GetRetailBeneficiaryListRequest": {
+        "title": "GetRetailBeneficiaryListRequest",
+        "required": [
+          "RetailBeneficiaryListRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "RetailBeneficiaryListRequest": {
+            "$ref": "#/components/schemas/RetailBeneficiaryListRequestType"
+          }
+        }
+      },
+      "GetRetailBeneficiaryListResponse": {
+        "title": "GetRetailBeneficiaryListResponse",
+        "required": [
+          "RetailBeneficiaryListResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "RetailBeneficiaryListResponse": {
+            "$ref": "#/components/schemas/RetailBeneficiaryListResponseType"
+          }
+        }
+      },
+      "header_authenticationType": {
+        "title": "header_authenticationType",
+        "enum": [
+          "NONE",
+          "OTP",
+          "TOKEN"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "InquireActivateCorpBeneficiaryRequest": {
+        "title": "InquireActivateCorpBeneficiaryRequest",
+        "required": [
+          "InquireActivateCorpBeneficiaryRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "InquireActivateCorpBeneficiaryRequest": {
+            "$ref": "#/components/schemas/tns_InquireActivateCorpBeneficiaryRequest"
+          }
+        }
+      },
+      "InquireActivateCorpBeneficiaryResponse": {
+        "title": "InquireActivateCorpBeneficiaryResponse",
+        "required": [
+          "InquireActivateCorpBeneficiaryResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "InquireActivateCorpBeneficiaryResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_InquireActivateCorpBeneficiaryResponse"
+              }
+            ]
+          }
+        }
+      },
+      "InquireCorporateBeneMigrationStatusRequest": {
+        "title": "InquireCorporateBeneMigrationStatusRequest",
+        "required": [
+          "InquireCorporateBeneMigrationStatusRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "InquireCorporateBeneMigrationStatusRequest": {
+            "$ref": "#/components/schemas/tns_InquireCorporateBeneMigrationStatusRequest"
+          }
+        }
+      },
+      "InquireCorporateBeneMigrationStatusResponse": {
+        "title": "InquireCorporateBeneMigrationStatusResponse",
+        "required": [
+          "InquireCorporateBeneMigrationStatusResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "InquireCorporateBeneMigrationStatusResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_InquireCorporateBeneMigrationStatusResponse"
+              }
+            ]
+          }
+        }
+      },
+      "MaintainPayersRequest": {
+        "title": "MaintainPayersRequest",
+        "required": [
+          "MaintainPayersRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "MaintainPayersRequest": {
+            "$ref": "#/components/schemas/tns_MaintainPayersRequest"
+          }
+        }
+      },
+      "MaintainPayersResponse": {
+        "title": "MaintainPayersResponse",
+        "required": [
+          "MaintainPayersResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "MaintainPayersResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_MaintainPayersResponse"
+              }
+            ]
+          }
+        }
+      },
+      "ManageCorporateSadadBillRequest": {
+        "title": "ManageCorporateSadadBillRequest",
+        "required": [
+          "ManageCorporateSadadBillRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "ManageCorporateSadadBillRequest": {
+            "$ref": "#/components/schemas/tns_ManageCorporateSadadBillRequest"
+          }
+        }
+      },
+      "ManageCorporateSadadBillResponse": {
+        "title": "ManageCorporateSadadBillResponse",
+        "required": [
+          "ManageCorporateSadadBillResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "ManageCorporateSadadBillResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_ManageCorporateSadadBillResponse"
+              }
+            ]
+          }
+        }
+      },
+      "Q1_level": {
+        "title": "Q1_level",
+        "enum": [
+          "SUCCESS",
+          "WARNING",
+          "FAILURE"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "RegisterMobileUserRequest": {
+        "title": "RegisterMobileUserRequest",
+        "required": [
+          "RegisterMobileUserRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "RegisterMobileUserRequest": {
+            "$ref": "#/components/schemas/tns_RegisterMobileUserRequest"
+          }
+        }
+      },
+      "RegisterMobileUserResponse": {
+        "title": "RegisterMobileUserResponse",
+        "required": [
+          "RegisterMobileUserResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "RegisterMobileUserResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_RegisterMobileUserResponse"
+              }
+            ]
+          }
+        }
+      },
+      "RetailBeneficiaryActivationRequest": {
+        "title": "RetailBeneficiaryActivationRequest",
+        "required": [
+          "RetailBeneficiaryActivationRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "RetailBeneficiaryActivationRequest": {
+            "$ref": "#/components/schemas/tns_RetailBeneficiaryActivationRequest"
+          }
+        }
+      },
+      "RetailBeneficiaryActivationResponse": {
+        "title": "RetailBeneficiaryActivationResponse",
+        "required": [
+          "RetailBeneficiaryActivationResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "RetailBeneficiaryActivationResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_RetailBeneficiaryActivationResponse"
+              }
+            ]
+          }
+        }
+      },
+      "action": {
+        "title": "action",
+        "enum": [
+          "REVOKE",
+          "DELETE",
+          "APPROVE",
+          "ADD",
+          "ADD_APPROVE"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "adminLockFlag": {
+        "title": "adminLockFlag",
+        "enum": [
+          "Y",
+          "N"
+        ],
+        "type": "string",
+        "maxLength": 1,
+        "description": ""
+      },
+      "tns_ajyalFlag": {
+        "title": "tns_ajyalFlag",
+        "enum": [
+          "Y",
+          "N"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "tns_asriyyahFlag": {
+        "title": "tns_asriyyahFlag",
+        "enum": [
+          "Y",
+          "N"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "beneficiaryStatus": {
+        "title": "beneficiaryStatus",
+        "enum": [
+          "Y",
+          "N",
+          "ACTIVE",
+          "PENDING",
+          "APPROVED"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "beneficiaryType2": {
+        "title": "beneficiaryType2",
+        "enum": [
+          "01",
+          "04",
+          "05"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "channel": {
+        "title": "channel",
+        "enum": [
+          "AOL",
+          "MOB"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "tns_forcePasswordMode": {
+        "title": "tns_forcePasswordMode",
+        "enum": [
+          "true",
+          "false"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "tns_forceTxnPasswordMode": {
+        "title": "tns_forceTxnPasswordMode",
+        "enum": [
+          "true",
+          "false"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "tns_goldFlag": {
+        "title": "tns_goldFlag",
+        "enum": [
+          "Y",
+          "N"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "tns_incomingType": {
+        "title": "tns_incomingType",
+        "enum": [
+          "USERINFO",
+          "USERID",
+          "LNKSERVICE"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "tns_isRetailPasswordActivated": {
+        "title": "tns_isRetailPasswordActivated",
+        "enum": [
+          "Yes",
+          "No"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "tns_maziahFlag": {
+        "title": "tns_maziahFlag",
+        "enum": [
+          "Y",
+          "N"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "tns_ncbStaffFlag": {
+        "title": "tns_ncbStaffFlag",
+        "enum": [
+          "Y",
+          "N"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "option": {
+        "title": "option",
+        "enum": [
+          "UPDATE",
+          "INQUIRY"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "option1": {
+        "title": "option1",
+        "enum": [
+          "ADD",
+          "UPDATE",
+          "DELETE"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "tns_platinumFlag": {
+        "title": "tns_platinumFlag",
+        "enum": [
+          "Y",
+          "N"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "tns_privateFlag": {
+        "title": "tns_privateFlag",
+        "enum": [
+          "Y",
+          "N"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "tns_problemLoadingAccounts": {
+        "title": "tns_problemLoadingAccounts",
+        "enum": [
+          "true",
+          "false"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "tns_sexFlag": {
+        "title": "tns_sexFlag",
+        "enum": [
+          "M",
+          "F"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "tns_source": {
+        "title": "tns_source",
+        "enum": [
+          "MOBILE",
+          "ONLINE"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "status": {
+        "title": "status",
+        "enum": [
+          "ALL",
+          "ACTIVE"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "type": {
+        "title": "type",
+        "enum": [
+          "USERINFO",
+          "CURRENT",
+          "SADAD",
+          "SAWA",
+          "WALLET"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "UpdateCorporateBeneMigrationStatusRequest": {
+        "title": "UpdateCorporateBeneMigrationStatusRequest",
+        "required": [
+          "UpdateCorporateBeneMigrationStatusRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "UpdateCorporateBeneMigrationStatusRequest": {
+            "$ref": "#/components/schemas/tns_UpdateCorporateBeneMigrationStatusRequest"
+          }
+        }
+      },
+      "UpdateCorporateBeneMigrationStatusResponse": {
+        "title": "UpdateCorporateBeneMigrationStatusResponse",
+        "required": [
+          "UpdateCorporateBeneMigrationStatusResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "UpdateCorporateBeneMigrationStatusResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_UpdateCorporateBeneMigrationStatusResponse"
+              }
+            ]
+          }
+        }
+      },
+      "UpdateMobileBeneficiaryRequest": {
+        "title": "UpdateMobileBeneficiaryRequest",
+        "required": [
+          "UpdateMobileBeneficiaryRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "UpdateMobileBeneficiaryRequest": {
+            "$ref": "#/components/schemas/UpdateMobileBeneficiaryRequestType"
+          }
+        }
+      },
+      "UpdateMobileBeneficiaryResponse": {
+        "title": "UpdateMobileBeneficiaryResponse",
+        "required": [
+          "UpdateMobileBeneficiaryResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "UpdateMobileBeneficiaryResponse": {
+            "$ref": "#/components/schemas/UpdateMobileBeneficiaryResponseTypes"
+          }
+        }
+      },
+      "UpdateMOIBeneficiaryRequest": {
+        "title": "UpdateMOIBeneficiaryRequest",
+        "required": [
+          "UpdateMOIBeneficiaryRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "UpdateMOIBeneficiaryRequest": {
+            "$ref": "#/components/schemas/tns_UpdateMOIBeneficiaryRequest"
+          }
+        }
+      },
+      "UpdateMOIBeneficiaryResponse": {
+        "title": "UpdateMOIBeneficiaryResponse",
+        "required": [
+          "UpdateMOIBeneficiaryResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "UpdateMOIBeneficiaryResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_UpdateMOIBeneficiaryResponse"
+              }
+            ]
+          }
+        }
+      },
+      "UserInfoByTokenRequest": {
+        "title": "UserInfoByTokenRequest",
+        "required": [
+          "UserInfoByTokenRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "UserInfoByTokenRequest": {
+            "$ref": "#/components/schemas/tns_UserInfoByTokenRequest"
+          }
+        }
+      },
+      "UserInfoByTokenResponse": {
+        "title": "UserInfoByTokenResponse",
+        "required": [
+          "UserInfoByTokenResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "UserInfoByTokenResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_UserInfoByTokenResponse"
+              }
+            ]
+          }
+        }
+      },
+      "wsse_UsernameToken": {
+        "title": "wsse_UsernameToken",
+        "required": [
+          "Username",
+          "Password"
+        ],
+        "type": "object",
+        "properties": {
+          "Username": {
+            "type": "string"
+          },
+          "Password": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_AmountOptional": {
+        "oneOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "securitySchemes": {
+      "mwsecurity": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "mwsecurity": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "RetailAdministration APIs",
+      "description": ""
+    }
+  ]
+}

@@ -1,0 +1,5418 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Remittance Service",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://mw-api-3scale-apicast-staging.apps.com:443/api/connector/uddi/quickpay"
+    }
+  ],
+  "paths": {
+    "/v1/AddSender": {
+      "post": {
+        "tags": [
+          "AddSender"
+        ],
+        "summary": "AddSender",
+        "operationId": "AddSender",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/xml": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ns1_AddSenderRequest"
+                  },
+                  {
+                    "xml": {
+                      "name": "AddSenderRequest",
+                      "attribute": false,
+                      "wrapped": false
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ns1_AddSenderResponse"
+                    },
+                    {
+                      "xml": {
+                        "name": "AddSenderResponse",
+                        "attribute": false,
+                        "wrapped": false
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/ActivateSender": {
+      "post": {
+        "tags": [
+          "ActivateSender"
+        ],
+        "summary": "ActivateSender",
+        "operationId": "ActivateSender",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/xml": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ns1_ActivateSenderRequest"
+                  },
+                  {
+                    "xml": {
+                      "name": "ActivateSenderRequest",
+                      "attribute": false,
+                      "wrapped": false
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ns1_ActivateSenderResponse"
+                    },
+                    {
+                      "xml": {
+                        "name": "ActivateSenderResponse",
+                        "attribute": false,
+                        "wrapped": false
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/RetrieveSender": {
+      "post": {
+        "tags": [
+          "RetrieveSender"
+        ],
+        "summary": "RetrieveSender",
+        "operationId": "RetrieveSender",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/xml": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ns1_RetrieveSenderRequest"
+                  },
+                  {
+                    "xml": {
+                      "name": "RetrieveSenderRequest",
+                      "attribute": false,
+                      "wrapped": false
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ns1_RetrieveSenderResponse"
+                    },
+                    {
+                      "xml": {
+                        "name": "RetrieveSenderResponse",
+                        "attribute": false,
+                        "wrapped": false
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/AddBeneficiary": {
+      "post": {
+        "tags": [
+          "AddBeneficiary"
+        ],
+        "summary": "AddBeneficiary",
+        "operationId": "AddBeneficiary",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/xml": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ns1_remittanceBeneficiary"
+                  },
+                  {
+                    "xml": {
+                      "name": "AddBeneficiaryRequest",
+                      "attribute": false,
+                      "wrapped": false
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ns1_AddBeneficiaryResponse"
+                    },
+                    {
+                      "xml": {
+                        "name": "AddBeneficiaryResponse",
+                        "attribute": false,
+                        "wrapped": false
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/ActivateBeneficiary": {
+      "post": {
+        "tags": [
+          "ActivateBeneficiary"
+        ],
+        "summary": "ActivateBeneficiary",
+        "operationId": "ActivateBeneficiary",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/xml": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ns1_ActivateBeneficiaryRequest"
+                  },
+                  {
+                    "xml": {
+                      "name": "ActivateBeneficiaryRequest",
+                      "attribute": false,
+                      "wrapped": false
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ns1_ActivateBeneficiaryResponse"
+                    },
+                    {
+                      "xml": {
+                        "name": "ActivateBeneficiaryResponse",
+                        "attribute": false,
+                        "wrapped": false
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/RetrieveBeneficiary": {
+      "post": {
+        "tags": [
+          "RetrieveBeneficiary"
+        ],
+        "summary": "RetrieveBeneficiary",
+        "operationId": "RetrieveBeneficiary",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/xml": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ns1_RetrieveBeneficiaryRequest"
+                  },
+                  {
+                    "xml": {
+                      "name": "RetrieveBeneficiaryRequest",
+                      "attribute": false,
+                      "wrapped": false
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ns1_RetrieveBeneficiaryResponse"
+                    },
+                    {
+                      "xml": {
+                        "name": "RetrieveBeneficiaryResponse",
+                        "attribute": false,
+                        "wrapped": false
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/ModifyBeneficiary": {
+      "post": {
+        "tags": [
+          "ModifyBeneficiary"
+        ],
+        "summary": "ModifyBeneficiary",
+        "operationId": "ModifyBeneficiary",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/xml": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ns1_remittanceModifyBeneficiary"
+                  },
+                  {
+                    "xml": {
+                      "name": "ModifyBeneficiaryRequest",
+                      "attribute": false,
+                      "wrapped": false
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ns1_ModifyBeneficiaryResponse"
+                    },
+                    {
+                      "xml": {
+                        "name": "ModifyBeneficiaryResponse",
+                        "attribute": false,
+                        "wrapped": false
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/DeleteBeneficiary": {
+      "post": {
+        "tags": [
+          "DeleteBeneficiary"
+        ],
+        "summary": "DeleteBeneficiary",
+        "operationId": "DeleteBeneficiary",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/xml": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ns1_DeleteBeneficiaryRequest"
+                  },
+                  {
+                    "xml": {
+                      "name": "DeleteBeneficiaryRequest",
+                      "attribute": false,
+                      "wrapped": false
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ns1_DeleteBeneficiaryResponse"
+                    },
+                    {
+                      "xml": {
+                        "name": "DeleteBeneficiaryResponse",
+                        "attribute": false,
+                        "wrapped": false
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "tns1_BinarySecurityTokenType": {
+        "title": "tns1_BinarySecurityTokenType",
+        "type": "object",
+        "properties": {
+          "ValueType": {
+            "type": "string",
+            "xml": {
+              "name": "ValueType",
+              "prefix": "tns1",
+              "attribute": true,
+              "wrapped": false
+            }
+          },
+          "EncodingType": {
+            "type": "string",
+            "xml": {
+              "name": "EncodingType",
+              "prefix": "tns1",
+              "attribute": true,
+              "wrapped": false
+            }
+          },
+          "Id": {
+            "type": "string",
+            "xml": {
+              "name": "Id",
+              "prefix": "wsu",
+              "attribute": true,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "BinarySecurityTokenType",
+          "namespace": "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd",
+          "prefix": "tns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "tns1_EmbeddedType": {
+        "title": "tns1_EmbeddedType",
+        "type": "object",
+        "properties": {
+          "ValueType": {
+            "type": "string",
+            "xml": {
+              "name": "ValueType",
+              "prefix": "tns1",
+              "attribute": true,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "EmbeddedType",
+          "namespace": "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd",
+          "prefix": "tns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "tns1_KeyIdentifierType": {
+        "title": "tns1_KeyIdentifierType",
+        "type": "object",
+        "properties": {
+          "ValueType": {
+            "type": "string",
+            "xml": {
+              "name": "ValueType",
+              "prefix": "tns1",
+              "attribute": true,
+              "wrapped": false
+            }
+          },
+          "EncodingType": {
+            "type": "string",
+            "xml": {
+              "name": "EncodingType",
+              "prefix": "tns1",
+              "attribute": true,
+              "wrapped": false
+            }
+          },
+          "Id": {
+            "type": "string",
+            "xml": {
+              "name": "Id",
+              "prefix": "wsu",
+              "attribute": true,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "KeyIdentifierType",
+          "namespace": "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd",
+          "prefix": "tns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "tns1_EncodedString": {
+        "title": "tns1_EncodedString",
+        "type": "object",
+        "properties": {
+          "EncodingType": {
+            "type": "string",
+            "xml": {
+              "name": "EncodingType",
+              "prefix": "tns1",
+              "attribute": true,
+              "wrapped": false
+            }
+          },
+          "Id": {
+            "type": "string",
+            "xml": {
+              "name": "Id",
+              "prefix": "wsu",
+              "attribute": true,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "EncodedString",
+          "namespace": "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd",
+          "prefix": "tns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "tns1_PasswordString": {
+        "title": "tns1_PasswordString",
+        "type": "object",
+        "properties": {
+          "Type": {
+            "type": "string",
+            "xml": {
+              "name": "Type",
+              "prefix": "tns1",
+              "attribute": true,
+              "wrapped": false
+            }
+          },
+          "Id": {
+            "type": "string",
+            "xml": {
+              "name": "Id",
+              "prefix": "wsu",
+              "attribute": true,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "PasswordString",
+          "namespace": "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd",
+          "prefix": "tns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "tns1_ReferenceType": {
+        "title": "tns1_ReferenceType",
+        "type": "object",
+        "properties": {
+          "URI": {
+            "type": "string",
+            "xml": {
+              "name": "URI",
+              "prefix": "tns1",
+              "attribute": true,
+              "wrapped": false
+            }
+          },
+          "ValueType": {
+            "type": "string",
+            "xml": {
+              "name": "ValueType",
+              "prefix": "tns1",
+              "attribute": true,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "ReferenceType",
+          "namespace": "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd",
+          "prefix": "tns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "tns1_SecurityHeaderType": {
+        "title": "tns1_SecurityHeaderType",
+        "type": "object",
+        "description": "",
+        "xml": {
+          "name": "SecurityHeaderType",
+          "namespace": "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd",
+          "prefix": "tns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "tns1_SecurityTokenReferenceType": {
+        "title": "tns1_SecurityTokenReferenceType",
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "xml": {
+              "name": "Id",
+              "prefix": "wsu",
+              "attribute": true,
+              "wrapped": false
+            }
+          },
+          "Usage": {
+            "type": "string",
+            "xml": {
+              "name": "Usage",
+              "prefix": "wsu",
+              "attribute": true,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "SecurityTokenReferenceType",
+          "namespace": "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd",
+          "prefix": "tns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "tns1_TransformationParametersType": {
+        "title": "tns1_TransformationParametersType",
+        "type": "object",
+        "description": "",
+        "xml": {
+          "name": "TransformationParametersType",
+          "namespace": "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd",
+          "prefix": "tns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "tns1_UsernameTokenType": {
+        "title": "tns1_UsernameTokenType",
+        "required": [
+          "Username"
+        ],
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "xml": {
+              "name": "Id",
+              "prefix": "wsu",
+              "attribute": true,
+              "wrapped": false
+            }
+          },
+          "Username": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns1_AttributedString"
+              },
+              {
+                "xml": {
+                  "name": "Username",
+                  "namespace": "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd",
+                  "prefix": "tns1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "UsernameTokenType",
+          "namespace": "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd",
+          "prefix": "tns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "tns1_AttributedString": {
+        "title": "tns1_AttributedString",
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string",
+            "xml": {
+              "name": "Id",
+              "prefix": "wsu",
+              "attribute": true,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "AttributedString",
+          "namespace": "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd",
+          "prefix": "tns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "tns2_deliveryTypes": {
+        "title": "tns2_deliveryTypes",
+        "enum": [
+          "DDEPOSIT",
+          "PICKUP",
+          "COURIER",
+          "DIRCOUR",
+          "XMDDEPOSIT",
+          "XMPICKUP",
+          "MONEYGRAM PICKUP",
+          "MONEYGRAM DDEPOSIT",
+          "MONEYGRAM COURIER"
+        ],
+        "type": "string",
+        "description": "",
+        "xml": {
+          "name": "deliveryTypes",
+          "namespace": "http://com.tcs.bancs.rm/schemas/",
+          "prefix": "tns2",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "tns2_YorNType": {
+        "title": "tns2_YorNType",
+        "enum": [
+          "Y",
+          "N"
+        ],
+        "type": "string",
+        "description": "",
+        "xml": {
+          "name": "YorNType",
+          "namespace": "http://com.tcs.bancs.rm/schemas/",
+          "prefix": "tns2",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "tns2_trueOrFalseType": {
+        "title": "tns2_trueOrFalseType",
+        "enum": [
+          "True",
+          "False"
+        ],
+        "type": "string",
+        "description": "",
+        "xml": {
+          "name": "trueOrFalseType",
+          "namespace": "http://com.tcs.bancs.rm/schemas/",
+          "prefix": "tns2",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "tns3_ServiceHeader": {
+        "title": "tns3_ServiceHeader",
+        "required": [
+          "loggerContext",
+          "transactionCode",
+          "retryTransaction",
+          "tellerId",
+          "terminalId",
+          "workstationId",
+          "override",
+          "correction",
+          "supervisor",
+          "supervisorId",
+          "overrideCode",
+          "employeeId",
+          "branchId",
+          "functionId",
+          "channelId",
+          "bancsPwd",
+          "languageCode"
+        ],
+        "type": "object",
+        "properties": {
+          "loggerContext": {
+            "type": "string",
+            "xml": {
+              "name": "loggerContext",
+              "namespace": "http://com.tcs.bancs.rm/header/",
+              "prefix": "tns3",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "transactionCode": {
+            "type": "string",
+            "xml": {
+              "name": "transactionCode",
+              "namespace": "http://com.tcs.bancs.rm/header/",
+              "prefix": "tns3",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "retryTransaction": {
+            "type": "boolean",
+            "xml": {
+              "name": "retryTransaction",
+              "namespace": "http://com.tcs.bancs.rm/header/",
+              "prefix": "tns3",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "tellerId": {
+            "type": "string",
+            "xml": {
+              "name": "tellerId",
+              "namespace": "http://com.tcs.bancs.rm/header/",
+              "prefix": "tns3",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "terminalId": {
+            "type": "string",
+            "xml": {
+              "name": "terminalId",
+              "namespace": "http://com.tcs.bancs.rm/header/",
+              "prefix": "tns3",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "workstationId": {
+            "type": "string",
+            "xml": {
+              "name": "workstationId",
+              "namespace": "http://com.tcs.bancs.rm/header/",
+              "prefix": "tns3",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "override": {
+            "type": "boolean",
+            "xml": {
+              "name": "override",
+              "namespace": "http://com.tcs.bancs.rm/header/",
+              "prefix": "tns3",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "correction": {
+            "type": "string",
+            "xml": {
+              "name": "correction",
+              "namespace": "http://com.tcs.bancs.rm/header/",
+              "prefix": "tns3",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "supervisor": {
+            "type": "string",
+            "xml": {
+              "name": "supervisor",
+              "namespace": "http://com.tcs.bancs.rm/header/",
+              "prefix": "tns3",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "supervisorId": {
+            "type": "string",
+            "xml": {
+              "name": "supervisorId",
+              "namespace": "http://com.tcs.bancs.rm/header/",
+              "prefix": "tns3",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "overrideCode": {
+            "type": "string",
+            "xml": {
+              "name": "overrideCode",
+              "namespace": "http://com.tcs.bancs.rm/header/",
+              "prefix": "tns3",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "employeeId": {
+            "type": "string",
+            "xml": {
+              "name": "employeeId",
+              "namespace": "http://com.tcs.bancs.rm/header/",
+              "prefix": "tns3",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "branchId": {
+            "type": "string",
+            "xml": {
+              "name": "branchId",
+              "namespace": "http://com.tcs.bancs.rm/header/",
+              "prefix": "tns3",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "functionId": {
+            "type": "string",
+            "xml": {
+              "name": "functionId",
+              "namespace": "http://com.tcs.bancs.rm/header/",
+              "prefix": "tns3",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "channelId": {
+            "type": "string",
+            "xml": {
+              "name": "channelId",
+              "namespace": "http://com.tcs.bancs.rm/header/",
+              "prefix": "tns3",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "bancsPwd": {
+            "type": "string",
+            "xml": {
+              "name": "bancsPwd",
+              "namespace": "http://com.tcs.bancs.rm/header/",
+              "prefix": "tns3",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "languageCode": {
+            "type": "string",
+            "xml": {
+              "name": "languageCode",
+              "namespace": "http://com.tcs.bancs.rm/header/",
+              "prefix": "tns3",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "authenticationType": {
+            "type": "string",
+            "default": "NONE",
+            "xml": {
+              "name": "authenticationType",
+              "namespace": "http://com.tcs.bancs.rm/header/",
+              "prefix": "tns3",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "IvrTransactionID": {
+            "type": "string",
+            "xml": {
+              "name": "IvrTransactionID",
+              "namespace": "http://com.tcs.bancs.rm/header/",
+              "prefix": "tns3",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "ServiceHeader",
+          "namespace": "http://com.tcs.bancs.rm/header/",
+          "prefix": "tns3",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "tns4_FaultType": {
+        "title": "tns4_FaultType",
+        "required": [
+          "number",
+          "description"
+        ],
+        "type": "object",
+        "properties": {
+          "number": {
+            "type": "integer",
+            "format": "int32",
+            "xml": {
+              "name": "number",
+              "namespace": "http://com.tcs.bancs.rm/fault/",
+              "prefix": "tns4",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "description": {
+            "type": "string",
+            "xml": {
+              "name": "description",
+              "namespace": "http://com.tcs.bancs.rm/fault/",
+              "prefix": "tns4",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "retryAfter": {
+            "type": "string",
+            "xml": {
+              "name": "retryAfter",
+              "namespace": "http://com.tcs.bancs.rm/fault/",
+              "prefix": "tns4",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "system": {
+            "type": "string",
+            "xml": {
+              "name": "system",
+              "namespace": "http://com.tcs.bancs.rm/fault/",
+              "prefix": "tns4",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "nativeError": {
+            "type": "string",
+            "xml": {
+              "name": "nativeError",
+              "namespace": "http://com.tcs.bancs.rm/fault/",
+              "prefix": "tns4",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "nativeDescription": {
+            "type": "string",
+            "xml": {
+              "name": "nativeDescription",
+              "namespace": "http://com.tcs.bancs.rm/fault/",
+              "prefix": "tns4",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "FaultType",
+          "namespace": "http://com.tcs.bancs.rm/fault/",
+          "prefix": "tns4",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_AcceptDealRequest": {
+        "title": "ns1_AcceptDealRequest",
+        "required": [
+          "dealId"
+        ],
+        "type": "object",
+        "properties": {
+          "dealId": {
+            "type": "string",
+            "xml": {
+              "name": "dealId",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "AcceptDealRequest",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_AcceptDealResponse": {
+        "title": "ns1_AcceptDealResponse",
+        "required": [
+          "dealId",
+          "Status"
+        ],
+        "type": "object",
+        "properties": {
+          "dealId": {
+            "type": "string",
+            "xml": {
+              "name": "dealId",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Status": {
+            "type": "string",
+            "xml": {
+              "name": "Status",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns4_FaultType"
+              },
+              {
+                "xml": {
+                  "name": "fault",
+                  "namespace": "http://com.tcs.bancs.rm/",
+                  "prefix": "ns1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "AcceptDealResponse",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_ActivateBeneficiaryRequest": {
+        "title": "ns1_ActivateBeneficiaryRequest",
+        "required": [
+          "custCif",
+          "beneficiaryId"
+        ],
+        "type": "object",
+        "properties": {
+          "custCif": {
+            "type": "string",
+            "xml": {
+              "name": "custCif",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "beneficiaryId": {
+            "type": "string",
+            "xml": {
+              "name": "beneficiaryId",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "DnetType": {
+            "type": "string",
+            "xml": {
+              "name": "DnetType",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "ActivateBeneficiaryRequest",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_ActivateBeneficiaryResponse": {
+        "title": "ns1_ActivateBeneficiaryResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ns1_activateBeneficiary"
+              },
+              {
+                "xml": {
+                  "name": "success",
+                  "namespace": "http://com.tcs.bancs.rm/",
+                  "prefix": "ns1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns4_FaultType"
+              },
+              {
+                "xml": {
+                  "name": "fault",
+                  "namespace": "http://com.tcs.bancs.rm/",
+                  "prefix": "ns1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "ActivateBeneficiaryResponse",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_ActivateSenderRequest": {
+        "title": "ns1_ActivateSenderRequest",
+        "required": [
+          "custCif"
+        ],
+        "type": "object",
+        "properties": {
+          "custCif": {
+            "type": "string",
+            "xml": {
+              "name": "custCif",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "senderId": {
+            "type": "string",
+            "xml": {
+              "name": "senderId",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "ActivateSenderRequest",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_ActivateSenderResponse": {
+        "title": "ns1_ActivateSenderResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns2_trueOrFalseType"
+              },
+              {
+                "xml": {
+                  "name": "success",
+                  "namespace": "http://com.tcs.bancs.rm/",
+                  "prefix": "ns1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns4_FaultType"
+              },
+              {
+                "xml": {
+                  "name": "fault",
+                  "namespace": "http://com.tcs.bancs.rm/",
+                  "prefix": "ns1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "ActivateSenderResponse",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_remittanceBeneficiary": {
+        "title": "ns1_remittanceBeneficiary",
+        "required": [
+          "custCif",
+          "benFirstName",
+          "benLastName",
+          "benAddress1",
+          "city",
+          "country",
+          "nationality",
+          "mobile",
+          "phone",
+          "deliveryType",
+          "deliveryCurrencyCode",
+          "deliveryParam0",
+          "deliveryParam1",
+          "deliveryParam3",
+          "benlang",
+          "remitPurpose",
+          "remitterRelation",
+          "correctionCheck",
+          "correspondentId",
+          "benDateOfBirth",
+          "benPlaceOfBirth",
+          "benOccupation"
+        ],
+        "type": "object",
+        "properties": {
+          "custCif": {
+            "type": "string",
+            "xml": {
+              "name": "custCif",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "beneficiaryId": {
+            "type": "string",
+            "xml": {
+              "name": "beneficiaryId",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "iban": {
+            "type": "string",
+            "xml": {
+              "name": "iban",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benFirstName": {
+            "type": "string",
+            "xml": {
+              "name": "benFirstName",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benMiddleName": {
+            "type": "string",
+            "xml": {
+              "name": "benMiddleName",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benLastName": {
+            "type": "string",
+            "xml": {
+              "name": "benLastName",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benFourthName": {
+            "type": "string",
+            "xml": {
+              "name": "benFourthName",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benFirstNameArabic": {
+            "type": "string",
+            "xml": {
+              "name": "benFirstNameArabic",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benMiddleNameArabic": {
+            "type": "string",
+            "xml": {
+              "name": "benMiddleNameArabic",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benMiddleNameArabic2": {
+            "type": "string",
+            "xml": {
+              "name": "benMiddleNameArabic2",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benLastNameArabic": {
+            "type": "string",
+            "xml": {
+              "name": "benLastNameArabic",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benAddress1": {
+            "type": "string",
+            "xml": {
+              "name": "benAddress1",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benAddress2": {
+            "type": "string",
+            "xml": {
+              "name": "benAddress2",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "city": {
+            "type": "string",
+            "xml": {
+              "name": "city",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "state": {
+            "type": "string",
+            "xml": {
+              "name": "state",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "postalCode": {
+            "type": "string",
+            "xml": {
+              "name": "postalCode",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "country": {
+            "type": "string",
+            "xml": {
+              "name": "country",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "countryName": {
+            "type": "string",
+            "xml": {
+              "name": "countryName",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "nationality": {
+            "type": "string",
+            "xml": {
+              "name": "nationality",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "email": {
+            "type": "string",
+            "xml": {
+              "name": "email",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "mobile": {
+            "type": "string",
+            "xml": {
+              "name": "mobile",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "phone": {
+            "type": "string",
+            "xml": {
+              "name": "phone",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryType": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns2_deliveryTypes"
+              },
+              {
+                "xml": {
+                  "name": "deliveryType",
+                  "namespace": "http://com.tcs.bancs.rm/",
+                  "prefix": "ns1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "deliveryTypeDescription": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryTypeDescription",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryCurrencyCode": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryCurrencyCode",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryParam0": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryParam0",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryParam1": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryParam1",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryParam2": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryParam2",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryParam3": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryParam3",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryParam4": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryParam4",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryParam6": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryParam6",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryParam8": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryParam8",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryParam9": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryParam9",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benlang": {
+            "type": "string",
+            "xml": {
+              "name": "benlang",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "agent": {
+            "type": "string",
+            "xml": {
+              "name": "agent",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "remitPurpose": {
+            "type": "string",
+            "xml": {
+              "name": "remitPurpose",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "remitterRelation": {
+            "type": "string",
+            "xml": {
+              "name": "remitterRelation",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "correctionCheck": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns2_YorNType"
+              },
+              {
+                "xml": {
+                  "name": "correctionCheck",
+                  "namespace": "http://com.tcs.bancs.rm/",
+                  "prefix": "ns1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "correspondentId": {
+            "type": "string",
+            "xml": {
+              "name": "correspondentId",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "dnetType": {
+            "type": "string",
+            "xml": {
+              "name": "dnetType",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benDateOfBirth": {
+            "type": "string",
+            "xml": {
+              "name": "benDateOfBirth",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benPlaceOfBirth": {
+            "type": "string",
+            "xml": {
+              "name": "benPlaceOfBirth",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benOccupation": {
+            "type": "string",
+            "xml": {
+              "name": "benOccupation",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "remittanceBeneficiary",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_AddBeneficiaryResponse": {
+        "title": "ns1_AddBeneficiaryResponse",
+        "type": "object",
+        "properties": {
+          "beneficiaryId": {
+            "type": "string",
+            "xml": {
+              "name": "beneficiaryId",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns4_FaultType"
+              },
+              {
+                "xml": {
+                  "name": "fault",
+                  "namespace": "http://com.tcs.bancs.rm/",
+                  "prefix": "ns1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "AddBeneficiaryResponse",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_AddSenderRequest": {
+        "title": "ns1_AddSenderRequest",
+        "required": [
+          "custCif"
+        ],
+        "type": "object",
+        "properties": {
+          "custCif": {
+            "type": "string",
+            "xml": {
+              "name": "custCif",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "AddSenderRequest",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_AddSenderResponse": {
+        "title": "ns1_AddSenderResponse",
+        "type": "object",
+        "properties": {
+          "senderId": {
+            "type": "string",
+            "xml": {
+              "name": "senderId",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns4_FaultType"
+              },
+              {
+                "xml": {
+                  "name": "fault",
+                  "namespace": "http://com.tcs.bancs.rm/",
+                  "prefix": "ns1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "AddSenderResponse",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_DeleteBeneficiaryRequest": {
+        "title": "ns1_DeleteBeneficiaryRequest",
+        "required": [
+          "custCif",
+          "beneficiaryId"
+        ],
+        "type": "object",
+        "properties": {
+          "custCif": {
+            "type": "string",
+            "xml": {
+              "name": "custCif",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "beneficiaryId": {
+            "type": "string",
+            "xml": {
+              "name": "beneficiaryId",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "DeleteBeneficiaryRequest",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_DeleteBeneficiaryResponse": {
+        "title": "ns1_DeleteBeneficiaryResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns2_trueOrFalseType"
+              },
+              {
+                "xml": {
+                  "name": "success",
+                  "namespace": "http://com.tcs.bancs.rm/",
+                  "prefix": "ns1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns4_FaultType"
+              },
+              {
+                "xml": {
+                  "name": "fault",
+                  "namespace": "http://com.tcs.bancs.rm/",
+                  "prefix": "ns1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "DeleteBeneficiaryResponse",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_remittanceModifyBeneficiary": {
+        "title": "ns1_remittanceModifyBeneficiary",
+        "required": [
+          "custCif",
+          "beneficiaryId",
+          "benFirstName",
+          "benLastName",
+          "benAddress1",
+          "city",
+          "state",
+          "postalCode",
+          "country",
+          "nationality",
+          "mobile",
+          "phone",
+          "deliveryType",
+          "deliveryCurrencyCode",
+          "deliveryParam0",
+          "deliveryParam1",
+          "deliveryParam3",
+          "benlang",
+          "remitPurpose",
+          "correctionCheck",
+          "correspondentId",
+          "benDateOfBirth",
+          "benPlaceOfBirth",
+          "benOccupation",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "custCif": {
+            "type": "string",
+            "xml": {
+              "name": "custCif",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "beneficiaryId": {
+            "type": "string",
+            "xml": {
+              "name": "beneficiaryId",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "iban": {
+            "type": "string",
+            "xml": {
+              "name": "iban",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benFirstName": {
+            "type": "string",
+            "xml": {
+              "name": "benFirstName",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benMiddleName": {
+            "type": "string",
+            "xml": {
+              "name": "benMiddleName",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benLastName": {
+            "type": "string",
+            "xml": {
+              "name": "benLastName",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benFourthName": {
+            "type": "string",
+            "xml": {
+              "name": "benFourthName",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benFirstNameArabic": {
+            "type": "string",
+            "xml": {
+              "name": "benFirstNameArabic",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benMiddleNameArabic": {
+            "type": "string",
+            "xml": {
+              "name": "benMiddleNameArabic",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benMiddleNameArabic2": {
+            "type": "string",
+            "xml": {
+              "name": "benMiddleNameArabic2",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benLastNameArabic": {
+            "type": "string",
+            "xml": {
+              "name": "benLastNameArabic",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benAddress1": {
+            "type": "string",
+            "xml": {
+              "name": "benAddress1",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benAddress2": {
+            "type": "string",
+            "xml": {
+              "name": "benAddress2",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "city": {
+            "type": "string",
+            "xml": {
+              "name": "city",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "state": {
+            "type": "string",
+            "xml": {
+              "name": "state",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "postalCode": {
+            "type": "string",
+            "xml": {
+              "name": "postalCode",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "country": {
+            "type": "string",
+            "xml": {
+              "name": "country",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "countryName": {
+            "type": "string",
+            "xml": {
+              "name": "countryName",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "nationality": {
+            "type": "string",
+            "xml": {
+              "name": "nationality",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "email": {
+            "type": "string",
+            "xml": {
+              "name": "email",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "mobile": {
+            "type": "string",
+            "xml": {
+              "name": "mobile",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "phone": {
+            "type": "string",
+            "xml": {
+              "name": "phone",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryType": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns2_deliveryTypes"
+              },
+              {
+                "xml": {
+                  "name": "deliveryType",
+                  "namespace": "http://com.tcs.bancs.rm/",
+                  "prefix": "ns1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "deliveryTypeDescription": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryTypeDescription",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryCurrencyCode": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryCurrencyCode",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryParam0": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryParam0",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryParam1": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryParam1",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryParam2": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryParam2",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryParam3": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryParam3",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryParam4": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryParam4",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryParam6": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryParam6",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryParam8": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryParam8",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryParam9": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryParam9",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benlang": {
+            "type": "string",
+            "xml": {
+              "name": "benlang",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "agent": {
+            "type": "string",
+            "xml": {
+              "name": "agent",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "remitPurpose": {
+            "type": "string",
+            "xml": {
+              "name": "remitPurpose",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "remitterRelation": {
+            "type": "string",
+            "xml": {
+              "name": "remitterRelation",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "correctionCheck": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns2_YorNType"
+              },
+              {
+                "xml": {
+                  "name": "correctionCheck",
+                  "namespace": "http://com.tcs.bancs.rm/",
+                  "prefix": "ns1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "correspondentId": {
+            "type": "string",
+            "xml": {
+              "name": "correspondentId",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "dnetType": {
+            "type": "string",
+            "xml": {
+              "name": "dnetType",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benDateOfBirth": {
+            "type": "string",
+            "xml": {
+              "name": "benDateOfBirth",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benPlaceOfBirth": {
+            "type": "string",
+            "xml": {
+              "name": "benPlaceOfBirth",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benOccupation": {
+            "type": "string",
+            "xml": {
+              "name": "benOccupation",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "status": {
+            "type": "string",
+            "xml": {
+              "name": "status",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "creationTime": {
+            "type": "string",
+            "xml": {
+              "name": "creationTime",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "remittanceModifyBeneficiary",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_ModifyBeneficiaryResponse": {
+        "title": "ns1_ModifyBeneficiaryResponse",
+        "type": "object",
+        "properties": {
+          "beneficiaryId": {
+            "type": "string",
+            "xml": {
+              "name": "beneficiaryId",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns4_FaultType"
+              },
+              {
+                "xml": {
+                  "name": "fault",
+                  "namespace": "http://com.tcs.bancs.rm/",
+                  "prefix": "ns1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "ModifyBeneficiaryResponse",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_RetrieveBeneficiaryRequest": {
+        "title": "ns1_RetrieveBeneficiaryRequest",
+        "required": [
+          "custCif"
+        ],
+        "type": "object",
+        "properties": {
+          "custCif": {
+            "type": "string",
+            "xml": {
+              "name": "custCif",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "beneficiaryId": {
+            "type": "string",
+            "xml": {
+              "name": "beneficiaryId",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "DnetType": {
+            "type": "string",
+            "xml": {
+              "name": "DnetType",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "RetrieveBeneficiaryRequest",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_RetrieveBeneficiaryResponse": {
+        "title": "ns1_RetrieveBeneficiaryResponse",
+        "type": "object",
+        "properties": {
+          "beneficiaryInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ns1_beneficiaryInfo"
+              },
+              {
+                "xml": {
+                  "name": "beneficiaryInfo",
+                  "namespace": "http://com.tcs.bancs.rm/",
+                  "prefix": "ns1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns4_FaultType"
+              },
+              {
+                "xml": {
+                  "name": "fault",
+                  "namespace": "http://com.tcs.bancs.rm/",
+                  "prefix": "ns1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "RetrieveBeneficiaryResponse",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_RetrieveSenderRequest": {
+        "title": "ns1_RetrieveSenderRequest",
+        "required": [
+          "custCif"
+        ],
+        "type": "object",
+        "properties": {
+          "custCif": {
+            "type": "string",
+            "xml": {
+              "name": "custCif",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "senderId": {
+            "type": "string",
+            "xml": {
+              "name": "senderId",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "RetrieveSenderRequest",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_RetrieveSenderResponse": {
+        "title": "ns1_RetrieveSenderResponse",
+        "type": "object",
+        "properties": {
+          "senderInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ns1_senderInfo"
+              },
+              {
+                "xml": {
+                  "name": "senderInfo",
+                  "namespace": "http://com.tcs.bancs.rm/",
+                  "prefix": "ns1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns4_FaultType"
+              },
+              {
+                "xml": {
+                  "name": "fault",
+                  "namespace": "http://com.tcs.bancs.rm/",
+                  "prefix": "ns1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "RetrieveSenderResponse",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_ReverseTransferRequest": {
+        "title": "ns1_ReverseTransferRequest",
+        "required": [
+          "bankReferenceNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "bankReferenceNumber": {
+            "type": "string",
+            "xml": {
+              "name": "bankReferenceNumber",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "typeOfRefund": {
+            "type": "string",
+            "xml": {
+              "name": "typeOfRefund",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "ReverseTransferRequest",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_ReverseTransferResponse": {
+        "title": "ns1_ReverseTransferResponse",
+        "required": [
+          "journalId"
+        ],
+        "type": "object",
+        "properties": {
+          "journalId": {
+            "type": "string",
+            "xml": {
+              "name": "journalId",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns4_FaultType"
+              },
+              {
+                "xml": {
+                  "name": "fault",
+                  "namespace": "http://com.tcs.bancs.rm/",
+                  "prefix": "ns1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "ReverseTransferResponse",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_TransactionCancelRequest": {
+        "title": "ns1_TransactionCancelRequest",
+        "required": [
+          "bankReferenceNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "bankReferenceNumber": {
+            "type": "string",
+            "xml": {
+              "name": "bankReferenceNumber",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "TransactionCancelRequest",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_TransactionCancelResponse": {
+        "title": "ns1_TransactionCancelResponse",
+        "required": [
+          "responseCode"
+        ],
+        "type": "object",
+        "properties": {
+          "responseCode": {
+            "type": "integer",
+            "format": "int32",
+            "xml": {
+              "name": "responseCode",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns4_FaultType"
+              },
+              {
+                "xml": {
+                  "name": "fault",
+                  "namespace": "http://com.tcs.bancs.rm/",
+                  "prefix": "ns1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "TransactionCancelResponse",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_TransactionInquiryRequest": {
+        "title": "ns1_TransactionInquiryRequest",
+        "required": [
+          "bankReferenceNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "bankReferenceNumber": {
+            "type": "string",
+            "xml": {
+              "name": "bankReferenceNumber",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "TransactionInquiryRequest",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_TransactionInquiryResponse": {
+        "title": "ns1_TransactionInquiryResponse",
+        "required": [
+          "TransactionCancelable"
+        ],
+        "type": "object",
+        "properties": {
+          "TransactionCancelable": {
+            "type": "string",
+            "xml": {
+              "name": "TransactionCancelable",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns4_FaultType"
+              },
+              {
+                "xml": {
+                  "name": "fault",
+                  "namespace": "http://com.tcs.bancs.rm/",
+                  "prefix": "ns1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "TransactionInquiryResponse",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_TransactionStatusUpdateRequest": {
+        "title": "ns1_TransactionStatusUpdateRequest",
+        "required": [
+          "bankRefNo"
+        ],
+        "type": "object",
+        "properties": {
+          "bankRefNo": {
+            "type": "string",
+            "xml": {
+              "name": "bankRefNo",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "status": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ns1_TransactionStatus"
+              },
+              {
+                "xml": {
+                  "name": "status",
+                  "namespace": "http://com.tcs.bancs.rm/",
+                  "prefix": "ns1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "lastUpdatedDate": {
+            "type": "string",
+            "xml": {
+              "name": "lastUpdatedDate",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "amount": {
+            "type": "number",
+            "xml": {
+              "name": "amount",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "TransactionStatusUpdateRequest",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_TransactionStatusUpdateResponse": {
+        "title": "ns1_TransactionStatusUpdateResponse",
+        "type": "object",
+        "properties": {
+          "Response": {
+            "type": "string",
+            "xml": {
+              "name": "Response",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns4_FaultType"
+              },
+              {
+                "xml": {
+                  "name": "fault",
+                  "namespace": "http://com.tcs.bancs.rm/",
+                  "prefix": "ns1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "TransactionStatusUpdateResponse",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_TransferRequest": {
+        "title": "ns1_TransferRequest",
+        "required": [
+          "custCif",
+          "accountNumber",
+          "beneficiaryId",
+          "amount",
+          "calculationMethod"
+        ],
+        "type": "object",
+        "properties": {
+          "custCif": {
+            "type": "string",
+            "xml": {
+              "name": "custCif",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "accountNumber": {
+            "type": "string",
+            "xml": {
+              "name": "accountNumber",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "beneficiaryId": {
+            "type": "string",
+            "xml": {
+              "name": "beneficiaryId",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "amount": {
+            "type": "number",
+            "xml": {
+              "name": "amount",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "calculationMethod": {
+            "type": "integer",
+            "format": "int32",
+            "xml": {
+              "name": "calculationMethod",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "atmReceipt": {
+            "type": "integer",
+            "format": "int32",
+            "xml": {
+              "name": "atmReceipt",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "atmLocation": {
+            "type": "string",
+            "xml": {
+              "name": "atmLocation",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "AMLPurposeCode": {
+            "type": "string",
+            "xml": {
+              "name": "AMLPurposeCode",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "atmTerminalId": {
+            "type": "string",
+            "xml": {
+              "name": "atmTerminalId",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "dealId": {
+            "type": "string",
+            "xml": {
+              "name": "dealId",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "posReferenceNumber": {
+            "type": "string",
+            "xml": {
+              "name": "posReferenceNumber",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "additionalInfo": {
+            "type": "string",
+            "xml": {
+              "name": "additionalInfo",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "TransferRequest",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_TransferResponse": {
+        "title": "ns1_TransferResponse",
+        "type": "object",
+        "properties": {
+          "transferDetails": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ns1_transferDetailsType"
+              },
+              {
+                "xml": {
+                  "name": "transferDetails",
+                  "namespace": "http://com.tcs.bancs.rm/",
+                  "prefix": "ns1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns4_FaultType"
+              },
+              {
+                "xml": {
+                  "name": "fault",
+                  "namespace": "http://com.tcs.bancs.rm/",
+                  "prefix": "ns1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "TransferResponse",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_ValidateActiveTransactionRequest": {
+        "title": "ns1_ValidateActiveTransactionRequest",
+        "required": [
+          "accountNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "accountNumber": {
+            "type": "string",
+            "xml": {
+              "name": "accountNumber",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "ValidateActiveTransactionRequest",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_ValidateActiveTransactionResponse": {
+        "title": "ns1_ValidateActiveTransactionResponse",
+        "type": "object",
+        "properties": {
+          "Response": {
+            "type": "string",
+            "xml": {
+              "name": "Response",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns4_FaultType"
+              },
+              {
+                "xml": {
+                  "name": "fault",
+                  "namespace": "http://com.tcs.bancs.rm/",
+                  "prefix": "ns1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "ValidateActiveTransactionResponse",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_ValidateTransferRequest": {
+        "title": "ns1_ValidateTransferRequest",
+        "required": [
+          "custCif",
+          "accountNumber",
+          "beneficiaryId",
+          "amount",
+          "calculationMethod"
+        ],
+        "type": "object",
+        "properties": {
+          "custCif": {
+            "type": "string",
+            "xml": {
+              "name": "custCif",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "accountNumber": {
+            "type": "string",
+            "xml": {
+              "name": "accountNumber",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "beneficiaryId": {
+            "type": "string",
+            "xml": {
+              "name": "beneficiaryId",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "amount": {
+            "type": "number",
+            "xml": {
+              "name": "amount",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "calculationMethod": {
+            "type": "integer",
+            "format": "int32",
+            "xml": {
+              "name": "calculationMethod",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "atmTerminalId": {
+            "type": "string",
+            "xml": {
+              "name": "atmTerminalId",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "ValidateTransferRequest",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_ValidateTransferResponse": {
+        "title": "ns1_ValidateTransferResponse",
+        "type": "object",
+        "properties": {
+          "transferInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ns1_transferInfoType"
+              },
+              {
+                "xml": {
+                  "name": "transferInfo",
+                  "namespace": "http://com.tcs.bancs.rm/",
+                  "prefix": "ns1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns4_FaultType"
+              },
+              {
+                "xml": {
+                  "name": "fault",
+                  "namespace": "http://com.tcs.bancs.rm/",
+                  "prefix": "ns1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "ValidateTransferResponse",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_transferInfoType": {
+        "title": "ns1_transferInfoType",
+        "required": [
+          "custCif",
+          "beneficiaryId",
+          "sourceAmount",
+          "sourceCurrency",
+          "feeAmountInSAR",
+          "sourceFeeAmount",
+          "correspondentId",
+          "beneficiaryFirstName",
+          "beneficiaryMiddleName",
+          "beneficiaryLastName",
+          "beneficiaryCountry",
+          "deliveryType",
+          "deliveryDetail0",
+          "deliveryDetail1",
+          "deliveryDetail3",
+          "destinationAmount",
+          "destinationCurrency",
+          "exchangeRate",
+          "bancsSellRate",
+          "srcUSDSpread",
+          "bancsRateSellWSpread",
+          "netAmount",
+          "netTransferUSD",
+          "sellRateGainSAR",
+          "payQuikExchange",
+          "bancsBuyRate",
+          "usdDSTSpread",
+          "bancsRateBuyWSpread",
+          "buyRateGainSAR",
+          "feeValue",
+          "bancsRateMid",
+          "costRate",
+          "senderFirstName",
+          "senderMiddleName",
+          "senderLastName",
+          "senderAddress1",
+          "senderAddress2",
+          "senderCity",
+          "senderCountry",
+          "senderNationality",
+          "senderMobile",
+          "senderId",
+          "senderIdType",
+          "senderIdExpiryDate",
+          "senderDateofBirth",
+          "senderOccupation",
+          "senderPostalCode",
+          "beneficiaryAddress1",
+          "beneficiaryAddress2",
+          "beneficiaryCity",
+          "beneficiaryPostalCode",
+          "beneficiaryPhone",
+          "beneficiaryMobile",
+          "remittancePurpose",
+          "senderRelation",
+          "ncbCommissionInSAR",
+          "ncbCommissionInUSD",
+          "mgFaceAmountInUSD",
+          "homeBranch"
+        ],
+        "type": "object",
+        "properties": {
+          "custCif": {
+            "type": "string",
+            "xml": {
+              "name": "custCif",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "beneficiaryId": {
+            "type": "integer",
+            "format": "int32",
+            "xml": {
+              "name": "beneficiaryId",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "sourceAmount": {
+            "type": "number",
+            "xml": {
+              "name": "sourceAmount",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "sourceCurrency": {
+            "type": "string",
+            "xml": {
+              "name": "sourceCurrency",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "feeAmountInSAR": {
+            "type": "number",
+            "xml": {
+              "name": "feeAmountInSAR",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "sourceFeeAmount": {
+            "type": "number",
+            "xml": {
+              "name": "sourceFeeAmount",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "correspondentId": {
+            "type": "string",
+            "xml": {
+              "name": "correspondentId",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "beneficiaryFirstName": {
+            "type": "string",
+            "xml": {
+              "name": "beneficiaryFirstName",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "beneficiaryMiddleName": {
+            "type": "string",
+            "xml": {
+              "name": "beneficiaryMiddleName",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "beneficiaryLastName": {
+            "type": "string",
+            "xml": {
+              "name": "beneficiaryLastName",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "beneficiaryCountry": {
+            "type": "string",
+            "xml": {
+              "name": "beneficiaryCountry",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryType": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryType",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryDetail0": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryDetail0",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryDetail1": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryDetail1",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryDetail3": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryDetail3",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "destinationAmount": {
+            "type": "number",
+            "xml": {
+              "name": "destinationAmount",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "destinationCurrency": {
+            "type": "string",
+            "xml": {
+              "name": "destinationCurrency",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "exchangeRate": {
+            "type": "number",
+            "xml": {
+              "name": "exchangeRate",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "bancsSellRate": {
+            "type": "number",
+            "xml": {
+              "name": "bancsSellRate",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "srcUSDSpread": {
+            "type": "number",
+            "xml": {
+              "name": "srcUSDSpread",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "bancsRateSellWSpread": {
+            "type": "number",
+            "xml": {
+              "name": "bancsRateSellWSpread",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "netAmount": {
+            "type": "number",
+            "xml": {
+              "name": "netAmount",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "netTransferUSD": {
+            "type": "number",
+            "xml": {
+              "name": "netTransferUSD",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "sellRateGainSAR": {
+            "type": "number",
+            "xml": {
+              "name": "sellRateGainSAR",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "payQuikExchange": {
+            "type": "number",
+            "xml": {
+              "name": "payQuikExchange",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "bancsBuyRate": {
+            "type": "number",
+            "xml": {
+              "name": "bancsBuyRate",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "usdDSTSpread": {
+            "type": "number",
+            "xml": {
+              "name": "usdDSTSpread",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "bancsRateBuyWSpread": {
+            "type": "number",
+            "xml": {
+              "name": "bancsRateBuyWSpread",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "buyRateGainSAR": {
+            "type": "number",
+            "xml": {
+              "name": "buyRateGainSAR",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "feeValue": {
+            "type": "integer",
+            "format": "int32",
+            "xml": {
+              "name": "feeValue",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "bancsRateMid": {
+            "type": "number",
+            "xml": {
+              "name": "bancsRateMid",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "costRate": {
+            "type": "number",
+            "xml": {
+              "name": "costRate",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "senderFirstName": {
+            "type": "string",
+            "xml": {
+              "name": "senderFirstName",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "senderMiddleName": {
+            "type": "string",
+            "xml": {
+              "name": "senderMiddleName",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "senderLastName": {
+            "type": "string",
+            "xml": {
+              "name": "senderLastName",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "senderAddress1": {
+            "type": "string",
+            "xml": {
+              "name": "senderAddress1",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "senderAddress2": {
+            "type": "string",
+            "xml": {
+              "name": "senderAddress2",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "senderCity": {
+            "type": "string",
+            "xml": {
+              "name": "senderCity",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "senderCountry": {
+            "type": "string",
+            "xml": {
+              "name": "senderCountry",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "senderNationality": {
+            "type": "string",
+            "xml": {
+              "name": "senderNationality",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "senderEmail": {
+            "type": "string",
+            "xml": {
+              "name": "senderEmail",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "senderMobile": {
+            "type": "string",
+            "xml": {
+              "name": "senderMobile",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "senderId": {
+            "type": "string",
+            "xml": {
+              "name": "senderId",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "senderIdType": {
+            "type": "string",
+            "xml": {
+              "name": "senderIdType",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "senderIdExpiryDate": {
+            "type": "string",
+            "xml": {
+              "name": "senderIdExpiryDate",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "senderDateofBirth": {
+            "type": "string",
+            "xml": {
+              "name": "senderDateofBirth",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "senderOccupation": {
+            "type": "string",
+            "xml": {
+              "name": "senderOccupation",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "senderPostalCode": {
+            "type": "string",
+            "xml": {
+              "name": "senderPostalCode",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "beneficiaryAddress1": {
+            "type": "string",
+            "xml": {
+              "name": "beneficiaryAddress1",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "beneficiaryAddress2": {
+            "type": "string",
+            "xml": {
+              "name": "beneficiaryAddress2",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "beneficiaryCity": {
+            "type": "string",
+            "xml": {
+              "name": "beneficiaryCity",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "beneficiaryState": {
+            "type": "string",
+            "xml": {
+              "name": "beneficiaryState",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "beneficiaryPostalCode": {
+            "type": "string",
+            "xml": {
+              "name": "beneficiaryPostalCode",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "beneficaryEmail": {
+            "type": "string",
+            "xml": {
+              "name": "beneficaryEmail",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "beneficiaryPhone": {
+            "type": "string",
+            "xml": {
+              "name": "beneficiaryPhone",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "beneficiaryMobile": {
+            "type": "string",
+            "xml": {
+              "name": "beneficiaryMobile",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "remittancePurpose": {
+            "type": "string",
+            "xml": {
+              "name": "remittancePurpose",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "senderRelation": {
+            "type": "string",
+            "xml": {
+              "name": "senderRelation",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "ncbCommissionInSAR": {
+            "type": "number",
+            "xml": {
+              "name": "ncbCommissionInSAR",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "ncbCommissionInUSD": {
+            "type": "number",
+            "xml": {
+              "name": "ncbCommissionInUSD",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "mgCommissionInSAR": {
+            "type": "number",
+            "xml": {
+              "name": "mgCommissionInSAR",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "mgCommissionInUSD": {
+            "type": "number",
+            "xml": {
+              "name": "mgCommissionInUSD",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "mgFaceAmountInUSD": {
+            "type": "number",
+            "xml": {
+              "name": "mgFaceAmountInUSD",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "vatAmountInSAR": {
+            "type": "number",
+            "xml": {
+              "name": "vatAmountInSAR",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "feeExcludingVat": {
+            "type": "number",
+            "xml": {
+              "name": "feeExcludingVat",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "homeBranch": {
+            "type": "string",
+            "xml": {
+              "name": "homeBranch",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "dealId": {
+            "type": "string",
+            "xml": {
+              "name": "dealId",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "dealExpiryTime": {
+            "type": "string",
+            "xml": {
+              "name": "dealExpiryTime",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "transferInfoType",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_transferDetailsType": {
+        "title": "ns1_transferDetailsType",
+        "required": [
+          "custCif",
+          "sourceAmount",
+          "sourceCurrency",
+          "sourceFeeAmount",
+          "destinationAmount",
+          "destinationCurrency",
+          "exchangeRate",
+          "feeAmountInSAR",
+          "pickupCode",
+          "quickPayReferenceNumber",
+          "bankReferenceNumber",
+          "journalId",
+          "correspondentGl"
+        ],
+        "type": "object",
+        "properties": {
+          "custCif": {
+            "type": "string",
+            "xml": {
+              "name": "custCif",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "sourceAmount": {
+            "type": "number",
+            "xml": {
+              "name": "sourceAmount",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "sourceCurrency": {
+            "type": "string",
+            "xml": {
+              "name": "sourceCurrency",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "sourceFeeAmount": {
+            "type": "number",
+            "xml": {
+              "name": "sourceFeeAmount",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "destinationAmount": {
+            "type": "number",
+            "xml": {
+              "name": "destinationAmount",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "destinationCurrency": {
+            "type": "string",
+            "xml": {
+              "name": "destinationCurrency",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "exchangeRate": {
+            "type": "number",
+            "xml": {
+              "name": "exchangeRate",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "feeAmountInSAR": {
+            "type": "number",
+            "xml": {
+              "name": "feeAmountInSAR",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "vatAmountInSAR": {
+            "type": "number",
+            "xml": {
+              "name": "vatAmountInSAR",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "feeExcludingVat": {
+            "type": "number",
+            "xml": {
+              "name": "feeExcludingVat",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "pickupCode": {
+            "type": "string",
+            "xml": {
+              "name": "pickupCode",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "quickPayReferenceNumber": {
+            "type": "string",
+            "xml": {
+              "name": "quickPayReferenceNumber",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "bankReferenceNumber": {
+            "type": "string",
+            "xml": {
+              "name": "bankReferenceNumber",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "journalId": {
+            "type": "string",
+            "xml": {
+              "name": "journalId",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "correspondentGl": {
+            "type": "string",
+            "xml": {
+              "name": "correspondentGl",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "transferDetailsType",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_activateBeneficiary": {
+        "title": "ns1_activateBeneficiary",
+        "required": [
+          "beneficiaryId"
+        ],
+        "type": "object",
+        "properties": {
+          "beneficiaryId": {
+            "type": "string",
+            "xml": {
+              "name": "beneficiaryId",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "activateBeneficiary",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_senderInfo": {
+        "title": "ns1_senderInfo",
+        "required": [
+          "senderId",
+          "custCif",
+          "sender"
+        ],
+        "type": "object",
+        "properties": {
+          "senderId": {
+            "type": "string",
+            "xml": {
+              "name": "senderId",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "custCif": {
+            "type": "string",
+            "xml": {
+              "name": "custCif",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "sender": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ns1_remittanceSender"
+            },
+            "description": "",
+            "xml": {
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "senderInfo",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_remittanceSender": {
+        "title": "ns1_remittanceSender",
+        "required": [
+          "custFirstName",
+          "custAddress1",
+          "country",
+          "city",
+          "postalCode",
+          "nationality",
+          "custLanguage"
+        ],
+        "type": "object",
+        "properties": {
+          "iban": {
+            "type": "string",
+            "xml": {
+              "name": "iban",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "custFirstName": {
+            "type": "string",
+            "xml": {
+              "name": "custFirstName",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "custMiddleName": {
+            "type": "string",
+            "xml": {
+              "name": "custMiddleName",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "custLastName": {
+            "type": "string",
+            "xml": {
+              "name": "custLastName",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "custFirstNameArabic": {
+            "type": "string",
+            "xml": {
+              "name": "custFirstNameArabic",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "custMiddleNameArabic": {
+            "type": "string",
+            "xml": {
+              "name": "custMiddleNameArabic",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "custLastNameArabic": {
+            "type": "string",
+            "xml": {
+              "name": "custLastNameArabic",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "custAddress1": {
+            "type": "string",
+            "xml": {
+              "name": "custAddress1",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "custAddress2": {
+            "type": "string",
+            "xml": {
+              "name": "custAddress2",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "country": {
+            "type": "string",
+            "xml": {
+              "name": "country",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "countryName": {
+            "type": "string",
+            "xml": {
+              "name": "countryName",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "city": {
+            "type": "string",
+            "xml": {
+              "name": "city",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "postalCode": {
+            "type": "string",
+            "xml": {
+              "name": "postalCode",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "nationality": {
+            "type": "string",
+            "xml": {
+              "name": "nationality",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "email": {
+            "type": "string",
+            "xml": {
+              "name": "email",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "mobile": {
+            "type": "string",
+            "xml": {
+              "name": "mobile",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "custLanguage": {
+            "type": "string",
+            "xml": {
+              "name": "custLanguage",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "status": {
+            "type": "string",
+            "xml": {
+              "name": "status",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "createdBy": {
+            "type": "string",
+            "xml": {
+              "name": "createdBy",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "createdUsing": {
+            "type": "string",
+            "xml": {
+              "name": "createdUsing",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "creationDate": {
+            "type": "string",
+            "xml": {
+              "name": "creationDate",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "creationTime": {
+            "type": "string",
+            "xml": {
+              "name": "creationTime",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "creationType": {
+            "type": "string",
+            "xml": {
+              "name": "creationType",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "custIdNumber": {
+            "type": "string",
+            "xml": {
+              "name": "custIdNumber",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "custIdType": {
+            "type": "string",
+            "xml": {
+              "name": "custIdType",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "custIdExpiryDate": {
+            "type": "string",
+            "xml": {
+              "name": "custIdExpiryDate",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "custDateofBirth": {
+            "type": "string",
+            "xml": {
+              "name": "custDateofBirth",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "custPlaceofBirth": {
+            "type": "string",
+            "xml": {
+              "name": "custPlaceofBirth",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "custOccupation": {
+            "type": "string",
+            "xml": {
+              "name": "custOccupation",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "remittanceSender",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_beneficiaryInfo": {
+        "title": "ns1_beneficiaryInfo",
+        "required": [
+          "custCif",
+          "senderId"
+        ],
+        "type": "object",
+        "properties": {
+          "custCif": {
+            "type": "string",
+            "xml": {
+              "name": "custCif",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "senderId": {
+            "type": "string",
+            "xml": {
+              "name": "senderId",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "senderStatus": {
+            "type": "string",
+            "xml": {
+              "name": "senderStatus",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "beneficiary": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ns1_remittanceRetrieveBeneficiary"
+            },
+            "description": "",
+            "nullable": true,
+            "xml": {
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "totalRecipients": {
+            "type": "integer",
+            "format": "int32",
+            "xml": {
+              "name": "totalRecipients",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "beneficiaryInfo",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_remittanceRetrieveBeneficiary": {
+        "title": "ns1_remittanceRetrieveBeneficiary",
+        "required": [
+          "custCif",
+          "beneficiaryId",
+          "benFirstName",
+          "benLastName",
+          "benAddress1",
+          "city",
+          "state",
+          "postalCode",
+          "country",
+          "nationality",
+          "mobile",
+          "phone",
+          "deliveryType",
+          "deliveryCurrencyCode",
+          "deliveryParam0",
+          "deliveryParam1",
+          "deliveryParam3",
+          "benlang",
+          "remitPurpose",
+          "correctionCheck",
+          "correspondentId",
+          "benDateOfBirth",
+          "benPlaceOfBirth",
+          "benOccupation",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "custCif": {
+            "type": "string",
+            "xml": {
+              "name": "custCif",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "beneficiaryId": {
+            "type": "string",
+            "xml": {
+              "name": "beneficiaryId",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "iban": {
+            "type": "string",
+            "xml": {
+              "name": "iban",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benFirstName": {
+            "type": "string",
+            "xml": {
+              "name": "benFirstName",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benMiddleName": {
+            "type": "string",
+            "xml": {
+              "name": "benMiddleName",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benLastName": {
+            "type": "string",
+            "xml": {
+              "name": "benLastName",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benFourthName": {
+            "type": "string",
+            "xml": {
+              "name": "benFourthName",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benFirstNameArabic": {
+            "type": "string",
+            "xml": {
+              "name": "benFirstNameArabic",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benMiddleNameArabic": {
+            "type": "string",
+            "xml": {
+              "name": "benMiddleNameArabic",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benMiddleNameArabic2": {
+            "type": "string",
+            "xml": {
+              "name": "benMiddleNameArabic2",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benLastNameArabic": {
+            "type": "string",
+            "xml": {
+              "name": "benLastNameArabic",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benAddress1": {
+            "type": "string",
+            "xml": {
+              "name": "benAddress1",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benAddress2": {
+            "type": "string",
+            "xml": {
+              "name": "benAddress2",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "city": {
+            "type": "string",
+            "xml": {
+              "name": "city",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "state": {
+            "type": "string",
+            "xml": {
+              "name": "state",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "postalCode": {
+            "type": "string",
+            "xml": {
+              "name": "postalCode",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "country": {
+            "type": "string",
+            "xml": {
+              "name": "country",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "countryName": {
+            "type": "string",
+            "xml": {
+              "name": "countryName",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "nationality": {
+            "type": "string",
+            "xml": {
+              "name": "nationality",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "email": {
+            "type": "string",
+            "xml": {
+              "name": "email",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "mobile": {
+            "type": "string",
+            "xml": {
+              "name": "mobile",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "phone": {
+            "type": "string",
+            "xml": {
+              "name": "phone",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryType": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryType",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryTypeDescription": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryTypeDescription",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryCurrencyCode": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryCurrencyCode",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryParam0": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryParam0",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryParam1": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryParam1",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryParam2": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryParam2",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryParam3": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryParam3",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryParam4": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryParam4",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryParam6": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryParam6",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryParam8": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryParam8",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "deliveryParam9": {
+            "type": "string",
+            "xml": {
+              "name": "deliveryParam9",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benlang": {
+            "type": "string",
+            "xml": {
+              "name": "benlang",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "agent": {
+            "type": "string",
+            "xml": {
+              "name": "agent",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "remitPurpose": {
+            "type": "string",
+            "xml": {
+              "name": "remitPurpose",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "remitterRelation": {
+            "type": "string",
+            "xml": {
+              "name": "remitterRelation",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "correctionCheck": {
+            "type": "string",
+            "xml": {
+              "name": "correctionCheck",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "correspondentId": {
+            "type": "string",
+            "xml": {
+              "name": "correspondentId",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "dnetType": {
+            "type": "string",
+            "xml": {
+              "name": "dnetType",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benDateOfBirth": {
+            "type": "string",
+            "xml": {
+              "name": "benDateOfBirth",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benPlaceOfBirth": {
+            "type": "string",
+            "xml": {
+              "name": "benPlaceOfBirth",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "benOccupation": {
+            "type": "string",
+            "xml": {
+              "name": "benOccupation",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "status": {
+            "type": "string",
+            "xml": {
+              "name": "status",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "creationTime": {
+            "type": "string",
+            "xml": {
+              "name": "creationTime",
+              "namespace": "http://com.tcs.bancs.rm/",
+              "prefix": "ns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "remittanceRetrieveBeneficiary",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ns1_TransactionStatus": {
+        "title": "ns1_TransactionStatus",
+        "enum": [
+          "REDEEMED",
+          "REFUNDED"
+        ],
+        "type": "string",
+        "description": "",
+        "xml": {
+          "name": "TransactionStatus",
+          "namespace": "http://com.tcs.bancs.rm/",
+          "prefix": "ns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      }
+    }
+  }
+}

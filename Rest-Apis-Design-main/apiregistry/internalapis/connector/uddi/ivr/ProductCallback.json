@@ -1,0 +1,626 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Service1",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://mw-api-3scale-apicast-staging.apps.com:443/api/connector/uddi/productcallback"
+      
+    }
+  ],
+  "paths": {
+    "/ProductCallBackService": {
+      "post": {
+        "tags": [
+          "ProductCallBackService"
+        ],
+        "summary": "ProductCallBackService",
+        "operationId": "ProductCallBackService",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/xml": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ProductCallBackServiceSoapIn"
+                  },
+                  {
+                    "xml": {
+                      "name": "ProductCallBackServiceSoapIn",
+                      "attribute": false,
+                      "wrapped": false
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ProductCallBackServiceSoapOut"
+                    },
+                    {
+                      "xml": {
+                        "name": "ProductCallBackServiceSoapOut",
+                        "attribute": false,
+                        "wrapped": false
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ProductCallBackService": {
+        "title": "ProductCallBackService",
+        "type": "object",
+        "properties": {
+          "ActivationCBRequest": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ProductCallBackRequestType"
+              },
+              {
+                "xml": {
+                  "name": "ActivationCBRequest",
+                  "namespace": "http://btc-networks.com/",
+                  "prefix": "tns",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "ProductCallBackService",
+          "namespace": "http://btc-networks.com/",
+          "prefix": "tns",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ProductCallBackRequestType": {
+        "title": "ProductCallBackRequestType",
+        "type": "object",
+        "properties": {
+          "Header": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/WebServiceHeader"
+              },
+              {
+                "xml": {
+                  "name": "Header",
+                  "namespace": "http://btc-networks.com/",
+                  "prefix": "tns",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "ProductRequest": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ProductCallBackType"
+              },
+              {
+                "xml": {
+                  "name": "ProductRequest",
+                  "namespace": "http://btc-networks.com/",
+                  "prefix": "tns",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "ProductCallBackRequestType",
+          "namespace": "http://btc-networks.com/",
+          "prefix": "tns",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "WebServiceHeader": {
+        "title": "WebServiceHeader",
+        "type": "object",
+        "properties": {
+          "UserName": {
+            "type": "string",
+            "xml": {
+              "name": "UserName",
+              "namespace": "http://btc-networks.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Password": {
+            "type": "string",
+            "xml": {
+              "name": "Password",
+              "namespace": "http://btc-networks.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "WebServiceHeader",
+          "namespace": "http://btc-networks.com/",
+          "prefix": "tns",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ProductCallBackType": {
+        "title": "ProductCallBackType",
+        "type": "object",
+        "properties": {
+          "CIF": {
+            "type": "string",
+            "xml": {
+              "name": "CIF",
+              "namespace": "http://btc-networks.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "PhoneNumber": {
+            "type": "string",
+            "xml": {
+              "name": "PhoneNumber",
+              "namespace": "http://btc-networks.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Language": {
+            "type": "string",
+            "xml": {
+              "name": "Language",
+              "namespace": "http://btc-networks.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Channel": {
+            "type": "string",
+            "xml": {
+              "name": "Channel",
+              "namespace": "http://btc-networks.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "ProductType": {
+            "type": "string",
+            "xml": {
+              "name": "ProductType",
+              "namespace": "http://btc-networks.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "ProductCode": {
+            "type": "string",
+            "xml": {
+              "name": "ProductCode",
+              "namespace": "http://btc-networks.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Attribute1": {
+            "type": "string",
+            "xml": {
+              "name": "Attribute1",
+              "namespace": "http://btc-networks.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Attribute2": {
+            "type": "string",
+            "xml": {
+              "name": "Attribute2",
+              "namespace": "http://btc-networks.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Attribute3": {
+            "type": "string",
+            "xml": {
+              "name": "Attribute3",
+              "namespace": "http://btc-networks.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Attribute4": {
+            "type": "string",
+            "xml": {
+              "name": "Attribute4",
+              "namespace": "http://btc-networks.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Attribute5": {
+            "type": "string",
+            "xml": {
+              "name": "Attribute5",
+              "namespace": "http://btc-networks.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Attribute6": {
+            "type": "string",
+            "xml": {
+              "name": "Attribute6",
+              "namespace": "http://btc-networks.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Attribute7": {
+            "type": "string",
+            "xml": {
+              "name": "Attribute7",
+              "namespace": "http://btc-networks.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Attribute8": {
+            "type": "string",
+            "xml": {
+              "name": "Attribute8",
+              "namespace": "http://btc-networks.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Attribute9": {
+            "type": "string",
+            "xml": {
+              "name": "Attribute9",
+              "namespace": "http://btc-networks.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Attribute10": {
+            "type": "string",
+            "xml": {
+              "name": "Attribute10",
+              "namespace": "http://btc-networks.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Attribute11": {
+            "type": "string",
+            "xml": {
+              "name": "Attribute11",
+              "namespace": "http://btc-networks.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Attribute12": {
+            "type": "string",
+            "xml": {
+              "name": "Attribute12",
+              "namespace": "http://btc-networks.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Attribute13": {
+            "type": "string",
+            "xml": {
+              "name": "Attribute13",
+              "namespace": "http://btc-networks.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Attribute14": {
+            "type": "string",
+            "xml": {
+              "name": "Attribute14",
+              "namespace": "http://btc-networks.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Attribute15": {
+            "type": "string",
+            "xml": {
+              "name": "Attribute15",
+              "namespace": "http://btc-networks.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "ProductCallBackType",
+          "namespace": "http://btc-networks.com/",
+          "prefix": "tns",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ProductCallBackServiceResponse": {
+        "title": "ProductCallBackServiceResponse",
+        "type": "object",
+        "properties": {
+          "ProductCallBackServiceResult": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ProductCallBackResponseType"
+              },
+              {
+                "xml": {
+                  "name": "ProductCallBackServiceResult",
+                  "namespace": "http://btc-networks.com/",
+                  "prefix": "tns",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "ProductCallBackServiceResponse",
+          "namespace": "http://btc-networks.com/",
+          "prefix": "tns",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ProductCallBackResponseType": {
+        "title": "ProductCallBackResponseType",
+        "type": "object",
+        "properties": {
+          "Fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FaultType"
+              },
+              {
+                "xml": {
+                  "name": "Fault",
+                  "namespace": "http://btc-networks.com/",
+                  "prefix": "tns",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ProductCallBackResponseSuccessType"
+              },
+              {
+                "xml": {
+                  "name": "success",
+                  "namespace": "http://btc-networks.com/",
+                  "prefix": "tns",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "ProductCallBackResponseType",
+          "namespace": "http://btc-networks.com/",
+          "prefix": "tns",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "FaultType": {
+        "title": "FaultType",
+        "type": "object",
+        "properties": {
+          "ErrorNumber": {
+            "type": "string",
+            "xml": {
+              "name": "ErrorNumber",
+              "namespace": "http://btc-networks.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "ErrorDescription": {
+            "type": "string",
+            "xml": {
+              "name": "ErrorDescription",
+              "namespace": "http://btc-networks.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "HostSystem": {
+            "type": "string",
+            "xml": {
+              "name": "HostSystem",
+              "namespace": "http://btc-networks.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "HostErrorNumber": {
+            "type": "string",
+            "xml": {
+              "name": "HostErrorNumber",
+              "namespace": "http://btc-networks.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "HostErrorDescription": {
+            "type": "string",
+            "xml": {
+              "name": "HostErrorDescription",
+              "namespace": "http://btc-networks.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "FaultType",
+          "namespace": "http://btc-networks.com/",
+          "prefix": "tns",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ProductCallBackResponseSuccessType": {
+        "title": "ProductCallBackResponseSuccessType",
+        "type": "object",
+        "properties": {
+          "ReferenceNumber": {
+            "type": "string",
+            "xml": {
+              "name": "ReferenceNumber",
+              "namespace": "http://btc-networks.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Status": {
+            "type": "string",
+            "xml": {
+              "name": "Status",
+              "namespace": "http://btc-networks.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "ProductCallBackResponseSuccessType",
+          "namespace": "http://btc-networks.com/",
+          "prefix": "tns",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ProductCallBackServiceSoapIn": {
+        "title": "ProductCallBackServiceSoapIn",
+        "required": [
+          "ProductCallBackService"
+        ],
+        "type": "object",
+        "properties": {
+          "ProductCallBackService": {
+            "$ref": "#/components/schemas/ProductCallBackService"
+          }
+        }
+      },
+      "ProductCallBackServiceSoapOut": {
+        "title": "ProductCallBackServiceSoapOut",
+        "required": [
+          "ProductCallBackServiceResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "ProductCallBackServiceResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ProductCallBackServiceResponse"
+              },
+              {
+                "xml": {
+                  "name": "ProductCallBackServiceResponse",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "xml": {
+          "name": "ProductCallBackServiceSoapOut",
+          "attribute": false,
+          "wrapped": false
+        }
+      }
+    }
+  }
+  
+}

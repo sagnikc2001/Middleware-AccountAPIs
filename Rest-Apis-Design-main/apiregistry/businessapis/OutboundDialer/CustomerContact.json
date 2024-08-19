@@ -1,0 +1,3266 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "MW CustomerContact APIs",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://mw-api-3scale-apicast-staging.apps.com:443/api/outbounddialer/customercontact"
+    }
+  ],
+  "paths": {
+    "/ImportCustomerContact": {
+      "post": {
+        "tags": [
+          "CustomerContact APIs Stage"
+        ],
+        "summary": "ImportCustomerContact",
+        "operationId": "ImportCustomerContact",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          },
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ImportCustomerContactRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ImportCustomerContactResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/DeleteCustomerContact": {
+      "post": {
+        "tags": [
+          "CustomerContact APIs Stage"
+        ],
+        "summary": "DeleteCustomerContact",
+        "operationId": "DeleteCustomerContact",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          },
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/DeleteCustomerContactRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/DeleteCustomerContactResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/GetCustomerContact": {
+      "post": {
+        "tags": [
+          "CustomerContact APIs Stage"
+        ],
+        "summary": "GetCustomerContact",
+        "operationId": "GetCustomerContact",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          },
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/GetCustomerContactRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/GetCustomerContactResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ListCustomerContact": {
+      "post": {
+        "tags": [
+          "CustomerContact APIs Stage"
+        ],
+        "summary": "ListCustomerContact",
+        "operationId": "ListCustomerContact",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          },
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ListCustomerContactRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ListCustomerContactResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/GetContactTemplate": {
+      "post": {
+        "tags": [
+          "CustomerContact APIs Stage"
+        ],
+        "summary": "GetContactTemplate",
+        "operationId": "GetContactTemplate",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          },
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/GetContactTemplateRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/GetContactTemplateResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/CreateBeneficiaryActivationCallback": {
+      "post": {
+        "tags": [
+          "CustomerContact APIs"
+        ],
+        "description": "CreateBeneficiaryActivationCallback",
+        "operationId": "CreateBeneficiaryActivationCallback",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT bearer token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "having channel details , locale",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BeneficiaryCreationActivationCallbackRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BeneficiaryCreationActivationCallbackResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BeneficiaryCreationActivationCallbackResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized Request"
+          },
+          "404": {
+            "description": "404 API Not Found"
+          },
+          "405": {
+            "description": "405 Method Not Allowed"
+          },
+          "429": {
+            "description": "429 Too Many Requests"
+          },
+          "500": {
+            "description": "500 Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BeneficiaryCreationActivationCallbackResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503 Service Unavailable"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/CreateTokenActivationCallback": {
+      "post": {
+        "tags": [
+          "CustomerContact APIs Stage"
+        ],
+        "summary": "CreateTokenActivationCallback",
+        "operationId": "CreateTokenActivationCallback",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          },
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/CreateTokenActivationCallbackRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/CreateTokenActivationCallbackResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/CreateCallback": {
+      "post": {
+        "tags": [
+          "CustomerContact APIs Stage"
+        ],
+        "summary": "CreateCallback",
+        "operationId": "CreateCallback",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          },
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/CreateCallbackRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/CreateCallbackResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/CreateProductCallback": {
+      "post": {
+        "tags": [
+          "CustomerContact APIs"
+        ],
+        "summary": "CreateProductCallback",
+        "operationId": "CreateProductCallback",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT bearer token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "having channel details , locale",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateProductCallbackRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateProductCallbackResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateProductCallbackResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized Request"
+          },
+          "404": {
+            "description": "404 API Not Found"
+          },
+          "405": {
+            "description": "405 Method Not Allowed"
+          },
+          "429": {
+            "description": "429 Too Many Requests"
+          },
+          "500": {
+            "description": "500 Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateProductCallbackResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503 Service Unavailable"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/GenerateCallback": {
+      "post": {
+        "tags": [
+          "CustomerContact APIs Stage"
+        ],
+        "summary": "GenerateCallback",
+        "description": "this operation is to Request a Generic Callback.",
+        "operationId": "GenerateCallback",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          },
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/GenerateCallbackRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/GenerateCallbackResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/InquireCallback": {
+      "post": {
+        "tags": [
+          "CustomerContact APIs Stage"
+        ],
+        "summary": "InquireCallback",
+        "description": "this operation is to Inquire the Status of Generic Callback.",
+        "operationId": "InquireCallback",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          },
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/InquireCallbackRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/InquireCallbackResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "header_ServiceHeader": {
+        "title": "header_ServiceHeader",
+        "required": [
+          "loggerContext",
+          "transactionCode",
+          "retryTransaction",
+          "tellerId",
+          "terminalId",
+          "workstationId",
+          "override",
+          "correction",
+          "supervisor",
+          "supervisorId",
+          "overrideCode",
+          "employeeId",
+          "branchId",
+          "functionId",
+          "channelId",
+          "bancsPwd",
+          "languageCode"
+        ],
+        "type": "object",
+        "properties": {
+          "loggerContext": {
+            "type": "string"
+          },
+          "transactionCode": {
+            "type": "string"
+          },
+          "retryTransaction": {
+            "type": "boolean"
+          },
+          "tellerId": {
+            "type": "string"
+          },
+          "terminalId": {
+            "type": "string"
+          },
+          "workstationId": {
+            "type": "string"
+          },
+          "override": {
+            "type": "boolean"
+          },
+          "correction": {
+            "type": "string"
+          },
+          "supervisor": {
+            "type": "string"
+          },
+          "supervisorId": {
+            "type": "string"
+          },
+          "overrideCode": {
+            "type": "string"
+          },
+          "employeeId": {
+            "type": "string"
+          },
+          "branchId": {
+            "type": "string"
+          },
+          "functionId": {
+            "type": "string"
+          },
+          "channelId": {
+            "type": "string"
+          },
+          "bancsPwd": {
+            "type": "string"
+          },
+          "languageCode": {
+            "type": "string"
+          },
+          "authenticationType": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/header_authenticationType"
+              },
+              {
+                "description": "Can be: NONE, OTP, TOKEN"
+              }
+            ]
+          },
+          "IvrTransactionID": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "wsse_Security": {
+        "title": "wsse_Security",
+        "required": [
+          "UsernameToken"
+        ],
+        "type": "object",
+        "properties": {
+          "UsernameToken": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/wsse_UsernameToken"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_ImportCustomerContactRequest": {
+        "title": "tns_ImportCustomerContactRequest",
+        "required": [
+          "campaignID",
+          "customerContactDetails"
+        ],
+        "type": "object",
+        "properties": {
+          "campaignID": {
+            "type": "string",
+            "description": "Can contain any characters, including\n\t\t\t\t\t\t\tinternationalized characters, except the\n\t\t\t\t\t\t\tdelimiter specified in\n\t\t\t\t\t\t\tthe\n\t\t\t\t\t\t\tinput XML. Maximum length of 30 bytes."
+          },
+          "customerContactDetails": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_customerContactDetailsType"
+            },
+            "description": "This will be converted or separated or\n\t\t\t\t\t\t\tpipe-separated list of data embedded within a CDATA\n\t\t\t\t\t\t\tsection."
+          },
+          "overWriteData": {
+            "type": "boolean",
+            "description": "True or false. If set to true, the existing\n\t\t\t\t\t\t\timport data in the database is overwritten by the\n\t\t\t\t\t\t\tnew import data.\n\t\t\t\t\t\t\tIf set to false, the new import data is appended to\n\t\t\t\t\t\t\tthe existing\n\t\t\t\t\t\t\tdata. Default is false."
+          },
+          "apiType": {
+            "type": "string",
+            "description": "Element to specify if its unified config or a\n\t\t\t\t\t\t\tSCM type. The Value SCM determines it should be diverted to SCM"
+          }
+        },
+        "description": ""
+      },
+      "tns_ImportCustomerContactResponse": {
+        "title": "tns_ImportCustomerContactResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/fault_FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_customerContactDetailsType": {
+        "title": "tns_customerContactDetailsType",
+        "type": "object",
+        "properties": {
+          "accountNumber": {
+            "type": "string",
+            "description": "Can contain any characters, including\n\t\t\t\t\t\tinternationalized characters, except the\n\t\t\t\t\t\tdelimiter specified in the\n\t\t\t\t\t\tinput XML. Maximum length of 30 bytes."
+          },
+          "firstName": {
+            "type": "string",
+            "description": "Can contain any characters, including\n\t\t\t\t\t\tinternationalized characters, except the delimiter\n\t\t\t\t\t\tspecified in the\n\t\t\t\t\t\tinput XML. Maximum length of 50 characters."
+          },
+          "lastName": {
+            "type": "string",
+            "description": "Can contain any characters, including\n\t\t\t\t\t\tinternationalized characters, except the delimiter\n\t\t\t\t\t\tspecified in the\n\t\t\t\t\t\tinput XML. Maximum length of 50 characters."
+          },
+          "phone1": {
+            "type": "string",
+            "description": "Phone01 through Phone10: Can contain digits 0-9,\n\t\t\t\t\t\tpound sign (#), and asterisk (*). Maximum\n\t\t\t\t\t\tlength of 20 bytes. At\n\t\t\t\t\t\tleast one Phone field is required."
+          },
+          "phone2": {
+            "type": "string",
+            "description": "Phone01 through Phone10: Can contain digits 0-9,\n\t\t\t\t\t\tpound sign (#), and asterisk (*). Maximum\n\t\t\t\t\t\tlength of 20 bytes. At\n\t\t\t\t\t\tleast one Phone field is required."
+          },
+          "phone3": {
+            "type": "string",
+            "description": "Phone01 through Phone10: Can contain digits 0-9,\n\t\t\t\t\t\tpound sign (#), and asterisk (*). Maximum\n\t\t\t\t\t\tlength of 20 bytes. At\n\t\t\t\t\t\tleast one Phone field is required."
+          },
+          "phone4": {
+            "type": "string",
+            "description": "Phone01 through Phone10: Can contain digits 0-9,\n\t\t\t\t\t\tpound sign (#), and asterisk (*). Maximum\n\t\t\t\t\t\tlength of 20 bytes. At\n\t\t\t\t\t\tleast one Phone field is required."
+          },
+          "phone5": {
+            "type": "string",
+            "description": "Phone01 through Phone10: Can contain digits 0-9,\n\t\t\t\t\t\tpound sign (#), and asterisk (*). Maximum\n\t\t\t\t\t\tlength of 20 bytes. At\n\t\t\t\t\t\tleast one Phone field is required."
+          },
+          "phone6": {
+            "type": "string",
+            "description": "Phone01 through Phone10: Can contain digits 0-9,\n\t\t\t\t\t\tpound sign (#), and asterisk (*). Maximum\n\t\t\t\t\t\tlength of 20 bytes. At\n\t\t\t\t\t\tleast one Phone field is required."
+          },
+          "phone7": {
+            "type": "string",
+            "description": "Phone01 through Phone10: Can contain digits 0-9,\n\t\t\t\t\t\tpound sign (#), and asterisk (*). Maximum\n\t\t\t\t\t\tlength of 20 bytes. At\n\t\t\t\t\t\tleast one Phone field is required."
+          },
+          "phone8": {
+            "type": "string",
+            "description": "Phone01 through Phone10: Can contain digits 0-9,\n\t\t\t\t\t\tpound sign (#), and asterisk (*). Maximum\n\t\t\t\t\t\tlength of 20 bytes. At\n\t\t\t\t\t\tleast one Phone field is required."
+          },
+          "phone9": {
+            "type": "string",
+            "description": "Phone01 through Phone10: Can contain digits 0-9,\n\t\t\t\t\t\tpound sign (#), and asterisk (*). Maximum\n\t\t\t\t\t\tlength of 20 bytes. At\n\t\t\t\t\t\tleast one Phone field is required."
+          },
+          "phone10": {
+            "type": "string",
+            "description": "Phone01 through Phone10: Can contain digits 0-9,\n\t\t\t\t\t\tpound sign (#), and asterisk (*). Maximum\n\t\t\t\t\t\tlength of 20 bytes. At\n\t\t\t\t\t\tleast one Phone field is required."
+          },
+          "timeZoneBias": {
+            "type": "string",
+            "description": "Specifies the offset of the customer's time zone\n\t\t\t\t\t\tfrom UTC in minutes. Integer.\n\t\t\t\t\t\tRange is from –780 to 720 (–13 to 12\n\t\t\t\t\t\thours from UTC)."
+          },
+          "dstObserved": {
+            "type": "boolean",
+            "description": "Specifies whether DST is observed for the\n\t\t\t\t\t\tcustomer's location. True or false. Default\n\t\t\t\t\t\tis false."
+          }
+        },
+        "description": ""
+      },
+      "tns_DeleteCustomerContactRequest": {
+        "title": "tns_DeleteCustomerContactRequest",
+        "required": [
+          "campaignID"
+        ],
+        "type": "object",
+        "properties": {
+          "campaignID": {
+            "type": "string"
+          },
+          "apiType": {
+            "type": "string",
+            "description": "Element to specify if its unified config or a\n\t\t\t\t\t\t\tSCM type. The Value SCM determines it should be diverted to SCM"
+          }
+        },
+        "description": ""
+      },
+      "tns_DeleteCustomerContactResponse": {
+        "title": "tns_DeleteCustomerContactResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/fault_FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_GetCustomerContactRequest": {
+        "title": "tns_GetCustomerContactRequest",
+        "required": [
+          "campaignID",
+          "importId"
+        ],
+        "type": "object",
+        "properties": {
+          "campaignID": {
+            "type": "string",
+            "description": "campaignId>"
+          },
+          "importId": {
+            "type": "string",
+            "description": "The is the ID of the\n\t\t\t\t\t\t\timported contact."
+          },
+          "apiType": {
+            "type": "string",
+            "description": "Element to specify if its unified config or a\n\t\t\t\t\t\t\tSCM type. The Value SCM determines it should be diverted to SCM"
+          }
+        },
+        "description": ""
+      },
+      "tns_GetCustomerContactResponse": {
+        "title": "tns_GetCustomerContactResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_GetCustomerContactDetailsSuccessType"
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/fault_FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_GetCustomerContactDetailsSuccessType": {
+        "title": "tns_GetCustomerContactDetailsSuccessType",
+        "required": [
+          "ImportedCustomerContact"
+        ],
+        "type": "object",
+        "properties": {
+          "ImportedCustomerContact": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_GetCustomerContactDetailsType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_GetCustomerContactDetailsType": {
+        "title": "tns_GetCustomerContactDetailsType",
+        "type": "object",
+        "properties": {
+          "campaignID": {
+            "type": "string",
+            "description": "campaignId>"
+          },
+          "importId": {
+            "type": "string",
+            "description": "The is the ID of the\n\t\t\t\t\t\timported contact."
+          },
+          "accountNumber": {
+            "type": "string",
+            "description": "The customer's account number."
+          },
+          "callsMade": {
+            "type": "string",
+            "description": "The number of calls made."
+          },
+          "callStatus": {
+            "type": "string",
+            "description": "The call status of the last call placed for this\n\t\t\t\t\t\trecord. Possible values include the following:\n\t\t\t\t\t\t◦active (A)\n\t\t\t\t\t\t◦callbackRequested (B)\n\t\t\t\t\t\t◦closed (C)\n\t\t\t\t\t\t◦agentRejected (J)\n\t\t\t\t\t\t◦maxAttemptsReached (M)\n\t\t\t\t\t\t◦pending (P)\n\t\t\t\t\t\t◦retry (R)\n\t\t\t\t\t\t◦personalCallbackRequested (S)\n\t\t\t\t\t\t◦unknown (U)"
+          },
+          "callResultOverall": {
+            "type": "string",
+            "description": "The call result from the last call placed for\n\t\t\t\t\t\tthis record."
+          },
+          "firstName": {
+            "type": "string",
+            "description": "The customer's first name."
+          },
+          "lastName": {
+            "type": "string",
+            "description": "The customer's last name."
+          },
+          "importDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string",
+            "description": "The date and time that the record was imported."
+          },
+          "phone01": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_PhoneType"
+              },
+              {
+                "description": "phone01 through phone10: A collection of\n\t\t\t\t\t\tinformation about the customer's phones. Each phone contains\n\t\t\t\t\t\tthe\n\t\t\t\t\t\tfollowing parameters:"
+              }
+            ]
+          },
+          "phone02": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_PhoneType"
+              },
+              {
+                "description": "phone01 through phone10: A collection of\n\t\t\t\t\t\tinformation about the customer's phones. Each phone contains\n\t\t\t\t\t\tthe\n\t\t\t\t\t\tfollowing parameters:"
+              }
+            ]
+          },
+          "phone03": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_PhoneType"
+              },
+              {
+                "description": "phone01 through phone10: A collection of\n\t\t\t\t\t\tinformation about the customer's phones. Each phone contains\n\t\t\t\t\t\tthe\n\t\t\t\t\t\tfollowing parameters:"
+              }
+            ]
+          },
+          "phone04": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_PhoneType"
+              },
+              {
+                "description": "phone01 through phone10: A collection of\n\t\t\t\t\t\tinformation about the customer's phones. Each phone contains\n\t\t\t\t\t\tthe\n\t\t\t\t\t\tfollowing parameters:"
+              }
+            ]
+          },
+          "phone05": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_PhoneType"
+              },
+              {
+                "description": "phone01 through phone10: A collection of\n\t\t\t\t\t\tinformation about the customer's phones. Each phone contains\n\t\t\t\t\t\tthe\n\t\t\t\t\t\tfollowing parameters:"
+              }
+            ]
+          },
+          "phone06": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_PhoneType"
+              },
+              {
+                "description": "phone01 through phone10: A collection of\n\t\t\t\t\t\tinformation about the customer's phones. Each phone contains\n\t\t\t\t\t\tthe\n\t\t\t\t\t\tfollowing parameters:"
+              }
+            ]
+          },
+          "phone07": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_PhoneType"
+              },
+              {
+                "description": "phone01 through phone10: A collection of\n\t\t\t\t\t\tinformation about the customer's phones. Each phone contains\n\t\t\t\t\t\tthe\n\t\t\t\t\t\tfollowing parameters:"
+              }
+            ]
+          },
+          "phone08": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_PhoneType"
+              },
+              {
+                "description": "phone01 through phone10: A collection of\n\t\t\t\t\t\tinformation about the customer's phones. Each phone contains\n\t\t\t\t\t\tthe\n\t\t\t\t\t\tfollowing parameters:"
+              }
+            ]
+          },
+          "phone09": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_PhoneType"
+              },
+              {
+                "description": "phone01 through phone10: A collection of\n\t\t\t\t\t\tinformation about the customer's phones. Each phone contains\n\t\t\t\t\t\tthe\n\t\t\t\t\t\tfollowing parameters:"
+              }
+            ]
+          },
+          "phone10": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_PhoneType"
+              },
+              {
+                "description": "phone01 through phone10: A collection of\n\t\t\t\t\t\tinformation about the customer's phones. Each phone contains\n\t\t\t\t\t\tthe\n\t\t\t\t\t\tfollowing parameters:"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_PhoneType": {
+        "title": "tns_PhoneType",
+        "type": "object",
+        "properties": {
+          "callResult": {
+            "type": "string",
+            "description": "The call result from the last call placed for\n\t\t\t\t\t\tthis phone number."
+          },
+          "dstObserved": {
+            "type": "string",
+            "description": "Whether DST is observed for this phone's\n\t\t\t\t\t\tlocation. True or false."
+          },
+          "gmtOffset": {
+            "type": "string",
+            "description": "The number of minutes that the customer's time\n\t\t\t\t\t\tzone is offset from GMT. When you\n\t\t\t\t\t\tcreate import records, you can\n\t\t\t\t\t\toptionally provide a TimeZoneBias. The\n\t\t\t\t\t\tTimeZoneBias parameter\n\t\t\t\t\t\trepresents the way information about time zones is stored in the\n\t\t\t\t\t\tWindows\n\t\t\t\t\t\tregistry. You can use\n\t\t\t\t\t\tthe following formula to convert\n\t\t\t\t\t\tTimeZoneBias to gmtOffset:"
+          },
+          "number": {
+            "type": "string",
+            "description": "The phone number."
+          }
+        },
+        "description": ""
+      },
+      "tns_GetContactTemplateResponse": {
+        "title": "tns_GetContactTemplateResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/fault_FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_PageDetails": {
+        "title": "tns_PageDetails",
+        "type": "object",
+        "properties": {
+          "pageNumber": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "noOfRecordsPerPage": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "description": ""
+      },
+      "tns_ListCustomerContactRequest": {
+        "title": "tns_ListCustomerContactRequest",
+        "required": [
+          "campaignID"
+        ],
+        "type": "object",
+        "properties": {
+          "campaignID": {
+            "type": "string",
+            "description": "campaignId>"
+          },
+          "searchBy": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_searchByType"
+              },
+              {
+                "description": "Search By - param name and value required"
+              }
+            ]
+          },
+          "sortBy": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_sortBy"
+              },
+              {
+                "description": "Param name for which it can be sorted\n\t\t\t\t\t\t\t•\n\t\t\t\t\t\t\taccountNumber\n\t\t\t\t\t\t\t• firstName\n\t\t\t\t\t\t\t• lastName"
+              }
+            ]
+          },
+          "pageDetails": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_PageDetails"
+              },
+              {
+                "description": "PageDetails"
+              }
+            ]
+          },
+          "apiType": {
+            "type": "string",
+            "description": "Element to specify if its unified config or a\n\t\t\t\t\t\t\tSCM type. The Value SCM determines it should be diverted to SCM"
+          }
+        },
+        "description": ""
+      },
+      "tns_searchByType": {
+        "title": "tns_searchByType",
+        "required": [
+          "paramName",
+          "paramValue"
+        ],
+        "type": "object",
+        "properties": {
+          "paramName": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_paramName"
+              },
+              {
+                "description": "Param name for which it can be searched\n\t\t\t\t\t\t•\n\t\t\t\t\t\taccountNumber\n\t\t\t\t\t\t• firstName\n\t\t\t\t\t\t• lastName"
+              }
+            ]
+          },
+          "paramValue": {
+            "type": "string",
+            "description": "Param Value to search example\n\t\t\t\t\t\t--\"lastName=Martin\" lastName is param name and Martin is Param\n\t\t\t\t\t\tvalue"
+          }
+        },
+        "description": ""
+      },
+      "tns_ListCustomerContactResponse": {
+        "title": "tns_ListCustomerContactResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_ListCustomerContactType"
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/fault_FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_ListCustomerContactType": {
+        "title": "tns_ListCustomerContactType",
+        "required": [
+          "ImportedCustomerContact"
+        ],
+        "type": "object",
+        "properties": {
+          "ImportedCustomerContact": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_GetCustomerContactDetailsType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "BeneficiaryCreationActivationCallbackRequestType": {
+        "title": "BeneficiaryCreationActivationCallbackRequestType",
+        "required": [
+          "beneficiaryDetails"
+        ],
+        "type": "object",
+        "properties": {
+          "cif": {
+            "$ref": "../../commonschemas/schemas.json#/CIFOptional"
+          },
+          "corpId": {
+            "type": "string"
+          },
+          "mobileNumber": {
+            "$ref": "../../commonschemas/schemas.json#/MobileNumberOptional"
+          },
+          "beneficiaryDetails": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/beneficiaryDetailsType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "BeneficiaryCreationActivationCallbackResponseType": {
+        "title": "BeneficiaryCreationActivationCallbackResponseType",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "beneficiaryDetailsType": {
+        "title": "beneficiaryDetailsType",
+        "type": "object",
+        "properties": {
+          "beneficiaryType": {
+            "$ref": "#/components/schemas/beneficiaryType"
+          },
+          "beneficiaryReferenceNumber": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_CreateTokenActivationCallbackRequest": {
+        "title": "tns_CreateTokenActivationCallbackRequest",
+        "type": "object",
+        "properties": {
+          "cif": {
+            "pattern": "([0-9]){14}|([0]){1}|()",
+            "type": "string"
+          },
+          "mobileNumber": {
+            "pattern": "[0-9]{9,15}|()",
+            "type": "string"
+          },
+          "serialNumber": {
+            "maxLength": 20,
+            "type": "string"
+          },
+          "registrationCode": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_CreateTokenActivationCallbackResponse": {
+        "title": "tns_CreateTokenActivationCallbackResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/fault_FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_CreateCallbackRequest": {
+        "title": "tns_CreateCallbackRequest",
+        "type": "object",
+        "properties": {
+          "cif": {
+            "pattern": "([0-9]){14}|([0]){1}|()",
+            "type": "string"
+          },
+          "mobileNumber": {
+            "pattern": "[0-9]{9,15}|()",
+            "type": "string"
+          },
+          "campaign": {
+            "type": "string"
+          },
+          "authType": {
+            "type": "string"
+          },
+          "mfaType": {
+            "type": "string"
+          },
+          "dnis": {
+            "type": "string"
+          },
+          "skillGroup": {
+            "type": "string"
+          },
+          "transferPoint": {
+            "type": "string"
+          },
+          "ivrTransactionId": {
+            "type": "string"
+          },
+          "uniqueId": {
+            "type": "string",
+            "description": "UniqueId"
+          }
+        },
+        "description": ""
+      },
+      "CreateCallbackResponseType": {
+        "title": "CreateCallbackResponseType",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/fault_FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "CreateProductCallbackRequestType": {
+        "title": "CreateProductCallbackRequestType",
+        "type": "object",
+        "properties": {
+          "cif": {
+            "$ref": "../../commonschemas/schemas.json#/CIFOptional",
+            "description": "Customer Identification Number"
+          },
+          "phoneNumber": {
+            "$ref": "../../commonschemas/schemas.json#/MobileNumberOptional",
+            "description": "Mobile Number"
+          },
+          "productType": {
+            "type": "string",
+            "description": "Product Type"
+          },
+          "productCode": {
+            "type": "string",
+            "description": "Product Code"
+          },
+          "attribute1": {
+            "type": "string"
+          },
+          "attribute2": {
+            "type": "string"
+          },
+          "attribute3": {
+            "type": "string"
+          },
+          "attribute4": {
+            "type": "string"
+          },
+          "attribute5": {
+            "type": "string"
+          },
+          "attribute6": {
+            "type": "string"
+          },
+          "attribute7": {
+            "type": "string"
+          },
+          "attribute8": {
+            "type": "string"
+          },
+          "attribute9": {
+            "type": "string"
+          },
+          "attribute10": {
+            "type": "string"
+          },
+          "attribute11": {
+            "type": "string"
+          },
+          "attribute12": {
+            "type": "string"
+          },
+          "attribute13": {
+            "type": "string"
+          },
+          "attribute14": {
+            "type": "string"
+          },
+          "attribute15": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "CreateProductCallbackResponseType": {
+        "title": "CreateProductCallbackResponseType",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/CreateProductCallbackResponseDetails"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "CreateProductCallbackResponseDetails": {
+        "title": "CreateProductCallbackResponseDetails",
+        "type": "object",
+        "properties": {
+          "referenceNumber": {
+            "type": "string",
+            "description": "Reference Number"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_GenerateCallbackRequest": {
+        "title": "tns_GenerateCallbackRequest",
+        "type": "object",
+        "properties": {
+          "channel": {
+            "type": "string"
+          },
+          "service": {
+            "type": "string",
+            "description": "REGISTRATION--->Register to Mobile/Online Banking\n\t\t\t\t\t\t\t\t\tPASSWORD--->Change Mobile/Online Banking Password\n\t\t\t\t\t\t\t\t\tISSUEMADA--->Issue MADA Card via Mobile/Online Banking\n\t\t\t\t\t\t\t\t\tISSUECC--->Apply/Reissue Credit Card/Prepaid via Mobile/Online\n\t\t\t\t\t\t\t\t\tACTIVATECC--->Activate Credit Card/Prepaid via Mobile/Online Banking\n\t\t\t\t\t\t\t\t\tSTCPAY--->Activate STC Pay Bill Beneficiary\n\t\t\t\t\t\t\t\t\tREGISTRATION--->Ecorp Self Registration\n\t\t\t\t\t\t\t\t\tETRADEREG--->Etrade Self Registration\n\t\t\t\t\t\t\t\t\tRESETPWD--->Reset Password\n\t\t\t\t\t\t\t\t\tREQMADA--->Request MADA\n\t\t\t\t\t\t\t\t\tACTIVATECC--->Activate Credit Card"
+          },
+          "transactionId": {
+            "type": "string"
+          },
+          "cif": {
+            "pattern": "([0-9]){8}|([0]){1}|()",
+            "type": "string"
+          },
+          "mobile": {
+            "pattern": "[0-9]{9,15}|()",
+            "type": "string"
+          },
+          "language": {
+            "type": "string"
+          },
+          "parameter1": {
+            "type": "string"
+          },
+          "parameter2": {
+            "type": "string"
+          },
+          "parameter3": {
+            "type": "string"
+          },
+          "parameter4": {
+            "type": "string"
+          },
+          "parameter5": {
+            "type": "string"
+          },
+          "parameter6": {
+            "type": "string"
+          },
+          "parameter7": {
+            "type": "string"
+          },
+          "parameter8": {
+            "type": "string"
+          },
+          "parameter9": {
+            "type": "string"
+          },
+          "parameter10": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_GenerateCallbackResponse": {
+        "title": "tns_GenerateCallbackResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_GenerateCallbackResponseDetails"
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/fault_FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_GenerateCallbackResponseDetails": {
+        "title": "tns_GenerateCallbackResponseDetails",
+        "type": "object",
+        "properties": {
+          "uniqueId": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_InquireCallbackRequest": {
+        "title": "tns_InquireCallbackRequest",
+        "required": [
+          "channel",
+          "service",
+          "uniqueId"
+        ],
+        "type": "object",
+        "properties": {
+          "channel": {
+            "type": "string"
+          },
+          "service": {
+            "type": "string",
+            "description": "REGISTRATION--->Register to Mobile/Online Banking\n\t\t\t\t\t\t\t\t\tPASSWORD--->Change Mobile/Online Banking Password\n\t\t\t\t\t\t\t\t\tISSUEMADA--->Issue MADA Card via Mobile/Online Banking\n\t\t\t\t\t\t\t\t\tISSUECC--->Apply/Reissue Credit Card/Prepaid via Mobile/Online\n\t\t\t\t\t\t\t\t\tACTIVATECC--->Activate Credit Card/Prepaid via Mobile/Online Banking\n\t\t\t\t\t\t\t\t\tSTCPAY--->Activate STC Pay Bill Beneficiary\n\t\t\t\t\t\t\t\t\tREGISTRATION--->Ecorp Self Registration\n\t\t\t\t\t\t\t\t\tETRADEREG--->Etrade Self Registration\n\t\t\t\t\t\t\t\t\tRESETPWD--->Reset Password\n\t\t\t\t\t\t\t\t\tREQMADA--->Request MADA\n\t\t\t\t\t\t\t\t\tACTIVATECC--->Activate Credit Card"
+          },
+          "uniqueId": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_InquireCallbackResponse": {
+        "title": "tns_InquireCallbackResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_InquireCallbackResponseDetails"
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/fault_FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_InquireCallbackResponseDetails": {
+        "title": "tns_InquireCallbackResponseDetails",
+        "type": "object",
+        "properties": {
+          "uniqueId": {
+            "type": "string"
+          },
+          "channel": {
+            "type": "string"
+          },
+          "service": {
+            "type": "string"
+          },
+          "transactionId": {
+            "type": "string"
+          },
+          "cif": {
+            "pattern": "([0-9]){8}|([0]){1}|()",
+            "type": "string"
+          },
+          "mobile": {
+            "pattern": "[0-9]{9,15}|()",
+            "type": "string"
+          },
+          "language": {
+            "type": "string"
+          },
+          "recordStatus": {
+            "type": "string"
+          },
+          "queuedTime": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))[ ](0[0-9]|1[0-9]|2[0-3]|[0-9])[:]([0-5][0-9])[:]([0-5][0-9])|()",
+            "type": "string"
+          },
+          "processedTime": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))[ ](0[0-9]|1[0-9]|2[0-3]|[0-9])[:]([0-5][0-9])[:]([0-5][0-9])|()",
+            "type": "string"
+          },
+          "connectedTime": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))[ ](0[0-9]|1[0-9]|2[0-3]|[0-9])[:]([0-5][0-9])[:]([0-5][0-9])|()",
+            "type": "string"
+          },
+          "closedTime": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))[ ](0[0-9]|1[0-9]|2[0-3]|[0-9])[:]([0-5][0-9])[:]([0-5][0-9])|()",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "fault_FaultType": {
+        "title": "fault_FaultType",
+        "required": [
+          "number",
+          "description"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "description": {
+            "type": "string"
+          },
+          "retryAfter": {
+            "type": "string"
+          },
+          "system": {
+            "type": "string"
+          },
+          "nativeError": {
+            "type": "string"
+          },
+          "nativeDescription": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_PostalAddress": {
+        "title": "Q1_PostalAddress",
+        "type": "object",
+        "properties": {
+          "addressLine1": {
+            "maxLength": 70,
+            "minLength": 0,
+            "type": "string"
+          },
+          "addressLine2": {
+            "maxLength": 70,
+            "minLength": 0,
+            "type": "string"
+          },
+          "addressLine3": {
+            "maxLength": 70,
+            "minLength": 0,
+            "type": "string"
+          },
+          "city": {
+            "maxLength": 35,
+            "minLength": 0,
+            "type": "string"
+          },
+          "region": {
+            "maxLength": 35,
+            "minLength": 0,
+            "type": "string"
+          },
+          "postalCode": {
+            "maxLength": 16,
+            "minLength": 0,
+            "type": "string"
+          },
+          "country": {
+            "pattern": "([A-Z]{2,2})|()",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_Money": {
+        "title": "Q1_Money",
+        "required": [
+          "isoCurrencyCode"
+        ],
+        "type": "object",
+        "properties": {
+          "isoCurrencyCode": {
+            "pattern": "[A-Z]{3,3}",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_MoneyOptional": {
+        "title": "Q1_MoneyOptional",
+        "required": [
+          "isoCurrencyCode"
+        ],
+        "type": "object",
+        "properties": {
+          "isoCurrencyCode": {
+            "pattern": "([A-Z]{3,3})|()",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_Cursor": {
+        "title": "Q1_Cursor",
+        "required": [
+          "position",
+          "noOfRows"
+        ],
+        "type": "object",
+        "properties": {
+          "position": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "noOfRows": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "description": ""
+      },
+      "Q1_Biller": {
+        "title": "Q1_Biller",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "Q1_DocumentType": {
+        "title": "Q1_DocumentType",
+        "required": [
+          "documentId",
+          "documentSubId",
+          "totalPages",
+          "documentType",
+          "archivedDate",
+          "page"
+        ],
+        "type": "object",
+        "properties": {
+          "documentId": {
+            "type": "string"
+          },
+          "documentSubId": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "documentType": {
+            "type": "string"
+          },
+          "archivedDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          },
+          "page": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Q1_PageType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "Q1_PageType": {
+        "title": "Q1_PageType",
+        "required": [
+          "pageNo",
+          "pageExt",
+          "pageContent"
+        ],
+        "type": "object",
+        "properties": {
+          "pageNo": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageExt": {
+            "type": "string"
+          },
+          "pageContent": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_BillCycle": {
+        "title": "Q1_BillCycle",
+        "enum": [
+          "New",
+          "XXX",
+          "YYY"
+        ],
+        "type": "string",
+        "description": "Valid Values : New, XXX, YYY"
+      },
+      "Q1_Flag": {
+        "title": "Q1_Flag",
+        "enum": [
+          "Y",
+          "N"
+        ],
+        "type": "string",
+        "description": "Valid Values : Y or N"
+      },
+      "Q1_OfferToTag": {
+        "title": "Q1_OfferToTag",
+        "enum": [
+          "Yes",
+          "No"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "Q1_CustomerId": {
+        "title": "Q1_CustomerId",
+        "required": [
+          "id",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_CustomerId2": {
+        "title": "Q1_CustomerId2",
+        "required": [
+          "id",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_Parameter": {
+        "title": "Q1_Parameter",
+        "required": [
+          "name",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_TransactionType": {
+        "title": "Q1_TransactionType",
+        "enum": [
+          "BIANNUALCYCLE",
+          "TODAY",
+          "CYCLETODATE",
+          "CTD"
+        ],
+        "type": "string",
+        "description": "Valid values are BIANNUALCYCLE, TODAY,\n\t\t\t\tCYCLETODATE, CTD etc"
+      },
+      "Q1_BeneficiaryId": {
+        "title": "Q1_BeneficiaryId",
+        "required": [
+          "id",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_DeviceDetails": {
+        "title": "Q1_DeviceDetails",
+        "required": [
+          "machineNonce",
+          "sequenceNonce",
+          "machineLabel",
+          "machineProperties",
+          "createDate",
+          "lastUsedDate",
+          "expiryDate"
+        ],
+        "type": "object",
+        "properties": {
+          "machineNonce": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "sequenceNonce": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "machineLabel": {
+            "type": "string"
+          },
+          "machineProperties": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_MachineProperties"
+              }
+            ]
+          },
+          "createDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          },
+          "lastUsedDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          },
+          "expiryDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_AuthenticationDeviceDetails": {
+        "title": "Q1_AuthenticationDeviceDetails",
+        "required": [
+          "machineNonce",
+          "sequenceNonce",
+          "machineLabel",
+          "machineProperties"
+        ],
+        "type": "object",
+        "properties": {
+          "machineNonce": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "sequenceNonce": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "machineLabel": {
+            "type": "string"
+          },
+          "machineProperties": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_MachineProperties"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "Q1_MachineProperties": {
+        "title": "Q1_MachineProperties",
+        "required": [
+          "applicationData"
+        ],
+        "type": "object",
+        "properties": {
+          "applicationData": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Q1_ApplicationData"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "Q1_ApplicationData": {
+        "title": "Q1_ApplicationData",
+        "required": [
+          "name",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "value": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_AuthenticationInfo": {
+        "title": "Q1_AuthenticationInfo",
+        "required": [
+          "methods"
+        ],
+        "type": "object",
+        "properties": {
+          "methods": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Methods"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "Q1_Methods": {
+        "title": "Q1_Methods",
+        "required": [
+          "hardToken",
+          "softToken",
+          "siteImage",
+          "trustedPC",
+          "callerId",
+          "oneTimePass"
+        ],
+        "type": "object",
+        "properties": {
+          "hardToken": {
+            "type": "boolean"
+          },
+          "softToken": {
+            "type": "boolean"
+          },
+          "siteImage": {
+            "type": "boolean"
+          },
+          "trustedPC": {
+            "type": "boolean"
+          },
+          "callerId": {
+            "type": "boolean"
+          },
+          "oneTimePass": {
+            "type": "boolean"
+          }
+        },
+        "description": ""
+      },
+      "Q1_TokenDetails": {
+        "title": "Q1_TokenDetails",
+        "required": [
+          "userId",
+          "userName",
+          "userGroup",
+          "vendorId",
+          "serialNumber",
+          "tokenType",
+          "signatureSupported",
+          "loadDate",
+          "lastUsedDate"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "userName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "userGroup": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "vendorId": {
+            "type": "string"
+          },
+          "serialNumber": {
+            "type": "string"
+          },
+          "tokenType": {
+            "type": "string"
+          },
+          "signatureSupported": {
+            "type": "boolean"
+          },
+          "loadDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          },
+          "lastUsedDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_AccountDetails": {
+        "title": "Q1_AccountDetails",
+        "required": [
+          "accountId",
+          "balance",
+          "overdraft",
+          "balanceSAR",
+          "availableSAR",
+          "averageLastSixMonths",
+          "isoCurrencyCode",
+          "division",
+          "statusCode",
+          "accountType",
+          "glClassificationCode"
+        ],
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "maxLength": 24,
+            "minLength": 14,
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})",
+            "type": "string"
+          },
+          "balance": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Money"
+              }
+            ]
+          },
+          "overdraft": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Money"
+              }
+            ]
+          },
+          "balanceSAR": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Money"
+              }
+            ]
+          },
+          "availableSAR": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Money"
+              }
+            ]
+          },
+          "averageLastSixMonths": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Money"
+              }
+            ]
+          },
+          "isoCurrencyCode": {
+            "pattern": "[A-Z]{3,3}",
+            "type": "string"
+          },
+          "division": {
+            "type": "string"
+          },
+          "statusCode": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "accountType": {
+            "maxLength": 4,
+            "type": "string"
+          },
+          "glClassificationCode": {
+            "maxLength": 40,
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_Gender": {
+        "title": "Q1_Gender",
+        "enum": [
+          "M",
+          "F"
+        ],
+        "type": "string",
+        "description": "Valid values are : M , F etc"
+      },
+      "Q1_trueOrFalseType": {
+        "title": "Q1_trueOrFalseType",
+        "enum": [
+          "true",
+          "false",
+          "True",
+          "False"
+        ],
+        "type": "string",
+        "description": "Valid values are : true, false, True, False"
+      },
+      "Q1_trueOrFalseTypeOptional": {
+        "title": "Q1_trueOrFalseTypeOptional",
+        "enum": [
+          "true",
+          "false",
+          "True",
+          "False"
+        ],
+        "type": "string",
+        "description": "Optional.\n\t\t\t\tValid values are : true, false, True,\n\t\t\t\tFalse etc"
+      },
+      "Q1_YorNType": {
+        "title": "Q1_YorNType",
+        "enum": [
+          "Y",
+          "N"
+        ],
+        "type": "string",
+        "description": "Valid values are : Y, N"
+      },
+      "Q1_YorNTypeOptional": {
+        "title": "Q1_YorNTypeOptional",
+        "enum": [
+          "Y",
+          "N"
+        ],
+        "type": "string",
+        "description": "Optional.\n\t\t\t\tValid values are : Y, N"
+      },
+      "Q1_contactlessIndicatorTypeOptional": {
+        "title": "Q1_contactlessIndicatorTypeOptional",
+        "enum": [
+          "Y",
+          "N",
+          "V"
+        ],
+        "type": "string",
+        "description": "Optional.\n\t\t\t\tValid values are : Y, N, V"
+      },
+      "Q1_CustomerChannelType": {
+        "title": "Q1_CustomerChannelType",
+        "enum": [
+          "BOTH",
+          "MOBILE",
+          "AOL"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "Q1_ErrorCategoryType": {
+        "title": "Q1_ErrorCategoryType",
+        "enum": [
+          "BUSINESS",
+          "SYSTEM"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "Q1_CommonServiceFaultType": {
+        "title": "Q1_CommonServiceFaultType",
+        "required": [
+          "category",
+          "code",
+          "message",
+          "detail"
+        ],
+        "type": "object",
+        "properties": {
+          "category": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ErrorCategoryType"
+              }
+            ]
+          },
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_ServicesStatusType": {
+        "title": "Q1_ServicesStatusType",
+        "enum": [
+          "ACTIVE",
+          "DISABLE_USER",
+          "DISABLE_ADMIN",
+          "DELETED"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "Q1_ServiceLevelType": {
+        "title": "Q1_ServiceLevelType",
+        "enum": [
+          "INQUIRY",
+          "FULL"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "Q1_CustomerStatusType": {
+        "title": "Q1_CustomerStatusType",
+        "required": [
+          "userId",
+          "aol",
+          "mobile",
+          "emergencyCash"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "aol": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_AolStatusType"
+              }
+            ]
+          },
+          "mobile": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_MobileStatusType"
+              }
+            ]
+          },
+          "emergencyCash": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_EmergencyCashStatus"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "Q1_AolStatusType": {
+        "title": "Q1_AolStatusType",
+        "required": [
+          "createdBy",
+          "createdDate",
+          "lastLoginDate",
+          "serviceLevel",
+          "serviceStatus",
+          "passwordRevoked"
+        ],
+        "type": "object",
+        "properties": {
+          "createdBy": {
+            "type": "string"
+          },
+          "createdDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string"
+          },
+          "lastLoginDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string"
+          },
+          "serviceLevel": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ServiceLevelType"
+              }
+            ]
+          },
+          "serviceStatus": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ServicesStatusType"
+              }
+            ]
+          },
+          "passwordRevoked": {
+            "type": "boolean"
+          }
+        },
+        "description": ""
+      },
+      "Q1_MobileStatusType": {
+        "title": "Q1_MobileStatusType",
+        "required": [
+          "registeredBy",
+          "registeredDate",
+          "lastLoginDate",
+          "serviceLevel",
+          "serviceStatus"
+        ],
+        "type": "object",
+        "properties": {
+          "registeredBy": {
+            "type": "string"
+          },
+          "registeredDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string"
+          },
+          "lastLoginDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string"
+          },
+          "serviceLevel": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ServiceLevelType"
+              }
+            ]
+          },
+          "serviceStatus": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ServicesStatusType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "Q1_EmergencyCashStatus": {
+        "title": "Q1_EmergencyCashStatus",
+        "required": [
+          "registrationDate",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "registrationDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_TransactionInfo": {
+        "title": "Q1_TransactionInfo",
+        "required": [
+          "transactionType"
+        ],
+        "type": "object",
+        "properties": {
+          "transactionId": {
+            "type": "string"
+          },
+          "relatedTransactionId": {
+            "type": "string"
+          },
+          "transactionType": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_ClientInfo": {
+        "title": "Q1_ClientInfo",
+        "required": [
+          "clientId"
+        ],
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_SecurityInfo": {
+        "title": "Q1_SecurityInfo",
+        "required": [
+          "username",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_CreationInfo": {
+        "title": "Q1_CreationInfo",
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string"
+          },
+          "branch": {
+            "maxLength": 5,
+            "type": "string"
+          },
+          "institution": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "teller": {
+            "maxLength": 8,
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_RequestHeader": {
+        "title": "Q1_RequestHeader",
+        "type": "object",
+        "properties": {
+          "transactionInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_TransactionInfo"
+              }
+            ]
+          },
+          "clientInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ClientInfo"
+              }
+            ]
+          },
+          "securityInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_SecurityInfo"
+              }
+            ]
+          },
+          "creationInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_CreationInfo"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "Q1_ErrorInfo": {
+        "title": "Q1_ErrorInfo",
+        "required": [
+          "level"
+        ],
+        "type": "object",
+        "properties": {
+          "level": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_level"
+              }
+            ]
+          },
+          "code": {
+            "type": "string"
+          },
+          "context": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_ReplyHeader": {
+        "title": "Q1_ReplyHeader",
+        "type": "object",
+        "properties": {
+          "transactionInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_TransactionInfo"
+              }
+            ]
+          },
+          "clientInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ClientInfo"
+              }
+            ]
+          },
+          "errorInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ErrorInfo"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "BeneficiaryCreationActivationCallbackRequest": {
+        "title": "BeneficiaryCreationActivationCallbackRequest",
+        "required": [
+          "BeneficiaryCreationActivationCallbackRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "BeneficiaryCreationActivationCallbackRequest": {
+            "$ref": "#/components/schemas/BeneficiaryCreationActivationCallbackRequestType"
+          }
+        }
+      },
+      "BeneficiaryCreationActivationCallbackResponse": {
+        "title": "BeneficiaryCreationActivationCallbackResponse",
+        "required": [
+          "BeneficiaryCreationActivationCallbackResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "BeneficiaryCreationActivationCallbackResponse": {
+            "$ref": "#/components/schemas/BeneficiaryCreationActivationCallbackResponseType"
+          }
+        }
+      },
+      "CreateCallbackRequest": {
+        "title": "CreateCallbackRequest",
+        "required": [
+          "CreateCallbackRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "CreateCallbackRequest": {
+            "$ref": "#/components/schemas/tns_CreateCallbackRequest"
+          }
+        }
+      },
+      "CreateCallbackResponse": {
+        "title": "CreateCallbackResponse",
+        "required": [
+          "CreateCallbackResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "CreateCallbackResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/CreateCallbackResponseType"
+              }
+            ]
+          }
+        }
+      },
+      "CreateProductCallbackRequest": {
+        "title": "CreateProductCallbackRequest",
+        "required": [
+          "CreateProductCallbackRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "CreateProductCallbackRequest": {
+            "$ref": "#/components/schemas/CreateProductCallbackRequestType"
+          }
+        }
+      },
+      "CreateProductCallbackResponse": {
+        "title": "CreateProductCallbackResponse",
+        "required": [
+          "CreateProductCallbackResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "CreateProductCallbackResponse": {
+            "$ref": "#/components/schemas/CreateProductCallbackResponseType"
+          }
+        }
+      },
+      "CreateTokenActivationCallbackRequest": {
+        "title": "CreateTokenActivationCallbackRequest",
+        "required": [
+          "CreateTokenActivationCallbackRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "CreateTokenActivationCallbackRequest": {
+            "$ref": "#/components/schemas/tns_CreateTokenActivationCallbackRequest"
+          }
+        }
+      },
+      "CreateTokenActivationCallbackResponse": {
+        "title": "CreateTokenActivationCallbackResponse",
+        "required": [
+          "CreateTokenActivationCallbackResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "CreateTokenActivationCallbackResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_CreateTokenActivationCallbackResponse"
+              }
+            ]
+          }
+        }
+      },
+      "DeleteCustomerContactRequest": {
+        "title": "DeleteCustomerContactRequest",
+        "required": [
+          "DeleteCustomerContactRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "DeleteCustomerContactRequest": {
+            "$ref": "#/components/schemas/tns_DeleteCustomerContactRequest"
+          }
+        }
+      },
+      "DeleteCustomerContactResponse": {
+        "title": "DeleteCustomerContactResponse",
+        "required": [
+          "DeleteCustomerContactResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "DeleteCustomerContactResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_DeleteCustomerContactResponse"
+              }
+            ]
+          }
+        }
+      },
+      "GenerateCallbackRequest": {
+        "title": "GenerateCallbackRequest",
+        "required": [
+          "GenerateCallbackRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "GenerateCallbackRequest": {
+            "$ref": "#/components/schemas/tns_GenerateCallbackRequest"
+          }
+        }
+      },
+      "GenerateCallbackResponse": {
+        "title": "GenerateCallbackResponse",
+        "required": [
+          "GenerateCallbackResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "GenerateCallbackResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_GenerateCallbackResponse"
+              }
+            ]
+          }
+        }
+      },
+      "GetContactTemplateRequest": {
+        "title": "GetContactTemplateRequest",
+        "required": [
+          "body"
+        ],
+        "type": "object",
+        "properties": {
+          "body": {
+            "type": "string"
+          }
+        }
+      },
+      "GetContactTemplateResponse": {
+        "title": "GetContactTemplateResponse",
+        "required": [
+          "GetContactTemplateResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "GetContactTemplateResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_GetContactTemplateResponse"
+              }
+            ]
+          }
+        }
+      },
+      "GetCustomerContactRequest": {
+        "title": "GetCustomerContactRequest",
+        "required": [
+          "GetCustomerContactRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "GetCustomerContactRequest": {
+            "$ref": "#/components/schemas/tns_GetCustomerContactRequest"
+          }
+        }
+      },
+      "GetCustomerContactResponse": {
+        "title": "GetCustomerContactResponse",
+        "required": [
+          "GetCustomerContactResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "GetCustomerContactResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_GetCustomerContactResponse"
+              }
+            ]
+          }
+        }
+      },
+      "header_authenticationType": {
+        "title": "header_authenticationType",
+        "enum": [
+          "NONE",
+          "OTP",
+          "TOKEN"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "ImportCustomerContactRequest": {
+        "title": "ImportCustomerContactRequest",
+        "required": [
+          "ImportCustomerContactRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "ImportCustomerContactRequest": {
+            "$ref": "#/components/schemas/tns_ImportCustomerContactRequest"
+          }
+        }
+      },
+      "ImportCustomerContactResponse": {
+        "title": "ImportCustomerContactResponse",
+        "required": [
+          "ImportCustomerContactResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "ImportCustomerContactResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_ImportCustomerContactResponse"
+              }
+            ]
+          }
+        }
+      },
+      "InquireCallbackRequest": {
+        "title": "InquireCallbackRequest",
+        "required": [
+          "InquireCallbackRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "InquireCallbackRequest": {
+            "$ref": "#/components/schemas/tns_InquireCallbackRequest"
+          }
+        }
+      },
+      "InquireCallbackResponse": {
+        "title": "InquireCallbackResponse",
+        "required": [
+          "InquireCallbackResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "InquireCallbackResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_InquireCallbackResponse"
+              }
+            ]
+          }
+        }
+      },
+      "ListCustomerContactRequest": {
+        "title": "ListCustomerContactRequest",
+        "required": [
+          "ListCustomerContactRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "ListCustomerContactRequest": {
+            "$ref": "#/components/schemas/tns_ListCustomerContactRequest"
+          }
+        }
+      },
+      "ListCustomerContactResponse": {
+        "title": "ListCustomerContactResponse",
+        "required": [
+          "ListCustomerContactResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "ListCustomerContactResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_ListCustomerContactResponse"
+              }
+            ]
+          }
+        }
+      },
+      "Q1_level": {
+        "title": "Q1_level",
+        "enum": [
+          "SUCCESS",
+          "WARNING",
+          "FAILURE"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "beneficiaryType": {
+        "title": "beneficiaryType",
+        "enum": [
+          "NCB",
+          "EWALLET",
+          "SAWA",
+          "SADAD",
+          "SAIEA",
+          "SARIE",
+          "SWIFT",
+          "QUICKPAY"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "tns_paramName": {
+        "title": "tns_paramName",
+        "enum": [
+          "accountNumber",
+          "firstName",
+          "lastName"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "tns_sortBy": {
+        "title": "tns_sortBy",
+        "enum": [
+          "accountNumber",
+          "firstName",
+          "lastName"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "wsse_UsernameToken": {
+        "title": "wsse_UsernameToken",
+        "required": [
+          "Username",
+          "Password"
+        ],
+        "type": "object",
+        "properties": {
+          "Username": {
+            "type": "string"
+          },
+          "Password": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_AmountOptional": {
+        "oneOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "securitySchemes": {
+      "mwsecurity": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "mwsecurity": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "CustomerContact APIs",
+      "description": ""
+    }
+  ]
+}

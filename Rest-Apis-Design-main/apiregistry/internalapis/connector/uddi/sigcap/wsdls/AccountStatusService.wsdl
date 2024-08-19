@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+                  xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" 
+                  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" 
+                  xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" 
+                  xmlns:tns="http://tempuri.org/" 
+                  xmlns:s="http://www.w3.org/2001/XMLSchema" 
+                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" 
+                  xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" 
+                  targetNamespace="http://tempuri.org/" 
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="RequestAccountStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AccountStatus" type="tns:Request_AccountStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Request_AccountStatus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="REF_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="APPNAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="USER_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PASSWORD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ACCNUM" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="RequestAccountStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RequestAccountStatusResult" type="tns:Response_AccountStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Response_AccountStatus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TYPE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STATUS_CODE" nillable="true" type="s:int" />          
+          <s:element minOccurs="0" maxOccurs="1" name="DESCRIPTION" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ACCOUNT_TYPE" type="tns:eAccountType" />
+          <s:element minOccurs="0" maxOccurs="1" name="CUSTOMER_ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STATION_ID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="eAccountType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Account" />
+          <s:enumeration value="CIF" />
+          <s:enumeration value="Linked" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RequestAccountStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:RequestAccountStatus" />
+  </wsdl:message>
+  <wsdl:message name="RequestAccountStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:RequestAccountStatusResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AccountStatusServiceSoap">
+    <wsdl:operation name="RequestAccountStatus">
+      <wsdl:input message="tns:RequestAccountStatusSoapIn" />
+      <wsdl:output message="tns:RequestAccountStatusSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AccountStatusServiceSoap" type="tns:AccountStatusServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RequestAccountStatus">
+      <soap:operation soapAction="http://tempuri.org/RequestAccountStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AccountStatusServiceSoap12" type="tns:AccountStatusServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RequestAccountStatus">
+      <soap12:operation soapAction="http://tempuri.org/RequestAccountStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AccountStatusService">
+    <wsdl:port name="AccountStatusServiceSoap" binding="tns:AccountStatusServiceSoap">
+      <soap:address location="webretrieve.dll" />
+    </wsdl:port>
+    <wsdl:port name="AccountStatusServiceSoap12" binding="tns:AccountStatusServiceSoap12">
+      <soap12:address location="webretrieve.dll" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

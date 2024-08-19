@@ -1,0 +1,217 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "SMS Notification",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://mw-api-3scale-apicast-staging.apps.com:443/api/connector/sms"
+    }
+  ],
+  "paths": {
+    "/v1/SMSNotification": {
+      "post": {
+        "tags": [
+          "SMS Notification API"
+        ],
+        "description": "",
+        "operationId": "SMSNotification",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT bearer token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "having channel details , locale",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SMSNotificationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SMSNotificationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SMSNotificationResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized Request"
+          },
+          "404": {
+            "description": "404 API Not Found"
+          },
+          "405": {
+            "description": "405 Method Not Allowed"
+          },
+          "429": {
+            "description": "429 Too Many Requests"
+          },
+          "500": {
+            "description": "500 Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SMSNotificationResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503 Service Unavailable"
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "SMSNotificationResponseType": {
+        "title": "SMSNotificationResponseType",
+        "type": "object",
+        "properties": {
+          "response": {
+            "type": "string"
+          },
+          "fault": {
+            "$ref": "../../../commonschemas/fault.json#/FaultType"
+          }
+        }
+      },
+      "SMSNotificationRequestType": {
+        "title": "SMSNotificationRequestType",
+        "required": [
+          "SMSMessage"
+        ],
+        "type": "object",
+        "properties": {
+          "SMSMessage": {
+            "$ref": "#/components/schemas/SMSMessageType"
+          }
+        }
+      },
+      "SMSMessageType": {
+        "title": "SMSMessageType",
+        "required": [
+          "Type",
+          "ID",
+          "Template",
+          "Parameter",
+          "SMSLanguage"
+        ],
+        "type": "object",
+        "properties": {
+          "IsReliable": {
+            "type": "boolean"
+          },
+          "Type": {
+            "maxLength": 20,
+            "type": "string"
+          },
+          "ID": {
+            "maxLength": 25,
+            "type": "string"
+          },
+          "Template": {
+            "maxLength": 10,
+            "type": "string"
+          },
+          "Parameter": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "isEncrypted": {
+                  "$ref": "../../../commonschemas/schemas.json#/EncryptedText"
+                },
+                "value": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "SMSLanguage": {
+            "maxLength": 1,
+            "type": "string"
+          }
+        }
+      },
+      "SMSNotificationRequest": {
+        "title": "SMSNotificationRequest",
+        "required": [
+          "SMSNotification"
+        ],
+        "type": "object",
+        "properties": {
+          "SMSNotification": {
+            "$ref": "#/components/schemas/SMSNotificationRequestType"
+          }
+        }
+      },
+      "SMSNotificationResponse": {
+        "title": "SMSNotificationResponse",
+        "required": [
+          "SMSNotificationResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "SMSNotificationResponse": {
+            "$ref": "#/components/schemas/SMSNotificationResponseType"
+          }
+        }
+      },
+      "SMSNotificationResponseChoice0": {
+        "title": "SMSNotificationResponseChoice0",
+        "type": "object",
+        "properties": {
+          "response": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "SMS Notification API",
+      "description": ""
+    }
+  ]
+}

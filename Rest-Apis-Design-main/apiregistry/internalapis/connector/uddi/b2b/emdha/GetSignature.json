@@ -1,0 +1,183 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "EMDHAService",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://mw-api-3scale-apicast-staging.apps.com:443/api/connector/uddi/b2b/emdha"
+    }
+  ],
+  "paths": {
+    "/v1/GetSignature": {
+      "post": {
+        "tags": [
+          "GetSignature"
+        ],
+        "summary": "GetSignature",
+        "operationId": "GetSignature",
+        "parameters": [
+          {
+            "name": "SOAPEAIHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/s1_SOAPEAIHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/xml": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/tns_GetSignature"
+                  },
+                  {
+                    "xml": {
+                      "name": "GetSignature",
+                      "attribute": false,
+                      "wrapped": false
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/tns_GetSignatureResponse"
+                    },
+                    {
+                      "xml": {
+                        "name": "GetSignatureResponse",
+                        "attribute": false,
+                        "wrapped": false
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "tns_GetSignature": {
+        "title": "tns_GetSignature",
+        "type": "object",
+        "properties": {
+          "GetSignatureRequest": {
+            "type": "string",
+            "xml": {
+              "name": "GetSignatureRequest",
+              "namespace": "http://NCB.org/webservices/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "GetSignature",
+          "namespace": "http://NCB.org/webservices/",
+          "prefix": "tns",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "tns_GetSignatureResponse": {
+        "title": "tns_GetSignatureResponse",
+        "type": "object",
+        "properties": {
+          "GetSignatureResult": {
+            "type": "string",
+            "xml": {
+              "name": "GetSignatureResult",
+              "namespace": "http://NCB.org/webservices/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "GetSignatureResponse",
+          "namespace": "http://NCB.org/webservices/",
+          "prefix": "tns",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "s1_SOAPEAIHeader": {
+        "title": "s1_SOAPEAIHeader",
+        "required": [
+          "ChannelId"
+        ],
+        "type": "object",
+        "properties": {
+          "UniqueID": {
+            "type": "string",
+            "xml": {
+              "name": "UniqueID",
+              "namespace": "http://ncbb2b.alahli.com/schemas/Messages/EAIHeader",
+              "prefix": "s1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "ChannelId": {
+            "type": "integer",
+            "format": "int32",
+            "xml": {
+              "name": "ChannelId",
+              "namespace": "http://ncbb2b.alahli.com/schemas/Messages/EAIHeader",
+              "prefix": "s1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "ChannelUserName": {
+            "type": "string",
+            "xml": {
+              "name": "ChannelUserName",
+              "namespace": "http://ncbb2b.alahli.com/schemas/Messages/EAIHeader",
+              "prefix": "s1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "SOAPEAIHeader",
+          "namespace": "http://ncbb2b.alahli.com/schemas/Messages/EAIHeader",
+          "prefix": "s1",
+          "attribute": false,
+          "wrapped": false
+        }
+      }
+    }
+  }
+}

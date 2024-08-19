@@ -1,0 +1,2983 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Siebel Service",
+      "version": "1.0"
+    },
+    "servers": [
+      {
+        "url": "https://mw-api-3scale-apicast-staging.apps.com:443/api/connector/uddi/siebel"
+      }
+    ],
+    "paths": {
+      "/v1/ServiceRequestDetail": {
+        "post": {
+          "tags": [
+            "ServiceRequestDetail"
+          ],
+          "summary": "ServiceRequestDetail",
+          "operationId": "ServiceRequestDetail",
+          "parameters": [
+            {
+              "name": "Security",
+              "in": "header",
+              "description": "",
+              "required": true,
+              "style": "simple",
+              "schema": {
+                "$ref": "#/components/schemas/wsse_Security"
+              }
+            }
+          ],
+          "requestBody": {
+            "description": "",
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/tns_ServiceRequestDetail_Input"
+                    },
+                    {
+                      "xml": {
+                        "name": "ServiceRequestDetail_Input",
+                        "attribute": false,
+                        "wrapped": false
+                      }
+                    }
+                  ]
+                }
+              }
+            },
+            "required": true
+          },
+          "responses": {
+            "200": {
+              "description": "Successfully retrieved the response",
+              "headers": {},
+              "content": {
+                "application/xml": {
+                  "schema": {
+                    "allOf": [
+                      {
+                        "$ref": "#/components/schemas/tns_ServiceRequestDetail_Output"
+                      },
+                      {
+                        "xml": {
+                          "name": "ServiceRequestDetail_Output",
+                          "attribute": false,
+                          "wrapped": false
+                        }
+                      }
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "deprecated": false
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "tns_SearchPOS_Input": {
+          "title": "tns_SearchPOS_Input",
+          "required": [
+            "SRNumber"
+          ],
+          "type": "object",
+          "properties": {
+            "SRNumber": {
+              "type": "string",
+              "xml": {
+                "name": "SRNumber",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "SearchPOS_Input",
+            "namespace": "http://siebel.com/CustomUI",
+            "prefix": "tns",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "tns_SearchPOS_Output": {
+          "title": "tns_SearchPOS_Output",
+          "required": [
+            "CIF",
+            "Description",
+            "ErroMessage",
+            "ErrorCode",
+            "Problem",
+            "Status",
+            "SubArea"
+          ],
+          "type": "object",
+          "properties": {
+            "CIF": {
+              "type": "string",
+              "xml": {
+                "name": "CIF",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Description": {
+              "type": "string",
+              "xml": {
+                "name": "Description",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "ErroMessage": {
+              "type": "string",
+              "xml": {
+                "name": "ErroMessage",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "ErrorCode": {
+              "type": "string",
+              "xml": {
+                "name": "ErrorCode",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Problem": {
+              "type": "string",
+              "xml": {
+                "name": "Problem",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Status": {
+              "type": "string",
+              "xml": {
+                "name": "Status",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "SubArea": {
+              "type": "string",
+              "xml": {
+                "name": "SubArea",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "SearchPOS_Output",
+            "namespace": "http://siebel.com/CustomUI",
+            "prefix": "tns",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "tns_ServiceRequestDetail_Input": {
+          "title": "tns_ServiceRequestDetail_Input",
+          "required": [
+            "SRNumber"
+          ],
+          "type": "object",
+          "properties": {
+            "SRNumber": {
+              "type": "string",
+              "xml": {
+                "name": "SRNumber",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "ServiceRequestDetail_Input",
+            "namespace": "http://siebel.com/CustomUI",
+            "prefix": "tns",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "tns_ServiceRequestDetail_Output": {
+          "title": "tns_ServiceRequestDetail_Output",
+          "required": [
+            "ErrorCode",
+            "ErrorMessage",
+            "ListOfServiceRequest"
+          ],
+          "type": "object",
+          "properties": {
+            "ErrorCode": {
+              "type": "string",
+              "xml": {
+                "name": "ErrorCode",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "ErrorMessage": {
+              "type": "string",
+              "xml": {
+                "name": "ErrorMessage",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "ListOfServiceRequest": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/xsdLocal1_ListOfServiceRequest"
+                },
+                {
+                  "xml": {
+                    "name": "ListOfServiceRequest",
+                    "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                    "prefix": "xsdLocal1",
+                    "attribute": false,
+                    "wrapped": false
+                  }
+                }
+              ]
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "ServiceRequestDetail_Output",
+            "namespace": "http://siebel.com/CustomUI",
+            "prefix": "tns",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "wsse_Security": {
+          "title": "wsse_Security",
+          "required": [
+            "UsernameToken"
+          ],
+          "type": "object",
+          "properties": {
+            "UsernameToken": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/wsse_UsernameToken"
+                },
+                {
+                  "xml": {
+                    "name": "UsernameToken",
+                    "namespace": "http://schemas.xmlsoap.org/ws/2002/07/secext",
+                    "prefix": "wsse",
+                    "attribute": false,
+                    "wrapped": false
+                  }
+                }
+              ]
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "Security",
+            "namespace": "http://schemas.xmlsoap.org/ws/2002/07/secext",
+            "prefix": "wsse",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "xsdLocal1_ListOfServiceRequest": {
+          "title": "xsdLocal1_ListOfServiceRequest",
+          "required": [
+            "ServiceRequest"
+          ],
+          "type": "object",
+          "properties": {
+            "ServiceRequest": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/xsdLocal1_ServiceRequest"
+                },
+                {
+                  "xml": {
+                    "name": "ServiceRequest",
+                    "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                    "prefix": "xsdLocal1",
+                    "attribute": false,
+                    "wrapped": false
+                  }
+                }
+              ]
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "ListOfServiceRequest",
+            "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+            "prefix": "xsdLocal1",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "xsdLocal1_ListOfServiceRequestTopElmt": {
+          "title": "xsdLocal1_ListOfServiceRequestTopElmt",
+          "required": [
+            "ListOfServiceRequest"
+          ],
+          "type": "object",
+          "properties": {
+            "ListOfServiceRequest": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/xsdLocal1_ListOfServiceRequest"
+                },
+                {
+                  "xml": {
+                    "name": "ListOfServiceRequest",
+                    "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                    "prefix": "xsdLocal1",
+                    "attribute": false,
+                    "wrapped": false
+                  }
+                }
+              ]
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "ListOfServiceRequestTopElmt",
+            "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+            "prefix": "xsdLocal1",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "xsdLocal1_ServiceRequest": {
+          "title": "xsdLocal1_ServiceRequest",
+          "type": "object",
+          "properties": {
+            "Type": {
+              "type": "string",
+              "xml": {
+                "name": "Type",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Area": {
+              "type": "string",
+              "xml": {
+                "name": "Area",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "SubArea": {
+              "type": "string",
+              "xml": {
+                "name": "SubArea",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Service": {
+              "type": "string",
+              "xml": {
+                "name": "Service",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "DupFlg": {
+              "type": "string",
+              "xml": {
+                "name": "DupFlg",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Attrib1": {
+              "type": "string",
+              "xml": {
+                "name": "Attrib1",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Attrib2": {
+              "type": "string",
+              "xml": {
+                "name": "Attrib2",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Attrib3": {
+              "type": "string",
+              "xml": {
+                "name": "Attrib3",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Attrib4": {
+              "type": "string",
+              "xml": {
+                "name": "Attrib4",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Attrib5": {
+              "type": "string",
+              "xml": {
+                "name": "Attrib5",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Attrib6": {
+              "type": "string",
+              "xml": {
+                "name": "Attrib6",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Attrib7": {
+              "type": "string",
+              "xml": {
+                "name": "Attrib7",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Attrib8": {
+              "type": "string",
+              "xml": {
+                "name": "Attrib8",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Attrib9": {
+              "type": "string",
+              "xml": {
+                "name": "Attrib9",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Attrib10": {
+              "type": "string",
+              "xml": {
+                "name": "Attrib10",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Attrib11": {
+              "type": "string",
+              "xml": {
+                "name": "Attrib11",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Attrib12": {
+              "type": "string",
+              "xml": {
+                "name": "Attrib12",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Attrib13": {
+              "type": "string",
+              "xml": {
+                "name": "Attrib13",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Attrib14": {
+              "type": "string",
+              "xml": {
+                "name": "Attrib14",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Attrib15": {
+              "type": "string",
+              "xml": {
+                "name": "Attrib15",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Attrib16": {
+              "type": "string",
+              "xml": {
+                "name": "Attrib16",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Attrib17": {
+              "type": "string",
+              "xml": {
+                "name": "Attrib17",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Attrib18": {
+              "type": "string",
+              "xml": {
+                "name": "Attrib18",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Attrib19": {
+              "type": "string",
+              "xml": {
+                "name": "Attrib19",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Attrib20": {
+              "type": "string",
+              "xml": {
+                "name": "Attrib20",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Attrib21": {
+              "type": "string",
+              "xml": {
+                "name": "Attrib21",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Attrib22": {
+              "type": "string",
+              "xml": {
+                "name": "Attrib22",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Attrib23": {
+              "type": "string",
+              "xml": {
+                "name": "Attrib23",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Attrib24": {
+              "type": "string",
+              "xml": {
+                "name": "Attrib24",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Attrib25": {
+              "type": "string",
+              "xml": {
+                "name": "Attrib25",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Attrib26": {
+              "type": "string",
+              "xml": {
+                "name": "Attrib26",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Attrib27": {
+              "type": "string",
+              "xml": {
+                "name": "Attrib27",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Attrib28": {
+              "type": "string",
+              "xml": {
+                "name": "Attrib28",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Attrib29": {
+              "type": "string",
+              "xml": {
+                "name": "Attrib29",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Attrib30": {
+              "type": "string",
+              "xml": {
+                "name": "Attrib30",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "CreditCard": {
+              "type": "string",
+              "xml": {
+                "name": "CreditCard",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "CIF": {
+              "type": "string",
+              "xml": {
+                "name": "CIF",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Source": {
+              "type": "string",
+              "xml": {
+                "name": "Source",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "MobileNumber": {
+              "type": "string",
+              "xml": {
+                "name": "MobileNumber",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Status": {
+              "type": "string",
+              "xml": {
+                "name": "Status",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "SRDescription": {
+              "type": "string",
+              "xml": {
+                "name": "SRDescription",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "ListOfServiceRequestAttachment": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/xsdLocal1_ListOfServiceRequestAttachment"
+                },
+                {
+                  "xml": {
+                    "name": "ListOfServiceRequestAttachment",
+                    "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                    "prefix": "xsdLocal1",
+                    "attribute": false,
+                    "wrapped": false
+                  }
+                }
+              ]
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "ServiceRequest",
+            "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+            "prefix": "xsdLocal1",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "xsdLocal1_ListOfServiceRequestAttachment": {
+          "title": "xsdLocal1_ListOfServiceRequestAttachment",
+          "type": "object",
+          "properties": {
+            "ServiceRequestAttachment": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/xsdLocal1_ServiceRequestAttachment"
+                },
+                {
+                  "xml": {
+                    "name": "ServiceRequestAttachment",
+                    "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                    "prefix": "xsdLocal1",
+                    "attribute": false,
+                    "wrapped": false
+                  }
+                }
+              ]
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "ListOfServiceRequestAttachment",
+            "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+            "prefix": "xsdLocal1",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "xsdLocal1_ServiceRequestAttachment": {
+          "title": "xsdLocal1_ServiceRequestAttachment",
+          "required": [
+            "AttachmentFileExtension",
+            "AttachmentFileName",
+            "AttachmentFileBuffer"
+          ],
+          "type": "object",
+          "properties": {
+            "AttachmentComments": {
+              "type": "string",
+              "xml": {
+                "name": "AttachmentComments",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "AttachmentFileExtension": {
+              "type": "string",
+              "xml": {
+                "name": "AttachmentFileExtension",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "AttachmentFileName": {
+              "type": "string",
+              "xml": {
+                "name": "AttachmentFileName",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "AttachmentFileBuffer": {
+              "type": "string",
+              "format": "binary",
+              "xml": {
+                "name": "AttachmentFileBuffer",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+                "prefix": "xsdLocal1",
+                "attribute": false,
+                "wrapped": false
+              }
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "ServiceRequestAttachment",
+            "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20Output",
+            "prefix": "xsdLocal1",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "tns1_ServiceHeader": {
+          "title": "tns1_ServiceHeader",
+          "required": [
+            "loggerContext",
+            "transactionCode",
+            "retryTransaction",
+            "tellerId",
+            "terminalId",
+            "workstationId",
+            "override",
+            "correction",
+            "supervisor",
+            "supervisorId",
+            "overrideCode",
+            "employeeId",
+            "branchId",
+            "functionId",
+            "channelId",
+            "bancsPwd",
+            "languageCode"
+          ],
+          "type": "object",
+          "properties": {
+            "loggerContext": {
+              "type": "string",
+              "xml": {
+                "name": "loggerContext",
+                "namespace": "http://corp.alahli.com/middlewareservices/header/1.0/",
+                "prefix": "tns1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "transactionCode": {
+              "type": "string",
+              "xml": {
+                "name": "transactionCode",
+                "namespace": "http://corp.alahli.com/middlewareservices/header/1.0/",
+                "prefix": "tns1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "retryTransaction": {
+              "type": "boolean",
+              "xml": {
+                "name": "retryTransaction",
+                "namespace": "http://corp.alahli.com/middlewareservices/header/1.0/",
+                "prefix": "tns1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "tellerId": {
+              "type": "string",
+              "xml": {
+                "name": "tellerId",
+                "namespace": "http://corp.alahli.com/middlewareservices/header/1.0/",
+                "prefix": "tns1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "terminalId": {
+              "type": "string",
+              "xml": {
+                "name": "terminalId",
+                "namespace": "http://corp.alahli.com/middlewareservices/header/1.0/",
+                "prefix": "tns1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "workstationId": {
+              "type": "string",
+              "xml": {
+                "name": "workstationId",
+                "namespace": "http://corp.alahli.com/middlewareservices/header/1.0/",
+                "prefix": "tns1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "override": {
+              "type": "boolean",
+              "xml": {
+                "name": "override",
+                "namespace": "http://corp.alahli.com/middlewareservices/header/1.0/",
+                "prefix": "tns1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "correction": {
+              "type": "string",
+              "xml": {
+                "name": "correction",
+                "namespace": "http://corp.alahli.com/middlewareservices/header/1.0/",
+                "prefix": "tns1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "supervisor": {
+              "type": "string",
+              "xml": {
+                "name": "supervisor",
+                "namespace": "http://corp.alahli.com/middlewareservices/header/1.0/",
+                "prefix": "tns1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "supervisorId": {
+              "type": "string",
+              "xml": {
+                "name": "supervisorId",
+                "namespace": "http://corp.alahli.com/middlewareservices/header/1.0/",
+                "prefix": "tns1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "overrideCode": {
+              "type": "string",
+              "xml": {
+                "name": "overrideCode",
+                "namespace": "http://corp.alahli.com/middlewareservices/header/1.0/",
+                "prefix": "tns1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "employeeId": {
+              "type": "string",
+              "xml": {
+                "name": "employeeId",
+                "namespace": "http://corp.alahli.com/middlewareservices/header/1.0/",
+                "prefix": "tns1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "branchId": {
+              "type": "string",
+              "xml": {
+                "name": "branchId",
+                "namespace": "http://corp.alahli.com/middlewareservices/header/1.0/",
+                "prefix": "tns1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "functionId": {
+              "type": "string",
+              "xml": {
+                "name": "functionId",
+                "namespace": "http://corp.alahli.com/middlewareservices/header/1.0/",
+                "prefix": "tns1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "channelId": {
+              "type": "string",
+              "xml": {
+                "name": "channelId",
+                "namespace": "http://corp.alahli.com/middlewareservices/header/1.0/",
+                "prefix": "tns1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "bancsPwd": {
+              "type": "string",
+              "xml": {
+                "name": "bancsPwd",
+                "namespace": "http://corp.alahli.com/middlewareservices/header/1.0/",
+                "prefix": "tns1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "languageCode": {
+              "type": "string",
+              "xml": {
+                "name": "languageCode",
+                "namespace": "http://corp.alahli.com/middlewareservices/header/1.0/",
+                "prefix": "tns1",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "authenticationType": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/tns1_authenticationType"
+                },
+                {
+                  "description": "Can be: NONE, OTP, TOKEN",
+                  "xml": {
+                    "name": "authenticationType",
+                    "namespace": "http://corp.alahli.com/middlewareservices/header/1.0/",
+                    "prefix": "tns1",
+                    "attribute": false,
+                    "wrapped": false
+                  }
+                }
+              ]
+            },
+            "IvrTransactionID": {
+              "type": "string",
+              "xml": {
+                "name": "IvrTransactionID",
+                "namespace": "http://corp.alahli.com/middlewareservices/header/1.0/",
+                "prefix": "tns1",
+                "attribute": false,
+                "wrapped": false
+              }
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "ServiceHeader",
+            "namespace": "http://corp.alahli.com/middlewareservices/header/1.0/",
+            "prefix": "tns1",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "tns_UpsertAttachment_Output": {
+          "title": "tns_UpsertAttachment_Output",
+          "required": [
+            "ErrorCode",
+            "ErrorMessage"
+          ],
+          "type": "object",
+          "properties": {
+            "ErrorCode": {
+              "type": "string",
+              "xml": {
+                "name": "ErrorCode",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "ErrorMessage": {
+              "type": "string",
+              "xml": {
+                "name": "ErrorMessage",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "UpsertAttachment_Output",
+            "namespace": "http://siebel.com/CustomUI",
+            "prefix": "tns",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "tns_UpsertAttachment_Input": {
+          "title": "tns_UpsertAttachment_Input",
+          "required": [
+            "ListOfServiceRequestAttachment"
+          ],
+          "type": "object",
+          "properties": {
+            "ListOfServiceRequestAttachment": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/xsdLocal11_ListOfServiceRequestAttachment"
+                },
+                {
+                  "xml": {
+                    "name": "ListOfServiceRequestAttachment",
+                    "namespace": "http://www.siebel.com/xml/Service%20Request%20Attachment",
+                    "prefix": "xsdLocal11",
+                    "attribute": false,
+                    "wrapped": false
+                  }
+                }
+              ]
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "UpsertAttachment_Input",
+            "namespace": "http://siebel.com/CustomUI",
+            "prefix": "tns",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "tns_UpdateSRStatus_Input": {
+          "title": "tns_UpdateSRStatus_Input",
+          "required": [
+            "SRNumber",
+            "Status"
+          ],
+          "type": "object",
+          "properties": {
+            "SRNumber": {
+              "type": "string",
+              "xml": {
+                "name": "SRNumber",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Status": {
+              "type": "string",
+              "xml": {
+                "name": "Status",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "UpdateSRStatus_Input",
+            "namespace": "http://siebel.com/CustomUI",
+            "prefix": "tns",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "tns_UpdateSRStatus_Output": {
+          "title": "tns_UpdateSRStatus_Output",
+          "required": [
+            "ErrorCode",
+            "ErrorMessage"
+          ],
+          "type": "object",
+          "properties": {
+            "ErrorCode": {
+              "type": "string",
+              "xml": {
+                "name": "ErrorCode",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "ErrorMessage": {
+              "type": "string",
+              "xml": {
+                "name": "ErrorMessage",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "UpdateSRStatus_Output",
+            "namespace": "http://siebel.com/CustomUI",
+            "prefix": "tns",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "tns_CreatePOS_Input": {
+          "title": "tns_CreatePOS_Input",
+          "required": [
+            "ListOfServiceRequest"
+          ],
+          "type": "object",
+          "properties": {
+            "ListOfServiceRequest": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/xsdLocal11_ListOfServiceRequest"
+                },
+                {
+                  "xml": {
+                    "name": "ListOfServiceRequest",
+                    "namespace": "http://www.siebel.com/xml/Service%20Request%20Attachment",
+                    "prefix": "xsdLocal11",
+                    "attribute": false,
+                    "wrapped": false
+                  }
+                }
+              ]
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "CreatePOS_Input",
+            "namespace": "http://siebel.com/CustomUI",
+            "prefix": "tns",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "tns_CreateAOL_Output": {
+          "title": "tns_CreateAOL_Output",
+          "required": [
+            "ErrorCode",
+            "ErrorMessage",
+            "SRNumber"
+          ],
+          "type": "object",
+          "properties": {
+            "ErrorCode": {
+              "type": "string",
+              "xml": {
+                "name": "ErrorCode",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "ErrorMessage": {
+              "type": "string",
+              "xml": {
+                "name": "ErrorMessage",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "SRNumber": {
+              "type": "string",
+              "xml": {
+                "name": "SRNumber",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "CreateAOL_Output",
+            "namespace": "http://siebel.com/CustomUI",
+            "prefix": "tns",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "tns_CreateAOL_Input": {
+          "title": "tns_CreateAOL_Input",
+          "required": [
+            "CIFNumber",
+            "SRDescription"
+          ],
+          "type": "object",
+          "properties": {
+            "CIFNumber": {
+              "type": "string",
+              "xml": {
+                "name": "CIFNumber",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "SRDescription": {
+              "type": "string",
+              "xml": {
+                "name": "SRDescription",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "CreateAOL_Input",
+            "namespace": "http://siebel.com/CustomUI",
+            "prefix": "tns",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "tns_CreatePOS_Output": {
+          "title": "tns_CreatePOS_Output",
+          "required": [
+            "ErrorCode",
+            "ErrorMessage",
+            "SRNumber"
+          ],
+          "type": "object",
+          "properties": {
+            "ErrorCode": {
+              "type": "string",
+              "xml": {
+                "name": "ErrorCode",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "ErrorMessage": {
+              "type": "string",
+              "xml": {
+                "name": "ErrorMessage",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "SRNumber": {
+              "type": "string",
+              "xml": {
+                "name": "SRNumber",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "CreatePOS_Output",
+            "namespace": "http://siebel.com/CustomUI",
+            "prefix": "tns",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "tns_SearchSR_Output": {
+          "title": "tns_SearchSR_Output",
+          "required": [
+            "ErrorCode",
+            "ErrorMessage",
+            "ListOfServiceRequest"
+          ],
+          "type": "object",
+          "properties": {
+            "ErrorCode": {
+              "type": "string",
+              "xml": {
+                "name": "ErrorCode",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "ErrorMessage": {
+              "type": "string",
+              "xml": {
+                "name": "ErrorMessage",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "ListOfServiceRequest": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/xsdLocal2_ListOfServiceRequest"
+                },
+                {
+                  "xml": {
+                    "name": "ListOfServiceRequest",
+                    "namespace": "http://www.siebel.com/xml/Service%20Request%20Search%20History",
+                    "prefix": "xsdLocal2",
+                    "attribute": false,
+                    "wrapped": false
+                  }
+                }
+              ]
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "SearchSR_Output",
+            "namespace": "http://siebel.com/CustomUI",
+            "prefix": "tns",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "tns_SearchSR_Input": {
+          "title": "tns_SearchSR_Input",
+          "required": [
+            "SRNumber",
+            "SrStatus",
+            "CIFNumber"
+          ],
+          "type": "object",
+          "properties": {
+            "SRNumber": {
+              "type": "string",
+              "xml": {
+                "name": "SRNumber",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "SrStatus": {
+              "type": "string",
+              "xml": {
+                "name": "SrStatus",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "CIFNumber": {
+              "type": "string",
+              "xml": {
+                "name": "CIFNumber",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "SearchSR_Input",
+            "namespace": "http://siebel.com/CustomUI",
+            "prefix": "tns",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "tns_HistoryPage_Input": {
+          "title": "tns_HistoryPage_Input",
+          "required": [
+            "ListOfInput"
+          ],
+          "type": "object",
+          "properties": {
+            "ListOfInput": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/xsdLocal12_ListOfInput"
+                },
+                {
+                  "xml": {
+                    "name": "ListOfInput",
+                    "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20History%20Input",
+                    "prefix": "xsdLocal12",
+                    "attribute": false,
+                    "wrapped": false
+                  }
+                }
+              ]
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "HistoryPage_Input",
+            "namespace": "http://siebel.com/CustomUI",
+            "prefix": "tns",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "tns_HistoryPage_Output": {
+          "title": "tns_HistoryPage_Output",
+          "required": [
+            "ErrorCode",
+            "ErrorMessage",
+            "LastPage",
+            "ListOfServiceRequest"
+          ],
+          "type": "object",
+          "properties": {
+            "ErrorCode": {
+              "type": "string",
+              "xml": {
+                "name": "ErrorCode",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "ErrorMessage": {
+              "type": "string",
+              "xml": {
+                "name": "ErrorMessage",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "LastPage": {
+              "type": "string",
+              "xml": {
+                "name": "LastPage",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "ListOfServiceRequest": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/xsdLocal2_ListOfServiceRequest"
+                },
+                {
+                  "xml": {
+                    "name": "ListOfServiceRequest",
+                    "namespace": "http://www.siebel.com/xml/Service%20Request%20Search%20History",
+                    "prefix": "xsdLocal2",
+                    "attribute": false,
+                    "wrapped": false
+                  }
+                }
+              ]
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "HistoryPage_Output",
+            "namespace": "http://siebel.com/CustomUI",
+            "prefix": "tns",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "tns_UebFeedback_Input": {
+          "title": "tns_UebFeedback_Input",
+          "required": [
+            "UebNpsFeedback"
+          ],
+          "type": "object",
+          "properties": {
+            "UebNpsFeedback": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/xsdLocal13_UebNpsFeedback"
+                },
+                {
+                  "xml": {
+                    "name": "UebNpsFeedback",
+                    "namespace": "http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback",
+                    "prefix": "xsdLocal13",
+                    "attribute": false,
+                    "wrapped": false
+                  }
+                }
+              ]
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "UebFeedback_Input",
+            "namespace": "http://siebel.com/CustomUI",
+            "prefix": "tns",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "tns_UebFeedback_Output": {
+          "title": "tns_UebFeedback_Output",
+          "required": [
+            "ErrorCode",
+            "ErrorMessage"
+          ],
+          "type": "object",
+          "properties": {
+            "ErrorCode": {
+              "type": "string",
+              "xml": {
+                "name": "ErrorCode",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "ErrorMessage": {
+              "type": "string",
+              "xml": {
+                "name": "ErrorMessage",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "UebFeedback_Output",
+            "namespace": "http://siebel.com/CustomUI",
+            "prefix": "tns",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "tns_InsertResponse_Input": {
+          "title": "tns_InsertResponse_Input",
+          "required": [
+            "ListOfNcbCampaignResponse"
+          ],
+          "type": "object",
+          "properties": {
+            "ListOfNcbCampaignResponse": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/xsdLocal21_ListOfNcbCampaignResponse"
+                },
+                {
+                  "xml": {
+                    "name": "ListOfNcbCampaignResponse",
+                    "namespace": "http://www.siebel.com/xml/NCB%20Campaign%20Response",
+                    "prefix": "xsdLocal21",
+                    "attribute": false,
+                    "wrapped": false
+                  }
+                }
+              ]
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "InsertResponse_Input",
+            "namespace": "http://siebel.com/CustomUI",
+            "prefix": "tns",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "tns_InsertResponse_Output": {
+          "title": "tns_InsertResponse_Output",
+          "required": [
+            "ErrorCode",
+            "ErrorMessage"
+          ],
+          "type": "object",
+          "properties": {
+            "ErrorCode": {
+              "type": "string",
+              "xml": {
+                "name": "ErrorCode",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "ErrorMessage": {
+              "type": "string",
+              "xml": {
+                "name": "ErrorMessage",
+                "namespace": "http://siebel.com/CustomUI",
+                "prefix": "tns",
+                "attribute": false,
+                "wrapped": false
+              }
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "InsertResponse_Output",
+            "namespace": "http://siebel.com/CustomUI",
+            "prefix": "tns",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "xsdLocal11_ListOfServiceRequestAttachment": {
+          "title": "xsdLocal11_ListOfServiceRequestAttachment",
+          "required": [
+            "ServiceRequest"
+          ],
+          "type": "object",
+          "properties": {
+            "ServiceRequest": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/xsdLocal11_ServiceRequest"
+                },
+                {
+                  "xml": {
+                    "name": "ServiceRequest",
+                    "namespace": "http://www.siebel.com/xml/Service%20Request%20Attachment",
+                    "prefix": "xsdLocal11",
+                    "attribute": false,
+                    "wrapped": false
+                  }
+                }
+              ]
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "ListOfServiceRequestAttachment",
+            "namespace": "http://www.siebel.com/xml/Service%20Request%20Attachment",
+            "prefix": "xsdLocal11",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "xsdLocal11_ListOfServiceRequestAttachment2": {
+          "title": "xsdLocal11_ListOfServiceRequestAttachment2",
+          "required": [
+            "ServiceRequestAttachment"
+          ],
+          "type": "object",
+          "properties": {
+            "ServiceRequestAttachment": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/xsdLocal11_ServiceRequestAttachment"
+                },
+                {
+                  "xml": {
+                    "name": "ServiceRequestAttachment",
+                    "namespace": "http://www.siebel.com/xml/Service%20Request%20Attachment",
+                    "prefix": "xsdLocal11",
+                    "attribute": false,
+                    "wrapped": false
+                  }
+                }
+              ]
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "ListOfServiceRequestAttachment2",
+            "namespace": "http://www.siebel.com/xml/Service%20Request%20Attachment",
+            "prefix": "xsdLocal11",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "xsdLocal11_ListOfServiceRequest": {
+          "title": "xsdLocal11_ListOfServiceRequest",
+          "required": [
+            "ServiceRequest"
+          ],
+          "type": "object",
+          "properties": {
+            "ServiceRequest": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/xsdLocal11_ServiceRequest"
+                },
+                {
+                  "xml": {
+                    "name": "ServiceRequest",
+                    "namespace": "http://www.siebel.com/xml/Service%20Request%20Attachment",
+                    "prefix": "xsdLocal11",
+                    "attribute": false,
+                    "wrapped": false
+                  }
+                }
+              ]
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "ListOfServiceRequest",
+            "namespace": "http://www.siebel.com/xml/Service%20Request%20Attachment",
+            "prefix": "xsdLocal11",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "xsdLocal11_ServiceRequest": {
+          "title": "xsdLocal11_ServiceRequest",
+          "required": [
+            "SRNumber"
+          ],
+          "type": "object",
+          "properties": {
+            "SRNumber": {
+              "type": "string",
+              "xml": {
+                "name": "SRNumber",
+                "namespace": "http://www.siebel.com/xml/Service%20Request%20Attachment",
+                "prefix": "xsdLocal11",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "ListOfServiceRequestAttachment2": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/xsdLocal11_ListOfServiceRequestAttachment2"
+                },
+                {
+                  "xml": {
+                    "name": "ListOfServiceRequestAttachment2",
+                    "namespace": "http://www.siebel.com/xml/Service%20Request%20Attachment",
+                    "prefix": "xsdLocal11",
+                    "attribute": false,
+                    "wrapped": false
+                  }
+                }
+              ]
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "ServiceRequest",
+            "namespace": "http://www.siebel.com/xml/Service%20Request%20Attachment",
+            "prefix": "xsdLocal11",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "xsdLocal11_ListOfServiceRequestTopElmt": {
+          "title": "xsdLocal11_ListOfServiceRequestTopElmt",
+          "required": [
+            "ListOfServiceRequest"
+          ],
+          "type": "object",
+          "properties": {
+            "ListOfServiceRequest": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/xsdLocal11_ListOfServiceRequest"
+                },
+                {
+                  "xml": {
+                    "name": "ListOfServiceRequest",
+                    "namespace": "http://www.siebel.com/xml/Service%20Request%20Attachment",
+                    "prefix": "xsdLocal11",
+                    "attribute": false,
+                    "wrapped": false
+                  }
+                }
+              ]
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "ListOfServiceRequestTopElmt",
+            "namespace": "http://www.siebel.com/xml/Service%20Request%20Attachment",
+            "prefix": "xsdLocal11",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "xsdLocal11_ListOfServiceRequestAttachmentTopElmt": {
+          "title": "xsdLocal11_ListOfServiceRequestAttachmentTopElmt",
+          "required": [
+            "ListOfServiceRequestAttachment"
+          ],
+          "type": "object",
+          "properties": {
+            "ListOfServiceRequestAttachment": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/xsdLocal11_ListOfServiceRequestAttachment"
+                },
+                {
+                  "xml": {
+                    "name": "ListOfServiceRequestAttachment",
+                    "namespace": "http://www.siebel.com/xml/Service%20Request%20Attachment",
+                    "prefix": "xsdLocal11",
+                    "attribute": false,
+                    "wrapped": false
+                  }
+                }
+              ]
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "ListOfServiceRequestAttachmentTopElmt",
+            "namespace": "http://www.siebel.com/xml/Service%20Request%20Attachment",
+            "prefix": "xsdLocal11",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "xsdLocal11_ServiceRequestAttachment": {
+          "title": "xsdLocal11_ServiceRequestAttachment",
+          "required": [
+            "AttachmentFileExtension",
+            "AttachmentFileName",
+            "AttachmentFileBuffer"
+          ],
+          "type": "object",
+          "properties": {
+            "AttachmentComments": {
+              "type": "string",
+              "xml": {
+                "name": "AttachmentComments",
+                "namespace": "http://www.siebel.com/xml/Service%20Request%20Attachment",
+                "prefix": "xsdLocal11",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "AttachmentFileExtension": {
+              "type": "string",
+              "xml": {
+                "name": "AttachmentFileExtension",
+                "namespace": "http://www.siebel.com/xml/Service%20Request%20Attachment",
+                "prefix": "xsdLocal11",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "AttachmentFileName": {
+              "type": "string",
+              "xml": {
+                "name": "AttachmentFileName",
+                "namespace": "http://www.siebel.com/xml/Service%20Request%20Attachment",
+                "prefix": "xsdLocal11",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "AttachmentFileBuffer": {
+              "type": "string",
+              "format": "binary",
+              "xml": {
+                "name": "AttachmentFileBuffer",
+                "namespace": "http://www.siebel.com/xml/Service%20Request%20Attachment",
+                "prefix": "xsdLocal11",
+                "attribute": false,
+                "wrapped": false
+              }
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "ServiceRequestAttachment",
+            "namespace": "http://www.siebel.com/xml/Service%20Request%20Attachment",
+            "prefix": "xsdLocal11",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "xsdLocal2_ListOfServiceRequest": {
+          "title": "xsdLocal2_ListOfServiceRequest",
+          "type": "object",
+          "properties": {
+            "ServiceRequest": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/xsdLocal2_ServiceRequest"
+              },
+              "description": "",
+              "xml": {
+                "namespace": "http://www.siebel.com/xml/Service%20Request%20Search%20History",
+                "prefix": "xsdLocal2",
+                "attribute": false,
+                "wrapped": false
+              }
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "ListOfServiceRequest",
+            "namespace": "http://www.siebel.com/xml/Service%20Request%20Search%20History",
+            "prefix": "xsdLocal2",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "xsdLocal2_ListOfServiceRequestTopElmt": {
+          "title": "xsdLocal2_ListOfServiceRequestTopElmt",
+          "required": [
+            "ListOfServiceRequest"
+          ],
+          "type": "object",
+          "properties": {
+            "ListOfServiceRequest": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/xsdLocal2_ListOfServiceRequest"
+                },
+                {
+                  "xml": {
+                    "name": "ListOfServiceRequest",
+                    "namespace": "http://www.siebel.com/xml/Service%20Request%20Search%20History",
+                    "prefix": "xsdLocal2",
+                    "attribute": false,
+                    "wrapped": false
+                  }
+                }
+              ]
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "ListOfServiceRequestTopElmt",
+            "namespace": "http://www.siebel.com/xml/Service%20Request%20Search%20History",
+            "prefix": "xsdLocal2",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "xsdLocal2_ServiceRequest": {
+          "title": "xsdLocal2_ServiceRequest",
+          "type": "object",
+          "properties": {
+            "CreatedTime": {
+              "type": "string",
+              "xml": {
+                "name": "CreatedTime",
+                "namespace": "http://www.siebel.com/xml/Service%20Request%20Search%20History",
+                "prefix": "xsdLocal2",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "CreatedDate": {
+              "type": "string",
+              "xml": {
+                "name": "CreatedDate",
+                "namespace": "http://www.siebel.com/xml/Service%20Request%20Search%20History",
+                "prefix": "xsdLocal2",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Abstract": {
+              "type": "string",
+              "xml": {
+                "name": "Abstract",
+                "namespace": "http://www.siebel.com/xml/Service%20Request%20Search%20History",
+                "prefix": "xsdLocal2",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "PlannedCompletionDate": {
+              "type": "string",
+              "xml": {
+                "name": "PlannedCompletionDate",
+                "namespace": "http://www.siebel.com/xml/Service%20Request%20Search%20History",
+                "prefix": "xsdLocal2",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "MobileNumber": {
+              "type": "string",
+              "xml": {
+                "name": "MobileNumber",
+                "namespace": "http://www.siebel.com/xml/Service%20Request%20Search%20History",
+                "prefix": "xsdLocal2",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "ClosedDate": {
+              "type": "string",
+              "xml": {
+                "name": "ClosedDate",
+                "namespace": "http://www.siebel.com/xml/Service%20Request%20Search%20History",
+                "prefix": "xsdLocal2",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "SRDescription": {
+              "type": "string",
+              "xml": {
+                "name": "SRDescription",
+                "namespace": "http://www.siebel.com/xml/Service%20Request%20Search%20History",
+                "prefix": "xsdLocal2",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "SRArea": {
+              "type": "string",
+              "xml": {
+                "name": "SRArea",
+                "namespace": "http://www.siebel.com/xml/Service%20Request%20Search%20History",
+                "prefix": "xsdLocal2",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "SRType": {
+              "type": "string",
+              "xml": {
+                "name": "SRType",
+                "namespace": "http://www.siebel.com/xml/Service%20Request%20Search%20History",
+                "prefix": "xsdLocal2",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "SRSubArea": {
+              "type": "string",
+              "xml": {
+                "name": "SRSubArea",
+                "namespace": "http://www.siebel.com/xml/Service%20Request%20Search%20History",
+                "prefix": "xsdLocal2",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "SRService": {
+              "type": "string",
+              "xml": {
+                "name": "SRService",
+                "namespace": "http://www.siebel.com/xml/Service%20Request%20Search%20History",
+                "prefix": "xsdLocal2",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "SRNumber": {
+              "type": "string",
+              "xml": {
+                "name": "SRNumber",
+                "namespace": "http://www.siebel.com/xml/Service%20Request%20Search%20History",
+                "prefix": "xsdLocal2",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "SRClassification": {
+              "type": "string",
+              "xml": {
+                "name": "SRClassification",
+                "namespace": "http://www.siebel.com/xml/Service%20Request%20Search%20History",
+                "prefix": "xsdLocal2",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Status": {
+              "type": "string",
+              "xml": {
+                "name": "Status",
+                "namespace": "http://www.siebel.com/xml/Service%20Request%20Search%20History",
+                "prefix": "xsdLocal2",
+                "attribute": false,
+                "wrapped": false
+              }
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "ServiceRequest",
+            "namespace": "http://www.siebel.com/xml/Service%20Request%20Search%20History",
+            "prefix": "xsdLocal2",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "xsdLocal12_ListOfInput": {
+          "title": "xsdLocal12_ListOfInput",
+          "required": [
+            "Input"
+          ],
+          "type": "object",
+          "properties": {
+            "Input": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/xsdLocal12_Input"
+                },
+                {
+                  "xml": {
+                    "name": "Input",
+                    "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20History%20Input",
+                    "prefix": "xsdLocal12",
+                    "attribute": false,
+                    "wrapped": false
+                  }
+                }
+              ]
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "ListOfInput",
+            "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20History%20Input",
+            "prefix": "xsdLocal12",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "xsdLocal12_ListOfInputTopElmt": {
+          "title": "xsdLocal12_ListOfInputTopElmt",
+          "required": [
+            "ListOfInput"
+          ],
+          "type": "object",
+          "properties": {
+            "ListOfInput": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/xsdLocal12_ListOfInput"
+                },
+                {
+                  "xml": {
+                    "name": "ListOfInput",
+                    "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20History%20Input",
+                    "prefix": "xsdLocal12",
+                    "attribute": false,
+                    "wrapped": false
+                  }
+                }
+              ]
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "ListOfInputTopElmt",
+            "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20History%20Input",
+            "prefix": "xsdLocal12",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "xsdLocal12_Input": {
+          "title": "xsdLocal12_Input",
+          "required": [
+            "ListOfCIF"
+          ],
+          "type": "object",
+          "properties": {
+            "ListOfCIF": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/xsdLocal12_ListOfCIF"
+                },
+                {
+                  "xml": {
+                    "name": "ListOfCIF",
+                    "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20History%20Input",
+                    "prefix": "xsdLocal12",
+                    "attribute": false,
+                    "wrapped": false
+                  }
+                }
+              ]
+            },
+            "Type": {
+              "type": "string",
+              "xml": {
+                "name": "Type",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20History%20Input",
+                "prefix": "xsdLocal12",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Area": {
+              "type": "string",
+              "xml": {
+                "name": "Area",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20History%20Input",
+                "prefix": "xsdLocal12",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "SubArea": {
+              "type": "string",
+              "xml": {
+                "name": "SubArea",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20History%20Input",
+                "prefix": "xsdLocal12",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Service": {
+              "type": "string",
+              "xml": {
+                "name": "Service",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20History%20Input",
+                "prefix": "xsdLocal12",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Status": {
+              "type": "string",
+              "xml": {
+                "name": "Status",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20History%20Input",
+                "prefix": "xsdLocal12",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "SRNumber": {
+              "type": "string",
+              "xml": {
+                "name": "SRNumber",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20History%20Input",
+                "prefix": "xsdLocal12",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "CreatedFrom": {
+              "type": "string",
+              "xml": {
+                "name": "CreatedFrom",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20History%20Input",
+                "prefix": "xsdLocal12",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "CreatedTo": {
+              "type": "string",
+              "xml": {
+                "name": "CreatedTo",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20History%20Input",
+                "prefix": "xsdLocal12",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "PageSize": {
+              "type": "string",
+              "xml": {
+                "name": "PageSize",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20History%20Input",
+                "prefix": "xsdLocal12",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "PageStartNum": {
+              "type": "string",
+              "xml": {
+                "name": "PageStartNum",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20History%20Input",
+                "prefix": "xsdLocal12",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "ReferenceNumber": {
+              "type": "string",
+              "xml": {
+                "name": "ReferenceNumber",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20History%20Input",
+                "prefix": "xsdLocal12",
+                "attribute": false,
+                "wrapped": false
+              }
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "Input",
+            "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20History%20Input",
+            "prefix": "xsdLocal12",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "xsdLocal12_ListOfCIF": {
+          "title": "xsdLocal12_ListOfCIF",
+          "type": "object",
+          "properties": {
+            "CIF": {
+              "type": "string",
+              "xml": {
+                "name": "CIF",
+                "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20History%20Input",
+                "prefix": "xsdLocal12",
+                "attribute": false,
+                "wrapped": false
+              }
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "ListOfCIF",
+            "namespace": "http://www.siebel.com/xml/NCB%20Service%20Request%20History%20Input",
+            "prefix": "xsdLocal12",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "xsdLocal21_ListOfNcbCampaignResponse": {
+          "title": "xsdLocal21_ListOfNcbCampaignResponse",
+          "type": "object",
+          "properties": {
+            "NcbCampaignResponse": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/xsdLocal21_NcbCampaignResponse"
+              },
+              "description": "",
+              "xml": {
+                "namespace": "http://www.siebel.com/xml/NCB%20Campaign%20Response",
+                "prefix": "xsdLocal21",
+                "attribute": false,
+                "wrapped": false
+              }
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "ListOfNcbCampaignResponse",
+            "namespace": "http://www.siebel.com/xml/NCB%20Campaign%20Response",
+            "prefix": "xsdLocal21",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "xsdLocal21_ListOfNcbCampaignResponseTopElmt": {
+          "title": "xsdLocal21_ListOfNcbCampaignResponseTopElmt",
+          "required": [
+            "ListOfNcbCampaignResponse"
+          ],
+          "type": "object",
+          "properties": {
+            "ListOfNcbCampaignResponse": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/xsdLocal21_ListOfNcbCampaignResponse"
+                },
+                {
+                  "xml": {
+                    "name": "ListOfNcbCampaignResponse",
+                    "namespace": "http://www.siebel.com/xml/NCB%20Campaign%20Response",
+                    "prefix": "xsdLocal21",
+                    "attribute": false,
+                    "wrapped": false
+                  }
+                }
+              ]
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "ListOfNcbCampaignResponseTopElmt",
+            "namespace": "http://www.siebel.com/xml/NCB%20Campaign%20Response",
+            "prefix": "xsdLocal21",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "xsdLocal21_NcbCampaignResponse": {
+          "title": "xsdLocal21_NcbCampaignResponse",
+          "type": "object",
+          "properties": {
+            "Answer": {
+              "type": "string",
+              "xml": {
+                "name": "Answer",
+                "namespace": "http://www.siebel.com/xml/NCB%20Campaign%20Response",
+                "prefix": "xsdLocal21",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "CampConId": {
+              "type": "string",
+              "xml": {
+                "name": "CampConId",
+                "namespace": "http://www.siebel.com/xml/NCB%20Campaign%20Response",
+                "prefix": "xsdLocal21",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "CampaignId": {
+              "type": "string",
+              "xml": {
+                "name": "CampaignId",
+                "namespace": "http://www.siebel.com/xml/NCB%20Campaign%20Response",
+                "prefix": "xsdLocal21",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "QuestionId": {
+              "type": "string",
+              "xml": {
+                "name": "QuestionId",
+                "namespace": "http://www.siebel.com/xml/NCB%20Campaign%20Response",
+                "prefix": "xsdLocal21",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "ResponseDate": {
+              "type": "string",
+              "xml": {
+                "name": "ResponseDate",
+                "namespace": "http://www.siebel.com/xml/NCB%20Campaign%20Response",
+                "prefix": "xsdLocal21",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "ListOfAnswer": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/xsdLocal21_ListOfAnswer"
+                },
+                {
+                  "xml": {
+                    "name": "ListOfAnswer",
+                    "namespace": "http://www.siebel.com/xml/NCB%20Campaign%20Response",
+                    "prefix": "xsdLocal21",
+                    "attribute": false,
+                    "wrapped": false
+                  }
+                }
+              ]
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "NcbCampaignResponse",
+            "namespace": "http://www.siebel.com/xml/NCB%20Campaign%20Response",
+            "prefix": "xsdLocal21",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "xsdLocal21_ListOfAnswer": {
+          "title": "xsdLocal21_ListOfAnswer",
+          "type": "object",
+          "properties": {
+            "AnswerId": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/xsdLocal21_AnswerId"
+              },
+              "description": "",
+              "xml": {
+                "namespace": "http://www.siebel.com/xml/NCB%20Campaign%20Response",
+                "prefix": "xsdLocal21",
+                "attribute": false,
+                "wrapped": false
+              }
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "ListOfAnswer",
+            "namespace": "http://www.siebel.com/xml/NCB%20Campaign%20Response",
+            "prefix": "xsdLocal21",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "xsdLocal21_AnswerId": {
+          "title": "xsdLocal21_AnswerId",
+          "type": "object",
+          "description": "",
+          "xml": {
+            "name": "AnswerId",
+            "namespace": "http://www.siebel.com/xml/NCB%20Campaign%20Response",
+            "prefix": "xsdLocal21",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "xsdLocal13_UebNpsFeedback": {
+          "title": "xsdLocal13_UebNpsFeedback",
+          "required": [
+            "ResponseList"
+          ],
+          "type": "object",
+          "properties": {
+            "CIF": {
+              "type": "string",
+              "xml": {
+                "name": "CIF",
+                "namespace": "http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback",
+                "prefix": "xsdLocal13",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "SRNumber": {
+              "type": "string",
+              "xml": {
+                "name": "SRNumber",
+                "namespace": "http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback",
+                "prefix": "xsdLocal13",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "SRStatus": {
+              "type": "string",
+              "xml": {
+                "name": "SRStatus",
+                "namespace": "http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback",
+                "prefix": "xsdLocal13",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "ResponseList": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/xsdLocal13_ResponseList"
+                },
+                {
+                  "xml": {
+                    "name": "ResponseList",
+                    "namespace": "http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback",
+                    "prefix": "xsdLocal13",
+                    "attribute": false,
+                    "wrapped": false
+                  }
+                }
+              ]
+            },
+            "CampaignId": {
+              "type": "string",
+              "xml": {
+                "name": "CampaignId",
+                "namespace": "http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback",
+                "prefix": "xsdLocal13",
+                "attribute": false,
+                "wrapped": false
+              }
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "UebNpsFeedback",
+            "namespace": "http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback",
+            "prefix": "xsdLocal13",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "xsdLocal13_UebNpsFeedbackTopElmt": {
+          "title": "xsdLocal13_UebNpsFeedbackTopElmt",
+          "required": [
+            "UebNpsFeedback"
+          ],
+          "type": "object",
+          "properties": {
+            "UebNpsFeedback": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/xsdLocal13_UebNpsFeedback"
+                },
+                {
+                  "xml": {
+                    "name": "UebNpsFeedback",
+                    "namespace": "http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback",
+                    "prefix": "xsdLocal13",
+                    "attribute": false,
+                    "wrapped": false
+                  }
+                }
+              ]
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "UebNpsFeedbackTopElmt",
+            "namespace": "http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback",
+            "prefix": "xsdLocal13",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "xsdLocal13_ResponseList": {
+          "title": "xsdLocal13_ResponseList",
+          "required": [
+            "Response"
+          ],
+          "type": "object",
+          "properties": {
+            "Response": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/xsdLocal13_Response"
+              },
+              "description": "",
+              "xml": {
+                "namespace": "http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback",
+                "prefix": "xsdLocal13",
+                "attribute": false,
+                "wrapped": false
+              }
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "ResponseList",
+            "namespace": "http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback",
+            "prefix": "xsdLocal13",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "xsdLocal13_Response": {
+          "title": "xsdLocal13_Response",
+          "type": "object",
+          "properties": {
+            "AnswerId": {
+              "type": "string",
+              "xml": {
+                "name": "AnswerId",
+                "namespace": "http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback",
+                "prefix": "xsdLocal13",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "AnswerText": {
+              "type": "string",
+              "xml": {
+                "name": "AnswerText",
+                "namespace": "http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback",
+                "prefix": "xsdLocal13",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "QuestionId": {
+              "type": "string",
+              "xml": {
+                "name": "QuestionId",
+                "namespace": "http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback",
+                "prefix": "xsdLocal13",
+                "attribute": false,
+                "wrapped": false
+              }
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "Response",
+            "namespace": "http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback",
+            "prefix": "xsdLocal13",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "ServiceRequestDetail_Input": {
+          "title": "ServiceRequestDetail_Input",
+          "required": [
+            "ServiceRequestDetail_Input"
+          ],
+          "type": "object",
+          "properties": {
+            "ServiceRequestDetail_Input": {
+              "$ref": "#/components/schemas/tns_ServiceRequestDetail_Input"
+            }
+          }
+        },
+        "ServiceRequestDetail_Output": {
+          "title": "ServiceRequestDetail_Output",
+          "required": [
+            "ServiceRequestDetail_Output"
+          ],
+          "type": "object",
+          "properties": {
+            "ServiceRequestDetail_Output": {
+              "allOf": [
+                {
+                  "$ref": "#/components/schemas/tns_ServiceRequestDetail_Output"
+                },
+                {
+                  "xml": {
+                    "name": "ServiceRequestDetail_Output",
+                    "attribute": false,
+                    "wrapped": false
+                  }
+                }
+              ]
+            }
+          },
+          "xml": {
+            "name": "ServiceRequestDetail_Output",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "tns1_authenticationType": {
+          "title": "tns1_authenticationType",
+          "enum": [
+            "NONE",
+            "OTP",
+            "TOKEN"
+          ],
+          "type": "string",
+          "description": "",
+          "xml": {
+            "name": "authenticationType",
+            "namespace": "http://corp.alahli.com/middlewareservices/header/1.0/",
+            "prefix": "tns1",
+            "attribute": false,
+            "wrapped": false
+          }
+        },
+        "wsse_UsernameToken": {
+          "title": "wsse_UsernameToken",
+          "required": [
+            "Username",
+            "Password"
+          ],
+          "type": "object",
+          "properties": {
+            "Username": {
+              "type": "string",
+              "xml": {
+                "name": "Username",
+                "namespace": "http://schemas.xmlsoap.org/ws/2002/07/secext",
+                "prefix": "wsse",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "Password": {
+              "type": "string",
+              "xml": {
+                "name": "Password",
+                "namespace": "http://schemas.xmlsoap.org/ws/2002/07/secext",
+                "prefix": "wsse",
+                "attribute": false,
+                "wrapped": false
+              }
+            }
+          },
+          "description": "",
+          "xml": {
+            "name": "UsernameToken",
+            "namespace": "http://schemas.xmlsoap.org/ws/2002/07/secext",
+            "prefix": "wsse",
+            "attribute": false,
+            "wrapped": false
+          }
+        }
+      }
+    },
+    "tags": [
+      {
+        "name": "ServiceRequestDetail",
+        "description": ""
+      }
+    ]
+  }

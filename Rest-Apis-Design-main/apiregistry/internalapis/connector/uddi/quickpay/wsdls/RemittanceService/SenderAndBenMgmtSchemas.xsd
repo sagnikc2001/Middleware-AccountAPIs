@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://com.tcs.bancs.rm/schemas/"
+	elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:simpleType name="custCif">
+		<xsd:annotation>
+			<xsd:documentation>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="^[0-9]+$" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="trueOrFalseType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Valid values are : True, False
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="True"/>
+			<xsd:enumeration value="False"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<simpleType name="char30">
+		<xsd:annotation>
+			<xsd:documentation>
+				A string of maximum length 30
+			</xsd:documentation>
+		</xsd:annotation>
+		<restriction base="string">
+			<maxLength value="30"/>
+			<minLength value="0"/>
+		</restriction>
+	</simpleType>
+
+	<simpleType name="char40">
+		<xsd:annotation>
+			<xsd:documentation>
+				A string of maximum length 40
+			</xsd:documentation>
+		</xsd:annotation>
+		<restriction base="string">
+			<maxLength value="40"/>
+			<minLength value="0"/>
+		</restriction>
+	</simpleType>
+
+	<xsd:simpleType name="char100">
+		<xsd:annotation>
+			<xsd:documentation>
+				Any string of maximum length 100
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="0" />
+			<xsd:maxLength value="100" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="alphaNum16">
+		<xsd:annotation>
+			<xsd:documentation>
+				Alphanumeric of maximum length 16
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[a-zA-Z0-9]{0,16}" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="isoCountryCode">
+		<xsd:annotation>
+			<xsd:documentation>
+				Valid values : IDN, YEM, LKA, PHL, EGY etc
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[A-Z]{3,3}" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="emailAddress">
+		<xsd:annotation>
+			<xsd:documentation>
+				Email address.
+				Valid Values are :
+				johndoe@cordys.com, john9_doe@cordys.com etc
+			</xsd:documentation>
+		</xsd:annotation>
+
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern
+				value="([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="date">
+		<xsd:annotation>
+			<xsd:documentation>
+				Represents the date in the format of yyyymmdd.
+				Valid values are : 20130522 etc
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="([0-9]){8}|()" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="beneficiaryId">
+		<xsd:annotation>
+			<xsd:documentation>
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="([0-9]){0,16}" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="mobileNumber">
+		<xsd:annotation>
+			<xsd:documentation>
+				Mobile phone number.
+				Valid Values are :
+				966554325688 , 00966554325688, 554325688 etc
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[0-9]{9,15}|()" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="deliveryTypes">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="DDEPOSIT"/>
+			<xsd:enumeration value="PICKUP"/>
+			<xsd:enumeration value="COURIER"/>
+			<xsd:enumeration value="DIRCOUR"/>
+			<xsd:enumeration value="XMDDEPOSIT"/>
+			<xsd:enumeration value="XMPICKUP"/>
+			<xsd:enumeration value="MONEYGRAM PICKUP"/>
+			<xsd:enumeration value="MONEYGRAM DDEPOSIT"/>
+			<xsd:enumeration value="MONEYGRAM COURIER"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="isoCurrencyCode">
+		<xsd:annotation>
+			<xsd:documentation>
+				The standard currency codes published by ISO.
+				Empty value is also allowed.
+				The format is three upper case letters.
+				Valid values are : AED, SAR, USD, EUR etc.
+				Below is the list of all
+				ISO currency codes (Code - Country Name )
+
+				AED United Arab Emirates
+				Dirham
+				AFN Afghanistan Afghani
+				ALL Albania Lek
+				AMD Armenia Dram
+				ANG
+				Netherlands Antilles Guilder
+				AOA Angola Kwanza
+				ARS Argentina Peso
+				AUD
+				Australia Dollar
+				AWG Aruba Guilder
+				AZN
+				Azerbaijan New Manat
+				BAM Bosnia
+				and Herzegovina Convertible Marka
+				BBD
+				Barbados Dollar
+				BDT Bangladesh
+				Taka
+				BGN Bulgaria Lev
+				BHD Bahrain Dinar
+				BIF Burundi Franc
+				BMD Bermuda
+				Dollar
+				BND Brunei Darussalam Dollar
+				BOB
+				Bolivia Boliviano
+				BRL Brazil
+				Real
+				BSD Bahamas Dollar
+				BTN Bhutan
+				Ngultrum
+				BWP Botswana Pula
+				BYR Belarus
+				Ruble
+				BZD Belize Dollar
+				CAD
+				Canada Dollar
+				CDF Congo/Kinshasa Franc
+				CHF
+				Switzerland Franc
+				CLP Chile
+				Peso
+				CNY China Yuan Renminbi
+				COP Colombia
+				Peso
+				CRC Costa Rica Colon
+				CUC
+				Cuba Convertible Peso
+				CUP Cuba Peso
+				CVE
+				Cape Verde Escudo
+				CZK Czech
+				Republic Koruna
+				DJF Djibouti Franc
+				DKK
+				Denmark Krone
+				DOP Dominican
+				Republic Peso
+				DZD Algeria Dinar
+				EGP Egypt
+				Pound
+				ERN Eritrea Nakfa
+				ETB
+				Ethiopia Birr
+				EUR Euro Member Countries
+				FJD
+				Fiji Dollar
+				FKP Falkland
+				Islands (Malvinas) Pound
+				GBP United Kingdom
+				Pound
+				GEL Georgia Lari
+				GGP
+				Guernsey Pound
+				GHS Ghana Cedi
+				GIP Gibraltar
+				Pound
+				GMD Gambia Dalasi
+				GNF
+				Guinea Franc
+				GTQ Guatemala Quetzal
+				GYD Guyana
+				Dollar
+				HKD Hong Kong
+				Dollar
+				HNL Honduras Lempira
+				HRK Croatia Kuna
+				HTG
+				Haiti Gourde
+				HUF
+				Hungary Forint
+				IDR Indonesia Rupiah
+				ILS Israel Shekel
+				IMP Isle of Man
+				Pound
+				INR India Rupee
+				IQD Iraq Dinar
+				IRR Iran Rial
+				ISK
+				Iceland Krona
+				JEP
+				Jersey Pound
+				JMD Jamaica Dollar
+				JOD Jordan Dinar
+				JPY
+				Japan Yen
+				KES Kenya
+				Shilling
+				KGS Kyrgyzstan Som
+				KHR Cambodia Riel
+				KMF
+				Comoros Franc
+				KPW
+				Korea (North) Won
+				KRW Korea (South) Won
+				KWD Kuwait
+				Dinar
+				KYD Cayman
+				Islands Dollar
+				KZT Kazakhstan Tenge
+				LAK Laos Kip
+				LBP
+				Lebanon Pound
+				LKR
+				Sri Lanka Rupee
+				LRD Liberia Dollar
+				LSL Lesotho Loti
+				LTL Lithuania Litas
+				LVL Latvia Lat
+				LYD Libya Dinar
+				MAD Morocco Dirham
+				MDL Moldova Leu
+				MGA
+				Madagascar Ariary
+				MKD Macedonia Denar
+				MMK Myanmar
+				(Burma) Kyat
+				MNT
+				Mongolia Tughrik
+				MOP Macau Pataca
+				MRO Mauritania
+				Ouguiya
+				MUR Mauritius
+				Rupee
+				MVR Maldives (Maldive Islands) Rufiyaa
+				MWK
+				Malawi Kwacha
+				MXN
+				Mexico Peso
+				MYR Malaysia Ringgit
+				MZN Mozambique
+				Metical
+				NAD Namibia
+				Dollar
+				NGN Nigeria Naira
+				NIO Nicaragua Cordoba
+				NOK
+				Norway Krone
+				NPR
+				Nepal Rupee
+				NZD New Zealand Dollar
+				OMR Oman Rial
+				PAB
+				Panama Balboa
+				PEN
+				Peru Nuevo Sol
+				PGK Papua New Guinea Kina
+				PHP
+				Philippines Peso
+				PKR
+				Pakistan Rupee
+				PLN Poland Zloty
+				PYG Paraguay
+				Guarani
+				QAR Qatar Riyal
+				RON Romania New Leu
+				RSD Serbia Dinar
+				RUB Russia
+				Ruble
+				RWF Rwanda Franc
+				SAR Saudi Arabia Riyal
+				SBD Solomon Islands
+				Dollar
+				SCR Seychelles Rupee
+				SDG Sudan Pound
+				SEK Sweden Krona
+				SGD
+				Singapore Dollar
+				SHP Saint Helena
+				Pound
+				SLL Sierra Leone Leone
+				SOS
+				Somalia Shilling
+				SRD Suriname Dollar
+				STD São Tomé and Príncipe Dobra
+				SVC El Salvador Colon
+				SYP Syria Pound
+				SZL Swaziland Lilangeni
+				THB
+				Thailand Baht
+				TJS Tajikistan Somoni
+				TMT
+				Turkmenistan Manat
+				TND Tunisia
+				Dinar
+				TOP Tonga Pa'anga
+				TRY Turkey Lira
+				TTD Trinidad and Tobago Dollar
+				TVD Tuvalu Dollar
+				TWD Taiwan New Dollar
+				TZS Tanzania Shilling
+				UAH
+				Ukraine Hryvna
+				UGX Uganda Shilling
+				USD United
+				States Dollar
+				UYU Uruguay
+				Peso
+				UZS Uzbekistan Som
+				VEF Venezuela Bolivar
+				VND Viet Nam Dong
+				VUV
+				Vanuatu Vatu
+				WST Samoa Tala
+				XAF Communauté
+				Financière Africaine (BEAC)
+				CFA Franc BEAC
+				XCD East Caribbean Dollar
+				XDR International Monetary
+				Fund (IMF) Special Drawing Rights
+				XOF
+				Communauté Financière Africaine
+				(BCEAO) Franc
+				XPF Comptoirs Français
+				du Pacifique (CFP) Franc
+				YER Yemen
+				Rial
+				ZAR South Africa Rand
+				ZMW
+				Zambia Kwacha
+				ZWD Zimbabwe Dollar
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="([A-Z]{3,3})|()" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<simpleType name="YorNType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Valid values are : Y, N
+			</xsd:documentation>
+		</xsd:annotation>
+		<restriction base="string">
+			<enumeration value="Y"/>
+			<enumeration value="N"/>
+		</restriction>
+	</simpleType>
+
+	<xsd:simpleType name="correspondentId">
+		<xsd:annotation>
+			<xsd:documentation>
+			</xsd:documentation>
+		</xsd:annotation>
+		<restriction base="xsd:string">
+			<maxLength value="40"/>
+			<minLength value="0"/>
+		</restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="TransactionType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="QP"/>
+			<xsd:enumeration value="XM"/>
+			<xsd:enumeration value="MG"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+</schema>

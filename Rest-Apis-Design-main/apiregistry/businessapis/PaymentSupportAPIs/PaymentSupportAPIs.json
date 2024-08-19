@@ -1,0 +1,2622 @@
+{
+   "openapi": "3.0.3",
+   "info": {
+      "title": "MW PaymentSupport APIs",
+      "version": "1.0"
+   },
+   "servers": [
+      {
+         "url": "https://mw-api-3scale-apicast-staging.apps.com:443/api/paymentsupport"
+      }
+   ],
+   "paths": {
+      "/v1/GetBankList": {
+         "post": {
+            "tags": [
+               "PaymentSupport APIs"
+            ],
+            "description": "This operation retrieves the BankList",
+            "operationId": "GetBankList",
+            "parameters": [
+               {
+                  "name": "Authorization",
+                  "in": "header",
+                  "description": "JWT bearer token",
+                  "required": true,
+                  "style": "simple",
+                  "schema": {
+                     "type": "string"
+                  }
+               },
+               {
+                  "name": "ServiceHeader",
+                  "in": "header",
+                  "description": "",
+                  "required": true,
+                  "style": "simple",
+                  "schema": {
+                     "$ref": "../../commonschemas/header.json#/ServiceHeader"
+                  }
+               }
+            ],
+            "requestBody": {
+               "description": "",
+               "content": {
+                  "application/json": {
+                     "schema": {
+                        "$ref": "#/components/schemas/BankListRequest"
+                     }
+                  }
+               },
+               "required": true
+            },
+            "responses": {
+               "200": {
+                  "description": "Successfully retrieved the response",
+                  "content": {
+                     "application/json": {
+                        "schema": {
+                           "$ref": "#/components/schemas/BankListResponse"
+                        }
+                     }
+                  }
+               },
+               "400": {
+                  "description": "400 Bad Request",
+                  "content": {
+                     "application/json": {
+                        "schema": {
+                           "$ref": "#/components/schemas/BankListResponse"
+                        }
+                     }
+                  }
+               },
+               "401": {
+                  "description": "401 Unauthorized Request"
+               },
+               "404": {
+                  "description": "404 API Not found"
+               },
+               "405": {
+                  "description": "405 Method Not Allowed"
+               },
+               "429": {
+                  "description": "429 Too Many Requests"
+               },
+               "500": {
+                  "description": "500 Internal Server Error",
+                  "content": {
+                     "application/json": {
+                        "schema": {
+                           "$ref": "#/components/schemas/BankListResponse"
+                        }
+                     }
+                  }
+               },
+               "503": {
+                  "description": "503 Service Unavailable"
+               }
+            },
+            "deprecated": false
+         }
+      },
+      "/GetCurrencyList": {
+         "post": {
+            "tags": [
+               "PaymentSupport APIs Stage"
+            ],
+            "summary": "GetCurrencyList",
+            "operationId": "GetCurrencyList",
+            "parameters": [
+               {
+                  "name": "Security",
+                  "in": "header",
+                  "description": "",
+                  "required": true,
+                  "style": "simple",
+                  "schema": {
+                     "$ref": "#/components/schemas/wsse_Security"
+                  }
+               },
+               {
+                  "name": "ServiceHeader",
+                  "in": "header",
+                  "description": "",
+                  "required": true,
+                  "style": "simple",
+                  "schema": {
+                     "$ref": "#/components/schemas/header_ServiceHeader"
+                  }
+               }
+            ],
+            "requestBody": {
+               "description": "",
+               "content": {
+                  "application/json": {
+                     "schema": {
+                        "allOf": [
+                           {
+                              "$ref": "#/components/schemas/CurrencyListRequest"
+                           }
+                        ]
+                     }
+                  }
+               },
+               "required": true
+            },
+            "responses": {
+               "200": {
+                  "description": "Successfully retrieved the response",
+                  "headers": {},
+                  "content": {
+                     "application/json": {
+                        "schema": {
+                           "allOf": [
+                              {
+                                 "$ref": "#/components/schemas/CurrencyListResponse"
+                              }
+                           ]
+                        }
+                     }
+                  }
+               }
+            },
+            "deprecated": false
+         }
+      },
+      "/GetCountryList": {
+         "post": {
+            "tags": [
+               "PaymentSupport APIs Stage"
+            ],
+            "summary": "GetCountryList",
+            "operationId": "GetCountryList",
+            "parameters": [
+               {
+                  "name": "Security",
+                  "in": "header",
+                  "description": "",
+                  "required": true,
+                  "style": "simple",
+                  "schema": {
+                     "$ref": "#/components/schemas/wsse_Security"
+                  }
+               },
+               {
+                  "name": "ServiceHeader",
+                  "in": "header",
+                  "description": "",
+                  "required": true,
+                  "style": "simple",
+                  "schema": {
+                     "$ref": "#/components/schemas/header_ServiceHeader"
+                  }
+               }
+            ],
+            "requestBody": {
+               "description": "",
+               "content": {
+                  "application/json": {
+                     "schema": {
+                        "allOf": [
+                           {
+                              "$ref": "#/components/schemas/CountryListRequest"
+                           }
+                        ]
+                     }
+                  }
+               },
+               "required": true
+            },
+            "responses": {
+               "200": {
+                  "description": "Successfully retrieved the response",
+                  "headers": {},
+                  "content": {
+                     "application/json": {
+                        "schema": {
+                           "allOf": [
+                              {
+                                 "$ref": "#/components/schemas/CountryListResponse"
+                              }
+                           ]
+                        }
+                     }
+                  }
+               }
+            },
+            "deprecated": false
+         }
+      },
+      "/GetCutoffList": {
+         "post": {
+            "tags": [
+               "PaymentSupport APIs Stage"
+            ],
+            "summary": "GetCutoffList",
+            "operationId": "GetCutoffList",
+            "parameters": [
+               {
+                  "name": "Security",
+                  "in": "header",
+                  "description": "",
+                  "required": true,
+                  "style": "simple",
+                  "schema": {
+                     "$ref": "#/components/schemas/wsse_Security"
+                  }
+               },
+               {
+                  "name": "ServiceHeader",
+                  "in": "header",
+                  "description": "",
+                  "required": true,
+                  "style": "simple",
+                  "schema": {
+                     "$ref": "#/components/schemas/header_ServiceHeader"
+                  }
+               }
+            ],
+            "requestBody": {
+               "description": "",
+               "content": {
+                  "application/json": {
+                     "schema": {
+                        "allOf": [
+                           {
+                              "$ref": "#/components/schemas/CutoffListRequest"
+                           }
+                        ]
+                     }
+                  }
+               },
+               "required": true
+            },
+            "responses": {
+               "200": {
+                  "description": "Successfully retrieved the response",
+                  "headers": {},
+                  "content": {
+                     "application/json": {
+                        "schema": {
+                           "allOf": [
+                              {
+                                 "$ref": "#/components/schemas/CutoffListResponse"
+                              }
+                           ]
+                        }
+                     }
+                  }
+               }
+            },
+            "deprecated": false
+         }
+      },
+      "/GetBusinessDayList": {
+         "post": {
+            "tags": [
+               "PaymentSupport APIs Stage"
+            ],
+            "summary": "GetBusinessDayList",
+            "operationId": "GetBusinessDayList",
+            "parameters": [
+               {
+                  "name": "Security",
+                  "in": "header",
+                  "description": "",
+                  "required": true,
+                  "style": "simple",
+                  "schema": {
+                     "$ref": "#/components/schemas/wsse_Security"
+                  }
+               },
+               {
+                  "name": "ServiceHeader",
+                  "in": "header",
+                  "description": "",
+                  "required": true,
+                  "style": "simple",
+                  "schema": {
+                     "$ref": "#/components/schemas/header_ServiceHeader"
+                  }
+               }
+            ],
+            "requestBody": {
+               "description": "",
+               "content": {
+                  "application/json": {
+                     "schema": {
+                        "allOf": [
+                           {
+                              "$ref": "#/components/schemas/BusinessDaysListRequest"
+                           }
+                        ]
+                     }
+                  }
+               },
+               "required": true
+            },
+            "responses": {
+               "200": {
+                  "description": "Successfully retrieved the response",
+                  "headers": {},
+                  "content": {
+                     "application/json": {
+                        "schema": {
+                           "allOf": [
+                              {
+                                 "$ref": "#/components/schemas/BusinessDaysListResponse"
+                              }
+                           ]
+                        }
+                     }
+                  }
+               }
+            },
+            "deprecated": false
+         }
+      },
+      "/GetIRPermittedCountries": {
+         "post": {
+            "tags": [
+               "PaymentSupport APIs Stage"
+            ],
+            "summary": "GetIRPermittedCountries",
+            "operationId": "GetIRPermittedCountries",
+            "parameters": [
+               {
+                  "name": "Security",
+                  "in": "header",
+                  "description": "",
+                  "required": true,
+                  "style": "simple",
+                  "schema": {
+                     "$ref": "#/components/schemas/wsse_Security"
+                  }
+               },
+               {
+                  "name": "ServiceHeader",
+                  "in": "header",
+                  "description": "",
+                  "required": true,
+                  "style": "simple",
+                  "schema": {
+                     "$ref": "#/components/schemas/header_ServiceHeader"
+                  }
+               }
+            ],
+            "requestBody": {
+               "description": "",
+               "content": {
+                  "application/json": {
+                     "schema": {
+                        "allOf": [
+                           {
+                              "$ref": "#/components/schemas/GetIRPermittedCountriesRequest"
+                           }
+                        ]
+                     }
+                  }
+               },
+               "required": true
+            },
+            "responses": {
+               "200": {
+                  "description": "Successfully retrieved the response",
+                  "headers": {},
+                  "content": {
+                     "application/json": {
+                        "schema": {
+                           "allOf": [
+                              {
+                                 "$ref": "#/components/schemas/GetIRPermittedCountriesResponse"
+                              }
+                           ]
+                        }
+                     }
+                  }
+               }
+            },
+            "deprecated": false
+         }
+      },
+      "/GetPayCountryCurrencies": {
+         "post": {
+            "tags": [
+               "PaymentSupport APIs Stage"
+            ],
+            "summary": "GetPayCountryCurrencies",
+            "operationId": "GetPayCountryCurrencies",
+            "parameters": [
+               {
+                  "name": "Security",
+                  "in": "header",
+                  "description": "",
+                  "required": true,
+                  "style": "simple",
+                  "schema": {
+                     "$ref": "#/components/schemas/wsse_Security"
+                  }
+               },
+               {
+                  "name": "ServiceHeader",
+                  "in": "header",
+                  "description": "",
+                  "required": true,
+                  "style": "simple",
+                  "schema": {
+                     "$ref": "#/components/schemas/header_ServiceHeader"
+                  }
+               }
+            ],
+            "requestBody": {
+               "description": "",
+               "content": {
+                  "application/json": {
+                     "schema": {
+                        "allOf": [
+                           {
+                              "$ref": "#/components/schemas/GetPayCountryCurrenciesRequest"
+                           }
+                        ]
+                     }
+                  }
+               },
+               "required": true
+            },
+            "responses": {
+               "200": {
+                  "description": "Successfully retrieved the response",
+                  "headers": {},
+                  "content": {
+                     "application/json": {
+                        "schema": {
+                           "allOf": [
+                              {
+                                 "$ref": "#/components/schemas/GetPayCountryCurrenciesResponse"
+                              }
+                           ]
+                        }
+                     }
+                  }
+               }
+            },
+            "deprecated": false
+         }
+      },
+      "/RetrieveGoldDeliveryBranches": {
+         "post": {
+            "tags": [
+               "PaymentSupport APIs Stage"
+            ],
+            "summary": "RetrieveGoldDeliveryBranches",
+            "description": "RetrieveGoldDeliveryBranches service to get the branches where we can get the  physical gold",
+            "operationId": "RetrieveGoldDeliveryBranches",
+            "parameters": [
+               {
+                  "name": "Security",
+                  "in": "header",
+                  "description": "",
+                  "required": true,
+                  "style": "simple",
+                  "schema": {
+                     "$ref": "#/components/schemas/wsse_Security"
+                  }
+               },
+               {
+                  "name": "ServiceHeader",
+                  "in": "header",
+                  "description": "",
+                  "required": true,
+                  "style": "simple",
+                  "schema": {
+                     "$ref": "#/components/schemas/header_ServiceHeader"
+                  }
+               }
+            ],
+            "requestBody": {
+               "description": "",
+               "content": {
+                  "application/json": {
+                     "schema": {
+                        "allOf": [
+                           {
+                              "$ref": "#/components/schemas/RetrieveGoldDeliveryBranchesRequest"
+                           }
+                        ]
+                     }
+                  }
+               },
+               "required": true
+            },
+            "responses": {
+               "200": {
+                  "description": "Successfully retrieved the response",
+                  "headers": {},
+                  "content": {
+                     "application/json": {
+                        "schema": {
+                           "allOf": [
+                              {
+                                 "$ref": "#/components/schemas/RetrieveGoldDeliveryBranchesResponse"
+                              }
+                           ]
+                        }
+                     }
+                  }
+               }
+            },
+            "deprecated": false
+         }
+      }
+   },
+   "components": {
+      "schemas": {
+         "BankListRequestType": {
+            "title": "BankListRequestType",
+            "type": "object",
+            "properties": {
+               "inquiryType": {
+                  "$ref": "#/components/schemas/inquiryType"
+               },
+               "value": {
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "BankListResponseType": {
+            "title": "BankListResponseType",
+            "type": "object",
+            "properties": {
+               "bank": {
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/bankListResponseType"
+                  },
+                  "description": ""
+               },
+               "fault": {
+                  "$ref": "../../commonschemas/fault.json#/FaultType"
+               }
+            },
+            "description": ""
+         },
+         "bankListResponseType": {
+            "title": "bankListResponseType",
+            "required": [
+               "bankCode",
+               "nameEnglish",
+               "nameArabic"
+            ],
+            "type": "object",
+            "properties": {
+               "bankCode": {
+                  "maxLength": 50,
+                  "type": "string"
+               },
+               "bankBicCode": {
+                  "maxLength": 50,
+                  "type": "string"
+               },
+               "bankIsSadad": {
+                  "type": "boolean"
+               },
+               "bankType": {
+                  "type": "integer",
+                  "format": "int32"
+               },
+               "nameEnglish": {
+                  "maxLength": 100,
+                  "type": "string"
+               },
+               "nameArabic": {
+                  "maxLength": 100,
+                  "type": "string"
+               },
+               "shortNameEnglish": {
+                  "type": "string"
+               },
+               "shortNameArabic": {
+                  "type": "string"
+               },
+               "type": {
+                  "type": "string"
+               },
+               "bankId": {
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "tns_CurrencyListResponse": {
+            "title": "tns_CurrencyListResponse",
+            "type": "object",
+            "properties": {
+               "currency": {
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/tns_currencyListResponseType"
+                  },
+                  "description": ""
+               },
+               "fault": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/fault_FaultType"
+                     }
+                  ]
+               }
+            },
+            "description": ""
+         },
+         "tns_currencyListResponseType": {
+            "title": "tns_currencyListResponseType",
+            "required": [
+               "currencyId",
+               "isoCurrencyCode",
+               "isoCurrencyId",
+               "descriptionEnglish",
+               "descriptionArabic"
+            ],
+            "type": "object",
+            "properties": {
+               "currencyId": {
+                  "type": "integer",
+                  "format": "int32"
+               },
+               "isoCurrencyCode": {
+                  "maxLength": 3,
+                  "type": "string"
+               },
+               "isoCurrencyId": {
+                  "type": "integer",
+                  "format": "int32"
+               },
+               "currencyCodeArabic": {
+                  "maxLength": 10,
+                  "type": "string"
+               },
+               "symbol": {
+                  "type": "string"
+               },
+               "decimalDigits": {
+                  "type": "integer",
+                  "format": "int32"
+               },
+               "descriptionEnglish": {
+                  "maxLength": 200,
+                  "type": "string"
+               },
+               "descriptionArabic": {
+                  "maxLength": 200,
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "tns_CountryListRequest": {
+            "title": "tns_CountryListRequest",
+            "type": "object",
+            "properties": {
+               "inquiryType": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/inquiryType"
+                     }
+                  ]
+               },
+               "value": {
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "tns_CountryListResponse": {
+            "title": "tns_CountryListResponse",
+            "type": "object",
+            "properties": {
+               "country": {
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/tns_countryListResponseType"
+                  },
+                  "description": ""
+               },
+               "fault": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/fault_FaultType"
+                     }
+                  ]
+               }
+            },
+            "description": ""
+         },
+         "tns_countryListResponseType": {
+            "title": "tns_countryListResponseType",
+            "required": [
+               "countryId",
+               "descriptionEN",
+               "descriptionAR",
+               "shortCode",
+               "longCode"
+            ],
+            "type": "object",
+            "properties": {
+               "countryId": {
+                  "type": "integer",
+                  "format": "int32"
+               },
+               "descriptionEN": {
+                  "maxLength": 255,
+                  "type": "string"
+               },
+               "descriptionAR": {
+                  "maxLength": 255,
+                  "type": "string"
+               },
+               "shortCode": {
+                  "maxLength": 2,
+                  "type": "string"
+               },
+               "longCode": {
+                  "maxLength": 3,
+                  "type": "string"
+               },
+               "citizenshipEN": {
+                  "maxLength": 255,
+                  "type": "string"
+               },
+               "citizenshipAR": {
+                  "maxLength": 255,
+                  "type": "string"
+               },
+               "isoCode": {
+                  "type": "integer",
+                  "format": "int32"
+               },
+               "currencyCode": {
+                  "maxLength": 3,
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "tns_CutoffListRequest": {
+            "title": "tns_CutoffListRequest",
+            "type": "object",
+            "properties": {
+               "cutoffType": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/tns_cutoffType"
+                     }
+                  ]
+               },
+               "description": {
+                  "type": "string"
+               },
+               "coutoffHours": {
+                  "maximum": 23.0,
+                  "minimum": 0.0,
+                  "type": "integer",
+                  "format": "int32"
+               },
+               "coutoffMinutes": {
+                  "maximum": 59.0,
+                  "minimum": 0.0,
+                  "type": "integer",
+                  "format": "int32"
+               }
+            },
+            "description": ""
+         },
+         "tns_CutoffListResponse": {
+            "title": "tns_CutoffListResponse",
+            "type": "object",
+            "properties": {
+               "cutoff": {
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/tns_cutoffDetailsResponseType"
+                  },
+                  "description": ""
+               },
+               "fault": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/fault_FaultType"
+                     }
+                  ]
+               }
+            },
+            "description": ""
+         },
+         "tns_cutoffDetailsResponseType": {
+            "title": "tns_cutoffDetailsResponseType",
+            "required": [
+               "cutoffType",
+               "description",
+               "cutoffHours",
+               "cutoffMinutes",
+               "status"
+            ],
+            "type": "object",
+            "properties": {
+               "cutoffType": {
+                  "maxLength": 1,
+                  "type": "string"
+               },
+               "description": {
+                  "maxLength": 30,
+                  "type": "string"
+               },
+               "cutoffHours": {
+                  "maximum": 23.0,
+                  "minimum": 0.0,
+                  "type": "integer",
+                  "format": "int32"
+               },
+               "cutoffMinutes": {
+                  "maximum": 59.0,
+                  "minimum": 0.0,
+                  "type": "integer",
+                  "format": "int32"
+               },
+               "status": {
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "tns_BusinessDaysListRequest": {
+            "title": "tns_BusinessDaysListRequest",
+            "required": [
+               "transactionType"
+            ],
+            "type": "object",
+            "properties": {
+               "transactionType": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/tns_transactionType"
+                     }
+                  ]
+               },
+               "currency": {
+                  "pattern": "([A-Z]{3,3})|()",
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "tns_BusinessDaysListResponse": {
+            "title": "tns_BusinessDaysListResponse",
+            "type": "object",
+            "properties": {
+               "businessDaysList": {
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/tns_BusinessDaysResponseType"
+                  },
+                  "description": ""
+               },
+               "fault": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/fault_FaultType"
+                     }
+                  ]
+               }
+            },
+            "description": ""
+         },
+         "tns_BusinessDaysResponseType": {
+            "title": "tns_BusinessDaysResponseType",
+            "type": "object",
+            "properties": {
+               "businessDay": {
+                  "pattern": "([0-9]){8}",
+                  "type": "string"
+               },
+               "sarieFlag": {
+                  "type": "string"
+               },
+               "swiftFlag": {
+                  "type": "string"
+               },
+               "sequanceDay": {
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "tns_GetIRPermittedCountriesRequest": {
+            "title": "tns_GetIRPermittedCountriesRequest",
+            "type": "object",
+            "description": ""
+         },
+         "tns_GetIRPermittedCountriesResponse": {
+            "title": "tns_GetIRPermittedCountriesResponse",
+            "type": "object",
+            "properties": {
+               "success": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/tns_GetIRPermittedCountriesResponseType"
+                     }
+                  ]
+               },
+               "fault": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/fault_FaultType"
+                     }
+                  ]
+               }
+            },
+            "description": ""
+         },
+         "tns_GetIRPermittedCountriesResponseType": {
+            "title": "tns_GetIRPermittedCountriesResponseType",
+            "type": "object",
+            "properties": {
+               "countries": {
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/tns_countriesType"
+                  },
+                  "description": ""
+               }
+            },
+            "description": ""
+         },
+         "tns_countriesType": {
+            "title": "tns_countriesType",
+            "type": "object",
+            "properties": {
+               "countryCode": {
+                  "type": "string"
+               },
+               "countryName": {
+                  "type": "string"
+               },
+               "ibanFlag": {
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "tns_GetPayCountryCurrenciesRequest": {
+            "title": "tns_GetPayCountryCurrenciesRequest",
+            "required": [
+               "countryCode"
+            ],
+            "type": "object",
+            "properties": {
+               "countryCode": {
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "tns_GetPayCountryCurrenciesResponse": {
+            "title": "tns_GetPayCountryCurrenciesResponse",
+            "type": "object",
+            "properties": {
+               "success": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/tns_GetPayCountryCurrenciesResponseType"
+                     }
+                  ]
+               },
+               "fault": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/fault_FaultType"
+                     }
+                  ]
+               }
+            },
+            "description": ""
+         },
+         "tns_GetPayCountryCurrenciesResponseType": {
+            "title": "tns_GetPayCountryCurrenciesResponseType",
+            "type": "object",
+            "properties": {
+               "currencyCode": {
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/tns_currencyCodeType"
+                  },
+                  "description": ""
+               }
+            },
+            "description": ""
+         },
+         "tns_currencyCodeType": {
+            "title": "tns_currencyCodeType",
+            "type": "object",
+            "properties": {
+               "payCurrencyCode": {
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "tns_RetrieveGoldDeliveryBranchesRequest": {
+            "title": "tns_RetrieveGoldDeliveryBranchesRequest",
+            "type": "object",
+            "properties": {
+               "functionId": {
+                  "type": "string",
+                  "description": "function"
+               }
+            },
+            "description": "RetrieveGoldDeliveryBranchesRequestTypeRetrieveGoldDeliveryBranchesRequest"
+         },
+         "tns_RetrieveGoldDeliveryBranchesResponse": {
+            "title": "tns_RetrieveGoldDeliveryBranchesResponse",
+            "type": "object",
+            "properties": {
+               "success": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/tns_RetrieveGoldDeliverBranchessuccessType"
+                     },
+                     {
+                        "description": "function id"
+                     }
+                  ]
+               },
+               "fault": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/fault_FaultType"
+                     }
+                  ]
+               }
+            },
+            "description": ""
+         },
+         "tns_branchListType": {
+            "title": "tns_branchListType",
+            "type": "object",
+            "properties": {
+               "branchId": {
+                  "type": "array",
+                  "items": {
+                     "type": "string"
+                  },
+                  "description": "branch id"
+               },
+               "branchName": {
+                  "type": "array",
+                  "items": {
+                     "type": "string"
+                  },
+                  "description": "branch Name"
+               }
+            },
+            "description": ""
+         },
+         "tns_RetrieveGoldDeliverBranchessuccessType": {
+            "title": "tns_RetrieveGoldDeliverBranchessuccessType",
+            "type": "object",
+            "properties": {
+               "functionId": {
+                  "type": "string",
+                  "description": "function id"
+               },
+               "branchList": {
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/tns_branchListType"
+                  },
+                  "description": "list of branches"
+               }
+            },
+            "description": ""
+         },
+         "wsse_Security": {
+            "title": "wsse_Security",
+            "required": [
+               "UsernameToken"
+            ],
+            "type": "object",
+            "properties": {
+               "UsernameToken": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/wsse_UsernameToken"
+                     }
+                  ]
+               }
+            },
+            "description": ""
+         },
+         "header_ServiceHeader": {
+            "title": "header_ServiceHeader",
+            "required": [
+               "loggerContext",
+               "transactionCode",
+               "retryTransaction",
+               "tellerId",
+               "terminalId",
+               "workstationId",
+               "override",
+               "correction",
+               "supervisor",
+               "supervisorId",
+               "overrideCode",
+               "employeeId",
+               "branchId",
+               "functionId",
+               "channelId",
+               "bancsPwd",
+               "languageCode"
+            ],
+            "type": "object",
+            "properties": {
+               "loggerContext": {
+                  "type": "string"
+               },
+               "transactionCode": {
+                  "type": "string"
+               },
+               "retryTransaction": {
+                  "type": "boolean"
+               },
+               "tellerId": {
+                  "type": "string"
+               },
+               "terminalId": {
+                  "type": "string"
+               },
+               "workstationId": {
+                  "type": "string"
+               },
+               "override": {
+                  "type": "boolean"
+               },
+               "correction": {
+                  "type": "string"
+               },
+               "supervisor": {
+                  "type": "string"
+               },
+               "supervisorId": {
+                  "type": "string"
+               },
+               "overrideCode": {
+                  "type": "string"
+               },
+               "employeeId": {
+                  "type": "string"
+               },
+               "branchId": {
+                  "type": "string"
+               },
+               "functionId": {
+                  "type": "string"
+               },
+               "channelId": {
+                  "type": "string"
+               },
+               "bancsPwd": {
+                  "type": "string"
+               },
+               "languageCode": {
+                  "type": "string"
+               },
+               "authenticationType": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/header_authenticationType"
+                     },
+                     {
+                        "description": "Can be: NONE, OTP, TOKEN"
+                     }
+                  ]
+               },
+               "IvrTransactionID": {
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "fault_FaultType": {
+            "title": "fault_FaultType",
+            "required": [
+               "number",
+               "description"
+            ],
+            "type": "object",
+            "properties": {
+               "type": {
+                  "type": "string"
+               },
+               "number": {
+                  "type": "integer",
+                  "format": "int32"
+               },
+               "description": {
+                  "type": "string"
+               },
+               "retryAfter": {
+                  "type": "string"
+               },
+               "system": {
+                  "type": "string"
+               },
+               "nativeError": {
+                  "type": "string"
+               },
+               "nativeDescription": {
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "Q1_PostalAddress": {
+            "title": "Q1_PostalAddress",
+            "type": "object",
+            "properties": {
+               "addressLine1": {
+                  "maxLength": 70,
+                  "minLength": 0,
+                  "type": "string"
+               },
+               "addressLine2": {
+                  "maxLength": 70,
+                  "minLength": 0,
+                  "type": "string"
+               },
+               "addressLine3": {
+                  "maxLength": 70,
+                  "minLength": 0,
+                  "type": "string"
+               },
+               "city": {
+                  "maxLength": 35,
+                  "minLength": 0,
+                  "type": "string"
+               },
+               "region": {
+                  "maxLength": 35,
+                  "minLength": 0,
+                  "type": "string"
+               },
+               "postalCode": {
+                  "maxLength": 16,
+                  "minLength": 0,
+                  "type": "string"
+               },
+               "country": {
+                  "pattern": "([A-Z]{2,2})|()",
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "Q1_Money": {
+            "title": "Q1_Money",
+            "required": [
+               "isoCurrencyCode"
+            ],
+            "type": "object",
+            "properties": {
+               "isoCurrencyCode": {
+                  "pattern": "[A-Z]{3,3}",
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "Q1_MoneyOptional": {
+            "title": "Q1_MoneyOptional",
+            "required": [
+               "isoCurrencyCode"
+            ],
+            "type": "object",
+            "properties": {
+               "isoCurrencyCode": {
+                  "pattern": "([A-Z]{3,3})|()",
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "Q1_Cursor": {
+            "title": "Q1_Cursor",
+            "required": [
+               "position",
+               "noOfRows"
+            ],
+            "type": "object",
+            "properties": {
+               "position": {
+                  "minimum": 0.0,
+                  "type": "integer",
+                  "format": "int32"
+               },
+               "noOfRows": {
+                  "minimum": 0.0,
+                  "type": "integer",
+                  "format": "int32"
+               }
+            },
+            "description": ""
+         },
+         "Q1_Biller": {
+            "title": "Q1_Biller",
+            "required": [
+               "id"
+            ],
+            "type": "object",
+            "properties": {
+               "id": {
+                  "type": "array",
+                  "items": {
+                     "type": "string"
+                  },
+                  "description": ""
+               }
+            },
+            "description": ""
+         },
+         "Q1_DocumentType": {
+            "title": "Q1_DocumentType",
+            "required": [
+               "documentId",
+               "documentSubId",
+               "totalPages",
+               "documentType",
+               "archivedDate",
+               "page"
+            ],
+            "type": "object",
+            "properties": {
+               "documentId": {
+                  "maxLength": 7,
+                  "type": "string"
+               },
+               "documentSubId": {
+                  "minimum": 0.0,
+                  "type": "integer",
+                  "format": "int32"
+               },
+               "totalPages": {
+                  "minimum": 0.0,
+                  "type": "integer",
+                  "format": "int32"
+               },
+               "documentType": {
+                  "type": "string"
+               },
+               "archivedDate": {
+                  "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+                  "type": "string"
+               },
+               "page": {
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/Q1_PageType"
+                  },
+                  "description": ""
+               }
+            },
+            "description": ""
+         },
+         "Q1_PageType": {
+            "title": "Q1_PageType",
+            "required": [
+               "pageNo",
+               "pageExt",
+               "pageContent"
+            ],
+            "type": "object",
+            "properties": {
+               "pageNo": {
+                  "minimum": 0.0,
+                  "type": "integer",
+                  "format": "int32"
+               },
+               "pageExt": {
+                  "type": "string"
+               },
+               "pageContent": {
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "Q1_BillCycle": {
+            "title": "Q1_BillCycle",
+            "enum": [
+               "New",
+               "XXX",
+               "YYY"
+            ],
+            "type": "string",
+            "description": "Valid Values : New, XXX, YYY"
+         },
+         "Q1_PaymentType": {
+            "title": "Q1_PaymentType",
+            "enum": [
+               "POST",
+               "RCHG",
+               "RNEW"
+            ],
+            "type": "string",
+            "description": "Valid Values : POST, RCHG, RNEW"
+         },
+         "Q1_Flag": {
+            "title": "Q1_Flag",
+            "enum": [
+               "Y",
+               "N"
+            ],
+            "type": "string",
+            "description": "Valid Values : Y or N"
+         },
+         "Q1_ServiceType": {
+            "title": "Q1_ServiceType",
+            "enum": [
+               "AUTL",
+               "CCRD",
+               "CIP",
+               "ENTR",
+               "GOVT",
+               "GSM",
+               "LLIN",
+               "LLHT",
+               "SMDI",
+               "UTIL",
+               "ISPS",
+               "GOFT",
+               "Private",
+               "MDIA",
+               "TRAN",
+               "EDUC",
+               "BKSV",
+               "LOAN",
+               "ELCT",
+               "PCIN",
+               "EXAM",
+               "WATR",
+               "CDUR",
+               "PHON",
+               "INSR",
+               "MED",
+               "TUIT"
+            ],
+            "type": "string",
+            "description": "Valid Values :\n\t\t\t\tAUTL,CCRD,CIP,ENTR,GOVT,GSM,LLIN,LLHT,SMDI,UTIL,ISPS,GOFT,\n\t\t\t\tPrivate,MDIA,TRAN,EDUC,BKSV,LOAN,ELCT,PCIN,EXAM,WATR,CDUR,PHON,INSR,MED,TUIT"
+         },
+         "Q1_OfferToTag": {
+            "title": "Q1_OfferToTag",
+            "enum": [
+               "Yes",
+               "No"
+            ],
+            "type": "string",
+            "description": ""
+         },
+         "Q1_CustomerId": {
+            "title": "Q1_CustomerId",
+            "required": [
+               "id",
+               "type"
+            ],
+            "type": "object",
+            "properties": {
+               "id": {
+                  "minimum": 0.0,
+                  "type": "integer",
+                  "format": "int32"
+               },
+               "type": {
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "Q1_CustomerId2": {
+            "title": "Q1_CustomerId2",
+            "required": [
+               "id",
+               "type"
+            ],
+            "type": "object",
+            "properties": {
+               "id": {
+                  "type": "string"
+               },
+               "type": {
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "Q1_Parameter": {
+            "title": "Q1_Parameter",
+            "required": [
+               "name",
+               "value"
+            ],
+            "type": "object",
+            "properties": {
+               "name": {
+                  "type": "string"
+               },
+               "value": {
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "Q1_TransactionType": {
+            "title": "Q1_TransactionType",
+            "enum": [
+               "BIANNUALCYCLE",
+               "TODAY",
+               "CYCLETODATE",
+               "CTD"
+            ],
+            "type": "string",
+            "description": "Valid values are BIANNUALCYCLE, TODAY,\n\t\t\t\tCYCLETODATE, CTD etc"
+         },
+         "Q1_BeneficiaryId": {
+            "title": "Q1_BeneficiaryId",
+            "required": [
+               "id",
+               "type"
+            ],
+            "type": "object",
+            "properties": {
+               "id": {
+                  "minimum": 0.0,
+                  "type": "integer",
+                  "format": "int32"
+               },
+               "type": {
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "Q1_DeviceDetails": {
+            "title": "Q1_DeviceDetails",
+            "required": [
+               "machineNonce",
+               "sequenceNonce",
+               "machineLabel",
+               "machineProperties",
+               "createDate",
+               "lastUsedDate",
+               "expiryDate"
+            ],
+            "type": "object",
+            "properties": {
+               "machineNonce": {
+                  "minLength": 1,
+                  "type": "string"
+               },
+               "sequenceNonce": {
+                  "minLength": 1,
+                  "type": "string"
+               },
+               "machineLabel": {
+                  "type": "string"
+               },
+               "machineProperties": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/Q1_MachineProperties"
+                     }
+                  ]
+               },
+               "createDate": {
+                  "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+                  "type": "string"
+               },
+               "lastUsedDate": {
+                  "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+                  "type": "string"
+               },
+               "expiryDate": {
+                  "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "Q1_AuthenticationDeviceDetails": {
+            "title": "Q1_AuthenticationDeviceDetails",
+            "required": [
+               "machineNonce",
+               "sequenceNonce",
+               "machineLabel",
+               "machineProperties"
+            ],
+            "type": "object",
+            "properties": {
+               "machineNonce": {
+                  "minLength": 1,
+                  "type": "string"
+               },
+               "sequenceNonce": {
+                  "minLength": 1,
+                  "type": "string"
+               },
+               "machineLabel": {
+                  "type": "string"
+               },
+               "machineProperties": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/Q1_MachineProperties"
+                     }
+                  ]
+               }
+            },
+            "description": ""
+         },
+         "Q1_MachineProperties": {
+            "title": "Q1_MachineProperties",
+            "required": [
+               "applicationData"
+            ],
+            "type": "object",
+            "properties": {
+               "applicationData": {
+                  "type": "array",
+                  "items": {
+                     "$ref": "#/components/schemas/Q1_ApplicationData"
+                  },
+                  "description": ""
+               }
+            },
+            "description": ""
+         },
+         "Q1_ApplicationData": {
+            "title": "Q1_ApplicationData",
+            "required": [
+               "name",
+               "value"
+            ],
+            "type": "object",
+            "properties": {
+               "name": {
+                  "minLength": 1,
+                  "type": "string"
+               },
+               "value": {
+                  "minLength": 1,
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "Q1_AuthenticationInfo": {
+            "title": "Q1_AuthenticationInfo",
+            "required": [
+               "methods"
+            ],
+            "type": "object",
+            "properties": {
+               "methods": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/Q1_Methods"
+                     }
+                  ]
+               }
+            },
+            "description": ""
+         },
+         "Q1_Methods": {
+            "title": "Q1_Methods",
+            "required": [
+               "hardToken",
+               "softToken",
+               "siteImage",
+               "trustedPC",
+               "callerId",
+               "oneTimePass"
+            ],
+            "type": "object",
+            "properties": {
+               "hardToken": {
+                  "type": "boolean"
+               },
+               "softToken": {
+                  "type": "boolean"
+               },
+               "siteImage": {
+                  "type": "boolean"
+               },
+               "trustedPC": {
+                  "type": "boolean"
+               },
+               "callerId": {
+                  "type": "boolean"
+               },
+               "oneTimePass": {
+                  "type": "boolean"
+               }
+            },
+            "description": ""
+         },
+         "Q1_TokenDetails": {
+            "title": "Q1_TokenDetails",
+            "required": [
+               "userId",
+               "userName",
+               "userGroup",
+               "vendorId",
+               "serialNumber",
+               "tokenType",
+               "signatureSupported",
+               "loadDate",
+               "lastUsedDate"
+            ],
+            "type": "object",
+            "properties": {
+               "userId": {
+                  "minLength": 1,
+                  "type": "string"
+               },
+               "userName": {
+                  "minLength": 1,
+                  "type": "string"
+               },
+               "userGroup": {
+                  "minLength": 1,
+                  "type": "string"
+               },
+               "vendorId": {
+                  "type": "string"
+               },
+               "serialNumber": {
+                  "type": "string"
+               },
+               "tokenType": {
+                  "type": "string"
+               },
+               "signatureSupported": {
+                  "type": "boolean"
+               },
+               "loadDate": {
+                  "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+                  "type": "string"
+               },
+               "lastUsedDate": {
+                  "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "Q1_AccountDetails": {
+            "title": "Q1_AccountDetails",
+            "required": [
+               "accountId",
+               "balance",
+               "overdraft",
+               "balanceSAR",
+               "availableSAR",
+               "averageLastSixMonths",
+               "isoCurrencyCode",
+               "division",
+               "statusCode",
+               "accountType",
+               "glClassificationCode"
+            ],
+            "type": "object",
+            "properties": {
+               "accountId": {
+                  "maxLength": 24,
+                  "minLength": 14,
+                  "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})",
+                  "type": "string"
+               },
+               "balance": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/Q1_Money"
+                     }
+                  ]
+               },
+               "overdraft": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/Q1_Money"
+                     }
+                  ]
+               },
+               "balanceSAR": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/Q1_Money"
+                     }
+                  ]
+               },
+               "availableSAR": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/Q1_Money"
+                     }
+                  ]
+               },
+               "averageLastSixMonths": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/Q1_Money"
+                     }
+                  ]
+               },
+               "isoCurrencyCode": {
+                  "pattern": "[A-Z]{3,3}",
+                  "type": "string"
+               },
+               "division": {
+                  "type": "string"
+               },
+               "statusCode": {
+                  "maxLength": 3,
+                  "type": "string"
+               },
+               "accountType": {
+                  "maxLength": 4,
+                  "type": "string"
+               },
+               "glClassificationCode": {
+                  "maxLength": 40,
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "Q1_Gender": {
+            "title": "Q1_Gender",
+            "enum": [
+               "M",
+               "F"
+            ],
+            "type": "string",
+            "description": "Valid values are : M , F etc"
+         },
+         "Q1_trueOrFalseType": {
+            "title": "Q1_trueOrFalseType",
+            "enum": [
+               "true",
+               "false",
+               "True",
+               "False"
+            ],
+            "type": "string",
+            "description": "Valid values are : true, false, True, False"
+         },
+         "Q1_trueOrFalseTypeOptional": {
+            "title": "Q1_trueOrFalseTypeOptional",
+            "enum": [
+               "true",
+               "false",
+               "True",
+               "False"
+            ],
+            "type": "string",
+            "description": "Optional.\n\t\t\t\tValid values are : true, false, True,\n\t\t\t\tFalse etc"
+         },
+         "Q1_YorNType": {
+            "title": "Q1_YorNType",
+            "enum": [
+               "Y",
+               "N"
+            ],
+            "type": "string",
+            "description": "Valid values are : Y, N"
+         },
+         "Q1_YorNTypeOptional": {
+            "title": "Q1_YorNTypeOptional",
+            "enum": [
+               "Y",
+               "N"
+            ],
+            "type": "string",
+            "description": "Optional.\n\t\t\t\tValid values are : Y, N"
+         },
+         "Q1_CustomerChannelType": {
+            "title": "Q1_CustomerChannelType",
+            "enum": [
+               "BOTH",
+               "MOBILE",
+               "AOL"
+            ],
+            "type": "string",
+            "description": ""
+         },
+         "Q1_ErrorCategoryType": {
+            "title": "Q1_ErrorCategoryType",
+            "enum": [
+               "BUSINESS",
+               "SYSTEM"
+            ],
+            "type": "string",
+            "description": ""
+         },
+         "Q1_CommonServiceFaultType": {
+            "title": "Q1_CommonServiceFaultType",
+            "required": [
+               "category",
+               "code",
+               "message",
+               "detail"
+            ],
+            "type": "object",
+            "properties": {
+               "category": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/Q1_ErrorCategoryType"
+                     }
+                  ]
+               },
+               "code": {
+                  "type": "string"
+               },
+               "message": {
+                  "type": "string"
+               },
+               "detail": {
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "Q1_ServicesStatusType": {
+            "title": "Q1_ServicesStatusType",
+            "enum": [
+               "ACTIVE",
+               "DISABLE_USER",
+               "DISABLE_ADMIN",
+               "DELETED"
+            ],
+            "type": "string",
+            "description": ""
+         },
+         "Q1_ServiceLevelType": {
+            "title": "Q1_ServiceLevelType",
+            "enum": [
+               "INQUIRY",
+               "FULL"
+            ],
+            "type": "string",
+            "description": ""
+         },
+         "Q1_CustomerStatusType": {
+            "title": "Q1_CustomerStatusType",
+            "required": [
+               "userId",
+               "aol",
+               "mobile",
+               "emergencyCash"
+            ],
+            "type": "object",
+            "properties": {
+               "userId": {
+                  "type": "string"
+               },
+               "aol": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/Q1_AolStatusType"
+                     }
+                  ]
+               },
+               "mobile": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/Q1_MobileStatusType"
+                     }
+                  ]
+               },
+               "emergencyCash": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/Q1_EmergencyCashStatus"
+                     }
+                  ]
+               }
+            },
+            "description": ""
+         },
+         "Q1_AolStatusType": {
+            "title": "Q1_AolStatusType",
+            "required": [
+               "createdBy",
+               "createdDate",
+               "lastLoginDate",
+               "serviceLevel",
+               "serviceStatus",
+               "passwordRevoked"
+            ],
+            "type": "object",
+            "properties": {
+               "createdBy": {
+                  "type": "string"
+               },
+               "createdDate": {
+                  "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+                  "type": "string"
+               },
+               "lastLoginDate": {
+                  "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+                  "type": "string"
+               },
+               "serviceLevel": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/Q1_ServiceLevelType"
+                     }
+                  ]
+               },
+               "serviceStatus": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/Q1_ServicesStatusType"
+                     }
+                  ]
+               },
+               "passwordRevoked": {
+                  "type": "boolean"
+               }
+            },
+            "description": ""
+         },
+         "Q1_MobileStatusType": {
+            "title": "Q1_MobileStatusType",
+            "required": [
+               "registeredBy",
+               "registeredDate",
+               "lastLoginDate",
+               "serviceLevel",
+               "serviceStatus"
+            ],
+            "type": "object",
+            "properties": {
+               "registeredBy": {
+                  "type": "string"
+               },
+               "registeredDate": {
+                  "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+                  "type": "string"
+               },
+               "lastLoginDate": {
+                  "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+                  "type": "string"
+               },
+               "serviceLevel": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/Q1_ServiceLevelType"
+                     }
+                  ]
+               },
+               "serviceStatus": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/Q1_ServicesStatusType"
+                     }
+                  ]
+               }
+            },
+            "description": ""
+         },
+         "Q1_EmergencyCashStatus": {
+            "title": "Q1_EmergencyCashStatus",
+            "required": [
+               "registrationDate",
+               "status"
+            ],
+            "type": "object",
+            "properties": {
+               "registrationDate": {
+                  "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+                  "type": "string"
+               },
+               "status": {
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "Q1_TransactionInfo": {
+            "title": "Q1_TransactionInfo",
+            "required": [
+               "transactionType"
+            ],
+            "type": "object",
+            "properties": {
+               "transactionId": {
+                  "type": "string"
+               },
+               "relatedTransactionId": {
+                  "type": "string"
+               },
+               "transactionType": {
+                  "type": "string"
+               },
+               "timestamp": {
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "Q1_ClientInfo": {
+            "title": "Q1_ClientInfo",
+            "required": [
+               "clientId"
+            ],
+            "type": "object",
+            "properties": {
+               "clientId": {
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "Q1_SecurityInfo": {
+            "title": "Q1_SecurityInfo",
+            "required": [
+               "username",
+               "password"
+            ],
+            "type": "object",
+            "properties": {
+               "username": {
+                  "type": "string"
+               },
+               "password": {
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "Q1_CreationInfo": {
+            "title": "Q1_CreationInfo",
+            "type": "object",
+            "properties": {
+               "date": {
+                  "type": "string"
+               },
+               "branch": {
+                  "maxLength": 5,
+                  "type": "string"
+               },
+               "institution": {
+                  "maxLength": 3,
+                  "type": "string"
+               },
+               "teller": {
+                  "maxLength": 8,
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "Q1_RequestHeader": {
+            "title": "Q1_RequestHeader",
+            "type": "object",
+            "properties": {
+               "transactionInfo": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/Q1_TransactionInfo"
+                     }
+                  ]
+               },
+               "clientInfo": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/Q1_ClientInfo"
+                     }
+                  ]
+               },
+               "securityInfo": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/Q1_SecurityInfo"
+                     }
+                  ]
+               },
+               "creationInfo": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/Q1_CreationInfo"
+                     }
+                  ]
+               }
+            },
+            "description": ""
+         },
+         "Q1_ErrorInfo": {
+            "title": "Q1_ErrorInfo",
+            "required": [
+               "level"
+            ],
+            "type": "object",
+            "properties": {
+               "level": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/Q1_level"
+                     }
+                  ]
+               },
+               "code": {
+                  "type": "string"
+               },
+               "context": {
+                  "type": "string"
+               },
+               "message": {
+                  "type": "string"
+               },
+               "details": {
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "Q1_ReplyHeader": {
+            "title": "Q1_ReplyHeader",
+            "type": "object",
+            "properties": {
+               "transactionInfo": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/Q1_TransactionInfo"
+                     }
+                  ]
+               },
+               "clientInfo": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/Q1_ClientInfo"
+                     }
+                  ]
+               },
+               "errorInfo": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/Q1_ErrorInfo"
+                     }
+                  ]
+               }
+            },
+            "description": ""
+         },
+         "BankListRequest": {
+            "title": "BankListRequest",
+            "required": [
+               "BankListRequest"
+            ],
+            "type": "object",
+            "properties": {
+               "BankListRequest": {
+                  "$ref": "#/components/schemas/BankListRequestType"
+               }
+            }
+         },
+         "BankListResponse": {
+            "title": "BankListResponse",
+            "required": [
+               "BankListResponse"
+            ],
+            "type": "object",
+            "properties": {
+               "BankListResponse": {
+                  "$ref": "#/components/schemas/BankListResponseType"
+               }
+            }
+         },
+         "BusinessDaysListRequest": {
+            "title": "BusinessDaysListRequest",
+            "required": [
+               "BusinessDaysListRequest"
+            ],
+            "type": "object",
+            "properties": {
+               "BusinessDaysListRequest": {
+                  "$ref": "#/components/schemas/tns_BusinessDaysListRequest"
+               }
+            }
+         },
+         "BusinessDaysListResponse": {
+            "title": "BusinessDaysListResponse",
+            "required": [
+               "BusinessDaysListResponse"
+            ],
+            "type": "object",
+            "properties": {
+               "BusinessDaysListResponse": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/tns_BusinessDaysListResponse"
+                     }
+                  ]
+               }
+            }
+         },
+         "CountryListRequest": {
+            "title": "CountryListRequest",
+            "required": [
+               "CountryListRequest"
+            ],
+            "type": "object",
+            "properties": {
+               "CountryListRequest": {
+                  "$ref": "#/components/schemas/tns_CountryListRequest"
+               }
+            }
+         },
+         "CountryListResponse": {
+            "title": "CountryListResponse",
+            "required": [
+               "CountryListResponse"
+            ],
+            "type": "object",
+            "properties": {
+               "CountryListResponse": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/tns_CountryListResponse"
+                     }
+                  ]
+               }
+            }
+         },
+         "CurrencyListRequest": {
+            "title": "CurrencyListRequest",
+            "required": [
+               "body"
+            ],
+            "type": "object",
+            "properties": {
+               "body": {
+                  "type": "string"
+               }
+            }
+         },
+         "CurrencyListResponse": {
+            "title": "CurrencyListResponse",
+            "required": [
+               "CurrencyListResponse"
+            ],
+            "type": "object",
+            "properties": {
+               "CurrencyListResponse": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/tns_CurrencyListResponse"
+                     }
+                  ]
+               }
+            }
+         },
+         "CutoffListRequest": {
+            "title": "CutoffListRequest",
+            "required": [
+               "CutoffListRequest"
+            ],
+            "type": "object",
+            "properties": {
+               "CutoffListRequest": {
+                  "$ref": "#/components/schemas/tns_CutoffListRequest"
+               }
+            }
+         },
+         "CutoffListResponse": {
+            "title": "CutoffListResponse",
+            "required": [
+               "CutoffListResponse"
+            ],
+            "type": "object",
+            "properties": {
+               "CutoffListResponse": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/tns_CutoffListResponse"
+                     }
+                  ]
+               }
+            }
+         },
+         "GetIRPermittedCountriesRequest": {
+            "title": "GetIRPermittedCountriesRequest",
+            "required": [
+               "GetIRPermittedCountriesRequest"
+            ],
+            "type": "object",
+            "properties": {
+               "GetIRPermittedCountriesRequest": {
+                  "$ref": "#/components/schemas/tns_GetIRPermittedCountriesRequest"
+               }
+            }
+         },
+         "GetIRPermittedCountriesResponse": {
+            "title": "GetIRPermittedCountriesResponse",
+            "required": [
+               "GetIRPermittedCountriesResponse"
+            ],
+            "type": "object",
+            "properties": {
+               "GetIRPermittedCountriesResponse": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/tns_GetIRPermittedCountriesResponse"
+                     }
+                  ]
+               }
+            }
+         },
+         "GetPayCountryCurrenciesRequest": {
+            "title": "GetPayCountryCurrenciesRequest",
+            "required": [
+               "GetPayCountryCurrenciesRequest"
+            ],
+            "type": "object",
+            "properties": {
+               "GetPayCountryCurrenciesRequest": {
+                  "$ref": "#/components/schemas/tns_GetPayCountryCurrenciesRequest"
+               }
+            }
+         },
+         "GetPayCountryCurrenciesResponse": {
+            "title": "GetPayCountryCurrenciesResponse",
+            "required": [
+               "GetPayCountryCurrenciesResponse"
+            ],
+            "type": "object",
+            "properties": {
+               "GetPayCountryCurrenciesResponse": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/tns_GetPayCountryCurrenciesResponse"
+                     }
+                  ]
+               }
+            }
+         },
+         "header_authenticationType": {
+            "title": "header_authenticationType",
+            "enum": [
+               "NONE",
+               "OTP",
+               "TOKEN"
+            ],
+            "type": "string",
+            "description": ""
+         },
+         "Q1_level": {
+            "title": "Q1_level",
+            "enum": [
+               "SUCCESS",
+               "WARNING",
+               "FAILURE"
+            ],
+            "type": "string",
+            "description": ""
+         },
+         "RetrieveGoldDeliveryBranchesRequest": {
+            "title": "RetrieveGoldDeliveryBranchesRequest",
+            "required": [
+               "RetrieveGoldDeliveryBranchesRequest"
+            ],
+            "type": "object",
+            "properties": {
+               "RetrieveGoldDeliveryBranchesRequest": {
+                  "$ref": "#/components/schemas/tns_RetrieveGoldDeliveryBranchesRequest"
+               }
+            }
+         },
+         "RetrieveGoldDeliveryBranchesResponse": {
+            "title": "RetrieveGoldDeliveryBranchesResponse",
+            "required": [
+               "RetrieveGoldDeliveryBranchesResponse"
+            ],
+            "type": "object",
+            "properties": {
+               "RetrieveGoldDeliveryBranchesResponse": {
+                  "allOf": [
+                     {
+                        "$ref": "#/components/schemas/tns_RetrieveGoldDeliveryBranchesResponse"
+                     }
+                  ]
+               }
+            }
+         },
+         "tns_cutoffType": {
+            "title": "tns_cutoffType",
+            "enum": [
+               "T",
+               "R",
+               "C",
+               "S",
+               "B"
+            ],
+            "type": "string",
+            "description": ""
+         },
+         "inquiryType": {
+            "title": "inquiryType",
+            "enum": [
+               "ALL",
+               "BANKCODE"
+            ],
+            "type": "string",
+            "description": ""
+         },
+         "tns_transactionType": {
+            "title": "tns_transactionType",
+            "enum": [
+               "SARIE",
+               "SWIFT",
+               "ALL"
+            ],
+            "type": "string",
+            "description": ""
+         },
+         "wsse_UsernameToken": {
+            "title": "wsse_UsernameToken",
+            "required": [
+               "Username",
+               "Password"
+            ],
+            "type": "object",
+            "properties": {
+               "Username": {
+                  "type": "string"
+               },
+               "Password": {
+                  "type": "string"
+               }
+            },
+            "description": ""
+         },
+         "Q1_AmountOptional": {
+            "oneOf": [
+               {
+                  "type": "number"
+               },
+               {
+                  "type": "string"
+               }
+            ]
+         }
+      },
+      "securitySchemes": {
+         "mwsecurity": {
+            "type": "http",
+            "scheme": "bearer",
+            "bearerFormat": "JWT"
+         }
+      }
+   },
+   "security": [
+      {
+         "mwsecurity": []
+      }
+   ],
+   "tags": [
+      {
+         "name": "PaymentSupport APIs",
+         "description": ""
+      }
+   ]
+}

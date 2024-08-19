@@ -1,0 +1,4230 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Entrust Connector APIs",
+    "version": "1.0",
+    "description": "Retrieves data from Entrust"
+  },
+  "servers": [
+    {
+      "url": "https://mw-api-3scale-apicast-staging.apps.com:443/api/connector/entrust"
+    }
+  ],
+  "paths": {
+    "/v1/UserGet": {
+      "post": {
+        "tags": [
+          "Entrust APIs"
+        ],
+        "description": "It retrieves the machinesecrets,token, siteimage for a particular user.",
+        "operationId": "UserGet",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT bearer token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "having channel details , locale",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserGetRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserGetResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserGetResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized Request"
+          },
+          "404": {
+            "description": "404 API Not Found"
+          },
+          "405": {
+            "description": "405 Method Not Allowed"
+          },
+          "429": {
+            "description": "429 Too Many Requests"
+          },
+          "500": {
+            "description": "500 Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserGetResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503 Service Unavailable"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/UserSet": {
+      "post": {
+        "tags": [
+          "Entrust APIs Stage"
+        ],
+        "summary": "UserSet",
+        "operationId": "UserSet",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          },
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserSetRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserSetResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/UserCreate": {
+      "post": {
+        "tags": [
+          "Entrust APIs"
+        ],
+        "description": "This api is used to create the user in the Entrust system.",
+        "operationId": "UserCreate",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT bearer token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "having channel details , locale",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserCreateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserCreateResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserCreateResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized Request"
+          },
+          "404": {
+            "description": "404 API Not Found"
+          },
+          "405": {
+            "description": "405 Method Not Allowed"
+          },
+          "429": {
+            "description": "429 Too Many Requests"
+          },
+          "500": {
+            "description": "500 Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserCreateResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503 Service Unavailable"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/UserDelete": {
+      "post": {
+        "tags": [
+          "Entrust APIs Stage"
+        ],
+        "summary": "UserDelete",
+        "operationId": "UserDelete",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          },
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDeleteRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDeleteResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/UserMachineSecretCreate": {
+      "post": {
+        "tags": [
+          "Entrust APIs Stage"
+        ],
+        "summary": "UserMachineSecretCreate",
+        "operationId": "UserMachineSecretCreate",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          },
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserMachineSecretCreateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserMachineSecretCreateResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/UserMachineSecretDelete": {
+      "post": {
+        "tags": [
+          "Entrust APIs Stage"
+        ],
+        "summary": "UserMachineSecretDelete",
+        "operationId": "UserMachineSecretDelete",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          },
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserMachineSecretDeleteRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserMachineSecretDeleteResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/UserMachineSecretGet": {
+      "post": {
+        "tags": [
+          "Entrust APIs Stage"
+        ],
+        "summary": "UserMachineSecretGet",
+        "operationId": "UserMachineSecretGet",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          },
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserMachineSecretGetRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserMachineSecretGetResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/UserMachineSecretList": {
+      "post": {
+        "tags": [
+          "Entrust APIs Stage"
+        ],
+        "summary": "UserMachineSecretList",
+        "operationId": "UserMachineSecretList",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          },
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserMachineSecretListRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserMachineSecretListResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/UserTokenAssign": {
+      "post": {
+        "tags": [
+          "Entrust APIs Stage"
+        ],
+        "summary": "UserTokenAssign",
+        "operationId": "UserTokenAssign",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          },
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserTokenAssignRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserTokenAssignResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/UserTokenCreate": {
+      "post": {
+        "tags": [
+          "Entrust APIs Stage"
+        ],
+        "summary": "UserTokenCreate",
+        "operationId": "UserTokenCreate",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          },
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserTokenCreateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserTokenCreateResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/UserTokenDelete": {
+      "post": {
+        "tags": [
+          "Entrust APIs Stage"
+        ],
+        "summary": "UserTokenDelete",
+        "operationId": "UserTokenDelete",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          },
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserTokenDeleteRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserTokenDeleteResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/UserTokenSet": {
+      "post": {
+        "tags": [
+          "Entrust APIs Stage"
+        ],
+        "summary": "UserTokenSet",
+        "operationId": "UserTokenSet",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          },
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserTokenSetRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserTokenSetResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/UserTokenUnassign": {
+      "post": {
+        "tags": [
+          "Entrust APIs Stage"
+        ],
+        "summary": "UserTokenUnassign",
+        "operationId": "UserTokenUnassign",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          },
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserTokenUnassignRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserTokenUnassignResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/UserTokenAuthenticate": {
+      "post": {
+        "tags": [
+          "Entrust APIs Stage"
+        ],
+        "summary": "UserTokenAuthenticate",
+        "operationId": "UserTokenAuthenticate",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          },
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserTokenAuthenticateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserTokenAuthenticateResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/UserTokenActivate": {
+      "post": {
+        "tags": [
+          "Entrust APIs Stage"
+        ],
+        "summary": "UserTokenActivate",
+        "operationId": "UserTokenActivate",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          },
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserTokenActivateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserTokenActivateResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/UserTokenActivateComplete": {
+      "post": {
+        "tags": [
+          "Entrust APIs Stage"
+        ],
+        "summary": "UserTokenActivateComplete",
+        "operationId": "UserTokenActivateComplete",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          },
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserTokenActivateCompleteRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserTokenActivateCompleteResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/UserTokenList": {
+      "post": {
+        "tags": [
+          "Entrust APIs Stage"
+        ],
+        "summary": "UserTokenList",
+        "operationId": "UserTokenList",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          },
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserTokenListRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserTokenListResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/UserOTPGet": {
+      "post": {
+        "tags": [
+          "Entrust APIs"
+        ],
+        "description": "It gets the OTP for a particular user.",
+        "operationId": "UserOTPGet",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT bearer token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "having channel details , locale",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserOTPGetRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserOTPGetResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserOTPGetResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized Request"
+          },
+          "404": {
+            "description": "404 API Not Found"
+          },
+          "405": {
+            "description": "405 Method Not Allowed"
+          },
+          "429": {
+            "description": "429 Too Many Requests"
+          },
+          "500": {
+            "description": "500 Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserOTPGetResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503 Service Unavailable"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/UserOTPCreate": {
+      "post": {
+        "tags": [
+          "Entrust APIs"
+        ],
+        "description": "It creates the OTP for a particular user.",
+        "operationId": "UserOTPCreate",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT bearer token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "having channel details , locale",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserOTPCreateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserOTPCreateResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserOTPCreateResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized Request"
+          },
+          "404": {
+            "description": "404 API Not Found"
+          },
+          "405": {
+            "description": "405 Method Not Allowed"
+          },
+          "429": {
+            "description": "429 Too Many Requests"
+          },
+          "500": {
+            "description": "500 Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserOTPCreateResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503 Service Unavailable"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/AuthenticateGenericChallenge": {
+      "post": {
+        "tags": [
+          "Entrust APIs"
+        ],
+        "description": "It authenticates the user by OTP or Token for a particular user.",
+        "operationId": "AuthenticateGenericChallenge",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT bearer token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "having channel details , locale",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthenticateGenericChallengeRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticateGenericChallengeResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticateGenericChallengeResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized Request"
+          },
+          "404": {
+            "description": "404 API Not Found"
+          },
+          "405": {
+            "description": "405 Method Not Allowed"
+          },
+          "429": {
+            "description": "429 Too Many Requests"
+          },
+          "500": {
+            "description": "500 Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticateGenericChallengeResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503 Service Unavailable"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/GetGenericChallenge": {
+      "post": {
+        "tags": [
+          "Entrust APIs"
+        ],
+        "description": "This api used to machine authentication for a particular user.",
+        "operationId": "GetGenericChallenge",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT bearer token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "having channel details , locale",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetGenericChallengeRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetGenericChallengeResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetGenericChallengeResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized Request"
+          },
+          "404": {
+            "description": "404 API Not Found"
+          },
+          "405": {
+            "description": "405 Method Not Allowed"
+          },
+          "429": {
+            "description": "429 Too Many Requests"
+          },
+          "500": {
+            "description": "500 Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetGenericChallengeResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503 Service Unavailable"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/GetConnectorConfig": {
+      "get": {
+        "tags": [
+          "Entrust APIs"
+        ],
+        "description": "Retrieves Configuration details of the Entrust",
+        "operationId": "GetConnectorConfig",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT bearer token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "having channel details , locale",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetConnectorConfigResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetConnectorConfigResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized Request"
+          },
+          "404": {
+            "description": "404 API Not Found"
+          },
+          "405": {
+            "description": "405 Method Not Allowed"
+          },
+          "429": {
+            "description": "429 Too Many Requests"
+          },
+          "500": {
+            "description": "500 Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetConnectorConfigResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503 Service Unavailable"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/PVNRetrieve": {
+      "post": {
+        "tags": [
+          "Entrust APIs Stage"
+        ],
+        "summary": "PVNRetrieve",
+        "operationId": "PVNRetrieve",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          },
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PVNRetrieveRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PVNRetrieveResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/PVNUpdate": {
+      "post": {
+        "tags": [
+          "Entrust APIs Stage"
+        ],
+        "summary": "PVNUpdate",
+        "operationId": "PVNUpdate",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          },
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PVNUpdateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PVNUpdateResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/UserUnlock": {
+      "post": {
+        "tags": [
+          "Entrust APIs Stage"
+        ],
+        "summary": "UserUnlock",
+        "operationId": "UserUnlock",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          },
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserUnlockRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserUnlockResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/SetNewPVN": {
+      "post": {
+        "tags": [
+          "Entrust APIs Stage"
+        ],
+        "summary": "SetNewPVN",
+        "operationId": "SetNewPVN",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          },
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetNewPVNRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SetNewPVNResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/CreatePVN": {
+      "post": {
+        "tags": [
+          "Entrust APIs Stage"
+        ],
+        "summary": "CreatePVN",
+        "operationId": "CreatePVN",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          },
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePVNRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreatePVNResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "success": {
+        "title": "success",
+        "type": "object",
+        "description": ""
+      },
+      "UserInfo": {
+        "title": "UserInfo",
+        "required": [
+          "UserName",
+          "UserGroup",
+          "HasMachine",
+          "HasOTP",
+          "HasToken",
+          "HasSiteImage",
+          "MachineSecrets",
+          "Tokens",
+          "SharedSecrets"
+        ],
+        "type": "object",
+        "properties": {
+          "UserName": {
+            "type": "string"
+          },
+          "UserGroup": {
+            "type": "string"
+          },
+          "UserState": {
+            "type": "string"
+          },
+          "HasMachine": {
+            "type": "boolean"
+          },
+          "HasOTP": {
+            "type": "boolean"
+          },
+          "HasToken": {
+            "type": "boolean"
+          },
+          "HasSiteImage": {
+            "type": "boolean"
+          },
+          "MachineSecrets": {
+            "$ref": "#/components/schemas/MachineSecrets"
+          },
+          "Tokens": {
+            "$ref": "#/components/schemas/Tokens"
+          },
+          "SharedSecrets": {
+            "$ref": "#/components/schemas/SharedSecrets"
+          }
+        },
+        "description": ""
+      },
+      "MachineSecrets": {
+        "title": "MachineSecrets",
+        "type": "object",
+        "properties": {
+          "MachineSecretInfo": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MachineSecretInfo"
+            }
+          }
+        },
+        "description": ""
+      },
+      "Tokens": {
+        "title": "Tokens",
+        "type": "object",
+        "properties": {
+          "UserTokenInfo": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserTokenInfo"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "SharedSecrets": {
+        "title": "SharedSecrets",
+        "type": "object",
+        "properties": {
+          "SharedSecret": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SharedSecret"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_QaSecrets": {
+        "title": "tns_QaSecrets",
+        "type": "object",
+        "properties": {
+          "NameValue": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_NameValue"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "UserOTPInfo": {
+        "title": "UserOTPInfo",
+        "required": [
+          "OTP",
+          "CreateDate",
+          "ExpireDate"
+        ],
+        "type": "object",
+        "properties": {
+          "OTP": {
+            "type": "string"
+          },
+          "CreateDate": {
+            "type": "string"
+          },
+          "ExpireDate": {
+            "type": "string"
+          }
+        }
+      },
+      "UserOTPGetRequestType": {
+        "title": "UserOTPGetRequestType",
+        "required": [
+          "UserId"
+        ],
+        "type": "object",
+        "properties": {
+          "UserId": {
+            "type": "string"
+          },
+          "UserGroup": {
+            "type": "string"
+          }
+        }
+      },
+      "UserOTPGetResponseType": {
+        "title": "UserOTPGetResponseType",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/UserOTPInfoType"
+          },
+          "fault": {
+            "$ref": "../../../commonschemas/fault.json#/FaultType"
+          }
+        }
+      },
+      "UserOTPCreateRequestType": {
+        "title": "UserOTPCreateRequestType",
+        "required": [
+          "UserId"
+        ],
+        "type": "object",
+        "properties": {
+          "UserId": {
+            "type": "string"
+          },
+          "UserGroup": {
+            "type": "string"
+          },
+          "IsForceOTP": {
+            "type": "boolean",
+            "default": false
+          },
+          "otpLifetime": {
+            "type": "integer",
+            "description": "OTP life time value should be in  milliseconds",
+            "format": "int64"
+          }
+        }
+      },
+      "UserOTPCreateResponseType": {
+        "title": "UserOTPCreateResponseType",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/UserOTPInfoType"
+          },
+          "fault": {
+            "$ref": "../../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "AuthenticateGenericChallengeRequestType": {
+        "title": "AuthenticateGenericChallengeRequestType",
+        "required": [
+          "UserId",
+          "AuthenticationType",
+          "TokenCode"
+        ],
+        "type": "object",
+        "properties": {
+          "UserId": {
+            "type": "string"
+          },
+          "UserGroup": {
+            "type": "string"
+          },
+          "AuthenticationType": {
+            "$ref": "#/components/schemas/AuthenticationType"
+          },
+          "TokenCode": {
+            "type": "string"
+          },
+          "PVN": {
+            "type": "string"
+          },
+          "NewPVN": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "AuthenticateGenericChallengeResponseType": {
+        "title": "AuthenticateGenericChallengeResponseType",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "fault": {
+            "$ref": "../../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "UserGetRequestType": {
+        "title": "UserGetRequestType",
+        "required": [
+          "UserId",
+          "UserGetParameters"
+        ],
+        "type": "object",
+        "properties": {
+          "UserId": {
+            "type": "string"
+          },
+          "UserGroup": {
+            "type": "string"
+          },
+          "UserGetParameters": {
+            "$ref": "#/components/schemas/UserGetParameters"
+          }
+        },
+        "description": ""
+      },
+      "UserGetResponseType": {
+        "title": "UserGetResponseType",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/UserGetType"
+          },
+          "fault": {
+            "$ref": "../../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserSet": {
+        "title": "tns_UserSet",
+        "required": [
+          "UserId",
+          "UserSetParameters"
+        ],
+        "type": "object",
+        "properties": {
+          "UserId": {
+            "type": "string"
+          },
+          "UserGroup": {
+            "type": "string"
+          },
+          "UserSetParameters": {
+            "$ref": "#/components/schemas/tns_UserSetParameters"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserSetResponse": {
+        "title": "tns_UserSetResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/success"
+          },
+          "fault": {
+            "$ref": "../../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "UserCreateRequestType": {
+        "title": "UserCreateRequestType",
+        "required": [
+          "UserId"
+        ],
+        "type": "object",
+        "properties": {
+          "UserId": {
+            "type": "string"
+          },
+          "UserGroup": {
+            "type": "string"
+          },
+          "UserName": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "UserCreateResponseType": {
+        "title": "UserCreateResponseType",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "fault": {
+            "$ref": "../../../commonschemas/fault.json#/FaultType"
+          }
+        }
+      },
+      "tns_UserDelete": {
+        "title": "tns_UserDelete",
+        "required": [
+          "UserId"
+        ],
+        "type": "object",
+        "properties": {
+          "UserId": {
+            "type": "string"
+          },
+          "UserGroup": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserDeleteResponse": {
+        "title": "tns_UserDeleteResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/success"
+          },
+          "fault": {
+            "$ref": "../../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "GetGenericChallengeRequestType": {
+        "title": "GetGenericChallengeRequestType",
+        "required": [
+          "UserId",
+          "MachineSecrets"
+        ],
+        "type": "object",
+        "properties": {
+          "UserId": {
+            "type": "string"
+          },
+          "UserGroup": {
+            "type": "string"
+          },
+          "MachineSecrets": {
+            "$ref": "#/components/schemas/MachineSecrets"
+          }
+        },
+        "description": ""
+      },
+      "GetGenericChallengeResponseType": {
+        "title": "GetGenericChallengeResponseType",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/MachineSecretsType"
+          },
+          "fault": {
+            "$ref": "../../../commonschemas/fault.json#/FaultType"
+          }
+        }
+      },
+      "GetConnectorConfigResponseType": {
+        "title": "GetConnectorConfigResponseType",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/GetConnectorConfigType"
+          },
+          "fault": {
+            "$ref": "../../../commonschemas/fault.json#/FaultType"
+          }
+        }
+      },
+      "tns_UserMachineSecretCreate": {
+        "title": "tns_UserMachineSecretCreate",
+        "required": [
+          "UserId",
+          "MachineSecrets"
+        ],
+        "type": "object",
+        "properties": {
+          "UserId": {
+            "type": "string"
+          },
+          "UserGroup": {
+            "type": "string"
+          },
+          "MachineSecrets": {
+            "$ref": "#/components/schemas/MachineSecrets"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserMachineSecretCreateResponse": {
+        "title": "tns_UserMachineSecretCreateResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/MachineSecretsType"
+          },
+          "fault": {
+            "$ref": "../../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserMachineSecretDelete": {
+        "title": "tns_UserMachineSecretDelete",
+        "required": [
+          "UserId",
+          "MachineNonce"
+        ],
+        "type": "object",
+        "properties": {
+          "UserId": {
+            "type": "string"
+          },
+          "UserGroup": {
+            "type": "string"
+          },
+          "MachineNonce": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserMachineSecretDeleteResponse": {
+        "title": "tns_UserMachineSecretDeleteResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/success"
+          },
+          "fault": {
+            "$ref": "../../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserMachineSecretGet": {
+        "title": "tns_UserMachineSecretGet",
+        "required": [
+          "UserId"
+        ],
+        "type": "object",
+        "properties": {
+          "UserId": {
+            "type": "string"
+          },
+          "UserGroup": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserMachineSecretGetResponse": {
+        "title": "tns_UserMachineSecretGetResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "fault": {
+            "$ref": "../../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserMachineSecretList": {
+        "title": "tns_UserMachineSecretList",
+        "required": [
+          "UserId"
+        ],
+        "type": "object",
+        "properties": {
+          "UserId": {
+            "type": "string"
+          },
+          "UserGroup": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserMachineSecretListResponse": {
+        "title": "tns_UserMachineSecretListResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/MachineSecretsType"
+          },
+          "fault": {
+            "$ref": "../../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserTokenAssign": {
+        "title": "tns_UserTokenAssign",
+        "required": [
+          "UserId",
+          "SerialNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "UserId": {
+            "type": "string"
+          },
+          "UserGroup": {
+            "type": "string"
+          },
+          "VendorId": {
+            "type": "string"
+          },
+          "SerialNumber": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserTokenAssignResponse": {
+        "title": "tns_UserTokenAssignResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/tns_success8"
+          },
+          "fault": {
+            "$ref": "../../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserTokenCreate": {
+        "title": "tns_UserTokenCreate",
+        "required": [
+          "UserId"
+        ],
+        "type": "object",
+        "properties": {
+          "UserId": {
+            "type": "string"
+          },
+          "UserGroup": {
+            "type": "string"
+          },
+          "VendorId": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserTokenCreateResponse": {
+        "title": "tns_UserTokenCreateResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/tns_success9"
+          },
+          "fault": {
+            "$ref": "../../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserTokenDelete": {
+        "title": "tns_UserTokenDelete",
+        "required": [
+          "UserId",
+          "SerialNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "UserId": {
+            "type": "string"
+          },
+          "UserGroup": {
+            "type": "string"
+          },
+          "VendorId": {
+            "type": "string"
+          },
+          "SerialNumber": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserTokenDeleteResponse": {
+        "title": "tns_UserTokenDeleteResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/tns_success10"
+          },
+          "fault": {
+            "$ref": "../../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserTokenSet": {
+        "title": "tns_UserTokenSet",
+        "required": [
+          "UserId",
+          "SerialNumber",
+          "State",
+          "Sync",
+          "PassCode1",
+          "PassCode2"
+        ],
+        "type": "object",
+        "properties": {
+          "UserId": {
+            "type": "string"
+          },
+          "UserGroup": {
+            "type": "string"
+          },
+          "VendorId": {
+            "type": "string"
+          },
+          "SerialNumber": {
+            "type": "string"
+          },
+          "State": {
+            "type": "string"
+          },
+          "Sync": {
+            "type": "string"
+          },
+          "PassCode1": {
+            "type": "string"
+          },
+          "PassCode2": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserTokenSetResponse": {
+        "title": "tns_UserTokenSetResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/tns_success11"
+          },
+          "fault": {
+            "$ref": "../../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserTokenUnassign": {
+        "title": "tns_UserTokenUnassign",
+        "required": [
+          "UserId",
+          "SerialNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "UserId": {
+            "type": "string"
+          },
+          "UserGroup": {
+            "type": "string"
+          },
+          "VendorId": {
+            "type": "string"
+          },
+          "SerialNumber": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserTokenUnassignResponse": {
+        "title": "tns_UserTokenUnassignResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/tns_success12"
+          },
+          "fault": {
+            "$ref": "../../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserTokenAuthenticate": {
+        "title": "tns_UserTokenAuthenticate",
+        "required": [
+          "UserId",
+          "SerialNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "UserId": {
+            "type": "string"
+          },
+          "UserGroup": {
+            "type": "string"
+          },
+          "VendorId": {
+            "type": "string"
+          },
+          "SerialNumber": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserTokenAuthenticateResponse": {
+        "title": "tns_UserTokenAuthenticateResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/tns_success13"
+          },
+          "fault": {
+            "$ref": "../../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserTokenActivate": {
+        "title": "tns_UserTokenActivate",
+        "required": [
+          "UserId",
+          "SerialNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "UserId": {
+            "type": "string"
+          },
+          "UserGroup": {
+            "type": "string"
+          },
+          "VendorId": {
+            "type": "string"
+          },
+          "SerialNumber": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserTokenActivateResponse": {
+        "title": "tns_UserTokenActivateResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/tns_success14"
+          },
+          "fault": {
+            "$ref": "../../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserTokenActivateComplete": {
+        "title": "tns_UserTokenActivateComplete",
+        "required": [
+          "UserId",
+          "SerialNumber",
+          "RegistrationCode"
+        ],
+        "type": "object",
+        "properties": {
+          "UserId": {
+            "type": "string"
+          },
+          "UserGroup": {
+            "type": "string"
+          },
+          "VendorId": {
+            "type": "string"
+          },
+          "SerialNumber": {
+            "type": "string"
+          },
+          "RegistrationCode": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserTokenActivateCompleteResponse": {
+        "title": "tns_UserTokenActivateCompleteResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/tns_success15"
+          },
+          "fault": {
+            "$ref": "../../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserTokenList": {
+        "title": "tns_UserTokenList",
+        "required": [
+          "UserId"
+        ],
+        "type": "object",
+        "properties": {
+          "UserId": {
+            "type": "string"
+          },
+          "UserGroup": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserTokenListResponse": {
+        "title": "tns_UserTokenListResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/tns_success16"
+          },
+          "fault": {
+            "$ref": "../../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_PVNRetrieve": {
+        "title": "tns_PVNRetrieve",
+        "required": [
+          "userId"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "userGroup": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_PVNRetrieveResponse": {
+        "title": "tns_PVNRetrieveResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/tns_PVNRetrievalResponseType"
+          },
+          "fault": {
+            "$ref": "../../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_PVNRetrievalResponseType": {
+        "title": "tns_PVNRetrievalResponseType",
+        "required": [
+          "pvn"
+        ],
+        "type": "object",
+        "properties": {
+          "pvn": {
+            "maximum": 9999.0,
+            "exclusiveMaximum": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "description": ""
+      },
+      "tns_PVNUpdate": {
+        "title": "tns_PVNUpdate",
+        "required": [
+          "userId",
+          "newPVN"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "userGroup": {
+            "type": "string"
+          },
+          "newPVN": {
+            "maximum": 9999.0,
+            "exclusiveMaximum": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "description": ""
+      },
+      "tns_PVNUpdateResponse": {
+        "title": "tns_PVNUpdateResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "fault": {
+            "$ref": "../../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserUnlock": {
+        "title": "tns_UserUnlock",
+        "required": [
+          "userId"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "userClearLockout": {
+            "type": "string"
+          },
+          "userGroup": {
+            "type": "string"
+          },
+          "SharedSecrets": {
+            "$ref": "#/components/schemas/SharedSecrets"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserUnlockResponse": {
+        "title": "tns_UserUnlockResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "fault": {
+            "$ref": "../../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_NewPVN": {
+        "title": "tns_NewPVN",
+        "required": [
+          "userId",
+          "oldPVN",
+          "newPVN"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "userGroup": {
+            "type": "string"
+          },
+          "oldPVN": {
+            "type": "string"
+          },
+          "newPVN": {
+            "type": "string"
+          },
+          "isAutoGenerate": {
+            "type": "boolean",
+            "description": "Must be: False"
+          },
+          "isChangeRequired": {
+            "type": "boolean",
+            "description": "Must be:False"
+          }
+        },
+        "description": ""
+      },
+      "tns_NewPVNResponse": {
+        "title": "tns_NewPVNResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "fault": {
+            "$ref": "../../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_CreatePVN": {
+        "title": "tns_CreatePVN",
+        "required": [
+          "userId"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "userGroup": {
+            "type": "string"
+          },
+          "PVN": {
+            "type": "string"
+          },
+          "setChangeRequired": {
+            "type": "boolean"
+          }
+        },
+        "description": ""
+      },
+      "tns_CreatePVNResponse": {
+        "title": "tns_CreatePVNResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "fault": {
+            "$ref": "../../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "wsse_Security": {
+        "title": "wsse_Security",
+        "required": [
+          "UsernameToken"
+        ],
+        "type": "object",
+        "properties": {
+          "UsernameToken": {
+            "$ref": "#/components/schemas/wsse_UsernameToken"
+          }
+        },
+        "description": ""
+      },
+      "header_ServiceHeader": {
+        "title": "header_ServiceHeader",
+        "required": [
+          "loggerContext",
+          "transactionCode",
+          "retryTransaction",
+          "tellerId",
+          "terminalId",
+          "workstationId",
+          "override",
+          "correction",
+          "supervisor",
+          "supervisorId",
+          "overrideCode",
+          "employeeId",
+          "branchId",
+          "functionId",
+          "channelId",
+          "bancsPwd",
+          "languageCode"
+        ],
+        "type": "object",
+        "properties": {
+          "loggerContext": {
+            "type": "string"
+          },
+          "transactionCode": {
+            "type": "string"
+          },
+          "retryTransaction": {
+            "type": "boolean"
+          },
+          "tellerId": {
+            "type": "string"
+          },
+          "terminalId": {
+            "type": "string"
+          },
+          "workstationId": {
+            "type": "string"
+          },
+          "override": {
+            "type": "boolean"
+          },
+          "correction": {
+            "type": "string"
+          },
+          "supervisor": {
+            "type": "string"
+          },
+          "supervisorId": {
+            "type": "string"
+          },
+          "overrideCode": {
+            "type": "string"
+          },
+          "employeeId": {
+            "type": "string"
+          },
+          "branchId": {
+            "type": "string"
+          },
+          "functionId": {
+            "type": "string"
+          },
+          "channelId": {
+            "type": "string"
+          },
+          "bancsPwd": {
+            "type": "string"
+          },
+          "languageCode": {
+            "type": "string"
+          },
+          "authenticationType": {
+            "$ref": "#/components/schemas/header_authenticationType",
+            "description": "Can be: NONE, OTP, TOKEN"
+          },
+          "IvrTransactionID": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "fault_FaultType": {
+        "title": "fault_FaultType",
+        "required": [
+          "number",
+          "description"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "description": {
+            "type": "string"
+          },
+          "retryAfter": {
+            "type": "string"
+          },
+          "system": {
+            "type": "string"
+          },
+          "nativeError": {
+            "type": "string"
+          },
+          "nativeDescription": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "AuthenticateGenericChallengeRequest": {
+        "title": "AuthenticateGenericChallengeRequest",
+        "required": [
+          "AuthenticateGenericChallenge"
+        ],
+        "type": "object",
+        "properties": {
+          "AuthenticateGenericChallenge": {
+            "$ref": "#/components/schemas/AuthenticateGenericChallengeRequestType"
+          }
+        }
+      },
+      "AuthenticateGenericChallengeResponse": {
+        "title": "AuthenticateGenericChallengeResponse",
+        "required": [
+          "AuthenticateGenericChallengeResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "AuthenticateGenericChallengeResponse": {
+            "$ref": "#/components/schemas/AuthenticateGenericChallengeResponseType"
+          }
+        }
+      },
+      "CreatePVNRequest": {
+        "title": "CreatePVNRequest",
+        "required": [
+          "CreatePVN"
+        ],
+        "type": "object",
+        "properties": {
+          "CreatePVN": {
+            "$ref": "#/components/schemas/tns_CreatePVN"
+          }
+        }
+      },
+      "CreatePVNResponse": {
+        "title": "CreatePVNResponse",
+        "required": [
+          "CreatePVNResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "CreatePVNResponse": {
+            "$ref": "#/components/schemas/tns_CreatePVNResponse"
+          }
+        }
+      },
+      "GetConnectorConfigResponse": {
+        "title": "GetConnectorConfigResponse",
+        "required": [
+          "GetConnectorConfigResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "GetConnectorConfigResponse": {
+            "$ref": "#/components/schemas/GetConnectorConfigResponseType"
+          }
+        }
+      },
+      "GetGenericChallengeRequest": {
+        "title": "GetGenericChallengeRequest",
+        "required": [
+          "GetGenericChallenge"
+        ],
+        "type": "object",
+        "properties": {
+          "GetGenericChallenge": {
+            "$ref": "#/components/schemas/GetGenericChallengeRequestType"
+          }
+        }
+      },
+      "GetGenericChallengeResponse": {
+        "title": "GetGenericChallengeResponse",
+        "required": [
+          "GetGenericChallengeResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "GetGenericChallengeResponse": {
+            "$ref": "#/components/schemas/GetGenericChallengeResponseType"
+          }
+        }
+      },
+      "header_authenticationType": {
+        "title": "header_authenticationType",
+        "enum": [
+          "NONE",
+          "OTP",
+          "TOKEN"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "PVNRetrieveRequest": {
+        "title": "PVNRetrieveRequest",
+        "required": [
+          "PVNRetrieve"
+        ],
+        "type": "object",
+        "properties": {
+          "PVNRetrieve": {
+            "$ref": "#/components/schemas/tns_PVNRetrieve"
+          }
+        }
+      },
+      "PVNRetrieveResponse": {
+        "title": "PVNRetrieveResponse",
+        "required": [
+          "PVNRetrieveResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "PVNRetrieveResponse": {
+            "$ref": "#/components/schemas/tns_PVNRetrieveResponse1"
+          }
+        }
+      },
+      "PVNUpdateRequest": {
+        "title": "PVNUpdateRequest",
+        "required": [
+          "PVNUpdate"
+        ],
+        "type": "object",
+        "properties": {
+          "PVNUpdate": {
+            "$ref": "#/components/schemas/tns_PVNUpdate"
+          }
+        }
+      },
+      "PVNUpdateResponse": {
+        "title": "PVNUpdateResponse",
+        "required": [
+          "PVNUpdateResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "PVNUpdateResponse": {
+            "$ref": "#/components/schemas/tns_PVNUpdateResponse"
+          }
+        }
+      },
+      "SetNewPVNRequest": {
+        "title": "SetNewPVNRequest",
+        "required": [
+          "NewPVN"
+        ],
+        "type": "object",
+        "properties": {
+          "NewPVN": {
+            "$ref": "#/components/schemas/tns_NewPVN"
+          }
+        }
+      },
+      "SetNewPVNResponse": {
+        "title": "SetNewPVNResponse",
+        "required": [
+          "NewPVNResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "NewPVNResponse": {
+            "$ref": "#/components/schemas/tns_NewPVNResponse"
+          }
+        }
+      },
+      "ApplicationData": {
+        "title": "ApplicationData",
+        "required": [
+          "Name",
+          "Value"
+        ],
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string"
+          },
+          "Value": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "AuthenticationType": {
+        "title": "AuthenticationType",
+        "enum": [
+          "GRID",
+          "QA",
+          "OTP",
+          "TOKENRO",
+          "TOKENCR",
+          "EXTERNAL",
+          "PASSWORD",
+          "CERTIFICATE",
+          "NONE"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "EntrustConnectorConfig": {
+        "title": "EntrustConnectorConfig",
+        "required": [
+          "AdminServiceURL",
+          "AdminUserId",
+          "AdminPassword",
+          "AuthenticationServiceURL",
+          "TruststorePath",
+          "TruststorePassword",
+          "NumRetries",
+          "DelayBetweenRetries",
+          "HoldOffTime",
+          "RestorePrimaryTime",
+          "DefaultGroup",
+          "SiteImageType",
+          "DefaultVendor",
+          "IsCreateUser",
+          "MaxAllowTrustedPC",
+          "MaxAllowSiteImage",
+          "MaxAllowHardToken",
+          "MaxAllowSoftToken"
+        ],
+        "type": "object",
+        "properties": {
+          "AdminServiceURL": {
+            "type": "string"
+          },
+          "AdminUserId": {
+            "type": "string"
+          },
+          "AdminPassword": {
+            "type": "string"
+          },
+          "AuthenticationServiceURL": {
+            "type": "string"
+          },
+          "TruststorePath": {
+            "type": "string"
+          },
+          "TruststorePassword": {
+            "type": "string"
+          },
+          "NumRetries": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "DelayBetweenRetries": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "HoldOffTime": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "RestorePrimaryTime": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "DefaultGroup": {
+            "type": "string"
+          },
+          "SiteImageType": {
+            "type": "string"
+          },
+          "DefaultVendor": {
+            "type": "string"
+          },
+          "IsCreateUser": {
+            "type": "string"
+          },
+          "MaxAllowTrustedPC": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "MaxAllowSiteImage": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "MaxAllowHardToken": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "MaxAllowSoftToken": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "description": ""
+      },
+      "MachineProperties": {
+        "title": "MachineProperties",
+        "required": [
+          "ApplicationData"
+        ],
+        "type": "object",
+        "properties": {
+          "ApplicationData": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ApplicationData"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "MachineSecretInfo": {
+        "title": "MachineSecretInfo",
+        "required": [
+          "MachineLabel",
+          "MachineNonce",
+          "SequenceNonce",
+          "CreationDate",
+          "LastUsedDate",
+          "ExpiryDate",
+          "MachineProperties"
+        ],
+        "type": "object",
+        "properties": {
+          "MachineLabel": {
+            "type": "string"
+          },
+          "MachineNonce": {
+            "type": "string"
+          },
+          "SequenceNonce": {
+            "type": "string"
+          },
+          "CreationDate": {
+            "type": "string"
+          },
+          "LastUsedDate": {
+            "type": "string"
+          },
+          "ExpiryDate": {
+            "type": "string"
+          },
+          "MachineProperties": {
+            "$ref": "#/components/schemas/MachineProperties"
+          }
+        },
+        "description": ""
+      },
+      "tns_NameValue": {
+        "title": "tns_NameValue",
+        "required": [
+          "Name",
+          "Value"
+        ],
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string"
+          },
+          "Value": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_PVNRetrieveResponseChoice0": {
+        "title": "tns_PVNRetrieveResponseChoice0",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/tns_PVNRetrievalResponseType"
+          }
+        }
+      },
+      "tns_PVNRetrieveResponseChoice1": {
+        "title": "tns_PVNRetrieveResponseChoice1",
+        "type": "object",
+        "properties": {
+          "fault": {
+            "$ref": "../../../commonschemas/fault.json#/FaultType"
+          }
+        }
+      },
+      "SharedSecret": {
+        "title": "SharedSecret",
+        "required": [
+          "Name",
+          "Value",
+          "WriteOnly"
+        ],
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string"
+          },
+          "Value": {
+            "type": "string"
+          },
+          "WriteOnly": {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "description": ""
+      },
+      "UserOTPInfoType": {
+        "title": "UserOTPInfoType",
+        "type": "object",
+        "properties": {
+          "UserOTPInfo": {
+            "$ref": "#/components/schemas/UserOTPInfo"
+          }
+        }
+      },
+      "UserGetType": {
+        "title": "UserGetType",
+        "type": "object",
+        "properties": {
+          "UserInfo": {
+            "$ref": "#/components/schemas/UserInfo"
+          }
+        },
+        "description": ""
+      },
+      "MachineSecretsType": {
+        "title": "MachineSecretsType",
+        "type": "object",
+        "properties": {
+          "MachineSecrets": {
+            "$ref": "#/components/schemas/MachineSecrets"
+          }
+        }
+      },
+      "GetConnectorConfigType": {
+        "title": "GetConnectorConfigType",
+        "type": "object",
+        "properties": {
+          "EntrustConnectorConfig": {
+            "$ref": "#/components/schemas/EntrustConnectorConfig"
+          }
+        },
+        "description": ""
+      },
+      "tns_success8": {
+        "title": "tns_success8",
+        "type": "object",
+        "properties": {
+          "UserTokenAssignResult": {
+            "$ref": "#/components/schemas/tns_UserTokenAssignResult"
+          }
+        },
+        "description": ""
+      },
+      "tns_success9": {
+        "title": "tns_success9",
+        "type": "object",
+        "properties": {
+          "UserTokenCreateResult": {
+            "$ref": "#/components/schemas/tns_UserTokenCreateResult"
+          }
+        },
+        "description": ""
+      },
+      "tns_success10": {
+        "title": "tns_success10",
+        "type": "object",
+        "properties": {
+          "UserTokenDeleteResult": {
+            "$ref": "#/components/schemas/tns_UserTokenDeleteResult"
+          }
+        },
+        "description": ""
+      },
+      "tns_success11": {
+        "title": "tns_success11",
+        "type": "object",
+        "properties": {
+          "UserTokenSetResult": {
+            "$ref": "#/components/schemas/tns_UserTokenSetResult"
+          }
+        },
+        "description": ""
+      },
+      "tns_success12": {
+        "title": "tns_success12",
+        "type": "object",
+        "properties": {
+          "UserTokenUnassignResult": {
+            "$ref": "#/components/schemas/tns_UserTokenUnassignResult"
+          }
+        },
+        "description": ""
+      },
+      "tns_success13": {
+        "title": "tns_success13",
+        "type": "object",
+        "properties": {
+          "UserTokenAuthenticateResult": {
+            "$ref": "#/components/schemas/tns_UserTokenAuthenticateResult"
+          }
+        },
+        "description": ""
+      },
+      "tns_success14": {
+        "title": "tns_success14",
+        "type": "object",
+        "properties": {
+          "UserTokenActivateResult": {
+            "$ref": "#/components/schemas/tns_UserTokenActivateResult"
+          }
+        },
+        "description": ""
+      },
+      "tns_success15": {
+        "title": "tns_success15",
+        "type": "object",
+        "properties": {
+          "UserTokenActivateCompleteResult": {
+            "$ref": "#/components/schemas/tns_UserTokenActivateCompleteResult"
+          }
+        },
+        "description": ""
+      },
+      "tns_success16": {
+        "title": "tns_success16",
+        "type": "object",
+        "properties": {
+          "Tokens": {
+            "$ref": "#/components/schemas/Tokens"
+          }
+        },
+        "description": ""
+      },
+      "UserGetParameters": {
+        "title": "UserGetParameters",
+        "type": "object",
+        "properties": {
+          "QASecrets": {
+            "type": "boolean",
+            "default": true
+          },
+          "AuthenticationSecrets": {
+            "type": "boolean",
+            "default": true
+          },
+          "MachineSecrets": {
+            "type": "boolean",
+            "default": true
+          },
+          "OTP": {
+            "type": "boolean",
+            "default": true
+          },
+          "PVN": {
+            "type": "boolean",
+            "default": true
+          },
+          "PIN": {
+            "type": "boolean",
+            "default": true
+          },
+          "Tokens": {
+            "type": "boolean",
+            "default": true
+          },
+          "Federations": {
+            "type": "boolean",
+            "default": true
+          },
+          "Grid": {
+            "type": "boolean",
+            "default": true
+          },
+          "LocationHistory": {
+            "type": "boolean",
+            "default": true
+          },
+          "ExpectedLocations": {
+            "type": "boolean",
+            "default": true
+          },
+          "ActivationExpiryInfo": {
+            "type": "boolean",
+            "default": true
+          },
+          "UserContactInfo": {
+            "type": "boolean",
+            "default": true
+          }
+        },
+        "description": ""
+      },
+      "tns_UserSetParameters": {
+        "title": "tns_UserSetParameters",
+        "type": "object",
+        "properties": {
+          "UserGroup": {
+            "type": "string"
+          },
+          "UserName": {
+            "type": "string"
+          },
+          "UnlockUser": {
+            "type": "boolean",
+            "default": true
+          },
+          "SharedSecrets": {
+            "$ref": "#/components/schemas/SharedSecrets"
+          },
+          "QaSecrets": {
+            "$ref": "#/components/schemas/tns_QaSecrets"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserTokenActivateCompleteResult": {
+        "title": "tns_UserTokenActivateCompleteResult",
+        "required": [
+          "SerialNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "SerialNumber": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserTokenActivateResult": {
+        "title": "tns_UserTokenActivateResult",
+        "required": [
+          "ActivationCode"
+        ],
+        "type": "object",
+        "properties": {
+          "ActivationCode": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserTokenAssignResult": {
+        "title": "tns_UserTokenAssignResult",
+        "required": [
+          "SerialNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "SerialNumber": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserTokenAuthenticateResult": {
+        "title": "tns_UserTokenAuthenticateResult",
+        "required": [
+          "SerialNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "SerialNumber": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserTokenCreateResult": {
+        "title": "tns_UserTokenCreateResult",
+        "required": [
+          "SerialNumber",
+          "ActivationCode"
+        ],
+        "type": "object",
+        "properties": {
+          "SerialNumber": {
+            "type": "string"
+          },
+          "ActivationCode": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserTokenDeleteResult": {
+        "title": "tns_UserTokenDeleteResult",
+        "required": [
+          "SerialNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "SerialNumber": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "UserTokenInfo": {
+        "title": "UserTokenInfo",
+        "required": [
+          "UserId",
+          "UserName",
+          "UserGroup",
+          "VendorId",
+          "SerialNumber",
+          "TokenType",
+          "State",
+          "ActivationState",
+          "SignatureSupported",
+          "LoadDate",
+          "LastUsedDate",
+          "Set",
+          "Comment",
+          "ActivationCode"
+        ],
+        "type": "object",
+        "properties": {
+          "UserId": {
+            "type": "string"
+          },
+          "UserName": {
+            "type": "string"
+          },
+          "UserGroup": {
+            "type": "string"
+          },
+          "VendorId": {
+            "type": "string"
+          },
+          "SerialNumber": {
+            "type": "string"
+          },
+          "TokenType": {
+            "type": "string"
+          },
+          "State": {
+            "type": "string"
+          },
+          "ActivationState": {
+            "type": "string"
+          },
+          "SignatureSupported": {
+            "type": "string"
+          },
+          "LoadDate": {
+            "type": "string"
+          },
+          "LastUsedDate": {
+            "type": "string"
+          },
+          "Set": {
+            "type": "string"
+          },
+          "Comment": {
+            "type": "string"
+          },
+          "ActivationCode": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserTokenSetResult": {
+        "title": "tns_UserTokenSetResult",
+        "required": [
+          "SerialNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "SerialNumber": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserTokenUnassignResult": {
+        "title": "tns_UserTokenUnassignResult",
+        "required": [
+          "SerialNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "SerialNumber": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "UserCreateRequest": {
+        "title": "UserCreateRequest",
+        "required": [
+          "UserCreate"
+        ],
+        "type": "object",
+        "properties": {
+          "UserCreate": {
+            "$ref": "#/components/schemas/UserCreateRequestType"
+          }
+        }
+      },
+      "UserCreateResponse": {
+        "title": "UserCreateResponse",
+        "required": [
+          "UserCreateResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "UserCreateResponse": {
+            "$ref": "#/components/schemas/UserCreateResponseType"
+          }
+        }
+      },
+      "UserDeleteRequest": {
+        "title": "UserDeleteRequest",
+        "required": [
+          "UserDelete"
+        ],
+        "type": "object",
+        "properties": {
+          "UserDelete": {
+            "$ref": "#/components/schemas/tns_UserDelete"
+          }
+        }
+      },
+      "UserDeleteResponse": {
+        "title": "UserDeleteResponse",
+        "required": [
+          "UserDeleteResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "UserDeleteResponse": {
+            "$ref": "#/components/schemas/tns_UserDeleteResponse"
+          }
+        }
+      },
+      "UserGetRequest": {
+        "title": "UserGetRequest",
+        "required": [
+          "UserGet"
+        ],
+        "type": "object",
+        "properties": {
+          "UserGet": {
+            "$ref": "#/components/schemas/UserGetRequestType"
+          }
+        }
+      },
+      "UserGetResponse": {
+        "title": "UserGetResponse",
+        "required": [
+          "UserGetResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "UserGetResponse": {
+            "$ref": "#/components/schemas/UserGetResponseType"
+          }
+        }
+      },
+      "UserMachineSecretCreateRequest": {
+        "title": "UserMachineSecretCreateRequest",
+        "required": [
+          "UserMachineSecretCreate"
+        ],
+        "type": "object",
+        "properties": {
+          "UserMachineSecretCreate": {
+            "$ref": "#/components/schemas/tns_UserMachineSecretCreate"
+          }
+        }
+      },
+      "UserMachineSecretCreateResponse": {
+        "title": "UserMachineSecretCreateResponse",
+        "required": [
+          "UserMachineSecretCreateResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "UserMachineSecretCreateResponse": {
+            "$ref": "#/components/schemas/tns_UserMachineSecretCreateResponse"
+          }
+        }
+      },
+      "UserMachineSecretDeleteRequest": {
+        "title": "UserMachineSecretDeleteRequest",
+        "required": [
+          "UserMachineSecretDelete"
+        ],
+        "type": "object",
+        "properties": {
+          "UserMachineSecretDelete": {
+            "$ref": "#/components/schemas/tns_UserMachineSecretDelete"
+          }
+        }
+      },
+      "UserMachineSecretDeleteResponse": {
+        "title": "UserMachineSecretDeleteResponse",
+        "required": [
+          "UserMachineSecretDeleteResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "UserMachineSecretDeleteResponse": {
+            "$ref": "#/components/schemas/tns_UserMachineSecretDeleteResponse"
+          }
+        }
+      },
+      "UserMachineSecretGetRequest": {
+        "title": "UserMachineSecretGetRequest",
+        "required": [
+          "UserMachineSecretGet"
+        ],
+        "type": "object",
+        "properties": {
+          "UserMachineSecretGet": {
+            "$ref": "#/components/schemas/tns_UserMachineSecretGet"
+          }
+        }
+      },
+      "UserMachineSecretGetResponse": {
+        "title": "UserMachineSecretGetResponse",
+        "required": [
+          "UserMachineSecretGetResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "UserMachineSecretGetResponse": {
+            "$ref": "#/components/schemas/tns_UserMachineSecretGetResponse"
+          }
+        }
+      },
+      "UserMachineSecretListRequest": {
+        "title": "UserMachineSecretListRequest",
+        "required": [
+          "UserMachineSecretList"
+        ],
+        "type": "object",
+        "properties": {
+          "UserMachineSecretList": {
+            "$ref": "#/components/schemas/tns_UserMachineSecretList"
+          }
+        }
+      },
+      "UserMachineSecretListResponse": {
+        "title": "UserMachineSecretListResponse",
+        "required": [
+          "UserMachineSecretListResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "UserMachineSecretListResponse": {
+            "$ref": "#/components/schemas/tns_UserMachineSecretListResponse"
+          }
+        }
+      },
+      "UserOTPCreateRequest": {
+        "title": "UserOTPCreateRequest",
+        "required": [
+          "UserOTPCreate"
+        ],
+        "type": "object",
+        "properties": {
+          "UserOTPCreate": {
+            "$ref": "#/components/schemas/UserOTPCreateRequestType"
+          }
+        }
+      },
+      "UserOTPCreateResponse": {
+        "title": "UserOTPCreateResponse",
+        "required": [
+          "UserOTPCreateResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "UserOTPCreateResponse": {
+            "$ref": "#/components/schemas/UserOTPCreateResponseType"
+          }
+        }
+      },
+      "UserOTPGetRequest": {
+        "title": "UserOTPGetRequest",
+        "required": [
+          "UserOTPGet"
+        ],
+        "type": "object",
+        "properties": {
+          "UserOTPGet": {
+            "$ref": "#/components/schemas/UserOTPGetRequestType"
+          }
+        }
+      },
+      "UserOTPGetResponse": {
+        "title": "UserOTPGetResponse",
+        "required": [
+          "UserOTPGetResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "UserOTPGetResponse": {
+            "$ref": "#/components/schemas/UserOTPGetResponseType"
+          }
+        }
+      },
+      "UserSetRequest": {
+        "title": "UserSetRequest",
+        "required": [
+          "UserSet"
+        ],
+        "type": "object",
+        "properties": {
+          "UserSet": {
+            "$ref": "#/components/schemas/tns_UserSet"
+          }
+        }
+      },
+      "UserSetResponse": {
+        "title": "UserSetResponse",
+        "required": [
+          "UserSetResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "UserSetResponse": {
+            "$ref": "#/components/schemas/tns_UserSetResponse"
+          }
+        }
+      },
+      "UserTokenActivateCompleteRequest": {
+        "title": "UserTokenActivateCompleteRequest",
+        "required": [
+          "UserTokenActivateComplete"
+        ],
+        "type": "object",
+        "properties": {
+          "UserTokenActivateComplete": {
+            "$ref": "#/components/schemas/tns_UserTokenActivateComplete"
+          }
+        }
+      },
+      "UserTokenActivateCompleteResponse": {
+        "title": "UserTokenActivateCompleteResponse",
+        "required": [
+          "UserTokenActivateCompleteResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "UserTokenActivateCompleteResponse": {
+            "$ref": "#/components/schemas/tns_UserTokenActivateCompleteResponse"
+          }
+        }
+      },
+      "UserTokenActivateRequest": {
+        "title": "UserTokenActivateRequest",
+        "required": [
+          "UserTokenActivate"
+        ],
+        "type": "object",
+        "properties": {
+          "UserTokenActivate": {
+            "$ref": "#/components/schemas/tns_UserTokenActivate"
+          }
+        }
+      },
+      "UserTokenActivateResponse": {
+        "title": "UserTokenActivateResponse",
+        "required": [
+          "UserTokenActivateResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "UserTokenActivateResponse": {
+            "$ref": "#/components/schemas/tns_UserTokenActivateResponse"
+          }
+        }
+      },
+      "UserTokenAssignRequest": {
+        "title": "UserTokenAssignRequest",
+        "required": [
+          "UserTokenAssign"
+        ],
+        "type": "object",
+        "properties": {
+          "UserTokenAssign": {
+            "$ref": "#/components/schemas/tns_UserTokenAssign"
+          }
+        }
+      },
+      "UserTokenAssignResponse": {
+        "title": "UserTokenAssignResponse",
+        "required": [
+          "UserTokenAssignResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "UserTokenAssignResponse": {
+            "$ref": "#/components/schemas/tns_UserTokenAssignResponse"
+          }
+        }
+      },
+      "UserTokenAuthenticateRequest": {
+        "title": "UserTokenAuthenticateRequest",
+        "required": [
+          "UserTokenAuthenticate"
+        ],
+        "type": "object",
+        "properties": {
+          "UserTokenAuthenticate": {
+            "$ref": "#/components/schemas/tns_UserTokenAuthenticate"
+          }
+        }
+      },
+      "UserTokenAuthenticateResponse": {
+        "title": "UserTokenAuthenticateResponse",
+        "required": [
+          "UserTokenAuthenticateResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "UserTokenAuthenticateResponse": {
+            "$ref": "#/components/schemas/tns_UserTokenAuthenticateResponse"
+          }
+        }
+      },
+      "UserTokenCreateRequest": {
+        "title": "UserTokenCreateRequest",
+        "required": [
+          "UserTokenCreate"
+        ],
+        "type": "object",
+        "properties": {
+          "UserTokenCreate": {
+            "$ref": "#/components/schemas/tns_UserTokenCreate"
+          }
+        }
+      },
+      "UserTokenCreateResponse": {
+        "title": "UserTokenCreateResponse",
+        "required": [
+          "UserTokenCreateResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "UserTokenCreateResponse": {
+            "$ref": "#/components/schemas/tns_UserTokenCreateResponse"
+          }
+        }
+      },
+      "UserTokenDeleteRequest": {
+        "title": "UserTokenDeleteRequest",
+        "required": [
+          "UserTokenDelete"
+        ],
+        "type": "object",
+        "properties": {
+          "UserTokenDelete": {
+            "$ref": "#/components/schemas/tns_UserTokenDelete"
+          }
+        }
+      },
+      "UserTokenDeleteResponse": {
+        "title": "UserTokenDeleteResponse",
+        "required": [
+          "UserTokenDeleteResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "UserTokenDeleteResponse": {
+            "$ref": "#/components/schemas/tns_UserTokenDeleteResponse"
+          }
+        }
+      },
+      "UserTokenListRequest": {
+        "title": "UserTokenListRequest",
+        "required": [
+          "UserTokenList"
+        ],
+        "type": "object",
+        "properties": {
+          "UserTokenList": {
+            "$ref": "#/components/schemas/tns_UserTokenList"
+          }
+        }
+      },
+      "UserTokenListResponse": {
+        "title": "UserTokenListResponse",
+        "required": [
+          "UserTokenListResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "UserTokenListResponse": {
+            "$ref": "#/components/schemas/tns_UserTokenListResponse"
+          }
+        }
+      },
+      "UserTokenSetRequest": {
+        "title": "UserTokenSetRequest",
+        "required": [
+          "UserTokenSet"
+        ],
+        "type": "object",
+        "properties": {
+          "UserTokenSet": {
+            "$ref": "#/components/schemas/tns_UserTokenSet"
+          }
+        }
+      },
+      "UserTokenSetResponse": {
+        "title": "UserTokenSetResponse",
+        "required": [
+          "UserTokenSetResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "UserTokenSetResponse": {
+            "$ref": "#/components/schemas/tns_UserTokenSetResponse"
+          }
+        }
+      },
+      "UserTokenUnassignRequest": {
+        "title": "UserTokenUnassignRequest",
+        "required": [
+          "UserTokenUnassign"
+        ],
+        "type": "object",
+        "properties": {
+          "UserTokenUnassign": {
+            "$ref": "#/components/schemas/tns_UserTokenUnassign"
+          }
+        }
+      },
+      "UserTokenUnassignResponse": {
+        "title": "UserTokenUnassignResponse",
+        "required": [
+          "UserTokenUnassignResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "UserTokenUnassignResponse": {
+            "$ref": "#/components/schemas/tns_UserTokenUnassignResponse"
+          }
+        }
+      },
+      "UserUnlockRequest": {
+        "title": "UserUnlockRequest",
+        "required": [
+          "UserUnlock"
+        ],
+        "type": "object",
+        "properties": {
+          "UserUnlock": {
+            "$ref": "#/components/schemas/tns_UserUnlock"
+          }
+        }
+      },
+      "UserUnlockResponse": {
+        "title": "UserUnlockResponse",
+        "required": [
+          "UserUnlockResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "UserUnlockResponse": {
+            "$ref": "#/components/schemas/tns_UserUnlockResponse"
+          }
+        }
+      },
+      "wsse_UsernameToken": {
+        "title": "wsse_UsernameToken",
+        "required": [
+          "Username",
+          "Password"
+        ],
+        "type": "object",
+        "properties": {
+          "Username": {
+            "type": "string"
+          },
+          "Password": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_PVNRetrieveResponse1": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/tns_PVNRetrieveResponseChoice0"
+          },
+          {
+            "$ref": "#/components/schemas/tns_PVNRetrieveResponseChoice1"
+          }
+        ]
+      }
+    }
+  }
+}

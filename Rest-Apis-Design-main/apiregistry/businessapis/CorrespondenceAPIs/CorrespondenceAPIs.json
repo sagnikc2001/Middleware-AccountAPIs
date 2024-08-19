@@ -1,0 +1,4880 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "MW Correspondence APIs",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://mw-api-3scale-apicast-staging.apps.com:443/api/correspondence"
+    }
+  ],
+  "paths": {
+    "/SendMail": {
+      "post": {
+        "tags": [
+          "Correspondence APIs Stage"
+        ],
+        "summary": "SendMail",
+        "operationId": "SendMail",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/SendMailRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/SendMailResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/SendSMS": {
+      "post": {
+        "tags": [
+          "Correspondence APIs"
+        ],
+        "description": "Send's SMS to the customer based on defined templates.",
+        "operationId": "SendSMS",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT bearer token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "having channel details , locale",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendSMSRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SendSMSResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SendSMSResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized Request"
+          },
+          "404": {
+            "description": "404 API Not Found"
+          },
+          "405": {
+            "description": "405 Method Not Allowed"
+          },
+          "429": {
+            "description": "429 Too Many Requests"
+          },
+          "500": {
+            "description": "500 Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SendSMSResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503 Service Unavailable"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/SendNotification": {
+      "post": {
+        "tags": [
+          "Correspondence APIs Stage"
+        ],
+        "summary": "SendNotification",
+        "operationId": "SendNotification",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/NotificationRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/NotificationResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/CreateMember": {
+      "post": {
+        "tags": [
+          "Correspondence APIs Stage"
+        ],
+        "summary": "CreateMember",
+        "operationId": "CreateMember",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/MemberCreationRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/MemberCreationResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/GetMember": {
+      "post": {
+        "tags": [
+          "Correspondence APIs Stage"
+        ],
+        "summary": "GetMember",
+        "operationId": "GetMember",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/MemberInquiryRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/MemberInquiryResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/CreateContactInformation": {
+      "post": {
+        "tags": [
+          "Correspondence APIs Stage"
+        ],
+        "summary": "CreateContactInformation",
+        "operationId": "CreateContactInformation",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ContactCreationRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ContactCreationResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/GetContactInformation": {
+      "post": {
+        "tags": [
+          "Correspondence APIs Stage"
+        ],
+        "summary": "GetContactInformation",
+        "operationId": "GetContactInformation",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/GetContactInformationRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/GetContactInformationResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/UpdateContactInformation": {
+      "post": {
+        "tags": [
+          "Correspondence APIs Stage"
+        ],
+        "summary": "UpdateContactInformation",
+        "operationId": "UpdateContactInformation",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ContactInformationUpdationRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ContactInformationUpdationResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/SearchContactInformation": {
+      "post": {
+        "tags": [
+          "Correspondence APIs Stage"
+        ],
+        "summary": "SearchContactInformation",
+        "operationId": "SearchContactInformation",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/SearchContactInformationRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/SearchContactInformationResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/GetNotificationsDetail": {
+      "post": {
+        "tags": [
+          "Correspondence APIs Stage"
+        ],
+        "summary": "GetNotificationsDetail",
+        "operationId": "GetNotificationsDetail",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/NotificationsDetailRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/NotificationsDetailResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/SendMessage": {
+      "post": {
+        "tags": [
+          "Correspondence APIs"
+        ],
+        "operationId": "SendMessage",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT bearer token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "having channel details , locale",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendMessageRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SendMessageResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SendMessageResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized Request"
+          },
+          "404": {
+            "description": "404 API Not Found"
+          },
+          "405": {
+            "description": "405 Method Not Allowed"
+          },
+          "429": {
+            "description": "429 Too Many Requests"
+          },
+          "500": {
+            "description": "500 Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SendMessageResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503 Service Unavailable"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/NotifyAccountCredit": {
+      "post": {
+        "tags": [
+          "Correspondence APIs Stage"
+        ],
+        "summary": "NotifyAccountCredit",
+        "operationId": "NotifyAccountCredit",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/NotifyAccountCreditRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/NotifyAccountCreditResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/TrackCardShipmentStatus": {
+      "post": {
+        "tags": [
+          "Correspondence APIs Stage"
+        ],
+        "summary": "TrackCardShipmentStatus",
+        "operationId": "TrackCardShipmentStatus",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/TrackCardShipmentStatusRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/TrackCardShipmentStatusResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/UpdateMemberCategory": {
+      "post": {
+        "tags": [
+          "Correspondence APIs Stage"
+        ],
+        "summary": "UpdateMemberCategory",
+        "operationId": "UpdateMemberCategory",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/MemberCategoryUpdationRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/MemberCategoryUpdationResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/UpdateMember": {
+      "post": {
+        "tags": [
+          "Correspondence APIs Stage"
+        ],
+        "summary": "UpdateMember",
+        "operationId": "UpdateMember",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/MemberUpdationRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/MemberUpdationResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "tns_SendMailRequest": {
+        "title": "tns_SendMailRequest",
+        "required": [
+          "to",
+          "from"
+        ],
+        "type": "object",
+        "properties": {
+          "to": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_to"
+              }
+            ]
+          },
+          "cc": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_cc"
+              }
+            ]
+          },
+          "bcc": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_bcc"
+              }
+            ]
+          },
+          "subject": {
+            "type": "string"
+          },
+          "body": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_body"
+              }
+            ]
+          },
+          "attachments": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_attachments"
+              }
+            ]
+          },
+          "from": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_from"
+              }
+            ]
+          },
+          "headers": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_headers"
+              }
+            ]
+          }
+        },
+        "description": "This method is used to send a mail to the mail\tserver. One of the \"to\", \"cc\", \"bcc\" tag should be present in the\trequest"
+      },
+      "tns_SendMailResponse": {
+        "title": "tns_SendMailResponse",
+        "type": "object",
+        "properties": {
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/fault_FaultType"
+              }
+            ]
+          },
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_SendMailSuccessType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_SendMailSuccessType": {
+        "title": "tns_SendMailSuccessType",
+        "type": "object",
+        "properties": {
+          "to": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_to1"
+              }
+            ]
+          },
+          "cc": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_cc1"
+              }
+            ]
+          },
+          "bcc": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_bcc1"
+              }
+            ]
+          },
+          "subject": {
+            "type": "string"
+          },
+          "body": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_body1"
+              }
+            ]
+          },
+          "attachments": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_attachments1"
+              }
+            ]
+          },
+          "from": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_from1"
+              }
+            ]
+          },
+          "headers": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_headers"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "SendSMSRequestType": {
+        "title": "SendSMSRequestType",
+        "required": [
+          "type",
+          "id",
+          "template",
+          "parameter",
+          "smsLanguage"
+        ],
+        "type": "object",
+        "properties": {
+          "cif": {
+            "$ref": "../../commonschemas/schemas.json#/CIF"
+          },
+          "isReliable": {
+            "type": "boolean"
+          },
+          "type": {
+            "maxLength": 20,
+            "type": "string"
+          },
+          "id": {
+            "maxLength": 25,
+            "type": "string"
+          },
+          "template": {
+            "maxLength": 10,
+            "type": "string"
+          },
+          "parameter": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/parameter"
+            }
+          },
+          "smsLanguage": {
+            "maxLength": 1,
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "SendSMSResponseType": {
+        "title": "SendSMSResponseType",
+        "type": "object",
+        "properties": {
+          "response": {
+            "type": "string"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_NotificationRequest": {
+        "title": "tns_NotificationRequest",
+        "type": "object",
+        "properties": {
+          "mail": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_mailType"
+              }
+            ]
+          },
+          "sms": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_smsType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_NotificationResponse": {
+        "title": "tns_NotificationResponse",
+        "type": "object",
+        "properties": {
+          "notification": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_notificationType"
+              },
+              {}
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/fault_FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_mailType": {
+        "title": "tns_mailType",
+        "required": [
+          "to",
+          "from"
+        ],
+        "type": "object",
+        "properties": {
+          "to": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_to"
+              }
+            ]
+          },
+          "cc": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_cc"
+              }
+            ]
+          },
+          "bcc": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_bcc"
+              }
+            ]
+          },
+          "subject": {
+            "type": "string"
+          },
+          "body": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_body"
+              }
+            ]
+          },
+          "attachments": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_attachments"
+              }
+            ]
+          },
+          "from": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_from"
+              },
+              {
+                "description": "This contains the details of the sender of the\tmessage. If this tag is not present, the sender details are taken\tfrom the e-mail profile. If both the tag and the e-mail profile\tare not present, a SOAP fault is displayed."
+              }
+            ]
+          },
+          "headers": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_headers"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_smsType": {
+        "title": "tns_smsType",
+        "required": [
+          "type",
+          "id",
+          "template",
+          "parameter",
+          "smsLanguage"
+        ],
+        "type": "object",
+        "properties": {
+          "cif": {
+            "pattern": "([0-9]){14}|([0]){1}",
+            "type": "string"
+          },
+          "isReliable": {
+            "type": "boolean"
+          },
+          "type": {
+            "maxLength": 20,
+            "type": "string"
+          },
+          "id": {
+            "maxLength": 25,
+            "type": "string"
+          },
+          "template": {
+            "maxLength": 10,
+            "type": "string"
+          },
+          "parameter": {
+            "$ref": "#/components/schemas/parameter"
+          },
+          "smsLanguage": {
+            "maxLength": 1,
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_notificationType": {
+        "title": "tns_notificationType",
+        "type": "object",
+        "properties": {
+          "mailResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_mailResponseType"
+              }
+            ]
+          },
+          "smsResponse": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_mailResponseType": {
+        "title": "tns_mailResponseType",
+        "type": "object",
+        "properties": {
+          "to": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_to1"
+              }
+            ]
+          },
+          "cc": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_cc1"
+              }
+            ]
+          },
+          "bcc": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_bcc1"
+              }
+            ]
+          },
+          "subject": {
+            "type": "string"
+          },
+          "body": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_body1"
+              }
+            ]
+          },
+          "attachments": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_attachments1"
+              }
+            ]
+          },
+          "from": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_from"
+              }
+            ]
+          },
+          "headers": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_headers"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_MemberCreationRequest": {
+        "title": "tns_MemberCreationRequest",
+        "required": [
+          "cif"
+        ],
+        "type": "object",
+        "properties": {
+          "cif": {
+            "pattern": "([0-9]){14}|([0]){1}",
+            "type": "string",
+            "description": "unique keys defined on the Member (unique key) is information"
+          },
+          "channelPreferences": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_channelPreferencesType1"
+              }
+            ]
+          },
+          "dayPreferences": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_dayPreferencesType1"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_MemberCreationResponse": {
+        "title": "tns_MemberCreationResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string",
+            "description": "success"
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/fault_FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_channelPreferencesType": {
+        "title": "tns_channelPreferencesType",
+        "type": "object",
+        "properties": {
+          "channelPreference": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_channelPreferenceType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_channelPreferenceType": {
+        "title": "tns_channelPreferenceType",
+        "type": "object",
+        "properties": {
+          "channel": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "channel"
+          },
+          "label": {
+            "type": "string",
+            "description": "label"
+          }
+        },
+        "description": ""
+      },
+      "tns_dayPreferencesType": {
+        "title": "tns_dayPreferencesType",
+        "type": "object",
+        "properties": {
+          "dayPreference": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_dayPreferenceType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_dayPreferenceType": {
+        "title": "tns_dayPreferenceType",
+        "type": "object",
+        "properties": {
+          "day": {
+            "type": "string",
+            "description": "day"
+          },
+          "hours": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "hours"
+          }
+        },
+        "description": ""
+      },
+      "tns_MemberInquiryRequest": {
+        "title": "tns_MemberInquiryRequest",
+        "required": [
+          "cif"
+        ],
+        "type": "object",
+        "properties": {
+          "cif": {
+            "pattern": "([0-9]){14}|([0]){1}",
+            "type": "string",
+            "description": "cif"
+          }
+        },
+        "description": ""
+      },
+      "tns_MemberInquiryResponse": {
+        "title": "tns_MemberInquiryResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_getmembersuccessType"
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/fault_FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_contactInformationType": {
+        "title": "tns_contactInformationType",
+        "type": "object",
+        "properties": {
+          "contactInformationId": {
+            "type": "string",
+            "description": "Member information is the contact info was added on. It is produced automatically by the system."
+          },
+          "targetAddressType": {
+            "type": "string",
+            "description": "Contact info type. Example: fax, business phone, home phone, iOS devices."
+          },
+          "targetAdress": {
+            "type": "string",
+            "description": "Contact number is targetAddress. Sample: Phone number, e-mail address, push token information."
+          },
+          "verified": {
+            "type": "string",
+            "description": "Contact number is information that has been approved. A Boolean value can be true-false."
+          },
+          "token": {
+            "type": "string",
+            "description": "info unique token is generated for contact information. Example: The customer is sent using the e-mail content, the e-mail address will be valid when approved by clicking."
+          },
+          "channels": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_channelsType"
+              }
+            ]
+          },
+          "tags": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_tagsType"
+              }
+            ]
+          },
+          "deviceUniqueId": {
+            "type": "string",
+            "description": "deviceUniqueId"
+          },
+          "deviceType": {
+            "type": "string",
+            "description": "deviceType"
+          },
+          "shortName": {
+            "type": "string",
+            "description": "shortName"
+          },
+          "additionalInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_additionalInfoType"
+              }
+            ]
+          },
+          "deviceOS": {
+            "type": "string",
+            "description": "device OS\n\t\t\t\t\t\t\t\t\tExample,\n\t\t\t\t\t\t\t\t\t\tFor Google – “Android”\n\t\t\t\t\t\t\t\t\t\tFor Apple – “iOS”\n\t\t\t\t\t\t\t\t\t\tFor Huawei – “HarmonyOS”"
+          },
+          "extension": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_extensionType"
+              }
+            ]
+          },
+          "ctime": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_extensionType": {
+        "title": "tns_extensionType",
+        "type": "object",
+        "properties": {
+          "deviceInfoBrand": {
+            "type": "string"
+          },
+          "deviceInfoId": {
+            "type": "string"
+          },
+          "deviceInfoModel": {
+            "type": "string"
+          },
+          "deviceInfoName": {
+            "type": "string"
+          },
+          "deviceInfoType": {
+            "type": "string"
+          },
+          "deviceOs": {
+            "type": "string"
+          },
+          "mobileAppId": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_ContactCreationRequest": {
+        "title": "tns_ContactCreationRequest",
+        "type": "object",
+        "properties": {
+          "contactInformation": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_contactInformationType1"
+              }
+            ]
+          }
+        },
+        "description": "contactcreationreuest"
+      },
+      "tns_ContactCreationResponse": {
+        "title": "tns_ContactCreationResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string",
+            "description": "success"
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/fault_FaultType"
+              }
+            ]
+          }
+        },
+        "description": "contactcreationresponse"
+      },
+      "tns_contactInformationType1": {
+        "title": "tns_contactInformationType1",
+        "required": [
+          "cif",
+          "contactInformationId"
+        ],
+        "type": "object",
+        "properties": {
+          "cif": {
+            "pattern": "([0-9]){14}|([0]){1}",
+            "type": "string",
+            "description": "Member information is the contact info was added\n\t\t\t\t\t\ton. It is produced automatically by the system."
+          },
+          "contactInformationId": {
+            "type": "string"
+          },
+          "targetAddressType": {
+            "type": "string",
+            "description": "Contact info type. Example: fax, business phone,\n\t\t\t\t\t\thome phone, iOS devices."
+          },
+          "targetAdress": {
+            "type": "string",
+            "description": "Contact number is targetAddress. Sample: Phone\n\t\t\t\t\t\tnumber, e-mail address, push token information."
+          },
+          "verified": {
+            "type": "string",
+            "description": "Contact number is information that has been\n\t\t\t\t\t\tapproved. A Boolean value can be true-false."
+          },
+          "channels": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_channelsType"
+              }
+            ]
+          },
+          "tags": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_tagsType"
+              }
+            ]
+          },
+          "deviceUniqueId": {
+            "type": "string",
+            "description": "deviceUniqueId"
+          },
+          "deviceType": {
+            "type": "string",
+            "description": "deviceType"
+          },
+          "shortName": {
+            "type": "string",
+            "description": "shortName"
+          },
+          "additionalInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_additionalInfoType"
+              }
+            ]
+          },
+          "deviceOS": {
+            "type": "string",
+            "description": "device OS\n\t\t\t\t\t\t\t\t\tExample,\n\t\t\t\t\t\t\t\t\t\tFor Google – “Android”\n\t\t\t\t\t\t\t\t\t\tFor Apple – “iOS”\n\t\t\t\t\t\t\t\t\t\tFor Huawei – “HarmonyOS”"
+          }
+        },
+        "description": ""
+      },
+      "tns_GetContactInformationRequest": {
+        "title": "tns_GetContactInformationRequest",
+        "required": [
+          "cif"
+        ],
+        "type": "object",
+        "properties": {
+          "cif": {
+            "pattern": "([0-9]){14}|([0]){1}",
+            "type": "string",
+            "description": "Member information is the contact info was added on. It is produced automatically by the system."
+          }
+        },
+        "description": ""
+      },
+      "tns_GetContactInformationResponse": {
+        "title": "tns_GetContactInformationResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_getcontactinformationsuccesstype"
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/fault_FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_getcontactinformationsuccesstype": {
+        "title": "tns_getcontactinformationsuccesstype",
+        "type": "object",
+        "properties": {
+          "contactInformation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_contactInformationType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_ContactInformationUpdationRequest": {
+        "title": "tns_ContactInformationUpdationRequest",
+        "type": "object",
+        "properties": {
+          "contactInformation": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_contactInformationType1"
+              }
+            ]
+          }
+        },
+        "description": "ContactInformationUpdationRequest"
+      },
+      "tns_ContactInformationUpdationResponse": {
+        "title": "tns_ContactInformationUpdationResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string",
+            "description": "success"
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/fault_FaultType"
+              }
+            ]
+          }
+        },
+        "description": "ContactInformationUpdationResponse"
+      },
+      "tns_SearchContactInformationRequest": {
+        "title": "tns_SearchContactInformationRequest",
+        "type": "object",
+        "properties": {
+          "contactInformationList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_contactInformationListType"
+            },
+            "description": "contactInformationList"
+          }
+        },
+        "description": "SearchContactInformationRequest"
+      },
+      "tns_SearchContactInformationResponse": {
+        "title": "tns_SearchContactInformationResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_getcontactinformationsuccesstype"
+              },
+              {
+                "description": "success"
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/fault_FaultType"
+              }
+            ]
+          }
+        },
+        "description": "SearchContactInformationResponse"
+      },
+      "tns_contactInformationListType": {
+        "title": "tns_contactInformationListType",
+        "required": [
+          "cif"
+        ],
+        "type": "object",
+        "properties": {
+          "cif": {
+            "pattern": "([0-9]){14}|([0]){1}",
+            "type": "string",
+            "description": "contact details of the member information will be displayed."
+          },
+          "channel": {
+            "type": "string",
+            "description": "information channel that is attached to the contact information is selected."
+          },
+          "tag": {
+            "type": "string",
+            "description": "tag information is information that labeled the ignition."
+          }
+        },
+        "description": ""
+      },
+      "tns_MemberUpdationRequest": {
+        "title": "tns_MemberUpdationRequest",
+        "required": [
+          "cif"
+        ],
+        "type": "object",
+        "properties": {
+          "cif": {
+            "pattern": "([0-9]){14}|([0]){1}",
+            "type": "string",
+            "description": "cif"
+          },
+          "contactInformation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_contactInformationType2"
+            },
+            "description": "Member is an array of information held on the contact information that is defined."
+          },
+          "dayPreferences": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_dayPreferencesType1"
+              }
+            ]
+          },
+          "localization": {
+            "type": "string"
+          },
+          "preferenceType": {
+            "type": "string"
+          },
+          "productCategoryPreferences": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_productCategoryPreferencesType"
+            },
+            "description": ""
+          },
+          "timezone": {
+            "type": "string"
+          },
+          "upsert": {
+            "type": "string"
+          },
+          "verified": {
+            "type": "string"
+          }
+        },
+        "description": "MemberUpdationRequest"
+      },
+      "tns_MemberUpdationResponse": {
+        "title": "tns_MemberUpdationResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string",
+            "description": "success"
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/fault_FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_contactInformationType2": {
+        "title": "tns_contactInformationType2",
+        "type": "object",
+        "properties": {
+          "contactInformationId": {
+            "type": "string",
+            "description": "Member information is the contact info was added on. It is produced automatically by the system."
+          },
+          "channelPreferences": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_channelPreferencesType1"
+              }
+            ]
+          },
+          "targetAddressType": {
+            "type": "string",
+            "description": "Contact info type. Example: fax, business phone, home phone, iOS devices."
+          },
+          "targetAddress": {
+            "type": "string",
+            "description": "Contact number is targetAddress. Sample: Phone number, e-mail address, push token information."
+          },
+          "verified": {
+            "type": "string",
+            "description": "Contact number is information that has been approved. A Boolean value can be true-false."
+          },
+          "token": {
+            "type": "string",
+            "description": "info unique token is generated for contact information. Example: The customer is sent using the e-mail content, the e-mail address will be valid when approved by clicking."
+          },
+          "channels": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_channelsType"
+              }
+            ]
+          },
+          "extension": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_extensionType"
+              }
+            ]
+          },
+          "tags": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_tagsType"
+              }
+            ]
+          },
+          "preferenceType": {
+            "type": "string"
+          },
+          "sourceType": {
+            "type": "string",
+            "description": "sourceType"
+          },
+          "additionalInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_additionalInfoType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_getmembersuccessType": {
+        "title": "tns_getmembersuccessType",
+        "required": [
+          "cif"
+        ],
+        "type": "object",
+        "properties": {
+          "cif": {
+            "pattern": "([0-9]){14}|([0]){1}",
+            "type": "string",
+            "description": "unique keys defined on the Member (unique key) is information."
+          },
+          "channelPreferences": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_channelPreferencesType1"
+              }
+            ]
+          },
+          "dayPreferences": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_dayPreferencesType1"
+              }
+            ]
+          },
+          "contactInformation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_contactInformationType"
+            },
+            "description": "Member is an array of information held on the contact information that is defined."
+          },
+          "ctime": {
+            "type": "string"
+          },
+          "localization": {
+            "type": "string"
+          },
+          "timezone": {
+            "type": "string"
+          },
+          "utime": {
+            "type": "string"
+          },
+          "verified": {
+            "type": "string"
+          },
+          "productCategoryPreferences": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_productCategoryPreferencesType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_productCategoryPreferencesType": {
+        "title": "tns_productCategoryPreferencesType",
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string"
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_productsType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_productsType": {
+        "title": "tns_productsType",
+        "type": "object",
+        "properties": {
+          "attributes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_attributesType"
+            },
+            "description": ""
+          },
+          "language": {
+            "type": "string"
+          },
+          "productChannelPreferences": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_productChannelPreferencesType"
+            },
+            "description": ""
+          },
+          "productId": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_attributesType": {
+        "title": "tns_attributesType",
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_productChannelPreferencesType": {
+        "title": "tns_productChannelPreferencesType",
+        "type": "object",
+        "properties": {
+          "channel": {
+            "type": "string"
+          },
+          "contactInformation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_contactInformationType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_channelPreferencesType1": {
+        "title": "tns_channelPreferencesType1",
+        "type": "object",
+        "properties": {
+          "channelPreference": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_channelPreferenceType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_dayPreferencesType1": {
+        "title": "tns_dayPreferencesType1",
+        "type": "object",
+        "properties": {
+          "dayPreference": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_dayPreferenceType"
+            },
+            "description": "The day and time information Contact permit.\r\nDays: The days of the week are listed.\r\nHours: During the day time range are allowed to send messages."
+          }
+        },
+        "description": ""
+      },
+      "tns_channelsType": {
+        "title": "tns_channelsType",
+        "type": "object",
+        "properties": {
+          "channel": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "channels"
+          }
+        },
+        "description": ""
+      },
+      "tns_tagsType": {
+        "title": "tns_tagsType",
+        "type": "object",
+        "properties": {
+          "tag": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "tag"
+          }
+        },
+        "description": ""
+      },
+      "tns_additionalInfoType": {
+        "title": "tns_additionalInfoType",
+        "type": "object",
+        "properties": {
+          "info": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_infoType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_infoType": {
+        "title": "tns_infoType",
+        "type": "object",
+        "properties": {
+          "parameter": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_parameterType"
+            },
+            "description": ""
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_parameterType": {
+        "title": "tns_parameterType",
+        "type": "object",
+        "properties": {
+          "paramName": {
+            "type": "string"
+          },
+          "paramValue": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_NotificationsDetailRequest": {
+        "title": "tns_NotificationsDetailRequest",
+        "type": "object",
+        "properties": {
+          "shortCIF": {
+            "type": "array",
+            "items": {
+              "pattern": "([0-9]){8}|([0]){1}",
+              "type": "string"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_NotificationsDetailResponse": {
+        "title": "tns_NotificationsDetailResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_NotificationsDetailResponseType"
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/fault_FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_NotificationsDetailResponseType": {
+        "title": "tns_NotificationsDetailResponseType",
+        "required": [
+          "notification"
+        ],
+        "type": "object",
+        "properties": {
+          "notification": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_notificationDetailType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_notificationDetailType": {
+        "title": "tns_notificationDetailType",
+        "type": "object",
+        "properties": {
+          "partyNotificationID": {
+            "type": "string"
+          },
+          "notificationCode": {
+            "type": "string"
+          },
+          "cif": {
+            "type": "string"
+          },
+          "accountID": {
+            "type": "string"
+          },
+          "startDate": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "nameEnglish": {
+            "type": "string"
+          },
+          "nameArabic": {
+            "type": "string"
+          },
+          "messageEnglish": {
+            "type": "string"
+          },
+          "messageArabic": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "string"
+          },
+          "severity": {
+            "type": "string"
+          },
+          "numberOfDays": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "SendMessageRequestType": {
+        "title": "SendMessageRequestType",
+        "type": "object",
+        "properties": {
+          "cif": {
+            "$ref": "../../commonschemas/schemas.json#/CIF",
+            "description": "customerID , it should be pre-defined unique id."
+          },
+          "messageType": {
+            "type": "string",
+            "description": "This is the category and channel information\n\t\t\t\t\t\t\tContact with permission. It is optional.\n\t\t\t\t\t\t\tChannels: Channels names. (Channels defined\n\t\t\t\t\t\t\ton account such as SMS, EML, PUSH, ALL,\n\t\t\t\t\t\t\tEML_SMS, EML_PSH, SMS_PSH can be added.)"
+          },
+          "messageCount": {
+            "type": "string",
+            "description": "It shows message number to send. If target\n\t\t\t\t\t\t\taddress is empty channel is selected as SMS.\n\t\t\t\t\t\t\tSM Preference has two contact information\n\t\t\t\t\t\t\tfor SMS Channel. In default just one message\n\t\t\t\t\t\t\twill be send through SM Engage. If user\n\t\t\t\t\t\t\twants to send more than one message then\n\t\t\t\t\t\t\tMSGCNT can be more than 1, 2 etc."
+          },
+          "targetAddressList": {
+            "$ref": "#/components/schemas/targetAddressListType"
+          },
+          "checkPreference": {
+            "type": "boolean",
+            "description": "It provides to queery permitted categories\n\t\t\t\t\t\t\tand channels through SM Preferences.\n\n\t\t\t\t\t\t\t**If parameter passed as empty, it should be\n\t\t\t\t\t\t\tmapped as YES to make it active."
+          },
+          "template": {
+            "type": "string",
+            "description": "It should be pre-defined unique id. This\n\t\t\t\t\t\t\texternal tempalte key will be mapped with\n\t\t\t\t\t\t\tcampaign id in SM Engage. There should be\n\t\t\t\t\t\t\t1*1 relation between external template key\n\t\t\t\t\t\t\tand campaign id."
+          },
+          "language": {
+            "$ref": "../../commonschemas/schemas.json#/LanguageCodeOptional",
+            "description": "Language preferences can be selected before\n\t\t\t\t\t\t\tsending notification. Pre defined language\n\t\t\t\t\t\t\tformat will be shared. It can be EN, TR, AR\n\t\t\t\t\t\t\tas example.\n\n\t\t\t\t\t\t\t**If this parameter is specified then\n\t\t\t\t\t\t\tlanguage which is added to template as\n\t\t\t\t\t\t\tdefault will not be considered.\n\n\t\t\t\t\t\t\t**If parameter is not specified then\n\t\t\t\t\t\t\tlanguage which is added to tempalate as\n\t\t\t\t\t\t\tdefault will be considered.",
+            "default": "en"
+          },
+          "parameterList": {
+            "$ref": "#/components/schemas/parameterListType"
+          },
+          "dateTime": {
+            "$ref": "../../commonschemas/schemas.json#/DateTimeOptional",
+            "description": "Planned sending date of message."
+          },
+          "tag": {
+            "type": "string",
+            "description": "If the customer is allowed to multiple\n\t\t\t\t\t\t\tcontacts(devices, mobile nos, email) then\n\t\t\t\t\t\t\tthe under Finance,Non-Finance and Marketing\n\t\t\t\t\t\t\tcategories have to check for tagged\n\t\t\t\t\t\t\tdevice/contact no. whether it is a primary\n\t\t\t\t\t\t\tor secondary etc. to get the device\n\t\t\t\t\t\t\taddress/mobile no to send message.)"
+          },
+          "preferenceParams": {
+            "$ref": "#/components/schemas/PreferenceParamsType"
+          },
+          "additionalParams": {
+            "$ref": "#/components/schemas/AdditionalParamsType"
+          }
+        },
+        "description": ""
+      },
+      "PreferenceParamsType": {
+        "title": "PreferenceParamsType",
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "string",
+            "description": "Customer CreditCardId or BankAccount Id to\n\t\t\t\t\t\tdetermine customer Preference and whether to\n\t\t\t\t\t\tsend balance or not, transaction amount rules\n\t\t\t\t\t\tetc. in conjunction with other fields\n\t\t\t\t\t\ttransactionAmount and remainingBalance."
+          },
+          "transactionAmount": {
+            "$ref": "../../commonschemas/schemas.json#/AmountOptional"
+          },
+          "remainingBalance": {
+            "$ref": "../../commonschemas/schemas.json#/AmountOptional"
+          },
+          "productCategory": {
+            "type": "string",
+            "description": "The Category; Marketing, Financial, Non-financial"
+          }
+        },
+        "description": ""
+      },
+      "AdditionalParamsType": {
+        "title": "AdditionalParamsType",
+        "type": "object",
+        "properties": {
+          "pushCategory": {
+            "type": "string",
+            "description": "button, no button, image, etc"
+          },
+          "ALNK": {
+            "type": "string",
+            "description": "App link"
+          },
+          "UIMG": {
+            "type": "string",
+            "description": "Image URL to be display in the push"
+          },
+          "LNKU": {
+            "type": "string",
+            "description": "External URL to be landed when customer\n\t\t\t\t\t\t\tclicks on notification"
+          }
+        },
+        "description": ""
+      },
+      "SendMessageResponseType": {
+        "title": "SendMessageResponseType",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/successType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "resultsType": {
+        "title": "resultsType",
+        "type": "object",
+        "properties": {
+          "referenceId": {
+            "type": "string",
+            "description": "It is the singular number of the sent message,its being less than 0 means that error has been received."
+          },
+          "status": {
+            "type": "string",
+            "description": "result of the message request"
+          }
+        },
+        "description": ""
+      },
+      "targetAddressListType": {
+        "title": "targetAddressListType",
+        "type": "object",
+        "properties": {
+          "targetAddress": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/targetAddressTypesType"
+            },
+            "description": "It is the receiver address for reaching customers. It can be e-mail address, gsm number or push token."
+          }
+        },
+        "description": ""
+      },
+      "parameterListType": {
+        "title": "parameterListType",
+        "type": "object",
+        "properties": {
+          "parameter": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/parameter1"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_NotifyAccountCreditRequest": {
+        "title": "tns_NotifyAccountCreditRequest",
+        "required": [
+          "messageHeader",
+          "messageBody"
+        ],
+        "type": "object",
+        "properties": {
+          "messageHeader": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_messageHeaderType"
+              }
+            ]
+          },
+          "messageBody": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_messageBodyType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_messageHeaderType": {
+        "title": "tns_messageHeaderType",
+        "required": [
+          "sender",
+          "receiver",
+          "messageType",
+          "messageDescription",
+          "timeStamp"
+        ],
+        "type": "object",
+        "properties": {
+          "sender": {
+            "maxLength": 10,
+            "type": "string",
+            "description": "Sender Code"
+          },
+          "receiver": {
+            "maxLength": 20,
+            "type": "string",
+            "description": "Receiver Code"
+          },
+          "messageType": {
+            "maxLength": 10,
+            "type": "string",
+            "description": "MessageType"
+          },
+          "messageDescription": {
+            "maxLength": 100,
+            "type": "string",
+            "description": "Message Description"
+          },
+          "timeStamp": {
+            "type": "string",
+            "description": "TimeStamp",
+            "format": "date-time"
+          }
+        },
+        "description": ""
+      },
+      "tns_messageBodyType": {
+        "title": "tns_messageBodyType",
+        "required": [
+          "transaction"
+        ],
+        "type": "object",
+        "properties": {
+          "transaction": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_transactionType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_transactionType": {
+        "title": "tns_transactionType",
+        "required": [
+          "sequenceNumber",
+          "transactionData"
+        ],
+        "type": "object",
+        "properties": {
+          "sequenceNumber": {
+            "maxLength": 2,
+            "type": "string",
+            "description": "Sequence Number"
+          },
+          "transactionData": {
+            "type": "string",
+            "description": "Tag 20 - Transaction Reference Number\n\t\t\t\t\t\t\t Tag 21 - Remitter ID\n\t\t\t\t\t\t\t Tag 32A - Payment Date + Transfer Currency + Transfer Amount\n\t\t\t\t\t\t\t Tag 50K - Debit A/C no  Remitter Name Address Line 1 Address Line 2 Address Line 3\n\t\t\t\t\t\t\t Tag 72 - /PAYTYPE/Credit Notification/INV/Invoice Number"
+          }
+        },
+        "description": ""
+      },
+      "tns_NotifyAccountCreditResponse": {
+        "title": "tns_NotifyAccountCreditResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/fault_FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_TrackCardShipmentStatusRequest": {
+        "title": "tns_TrackCardShipmentStatusRequest",
+        "type": "object",
+        "properties": {
+          "idNumber": {
+            "type": "string",
+            "description": "Customer ID number"
+          },
+          "cif": {
+            "type": "string",
+            "description": "Customer Information File"
+          },
+          "barcode": {
+            "type": "string",
+            "description": "Shipment reference number - Barcode"
+          }
+        },
+        "description": ""
+      },
+      "tns_TrackCardShipmentStatusResponse": {
+        "title": "tns_TrackCardShipmentStatusResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_TrackCardShipmentStatusSuccessType"
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/fault_FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_TrackCardShipmentStatusSuccessType": {
+        "title": "tns_TrackCardShipmentStatusSuccessType",
+        "type": "object",
+        "properties": {
+          "shipments": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_ShipmentsType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_ShipmentsType": {
+        "title": "tns_ShipmentsType",
+        "type": "object",
+        "properties": {
+          "shipment": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_ShipmentType"
+            },
+            "description": "Shipment  Details"
+          }
+        },
+        "description": ""
+      },
+      "tns_ShipmentType": {
+        "title": "tns_ShipmentType",
+        "type": "object",
+        "properties": {
+          "shipmentNumber": {
+            "type": "string",
+            "description": "Shipment Number"
+          },
+          "consigneeId": {
+            "type": "string",
+            "description": "Consignee ID number"
+          },
+          "consigneeCIF": {
+            "type": "string",
+            "description": "Consignee CIF number"
+          },
+          "consigneeName": {
+            "type": "string",
+            "description": "Consignee full name"
+          },
+          "consigneeCountry": {
+            "type": "string",
+            "description": "Consignee country code"
+          },
+          "consigneeCity": {
+            "type": "string",
+            "description": "Consignee City"
+          },
+          "consigneeZipCode": {
+            "type": "string",
+            "description": "Consignee ZIP Code"
+          },
+          "consigneePOBox": {
+            "type": "string",
+            "description": "Consignee POBox"
+          },
+          "consigneeAddress1": {
+            "type": "string",
+            "description": "Consignee address one"
+          },
+          "consigneeAddress2": {
+            "type": "string",
+            "description": "Consignee address two"
+          },
+          "deliveryMethod": {
+            "type": "string",
+            "description": "Shipment delivery method"
+          },
+          "deliveryDate": {
+            "type": "string",
+            "description": "Shipment delivery date"
+          },
+          "deliveryStatus": {
+            "type": "string",
+            "description": "Shipment delivery status"
+          }
+        },
+        "description": ""
+      },
+      "tns_MemberCategoryUpdationRequest": {
+        "title": "tns_MemberCategoryUpdationRequest",
+        "type": "object",
+        "properties": {
+          "channelPreference": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_channelPrefType"
+            },
+            "description": "This is the category and channel information Contact with permission. It is optional.\n\t\t\t\t\t\t\tChannels: Channels names. (Channels defined on account such as e-mail, sms, mms, push can be added.)"
+          },
+          "categoryLabels": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          },
+          "jobId": {
+            "type": "string"
+          },
+          "memberId": {
+            "type": "string"
+          },
+          "messageId": {
+            "type": "string"
+          },
+          "preferenceType": {
+            "type": "string"
+          },
+          "sourceType": {
+            "type": "string"
+          },
+          "subscribeChannelList": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          },
+          "unsubscribeChannelList": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          },
+          "unsubscribeReason": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_unsubscribeReasonDetailsType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_MemberCategoryUpdationResponse": {
+        "title": "tns_MemberCategoryUpdationResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string",
+            "description": "success"
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/fault_FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_channelPrefType": {
+        "title": "tns_channelPrefType",
+        "type": "object",
+        "properties": {
+          "channel": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "channel"
+          },
+          "label": {
+            "type": "string",
+            "description": "label"
+          }
+        },
+        "description": ""
+      },
+      "tns_unsubscribeReasonDetailsType": {
+        "title": "tns_unsubscribeReasonDetailsType",
+        "type": "object",
+        "properties": {
+          "preDefined": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          },
+          "reasonId": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "wsse_Security": {
+        "title": "wsse_Security",
+        "required": [
+          "UsernameToken"
+        ],
+        "type": "object",
+        "properties": {
+          "UsernameToken": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/wsse_UsernameToken"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "header_ServiceHeader": {
+        "title": "header_ServiceHeader",
+        "required": [
+          "loggerContext",
+          "transactionCode",
+          "retryTransaction",
+          "tellerId",
+          "terminalId",
+          "workstationId",
+          "override",
+          "correction",
+          "supervisor",
+          "supervisorId",
+          "overrideCode",
+          "employeeId",
+          "branchId",
+          "functionId",
+          "channelId",
+          "bancsPwd",
+          "languageCode"
+        ],
+        "type": "object",
+        "properties": {
+          "loggerContext": {
+            "type": "string"
+          },
+          "transactionCode": {
+            "type": "string"
+          },
+          "retryTransaction": {
+            "type": "boolean"
+          },
+          "tellerId": {
+            "type": "string"
+          },
+          "terminalId": {
+            "type": "string"
+          },
+          "workstationId": {
+            "type": "string"
+          },
+          "override": {
+            "type": "boolean"
+          },
+          "correction": {
+            "type": "string"
+          },
+          "supervisor": {
+            "type": "string"
+          },
+          "supervisorId": {
+            "type": "string"
+          },
+          "overrideCode": {
+            "type": "string"
+          },
+          "employeeId": {
+            "type": "string"
+          },
+          "branchId": {
+            "type": "string"
+          },
+          "functionId": {
+            "type": "string"
+          },
+          "channelId": {
+            "type": "string"
+          },
+          "bancsPwd": {
+            "type": "string"
+          },
+          "languageCode": {
+            "type": "string"
+          },
+          "authenticationType": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/header_authenticationType"
+              },
+              {
+                "description": "Can be: NONE, OTP, TOKEN"
+              }
+            ]
+          },
+          "IvrTransactionID": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "fault_FaultType": {
+        "title": "fault_FaultType",
+        "required": [
+          "number",
+          "description"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "description": {
+            "type": "string"
+          },
+          "retryAfter": {
+            "type": "string"
+          },
+          "system": {
+            "type": "string"
+          },
+          "nativeError": {
+            "type": "string"
+          },
+          "nativeDescription": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q2_PostalAddress": {
+        "title": "Q2_PostalAddress",
+        "type": "object",
+        "properties": {
+          "addressLine1": {
+            "maxLength": 70,
+            "minLength": 0,
+            "type": "string"
+          },
+          "addressLine2": {
+            "maxLength": 70,
+            "minLength": 0,
+            "type": "string"
+          },
+          "addressLine3": {
+            "maxLength": 70,
+            "minLength": 0,
+            "type": "string"
+          },
+          "city": {
+            "maxLength": 35,
+            "minLength": 0,
+            "type": "string"
+          },
+          "region": {
+            "maxLength": 35,
+            "minLength": 0,
+            "type": "string"
+          },
+          "postalCode": {
+            "maxLength": 16,
+            "minLength": 0,
+            "type": "string"
+          },
+          "country": {
+            "pattern": "([A-Z]{2,2})|()",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q2_Money": {
+        "title": "Q2_Money",
+        "required": [
+          "isoCurrencyCode"
+        ],
+        "type": "object",
+        "properties": {
+          "isoCurrencyCode": {
+            "pattern": "[A-Z]{3,3}",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q2_MoneyOptional": {
+        "title": "Q2_MoneyOptional",
+        "required": [
+          "isoCurrencyCode"
+        ],
+        "type": "object",
+        "properties": {
+          "isoCurrencyCode": {
+            "pattern": "([A-Z]{3,3})|()",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q2_Cursor": {
+        "title": "Q2_Cursor",
+        "required": [
+          "position",
+          "noOfRows"
+        ],
+        "type": "object",
+        "properties": {
+          "position": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "noOfRows": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "description": ""
+      },
+      "Q2_Biller": {
+        "title": "Q2_Biller",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "Q2_DocumentType": {
+        "title": "Q2_DocumentType",
+        "required": [
+          "documentId",
+          "documentSubId",
+          "totalPages",
+          "documentType",
+          "archivedDate",
+          "page"
+        ],
+        "type": "object",
+        "properties": {
+          "documentId": {
+            "type": "string"
+          },
+          "documentSubId": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "documentType": {
+            "type": "string"
+          },
+          "archivedDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          },
+          "page": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Q2_PageType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "Q2_PageType": {
+        "title": "Q2_PageType",
+        "required": [
+          "pageNo",
+          "pageExt",
+          "pageContent"
+        ],
+        "type": "object",
+        "properties": {
+          "pageNo": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageExt": {
+            "type": "string"
+          },
+          "pageContent": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q2_BillCycle": {
+        "title": "Q2_BillCycle",
+        "enum": [
+          "New",
+          "XXX",
+          "YYY"
+        ],
+        "type": "string",
+        "description": "Valid Values : New, XXX, YYY"
+      },
+      "Q2_Flag": {
+        "title": "Q2_Flag",
+        "enum": [
+          "Y",
+          "N"
+        ],
+        "type": "string",
+        "description": "Valid Values : Y or N"
+      },
+      "Q2_OfferToTag": {
+        "title": "Q2_OfferToTag",
+        "enum": [
+          "Yes",
+          "No"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "Q2_CustomerId": {
+        "title": "Q2_CustomerId",
+        "required": [
+          "id",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q2_CustomerId2": {
+        "title": "Q2_CustomerId2",
+        "required": [
+          "id",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q2_Parameter": {
+        "title": "Q2_Parameter",
+        "required": [
+          "name",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q2_TransactionType": {
+        "title": "Q2_TransactionType",
+        "enum": [
+          "BIANNUALCYCLE",
+          "TODAY",
+          "CYCLETODATE",
+          "CTD"
+        ],
+        "type": "string",
+        "description": "Valid values are BIANNUALCYCLE, TODAY,\n\t\t\t\tCYCLETODATE, CTD etc"
+      },
+      "Q2_BeneficiaryId": {
+        "title": "Q2_BeneficiaryId",
+        "required": [
+          "id",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q2_DeviceDetails": {
+        "title": "Q2_DeviceDetails",
+        "required": [
+          "machineNonce",
+          "sequenceNonce",
+          "machineLabel",
+          "machineProperties",
+          "createDate",
+          "lastUsedDate",
+          "expiryDate"
+        ],
+        "type": "object",
+        "properties": {
+          "machineNonce": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "sequenceNonce": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "machineLabel": {
+            "type": "string"
+          },
+          "machineProperties": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q2_MachineProperties"
+              }
+            ]
+          },
+          "createDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          },
+          "lastUsedDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          },
+          "expiryDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q2_AuthenticationDeviceDetails": {
+        "title": "Q2_AuthenticationDeviceDetails",
+        "required": [
+          "machineNonce",
+          "sequenceNonce",
+          "machineLabel",
+          "machineProperties"
+        ],
+        "type": "object",
+        "properties": {
+          "machineNonce": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "sequenceNonce": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "machineLabel": {
+            "type": "string"
+          },
+          "machineProperties": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q2_MachineProperties"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "Q2_MachineProperties": {
+        "title": "Q2_MachineProperties",
+        "required": [
+          "applicationData"
+        ],
+        "type": "object",
+        "properties": {
+          "applicationData": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Q2_ApplicationData"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "Q2_ApplicationData": {
+        "title": "Q2_ApplicationData",
+        "required": [
+          "name",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "value": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q2_AuthenticationInfo": {
+        "title": "Q2_AuthenticationInfo",
+        "required": [
+          "methods"
+        ],
+        "type": "object",
+        "properties": {
+          "methods": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q2_Methods"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "Q2_Methods": {
+        "title": "Q2_Methods",
+        "required": [
+          "hardToken",
+          "softToken",
+          "siteImage",
+          "trustedPC",
+          "callerId",
+          "oneTimePass"
+        ],
+        "type": "object",
+        "properties": {
+          "hardToken": {
+            "type": "boolean"
+          },
+          "softToken": {
+            "type": "boolean"
+          },
+          "siteImage": {
+            "type": "boolean"
+          },
+          "trustedPC": {
+            "type": "boolean"
+          },
+          "callerId": {
+            "type": "boolean"
+          },
+          "oneTimePass": {
+            "type": "boolean"
+          }
+        },
+        "description": ""
+      },
+      "Q2_TokenDetails": {
+        "title": "Q2_TokenDetails",
+        "required": [
+          "userId",
+          "userName",
+          "userGroup",
+          "vendorId",
+          "serialNumber",
+          "tokenType",
+          "signatureSupported",
+          "loadDate",
+          "lastUsedDate"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "userName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "userGroup": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "vendorId": {
+            "type": "string"
+          },
+          "serialNumber": {
+            "type": "string"
+          },
+          "tokenType": {
+            "type": "string"
+          },
+          "signatureSupported": {
+            "type": "boolean"
+          },
+          "loadDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          },
+          "lastUsedDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q2_AccountDetails": {
+        "title": "Q2_AccountDetails",
+        "required": [
+          "accountId",
+          "balance",
+          "overdraft",
+          "balanceSAR",
+          "availableSAR",
+          "averageLastSixMonths",
+          "isoCurrencyCode",
+          "division",
+          "statusCode",
+          "accountType",
+          "glClassificationCode"
+        ],
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "maxLength": 24,
+            "minLength": 14,
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})"
+          },
+          "balance": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q2_Money"
+              }
+            ]
+          },
+          "overdraft": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q2_Money"
+              }
+            ]
+          },
+          "balanceSAR": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q2_Money"
+              }
+            ]
+          },
+          "availableSAR": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q2_Money"
+              }
+            ]
+          },
+          "averageLastSixMonths": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q2_Money"
+              }
+            ]
+          },
+          "isoCurrencyCode": {
+            "pattern": "[A-Z]{3,3}",
+            "type": "string"
+          },
+          "division": {
+            "type": "string"
+          },
+          "statusCode": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "accountType": {
+            "maxLength": 4,
+            "type": "string"
+          },
+          "glClassificationCode": {
+            "maxLength": 40,
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q2_Gender": {
+        "title": "Q2_Gender",
+        "enum": [
+          "M",
+          "F"
+        ],
+        "type": "string",
+        "description": "Valid values are : M , F etc"
+      },
+      "Q2_trueOrFalseType": {
+        "title": "Q2_trueOrFalseType",
+        "enum": [
+          "true",
+          "false",
+          "True",
+          "False"
+        ],
+        "type": "string",
+        "description": "Valid values are : true, false, True, False"
+      },
+      "Q2_trueOrFalseTypeOptional": {
+        "title": "Q2_trueOrFalseTypeOptional",
+        "enum": [
+          "true",
+          "false",
+          "True",
+          "False"
+        ],
+        "type": "string",
+        "description": "Optional.\n\t\t\t\tValid values are : true, false, True,\n\t\t\t\tFalse etc"
+      },
+      "Q2_YorNType": {
+        "title": "Q2_YorNType",
+        "enum": [
+          "Y",
+          "N"
+        ],
+        "type": "string",
+        "description": "Valid values are : Y, N"
+      },
+      "Q2_YorNTypeOptional": {
+        "title": "Q2_YorNTypeOptional",
+        "enum": [
+          "Y",
+          "N"
+        ],
+        "type": "string",
+        "description": "Optional.\n\t\t\t\tValid values are : Y, N"
+      },
+      "Q2_contactlessIndicatorTypeOptional": {
+        "title": "Q2_contactlessIndicatorTypeOptional",
+        "enum": [
+          "Y",
+          "N",
+          "V"
+        ],
+        "type": "string",
+        "description": "Optional.\n\t\t\t\tValid values are : Y, N, V"
+      },
+      "Q2_CustomerChannelType": {
+        "title": "Q2_CustomerChannelType",
+        "enum": [
+          "BOTH",
+          "MOBILE",
+          "AOL"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "Q2_ErrorCategoryType": {
+        "title": "Q2_ErrorCategoryType",
+        "enum": [
+          "BUSINESS",
+          "SYSTEM"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "Q2_CommonServiceFaultType": {
+        "title": "Q2_CommonServiceFaultType",
+        "required": [
+          "category",
+          "code",
+          "message",
+          "detail"
+        ],
+        "type": "object",
+        "properties": {
+          "category": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q2_ErrorCategoryType"
+              }
+            ]
+          },
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q2_ServicesStatusType": {
+        "title": "Q2_ServicesStatusType",
+        "enum": [
+          "ACTIVE",
+          "DISABLE_USER",
+          "DISABLE_ADMIN",
+          "DELETED"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "Q2_ServiceLevelType": {
+        "title": "Q2_ServiceLevelType",
+        "enum": [
+          "INQUIRY",
+          "FULL"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "Q2_CustomerStatusType": {
+        "title": "Q2_CustomerStatusType",
+        "required": [
+          "userId",
+          "aol",
+          "mobile",
+          "emergencyCash"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "aol": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q2_AolStatusType"
+              }
+            ]
+          },
+          "mobile": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q2_MobileStatusType"
+              }
+            ]
+          },
+          "emergencyCash": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q2_EmergencyCashStatus"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "Q2_AolStatusType": {
+        "title": "Q2_AolStatusType",
+        "required": [
+          "createdBy",
+          "createdDate",
+          "lastLoginDate",
+          "serviceLevel",
+          "serviceStatus",
+          "passwordRevoked"
+        ],
+        "type": "object",
+        "properties": {
+          "createdBy": {
+            "type": "string"
+          },
+          "createdDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string"
+          },
+          "lastLoginDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string"
+          },
+          "serviceLevel": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q2_ServiceLevelType"
+              }
+            ]
+          },
+          "serviceStatus": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q2_ServicesStatusType"
+              }
+            ]
+          },
+          "passwordRevoked": {
+            "type": "boolean"
+          }
+        },
+        "description": ""
+      },
+      "Q2_MobileStatusType": {
+        "title": "Q2_MobileStatusType",
+        "required": [
+          "registeredBy",
+          "registeredDate",
+          "lastLoginDate",
+          "serviceLevel",
+          "serviceStatus"
+        ],
+        "type": "object",
+        "properties": {
+          "registeredBy": {
+            "type": "string"
+          },
+          "registeredDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string"
+          },
+          "lastLoginDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string"
+          },
+          "serviceLevel": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q2_ServiceLevelType"
+              }
+            ]
+          },
+          "serviceStatus": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q2_ServicesStatusType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "Q2_EmergencyCashStatus": {
+        "title": "Q2_EmergencyCashStatus",
+        "required": [
+          "registrationDate",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "registrationDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q2_TransactionInfo": {
+        "title": "Q2_TransactionInfo",
+        "required": [
+          "transactionType"
+        ],
+        "type": "object",
+        "properties": {
+          "transactionId": {
+            "type": "string"
+          },
+          "relatedTransactionId": {
+            "type": "string"
+          },
+          "transactionType": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q2_ClientInfo": {
+        "title": "Q2_ClientInfo",
+        "required": [
+          "clientId"
+        ],
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q2_SecurityInfo": {
+        "title": "Q2_SecurityInfo",
+        "required": [
+          "username",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q2_CreationInfo": {
+        "title": "Q2_CreationInfo",
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string"
+          },
+          "branch": {
+            "maxLength": 5,
+            "type": "string"
+          },
+          "institution": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "teller": {
+            "maxLength": 8,
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q2_RequestHeader": {
+        "title": "Q2_RequestHeader",
+        "type": "object",
+        "properties": {
+          "transactionInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q2_TransactionInfo"
+              }
+            ]
+          },
+          "clientInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q2_ClientInfo"
+              }
+            ]
+          },
+          "securityInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q2_SecurityInfo"
+              }
+            ]
+          },
+          "creationInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q2_CreationInfo"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "Q2_ErrorInfo": {
+        "title": "Q2_ErrorInfo",
+        "required": [
+          "level"
+        ],
+        "type": "object",
+        "properties": {
+          "level": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q2_level"
+              }
+            ]
+          },
+          "code": {
+            "type": "string"
+          },
+          "context": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q2_ReplyHeader": {
+        "title": "Q2_ReplyHeader",
+        "type": "object",
+        "properties": {
+          "transactionInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q2_TransactionInfo"
+              }
+            ]
+          },
+          "clientInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q2_ClientInfo"
+              }
+            ]
+          },
+          "errorInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q2_ErrorInfo"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "ContactCreationRequest": {
+        "title": "ContactCreationRequest",
+        "required": [
+          "ContactCreationRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "ContactCreationRequest": {
+            "$ref": "#/components/schemas/tns_ContactCreationRequest"
+          }
+        }
+      },
+      "ContactCreationResponse": {
+        "title": "ContactCreationResponse",
+        "required": [
+          "ContactCreationResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "ContactCreationResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_ContactCreationResponse"
+              }
+            ]
+          }
+        }
+      },
+      "ContactInformationUpdationRequest": {
+        "title": "ContactInformationUpdationRequest",
+        "required": [
+          "ContactInformationUpdationRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "ContactInformationUpdationRequest": {
+            "$ref": "#/components/schemas/tns_ContactInformationUpdationRequest"
+          }
+        }
+      },
+      "ContactInformationUpdationResponse": {
+        "title": "ContactInformationUpdationResponse",
+        "required": [
+          "ContactInformationUpdationResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "ContactInformationUpdationResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_ContactInformationUpdationResponse"
+              }
+            ]
+          }
+        }
+      },
+      "GetContactInformationRequest": {
+        "title": "GetContactInformationRequest",
+        "required": [
+          "GetContactInformationRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "GetContactInformationRequest": {
+            "$ref": "#/components/schemas/tns_GetContactInformationRequest"
+          }
+        }
+      },
+      "GetContactInformationResponse": {
+        "title": "GetContactInformationResponse",
+        "required": [
+          "GetContactInformationResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "GetContactInformationResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_GetContactInformationResponse"
+              }
+            ]
+          }
+        }
+      },
+      "header_authenticationType": {
+        "title": "header_authenticationType",
+        "enum": [
+          "NONE",
+          "OTP",
+          "TOKEN"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "MemberCategoryUpdationRequest": {
+        "title": "MemberCategoryUpdationRequest",
+        "required": [
+          "MemberCategoryUpdationRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "MemberCategoryUpdationRequest": {
+            "$ref": "#/components/schemas/tns_MemberCategoryUpdationRequest"
+          }
+        }
+      },
+      "MemberCategoryUpdationResponse": {
+        "title": "MemberCategoryUpdationResponse",
+        "required": [
+          "MemberCategoryUpdationResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "MemberCategoryUpdationResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_MemberCategoryUpdationResponse"
+              }
+            ]
+          }
+        }
+      },
+      "MemberCreationRequest": {
+        "title": "MemberCreationRequest",
+        "required": [
+          "MemberCreationRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "MemberCreationRequest": {
+            "$ref": "#/components/schemas/tns_MemberCreationRequest"
+          }
+        }
+      },
+      "MemberCreationResponse": {
+        "title": "MemberCreationResponse",
+        "required": [
+          "MemberCreationResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "MemberCreationResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_MemberCreationResponse"
+              }
+            ]
+          }
+        }
+      },
+      "MemberInquiryRequest": {
+        "title": "MemberInquiryRequest",
+        "required": [
+          "MemberInquiryRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "MemberInquiryRequest": {
+            "$ref": "#/components/schemas/tns_MemberInquiryRequest"
+          }
+        }
+      },
+      "MemberInquiryResponse": {
+        "title": "MemberInquiryResponse",
+        "required": [
+          "MemberInquiryResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "MemberInquiryResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_MemberInquiryResponse"
+              }
+            ]
+          }
+        }
+      },
+      "MemberUpdationRequest": {
+        "title": "MemberUpdationRequest",
+        "required": [
+          "MemberUpdationRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "MemberUpdationRequest": {
+            "$ref": "#/components/schemas/tns_MemberUpdationRequest"
+          }
+        }
+      },
+      "MemberUpdationResponse": {
+        "title": "MemberUpdationResponse",
+        "required": [
+          "MemberUpdationResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "MemberUpdationResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_MemberUpdationResponse"
+              }
+            ]
+          }
+        }
+      },
+      "NotificationRequest": {
+        "title": "NotificationRequest",
+        "required": [
+          "NotificationRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "NotificationRequest": {
+            "$ref": "#/components/schemas/tns_NotificationRequest"
+          }
+        }
+      },
+      "NotificationResponse": {
+        "title": "NotificationResponse",
+        "required": [
+          "NotificationResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "NotificationResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_NotificationResponse"
+              }
+            ]
+          }
+        }
+      },
+      "NotificationsDetailRequest": {
+        "title": "NotificationsDetailRequest",
+        "required": [
+          "NotificationsDetailRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "NotificationsDetailRequest": {
+            "$ref": "#/components/schemas/tns_NotificationsDetailRequest"
+          }
+        }
+      },
+      "NotificationsDetailResponse": {
+        "title": "NotificationsDetailResponse",
+        "required": [
+          "NotificationsDetailResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "NotificationsDetailResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_NotificationsDetailResponse"
+              }
+            ]
+          }
+        }
+      },
+      "NotifyAccountCreditRequest": {
+        "title": "NotifyAccountCreditRequest",
+        "required": [
+          "NotifyAccountCreditRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "NotifyAccountCreditRequest": {
+            "$ref": "#/components/schemas/tns_NotifyAccountCreditRequest"
+          }
+        }
+      },
+      "NotifyAccountCreditResponse": {
+        "title": "NotifyAccountCreditResponse",
+        "required": [
+          "NotifyAccountCreditResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "NotifyAccountCreditResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_NotifyAccountCreditResponse"
+              }
+            ]
+          }
+        }
+      },
+      "Q2_level": {
+        "title": "Q2_level",
+        "enum": [
+          "SUCCESS",
+          "WARNING",
+          "FAILURE"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "SearchContactInformationRequest": {
+        "title": "SearchContactInformationRequest",
+        "required": [
+          "SearchContactInformationRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "SearchContactInformationRequest": {
+            "$ref": "#/components/schemas/tns_SearchContactInformationRequest"
+          }
+        }
+      },
+      "SearchContactInformationResponse": {
+        "title": "SearchContactInformationResponse",
+        "required": [
+          "SearchContactInformationResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "SearchContactInformationResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_SearchContactInformationResponse"
+              }
+            ]
+          }
+        }
+      },
+      "SendMailRequest": {
+        "title": "SendMailRequest",
+        "required": [
+          "SendMailRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "SendMailRequest": {
+            "$ref": "#/components/schemas/tns_SendMailRequest"
+          }
+        }
+      },
+      "SendMailResponse": {
+        "title": "SendMailResponse",
+        "required": [
+          "SendMailResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "SendMailResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_SendMailResponse"
+              }
+            ]
+          }
+        }
+      },
+      "SendMessageRequest": {
+        "title": "SendMessageRequest",
+        "required": [
+          "SendMessageRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "SendMessageRequest": {
+            "$ref": "#/components/schemas/SendMessageRequestType"
+          }
+        }
+      },
+      "SendMessageResponse": {
+        "title": "SendMessageResponse",
+        "required": [
+          "SendMessageResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "SendMessageResponse": {
+            "$ref": "#/components/schemas/SendMessageResponseType"
+          }
+        }
+      },
+      "SendSMSRequest": {
+        "title": "SendSMSRequest",
+        "required": [
+          "SendSMSRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "SendSMSRequest": {
+            "$ref": "#/components/schemas/SendSMSRequestType"
+          }
+        }
+      },
+      "SendSMSResponse": {
+        "title": "SendSMSResponse",
+        "required": [
+          "SendSMSResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "SendSMSResponse": {
+            "$ref": "#/components/schemas/SendSMSResponseType"
+          }
+        }
+      },
+      "tns_address": {
+        "title": "tns_address",
+        "type": "object",
+        "properties": {
+          "emailAddress": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_address1": {
+        "title": "tns_address1",
+        "required": [
+          "emailAddress"
+        ],
+        "type": "object",
+        "properties": {
+          "emailAddress": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_attachment": {
+        "title": "tns_attachment",
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "This specifies the name of the attachment.\tWhatever content is placed in the attachment element is sent\twith this as attachment name."
+          },
+          "encoded": {
+            "type": "boolean",
+            "description": "This mentions whether the contents of the\tattachment have to encoded or sent as it is.",
+            "default": false
+          }
+        }
+      },
+      "tns_attachment1": {
+        "title": "tns_attachment1",
+        "type": "object",
+        "properties": {
+          "encoded": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_attachments": {
+        "title": "tns_attachments",
+        "type": "object",
+        "properties": {
+          "attachment": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_attachment"
+            },
+            "description": "This contains the actual attachment file\tbeing sent with the mail. This tag takes two attributes: name\t- The name of the file being sent as attachment encoded - A\tBoolean value that specifies whether the attachment is encoded\tor not. If \"true\", then the contents of the attachment are\tBase64 encoded. If \"false\", then the attachment is sent as\tplain ASCII"
+          }
+        },
+        "description": "This contains attachments, if any, that are\tbeing sent with the message. Contains the attachment tag within"
+      },
+      "tns_attachments1": {
+        "title": "tns_attachments1",
+        "type": "object",
+        "properties": {
+          "attachment": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_attachment1"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_bcc": {
+        "title": "tns_bcc",
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_address"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_bcc1": {
+        "title": "tns_bcc1",
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_address1"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_body": {
+        "title": "tns_body",
+        "type": "object",
+        "properties": {
+          "type": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_type"
+              }
+            ]
+          }
+        },
+        "description": "This contains the actual body of the message\tbeing sent. This takes an optional attribute called type, which\tcan be used when the text being sent is in HTML format. When this\tattribute is not mentioned, the default text type is normal."
+      },
+      "tns_body1": {
+        "title": "tns_body1",
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_cc": {
+        "title": "tns_cc",
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_address"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_cc1": {
+        "title": "tns_cc1",
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_address1"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_from": {
+        "title": "tns_from",
+        "type": "object",
+        "properties": {
+          "displayName": {
+            "type": "string"
+          },
+          "emailAddress": {
+            "type": "string"
+          },
+          "replyTo": {
+            "type": "string"
+          }
+        },
+        "description": "This contains the details of the sender of the\tmessage. If this tag is not present, the sender details are taken\tfrom the e-mail profile. If both the tag and the e-mail profile\tare not present, a SOAP fault is displayed."
+      },
+      "tns_from1": {
+        "title": "tns_from1",
+        "required": [
+          "displayName",
+          "emailAddress",
+          "replyTo"
+        ],
+        "type": "object",
+        "properties": {
+          "displayName": {
+            "type": "string"
+          },
+          "emailAddress": {
+            "type": "string"
+          },
+          "replyTo": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_header": {
+        "title": "tns_header",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "default": "header1"
+          }
+        },
+        "description": ""
+      },
+      "tns_headers": {
+        "title": "tns_headers",
+        "type": "object",
+        "properties": {
+          "header": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_header"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "parameter": {
+        "title": "parameter",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string"
+          },
+          "isEncrypted": {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "description": ""
+      },
+      "parameter1": {
+        "title": "parameter1",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Dynamic variables can be indicated."
+          },
+          "value": {
+            "type": "string",
+            "description": "Value of dynamic variables can be set."
+          },
+          "language": {
+            "$ref": "../../commonschemas/schemas.json#/LanguageCodeOptional",
+            "description": "Language preference of dynamic content."
+          }
+        },
+        "description": ""
+      },
+      "successType": {
+        "title": "successType",
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/resultsType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "targetAddressTypesType": {
+        "title": "targetAddressTypesType",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "It is the receiver address for reaching customers. It can be e-mail address, gsm number or push token."
+          },
+          "deviceType": {
+            "type": "string",
+            "description": "Device Operationing System Information"
+          }
+        },
+        "description": "It is the receiver address for reaching customers. It can be e-mail address, gsm number or push token."
+      },
+      "tns_to": {
+        "title": "tns_to",
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_address"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_to1": {
+        "title": "tns_to1",
+        "type": "object",
+        "properties": {
+          "address": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_address1"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_type": {
+        "title": "tns_type",
+        "enum": [
+          "html",
+          "text",
+          "normal"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "TrackCardShipmentStatusRequest": {
+        "title": "TrackCardShipmentStatusRequest",
+        "required": [
+          "TrackCardShipmentStatusRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "TrackCardShipmentStatusRequest": {
+            "$ref": "#/components/schemas/tns_TrackCardShipmentStatusRequest"
+          }
+        }
+      },
+      "TrackCardShipmentStatusResponse": {
+        "title": "TrackCardShipmentStatusResponse",
+        "required": [
+          "TrackCardShipmentStatusResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "TrackCardShipmentStatusResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_TrackCardShipmentStatusResponse"
+              }
+            ]
+          }
+        }
+      },
+      "wsse_UsernameToken": {
+        "title": "wsse_UsernameToken",
+        "required": [
+          "Username",
+          "Password"
+        ],
+        "type": "object",
+        "properties": {
+          "Username": {
+            "type": "string"
+          },
+          "Password": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_AmountOptional": {
+        "oneOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      },
+      "Q2_AmountOptional": {
+        "$ref": "#/components/schemas/tns_AmountOptional"
+      }
+    },
+    "securitySchemes": {
+      "mwsecurity": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "mwsecurity": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Correspondence APIs",
+      "description": ""
+    }
+  ]
+}

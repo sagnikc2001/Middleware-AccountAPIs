@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://com.tcs.bancs.rm/"
+	elementFormDefault="qualified"
+	xmlns:tns="http://com.tcs.bancs.rm/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:fault="http://com.tcs.bancs.rm/fault/"
+	xmlns:Q1="http://com.tcs.bancs.rm/schemas/">
+	<xsd:import namespace="http://com.tcs.bancs.rm/fault/"
+		schemaLocation="./fault.xsd"/>
+	<xsd:import namespace="http://com.tcs.bancs.rm/schemas/" schemaLocation="./SenderAndBenMgmtSchemas.xsd"/>
+
+	<xsd:element name="ValidateTransferRequest">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="custCif" type="Q1:custCif" maxOccurs="1" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Customer Number</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="accountNumber" type="tns:AccountNumber" maxOccurs="1" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Account number to be used for deducting the transferred amount</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="beneficiaryId" maxOccurs="1" minOccurs="1" type="Q1:beneficiaryId">
+					<xsd:annotation>
+						<xsd:documentation>Beneficiary Identifier</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="amount" type="tns:Amount" maxOccurs="1" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>amount to be transferred</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="calculationMethod" type="xsd:int" maxOccurs="1" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Calculation method</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="atmTerminalId" type="Q1:alphaNum16"
+					maxOccurs="1" minOccurs="0">
+				</xsd:element>
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:element name="ValidateTransferResponse">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="transferInfo" type="tns:transferInfoType" maxOccurs="1" minOccurs="0"/>
+				<xsd:element maxOccurs="1" minOccurs="0" ref="fault:fault"/>
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="transferInfoType">
+		<xsd:all>
+			<xsd:element name="custCif" type="Q1:custCif" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="beneficiaryId" default="0" type="xsd:int" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="sourceAmount" default="0.0" type="tns:Amount" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="sourceCurrency" type="Q1:isoCurrencyCode" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="feeAmountInSAR" default="0.0" type="tns:Amount" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="sourceFeeAmount" default="0.0" type="tns:Amount" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="correspondentId" type="xsd:string" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="beneficiaryFirstName" type="Q1:char30" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="beneficiaryMiddleName" type="Q1:char30" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="beneficiaryLastName" type="Q1:char30" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="beneficiaryCountry" type="Q1:isoCurrencyCode" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="deliveryType" maxOccurs="1" minOccurs="1" type="Q1:deliveryTypes"/>
+			<xsd:element name="deliveryDetail0" type="xsd:string" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="deliveryDetail1" type="xsd:string" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="deliveryDetail3" type="xsd:string" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="destinationAmount" default="0.0" type="tns:Amount" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="destinationCurrency" type="Q1:isoCurrencyCode" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="exchangeRate" default="0.0" type="xsd:double" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="bancsSellRate" default="0.0" type="xsd:double" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="srcUSDSpread" default="0.0" type="xsd:double" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="bancsRateSellWSpread" default="0.0" type="xsd:double" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="netAmount" default="0.0" type="tns:Amount" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="netTransferUSD" default="0.0" type="tns:Amount" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="sellRateGainSAR" default="0.0" type="xsd:double" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="payQuikExchange" default="0.0" type="xsd:double" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="bancsBuyRate" default="0.0" type="xsd:double" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="usdDSTSpread" default="0.0" type="xsd:double" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="bancsRateBuyWSpread" default="0.0" type="xsd:double" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="buyRateGainSAR" default="0.0" type="xsd:double" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="feeValue" default="0" type="xsd:int" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="bancsRateMid" default="0.0" type="xsd:double" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="costRate" default="0.0" type="xsd:double" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="senderFirstName" type="Q1:char30" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="senderMiddleName" type="Q1:char30" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="senderLastName" type="Q1:char30" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="senderAddress1" type="Q1:char100" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="senderAddress2" type="Q1:char100" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="senderCity" type="xsd:string" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="senderCountry" type="Q1:isoCountryCode" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="senderNationality" type="xsd:string" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="senderEmail" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="senderMobile" type="xsd:string" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="senderId" type="xsd:string" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="senderIdType" type="xsd:string" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="senderIdExpiryDate" type="Q1:date" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="senderDateofBirth" type="Q1:date" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="senderOccupation" type="xsd:string" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="senderPostalCode" default="0" type="xsd:string" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="beneficiaryAddress1" type="Q1:char100" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="beneficiaryAddress2" type="Q1:char100" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="beneficiaryCity" type="xsd:string" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="beneficiaryState" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="beneficiaryPostalCode" default="0" type="xsd:string" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="beneficaryEmail" type="xsd:string" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="beneficiaryPhone" type="xsd:string" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="beneficiaryMobile" type="Q1:mobileNumber" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="remittancePurpose" type="xsd:string" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="senderRelation" type="xsd:string" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="ncbCommissionInSAR" type="tns:Amount" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="ncbCommissionInUSD" type="tns:Amount" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="mgCommissionInSAR" type="tns:Amount" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="mgCommissionInUSD" type="tns:Amount" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="mgFaceAmountInUSD" type="tns:Amount" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="vatAmountInSAR" type="tns:Amount" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="feeExcludingVat" type="tns:Amount" maxOccurs="1" minOccurs="0" />
+			<xsd:element name="homeBranch" type="xsd:string" maxOccurs="1" minOccurs="1" />
+			<xsd:element name="dealId" type="xsd:string" maxOccurs="1" minOccurs="0"/>
+			<xsd:element name="dealExpiryTime" type="xsd:string" maxOccurs="1" minOccurs="0"/>
+		</xsd:all>
+	</xsd:complexType>
+	
+	<xsd:element name="TransferRequest">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="custCif" type="Q1:custCif" maxOccurs="1" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Customer Number</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="accountNumber" type="tns:AccountNumber" maxOccurs="1" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Account number to be used for deducting the transferred amount</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="beneficiaryId" maxOccurs="1" minOccurs="1" type="Q1:beneficiaryId">
+					<xsd:annotation>
+						<xsd:documentation>Beneficiary Identifier</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="amount" type="tns:Amount" maxOccurs="1" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>amount to be transferred</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="calculationMethod" type="xsd:int" maxOccurs="1" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Calculation method</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="atmReceipt" type="xsd:int" maxOccurs="1"
+					minOccurs="0">
+				</xsd:element>
+				<xsd:element name="atmLocation" type="xsd:string"
+					maxOccurs="1" minOccurs="0">
+				</xsd:element>
+				<xsd:element name="AMLPurposeCode" type="xsd:string"
+					maxOccurs="1" minOccurs="0">
+				</xsd:element>
+				<xsd:element name="atmTerminalId" type="Q1:alphaNum16"
+					maxOccurs="1" minOccurs="0">
+				</xsd:element>
+				<xsd:element name="dealId" type="xsd:string" maxOccurs="1"
+        		minOccurs="0">
+				</xsd:element>
+				<xsd:element name="posReferenceNumber" type="xsd:string" maxOccurs="1"
+        		minOccurs="0">
+				</xsd:element>
+				<xsd:element name="additionalInfo" type="xsd:string" maxOccurs="1" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>Additional information</xsd:documentation>
+				</xsd:annotation>
+				</xsd:element>
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="TransferResponse">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="transferDetails" type="tns:transferDetailsType"
+					maxOccurs="1" minOccurs="0"></xsd:element>
+				<xsd:element maxOccurs="1" minOccurs="0" ref="fault:fault"></xsd:element>
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="ReverseTransferRequest">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="bankReferenceNumber" maxOccurs="1"
+				minOccurs="1" type="xsd:string"></xsd:element>
+				<xsd:element name="typeOfRefund" maxOccurs="1" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="1" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="ReverseTransferResponse">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="journalId" maxOccurs="1" minOccurs="1">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="16" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" ref="fault:fault"></xsd:element>
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:complexType name="transferDetailsType">
+		<xsd:all>
+			<xsd:element name="custCif" type="Q1:custCif" maxOccurs="1" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Customer Number</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+			<xsd:element name="sourceAmount" default="0.0" type="tns:Amount"
+				maxOccurs="1" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Total amount in account currency to be deducted
+						from the account
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="sourceCurrency" type="Q1:isoCurrencyCode"
+				maxOccurs="1" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Account currency
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="sourceFeeAmount" default="0.0" type="tns:Amount"
+				maxOccurs="1" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						fee amount in account currency
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="destinationAmount" default="0.0" type="tns:Amount"
+				maxOccurs="1" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Net transfer amount in destination currency
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="destinationCurrency" type="Q1:isoCurrencyCode"
+				maxOccurs="1" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Destination currency
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="exchangeRate" type="xsd:double"
+				maxOccurs="1" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Exchange rate from source currency to
+						destination currency
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="feeAmountInSAR" type="tns:Amount"
+				maxOccurs="1" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						fee amount in SAR
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="vatAmountInSAR" type="tns:Amount"
+				maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Vat amount in SAR
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="feeExcludingVat" type="tns:Amount"
+				maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						fee Excluding Vat amount in SAR
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="pickupCode" maxOccurs="1" minOccurs="1">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="30" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="quickPayReferenceNumber" type="xsd:string"
+				maxOccurs="1" minOccurs="1">
+				<xsd:annotation>
+					<xsd:documentation>
+						Unique ID, assigned by PayQuik, that uniquely
+						identifies in the PayQuik system a money
+						transfer transaction
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="bankReferenceNumber" maxOccurs="1"
+				minOccurs="1" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>
+						unique number that identifies a money transfer
+						transaction, must be presented to the customer
+					</xsd:documentation>
+				</xsd:annotation>
+            </xsd:element>
+			<xsd:element name="journalId" maxOccurs="1" minOccurs="1">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="16" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="correspondentGl" maxOccurs="1" minOccurs="1">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="16" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:all>
+	</xsd:complexType>
+
+	<xsd:simpleType name="AccountNumber">
+		<xsd:annotation>
+			<xsd:documentation>
+				Id of the accounts in NCB BaNCS system.
+				Valid
+				values are : 05516500010102, 36160988000108, 10518651000108 etc
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="24"/>
+			<xsd:minLength value="14"/>
+			<xsd:pattern value="([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="Amount">
+		<xsd:annotation>
+			<xsd:documentation>
+				This element represents amount of money in the
+				format xxxx.xxx or -xxxx.xxx.
+				It can have maximum 15 decimal places
+				and can have 18 total digits.
+				Valid values are : 232334.454 ,
+				65717171772372.5562 etc
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:decimal">
+			<xsd:fractionDigits value="15" />
+			<xsd:totalDigits value="18" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:element name="AcceptDealRequest">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="dealId" maxOccurs="1"
+				minOccurs="1" type="xsd:string" ></xsd:element>
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="AcceptDealResponse">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="dealId" maxOccurs="1" minOccurs="1" type="xsd:string"> </xsd:element>
+			    <xsd:element name="Status" maxOccurs="1" minOccurs="1" type="xsd:string"> </xsd:element>
+			<xsd:element maxOccurs="1" minOccurs="0" ref="fault:fault"></xsd:element>
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="TransactionInquiryRequest">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="bankReferenceNumber" maxOccurs="1"
+				minOccurs="1" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>
+						unique number that identifies a money transfer
+						transaction, must be presented to the customer
+					</xsd:documentation>
+				</xsd:annotation>
+                </xsd:element>
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="TransactionInquiryResponse">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="TransactionCancelable" maxOccurs="1"
+				minOccurs="1" type="xsd:string"> 
+				<xsd:annotation>
+					<xsd:documentation>
+						TransactionCancelable
+					</xsd:documentation>
+				</xsd:annotation>
+				</xsd:element>
+			  <xsd:element maxOccurs="1" minOccurs="0" ref="fault:fault"></xsd:element>
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="TransactionCancelRequest">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="bankReferenceNumber" maxOccurs="1"
+				minOccurs="1" type="xsd:string">
+				<xsd:annotation>
+					<xsd:documentation>
+						unique number that identifies a money transfer
+						transaction, must be presented to the customer
+					</xsd:documentation>
+				</xsd:annotation>
+                </xsd:element>
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="TransactionCancelResponse">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="responseCode"  maxOccurs="1" minOccurs="1">
+					<xsd:simpleType>
+						<xsd:annotation>
+						<xsd:documentation>responseCode</xsd:documentation>
+					</xsd:annotation>
+		<xsd:restriction base="xsd:int">
+			<xsd:totalDigits value="3" />
+		</xsd:restriction>
+	</xsd:simpleType>
+				</xsd:element>
+				<xsd:element maxOccurs="1" minOccurs="0" ref="fault:fault"></xsd:element>
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="ValidateActiveTransactionRequest">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="accountNumber" maxOccurs="1"
+				minOccurs="1" type="tns:AccountNumber" ></xsd:element>
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="ValidateActiveTransactionResponse">
+		<xsd:complexType>
+			<xsd:all>
+			    <xsd:element name="Response" maxOccurs="1" minOccurs="0" type="xsd:string"> </xsd:element>
+				<xsd:element maxOccurs="1" minOccurs="0" ref="fault:fault"></xsd:element>
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="TransactionStatusUpdateRequest">
+		<xsd:complexType>
+			<xsd:all>
+				<xsd:element name="bankRefNo" type="xsd:string" maxOccurs="1" minOccurs="1">
+					<xsd:annotation>
+						<xsd:documentation>Bank referrence number</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="status" type="tns:TransactionStatus" maxOccurs="1" minOccurs="0">
+					<xsd:annotation>
+						<xsd:documentation>
+							Transaction status to be updated
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="lastUpdatedDate" type="Q1:date" maxOccurs="1" minOccurs="0" >
+					<xsd:annotation>
+						<xsd:documentation>
+							Last updated Date
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:element>
+				<xsd:element name="amount" type="tns:Amount"
+				maxOccurs="1" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+						Redeemed amount 
+					</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:element name="TransactionStatusUpdateResponse">
+		<xsd:complexType>
+			<xsd:all>
+			    <xsd:element name="Response" maxOccurs="1" minOccurs="0" type="xsd:string"> </xsd:element>
+				<xsd:element maxOccurs="1" minOccurs="0" ref="fault:fault"></xsd:element>
+			</xsd:all>
+		</xsd:complexType>
+	</xsd:element>
+	
+	<xsd:simpleType name="TransactionStatus">
+		<xsd:restriction base = "xsd:string">
+			<xsd:enumeration value = "REDEEMED"/>
+			<xsd:enumeration value = "REFUNDED"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

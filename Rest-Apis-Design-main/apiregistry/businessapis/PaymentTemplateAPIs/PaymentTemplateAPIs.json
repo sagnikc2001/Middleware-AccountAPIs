@@ -1,0 +1,4549 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "MW PaymentTemplate APIs",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://mw-api-3scale-apicast-staging.apps.com:443/api/paymenttemplate"
+    }
+  ],
+  "paths": {
+    "/CreateTemplate": {
+      "post": {
+        "tags": [
+          "PaymentTemplate APIs Stage"
+        ],
+        "summary": "CreateTemplate",
+        "operationId": "CreateTemplate",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/CreateTemplateRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/CreateTemplateResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/GetTemplateDetails": {
+      "post": {
+        "tags": [
+          "PaymentTemplate APIs"
+        ],
+        "description": "This operation retrieves the Template Details",
+        "operationId": "GetTemplateDetails",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT bearer token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "having channel details , locale",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TemplateDetailsRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TemplateDetailsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TemplateDetailsResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized Request"
+          },
+          "404": {
+            "description": "404 API Not Found"
+          },
+          "405": {
+            "description": "405 Method Not Allowed"
+          },
+          "429": {
+            "description": "429 Too Many Requests"
+          },
+          "500": {
+            "description": "500 Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TemplateDetailsResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503 Service Unavailable"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/GetTemplateList": {
+      "post": {
+        "tags": [
+          "PaymentTemplate APIs"
+        ],
+        "description": "This operation retrieves the TemplateList",
+        "operationId": "GetTemplateList",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT bearer token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TemplateListRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TemplateListResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TemplateListResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized Request"
+          },
+          "404": {
+            "description": "404 API Not Found"
+          },
+          "405": {
+            "description": "405 Method Not Allowed"
+          },
+          "429": {
+            "description": "429 Too Many Requests"
+          },
+          "500": {
+            "description": "500 Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TemplateListResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503 Service Unavailable"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/TransferTemplate": {
+      "post": {
+        "tags": [
+          "PaymentTemplate APIs Stage"
+        ],
+        "summary": "TransferTemplate",
+        "operationId": "TransferTemplate",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/TransferTemplateRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/TransferTemplateResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ModifyTemplate": {
+      "post": {
+        "tags": [
+          "PaymentTemplate APIs Stage"
+        ],
+        "summary": "ModifyTemplate",
+        "operationId": "ModifyTemplate",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ModifyTemplateRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ModifyTemplateResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/DeleteTemplate": {
+      "post": {
+        "tags": [
+          "PaymentTemplate APIs Stage"
+        ],
+        "summary": "DeleteTemplate",
+        "operationId": "DeleteTemplate",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/DeleteTemplateRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/DeleteTemplateResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/GetTransferStatus": {
+      "post": {
+        "tags": [
+          "PaymentTemplate APIs Stage"
+        ],
+        "summary": "GetTransferStatus",
+        "operationId": "GetTransferStatus",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/TransferStatusRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/TransferStatusResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ActivateTemplate": {
+      "post": {
+        "tags": [
+          "PaymentTemplate APIs Stage"
+        ],
+        "summary": "ActivateTemplate",
+        "operationId": "ActivateTemplate",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ActivateTemplateRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ActivateTemplateResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/GetTemplateTranferDetails": {
+      "post": {
+        "tags": [
+          "PaymentTemplate APIs Stage"
+        ],
+        "summary": "GetTemplateTranferDetails",
+        "operationId": "GetTemplateTranferDetails",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/TemplateTranferDetailsRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/TemplateTranferDetailsResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/AuthenticateTemplate": {
+      "post": {
+        "tags": [
+          "PaymentTemplate APIs Stage"
+        ],
+        "summary": "AuthenticateTemplate",
+        "operationId": "AuthenticateTemplate",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/AuthenticateTemplateRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/AuthenticateTemplateResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/RetrieveBeneficiaryBankDetails": {
+      "post": {
+        "tags": [
+          "PaymentTemplate APIs Stage"
+        ],
+        "summary": "RetrieveBeneficiaryBankDetails",
+        "operationId": "RetrieveBeneficiaryBankDetails",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/RetrieveBeneficiaryBankDetailsRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/RetrieveBeneficiaryBankDetailsResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "tns_CreateTemplateRequest": {
+        "title": "tns_CreateTemplateRequest",
+        "required": [
+          "shortCIF",
+          "service"
+        ],
+        "type": "object",
+        "properties": {
+          "shortCIF": {
+            "pattern": "([0-9]){8}|([0]){1}",
+            "type": "string",
+            "description": "Short Customer Information Number"
+          },
+          "service": {
+            "maxLength": 4,
+            "type": "string",
+            "description": "Service"
+          },
+          "localBankCode": {
+            "maxLength": 4,
+            "type": "string",
+            "description": "LocalBankCode"
+          },
+          "beneficiaryName": {
+            "maxLength": 35,
+            "type": "string",
+            "description": "BeneficiaryName"
+          },
+          "beneficiaryAddress1": {
+            "maxLength": 35,
+            "type": "string",
+            "description": "BeneficiaryAddress1"
+          },
+          "beneficiaryAddress2": {
+            "maxLength": 35,
+            "type": "string",
+            "description": "BeneficiaryAddress2"
+          },
+          "beneficiaryAddress3": {
+            "maxLength": 35,
+            "type": "string",
+            "description": "BeneficiaryAddress3"
+          },
+          "beneficiaryAccountId": {
+            "maxLength": 24,
+            "minLength": 14,
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})",
+            "type": "string",
+            "description": "Beneficiary Account Identification Number"
+          },
+          "currency": {
+            "pattern": "[A-Z]{3,3}",
+            "type": "string",
+            "description": "Currency is the currency to transfer"
+          },
+          "shortName": {
+            "maxLength": 10,
+            "type": "string",
+            "description": "Short Name of the beneficiary"
+          },
+          "bankName": {
+            "maxLength": 35,
+            "type": "string",
+            "description": "bank Name of the beneficiary"
+          },
+          "bankRouteCode": {
+            "maxLength": 32,
+            "type": "string",
+            "description": "BankRouteCode"
+          },
+          "bankAddress1": {
+            "maxLength": 35,
+            "type": "string",
+            "description": "BankAddress1"
+          },
+          "bankAddress2": {
+            "maxLength": 35,
+            "type": "string",
+            "description": "BankAddress2"
+          },
+          "bankAddress3": {
+            "maxLength": 15,
+            "type": "string",
+            "description": "BankAddress3"
+          },
+          "instructions1": {
+            "maxLength": 35,
+            "type": "string",
+            "description": "Customer Instruction Description"
+          },
+          "instructions2": {
+            "maxLength": 35,
+            "type": "string",
+            "description": "Customer Instruction Description"
+          },
+          "instructions3": {
+            "maxLength": 35,
+            "type": "string",
+            "description": "Customer Instruction Description"
+          },
+          "instructions4": {
+            "maxLength": 35,
+            "type": "string",
+            "description": "Customer Instruction Description"
+          },
+          "remitterName": {
+            "maxLength": 35,
+            "type": "string",
+            "description": "RemitterName"
+          },
+          "remitterAddress1": {
+            "maxLength": 35,
+            "type": "string",
+            "description": "RemitterAddress1"
+          },
+          "remitterAddress2": {
+            "maxLength": 35,
+            "type": "string",
+            "description": "RemitterAddress2"
+          },
+          "remitterAddress3": {
+            "maxLength": 35,
+            "type": "string",
+            "description": "RemitterAddress3"
+          },
+          "reasonCode": {
+            "maximum": 9.0,
+            "minimum": 1.0,
+            "type": "integer",
+            "description": "Reason Code (is the reason code for the\r\n\t\t\t\t\t\t\ttransfer)",
+            "format": "int32"
+          },
+          "chargesPaidBy": {
+            "maxLength": 3,
+            "type": "string",
+            "description": "Charges Paid By(who will pay the charges)"
+          },
+          "swiftbic": {
+            "maxLength": 20,
+            "type": "string",
+            "description": "SWIFTBIC"
+          },
+          "atmAccess": {
+            "maxLength": 1,
+            "type": "string",
+            "description": "AtmAccess"
+          },
+          "ivrShortCode": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_CreateTemplateResponse": {
+        "title": "tns_CreateTemplateResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_CreateTemplateType"
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/fault_FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "TemplateDetailsRequestType": {
+        "title": "TemplateDetailsRequestType",
+        "required": [
+          "templateId"
+        ],
+        "type": "object",
+        "properties": {
+          "templateId": {
+            "type": "string",
+            "description": "is the desired unique Payment Template Identification"
+          },
+          "ivrShortCode": {
+            "type": "string",
+            "description": "2 digit short code used for IVR"
+          },
+          "debtorCustomerReferenceNumber": {
+            "type": "string",
+            "description": "CIF number of the  Debtor i.e., Customer CIF number who is creating/triggering creation"
+          }
+        },
+        "description": ""
+      },
+      "TemplateDetailsResponseType": {
+        "title": "TemplateDetailsResponseType",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/TemplateDetailsType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "TemplateListRequestType": {
+        "title": "TemplateListRequestType",
+        "required": [
+          "cif"
+        ],
+        "type": "object",
+        "properties": {
+          "cif": {
+            "$ref": "../../commonschemas/schemas.json#/ShortAndCIF",
+            "description": "Customer Information Number"
+          },
+          "type": {
+            "$ref": "#/components/schemas/type"
+          },
+          "status": {
+            "$ref": "#/components/schemas/status"
+          },
+          "ivrShortCode": {
+            "type": "string"
+          },
+          "pageSize": {
+            "type": "string"
+          },
+          "pageNum": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "TemplateListResponseType": {
+        "title": "TemplateListResponseType",
+        "type": "object",
+        "properties": {
+          "template": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TemplateListType"
+            },
+            "description": ""
+          },
+          "totalRecords": {
+            "type": "string"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_CreateTemplateType": {
+        "title": "tns_CreateTemplateType",
+        "required": [
+          "journalId",
+          "templateId",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "journalId": {
+            "type": "string",
+            "description": "Is the BANCS Journal Number"
+          },
+          "templateId": {
+            "type": "string",
+            "description": "Is a unique reference number for the template"
+          },
+          "status": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/status1"
+              },
+              {
+                "description": "status"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_LocalInternationBeneficiaryInformationType": {
+        "title": "tns_LocalInternationBeneficiaryInformationType",
+        "type": "object",
+        "properties": {
+          "journalId": {
+            "type": "string"
+          },
+          "scheduleTxnCode": {
+            "type": "string"
+          },
+          "accountNumber": {
+            "type": "string"
+          },
+          "templateId": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          },
+          "paymentType": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "amount": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_AmountOptional"
+              }
+            ]
+          },
+          "currency": {
+            "pattern": "([A-Z]{3,3})|()",
+            "type": "string"
+          },
+          "localBankCode": {
+            "type": "string"
+          },
+          "service": {
+            "type": "string"
+          },
+          "beneficiaryOption": {
+            "type": "string"
+          },
+          "beneficiaryAccountId": {
+            "type": "string"
+          },
+          "beneficiaryName": {
+            "type": "string"
+          },
+          "beneficiaryAddress1": {
+            "type": "string"
+          },
+          "beneficiaryAddress2": {
+            "type": "string"
+          },
+          "beneficiaryAddress3": {
+            "type": "string"
+          },
+          "shortName": {
+            "type": "string"
+          },
+          "bankRouteCode": {
+            "type": "string"
+          },
+          "bankName": {
+            "type": "string"
+          },
+          "bankAddress1": {
+            "type": "string"
+          },
+          "bankAddress2": {
+            "type": "string"
+          },
+          "bankAddress3": {
+            "type": "string"
+          },
+          "swiftbic": {
+            "type": "string"
+          },
+          "instructions1": {
+            "type": "string"
+          },
+          "instructions2": {
+            "type": "string"
+          },
+          "instructions3": {
+            "type": "string"
+          },
+          "instructions4": {
+            "type": "string"
+          },
+          "remitterOption": {
+            "type": "string"
+          },
+          "remitterName": {
+            "type": "string"
+          },
+          "remitterAddress1": {
+            "type": "string"
+          },
+          "remitterAddress2": {
+            "type": "string"
+          },
+          "remitterAddress3": {
+            "type": "string"
+          },
+          "reasonCode": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          "chargePaidBy": {
+            "type": "string"
+          },
+          "atmAccess": {
+            "type": "string"
+          },
+          "dateCreated": {
+            "pattern": "([0-9]){8}|()",
+            "type": "string"
+          },
+          "dateAmend": {
+            "pattern": "([0-9]){8}|()",
+            "type": "string"
+          },
+          "dateLastPayment": {
+            "pattern": "([0-9]){8}|()",
+            "type": "string"
+          },
+          "lastUTI": {
+            "type": "string"
+          },
+          "lastBranch": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          "lastTeller": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          "action": {
+            "type": "string"
+          },
+          "actionConfirm": {
+            "type": "string"
+          },
+          "reasonDet": {
+            "type": "string"
+          },
+          "IBANAuthorisation": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/IBANAuthorisation"
+              },
+              {
+                "description": "IBAN Authorization U Unverified A Accepted R\r\n\t\t\t\t\t\tReject"
+              }
+            ]
+          },
+          "beneficiaryIBANAcct": {
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})|()",
+            "type": "string"
+          },
+          "numberOfMessage": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          "fee": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Money"
+              }
+            ]
+          },
+          "sourceAmount": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Money"
+              }
+            ]
+          },
+          "exchangeRate": {
+            "type": "number"
+          },
+          "transferAmount": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Money"
+              }
+            ]
+          },
+          "totalAmount": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Money"
+              }
+            ]
+          },
+          "treasuryRate": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_MoneyOptional"
+              }
+            ]
+          },
+          "feeWithoutVat": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_AmountOptional"
+              }
+            ]
+          },
+          "vat": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_AmountOptional"
+              }
+            ]
+          },
+          "taxRate": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "TemplateDetailsType": {
+        "title": "TemplateDetailsType",
+        "type": "object",
+        "properties": {
+          "journalId": {
+            "$ref": "../../commonschemas/schemas.json#/JournalId"
+          },
+          "scheduleTxnCode": {
+            "type": "string"
+          },
+          "accountNumber": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          "templateId": {
+            "type": "string"
+          },
+          "appId": {
+            "type": "string"
+          },
+          "paymentType": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "amount": {
+            "$ref": "../../commonschemas/schemas.json#/Amount"
+          },
+          "currency": {
+            "$ref": "../../commonschemas/schemas.json#/ISOCurrencyCodeOptional"
+          },
+          "localBankCode": {
+            "type": "string"
+          },
+          "service": {
+            "type": "string"
+          },
+          "beneficiaryOption": {
+            "type": "string"
+          },
+          "beneficiaryAccountId": {
+            "$ref": "../../commonschemas/schemas.json#/AccountIdOptional"
+          },
+          "beneficiaryName": {
+            "type": "string"
+          },
+          "beneficiaryAddress1": {
+            "type": "string"
+          },
+          "beneficiaryAddress2": {
+            "type": "string"
+          },
+          "beneficiaryAddress3": {
+            "type": "string"
+          },
+          "shortName": {
+            "type": "string"
+          },
+          "bankRouteCode": {
+            "type": "string"
+          },
+          "bankName": {
+            "type": "string"
+          },
+          "bankAddress1": {
+            "type": "string"
+          },
+          "bankAddress2": {
+            "type": "string"
+          },
+          "bankAddress3": {
+            "type": "string"
+          },
+          "swiftbic": {
+            "type": "string"
+          },
+          "instructions1": {
+            "type": "string"
+          },
+          "instructions2": {
+            "type": "string"
+          },
+          "instructions3": {
+            "type": "string"
+          },
+          "instructions4": {
+            "type": "string"
+          },
+          "remitterOption": {
+            "type": "string"
+          },
+          "remitterName": {
+            "type": "string"
+          },
+          "remitterAddress1": {
+            "type": "string"
+          },
+          "remitterAddress2": {
+            "type": "string"
+          },
+          "remitterAddress3": {
+            "type": "string"
+          },
+          "reasonCode": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          "chargePaidBy": {
+            "type": "string"
+          },
+          "atmAccess": {
+            "type": "string"
+          },
+          "dateCreated": {
+            "$ref": "../../commonschemas/schemas.json#/MWDateOptional"
+          },
+          "dateAmend": {
+            "$ref": "../../commonschemas/schemas.json#/MWDateOptional"
+          },
+          "dateLastPayment": {
+            "$ref": "../../commonschemas/schemas.json#/MWDateOptional"
+          },
+          "lastUTI": {
+            "type": "string"
+          },
+          "lastBranch": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          "lastTeller": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          "action": {
+            "type": "string"
+          },
+          "actionConfirm": {
+            "type": "string"
+          },
+          "reasonDet": {
+            "type": "string"
+          },
+          "IBANAuthorisation": {
+            "$ref": "#/components/schemas/IBANAuthorisation",
+            "description": "IBAN Authorization U Unverified A Accepted R Reject"
+          },
+          "beneficiaryIBANAcct": {
+            "$ref": "../../commonschemas/schemas.json#/AccountIdOptional"
+          },
+          "numberOfMessage": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          "ivrShortCode": {
+            "type": "string",
+            "description": "2 digit short code used for IVR"
+          }
+        },
+        "description": ""
+      },
+      "TemplateListType": {
+        "title": "TemplateListType",
+        "type": "object",
+        "properties": {
+          "recordNo": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          "templateId": {
+            "type": "string",
+            "description": "is the unique ID number for this template"
+          },
+          "beneficiaryName": {
+            "type": "string",
+            "description": "is the beneficiary’s name"
+          },
+          "type": {
+            "type": "string",
+            "description": "SWF = Swift Transfer SAR=Sarie"
+          },
+          "currency": {
+            "$ref": "../../commonschemas/schemas.json#/ISOCurrencyCodeOptional"
+          },
+          "status": {
+            "$ref": "#/components/schemas/status",
+            "description": "Verified/Unverified"
+          },
+          "shortName": {
+            "type": "string"
+          },
+          "account": {
+            "type": "string"
+          },
+          "localBank": {
+            "type": "string"
+          },
+          "amount": {
+            "$ref": "../../commonschemas/schemas.json#/Amount",
+            "default": 0.0
+          },
+          "bankName": {
+            "type": "string"
+          },
+          "ivrShortCode": {
+            "type": "string"
+          },
+          "transferFlag": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_TransferTemplateRequest": {
+        "title": "tns_TransferTemplateRequest",
+        "required": [
+          "templateId",
+          "accountId",
+          "debitAmount",
+          "transferAmount",
+          "charges",
+          "shortCIF"
+        ],
+        "type": "object",
+        "properties": {
+          "templateId": {
+            "type": "string",
+            "description": "Unique Template ID"
+          },
+          "accountId": {
+            "maxLength": 24,
+            "minLength": 14,
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})",
+            "type": "string",
+            "description": "account to debit"
+          },
+          "debitAmount": {
+            "type": "number",
+            "description": "amount to debit"
+          },
+          "transferAmount": {
+            "type": "number",
+            "description": "TransferAmount"
+          },
+          "charges": {
+            "type": "number",
+            "description": "Charges"
+          },
+          "chargeType": {
+            "type": "string",
+            "description": "Type of Charge"
+          },
+          "commission": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_AmountOptional"
+              },
+              {
+                "description": "Commission"
+              }
+            ]
+          },
+          "instructions1": {
+            "type": "string",
+            "description": "Customer Instruction Description"
+          },
+          "instructions2": {
+            "type": "string",
+            "description": "Customer Instruction Description"
+          },
+          "instructions3": {
+            "type": "string",
+            "description": "Customer Instruction Description"
+          },
+          "instructions4": {
+            "type": "string",
+            "description": "Customer Instruction Description"
+          },
+          "shortCIF": {
+            "pattern": "([0-9]){8}|([0]){1}",
+            "type": "string",
+            "description": "ShortCIF"
+          },
+          "branch": {
+            "type": "string",
+            "description": "Branch No"
+          },
+          "override": {
+            "type": "string",
+            "description": "Supervisor override in case of Host\r\n\t\t\t\t\t\t\tauthorization requirements"
+          },
+          "value": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_value"
+              },
+              {
+                "description": "Value Type T Today N Next Value Date O\r\n\t\t\t\t\t\t\tNormal"
+              }
+            ]
+          },
+          "rateType": {
+            "type": "string",
+            "description": "Is the rate type"
+          },
+          "baseCurrencyAmount": {
+            "type": "string",
+            "description": "Local CurrencyAmount"
+          },
+          "segmentLimit": {
+            "type": "string",
+            "description": "Customer Segment for Limit Calculation"
+          },
+          "treasuryRate": {
+            "type": "string",
+            "description": "TreasuryRate"
+          },
+          "journalId": {
+            "type": "string",
+            "description": "Journal Number In case of reversal"
+          },
+          "ibanAuthorisation": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_ibanAuthorisation1"
+              },
+              {
+                "description": "IBAN Authorization U Unverified A Accepted R\r\n\t\t\t\t\t\t\tReject"
+              }
+            ]
+          },
+          "fxDeal": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_FXDealType"
+              }
+            ]
+          },
+          "AMLPurposeCode": {
+            "type": "string"
+          },
+          "chargesSAR": {
+            "type": "number"
+          },
+          "bankCharge": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_bankCharge"
+              },
+              {
+                "description": "who will pay the charges, REM, SHA, BEN."
+              }
+            ]
+          },
+          "valueDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01])))|()",
+            "type": "string"
+          },
+          "feeTreasuryRate": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_AmountOptional"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_TransferTemplateResponse": {
+        "title": "tns_TransferTemplateResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_TransferTemplateType"
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/fault_FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_ModifyTemplateRequest": {
+        "title": "tns_ModifyTemplateRequest",
+        "required": [
+          "templateId",
+          "service"
+        ],
+        "type": "object",
+        "properties": {
+          "templateId": {
+            "maxLength": 12,
+            "type": "string",
+            "description": "Identification Number"
+          },
+          "service": {
+            "maxLength": 4,
+            "type": "string",
+            "description": "Service"
+          },
+          "localBankCode": {
+            "maxLength": 4,
+            "type": "string",
+            "description": "LocalBankCode"
+          },
+          "beneficiaryName": {
+            "maxLength": 35,
+            "type": "string",
+            "description": "BeneficiaryName"
+          },
+          "beneficiaryAddress1": {
+            "maxLength": 35,
+            "type": "string",
+            "description": "BeneficiaryAddress1"
+          },
+          "beneficiaryAddress2": {
+            "maxLength": 35,
+            "type": "string",
+            "description": "BeneficiaryAddress2"
+          },
+          "beneficiaryAddress3": {
+            "maxLength": 35,
+            "type": "string",
+            "description": "BeneficiaryAddress3"
+          },
+          "beneficiaryAccountId": {
+            "maxLength": 24,
+            "minLength": 14,
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})",
+            "type": "string",
+            "description": "Beneficiary Account Identification Number"
+          },
+          "currency": {
+            "pattern": "[A-Z]{3,3}",
+            "type": "string",
+            "description": "Currency is the currency to transfer"
+          },
+          "shortName": {
+            "maxLength": 10,
+            "type": "string",
+            "description": "Short Name of the beneficiary"
+          },
+          "bankName": {
+            "maxLength": 35,
+            "type": "string",
+            "description": "bank Name of the beneficiary"
+          },
+          "bankRouteCode": {
+            "maxLength": 32,
+            "type": "string",
+            "description": "BankRouteCode"
+          },
+          "bankAddress1": {
+            "maxLength": 35,
+            "type": "string",
+            "description": "BankAddress1"
+          },
+          "bankAddress2": {
+            "maxLength": 35,
+            "type": "string",
+            "description": "BankAddress2"
+          },
+          "bankAddress3": {
+            "maxLength": 15,
+            "type": "string",
+            "description": "BankAddress3"
+          },
+          "instructions1": {
+            "maxLength": 35,
+            "type": "string",
+            "description": "Customer Instruction Description"
+          },
+          "instructions2": {
+            "maxLength": 35,
+            "type": "string",
+            "description": "Customer Instruction Description"
+          },
+          "instructions3": {
+            "maxLength": 35,
+            "type": "string",
+            "description": "Customer Instruction Description"
+          },
+          "instructions4": {
+            "maxLength": 35,
+            "type": "string",
+            "description": "Customer Instruction Description"
+          },
+          "remitterName": {
+            "maxLength": 35,
+            "type": "string",
+            "description": "RemitterName"
+          },
+          "remitterAddress1": {
+            "maxLength": 35,
+            "type": "string",
+            "description": "RemitterAddress1"
+          },
+          "remitterAddress2": {
+            "maxLength": 35,
+            "type": "string",
+            "description": "RemitterAddress2"
+          },
+          "remitterAddress3": {
+            "maxLength": 35,
+            "type": "string",
+            "description": "RemitterAddress3"
+          },
+          "reasonCode": {
+            "maximum": 9.0,
+            "minimum": 1.0,
+            "type": "integer",
+            "description": "Reason Code (is the reason code for the\r\n\t\t\t\t\t\t\ttransfer)",
+            "format": "int32"
+          },
+          "chargesPaidBy": {
+            "maxLength": 3,
+            "type": "string",
+            "description": "Charges Paid By(who will pay the charges)"
+          },
+          "atmAccess": {
+            "maxLength": 1,
+            "type": "string",
+            "description": "AtmAccess"
+          },
+          "swiftbic": {
+            "maxLength": 20,
+            "type": "string"
+          },
+          "ibanAuthorisation": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_ibanAuthorisation1"
+              },
+              {
+                "description": "IBAN Authorization: “U” Unverified(default)\r\n\t\t\t\t\t\t\t“A” Accepted “R” Reject"
+              }
+            ]
+          },
+          "accountNumber": {
+            "maxLength": 24,
+            "minLength": 14,
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})",
+            "type": "string"
+          },
+          "appId": {
+            "maxLength": 2,
+            "type": "string"
+          },
+          "paymentType": {
+            "maxLength": 1,
+            "type": "string"
+          },
+          "status": {
+            "maxLength": 1,
+            "type": "string"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "beneficiaryOption": {
+            "maxLength": 1,
+            "type": "string"
+          },
+          "acctWithOption": {
+            "maxLength": 1,
+            "type": "string"
+          },
+          "remitterOption": {
+            "maxLength": 1,
+            "type": "string"
+          },
+          "dateCreated": {
+            "pattern": "([0-9]){8}",
+            "type": "string"
+          },
+          "dateAmend": {
+            "pattern": "([0-9]){8}",
+            "type": "string"
+          },
+          "dateLastPayment": {
+            "pattern": "([0-9]){8}",
+            "type": "string"
+          },
+          "lastUTI": {
+            "maxLength": 16,
+            "type": "string"
+          },
+          "lastBranch": {
+            "maxLength": 5,
+            "type": "string"
+          },
+          "lastTeller": {
+            "maxLength": 8,
+            "type": "string"
+          },
+          "action": {
+            "maxLength": 1,
+            "type": "string"
+          },
+          "actionConfirm": {
+            "maxLength": 1,
+            "type": "string"
+          },
+          "reasonDet": {
+            "maxLength": 40,
+            "type": "string"
+          },
+          "beneficiaryIBANAcct": {
+            "maxLength": 24,
+            "minLength": 14,
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})",
+            "type": "string"
+          },
+          "ivrShortCode": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_ModifyTemplateResponse": {
+        "title": "tns_ModifyTemplateResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_ModifyTemplateType"
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/fault_FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_DeleteTemplateRequest": {
+        "title": "tns_DeleteTemplateRequest",
+        "required": [
+          "templateId"
+        ],
+        "type": "object",
+        "properties": {
+          "templateId": {
+            "type": "string",
+            "description": "Identification Number"
+          }
+        },
+        "description": ""
+      },
+      "tns_DeleteTemplateResponse": {
+        "title": "tns_DeleteTemplateResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_DeleteTemplateType"
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/fault_FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_ModifyTemplateType": {
+        "title": "tns_ModifyTemplateType",
+        "type": "object",
+        "properties": {
+          "journalId": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_DeleteTemplateType": {
+        "title": "tns_DeleteTemplateType",
+        "required": [
+          "journalId"
+        ],
+        "type": "object",
+        "properties": {
+          "journalId": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_TransferTemplateType": {
+        "title": "tns_TransferTemplateType",
+        "type": "object",
+        "properties": {
+          "balance": {
+            "type": "number",
+            "description": "Is the new amount in the debit account",
+            "default": 0
+          },
+          "valueDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01])))|()",
+            "type": "string",
+            "description": "Value date of this transaction"
+          },
+          "journalId": {
+            "type": "string",
+            "description": "BANCS Journal Number",
+            "default": "0"
+          },
+          "uti": {
+            "type": "string",
+            "description": "Ref Number"
+          },
+          "paymentType": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_TransferStatusRequest": {
+        "title": "tns_TransferStatusRequest",
+        "required": [
+          "uti"
+        ],
+        "type": "object",
+        "properties": {
+          "uti": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_TransferStatusResponse": {
+        "title": "tns_TransferStatusResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_TransferStatusResponseType"
+              }
+            ]
+          },
+          "fault": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/fault_FaultType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_TransferStatusType": {
+        "title": "tns_TransferStatusType",
+        "type": "object",
+        "properties": {
+          "journalId": {
+            "type": "string"
+          },
+          "scheduleTxnCode": {
+            "type": "string"
+          },
+          "accountNumber": {
+            "maxLength": 17,
+            "type": "string"
+          },
+          "passBookBalance": {
+            "type": "number",
+            "default": 0.0
+          },
+          "amount": {
+            "type": "number",
+            "default": 0.0
+          },
+          "offSystemDate": {
+            "pattern": "([0-9]){8}|()",
+            "type": "string"
+          },
+          "promoCode": {
+            "type": "string"
+          },
+          "messageDate": {
+            "pattern": "([0-9]){8}|()",
+            "type": "string"
+          },
+          "reasonCode": {
+            "type": "string"
+          },
+          "idType": {
+            "type": "string"
+          },
+          "chargeType": {
+            "type": "string"
+          },
+          "localBank": {
+            "type": "string"
+          },
+          "beneficiary1": {
+            "type": "string"
+          },
+          "yesNo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_YorNTypeOptional"
+              }
+            ]
+          },
+          "idNumber": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "beneficiaryOption": {
+            "type": "string"
+          },
+          "accountCurrency": {
+            "pattern": "([A-Z]{3,3})|()",
+            "type": "string"
+          },
+          "paymentAmount": {
+            "type": "number",
+            "default": 0.0
+          },
+          "payCurrency": {
+            "pattern": "([A-Z]{3,3})|()",
+            "type": "string"
+          },
+          "baseCurrencyAmount": {
+            "type": "number",
+            "default": 0.0
+          },
+          "commission": {
+            "type": "number",
+            "default": 0.0
+          },
+          "change": {
+            "type": "number",
+            "default": 0.0
+          },
+          "rateType": {
+            "type": "string"
+          },
+          "currencyVersion": {
+            "type": "string"
+          },
+          "journalNo": {
+            "type": "string"
+          },
+          "charges": {
+            "type": "number",
+            "default": 0.0
+          },
+          "beneficiary2": {
+            "type": "string"
+          },
+          "beneficiary3": {
+            "type": "string"
+          },
+          "beneficiary4": {
+            "type": "string"
+          },
+          "beneficiaryPhoneNumber": {
+            "type": "string"
+          },
+          "remitter1": {
+            "type": "string"
+          },
+          "remitter2": {
+            "type": "string"
+          },
+          "remitter3": {
+            "type": "string"
+          },
+          "remitter4": {
+            "type": "string"
+          },
+          "templateId": {
+            "type": "string"
+          },
+          "remitterPhone": {
+            "type": "string"
+          },
+          "beneficiaryType": {
+            "type": "string"
+          },
+          "deferredIntCredit": {
+            "type": "string"
+          },
+          "deferredIntDebit": {
+            "type": "string"
+          },
+          "instruction1": {
+            "type": "string"
+          },
+          "instruction2": {
+            "type": "string"
+          },
+          "instruction3": {
+            "type": "string"
+          },
+          "instruction4": {
+            "type": "string"
+          },
+          "corrBkcharges": {
+            "type": "string"
+          },
+          "valueDate": {
+            "pattern": "([0-9]){8}|()",
+            "type": "string"
+          },
+          "applicationId": {
+            "type": "string"
+          },
+          "beneficiaryAccount": {
+            "type": "string"
+          },
+          "remitterOption": {
+            "type": "string"
+          },
+          "remitterType": {
+            "type": "string"
+          },
+          "remitterAccount": {
+            "type": "string"
+          },
+          "accountWithOption": {
+            "type": "string"
+          },
+          "accountWithType": {
+            "type": "string"
+          },
+          "accountWithAcc": {
+            "type": "string"
+          },
+          "accountWith1": {
+            "type": "string"
+          },
+          "accountWith2": {
+            "type": "string"
+          },
+          "accountWith3": {
+            "type": "string"
+          },
+          "accountWith4": {
+            "type": "string"
+          },
+          "swiftBic": {
+            "type": "string"
+          },
+          "paymentType": {
+            "type": "string"
+          },
+          "option": {
+            "type": "string"
+          },
+          "dealNumber": {
+            "type": "string"
+          },
+          "transferReference": {
+            "type": "string"
+          },
+          "treasuryRate": {
+            "type": "string"
+          },
+          "localBranch": {
+            "type": "string"
+          },
+          "reasondetails": {
+            "type": "string"
+          },
+          "numberOfMessage": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          "statusSource": {
+            "type": "string"
+          },
+          "statusFinancial": {
+            "type": "string"
+          },
+          "statusEFT": {
+            "type": "string"
+          },
+          "statusPayment": {
+            "type": "string"
+          },
+          "convertedAmount": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_AmountOptional"
+              }
+            ]
+          },
+          "purposeDescription1": {
+            "type": "string"
+          },
+          "purposeDescription2": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_TransferStatusResponseType": {
+        "title": "tns_TransferStatusResponseType",
+        "type": "object",
+        "properties": {
+          "transferStatus": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_TransferStatusType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_ActivateTemplateRequest": {
+        "title": "tns_ActivateTemplateRequest",
+        "required": [
+          "templateId"
+        ],
+        "type": "object",
+        "properties": {
+          "templateId": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_ActivateTemplateResponse": {
+        "title": "tns_ActivateTemplateResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_ActivateTemplateResponseType"
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/fault_FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_ActivateTemplateResponseType": {
+        "title": "tns_ActivateTemplateResponseType",
+        "type": "object",
+        "properties": {
+          "journalId": {
+            "type": "string",
+            "default": "0"
+          },
+          "templateId": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_TemplateTranferDetailsResponse": {
+        "title": "tns_TemplateTranferDetailsResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_successType"
+              }
+            ]
+          },
+          "fault": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/fault_FaultType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_TemplateTranferDetailsType": {
+        "title": "tns_TemplateTranferDetailsType",
+        "type": "object",
+        "properties": {
+          "IBANAcct": {
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})|()",
+            "type": "string",
+            "description": "is Auth is true then IBAN Account is\r\n        \t\t\t\t\t\tMandatory."
+          },
+          "accountId": {
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})|()",
+            "type": "string",
+            "description": "is Auth or isTemplate is true then\r\n        \t\t\t\t\t\tAccount Id is Mandatory."
+          },
+          "shortCIF": {
+            "pattern": "([0-9]){8}|([0]){1}|()",
+            "type": "string",
+            "description": "is Auth or isList is true then short CIF\r\n        \t\t\t\t\t\tis Mandatory."
+          },
+          "templateId": {
+            "type": "string",
+            "description": "is Template is true then Template Id is\r\n        \t\t\t\t\t\tMandatory."
+          },
+          "transactionAmount": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Money"
+              },
+              {
+                "description": "is Template is true then Transaction\r\n        \t\t\t\t\t\tAmount is Mandatory."
+              }
+            ]
+          },
+          "isAuth": {
+            "type": "string",
+            "description": "It allows true or false only"
+          },
+          "isTemplate": {
+            "type": "string",
+            "description": "It allows true or false only"
+          },
+          "isList": {
+            "type": "string",
+            "description": "It allows true or false only"
+          },
+          "beneficiaryType": {
+            "type": "string",
+            "description": "It allows EFT or SWF only, if isList is\r\n        \t\t\t\t\t\ttrye then Beneficiary Type is Mandatory."
+          },
+          "status": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/status1"
+              }
+            ]
+          },
+          "quantity": {
+            "type": "integer",
+            "description": "How many records needs to fetchs.",
+            "format": "int32"
+          },
+          "nextRecordNo": {
+            "type": "integer",
+            "description": "From which record data needs to fetch",
+            "format": "int32"
+          }
+        },
+        "description": ""
+      },
+      "tns_RetrieveLocalBeneficiaryDetailsResponseType": {
+        "title": "tns_RetrieveLocalBeneficiaryDetailsResponseType",
+        "required": [
+          "success"
+        ],
+        "type": "object",
+        "properties": {
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_successType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_successType": {
+        "title": "tns_successType",
+        "type": "object",
+        "properties": {
+          "mfaAuthenticationInformation": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_mfaAuthenticationInformationType"
+              }
+            ]
+          },
+          "beneficiaryDetails": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_beneficiaryDetailsType"
+              }
+            ]
+          },
+          "templateDetails": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_LocalInternationBeneficiaryInformationType"
+              }
+            ]
+          },
+          "fxDeal": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_FXDealType"
+              }
+            ]
+          },
+          "template": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TemplateListType"
+            },
+            "description": ""
+          },
+          "totalBeneficiaryRecords": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "description": ""
+      },
+      "tns_mfaAuthenticationInformationType": {
+        "title": "tns_mfaAuthenticationInformationType",
+        "required": [
+          "methods"
+        ],
+        "type": "object",
+        "properties": {
+          "methods": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_methodsType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_methodsType": {
+        "title": "tns_methodsType",
+        "type": "object",
+        "properties": {
+          "callerId": {
+            "type": "boolean"
+          },
+          "softToken": {
+            "type": "boolean"
+          },
+          "hardToken": {
+            "type": "boolean"
+          },
+          "oneTimePass": {
+            "type": "boolean"
+          },
+          "siteImage": {
+            "type": "boolean"
+          },
+          "trustedPC": {
+            "type": "boolean"
+          }
+        },
+        "description": ""
+      },
+      "tns_beneficiaryDetailsType": {
+        "title": "tns_beneficiaryDetailsType",
+        "type": "object",
+        "properties": {
+          "shortCIF": {
+            "pattern": "([0-9]){8}|([0]){1}|()",
+            "type": "string"
+          },
+          "service": {
+            "type": "string"
+          },
+          "beneficiaryName": {
+            "type": "string"
+          },
+          "beneficiaryAddress1": {
+            "type": "string"
+          },
+          "beneficiaryAddress2": {
+            "type": "string"
+          },
+          "beneficiaryAccountId": {
+            "type": "string"
+          },
+          "currency": {
+            "pattern": "([A-Z]{3,3})|()",
+            "type": "string"
+          },
+          "shortName": {
+            "type": "string"
+          },
+          "bankName": {
+            "type": "string"
+          },
+          "bankRouteCode": {
+            "type": "string"
+          },
+          "bankAddress2": {
+            "type": "string"
+          },
+          "bankAddress3": {
+            "type": "string"
+          },
+          "instructions1": {
+            "type": "string"
+          },
+          "instructions2": {
+            "type": "string"
+          },
+          "instructions3": {
+            "type": "string"
+          },
+          "remitterName": {
+            "type": "string"
+          },
+          "remitterAddress1": {
+            "type": "string"
+          },
+          "remitterAddress2": {
+            "type": "string"
+          },
+          "remitterAddress3": {
+            "type": "string"
+          },
+          "chargesPaidBy": {
+            "type": "string"
+          },
+          "swiftbic": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_CreateLocalBeneficiary": {
+        "title": "tns_CreateLocalBeneficiary",
+        "required": [
+          "in"
+        ],
+        "type": "object",
+        "properties": {
+          "in": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_AuthenticateTemplateResponse": {
+        "title": "tns_AuthenticateTemplateResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_AuthenticateTemplatesuccessType"
+              }
+            ]
+          },
+          "fault": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/fault_FaultType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_AuthenticateTemplateRequestType": {
+        "title": "tns_AuthenticateTemplateRequestType",
+        "type": "object",
+        "properties": {
+          "ecnId": {
+            "maxLength": 8,
+            "minLength": 0,
+            "type": "string"
+          },
+          "tokenType": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "pvn": {
+            "type": "string"
+          },
+          "ibanAccount": {
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})|()",
+            "type": "string"
+          },
+          "customerAccount": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_AuthenticateTemplatesuccessType": {
+        "title": "tns_AuthenticateTemplatesuccessType",
+        "type": "object",
+        "properties": {
+          "journalId": {
+            "type": "string"
+          },
+          "templateId": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_LocalInternationBeneficiaryInformationRequest": {
+        "title": "tns_LocalInternationBeneficiaryInformationRequest",
+        "required": [
+          "accountNumber",
+          "templateId",
+          "transactionAmount"
+        ],
+        "type": "object",
+        "properties": {
+          "accountNumber": {
+            "maxLength": 17,
+            "pattern": "([0-9]{1,17})",
+            "type": "string"
+          },
+          "templateId": {
+            "type": "string"
+          },
+          "transactionAmount": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Money"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_LocalInternationBeneficiaryInformationResponse": {
+        "title": "tns_LocalInternationBeneficiaryInformationResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_LocalInternationBeneficiaryInformationType"
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/fault_FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_FXDealType": {
+        "title": "tns_FXDealType",
+        "required": [
+          "dealId",
+          "provider",
+          "tradingEngineUser",
+          "quoteTimeOut",
+          "soapProcessorDn"
+        ],
+        "type": "object",
+        "properties": {
+          "dealId": {
+            "type": "string"
+          },
+          "provider": {
+            "type": "string"
+          },
+          "tradingEngineUser": {
+            "type": "string"
+          },
+          "quoteTimeOut": {
+            "type": "string"
+          },
+          "soapProcessorDn": {
+            "type": "string"
+          },
+          "pnlAmount": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_AmountOptional"
+              }
+            ]
+          },
+          "clientRate": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_AmountOptional"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_BeneficiaryBankDetailsRequestType": {
+        "title": "tns_BeneficiaryBankDetailsRequestType",
+        "required": [
+          "countryCode"
+        ],
+        "type": "object",
+        "properties": {
+          "ibanAccount": {
+            "maxLength": 24,
+            "minLength": 14,
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})",
+            "type": "string"
+          },
+          "bic": {
+            "type": "string"
+          },
+          "routingAcct": {
+            "type": "string"
+          },
+          "countryCode": {
+            "pattern": "[A-Z]{2,2}",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_BeneficiaryBankDetailsResponse": {
+        "title": "tns_BeneficiaryBankDetailsResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_BeneficiaryBankDetailssuccessType"
+            },
+            "description": ""
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/fault_FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_BeneficiaryBankDetailssuccessType": {
+        "title": "tns_BeneficiaryBankDetailssuccessType",
+        "type": "object",
+        "properties": {
+          "bicCode": {
+            "type": "string"
+          },
+          "institutionName": {
+            "type": "string"
+          },
+          "streetAddress1": {
+            "type": "string"
+          },
+          "streetAddress2": {
+            "type": "string"
+          },
+          "streetAddress3": {
+            "type": "string"
+          },
+          "streetAddress4": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "zipCode": {
+            "type": "string"
+          },
+          "nationalId": {
+            "type": "string"
+          },
+          "chipsId": {
+            "type": "string"
+          },
+          "branch": {
+            "type": "string"
+          },
+          "recordKey": {
+            "type": "string"
+          },
+          "officeType": {
+            "type": "string"
+          },
+          "parentOfficeKey": {
+            "type": "string"
+          },
+          "headOfficeKey": {
+            "type": "string"
+          },
+          "institutionStatus": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "wsse_Security": {
+        "title": "wsse_Security",
+        "required": [
+          "UsernameToken"
+        ],
+        "type": "object",
+        "properties": {
+          "UsernameToken": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/wsse_UsernameToken"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "header_ServiceHeader": {
+        "title": "header_ServiceHeader",
+        "required": [
+          "loggerContext",
+          "transactionCode",
+          "retryTransaction",
+          "tellerId",
+          "terminalId",
+          "workstationId",
+          "override",
+          "correction",
+          "supervisor",
+          "supervisorId",
+          "overrideCode",
+          "employeeId",
+          "branchId",
+          "functionId",
+          "channelId",
+          "bancsPwd",
+          "languageCode"
+        ],
+        "type": "object",
+        "properties": {
+          "loggerContext": {
+            "type": "string"
+          },
+          "transactionCode": {
+            "type": "string"
+          },
+          "retryTransaction": {
+            "type": "boolean"
+          },
+          "tellerId": {
+            "type": "string"
+          },
+          "terminalId": {
+            "type": "string"
+          },
+          "workstationId": {
+            "type": "string"
+          },
+          "override": {
+            "type": "boolean"
+          },
+          "correction": {
+            "type": "string"
+          },
+          "supervisor": {
+            "type": "string"
+          },
+          "supervisorId": {
+            "type": "string"
+          },
+          "overrideCode": {
+            "type": "string"
+          },
+          "employeeId": {
+            "type": "string"
+          },
+          "branchId": {
+            "type": "string"
+          },
+          "functionId": {
+            "type": "string"
+          },
+          "channelId": {
+            "type": "string"
+          },
+          "bancsPwd": {
+            "type": "string"
+          },
+          "languageCode": {
+            "type": "string"
+          },
+          "authenticationType": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/header_authenticationType"
+              },
+              {
+                "description": "Can be: NONE, OTP, TOKEN"
+              }
+            ]
+          },
+          "IvrTransactionID": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "fault_FaultType": {
+        "title": "fault_FaultType",
+        "required": [
+          "number",
+          "description"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "description": {
+            "type": "string"
+          },
+          "retryAfter": {
+            "type": "string"
+          },
+          "system": {
+            "type": "string"
+          },
+          "nativeError": {
+            "type": "string"
+          },
+          "nativeDescription": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_PostalAddress": {
+        "title": "Q1_PostalAddress",
+        "type": "object",
+        "properties": {
+          "addressLine1": {
+            "maxLength": 70,
+            "minLength": 0,
+            "type": "string"
+          },
+          "addressLine2": {
+            "maxLength": 70,
+            "minLength": 0,
+            "type": "string"
+          },
+          "addressLine3": {
+            "maxLength": 70,
+            "minLength": 0,
+            "type": "string"
+          },
+          "city": {
+            "maxLength": 35,
+            "minLength": 0,
+            "type": "string"
+          },
+          "region": {
+            "maxLength": 35,
+            "minLength": 0,
+            "type": "string"
+          },
+          "postalCode": {
+            "maxLength": 16,
+            "minLength": 0,
+            "type": "string"
+          },
+          "country": {
+            "pattern": "([A-Z]{2,2})|()",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_Money": {
+        "title": "Q1_Money",
+        "required": [
+          "isoCurrencyCode"
+        ],
+        "type": "object",
+        "properties": {
+          "isoCurrencyCode": {
+            "pattern": "[A-Z]{3,3}",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_MoneyOptional": {
+        "title": "Q1_MoneyOptional",
+        "required": [
+          "isoCurrencyCode"
+        ],
+        "type": "object",
+        "properties": {
+          "isoCurrencyCode": {
+            "pattern": "([A-Z]{3,3})|()",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_Cursor": {
+        "title": "Q1_Cursor",
+        "required": [
+          "position",
+          "noOfRows"
+        ],
+        "type": "object",
+        "properties": {
+          "position": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "noOfRows": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "description": ""
+      },
+      "Q1_Biller": {
+        "title": "Q1_Biller",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "Q1_DocumentType": {
+        "title": "Q1_DocumentType",
+        "required": [
+          "documentId",
+          "documentSubId",
+          "totalPages",
+          "documentType",
+          "archivedDate",
+          "page"
+        ],
+        "type": "object",
+        "properties": {
+          "documentId": {
+            "maxLength": 7,
+            "type": "string"
+          },
+          "documentSubId": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "documentType": {
+            "type": "string"
+          },
+          "archivedDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          },
+          "page": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Q1_PageType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "Q1_PageType": {
+        "title": "Q1_PageType",
+        "required": [
+          "pageNo",
+          "pageExt",
+          "pageContent"
+        ],
+        "type": "object",
+        "properties": {
+          "pageNo": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageExt": {
+            "type": "string"
+          },
+          "pageContent": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_BillCycle": {
+        "title": "Q1_BillCycle",
+        "enum": [
+          "New",
+          "XXX",
+          "YYY"
+        ],
+        "type": "string",
+        "description": "Valid Values : New, XXX, YYY"
+      },
+      "Q1_PaymentType": {
+        "title": "Q1_PaymentType",
+        "enum": [
+          "POST",
+          "RCHG",
+          "RNEW"
+        ],
+        "type": "string",
+        "description": "Valid Values : POST, RCHG, RNEW"
+      },
+      "Q1_Flag": {
+        "title": "Q1_Flag",
+        "enum": [
+          "Y",
+          "N"
+        ],
+        "type": "string",
+        "description": "Valid Values : Y or N"
+      },
+      "Q1_ServiceType": {
+        "title": "Q1_ServiceType",
+        "enum": [
+          "AUTL",
+          "CCRD",
+          "CIP",
+          "ENTR",
+          "GOVT",
+          "GSM",
+          "LLIN",
+          "LLHT",
+          "SMDI",
+          "UTIL",
+          "ISPS",
+          "GOFT",
+          "Private",
+          "MDIA",
+          "TRAN",
+          "EDUC",
+          "BKSV",
+          "LOAN",
+          "ELCT",
+          "PCIN",
+          "EXAM",
+          "WATR",
+          "CDUR",
+          "PHON",
+          "INSR",
+          "MED",
+          "TUIT"
+        ],
+        "type": "string",
+        "description": "Valid Values :\n\t\t\t\tAUTL,CCRD,CIP,ENTR,GOVT,GSM,LLIN,LLHT,SMDI,UTIL,ISPS,GOFT,\n\t\t\t\tPrivate,MDIA,TRAN,EDUC,BKSV,LOAN,ELCT,PCIN,EXAM,WATR,CDUR,PHON,INSR,MED,TUIT"
+      },
+      "Q1_OfferToTag": {
+        "title": "Q1_OfferToTag",
+        "enum": [
+          "Yes",
+          "No"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "Q1_CustomerId": {
+        "title": "Q1_CustomerId",
+        "required": [
+          "id",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_CustomerId2": {
+        "title": "Q1_CustomerId2",
+        "required": [
+          "id",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_Parameter": {
+        "title": "Q1_Parameter",
+        "required": [
+          "name",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_TransactionType": {
+        "title": "Q1_TransactionType",
+        "enum": [
+          "BIANNUALCYCLE",
+          "TODAY",
+          "CYCLETODATE",
+          "CTD"
+        ],
+        "type": "string",
+        "description": "Valid values are BIANNUALCYCLE, TODAY,\n\t\t\t\tCYCLETODATE, CTD etc"
+      },
+      "Q1_BeneficiaryId": {
+        "title": "Q1_BeneficiaryId",
+        "required": [
+          "id",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_DeviceDetails": {
+        "title": "Q1_DeviceDetails",
+        "required": [
+          "machineNonce",
+          "sequenceNonce",
+          "machineLabel",
+          "machineProperties",
+          "createDate",
+          "lastUsedDate",
+          "expiryDate"
+        ],
+        "type": "object",
+        "properties": {
+          "machineNonce": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "sequenceNonce": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "machineLabel": {
+            "type": "string"
+          },
+          "machineProperties": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_MachineProperties"
+              }
+            ]
+          },
+          "createDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          },
+          "lastUsedDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          },
+          "expiryDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_AuthenticationDeviceDetails": {
+        "title": "Q1_AuthenticationDeviceDetails",
+        "required": [
+          "machineNonce",
+          "sequenceNonce",
+          "machineLabel",
+          "machineProperties"
+        ],
+        "type": "object",
+        "properties": {
+          "machineNonce": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "sequenceNonce": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "machineLabel": {
+            "type": "string"
+          },
+          "machineProperties": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_MachineProperties"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "Q1_MachineProperties": {
+        "title": "Q1_MachineProperties",
+        "required": [
+          "applicationData"
+        ],
+        "type": "object",
+        "properties": {
+          "applicationData": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Q1_ApplicationData"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "Q1_ApplicationData": {
+        "title": "Q1_ApplicationData",
+        "required": [
+          "name",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "value": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_AuthenticationInfo": {
+        "title": "Q1_AuthenticationInfo",
+        "required": [
+          "methods"
+        ],
+        "type": "object",
+        "properties": {
+          "methods": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Methods"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "Q1_Methods": {
+        "title": "Q1_Methods",
+        "required": [
+          "hardToken",
+          "softToken",
+          "siteImage",
+          "trustedPC",
+          "callerId",
+          "oneTimePass"
+        ],
+        "type": "object",
+        "properties": {
+          "hardToken": {
+            "type": "boolean"
+          },
+          "softToken": {
+            "type": "boolean"
+          },
+          "siteImage": {
+            "type": "boolean"
+          },
+          "trustedPC": {
+            "type": "boolean"
+          },
+          "callerId": {
+            "type": "boolean"
+          },
+          "oneTimePass": {
+            "type": "boolean"
+          }
+        },
+        "description": ""
+      },
+      "Q1_TokenDetails": {
+        "title": "Q1_TokenDetails",
+        "required": [
+          "userId",
+          "userName",
+          "userGroup",
+          "vendorId",
+          "serialNumber",
+          "tokenType",
+          "signatureSupported",
+          "loadDate",
+          "lastUsedDate"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "userName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "userGroup": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "vendorId": {
+            "type": "string"
+          },
+          "serialNumber": {
+            "type": "string"
+          },
+          "tokenType": {
+            "type": "string"
+          },
+          "signatureSupported": {
+            "type": "boolean"
+          },
+          "loadDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          },
+          "lastUsedDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_AccountDetails": {
+        "title": "Q1_AccountDetails",
+        "required": [
+          "accountId",
+          "balance",
+          "overdraft",
+          "balanceSAR",
+          "availableSAR",
+          "averageLastSixMonths",
+          "isoCurrencyCode",
+          "division",
+          "statusCode",
+          "accountType",
+          "glClassificationCode"
+        ],
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "maxLength": 24,
+            "minLength": 14,
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})",
+            "type": "string"
+          },
+          "balance": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Money"
+              }
+            ]
+          },
+          "overdraft": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Money"
+              }
+            ]
+          },
+          "balanceSAR": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Money"
+              }
+            ]
+          },
+          "availableSAR": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Money"
+              }
+            ]
+          },
+          "averageLastSixMonths": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Money"
+              }
+            ]
+          },
+          "isoCurrencyCode": {
+            "pattern": "[A-Z]{3,3}",
+            "type": "string"
+          },
+          "division": {
+            "type": "string"
+          },
+          "statusCode": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "accountType": {
+            "maxLength": 4,
+            "type": "string"
+          },
+          "glClassificationCode": {
+            "maxLength": 40,
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_Gender": {
+        "title": "Q1_Gender",
+        "enum": [
+          "M",
+          "F"
+        ],
+        "type": "string",
+        "description": "Valid values are : M , F etc"
+      },
+      "Q1_trueOrFalseType": {
+        "title": "Q1_trueOrFalseType",
+        "enum": [
+          "true",
+          "false",
+          "True",
+          "False"
+        ],
+        "type": "string",
+        "description": "Valid values are : true, false, True, False"
+      },
+      "Q1_trueOrFalseTypeOptional": {
+        "title": "Q1_trueOrFalseTypeOptional",
+        "enum": [
+          "true",
+          "false",
+          "True",
+          "False"
+        ],
+        "type": "string",
+        "description": "Optional.\n\t\t\t\tValid values are : true, false, True,\n\t\t\t\tFalse etc"
+      },
+      "Q1_YorNType": {
+        "title": "Q1_YorNType",
+        "enum": [
+          "Y",
+          "N"
+        ],
+        "type": "string",
+        "description": "Valid values are : Y, N"
+      },
+      "Q1_YorNTypeOptional": {
+        "title": "Q1_YorNTypeOptional",
+        "enum": [
+          "Y",
+          "N"
+        ],
+        "type": "string",
+        "description": "Optional.\n\t\t\t\tValid values are : Y, N"
+      },
+      "Q1_CustomerChannelType": {
+        "title": "Q1_CustomerChannelType",
+        "enum": [
+          "BOTH",
+          "MOBILE",
+          "AOL"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "Q1_ErrorCategoryType": {
+        "title": "Q1_ErrorCategoryType",
+        "enum": [
+          "BUSINESS",
+          "SYSTEM"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "Q1_CommonServiceFaultType": {
+        "title": "Q1_CommonServiceFaultType",
+        "required": [
+          "category",
+          "code",
+          "message",
+          "detail"
+        ],
+        "type": "object",
+        "properties": {
+          "category": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ErrorCategoryType"
+              }
+            ]
+          },
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_ServicesStatusType": {
+        "title": "Q1_ServicesStatusType",
+        "enum": [
+          "ACTIVE",
+          "DISABLE_USER",
+          "DISABLE_ADMIN",
+          "DELETED"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "Q1_ServiceLevelType": {
+        "title": "Q1_ServiceLevelType",
+        "enum": [
+          "INQUIRY",
+          "FULL"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "Q1_CustomerStatusType": {
+        "title": "Q1_CustomerStatusType",
+        "required": [
+          "userId",
+          "aol",
+          "mobile",
+          "emergencyCash"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "aol": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_AolStatusType"
+              }
+            ]
+          },
+          "mobile": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_MobileStatusType"
+              }
+            ]
+          },
+          "emergencyCash": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_EmergencyCashStatus"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "Q1_AolStatusType": {
+        "title": "Q1_AolStatusType",
+        "required": [
+          "createdBy",
+          "createdDate",
+          "lastLoginDate",
+          "serviceLevel",
+          "serviceStatus",
+          "passwordRevoked"
+        ],
+        "type": "object",
+        "properties": {
+          "createdBy": {
+            "type": "string"
+          },
+          "createdDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string"
+          },
+          "lastLoginDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string"
+          },
+          "serviceLevel": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ServiceLevelType"
+              }
+            ]
+          },
+          "serviceStatus": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ServicesStatusType"
+              }
+            ]
+          },
+          "passwordRevoked": {
+            "type": "boolean"
+          }
+        },
+        "description": ""
+      },
+      "Q1_MobileStatusType": {
+        "title": "Q1_MobileStatusType",
+        "required": [
+          "registeredBy",
+          "registeredDate",
+          "lastLoginDate",
+          "serviceLevel",
+          "serviceStatus"
+        ],
+        "type": "object",
+        "properties": {
+          "registeredBy": {
+            "type": "string"
+          },
+          "registeredDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string"
+          },
+          "lastLoginDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string"
+          },
+          "serviceLevel": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ServiceLevelType"
+              }
+            ]
+          },
+          "serviceStatus": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ServicesStatusType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "Q1_EmergencyCashStatus": {
+        "title": "Q1_EmergencyCashStatus",
+        "required": [
+          "registrationDate",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "registrationDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_TransactionInfo": {
+        "title": "Q1_TransactionInfo",
+        "required": [
+          "transactionType"
+        ],
+        "type": "object",
+        "properties": {
+          "transactionId": {
+            "type": "string"
+          },
+          "relatedTransactionId": {
+            "type": "string"
+          },
+          "transactionType": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_ClientInfo": {
+        "title": "Q1_ClientInfo",
+        "required": [
+          "clientId"
+        ],
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_SecurityInfo": {
+        "title": "Q1_SecurityInfo",
+        "required": [
+          "username",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_CreationInfo": {
+        "title": "Q1_CreationInfo",
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string"
+          },
+          "branch": {
+            "maxLength": 5,
+            "type": "string"
+          },
+          "institution": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "teller": {
+            "maxLength": 8,
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_RequestHeader": {
+        "title": "Q1_RequestHeader",
+        "type": "object",
+        "properties": {
+          "transactionInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_TransactionInfo"
+              }
+            ]
+          },
+          "clientInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ClientInfo"
+              }
+            ]
+          },
+          "securityInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_SecurityInfo"
+              }
+            ]
+          },
+          "creationInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_CreationInfo"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "Q1_ErrorInfo": {
+        "title": "Q1_ErrorInfo",
+        "required": [
+          "level"
+        ],
+        "type": "object",
+        "properties": {
+          "level": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_level"
+              }
+            ]
+          },
+          "code": {
+            "type": "string"
+          },
+          "context": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_ReplyHeader": {
+        "title": "Q1_ReplyHeader",
+        "type": "object",
+        "properties": {
+          "transactionInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_TransactionInfo"
+              }
+            ]
+          },
+          "clientInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ClientInfo"
+              }
+            ]
+          },
+          "errorInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ErrorInfo"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "ActivateTemplateRequest": {
+        "title": "ActivateTemplateRequest",
+        "required": [
+          "ActivateTemplateRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "ActivateTemplateRequest": {
+            "$ref": "#/components/schemas/tns_ActivateTemplateRequest"
+          }
+        }
+      },
+      "ActivateTemplateResponse": {
+        "title": "ActivateTemplateResponse",
+        "required": [
+          "ActivateTemplateResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "ActivateTemplateResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_ActivateTemplateResponse"
+              }
+            ]
+          }
+        }
+      },
+      "AuthenticateTemplateRequest": {
+        "title": "AuthenticateTemplateRequest",
+        "required": [
+          "AuthenticateTemplateRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "AuthenticateTemplateRequest": {
+            "$ref": "#/components/schemas/tns_AuthenticateTemplateRequestType"
+          }
+        }
+      },
+      "AuthenticateTemplateResponse": {
+        "title": "AuthenticateTemplateResponse",
+        "required": [
+          "AuthenticateTemplateResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "AuthenticateTemplateResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_AuthenticateTemplateResponse"
+              }
+            ]
+          }
+        }
+      },
+      "CreateTemplateRequest": {
+        "title": "CreateTemplateRequest",
+        "required": [
+          "CreateTemplateRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "CreateTemplateRequest": {
+            "$ref": "#/components/schemas/tns_CreateTemplateRequest"
+          }
+        }
+      },
+      "CreateTemplateResponse": {
+        "title": "CreateTemplateResponse",
+        "required": [
+          "CreateTemplateResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "CreateTemplateResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_CreateTemplateResponse"
+              }
+            ]
+          }
+        }
+      },
+      "DeleteTemplateRequest": {
+        "title": "DeleteTemplateRequest",
+        "required": [
+          "DeleteTemplateRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "DeleteTemplateRequest": {
+            "$ref": "#/components/schemas/tns_DeleteTemplateRequest"
+          }
+        }
+      },
+      "DeleteTemplateResponse": {
+        "title": "DeleteTemplateResponse",
+        "required": [
+          "DeleteTemplateResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "DeleteTemplateResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_DeleteTemplateResponse"
+              }
+            ]
+          }
+        }
+      },
+      "header_authenticationType": {
+        "title": "header_authenticationType",
+        "enum": [
+          "NONE",
+          "OTP",
+          "TOKEN"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "ModifyTemplateRequest": {
+        "title": "ModifyTemplateRequest",
+        "required": [
+          "ModifyTemplateRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "ModifyTemplateRequest": {
+            "$ref": "#/components/schemas/tns_ModifyTemplateRequest"
+          }
+        }
+      },
+      "ModifyTemplateResponse": {
+        "title": "ModifyTemplateResponse",
+        "required": [
+          "ModifyTemplateResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "ModifyTemplateResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_ModifyTemplateResponse"
+              }
+            ]
+          }
+        }
+      },
+      "Q1_level": {
+        "title": "Q1_level",
+        "enum": [
+          "SUCCESS",
+          "WARNING",
+          "FAILURE"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "RetrieveBeneficiaryBankDetailsRequest": {
+        "title": "RetrieveBeneficiaryBankDetailsRequest",
+        "required": [
+          "BeneficiaryBankDetailsRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "BeneficiaryBankDetailsRequest": {
+            "$ref": "#/components/schemas/tns_BeneficiaryBankDetailsRequestType"
+          }
+        }
+      },
+      "RetrieveBeneficiaryBankDetailsResponse": {
+        "title": "RetrieveBeneficiaryBankDetailsResponse",
+        "required": [
+          "BeneficiaryBankDetailsResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "BeneficiaryBankDetailsResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_BeneficiaryBankDetailsResponse"
+              }
+            ]
+          }
+        }
+      },
+      "TemplateDetailsRequest": {
+        "title": "TemplateDetailsRequest",
+        "required": [
+          "TemplateDetailsRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "TemplateDetailsRequest": {
+            "$ref": "#/components/schemas/TemplateDetailsRequestType"
+          }
+        }
+      },
+      "TemplateDetailsResponse": {
+        "title": "TemplateDetailsResponse",
+        "required": [
+          "TemplateDetailsResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "TemplateDetailsResponse": {
+            "$ref": "#/components/schemas/TemplateDetailsResponseType"
+          }
+        }
+      },
+      "TemplateListRequest": {
+        "title": "TemplateListRequest",
+        "required": [
+          "TemplateListRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "TemplateListRequest": {
+            "$ref": "#/components/schemas/TemplateListRequestType"
+          }
+        }
+      },
+      "TemplateListResponse": {
+        "title": "TemplateListResponse",
+        "required": [
+          "TemplateListResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "TemplateListResponse": {
+            "$ref": "#/components/schemas/TemplateListResponseType"
+          }
+        }
+      },
+      "TemplateTranferDetailsRequest": {
+        "title": "TemplateTranferDetailsRequest",
+        "required": [
+          "TemplateTranferDetailsRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "TemplateTranferDetailsRequest": {
+            "$ref": "#/components/schemas/tns_TemplateTranferDetailsType"
+          }
+        }
+      },
+      "TemplateTranferDetailsResponse": {
+        "title": "TemplateTranferDetailsResponse",
+        "required": [
+          "TemplateTranferDetailsResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "TemplateTranferDetailsResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_TemplateTranferDetailsResponse"
+              }
+            ]
+          }
+        }
+      },
+      "tns_bankCharge": {
+        "title": "tns_bankCharge",
+        "enum": [
+          "REM",
+          "SHA",
+          "BEN"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "IBANAuthorisation": {
+        "title": "IBANAuthorisation",
+        "enum": [
+          "U",
+          "A",
+          "R",
+          ""
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "tns_ibanAuthorisation1": {
+        "title": "tns_ibanAuthorisation1",
+        "enum": [
+          "U",
+          "A",
+          "R"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "status": {
+        "title": "status1",
+        "enum": [
+          "A",
+          "D",
+          "U",
+          ""
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "status1": {
+        "title": "status1",
+        "enum": [
+          "Active",
+          "Inactive"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "type": {
+        "title": "type",
+        "enum": [
+          "EFT",
+          "SWF",
+          ""
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "tns_value": {
+        "title": "tns_value",
+        "enum": [
+          "O",
+          "T",
+          "N"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "TransferStatusRequest": {
+        "title": "TransferStatusRequest",
+        "required": [
+          "TransferStatusRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "TransferStatusRequest": {
+            "$ref": "#/components/schemas/tns_TransferStatusRequest"
+          }
+        }
+      },
+      "TransferStatusResponse": {
+        "title": "TransferStatusResponse",
+        "required": [
+          "TransferStatusResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "TransferStatusResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_TransferStatusResponse"
+              }
+            ]
+          }
+        }
+      },
+      "TransferTemplateRequest": {
+        "title": "TransferTemplateRequest",
+        "required": [
+          "TransferTemplateRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "TransferTemplateRequest": {
+            "$ref": "#/components/schemas/tns_TransferTemplateRequest"
+          }
+        }
+      },
+      "TransferTemplateResponse": {
+        "title": "TransferTemplateResponse",
+        "required": [
+          "TransferTemplateResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "TransferTemplateResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_TransferTemplateResponse"
+              }
+            ]
+          }
+        }
+      },
+      "wsse_UsernameToken": {
+        "title": "wsse_UsernameToken",
+        "required": [
+          "Username",
+          "Password"
+        ],
+        "type": "object",
+        "properties": {
+          "Username": {
+            "type": "string"
+          },
+          "Password": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_AmountOptional": {
+        "oneOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      },
+      "Q1_AmountOptional": {
+        "$ref": "#/components/schemas/tns_AmountOptional"
+      }
+    },
+    "securitySchemes": {
+      "mwsecurity": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "mwsecurity": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "PaymentTemplate APIs",
+      "description": ""
+    }
+  ]
+}

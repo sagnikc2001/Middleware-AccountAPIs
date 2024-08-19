@@ -1,0 +1,714 @@
+{
+	"openapi": "3.0.3",
+	"info": {
+		"title": "EAI Database API",
+		"version": "1.0",
+		"description": "Retrieves records from EAI database"
+	},
+	"servers": [
+		{
+			"url": "https://mw-api-3scale-apicast-staging.apps.com:443/api/connector/db/eaidb"
+		}
+	],
+	"paths": {
+		"/v1/GetCustomerATMRecords": {
+			"post": {
+				"tags": [
+					"EAI DB API"
+				],
+				"description": "Retrieves list of debit cards of customer",
+				"operationId": "GetCustomerATMRecords",
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "JWT bearer token",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "ServiceHeader",
+						"in": "header",
+						"description": "having channel details , locale",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"$ref": "../../../commonschemas/header.json#/ServiceHeader"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "",
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CustomerATMRecordsRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successfully retrieved the response",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CustomerATMRecordsResponse"
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"400": {
+						"description": "400 Bad Request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CustomerATMRecordsResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "401 Unauthorized Request"
+					},
+					"404": {
+						"description": "404 API Not Found"
+					},
+					"405": {
+						"description": "405 Method Not Allowed"
+					},
+					"429": {
+						"description": "429 Too Many Requests"
+					},
+					"500": {
+						"description": "500 Internal Server Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CustomerATMRecordsResponse"
+								}
+							}
+						}
+					},
+					"503": {
+						"description": "503 Service Unavailable"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/v1/GetIVRFlagByShortCIFFromTSCN": {
+			"post": {
+				"tags": [
+					"EAI DB API"
+				],
+				"description": "Retrieves IVR Flag from Table TSCN ",
+				"operationId": "GetIVRFlagByShortCIFFromTSCN",
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "JWT bearer token",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "ServiceHeader",
+						"in": "header",
+						"description": "having channel details , locale",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"$ref": "../../../commonschemas/header.json#/ServiceHeader"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "",
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/IVRFlagByShortCIFFromTSCNRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successfully retrieved the response",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/IVRFlagByShortCIFFromTSCNResponse"
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"400": {
+						"description": "400 Bad Request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/IVRFlagByShortCIFFromTSCNResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "401 Unauthorized Request"
+					},
+					"404": {
+						"description": "404 API Not Found"
+					},
+					"405": {
+						"description": "405 Method Not Allowed"
+					},
+					"429": {
+						"description": "429 Too Many Requests"
+					},
+					"500": {
+						"description": "500 Internal Server Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/IVRFlagByShortCIFFromTSCNResponse"
+								}
+							}
+						}
+					},
+					"503": {
+						"description": "503 Service Unavailable"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/v1/SelectCache": {
+			"post": {
+				"tags": [
+					"EAI DB API"
+				],
+				"description": "Retrieves Bancs region from table CACHE",
+				"operationId": "SelectCache",
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "JWT bearer token",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "ServiceHeader",
+						"in": "header",
+						"description": "having channel details , locale",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"$ref": "../../../commonschemas/header.json#/ServiceHeader"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "",
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/SelectCacheRequst"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successfully retrieved the response",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SelectCacheResponse"
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"400": {
+						"description": "400 Bad Request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SelectCacheResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "401 Unauthorized Request"
+					},
+					"404": {
+						"description": "404 API Not Found"
+					},
+					"405": {
+						"description": "405 Method Not Allowed"
+					},
+					"429": {
+						"description": "429 Too Many Requests"
+					},
+					"500": {
+						"description": "500 Internal Server Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/SelectCacheResponse"
+								}
+							}
+						}
+					},
+					"503": {
+						"description": "503 Service Unavailable"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/v1/FindCif": {
+			"post": {
+				"tags": [
+					"EAI DB API"
+				],
+				"description": "Retrieves CIF code from Database",
+				"operationId": "FindCif",
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "JWT bearer token",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "ServiceHeader",
+						"in": "header",
+						"description": "having channel details , locale",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"$ref": "../../../commonschemas/header.json#/ServiceHeader"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "",
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CifRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successfully retrieved the response",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CifResponse"
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"400": {
+						"description": "400 Bad Request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CifResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "401 Unauthorized Request"
+					},
+					"404": {
+						"description": "404 API Not Found"
+					},
+					"405": {
+						"description": "405 Method Not Allowed"
+					},
+					"429": {
+						"description": "429 Too Many Requests"
+					},
+					"500": {
+						"description": "500 Internal Server Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CifResponse"
+								}
+							}
+						}
+					},
+					"503": {
+						"description": "503 Service Unavailable"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/v1/GetIVRStatus": {
+			"post": {
+				"tags": [
+					"EAI DB API"
+				],
+				"description": "Retrieves IVR Status from DB",
+				"operationId": "GetIVRStatus",
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "JWT bearer token",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "ServiceHeader",
+						"in": "header",
+						"description": "having channel details , locale",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"$ref": "../../../commonschemas/header.json#/ServiceHeader"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "",
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/IVRStatusRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successfully retrieved the response",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/IVRStatusResponse"
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"400": {
+						"description": "400 Bad Request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/IVRStatusResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "401 Unauthorized Request"
+					},
+					"404": {
+						"description": "404 API Not Found"
+					},
+					"405": {
+						"description": "405 Method Not Allowed"
+					},
+					"429": {
+						"description": "429 Too Many Requests"
+					},
+					"500": {
+						"description": "500 Internal Server Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/IVRStatusResponse"
+								}
+							}
+						}
+					},
+					"503": {
+						"description": "503 Service Unavailable"
+					}
+				},
+				"deprecated": false
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"CustomerATMRecordsRequest": {
+				"type": "object",
+				"properties": {
+					"CustomerATMRecordsRequest": {
+						"$ref": "#/components/schemas/CustomerATMRecordsRequestType"
+					}
+				}
+			},
+			"CustomerATMRecordsResponse": {
+				"type": "object",
+				"properties": {
+					"CustomerATMRecordsResponse": {
+						"$ref": "#/components/schemas/CustomerATMRecordsResponseType"
+					}
+				}
+			},
+			"CustomerATMRecordsRequestType": {
+				"type": "object",
+				"properties": {
+					"CIF_NO": {
+						"type": "string"
+					}
+				}
+			},
+			"CustomerATMRecordsResponseType": {
+				"type": "object",
+				"properties": {
+					"ATM": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/ATMRecordType"
+						}
+					}
+				}
+			},
+			"ATMRecordType": {
+				"type": "object",
+				"properties": {
+					"Pan": {
+						"type": "string"
+					},
+					"Type": {
+						"type": "string"
+					},
+					"Status": {
+						"type": "string"
+					},
+					"Purchase": {
+						"type": "string"
+					},
+					"Total": {
+						"type": "string"
+					},
+					"TCheck": {
+						"type": "string"
+					},
+					"Transfer": {
+						"type": "string"
+					},
+					"Expires": {
+						"type": "string"
+					},
+					"AccNo": {
+						"type": "string"
+					}
+				}
+			},
+			"IVRFlagByShortCIFFromTSCNRequest": {
+				"type": "object",
+				"properties": {
+					"IVRFlagByShortCIFFromTSCNRequest": {
+						"$ref": "#/components/schemas/IVRFlagByShortCIFFromTSCNRequestType"
+					}
+				}
+			},
+			"IVRFlagByShortCIFFromTSCNRequestType": {
+				"type": "object",
+				"properties": {
+					"SHORT_CIF": {
+						"type": "string"
+					}
+				}
+			},
+			"IVRFlagByShortCIFFromTSCNResponse": {
+				"type": "object",
+				"properties": {
+					"IVRFlagByShortCIFFromTSCNResponse": {
+						"$ref": "#/components/schemas/IVRFlagByShortCIFFromTSCNResponseType"
+					}
+				}
+			},
+			"IVRFlagByShortCIFFromTSCNResponseType": {
+				"type": "object",
+				"properties": {
+					"TSCN": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/TSCNType"
+						}
+					}
+				}
+			},
+			"TSCNType": {
+				"type": "object",
+				"properties": {
+					"AUTHORITY_LEVEL": {
+						"type": "string"
+					}
+				}
+			},
+			"SelectCacheRequst": {
+				"type": "object",
+				"properties": {
+					"SelectCacheRequest": {
+						"$ref": "#/components/schemas/SelectCacheRequestType"
+					}
+				}
+			},
+			"SelectCacheRequestType": {
+				"type": "object",
+				"properties": {
+					"P_TABLE_NAME": {
+						"type": "string"
+					}
+				}
+			},
+			"SelectCacheResponse": {
+				"type": "object",
+				"properties": {
+					"SelectCacheResponse": {
+						"$ref": "#/components/schemas/SelectCacheResponseType"
+					}
+				}
+			},
+			"SelectCacheResponseType": {
+				"type": "object",
+				"properties": {
+					"P_SEQ_ID": {
+						"type": "string"
+					},
+					"P_REGION_ID": {
+						"type": "string"
+					},
+					"P_ERR_CD": {
+						"type": "string"
+					},
+					"P_ERR_MSG": {
+						"type": "string"
+					}
+				}
+			},
+			"CifRequest": {
+				"type": "object",
+				"properties": {
+					"CifRequest": {
+						"$ref": "#/components/schemas/CifRequestType"
+					}
+				}
+			},
+			"CifRequestType": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"type": {
+						"type": "string"
+					},
+					"idType": {
+						"type": "string"
+					},
+					"accountType": {
+						"type": "string"
+					}
+				}
+			},
+			"CifResponse": {
+				"type": "object",
+				"properties": {
+					"CifResponse": {
+						"$ref": "#/components/schemas/CifResponseType"
+					}
+				}
+			},
+			"CifResponseType": {
+				"type": "object",
+				"properties": {
+					"cif": {
+						"type": "string"
+					}
+				}
+			},
+			"IVRStatusRequest": {
+				"type": "object",
+				"properties": {
+					"IVRStatusRequest": {
+						"$ref": "#/components/schemas/IVRStatusRequestType"
+					}
+				}
+			},
+			"IVRStatusRequestType": {
+				"type": "object",
+				"properties": {
+					"ShortCIF": {
+						"type": "string"
+					}
+				}
+			},
+			"IVRStatusResponse": {
+				"type": "object",
+				"properties": {
+					"IVRStatusResponse": {
+						"$ref": "#/components/schemas/IVRStatusResponseType"
+					}
+				}
+			},
+			"IVRStatusResponseType": {
+				"type": "object",
+				"properties": {
+					"IVRStatus": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	},
+	"tags": [
+		{
+			"name": "EAI DB API",
+			"description": ""
+		}
+	]
+}

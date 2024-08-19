@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="BeneficiaryReferenceService" targetNamespace="http://sbmgmt.rm.bancs.tcs.com/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://com.tcs.bancs.rm/" xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:tns="http://sbmgmt.rm.bancs.tcs.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata">
+  <import namespace="http://com.tcs.bancs.rm/" location="BeneficiaryReferenceServicePortType.wsdl">
+    </import>
+  <binding name="BeneficiaryReferenceServiceBinding" type="ns1:BeneficiaryReferenceService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="RetrieveCountries">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/RetrieveCountries"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RetrieveDeliveryTypes">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/RetrieveDeliveryTypes"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RetrieveStates">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/RetrieveStates"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RetrieveCities">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/RetrieveCities"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RetrieveBanks">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/RetrieveBanks"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RetrieveBranches">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/RetrieveBranches"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RetrieveBranchCurrency">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/RetrieveBranchCurrency"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RetrieveAgents">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/RetrieveAgents"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RetrieveCourier">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/RetrieveCourier"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RetrieveCourierCurrency">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/RetrieveCourierCurrency"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RetrieveDirCourier">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/RetrieveDirCourier"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RetrieveDirCourierCurrency">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/RetrieveDirCourierCurrency"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RetrieveLocations">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/RetrieveLocations"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RetrieveLocationCurrency">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/RetrieveLocationCurrency"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RetrieveMGAgents">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/RetrieveMGAgents"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RetrieveMGCurrency">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/RetrieveMGCurrency"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RetrieveAgentTypeCurrency">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/RetrieveAgentTypeCurrency"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RetrieveMGDynamicFields">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/RetrieveMGDynamicFields"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RetrieveMGDeliveryTypes">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/RetrieveMGDeliveryTypes"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="BeneficiaryReferenceService">
+    <port name="BeneficiaryReferenceService" binding="tns:BeneficiaryReferenceServiceBinding">
+      <soap:address location="http://rhlux2617:9080/TCS_RM_BeneficiaryRefData/BeneficiaryReferenceService"/>
+    </port>
+  </service>
+</definitions>

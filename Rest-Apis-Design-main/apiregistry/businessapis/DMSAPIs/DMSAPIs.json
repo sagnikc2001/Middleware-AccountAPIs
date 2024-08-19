@@ -1,0 +1,4350 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "MW DMS APIs",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://mw-api-3scale-apicast-staging.apps.com:443/api/dms"
+    },
+    {
+      "url": "https://mw-api-3scale-apicast-staging.apps.com:443/api/filenet"
+    }
+  ],
+  "paths": {
+    "/ArchiveDocument": {
+      "post": {
+        "tags": [
+          "DocumentManagement APIs Stage"
+        ],
+        "summary": "ArchiveDocument",
+        "description": "This operation Archives document to DMS.",
+        "operationId": "ArchiveDocument",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ArchiveDocumentRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ArchiveDocumentResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/GetDocument": {
+      "post": {
+        "tags": [
+          "DocumentManagement APIs Stage"
+        ],
+        "summary": "GetDocument",
+        "description": "This operation returns document details from DMS.",
+        "operationId": "GetDocument",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/GetDocumentRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/GetDocumentResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ModifyDocument": {
+      "post": {
+        "tags": [
+          "DocumentManagement APIs Stage"
+        ],
+        "summary": "ModifyDocument",
+        "description": "This operation updates document key identifiers.",
+        "operationId": "ModifyDocument",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ModifyDocumentRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ModifyDocumentResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/DeleteDocument": {
+      "post": {
+        "tags": [
+          "DocumentManagement APIs Stage"
+        ],
+        "summary": "DeleteDocument",
+        "description": "This operation deletes document from DMS.",
+        "operationId": "DeleteDocument",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/DeleteDocumentRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/DeleteDocumentResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/GetAddedModifiedDocuments": {
+      "post": {
+        "tags": [
+          "DocumentManagement APIs Stage"
+        ],
+        "summary": "GetAddedModifiedDocuments",
+        "operationId": "GetAddedModifiedDocuments",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/GetAddedModifiedDocumentsRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/GetAddedModifiedDocumentsResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/GetDocumentsForAccountNumber": {
+      "post": {
+        "tags": [
+          "DocumentManagement APIs Stage"
+        ],
+        "summary": "GetDocumentsForAccountNumber",
+        "operationId": "GetDocumentsForAccountNumber",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/GetDocumentsForAccountNumberRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/GetDocumentsForAccountNumberResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/MaintainDocuments": {
+      "post": {
+        "tags": [
+          "DocumentManagement APIs Stage"
+        ],
+        "summary": "MaintainDocuments",
+        "operationId": "MaintainDocuments",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/DocumentsMaintenanceRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/DocumentsMaintenanceResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/GetDocumentsByIDNumber": {
+      "post": {
+        "tags": [
+          "DocumentManagement APIs Stage"
+        ],
+        "summary": "GetDocumentsByIDNumber",
+        "operationId": "GetDocumentsByIDNumber",
+        "parameters": [
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/GetDocumentsByIDNumberRequest"
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/GetDocumentsByIDNumberResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/CreateFileNetObject": {
+      "post": {
+        "tags": [
+          "FileNet APIs"
+        ],
+        "description": "This api is used to Create FileNet Objects",
+        "operationId": "CreateFileNetObject",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT bearer token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "having channel details , locale",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateFileNetObjectRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateFileNetObjectResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateFileNetObjectResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized Request"
+          },
+          "404": {
+            "description": "404 API Not Found"
+          },
+          "405": {
+            "description": "405 Method Not Allowed"
+          },
+          "429": {
+            "description": "429 Too Many Requests"
+          },
+          "500": {
+            "description": "500 Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreateFileNetObjectResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503 Service Unavailable"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/UpdateFileNetObject": {
+      "post": {
+        "tags": [
+          "FileNet APIs"
+        ],
+        "description": "This api is used to Update FileNet Objects",
+        "operationId": "UpdateFileNetObject",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT bearer token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "having channel details , locale",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateFileNetObjectRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateFileNetObjectResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateFileNetObjectResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized Request"
+          },
+          "404": {
+            "description": "404 API Not Found"
+          },
+          "405": {
+            "description": "405 Method Not Allowed"
+          },
+          "429": {
+            "description": "429 Too Many Requests"
+          },
+          "500": {
+            "description": "500 Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateFileNetObjectResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503 Service Unavailable"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/DeleteFileNetObject": {
+      "post": {
+        "tags": [
+          "FileNet APIs"
+        ],
+        "description": "This api is used to Delete FileNet Objects",
+        "operationId": "DeleteFileNetObject",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT bearer token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "having channel details , locale",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeleteFileNetObjectRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteFileNetObjectResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteFileNetObjectResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized Request"
+          },
+          "404": {
+            "description": "404 API Not Found"
+          },
+          "405": {
+            "description": "405 Method Not Allowed"
+          },
+          "429": {
+            "description": "429 Too Many Requests"
+          },
+          "500": {
+            "description": "500 Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeleteFileNetObjectResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503 Service Unavailable"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/RetrieveFileNetObject": {
+      "post": {
+        "tags": [
+          "FileNet APIs"
+        ],
+        "description": "This api is used to Retrieve FileNet Objects",
+        "operationId": "RetrieveFileNetObject",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT bearer token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "having channel details , locale",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RetrieveFileNetObjectRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RetrieveFileNetObjectResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RetrieveFileNetObjectResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized Request"
+          },
+          "404": {
+            "description": "404 API Not Found"
+          },
+          "405": {
+            "description": "405 Method Not Allowed"
+          },
+          "429": {
+            "description": "429 Too Many Requests"
+          },
+          "500": {
+            "description": "500 Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RetrieveFileNetObjectResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503 Service Unavailable"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/SearchFileNetObject": {
+      "post": {
+        "tags": [
+          "FileNet APIs"
+        ],
+        "description": "This api is used to Search FileNet Objects",
+        "operationId": "SearchFileNetObject",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT bearer token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "having channel details , locale",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchFileNetObjectRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchFileNetObjectResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchFileNetObjectResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized Request"
+          },
+          "404": {
+            "description": "404 API Not Found"
+          },
+          "405": {
+            "description": "405 Method Not Allowed"
+          },
+          "429": {
+            "description": "429 Too Many Requests"
+          },
+          "500": {
+            "description": "500 Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchFileNetObjectResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503 Service Unavailable"
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CreateFileNetObjectRequestType": {
+        "title": "CreateFileNetObjectRequestType",
+        "required": [
+          "classId",
+          "contentElement"
+        ],
+        "type": "object",
+        "properties": {
+          "classId": {
+            "type": "string"
+          },
+          "documentTitle": {
+            "type": "string"
+          },
+          "mimeType": {
+            "type": "string"
+          },
+          "dataCapBatchId": {
+            "type": "string"
+          },
+          "dataCapIndexOperator": {
+            "type": "string"
+          },
+          "oneilBarcode": {
+            "type": "string"
+          },
+          "originalFileName": {
+            "type": "string"
+          },
+          "pageCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "autoLeaseAccount": {
+            "type": "string"
+          },
+          "customerId": {
+            "type": "string"
+          },
+          "docType": {
+            "type": "string"
+          },
+          "barcode": {
+            "type": "string"
+          },
+          "accountNumber": {
+            "$ref": "../../commonschemas/schemas.json#/AccountIdOptional"
+          },
+          "businessAsUsual": {
+            "type": "string"
+          },
+          "branchNumber": {
+            "type": "string"
+          },
+          "cifNumber": {
+            "type": "string"
+          },
+          "currency": {
+            "$ref": "../../commonschemas/schemas.json#/ISOCurrencyCode"
+          },
+          "dateTimeOutputDataCap": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dateTimeIngestionDataCap": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dateSendFromBranch": {
+            "type": "string"
+          },
+          "divisionCode": {
+            "type": "string"
+          },
+          "docClass": {
+            "type": "string"
+          },
+          "kycStatus": {
+            "type": "string"
+          },
+          "legalEntityCode": {
+            "type": "string"
+          },
+          "recordGuid": {
+            "type": "string"
+          },
+          "tejouryTrackerId": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "tellerNumber": {
+            "type": "string"
+          },
+          "chequeNumber": {
+            "type": "string"
+          },
+          "journalNumber": {
+            "$ref": "../../commonschemas/schemas.json#/JournalId"
+          },
+          "amount": {
+            "$ref": "../../commonschemas/schemas.json#/Amount"
+          },
+          "transactionCode": {
+            "type": "string"
+          },
+          "transactionType": {
+            "type": "string"
+          },
+          "costCenter": {
+            "type": "string"
+          },
+          "dhlTrackingCode": {
+            "type": "string"
+          },
+          "oglUserNumber": {
+            "type": "string"
+          },
+          "paymentContract": {
+            "type": "string"
+          },
+          "paymentInvoice": {
+            "type": "string"
+          },
+          "paymentSupplierCode": {
+            "type": "string"
+          },
+          "paymentVendor": {
+            "type": "string"
+          },
+          "subCifNumber": {
+            "type": "string"
+          },
+          "arabicName": {
+            "type": "string"
+          },
+          "rmID": {
+            "type": "string"
+          },
+          "rmName": {
+            "type": "string"
+          },
+          "camNumber": {
+            "type": "string"
+          },
+          "approvalType": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "businessUnit": {
+            "type": "string"
+          },
+          "englishName": {
+            "type": "string"
+          },
+          "appID": {
+            "type": "string"
+          },
+          "idNumber": {
+            "type": "string"
+          },
+          "idType": {
+            "type": "string"
+          },
+          "referenceNumber": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "classCode": {
+            "type": "string"
+          },
+          "event": {
+            "type": "string"
+          },
+          "sequence": {
+            "type": "string"
+          },
+          "archiveDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "contentElement": {
+            "$ref": "#/components/schemas/contentElementType"
+          },
+          "IBAN": {
+            "$ref": "../../commonschemas/schemas.json#/AccountId",
+            "description": "IBAN Is The IBAN Account Number"
+          },
+          "letterAddressedTo": {
+            "type": "string"
+          },
+          "openingBalance": {
+            "$ref": "../../commonschemas/schemas.json#/Amount"
+          },
+          "closingBalance": {
+            "$ref": "../../commonschemas/schemas.json#/Amount"
+          },
+          "verifiableDocumentTimes": {
+            "type": "string"
+          },
+          "documentExpiryDate": {
+            "type": "string",
+            "description": "Number of times a document can be verified",
+            "format": "date-time"
+          },
+          "closingDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "loanAmount": {
+            "$ref": "../../commonschemas/schemas.json#/AmountOptional"
+          },
+          "employerName": {
+            "type": "string"
+          },
+          "corporateIBANNos": {
+            "type": "string",
+            "description": "corporate IBAN Numbers"
+          }
+        }
+      },
+      "contentElementType": {
+        "title": "contentElementType",
+        "description": "content Element Type",
+        "required": [
+          "retrievalName",
+          "content"
+        ],
+        "type": "object",
+        "properties": {
+          "retrievalName": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string",
+            "format": "binary"
+          }
+        }
+      },
+      "CreateFileNetObjectResponseType": {
+        "title": "CreateFileNetObjectResponseType",
+        "type": "object",
+        "properties": {
+          "CreateFileNetObject": {
+            "$ref": "#/components/schemas/CreateFileNetObjectType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        }
+      },
+      "CreateFileNetObjectType": {
+        "title": "CreateFileNetObjectType",
+        "description": "Create File Net Object Type",
+        "type": "object",
+        "properties": {
+          "objectId": {
+            "type": "string"
+          },
+          "objectStore": {
+            "type": "string"
+          },
+          "updateSequenceNumber": {
+            "type": "string"
+          }
+        }
+      },
+      "UpdateFileNetObjectRequestType": {
+        "title": "UpdateFileNetObjectRequestType",
+        "required": [
+          "classId",
+          "objectId",
+          "contentElement"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "classId": {
+            "type": "string"
+          },
+          "objectId": {
+            "type": "string"
+          },
+          "documentTitle": {
+            "type": "string"
+          },
+          "dataCapBatchId": {
+            "type": "string"
+          },
+          "dataCapIndexOperator": {
+            "type": "string"
+          },
+          "oneilBarcode": {
+            "type": "string"
+          },
+          "originalFileName": {
+            "type": "string"
+          },
+          "pageCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "autoLeaseAccount": {
+            "type": "string"
+          },
+          "customerId": {
+            "type": "string"
+          },
+          "docType": {
+            "type": "string"
+          },
+          "barcode": {
+            "type": "string"
+          },
+          "accountNumber": {
+            "$ref": "../../commonschemas/schemas.json#/AccountIdOptional"
+          },
+          "businessAsUsual": {
+            "type": "string"
+          },
+          "branchNumber": {
+            "type": "string"
+          },
+          "cifNumber": {
+            "type": "string"
+          },
+          "currency": {
+            "$ref": "../../commonschemas/schemas.json#/ISOCurrencyCode"
+          },
+          "dateTimeOutputDataCap": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dateTimeIngestionDataCap": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dateSendFromBranch": {
+            "type": "string"
+          },
+          "divisionCode": {
+            "type": "string"
+          },
+          "docClass": {
+            "type": "string"
+          },
+          "kycStatus": {
+            "type": "string"
+          },
+          "legalEntityCode": {
+            "type": "string"
+          },
+          "recordGuid": {
+            "type": "string"
+          },
+          "tejouryTrackerId": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "tellerNumber": {
+            "type": "string"
+          },
+          "chequeNumber": {
+            "type": "string"
+          },
+          "journalNumber": {
+            "$ref": "../../commonschemas/schemas.json#/JournalId"
+          },
+          "amount": {
+            "$ref": "../../commonschemas/schemas.json#/Amount"
+          },
+          "transactionCode": {
+            "type": "string"
+          },
+          "transactionType": {
+            "type": "string"
+          },
+          "costCenter": {
+            "type": "string"
+          },
+          "dhlTrackingCode": {
+            "type": "string"
+          },
+          "oglUserNumber": {
+            "type": "string"
+          },
+          "paymentContract": {
+            "type": "string"
+          },
+          "paymentInvoice": {
+            "type": "string"
+          },
+          "paymentSupplierCode": {
+            "type": "string"
+          },
+          "paymentVendor": {
+            "type": "string"
+          },
+          "subCifNumber": {
+            "type": "string"
+          },
+          "arabicName": {
+            "type": "string"
+          },
+          "rmID": {
+            "type": "string"
+          },
+          "rmName": {
+            "type": "string"
+          },
+          "camNumber": {
+            "type": "string"
+          },
+          "approvalType": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "businessUnit": {
+            "type": "string"
+          },
+          "englishName": {
+            "type": "string"
+          },
+          "appID": {
+            "type": "string"
+          },
+          "idNumber": {
+            "type": "string"
+          },
+          "idType": {
+            "type": "string"
+          },
+          "referenceNumber": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "classCode": {
+            "type": "string"
+          },
+          "event": {
+            "type": "string"
+          },
+          "sequence": {
+            "type": "string"
+          },
+          "archiveDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "contentElement": {
+            "$ref": "#/components/schemas/contentElementType"
+          },
+          "IBAN": {
+            "$ref": "../../commonschemas/schemas.json#/AccountId",
+            "description": "IBAN Is The IBAN Account Number"
+          },
+          "letterAddressedTo": {
+            "type": "string"
+          },
+          "openingBalance": {
+            "$ref": "../../commonschemas/schemas.json#/Amount"
+          },
+          "closingBalance": {
+            "$ref": "../../commonschemas/schemas.json#/Amount"
+          },
+          "verifiableDocumentTimes": {
+            "type": "string"
+          },
+          "documentExpiryDate": {
+            "type": "string",
+            "description": "Number of times a document can be verified",
+            "format": "date-time"
+          },
+          "closingDate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "description": ""
+      },
+      "UpdateFileNetObjectResponseType": {
+        "title": "UpdateFileNetObjectResponseType",
+        "type": "object",
+        "properties": {
+          "UpdateFileNetObject": {
+            "$ref": "#/components/schemas/UpdateFileNetObjectType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "UpdateFileNetObjectType": {
+        "title": "UpdateFileNetObjectType",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "objectId": {
+            "type": "string"
+          },
+          "objectStore": {
+            "type": "string"
+          },
+          "updateSequenceNumber": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "DeleteFileNetObjectRequestType": {
+        "title": "DeleteFileNetObjectRequestType",
+        "required": [
+          "classId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "classId": {
+            "type": "string"
+          },
+          "objectId": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "DeleteFileNetObjectResponseType": {
+        "title": "DeleteFileNetObjectResponseType",
+        "type": "object",
+        "properties": {
+          "DeleteFileNetObject": {
+            "$ref": "#/components/schemas/DeleteFileNetObjectType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "DeleteFileNetObjectType": {
+        "title": "DeleteFileNetObjectType",
+        "required": [
+          "classId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "classId": {
+            "type": "string"
+          },
+          "objectId": {
+            "type": "string"
+          },
+          "objectStore": {
+            "type": "string"
+          },
+          "updateSequenceNumber": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "RetrieveFileNetObjectRequestType": {
+        "title": "RetrieveFileNetObjectRequestType",
+        "required": [
+          "classId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "classId": {
+            "type": "string"
+          },
+          "objectId": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "RetrieveFileNetObjectResponseType": {
+        "title": "RetrieveFileNetObjectResponseType",
+        "type": "object",
+        "properties": {
+          "RetrieveFileNetObject": {
+            "$ref": "#/components/schemas/RetrieveFileNetObjectType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "RetrieveFileNetObjectType": {
+        "title": "RetrieveFileNetObjectType",
+        "required": [
+          "classId"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "retrievalName": {
+            "type": "string"
+          },
+          "classId": {
+            "type": "string"
+          },
+          "objectId": {
+            "type": "string"
+          },
+          "href": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "SearchFileNetObjectRequestType": {
+        "title": "SearchFileNetObjectRequestType",
+        "required": [
+          "classId"
+        ],
+        "type": "object",
+        "properties": {
+          "classId": {
+            "type": "string"
+          },
+          "objectId": {
+            "type": "string"
+          },
+          "accountNumber": {
+            "type": "string"
+          },
+          "branchNumber": {
+            "type": "string"
+          },
+          "cifNumber": {
+            "type": "string"
+          },
+          "customerId": {
+            "type": "string"
+          },
+          "dataCapBatchId": {
+            "type": "string"
+          },
+          "oneilBarcode": {
+            "type": "string"
+          },
+          "chequeNumber": {
+            "type": "string"
+          },
+          "autoLeaseAccount": {
+            "type": "string"
+          },
+          "barcode": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "paymentContract": {
+            "type": "string"
+          },
+          "paymentDivision": {
+            "type": "string"
+          },
+          "paymentSupplierCode": {
+            "type": "string"
+          },
+          "paymentVendor": {
+            "type": "string"
+          },
+          "referenceNumber": {
+            "type": "string"
+          },
+          "docType": {
+            "type": "string"
+          },
+          "classCode": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "SearchFileNetObjectResponseType": {
+        "title": "SearchFileNetObjectResponseType",
+        "type": "object",
+        "properties": {
+          "SearchFileNetObject": {
+            "$ref": "#/components/schemas/SearchFileNetObjectType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "SearchFileNetObjectType": {
+        "title": "SearchFileNetObjectType",
+        "type": "object",
+        "properties": {
+          "object": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/objectType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "objectType": {
+        "title": "objectType",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "objectId": {
+            "type": "string"
+          },
+          "documentTitle": {
+            "type": "string"
+          },
+          "oneilBarcode": {
+            "type": "string"
+          },
+          "pageCount": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "autoLeaseAccount": {
+            "type": "string"
+          },
+          "customerId": {
+            "type": "string"
+          },
+          "docType": {
+            "type": "string"
+          },
+          "barcode": {
+            "type": "string"
+          },
+          "accountNumber": {
+            "type": "string"
+          },
+          "branchNumber": {
+            "type": "string"
+          },
+          "cifNumber": {
+            "type": "string"
+          },
+          "currency": {
+            "$ref": "../../commonschemas/schemas.json#/ISOCurrencyCode"
+          },
+          "dateTimeOutputDataCap": {
+            "type": "string"
+          },
+          "dateTimeIngestionDataCap": {
+            "type": "string"
+          },
+          "dateSendFromBranch": {
+            "type": "string"
+          },
+          "dataCapBatchId": {
+            "type": "string"
+          },
+          "dataCapIndexOperator": {
+            "type": "string"
+          },
+          "docClass": {
+            "type": "string"
+          },
+          "kycStatus": {
+            "type": "string"
+          },
+          "recordGuid": {
+            "type": "string"
+          },
+          "originalFileName": {
+            "type": "string"
+          },
+          "tejouryTrackerId": {
+            "type": "string"
+          },
+          "tellerNumber": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "chequeNumber": {
+            "type": "string"
+          },
+          "journalNumber": {
+            "$ref": "../../commonschemas/schemas.json#/JournalId"
+          },
+          "amount": {
+            "$ref": "../../commonschemas/schemas.json#/Amount"
+          },
+          "transactionCode": {
+            "type": "string"
+          },
+          "transactionType": {
+            "type": "string"
+          },
+          "dhlTrackingCode": {
+            "type": "string"
+          },
+          "paymentContract": {
+            "type": "string"
+          },
+          "paymentInvoice": {
+            "type": "string"
+          },
+          "paymentSupplierCode": {
+            "type": "string"
+          },
+          "paymentVendor": {
+            "type": "string"
+          },
+          "paymentcostCenter": {
+            "type": "string"
+          },
+          "paymentcostCenterList": {
+            "type": "string"
+          },
+          "paymentDivision": {
+            "type": "string"
+          },
+          "paymentDivisionList": {
+            "type": "string"
+          },
+          "paymentOgl": {
+            "type": "string"
+          },
+          "paymenyOglList": {
+            "type": "string"
+          },
+          "subCifNumber": {
+            "type": "string"
+          },
+          "arabicName": {
+            "type": "string"
+          },
+          "rmID": {
+            "type": "string"
+          },
+          "rmName": {
+            "type": "string"
+          },
+          "camNumber": {
+            "type": "string"
+          },
+          "approvalType": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "businessUnit": {
+            "type": "string"
+          },
+          "englishName": {
+            "type": "string"
+          },
+          "appID": {
+            "type": "string"
+          },
+          "idNumber": {
+            "type": "string"
+          },
+          "idType": {
+            "type": "string"
+          },
+          "referenceNumber": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "classCode": {
+            "type": "string"
+          },
+          "event": {
+            "type": "string"
+          },
+          "sequence": {
+            "type": "string"
+          },
+          "archiveDate": {
+            "type": "string"
+          },
+          "contentElement": {
+            "$ref": "#/components/schemas/contentElementType"
+          },
+          "dateModified": {
+            "type": "string"
+          },
+          "divisionClass": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "costCenter": {
+            "type": "string"
+          },
+          "IBAN": {
+            "$ref": "../../commonschemas/schemas.json#/AccountId",
+            "description": "IBAN Is The IBAN Account Number"
+          },
+          "letterAddressedTo": {
+            "type": "string"
+          },
+          "openingBalance": {
+            "$ref": "../../commonschemas/schemas.json#/Amount"
+          },
+          "closingBalance": {
+            "$ref": "../../commonschemas/schemas.json#/Amount"
+          },
+          "verifiableDocumentTimes": {
+            "type": "string"
+          },
+          "documentExpiryDate": {
+            "type": "string",
+            "description": "Number of times a document can be verified"
+          },
+          "closingDate": {
+            "type": "string"
+          },
+          "loanAmount": {
+            "$ref": "../../commonschemas/schemas.json#/AmountOptional"
+          },
+          "employerName": {
+            "type": "string"
+          },
+          "corporateIBANNos": {
+            "type": "string",
+            "description": "corporate IBAN Numbers"
+          }
+        },
+        "description": ""
+      },
+      "tns_DocumentsMaintenanceRequest": {
+        "title": "tns_DocumentsMaintenanceRequest",
+        "required": [
+          "operationType",
+          "documentDetails"
+        ],
+        "type": "object",
+        "properties": {
+          "operationType": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_operationType"
+              },
+              {
+                "description": "Operation Type should be \r\n\r\nINQUIRE\r\nCREATE\r\nDELETE\r\nUPDATE"
+              }
+            ]
+          },
+          "documentDetails": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_DocumentsMaintenanceType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_DocumentsMaintenanceResponse": {
+        "title": "tns_DocumentsMaintenanceResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_success"
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "../../commonschemas/fault.json#/FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_DocumentsMaintenanceType": {
+        "title": "tns_DocumentsMaintenanceType",
+        "type": "object",
+        "properties": {
+          "documentId": {
+            "type": "string",
+            "description": "documentId to be auto generated while creation.\r\n\t\t\t\t\t\tFor update/delete it needs to be passed in the\r\n\t\t\t\t\t\trequest"
+          },
+          "documentName": {
+            "type": "string",
+            "description": "Name of the document"
+          },
+          "documentType": {
+            "maxLength": 30,
+            "type": "string",
+            "description": "PREPAID CARD, CREDIT CARD, STAMP, DRAFT"
+          },
+          "documentSubType": {
+            "type": "string",
+            "description": "TERMS AND CONDITIONS,STAMP, CARD ISSUANCE, SIGNATURE"
+          },
+          "documentExtension": {
+            "maxLength": 10,
+            "type": "string",
+            "description": "jpeg, png, doc, docx etc."
+          },
+          "documentContent": {
+            "type": "string",
+            "description": "base64 encoded.",
+            "format": "binary"
+          },
+          "documentLanguage": {
+            "maxLength": 2,
+            "type": "string",
+            "description": "01 - EN, 03 - AR, 00 - NA"
+          },
+          "additionalDetails": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_additionalDetailsType"
+              },
+              {
+                "description": "Additional details related to the document"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_additionalDetailsType": {
+        "title": "tns_additionalDetailsType",
+        "type": "object",
+        "properties": {
+          "documentField1": {
+            "type": "string",
+            "description": "Related Persons name"
+          },
+          "documentField2": {
+            "type": "string"
+          },
+          "documentField3": {
+            "type": "string"
+          },
+          "documentField4": {
+            "type": "string"
+          },
+          "documentField5": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_ArchiveDocumentRequest": {
+        "title": "tns_ArchiveDocumentRequest",
+        "required": [
+          "document"
+        ],
+        "type": "object",
+        "properties": {
+          "document": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_ArchiveDocument"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_ArchiveDocumentResponse": {
+        "title": "tns_ArchiveDocumentResponse",
+        "required": [
+          "documentId"
+        ],
+        "type": "object",
+        "properties": {
+          "documentId": {
+            "type": "string"
+          },
+          "fault": {
+            "type": "array",
+            "items": {
+              "$ref": "../../commonschemas/fault.json#/FaultType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_GetDocumentRequest": {
+        "title": "tns_GetDocumentRequest",
+        "required": [
+          "document"
+        ],
+        "type": "object",
+        "properties": {
+          "document": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_GetDocument"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_GetDocumentResponse": {
+        "title": "tns_GetDocumentResponse",
+        "type": "object",
+        "properties": {
+          "document": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_DocumentType"
+              }
+            ]
+          },
+          "fault": {
+            "type": "array",
+            "items": {
+              "$ref": "../../commonschemas/fault.json#/FaultType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_ModifyDocumentRequest": {
+        "title": "tns_ModifyDocumentRequest",
+        "required": [
+          "document"
+        ],
+        "type": "object",
+        "properties": {
+          "document": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_ModifyDocument"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_ModifyDocumentResponse": {
+        "title": "tns_ModifyDocumentResponse",
+        "required": [
+          "documentId"
+        ],
+        "type": "object",
+        "properties": {
+          "documentId": {
+            "type": "string"
+          },
+          "fault": {
+            "type": "array",
+            "items": {
+              "$ref": "../../commonschemas/fault.json#/FaultType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_DeleteDocumentRequest": {
+        "title": "tns_DeleteDocumentRequest",
+        "required": [
+          "libraryId",
+          "documentId"
+        ],
+        "type": "object",
+        "properties": {
+          "libraryId": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "documentId": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_DeleteDocumentResponse": {
+        "title": "tns_DeleteDocumentResponse",
+        "type": "object",
+        "properties": {
+          "document": {
+            "type": "string"
+          },
+          "fault": {
+            "type": "array",
+            "items": {
+              "$ref": "../../commonschemas/fault.json#/FaultType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_ArchiveDocument": {
+        "title": "tns_ArchiveDocument",
+        "required": [
+          "appicationID",
+          "idNumber",
+          "idType"
+        ],
+        "type": "object",
+        "properties": {
+          "businessFunction": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "documentName": {
+            "maxLength": 35,
+            "minLength": 0,
+            "type": "string"
+          },
+          "documentClass": {
+            "maxLength": 35,
+            "minLength": 0,
+            "type": "string"
+          },
+          "documentFolder": {
+            "type": "string"
+          },
+          "appicationID": {
+            "maxLength": 10,
+            "type": "string"
+          },
+          "transactionRefNo": {
+            "maxLength": 10,
+            "type": "string"
+          },
+          "transactionRefSeqNo": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "transactionProcessType": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "accountNumber": {
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})",
+            "type": "string"
+          },
+          "documentContent": {
+            "type": "string"
+          },
+          "idNumber": {
+            "type": "string"
+          },
+          "idType": {
+            "type": "string"
+          },
+          "uplDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "customerNumber": {
+            "maxLength": 20,
+            "type": "string"
+          },
+          "chequeNumber": {
+            "type": "string"
+          },
+          "chequeAmount": {
+            "type": "number"
+          },
+          "ObjectionSlipNo": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_ModifyDocument": {
+        "title": "tns_ModifyDocument",
+        "required": [
+          "applicationID",
+          "idNumber",
+          "idType"
+        ],
+        "type": "object",
+        "properties": {
+          "businessFunction": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "documentId": {
+            "type": "string"
+          },
+          "transactionRefNo": {
+            "maxLength": 10,
+            "type": "string"
+          },
+          "transactionRefSeqNo": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "transactionProcessType": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "accountNumber": {
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})",
+            "type": "string"
+          },
+          "applicationID": {
+            "maxLength": 10,
+            "type": "string"
+          },
+          "idNumber": {
+            "type": "string"
+          },
+          "idType": {
+            "type": "string"
+          },
+          "uploadDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "customerNumber": {
+            "maxLength": 20,
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_GetDocumentsForAccountNumber": {
+        "title": "tns_GetDocumentsForAccountNumber",
+        "required": [
+          "accountNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "accountNumber": {
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})",
+            "type": "string"
+          },
+          "businessFunction": {
+            "maxLength": 3,
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_GetDocument": {
+        "title": "tns_GetDocument",
+        "required": [
+          "libraryId",
+          "documentId"
+        ],
+        "type": "object",
+        "properties": {
+          "libraryId": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "documentId": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_kycGetDocumentsForAccountNumber": {
+        "title": "tns_kycGetDocumentsForAccountNumber",
+        "type": "object",
+        "properties": {
+          "libraryId": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "objectId": {
+            "type": "string"
+          },
+          "accessLevel": {
+            "type": "string"
+          },
+          "pageCount": {
+            "type": "string"
+          },
+          "folderId": {
+            "type": "string"
+          },
+          "folderPath": {
+            "type": "string"
+          },
+          "mediaType": {
+            "type": "string"
+          },
+          "documentClassId": {
+            "type": "string"
+          },
+          "documentClassName": {
+            "type": "string"
+          },
+          "archiveDate": {
+            "type": "string"
+          },
+          "reportDate": {
+            "type": "string"
+          },
+          "loginName": {
+            "type": "string"
+          },
+          "documentName": {
+            "type": "string"
+          },
+          "documentExt": {
+            "type": "string"
+          },
+          "version": {
+            "minimum": 0.0,
+            "type": "number"
+          },
+          "rootObjectId": {
+            "type": "string"
+          },
+          "cifNumber": {
+            "pattern": "([0-9]){14}|([0]){1}",
+            "type": "string"
+          },
+          "revisionNo": {
+            "type": "string"
+          },
+          "subCategory": {
+            "type": "string"
+          },
+          "accountNo": {
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_GetAddedModifiedDocumentsRequest": {
+        "title": "tns_GetAddedModifiedDocumentsRequest",
+        "type": "object",
+        "properties": {
+          "referenceNumber": {
+            "type": "string",
+            "description": "Represent the CIF Number associated\n\t\t\t\t\t\t\t\t\twith the document to be retrieved.\n\t\t\t\t\t\t\t\t\tIf the input value is unspecified,\n\t\t\t\t\t\t\t\t\tdocuments corresponding to all CIF\n\t\t\t\t\t\t\t\t\tnumbers present in the eFileList\n\t\t\t\t\t\t\t\t\ttable under CIF_NUMBER column will\n\t\t\t\t\t\t\t\t\tbe retrieved."
+          },
+          "objectSlipNumber": {
+            "type": "string",
+            "description": "Represent the Cheque Bounce Object\n\t\t\t\t\t\t\t\t\tSlip Number associated with the\n\t\t\t\t\t\t\t\t\tdocument to be retrieved. ."
+          },
+          "businessFunction": {
+            "maxLength": 3,
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_GetAddedModifiedDocumentsResponse": {
+        "title": "tns_GetAddedModifiedDocumentsResponse",
+        "type": "object",
+        "properties": {
+          "documents": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_getAddedModifiedDocumentsType"
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "../../commonschemas/fault.json#/FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_getAddedModifiedDocumentsType": {
+        "title": "tns_getAddedModifiedDocumentsType",
+        "required": [
+          "record"
+        ],
+        "type": "object",
+        "properties": {
+          "record": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_documentsRecordType"
+            },
+            "description": "Each node contains details associated with one added/modified document."
+          }
+        },
+        "description": ""
+      },
+      "tns_documentsRecordType": {
+        "title": "tns_documentsRecordType",
+        "type": "object",
+        "properties": {
+          "libraryId": {
+            "maxLength": 3,
+            "type": "string",
+            "description": "Represents the id of the DocSafe library\n\t\t\t\t\t\t\t\tused to get the query results."
+          },
+          "objectId": {
+            "type": "string",
+            "description": "Represents the Object id of the\n\t\t\t\t\t\t\t\tdocument."
+          },
+          "accessLevel": {
+            "type": "string",
+            "description": "Represents the access level of the\n\t\t\t\t\t\t\t\tdocument."
+          },
+          "pageCount": {
+            "type": "string",
+            "description": "Represents the number of pages in the\n\t\t\t\t\t\t\t\tdocument."
+          },
+          "folderId": {
+            "type": "string",
+            "description": "Represents the id of the folder where\n\t\t\t\t\t\t\t\tthe document is stored in DocSafe"
+          },
+          "folderPath": {
+            "type": "string",
+            "description": "Represents the folder path where the\n\t\t\t\t\t\t\t\tdocument is archived."
+          },
+          "mediaType": {
+            "type": "string",
+            "description": "Represents the media type of the\n\t\t\t\t\t\t\t\tdocument. It is 4 for EDOC and 2 for\n\t\t\t\t\t\t\t\tIMAGE."
+          },
+          "documentClassId": {
+            "type": "string",
+            "description": "Represents the id of the document class\n\t\t\t\t\t\t\t\tassociated with the document."
+          },
+          "documentClassName": {
+            "type": "string",
+            "description": "Represents the name of the document\n\t\t\t\t\t\t\t\tclass associated with the document."
+          },
+          "archiveDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01])) ([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])|()",
+            "type": "string",
+            "description": "Represents the date time when the\n\t\t\t\t\t\t\t\tdocument was last archived."
+          },
+          "reportDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01])) ([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])|()",
+            "type": "string",
+            "description": "Represents the report date and time."
+          },
+          "loginName": {
+            "type": "string",
+            "description": "Represent the login name of the docsafe\n\t\t\t\t\t\t\t\tuser who archived the document"
+          },
+          "documentName": {
+            "type": "string",
+            "description": "Represents the name of the document."
+          },
+          "documentExtension": {
+            "type": "string",
+            "description": "Represents the file extension of the\n\t\t\t\t\t\t\t\tdocument."
+          },
+          "version": {
+            "type": "string",
+            "description": "Represents the current version of the\n\t\t\t\t\t\t\t\tdocument in DocSafe."
+          },
+          "rootObjectId": {
+            "type": "string",
+            "description": "Represents the object Id of the first\n\t\t\t\t\t\t\t\tversion of the document."
+          },
+          "previousObjectId": {
+            "type": "string",
+            "description": "Represents the object id of the previous\n\t\t\t\t\t\t\t\tversion if it was a modified document.\n\t\t\t\t\t\t\t\tIf the previous object id is not\n\t\t\t\t\t\t\t\tavailable, then the node will not be\n\t\t\t\t\t\t\t\tavailable."
+          },
+          "cifNumber": {
+            "type": "string",
+            "description": "Represents the field value in the\n\t\t\t\t\t\t\t\tdocument corresponding to the CIF_NUMBER\n\t\t\t\t\t\t\t\tmaster key."
+          },
+          "revisionNumber": {
+            "type": "string",
+            "description": "Represents the field value in the\n\t\t\t\t\t\t\t\tdocument corresponding to the\n\t\t\t\t\t\t\t\tREVISION_NO master key."
+          },
+          "subCategory": {
+            "type": "string",
+            "description": "Represents the field value in the\n\t\t\t\t\t\t\t\tdocument corresponding to the\n\t\t\t\t\t\t\t\tSUB_CATEGORY master key."
+          },
+          "accountNumber": {
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})",
+            "type": "string",
+            "description": "Represents the field value in the\n\t\t\t\t\t\t\t\tdocument corresponding to the ACCOUNT_NO\n\t\t\t\t\t\t\t\tmaster key."
+          },
+          "objectSlipNumber": {
+            "type": "string"
+          },
+          "chequeAmount": {
+            "type": "string"
+          },
+          "chequeNumber": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_GetDocumentsForAccountNumberRequest": {
+        "title": "tns_GetDocumentsForAccountNumberRequest",
+        "required": [
+          "document"
+        ],
+        "type": "object",
+        "properties": {
+          "document": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_GetDocumentsForAccountNumber"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_GetDocumentsForAccountNumberResponse": {
+        "title": "tns_GetDocumentsForAccountNumberResponse",
+        "type": "object",
+        "properties": {
+          "document": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_kycGetDocumentsForAccountNumber"
+            },
+            "description": ""
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "../../commonschemas/fault.json#/FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_GetDocumentsByIDNumberRequest": {
+        "title": "tns_GetDocumentsByIDNumberRequest",
+        "required": [
+          "idNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "idNumber": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_GetDocumentsByIDNumberResponse": {
+        "title": "tns_GetDocumentsByIDNumberResponse",
+        "type": "object",
+        "properties": {
+          "documentList": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_GetDocumentsByIDNumberResponseType"
+              }
+            ]
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "../../commonschemas/fault.json#/FaultType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "tns_GetDocumentsByIDNumberResponseType": {
+        "title": "tns_GetDocumentsByIDNumberResponseType",
+        "type": "object",
+        "properties": {
+          "document": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_GetDocumentsByIDNumberResponseDocumentType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_GetDocumentsByIDNumberResponseDocumentType": {
+        "title": "tns_GetDocumentsByIDNumberResponseDocumentType",
+        "type": "object",
+        "properties": {
+          "libraryId": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "objectId": {
+            "type": "string"
+          },
+          "accessLevel": {
+            "type": "string"
+          },
+          "pageCount": {
+            "type": "string"
+          },
+          "folderId": {
+            "type": "string"
+          },
+          "folderPath": {
+            "type": "string"
+          },
+          "mediaType": {
+            "type": "string"
+          },
+          "documentClassId": {
+            "type": "string"
+          },
+          "documentClassName": {
+            "type": "string"
+          },
+          "archiveDate": {
+            "type": "string"
+          },
+          "reportDate": {
+            "type": "string"
+          },
+          "loginName": {
+            "type": "string"
+          },
+          "documentName": {
+            "type": "string"
+          },
+          "documentExt": {
+            "type": "string"
+          },
+          "version": {
+            "minimum": 0.0,
+            "type": "number"
+          },
+          "rootObjectId": {
+            "type": "string"
+          },
+          "previousObjectId": {
+            "type": "string"
+          },
+          "accountNo": {
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "fault_FaultType": {
+        "title": "fault_FaultType",
+        "required": [
+          "number",
+          "description"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "number": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "description": {
+            "type": "string"
+          },
+          "retryAfter": {
+            "type": "string"
+          },
+          "system": {
+            "type": "string"
+          },
+          "nativeError": {
+            "type": "string"
+          },
+          "nativeDescription": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_PostalAddress": {
+        "title": "Q1_PostalAddress",
+        "type": "object",
+        "properties": {
+          "addressLine1": {
+            "maxLength": 70,
+            "minLength": 0,
+            "type": "string"
+          },
+          "addressLine2": {
+            "maxLength": 70,
+            "minLength": 0,
+            "type": "string"
+          },
+          "addressLine3": {
+            "maxLength": 70,
+            "minLength": 0,
+            "type": "string"
+          },
+          "city": {
+            "maxLength": 35,
+            "minLength": 0,
+            "type": "string"
+          },
+          "region": {
+            "maxLength": 35,
+            "minLength": 0,
+            "type": "string"
+          },
+          "postalCode": {
+            "maxLength": 16,
+            "minLength": 0,
+            "type": "string"
+          },
+          "country": {
+            "pattern": "([A-Z]{2,2})|()",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_Money": {
+        "title": "Q1_Money",
+        "required": [
+          "isoCurrencyCode"
+        ],
+        "type": "object",
+        "properties": {
+          "isoCurrencyCode": {
+            "pattern": "[A-Z]{3,3}",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_MoneyOptional": {
+        "title": "Q1_MoneyOptional",
+        "required": [
+          "isoCurrencyCode"
+        ],
+        "type": "object",
+        "properties": {
+          "isoCurrencyCode": {
+            "pattern": "([A-Z]{3,3})|()",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_Cursor": {
+        "title": "Q1_Cursor",
+        "required": [
+          "position",
+          "noOfRows"
+        ],
+        "type": "object",
+        "properties": {
+          "position": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "noOfRows": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "description": ""
+      },
+      "Q1_Biller": {
+        "title": "Q1_Biller",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "Q1_DocumentType": {
+        "title": "Q1_DocumentType",
+        "required": [
+          "documentId",
+          "documentSubId",
+          "totalPages",
+          "documentType",
+          "archivedDate",
+          "page"
+        ],
+        "type": "object",
+        "properties": {
+          "documentId": {
+            "type": "string"
+          },
+          "documentSubId": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "documentType": {
+            "type": "string"
+          },
+          "archivedDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          },
+          "page": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Q1_PageType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "Q1_PageType": {
+        "title": "Q1_PageType",
+        "required": [
+          "pageNo",
+          "pageExt",
+          "pageContent"
+        ],
+        "type": "object",
+        "properties": {
+          "pageNo": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageExt": {
+            "type": "string"
+          },
+          "pageContent": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_BillCycle": {
+        "title": "Q1_BillCycle",
+        "enum": [
+          "New",
+          "XXX",
+          "YYY"
+        ],
+        "type": "string",
+        "description": "Valid Values : New, XXX, YYY"
+      },
+      "Q1_Flag": {
+        "title": "Q1_Flag",
+        "enum": [
+          "Y",
+          "N"
+        ],
+        "type": "string",
+        "description": "Valid Values : Y or N"
+      },
+      "Q1_OfferToTag": {
+        "title": "Q1_OfferToTag",
+        "enum": [
+          "Yes",
+          "No"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "Q1_CustomerId": {
+        "title": "Q1_CustomerId",
+        "required": [
+          "id",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_CustomerId2": {
+        "title": "Q1_CustomerId2",
+        "required": [
+          "id",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_Parameter": {
+        "title": "Q1_Parameter",
+        "required": [
+          "name",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_TransactionType": {
+        "title": "Q1_TransactionType",
+        "enum": [
+          "BIANNUALCYCLE",
+          "TODAY",
+          "CYCLETODATE",
+          "CTD"
+        ],
+        "type": "string",
+        "description": "Valid values are BIANNUALCYCLE, TODAY,\n\t\t\t\tCYCLETODATE, CTD etc"
+      },
+      "Q1_BeneficiaryId": {
+        "title": "Q1_BeneficiaryId",
+        "required": [
+          "id",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_DeviceDetails": {
+        "title": "Q1_DeviceDetails",
+        "required": [
+          "machineNonce",
+          "sequenceNonce",
+          "machineLabel",
+          "machineProperties",
+          "createDate",
+          "lastUsedDate",
+          "expiryDate"
+        ],
+        "type": "object",
+        "properties": {
+          "machineNonce": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "sequenceNonce": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "machineLabel": {
+            "type": "string"
+          },
+          "machineProperties": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_MachineProperties"
+              }
+            ]
+          },
+          "createDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          },
+          "lastUsedDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          },
+          "expiryDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_AuthenticationDeviceDetails": {
+        "title": "Q1_AuthenticationDeviceDetails",
+        "required": [
+          "machineNonce",
+          "sequenceNonce",
+          "machineLabel",
+          "machineProperties"
+        ],
+        "type": "object",
+        "properties": {
+          "machineNonce": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "sequenceNonce": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "machineLabel": {
+            "type": "string"
+          },
+          "machineProperties": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_MachineProperties"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "Q1_MachineProperties": {
+        "title": "Q1_MachineProperties",
+        "required": [
+          "applicationData"
+        ],
+        "type": "object",
+        "properties": {
+          "applicationData": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Q1_ApplicationData"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "Q1_ApplicationData": {
+        "title": "Q1_ApplicationData",
+        "required": [
+          "name",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "value": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_AuthenticationInfo": {
+        "title": "Q1_AuthenticationInfo",
+        "required": [
+          "methods"
+        ],
+        "type": "object",
+        "properties": {
+          "methods": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Methods"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "Q1_Methods": {
+        "title": "Q1_Methods",
+        "required": [
+          "hardToken",
+          "softToken",
+          "siteImage",
+          "trustedPC",
+          "callerId",
+          "oneTimePass"
+        ],
+        "type": "object",
+        "properties": {
+          "hardToken": {
+            "type": "boolean"
+          },
+          "softToken": {
+            "type": "boolean"
+          },
+          "siteImage": {
+            "type": "boolean"
+          },
+          "trustedPC": {
+            "type": "boolean"
+          },
+          "callerId": {
+            "type": "boolean"
+          },
+          "oneTimePass": {
+            "type": "boolean"
+          }
+        },
+        "description": ""
+      },
+      "Q1_TokenDetails": {
+        "title": "Q1_TokenDetails",
+        "required": [
+          "userId",
+          "userName",
+          "userGroup",
+          "vendorId",
+          "serialNumber",
+          "tokenType",
+          "signatureSupported",
+          "loadDate",
+          "lastUsedDate"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "userName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "userGroup": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "vendorId": {
+            "type": "string"
+          },
+          "serialNumber": {
+            "type": "string"
+          },
+          "tokenType": {
+            "type": "string"
+          },
+          "signatureSupported": {
+            "type": "boolean"
+          },
+          "loadDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          },
+          "lastUsedDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_AccountDetails": {
+        "title": "Q1_AccountDetails",
+        "required": [
+          "accountId",
+          "balance",
+          "overdraft",
+          "balanceSAR",
+          "availableSAR",
+          "averageLastSixMonths",
+          "isoCurrencyCode",
+          "division",
+          "statusCode",
+          "accountType",
+          "glClassificationCode"
+        ],
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "maxLength": 24,
+            "minLength": 14,
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})",
+            "type": "string"
+          },
+          "balance": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Money"
+              }
+            ]
+          },
+          "overdraft": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Money"
+              }
+            ]
+          },
+          "balanceSAR": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Money"
+              }
+            ]
+          },
+          "availableSAR": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Money"
+              }
+            ]
+          },
+          "averageLastSixMonths": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Money"
+              }
+            ]
+          },
+          "isoCurrencyCode": {
+            "pattern": "[A-Z]{3,3}",
+            "type": "string"
+          },
+          "division": {
+            "type": "string"
+          },
+          "statusCode": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "accountType": {
+            "maxLength": 4,
+            "type": "string"
+          },
+          "glClassificationCode": {
+            "maxLength": 40,
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_Gender": {
+        "title": "Q1_Gender",
+        "enum": [
+          "M",
+          "F"
+        ],
+        "type": "string",
+        "description": "Valid values are : M , F etc"
+      },
+      "Q1_trueOrFalseType": {
+        "title": "Q1_trueOrFalseType",
+        "enum": [
+          "true",
+          "false",
+          "True",
+          "False"
+        ],
+        "type": "string",
+        "description": "Valid values are : true, false, True, False"
+      },
+      "Q1_trueOrFalseTypeOptional": {
+        "title": "Q1_trueOrFalseTypeOptional",
+        "enum": [
+          "true",
+          "false",
+          "True",
+          "False"
+        ],
+        "type": "string",
+        "description": "Optional.\n\t\t\t\tValid values are : true, false, True,\n\t\t\t\tFalse etc"
+      },
+      "Q1_YorNType": {
+        "title": "Q1_YorNType",
+        "enum": [
+          "Y",
+          "N"
+        ],
+        "type": "string",
+        "description": "Valid values are : Y, N"
+      },
+      "Q1_YorNTypeOptional": {
+        "title": "Q1_YorNTypeOptional",
+        "enum": [
+          "Y",
+          "N"
+        ],
+        "type": "string",
+        "description": "Optional.\n\t\t\t\tValid values are : Y, N"
+      },
+      "Q1_contactlessIndicatorTypeOptional": {
+        "title": "Q1_contactlessIndicatorTypeOptional",
+        "enum": [
+          "Y",
+          "N",
+          "V"
+        ],
+        "type": "string",
+        "description": "Optional.\n\t\t\t\tValid values are : Y, N, V"
+      },
+      "Q1_CustomerChannelType": {
+        "title": "Q1_CustomerChannelType",
+        "enum": [
+          "BOTH",
+          "MOBILE",
+          "AOL"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "Q1_ErrorCategoryType": {
+        "title": "Q1_ErrorCategoryType",
+        "enum": [
+          "BUSINESS",
+          "SYSTEM"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "Q1_CommonServiceFaultType": {
+        "title": "Q1_CommonServiceFaultType",
+        "required": [
+          "category",
+          "code",
+          "message",
+          "detail"
+        ],
+        "type": "object",
+        "properties": {
+          "category": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ErrorCategoryType"
+              }
+            ]
+          },
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_ServicesStatusType": {
+        "title": "Q1_ServicesStatusType",
+        "enum": [
+          "ACTIVE",
+          "DISABLE_USER",
+          "DISABLE_ADMIN",
+          "DELETED"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "Q1_ServiceLevelType": {
+        "title": "Q1_ServiceLevelType",
+        "enum": [
+          "INQUIRY",
+          "FULL"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "Q1_CustomerStatusType": {
+        "title": "Q1_CustomerStatusType",
+        "required": [
+          "userId",
+          "aol",
+          "mobile",
+          "emergencyCash"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "aol": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_AolStatusType"
+              }
+            ]
+          },
+          "mobile": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_MobileStatusType"
+              }
+            ]
+          },
+          "emergencyCash": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_EmergencyCashStatus"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "Q1_AolStatusType": {
+        "title": "Q1_AolStatusType",
+        "required": [
+          "createdBy",
+          "createdDate",
+          "lastLoginDate",
+          "serviceLevel",
+          "serviceStatus",
+          "passwordRevoked"
+        ],
+        "type": "object",
+        "properties": {
+          "createdBy": {
+            "type": "string"
+          },
+          "createdDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string"
+          },
+          "lastLoginDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string"
+          },
+          "serviceLevel": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ServiceLevelType"
+              }
+            ]
+          },
+          "serviceStatus": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ServicesStatusType"
+              }
+            ]
+          },
+          "passwordRevoked": {
+            "type": "boolean"
+          }
+        },
+        "description": ""
+      },
+      "Q1_MobileStatusType": {
+        "title": "Q1_MobileStatusType",
+        "required": [
+          "registeredBy",
+          "registeredDate",
+          "lastLoginDate",
+          "serviceLevel",
+          "serviceStatus"
+        ],
+        "type": "object",
+        "properties": {
+          "registeredBy": {
+            "type": "string"
+          },
+          "registeredDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string"
+          },
+          "lastLoginDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string"
+          },
+          "serviceLevel": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ServiceLevelType"
+              }
+            ]
+          },
+          "serviceStatus": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ServicesStatusType"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "Q1_EmergencyCashStatus": {
+        "title": "Q1_EmergencyCashStatus",
+        "required": [
+          "registrationDate",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "registrationDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_TransactionInfo": {
+        "title": "Q1_TransactionInfo",
+        "required": [
+          "transactionType"
+        ],
+        "type": "object",
+        "properties": {
+          "transactionId": {
+            "type": "string"
+          },
+          "relatedTransactionId": {
+            "type": "string"
+          },
+          "transactionType": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_ClientInfo": {
+        "title": "Q1_ClientInfo",
+        "required": [
+          "clientId"
+        ],
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_SecurityInfo": {
+        "title": "Q1_SecurityInfo",
+        "required": [
+          "username",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_CreationInfo": {
+        "title": "Q1_CreationInfo",
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string"
+          },
+          "branch": {
+            "maxLength": 5,
+            "type": "string"
+          },
+          "institution": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "teller": {
+            "maxLength": 8,
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_RequestHeader": {
+        "title": "Q1_RequestHeader",
+        "type": "object",
+        "properties": {
+          "transactionInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_TransactionInfo"
+              }
+            ]
+          },
+          "clientInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ClientInfo"
+              }
+            ]
+          },
+          "securityInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_SecurityInfo"
+              }
+            ]
+          },
+          "creationInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_CreationInfo"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "Q1_ErrorInfo": {
+        "title": "Q1_ErrorInfo",
+        "required": [
+          "level"
+        ],
+        "type": "object",
+        "properties": {
+          "level": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_level"
+              }
+            ]
+          },
+          "code": {
+            "type": "string"
+          },
+          "context": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_ReplyHeader": {
+        "title": "Q1_ReplyHeader",
+        "type": "object",
+        "properties": {
+          "transactionInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_TransactionInfo"
+              }
+            ]
+          },
+          "clientInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ClientInfo"
+              }
+            ]
+          },
+          "errorInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ErrorInfo"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "wsse_Security": {
+        "title": "wsse_Security",
+        "required": [
+          "UsernameToken"
+        ],
+        "type": "object",
+        "properties": {
+          "UsernameToken": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/wsse_UsernameToken"
+              }
+            ]
+          }
+        },
+        "description": ""
+      },
+      "header_ServiceHeader": {
+        "title": "header_ServiceHeader",
+        "required": [
+          "loggerContext",
+          "transactionCode",
+          "retryTransaction",
+          "tellerId",
+          "terminalId",
+          "workstationId",
+          "override",
+          "correction",
+          "supervisor",
+          "supervisorId",
+          "overrideCode",
+          "employeeId",
+          "branchId",
+          "functionId",
+          "channelId",
+          "bancsPwd",
+          "languageCode"
+        ],
+        "type": "object",
+        "properties": {
+          "loggerContext": {
+            "type": "string"
+          },
+          "transactionCode": {
+            "type": "string"
+          },
+          "retryTransaction": {
+            "type": "boolean"
+          },
+          "tellerId": {
+            "type": "string"
+          },
+          "terminalId": {
+            "type": "string"
+          },
+          "workstationId": {
+            "type": "string"
+          },
+          "override": {
+            "type": "boolean"
+          },
+          "correction": {
+            "type": "string"
+          },
+          "supervisor": {
+            "type": "string"
+          },
+          "supervisorId": {
+            "type": "string"
+          },
+          "overrideCode": {
+            "type": "string"
+          },
+          "employeeId": {
+            "type": "string"
+          },
+          "branchId": {
+            "type": "string"
+          },
+          "functionId": {
+            "type": "string"
+          },
+          "channelId": {
+            "type": "string"
+          },
+          "bancsPwd": {
+            "type": "string"
+          },
+          "languageCode": {
+            "type": "string"
+          },
+          "authenticationType": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/header_authenticationType"
+              },
+              {
+                "description": "Can be: NONE, OTP, TOKEN"
+              }
+            ]
+          },
+          "IvrTransactionID": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "ArchiveDocumentRequest": {
+        "title": "ArchiveDocumentRequest",
+        "required": [
+          "ArchiveDocumentRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "ArchiveDocumentRequest": {
+            "$ref": "#/components/schemas/tns_ArchiveDocumentRequest"
+          }
+        }
+      },
+      "ArchiveDocumentResponse": {
+        "title": "ArchiveDocumentResponse",
+        "required": [
+          "ArchiveDocumentResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "ArchiveDocumentResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_ArchiveDocumentResponse"
+              }
+            ]
+          }
+        }
+      },
+      "CreateFileNetObjectRequest": {
+        "title": "CreateFileNetObjectRequest",
+        "required": [
+          "CreateFileNetObjectRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "CreateFileNetObjectRequest": {
+            "$ref": "#/components/schemas/CreateFileNetObjectRequestType"
+          }
+        }
+      },
+      "CreateFileNetObjectResponse": {
+        "title": "CreateFileNetObjectResponse",
+        "required": [
+          "CreateFileNetObjectResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "CreateFileNetObjectResponse": {
+            "$ref": "#/components/schemas/CreateFileNetObjectResponseType"
+          }
+        }
+      },
+      "DeleteDocumentRequest": {
+        "title": "DeleteDocumentRequest",
+        "required": [
+          "DeleteDocumentRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "DeleteDocumentRequest": {
+            "$ref": "#/components/schemas/tns_DeleteDocumentRequest"
+          }
+        }
+      },
+      "DeleteDocumentResponse": {
+        "title": "DeleteDocumentResponse",
+        "required": [
+          "DeleteDocumentResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "DeleteDocumentResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_DeleteDocumentResponse"
+              }
+            ]
+          }
+        }
+      },
+      "DeleteFileNetObjectRequest": {
+        "title": "DeleteFileNetObjectRequest",
+        "required": [
+          "DeleteFileNetObjectRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "DeleteFileNetObjectRequest": {
+            "$ref": "#/components/schemas/DeleteFileNetObjectRequestType"
+          }
+        }
+      },
+      "DeleteFileNetObjectResponse": {
+        "title": "DeleteFileNetObjectResponse",
+        "required": [
+          "DeleteFileNetObjectResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "DeleteFileNetObjectResponse": {
+            "$ref": "#/components/schemas/DeleteFileNetObjectResponseType"
+          }
+        }
+      },
+      "DocumentsMaintenanceRequest": {
+        "title": "DocumentsMaintenanceRequest",
+        "required": [
+          "DocumentsMaintenanceRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "DocumentsMaintenanceRequest": {
+            "$ref": "#/components/schemas/tns_DocumentsMaintenanceRequest"
+          }
+        }
+      },
+      "DocumentsMaintenanceResponse": {
+        "title": "DocumentsMaintenanceResponse",
+        "required": [
+          "DocumentsMaintenanceResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "DocumentsMaintenanceResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_DocumentsMaintenanceResponse"
+              }
+            ]
+          }
+        }
+      },
+      "GetAddedModifiedDocumentsRequest": {
+        "title": "GetAddedModifiedDocumentsRequest",
+        "required": [
+          "GetAddedModifiedDocumentsRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "GetAddedModifiedDocumentsRequest": {
+            "$ref": "#/components/schemas/tns_GetAddedModifiedDocumentsRequest"
+          }
+        }
+      },
+      "GetAddedModifiedDocumentsResponse": {
+        "title": "GetAddedModifiedDocumentsResponse",
+        "required": [
+          "GetAddedModifiedDocumentsResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "GetAddedModifiedDocumentsResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_GetAddedModifiedDocumentsResponse"
+              }
+            ]
+          }
+        }
+      },
+      "GetDocumentRequest": {
+        "title": "GetDocumentRequest",
+        "required": [
+          "GetDocumentRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "GetDocumentRequest": {
+            "$ref": "#/components/schemas/tns_GetDocumentRequest"
+          }
+        }
+      },
+      "GetDocumentResponse": {
+        "title": "GetDocumentResponse",
+        "required": [
+          "GetDocumentResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "GetDocumentResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_GetDocumentResponse"
+              }
+            ]
+          }
+        }
+      },
+      "GetDocumentsByIDNumberRequest": {
+        "title": "GetDocumentsByIDNumberRequest",
+        "required": [
+          "GetDocumentsByIDNumberRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "GetDocumentsByIDNumberRequest": {
+            "$ref": "#/components/schemas/tns_GetDocumentsByIDNumberRequest"
+          }
+        }
+      },
+      "GetDocumentsByIDNumberResponse": {
+        "title": "GetDocumentsByIDNumberResponse",
+        "required": [
+          "GetDocumentsByIDNumberResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "GetDocumentsByIDNumberResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_GetDocumentsByIDNumberResponse"
+              }
+            ]
+          }
+        }
+      },
+      "GetDocumentsForAccountNumberRequest": {
+        "title": "GetDocumentsForAccountNumberRequest",
+        "required": [
+          "GetDocumentsForAccountNumberRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "GetDocumentsForAccountNumberRequest": {
+            "$ref": "#/components/schemas/tns_GetDocumentsForAccountNumberRequest"
+          }
+        }
+      },
+      "GetDocumentsForAccountNumberResponse": {
+        "title": "GetDocumentsForAccountNumberResponse",
+        "required": [
+          "GetDocumentsForAccountNumberResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "GetDocumentsForAccountNumberResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_GetDocumentsForAccountNumberResponse"
+              }
+            ]
+          }
+        }
+      },
+      "header_authenticationType": {
+        "title": "header_authenticationType",
+        "enum": [
+          "NONE",
+          "OTP",
+          "TOKEN"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "ModifyDocumentRequest": {
+        "title": "ModifyDocumentRequest",
+        "required": [
+          "ModifyDocumentRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "ModifyDocumentRequest": {
+            "$ref": "#/components/schemas/tns_ModifyDocumentRequest"
+          }
+        }
+      },
+      "ModifyDocumentResponse": {
+        "title": "ModifyDocumentResponse",
+        "required": [
+          "ModifyDocumentResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "ModifyDocumentResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_ModifyDocumentResponse"
+              }
+            ]
+          }
+        }
+      },
+      "Q1_level": {
+        "title": "Q1_level",
+        "enum": [
+          "SUCCESS",
+          "WARNING",
+          "FAILURE"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "RetrieveFileNetObjectRequest": {
+        "title": "RetrieveFileNetObjectRequest",
+        "required": [
+          "RetrieveFileNetObjectRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "RetrieveFileNetObjectRequest": {
+            "$ref": "#/components/schemas/RetrieveFileNetObjectRequestType"
+          }
+        }
+      },
+      "RetrieveFileNetObjectResponse": {
+        "title": "RetrieveFileNetObjectResponse",
+        "required": [
+          "RetrieveFileNetObjectResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "RetrieveFileNetObjectResponse": {
+            "$ref": "#/components/schemas/RetrieveFileNetObjectResponseType"
+          }
+        }
+      },
+      "SearchFileNetObjectRequest": {
+        "title": "SearchFileNetObjectRequest",
+        "required": [
+          "SearchFileNetObjectRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "SearchFileNetObjectRequest": {
+            "$ref": "#/components/schemas/SearchFileNetObjectRequestType"
+          }
+        }
+      },
+      "SearchFileNetObjectResponse": {
+        "title": "SearchFileNetObjectResponse",
+        "required": [
+          "SearchFileNetObjectResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "SearchFileNetObjectResponse": {
+            "$ref": "#/components/schemas/SearchFileNetObjectResponseType"
+          }
+        }
+      },
+      "tns_operationType": {
+        "title": "tns_operationType",
+        "enum": [
+          "INQUIRE",
+          "CREATE",
+          "DELETE",
+          "UPDATE"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "tns_success": {
+        "title": "tns_success",
+        "type": "object",
+        "properties": {
+          "document": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_DocumentsMaintenanceType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "UpdateFileNetObjectRequest": {
+        "title": "UpdateFileNetObjectRequest",
+        "required": [
+          "UpdateFileNetObjectRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "UpdateFileNetObjectRequest": {
+            "$ref": "#/components/schemas/UpdateFileNetObjectRequestType"
+          }
+        }
+      },
+      "UpdateFileNetObjectResponse": {
+        "title": "UpdateFileNetObjectResponse",
+        "required": [
+          "UpdateFileNetObjectResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "UpdateFileNetObjectResponse": {
+            "$ref": "#/components/schemas/UpdateFileNetObjectResponseType"
+          }
+        }
+      },
+      "wsse_UsernameToken": {
+        "title": "wsse_UsernameToken",
+        "required": [
+          "Username",
+          "Password"
+        ],
+        "type": "object",
+        "properties": {
+          "Username": {
+            "type": "string"
+          },
+          "Password": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_AmountOptional": {
+        "oneOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      },
+      "Q1_AmountOptional": {
+        "$ref": "#/components/schemas/tns_AmountOptional"
+      }
+    },
+    "securitySchemes": {
+      "mwsecurity": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "mwsecurity": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "DocumentManagement APIs",
+      "description": ""
+    }
+  ]
+}

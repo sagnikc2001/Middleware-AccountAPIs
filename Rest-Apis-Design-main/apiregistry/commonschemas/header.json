@@ -1,0 +1,92 @@
+{
+    "ServiceHeader": {
+        "title": "ServiceHeader",
+        "required": [
+            "loggerContext",
+            "transactionCode",
+            "retryTransaction",
+            "tellerId",
+            "terminalId",
+            "workstationId",
+            "override",
+            "correction",
+            "supervisor",
+            "supervisorId",
+            "overrideCode",
+            "employeeId",
+            "branchId",
+            "functionId",
+            "channelId",
+            "bancsPwd",
+            "languageCode"
+        ],
+        "type": "object",
+        "properties": {
+            "loggerContext": {
+                "type": "string"
+            },
+            "transactionCode": {
+                "type": "string"
+            },
+            "retryTransaction": {
+                "type": "boolean"
+            },
+            "tellerId": {
+                "type": "string"
+            },
+            "terminalId": {
+                "type": "string"
+            },
+            "workstationId": {
+                "type": "string"
+            },
+            "override": {
+                "type": "boolean"
+            },
+            "correction": {
+                "type": "string"
+            },
+            "supervisor": {
+                "type": "string"
+            },
+            "supervisorId": {
+                "type": "string"
+            },
+            "overrideCode": {
+                "type": "string"
+            },
+            "employeeId": {
+                "type": "string"
+            },
+            "branchId": {
+                "type": "string"
+            },
+            "functionId": {
+                "type": "string"
+            },
+            "channelId": {
+                "type": "string"
+            },
+            "bancsPwd": {
+                "type": "string"
+            },
+            "languageCode": {
+                "type": "string"
+            },
+            "authenticationType": {
+                "title": "header_authenticationType",
+                "enum": [
+                    "NONE",
+                    "OTP",
+                    "TOKEN"
+                ],
+                "type": "string",
+                "description": "Can be: NONE, OTP, TOKEN"
+            },
+            "IvrTransactionID": {
+                "type": "string"
+            }
+        },
+        "description": ""
+    }
+}

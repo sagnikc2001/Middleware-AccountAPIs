@@ -1,0 +1,636 @@
+{
+	"openapi": "3.0.3",
+	"info": {
+		"title": "Application Database APIs",
+		"version": "1.0",
+		"description": "Retrieves data from Application database"
+	},
+	"servers": [
+		{
+			"url": "https://mw-api-3scale-apicast-staging.apps.com:443/api/connector/appdb"
+		}
+	],
+	"paths": {
+		"/v1/GetCounter": {
+			"post": {
+				"tags": [
+					"Application DB API"
+				],
+				"description": "",
+				"operationId": "GetCounter",
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "JWT bearer token",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "ServiceHeader",
+						"in": "header",
+						"description": "having channel details , locale",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"$ref": "../../../commonschemas/header.json#/ServiceHeader"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "",
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/GetCounterRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successfully retrieved the response",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetCounterResponse"
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"400": {
+						"description": "400 Bad Request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetCounterResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "401 Unauthorized Request"
+					},
+					"404": {
+						"description": "404 API Not Found"
+					},
+					"405": {
+						"description": "405 Method Not Allowed"
+					},
+					"429": {
+						"description": "429 Too Many Requests"
+					},
+					"500": {
+						"description": "500 Internal Server Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetCounterResponse"
+								}
+							}
+						}
+					},
+					"503": {
+						"description": "503 Service Unavailable"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/v1/GetCountries": {
+			"post": {
+				"tags": [
+					"Application DB API"
+				],
+				"description": "This API Retrieves all the countries",
+				"operationId": "GetCountries",
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "JWT bearer token",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "ServiceHeader",
+						"in": "header",
+						"description": "having channel details , locale",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"$ref": "../../../commonschemas/header.json#/ServiceHeader"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Successfully retrieved the response",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetCountriesResponse"
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"400": {
+						"description": "400 Bad Request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetCountriesResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "401 Unauthorized Request"
+					},
+					"404": {
+						"description": "404 API Not Found"
+					},
+					"405": {
+						"description": "405 Method Not Allowed"
+					},
+					"429": {
+						"description": "429 Too Many Requests"
+					},
+					"500": {
+						"description": "500 Internal Server Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetCountriesResponse"
+								}
+							}
+						}
+					},
+					"503": {
+						"description": "503 Service Unavailable"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/v1/GetRulesBySearchFilter": {
+			"post": {
+				"tags": [
+					"Application DB API"
+				],
+				"description": "This API Retrieves Rules based on SearchFilter",
+				"operationId": "GetRulesBySearchFilter",
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "JWT bearer token",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "ServiceHeader",
+						"in": "header",
+						"description": "having channel details , locale",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"$ref": "../../../commonschemas/header.json#/ServiceHeader"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "GetRules Service request",
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/GetRulesRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successfully retrieved the response",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetRulesResponse"
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"400": {
+						"description": "400 Bad Request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetRulesResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "401 Unauthorized Request"
+					},
+					"404": {
+						"description": "404 API Not Found"
+					},
+					"405": {
+						"description": "405 Method Not Allowed"
+					},
+					"429": {
+						"description": "429 Too Many Requests"
+					},
+					"500": {
+						"description": "500 Internal Server Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetRulesResponse"
+								}
+							}
+						}
+					},
+					"503": {
+						"description": "503 Service Unavailable"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/v1/GetExtraTransactionDetails": {
+			"post": {
+				"tags": [
+					"Application DB API"
+				],
+				"description": "Retrieves transaction description from Table T_TRANSACTION_DETAIL",
+				"operationId": "GetExtraTransactionDetails",
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "JWT bearer token",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "ServiceHeader",
+						"in": "header",
+						"description": "having channel details , locale",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"$ref": "../../../commonschemas/header.json#/ServiceHeader"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "GetRules Service request",
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/GetExtraTransactionDetailsRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successfully retrieved the response",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetExtraTransactionDetailsResponse"
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"400": {
+						"description": "400 Bad Request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetExtraTransactionDetailsResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "401 Unauthorized Request"
+					},
+					"404": {
+						"description": "404 API Not Found"
+					},
+					"405": {
+						"description": "405 Method Not Allowed"
+					},
+					"429": {
+						"description": "429 Too Many Requests"
+					},
+					"500": {
+						"description": "500 Internal Server Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetExtraTransactionDetailsResponse"
+								}
+							}
+						}
+					},
+					"503": {
+						"description": "503 Service Unavailable"
+					}
+				},
+				"deprecated": false
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"GetCounterRequest": {
+				"type": "object",
+				"properties": {
+					"GetCounterRequest": {
+						"$ref": "#/components/schemas/GetCounterRequestType"
+					}
+				}
+			},
+			"GetCounterResponse": {
+				"type": "object",
+				"properties": {
+					"GetCounterResponse": {
+						"$ref": "#/components/schemas/GetCounterType"
+					}
+				}
+			},
+			"GetCounterRequestType": {
+				"type": "object",
+				"properties": {
+					"PSUBTYPE": {
+						"type": "string"
+					},
+					"PRESET": {
+						"type": "string"
+					},
+					"PTYPE": {
+						"type": "string"
+					},
+					"PCOUNTER": {
+						"type": "string"
+					}
+				}
+			},
+			"GetCounterType": {
+				"type": "object",
+				"properties": {
+					"PCOUNTER": {
+						"type": "string"
+					}
+				}
+			},
+			"GetCountriesResponse": {
+				"type": "object",
+				"properties": {
+					"CountryResponse": {
+						"type": "object",
+						"properties": {
+							"Country": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/GetCountriesType"
+								}
+							}
+						}
+					}
+				}
+			},
+			"GetCountriesType": {
+				"type": "object",
+				"properties": {
+					"COUNTRY_ID": {
+						"type": "string"
+					},
+					"DESCRIPTION_EN": {
+						"type": "string"
+					},
+					"DESCRIPTION_AR": {
+						"type": "string"
+					},
+					"SHORT_CODE": {
+						"type": "string"
+					},
+					"LONG_CODE": {
+						"type": "string"
+					},
+					"CITIZENSHIP_EN": {
+						"type": "string"
+					},
+					"CITIZENSHIP_AR": {
+						"type": "string"
+					},
+					"ISO_CODE": {
+						"type": "string"
+					},
+					"CURRENCY_CODE": {
+						"type": "string"
+					}
+				}
+			},
+			"GetRulesRequest": {
+				"type": "object",
+				"properties": {
+					"RulesRequest": {
+						"$ref": "#/components/schemas/RulesRequestType"
+					}
+				}
+			},
+			"GetRulesResponse": {
+				"type": "object",
+				"properties": {
+					"RulesResponse": {
+						"$ref": "#/components/schemas/RulesResponseType"
+					}
+				}
+			},
+			"RulesRequestType": {
+				"type": "object",
+				"properties": {
+					"RULE_TYPE": {
+						"type": "string"
+					},
+					"DOCUMENT_EN": {
+						"type": "string"
+					},
+					"DOCUMENT_AR": {
+						"type": "string"
+					},
+					"DATE_CREATED_FROM": {
+						"type": "string"
+					},
+					"DATE_CREATED_TO": {
+						"type": "string"
+					},
+					"CREATED_BY": {
+						"type": "string"
+					},
+					"MODIFIED_BY": {
+						"type": "string"
+					},
+					"DATE_MODIFIED_FROM": {
+						"type": "string"
+					},
+					"DATE_MODIFIED_TO": {
+						"type": "string"
+					},
+					"RULE_ID": {
+						"type": "string"
+					},
+					"RULE_VALUE": {
+						"type": "string"
+					},
+					"IS_DOCUMENT_NEEDED": {
+						"type": "string"
+					},
+					"ALLOW_APPLICATION_NO": {
+						"type": "string"
+					}
+				}
+			},
+			"RulesResponseType": {
+				"properties": {
+					"RULE_ID": {
+						"type": "string"
+					},
+					"RULE_TYPE": {
+						"type": "string"
+					},
+					"RULE_VALUE": {
+						"type": "string"
+					},
+					"IS_DOCUMENT_NEEDED": {
+						"type": "string"
+					},
+					"ALLOW_APPLICATION_NO": {
+						"type": "string"
+					},
+					"DOCUMENT_EN": {
+						"type": "string"
+					},
+					"DOCUMENT_AR": {
+						"type": "string"
+					},
+					"DATE_CREATED": {
+						"type": "string"
+					},
+					"DATE_MODIFIED": {
+						"type": "string"
+					},
+					"CREATED_BY": {
+						"type": "string"
+					},
+					"MODIFIED_BY": {
+						"type": "string"
+					},
+					"LAST_CHANGED": {
+						"type": "string"
+					}
+				}
+			},
+			"GetExtraTransactionDetailsRequest": {
+				"type": "object",
+				"properties": {
+					"ExtraTransactionDetailsRequest": {
+						"$ref": "#/components/schemas/GetExtraTransactionDetailsRequestType"
+					}
+				}
+			},
+			"GetExtraTransactionDetailsRequestType": {
+				"type": "object",
+				"properties": {
+					"ACCOUNT_NUMBER": {
+						"type": "string"
+					},
+					"TRANSACTION_DATE": {
+						"type": "string"
+					},
+					"JOURNAL": {
+						"type": "integer"
+					}
+				}
+			},
+			"GetExtraTransactionDetailsResponse": {
+				"type": "object",
+				"properties": {
+					"ExtraTransactionDetailsResponse": {
+						"$ref": "#/components/schemas/ExtraTransactionDetailsResponseType"
+					}
+				}
+			},
+			"ExtraTransactionDetailsResponseType": {
+				"type": "object",
+				"properties": {
+					"T_TRANSACTION_DETAIL": {
+						"$ref": "#/components/schemas/T_TRANSACTION_DETAIL_Type"
+					}
+				}
+			},
+			"T_TRANSACTION_DETAIL_Type": {
+				"type": "object",
+				"properties": {
+					"TRAN_SEQUENCE": {
+						"type": "number"
+					},
+					"TRAN_ACCOUNT": {
+						"type": "string"
+					},
+					"TRAN_DATE": {
+						"type": "string"
+					},
+					"TRAN_JOURNAL": {
+						"type": "number"
+					},
+					"TRAN_CATEGORY": {
+						"type": "number"
+					},
+					"TRAN_DETAIL": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	},
+	"tags": [
+		{
+			"name": "Application DB API",
+			"description": ""
+		}
+	]
+}

@@ -1,0 +1,5547 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "MW MFA APIs",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://mw-api-3scale-apicast-staging.apps.com:443/api/mfa"
+    }
+  ],
+  "paths": {
+    "/v1/CustomerInquiry": {
+      "post": {
+        "tags": [
+          "MFA APIs"
+        ],
+        "description": "retrieves customer unified mobile for otp, caller id etc. and token status if any",
+        "operationId": "CustomerInquiry",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT bearer token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "having channel details , locale",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerInquiryRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerInquiryResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerInquiryResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized Request"
+          },
+          "404": {
+            "description": "404 API Not Found"
+          },
+          "405": {
+            "description": "405 Method Not Allowed"
+          },
+          "429": {
+            "description": "429 Too Many Requests"
+          },
+          "500": {
+            "description": "500 Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerInquiryResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503 Service Unavailable"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/UpdateCustomer": {
+      "post": {
+        "tags": [
+          "MFA APIs Stage"
+        ],
+        "summary": "UpdateCustomer",
+        "operationId": "UpdateCustomer",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCustomerRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateCustomerResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/GetOTP": {
+      "post": {
+        "tags": [
+          "MFA APIs"
+        ],
+        "description": "generates OTP for the given customer and sends SMS",
+        "operationId": "GetOTP",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT bearer token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "having channel details , locale",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OTPRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OTPResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OTPResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized Request"
+          },
+          "404": {
+            "description": "404 API Not Found"
+          },
+          "405": {
+            "description": "405 Method Not Allowed"
+          },
+          "429": {
+            "description": "429 Too Many Requests"
+          },
+          "500": {
+            "description": "500 Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OTPResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503 Service Unavailable"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/OnBoardSiteImage": {
+      "post": {
+        "tags": [
+          "MFA APIs Stage"
+        ],
+        "summary": "OnBoardSiteImage",
+        "operationId": "OnBoardSiteImage",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OnBoardSiteImageRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OnBoardSiteImageResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/AuthenticateToken": {
+      "post": {
+        "tags": [
+          "MFA APIs"
+        ],
+        "description": "OTP sent to customer's mobile or token generated by soft/hard token is authenticated",
+        "operationId": "AuthenticateToken",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT bearer token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "having channel details , locale",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthenticateTokenRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticateTokenResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticateTokenResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized Request"
+          },
+          "404": {
+            "description": "404 API Not Found"
+          },
+          "405": {
+            "description": "405 Method Not Allowed"
+          },
+          "429": {
+            "description": "429 Too Many Requests"
+          },
+          "500": {
+            "description": "500 Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticateTokenResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503 Service Unavailable"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/OnBoardToken": {
+      "post": {
+        "tags": [
+          "MFA APIs Stage"
+        ],
+        "summary": "OnBoardToken",
+        "operationId": "OnBoardToken",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OnBoardTokenRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OnBoardTokenResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/OnBoardPCTrust": {
+      "post": {
+        "tags": [
+          "MFA APIs Stage"
+        ],
+        "summary": "OnBoardPCTrust",
+        "operationId": "OnBoardPCTrust",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OnBoardPCTrustRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OnBoardPCTrustResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/AuthenticateIBSCreation": {
+      "post": {
+        "tags": [
+          "MFA APIs Stage"
+        ],
+        "summary": "AuthenticateIBSCreation",
+        "operationId": "AuthenticateIBSCreation",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthenticateIBSCreationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticateIBSCreationResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/AuthenticateIBSRetrieve": {
+      "post": {
+        "tags": [
+          "MFA APIs Stage"
+        ],
+        "summary": "AuthenticateIBSRetrieve",
+        "operationId": "AuthenticateIBSRetrieve",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthenticateIBSRetrieveRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticateIBSRetrieveResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/CreateUser": {
+      "post": {
+        "tags": [
+          "MFA APIs Stage"
+        ],
+        "summary": "CreateUser",
+        "operationId": "CreateUser",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserCreationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserCreationResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/CreateToken": {
+      "post": {
+        "tags": [
+          "MFA APIs Stage"
+        ],
+        "summary": "CreateToken",
+        "operationId": "CreateToken",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TokenCreationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenCreationResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/UnAssignToken": {
+      "post": {
+        "tags": [
+          "MFA APIs Stage"
+        ],
+        "summary": "UnAssignToken",
+        "operationId": "UnAssignToken",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TokenUnAssignmentRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenUnAssignmentResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ReSyncToken": {
+      "post": {
+        "tags": [
+          "MFA APIs Stage"
+        ],
+        "summary": "ReSyncToken",
+        "operationId": "ReSyncToken",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TokenReSyncRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenReSyncResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/RetrievePVN": {
+      "post": {
+        "tags": [
+          "MFA APIs Stage"
+        ],
+        "summary": "RetrievePVN",
+        "operationId": "RetrievePVN",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PVNRetrievalRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PVNRetrievalResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/UpdatePVN": {
+      "post": {
+        "tags": [
+          "MFA APIs Stage"
+        ],
+        "summary": "UpdatePVN",
+        "operationId": "UpdatePVN",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PVNUpdateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PVNUpdateResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/EnableUser": {
+      "post": {
+        "tags": [
+          "MFA APIs Stage"
+        ],
+        "summary": "EnableUser",
+        "operationId": "EnableUser",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserEnableRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserEnableResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/DisableUser": {
+      "post": {
+        "tags": [
+          "MFA APIs Stage"
+        ],
+        "summary": "DisableUser",
+        "operationId": "DisableUser",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDisableRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDisableResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/SetNewPVN": {
+      "post": {
+        "tags": [
+          "MFA APIs Stage"
+        ],
+        "summary": "SetNewPVN",
+        "operationId": "SetNewPVN",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewPVNRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewPVNResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/AutoGeneratePVN": {
+      "post": {
+        "tags": [
+          "MFA APIs Stage"
+        ],
+        "summary": "AutoGeneratePVN",
+        "operationId": "AutoGeneratePVN",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PVNAutoGenerationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PVNAutoGenerationResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/DeleteUser": {
+      "post": {
+        "tags": [
+          "MFA APIs Stage"
+        ],
+        "summary": "DeleteUser",
+        "operationId": "DeleteUser",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDeleteRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDeleteResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/RegisterUser": {
+      "post": {
+        "tags": [
+          "MFA APIs Stage"
+        ],
+        "summary": "RegisterUser",
+        "operationId": "RegisterUser",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRegistrationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserRegistrationResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ModifyToken": {
+      "post": {
+        "tags": [
+          "MFA APIs Stage"
+        ],
+        "summary": "ModifyToken",
+        "operationId": "ModifyToken",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TokenModificationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TokenModificationResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/SetTokenState": {
+      "post": {
+        "tags": [
+          "MFA APIs Stage"
+        ],
+        "summary": "SetTokenState",
+        "operationId": "SetTokenState",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetTokenStateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SetTokenStateResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/OnBoardCustomer": {
+      "post": {
+        "tags": [
+          "MFA APIs Stage"
+        ],
+        "summary": "OnBoardCustomer",
+        "operationId": "OnBoardCustomer",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OnBoardCustomerRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OnBoardCustomerResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/GetEntrustUserDetails": {
+      "post": {
+        "tags": [
+          "MFA APIs Stage"
+        ],
+        "summary": "GetEntrustUserDetails",
+        "operationId": "GetEntrustUserDetails",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EntrustUserDetailsRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EntrustUserDetailsResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/GetOTPATM": {
+      "post": {
+        "tags": [
+          "MFA APIs Stage"
+        ],
+        "summary": "GetOTPATM",
+        "operationId": "GetOTPATM",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetOTPATMRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetOTPATMResponse"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CustomerInquiryRequestType": {
+        "title": "CustomerInquiryRequestType",
+        "required": [
+          "ecnId"
+        ],
+        "type": "object",
+        "properties": {
+          "ecnId": {
+            "$ref": "../../commonschemas/schemas.json#/ECNId",
+            "description": "Short Customer Information Number"
+          },
+          "accountId": {
+            "$ref": "../../commonschemas/schemas.json#/AccountId",
+            "description": "Customer Account ID"
+          },
+          "filter": {
+            "title": "filter",
+            "enum": [
+              "ALL",
+              "REGISTER",
+              "UNREGISTER"
+            ],
+            "type": "string",
+            "description": "Allow Register/Non Register Number\n\n\t\t\t\t\t\t\tALL Full\n\t\t\t\t\t\t\tRegister Contact\n\n\t\t\t\t\t\t\tREGISTER Only Register Contact\n\n\t\t\t\t\t\t\tUNREGISTER Only\n\t\t\t\t\t\t\tUnregister Contact"
+          },
+          "isRequestAuthentication": {
+            "title": "isRequestAuthentication",
+            "enum": [
+              "true",
+              "false"
+            ],
+            "type": "string",
+            "description": "Requested Entrust Authentication True False\n\t\t\t\t\t\t\t(Default)"
+          },
+          "mobileNumber": {
+            "type": "string",
+            "description": "Mobile Number"
+          },
+          "phoneNumberResidential": {
+            "type": "string",
+            "description": "Phone Number Residential"
+          },
+          "phoneNumberBusiness": {
+            "type": "string",
+            "description": "Phone Number Business"
+          }
+        },
+        "description": ""
+      },
+      "CustomerInquiryResponseType": {
+        "title": "CustomerInquiryResponseType",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/CustomerInquiryType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        }
+      },
+      "mfaEntrustInformationType": {
+        "title": "mfaEntrustInformationType",
+        "type": "object",
+        "properties": {
+          "authenticated": {
+            "title": "authenticated",
+            "enum": [
+              "NONE",
+              "FAIL",
+              "PASS"
+            ],
+            "type": "string",
+            "description": "If IsRequestAuthentication is true , NONE No Authentication Requested FAIL Unsucessfull Authentication PASS Successful Authentication"
+          },
+          "sequenceNounceNew": {
+            "type": "string",
+            "description": "New Machine Key Information"
+          },
+          "machines": {
+            "$ref": "#/components/schemas/machinesType"
+          },
+          "authentication": {
+            "$ref": "#/components/schemas/authenticationType"
+          },
+          "siteImage": {
+            "$ref": "#/components/schemas/siteImageType"
+          }
+        },
+        "description": ""
+      },
+      "tns_mfaContactInformationType1": {
+        "title": "tns_mfaContactInformationType1",
+        "type": "object",
+        "properties": {
+          "action": {
+            "$ref": "#/components/schemas/tns_action",
+            "description": "Must be one of: UPDATE INSERT DELETE EXISTING"
+          },
+          "contactId": {
+            "type": "string"
+          },
+          "contactType": {
+            "type": "string",
+            "description": "Contact code type"
+          },
+          "fieldName": {
+            "$ref": "#/components/schemas/tns_fieldName",
+            "description": "Can be: PHONE_NO_1 PHONE_NO_2 PHONE_NO_3\n\t\t\t\t\t\tMOBILE_NO_1 MOBILE_NO_2 MOBILE_NO_3"
+          },
+          "fieldValue": {
+            "type": "string",
+            "description": "The value of â€œFieldName"
+          },
+          "callerId": {
+            "type": "boolean",
+            "description": "Must be:\n\t\t\t\t\t\tTrue\n\t\t\t\t\t\tFalse"
+          },
+          "oneTimePass": {
+            "type": "boolean",
+            "description": "Must be:\n\t\t\t\t\t\tTrue\n\t\t\t\t\t\tFalse"
+          },
+          "international": {
+            "type": "boolean",
+            "description": "Must be:\n\t\t\t\t\t\tTrue\n\t\t\t\t\t\tFalse"
+          }
+        },
+        "description": ""
+      },
+      "tns_UpdateCustomerRequest": {
+        "title": "tns_UpdateCustomerRequest",
+        "required": [
+          "ecnId",
+          "force",
+          "operationMode"
+        ],
+        "type": "object",
+        "properties": {
+          "ecnId": {
+            "maxLength": 8,
+            "minLength": 8,
+            "type": "string"
+          },
+          "screenName": {
+            "type": "string",
+            "description": "Screen Name"
+          },
+          "force": {
+            "type": "boolean",
+            "description": "Force Flag Must be:\n\n\t\t\t\t\t\t\tTrue\n\n\t\t\t\t\t\t\tFalse"
+          },
+          "operationMode": {
+            "$ref": "#/components/schemas/tns_operationMode",
+            "description": "Must be: EXECUTE MAINTAIN INITIATE"
+          },
+          "mfaContactInformation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_mfaContactInformationType1"
+            },
+            "description": ""
+          },
+          "workFlowNotification": {
+            "$ref": "#/components/schemas/tns_workFlowNotificationType"
+          },
+          "mfaTokenInformation": {
+            "$ref": "#/components/schemas/tns_mfaTokenInformationType"
+          },
+          "mfaTrustedPCInformation": {
+            "$ref": "#/components/schemas/tns_mfaTrustedPCInformationType"
+          },
+          "mfaSiteImageInformation": {
+            "$ref": "#/components/schemas/tns_mfaSiteImageInformationType"
+          },
+          "atmReceipt": {
+            "type": "string",
+            "description": "ATM Receipt number"
+          },
+          "atmLocation": {
+            "type": "string",
+            "description": "ATM Loc"
+          },
+          "shortCIF": {
+            "pattern": "([0-9]){8}|([0]){1}",
+            "type": "string"
+          },
+          "accountId": {
+            "maxLength": 24,
+            "minLength": 14,
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})",
+            "type": "string"
+          },
+          "partyId": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_UpdateCustomerResponse": {
+        "title": "tns_UpdateCustomerResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/tns_UpdateCustomerResponseType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_msghdrType": {
+        "title": "tns_msghdrType",
+        "required": [
+          "messageDateTime",
+          "sessionId",
+          "channelId",
+          "functionId",
+          "userId",
+          "language",
+          "resCode",
+          "resDescription",
+          "resField",
+          "terminalId"
+        ],
+        "type": "object",
+        "properties": {
+          "messageDateTime": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01])))|()",
+            "type": "string"
+          },
+          "sessionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "channelId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "functionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "language": {
+            "type": "string"
+          },
+          "resCode": {
+            "type": "string"
+          },
+          "resDescription": {
+            "type": "string"
+          },
+          "resField": {
+            "type": "string"
+          },
+          "terminalId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "description": ""
+      },
+      "OTPRequestType": {
+        "title": "OTPRequestType",
+        "required": [
+          "mobileNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "ecnId": {
+            "$ref": "../../commonschemas/schemas.json#/ECNId"
+          },
+          "mobileNumber": {
+            "$ref": "../../commonschemas/schemas.json#/MobileNumber",
+            "description": "Customer Mobile Number"
+          },
+          "purpose": {
+            "$ref": "#/components/schemas/purposeType"
+          },
+          "isSendSMSNotification": {
+            "$ref": "#/components/schemas/isSendSMSNotificationType",
+            "description": "Send SMS notification\n\n\t\t\t\t\t\t\ttrue/false (default true)"
+          },
+          "isResendSMSNotification": {
+            "title": "isResendSMSNotification",
+            "enum": [
+              "true",
+              "false"
+            ],
+            "type": "string",
+            "description": "Resend OTP value\n\n\t\t\t\t\t\t\ttrue/false (default true)"
+          },
+          "isForceOTP": {
+            "title": "isForceOTP",
+            "enum": [
+              "true",
+              "false"
+            ],
+            "type": "string",
+            "description": "Create a new OTP\n\n\t\t\t\t\t\t\ttrue/false (default false)\n\n\t\t\t\t\t\t\tonly if IsReSendSMSNotification is true"
+          },
+          "isWithReference": {
+            "title": "isWithReference",
+            "enum": [
+              "true",
+              "false"
+            ],
+            "type": "string",
+            "description": "Generate a unique reference number for this\n\t\t\t\t\t\t\tOTP and would also send it as part of the\n\t\t\t\t\t\t\tnotification\n\n\t\t\t\t\t\t\ttrue/false (default false)"
+          },
+          "group": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "messageType": {
+            "type": "string",
+            "description": "this defines whether message to be sent by sms or email.Possible values,\nSMS, EMAIL"
+          },
+          "cif": {
+            "$ref": "../../commonschemas/schemas.json#/CIF"
+          },
+          "mail": {
+            "$ref": "#/components/schemas/mailType"
+          },
+          "amount": {
+            "$ref": "../../commonschemas/schemas.json#/AmountOptional"
+          },
+          "currency": {
+            "$ref": "../../commonschemas/schemas.json#/ISOCurrencyCodeOptional"
+          }
+        },
+        "description": ""
+      },
+      "mailType": {
+        "title": "mailType",
+        "required": [
+          "to"
+        ],
+        "type": "object",
+        "properties": {
+          "to": {
+            "title": "to",
+            "required": [
+              "emailAddress"
+            ],
+            "type": "object",
+            "properties": {
+              "emailAddress": {
+                "type": "string"
+              }
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "amount": {
+        "$ref": "#/components/schemas/tns_AmountOptional"
+      },
+      "currency": {
+        "pattern": "([A-Z]{3,3})|()",
+        "type": "string"
+      },
+      "OTPResponseType": {
+        "title": "OTPResponseType",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/OTPType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_OnBoardSiteImageRequest": {
+        "title": "tns_OnBoardSiteImageRequest",
+        "required": [
+          "ecnId",
+          "operationMode",
+          "imageFileName"
+        ],
+        "type": "object",
+        "properties": {
+          "ecnId": {
+            "maxLength": 8,
+            "minLength": 8,
+            "type": "string",
+            "description": "Short Customer Information Number"
+          },
+          "partyId": {
+            "type": "string",
+            "description": "Customer Party Identication Number"
+          },
+          "operationMode": {
+            "$ref": "#/components/schemas/tns_operationMode",
+            "description": "Must be: CREATE UPDATE"
+          },
+          "imageFileName": {
+            "type": "string",
+            "description": "Image File Name"
+          },
+          "fromAccountId": {
+            "maxLength": 24,
+            "minLength": 14,
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})",
+            "type": "string",
+            "description": "Account Number To Debit"
+          },
+          "type": {
+            "type": "string"
+          },
+          "feeAmount": {
+            "type": "number",
+            "description": "Fee Amount"
+          }
+        },
+        "description": ""
+      },
+      "tns_OnBoardSiteImageResponse": {
+        "title": "tns_OnBoardSiteImageResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/tns_OnBoardSiteImageResonseType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "AuthenticateTokenRequestType": {
+        "title": "AuthenticateTokenRequestType",
+        "required": [
+          "tokenType",
+          "code"
+        ],
+        "type": "object",
+        "properties": {
+          "ecnId": {
+            "$ref": "../../commonschemas/schemas.json#/ECNId",
+            "description": "Shortcut for Customer Information Number."
+          },
+          "tokenType": {
+            "type": "string",
+            "description": "OTP or TOKEN"
+          },
+          "code": {
+            "$ref": "../../commonschemas/schemas.json#/EncryptedText",
+            "description": "Customer challenge response\n\n\t\t\t\t\t\t\tÂ· Must be numeric\n\t\t\t\t\t\t\tand encrypted using DES algorithm the EcnId\n\t\t\t\t\t\t\tvalue should be the\n\t\t\t\t\t\t\tkey on the algorithm"
+          },
+          "group": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "pvn": {
+            "$ref": "../../commonschemas/schemas.json#/EncryptedText"
+          }
+        },
+        "description": ""
+      },
+      "AuthenticateTokenResponseType": {
+        "title": "AuthenticateTokenResponseType",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/AuthenticateTokenType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_OnBoardTokenRequest": {
+        "title": "tns_OnBoardTokenRequest",
+        "required": [
+          "operationMode"
+        ],
+        "type": "object",
+        "properties": {
+          "ecnId": {
+            "maxLength": 8,
+            "minLength": 8,
+            "type": "string",
+            "description": "Short Customer Information Number"
+          },
+          "group": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "partyId": {
+            "type": "string",
+            "description": "Customer Party Identication Number"
+          },
+          "operationMode": {
+            "$ref": "#/components/schemas/tns_operationMode",
+            "description": "Must be: CREATE ACTIVATE CHANGE CANCEL\n\t\t\t\t\t\t\tDELETE"
+          },
+          "tokenType": {
+            "$ref": "#/components/schemas/tokenType",
+            "description": "Must be one of: HARD SOFT"
+          },
+          "serialNumber": {
+            "type": "string",
+            "description": "Token Serial Number"
+          },
+          "registrationCode": {
+            "type": "string",
+            "description": "Registration Code (Only for SOFT Token)"
+          },
+          "fromAccountId": {
+            "maxLength": 24,
+            "minLength": 14,
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})",
+            "type": "string",
+            "description": "Account Number To Debit"
+          },
+          "feeAmount": {
+            "type": "number",
+            "description": "Fee Amount",
+            "default": 0
+          }
+        },
+        "description": ""
+      },
+      "tns_OnBoardTokenResponse": {
+        "title": "tns_OnBoardTokenResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/tns_OnBoardTokenType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_OnBoardPCTrustRequest": {
+        "title": "tns_OnBoardPCTrustRequest",
+        "required": [
+          "ecnId",
+          "operationMode"
+        ],
+        "type": "object",
+        "properties": {
+          "ecnId": {
+            "maxLength": 8,
+            "minLength": 8,
+            "type": "string",
+            "description": "Short Customer Information Number"
+          },
+          "partyId": {
+            "type": "string",
+            "description": "Customer Party Identication Number"
+          },
+          "operationMode": {
+            "$ref": "#/components/schemas/tns_operationMode",
+            "description": "Must be: CREATE DELETE"
+          },
+          "fromAccountId": {
+            "maxLength": 24,
+            "minLength": 14,
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})",
+            "type": "string",
+            "description": "Account Number To Debit"
+          },
+          "feeAmount": {
+            "type": "number",
+            "description": "Fee Amount"
+          },
+          "personalComputerInfo": {
+            "$ref": "#/components/schemas/tns_personalComputerInfoType"
+          },
+          "machineNounce": {
+            "type": "string",
+            "description": "Machine Secret Code\n\n\t\t\t\t\t\t\t(Only For DELETE\n\t\t\t\t\t\t\tOperationMode)"
+          }
+        },
+        "description": ""
+      },
+      "tns_OnBoardPCTrustResponse": {
+        "title": "tns_OnBoardPCTrustResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/tns_OnBoardPCTrustType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "mfaContactInformationType": {
+        "title": "mfaContactInformationType",
+        "type": "object",
+        "properties": {
+          "detail": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/detailType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "detailType": {
+        "title": "detailType",
+        "type": "object",
+        "properties": {
+          "callerId": {
+            "$ref": "../../commonschemas/schemas.json#/trueOrFalseTypeOptional"
+          },
+          "contactId": {
+            "type": "string",
+            "description": "Contact Identification"
+          },
+          "contactTypeCode": {
+            "type": "string",
+            "description": "Contact Type"
+          },
+          "fieldName": {
+            "type": "string",
+            "description": "Can be:\n\t\t\t\t\t\tPHONE_NO_1\n\t\t\t\t\t\tPHONE_NO_2\n\t\t\t\t\t\tPHONE_NO_3\n\t\t\t\t\t\tMOBILE_NO_1\n\t\t\t\t\t\tMOBILE_NO_2\n\t\t\t\t\t\tMOBILE_NO_3"
+          },
+          "fieldValue": {
+            "type": "string",
+            "description": "The value of FieldName"
+          },
+          "international": {
+            "$ref": "../../commonschemas/schemas.json#/trueOrFalseTypeOptional"
+          },
+          "oneTimePass": {
+            "$ref": "../../commonschemas/schemas.json#/trueOrFalseTypeOptional"
+          }
+        },
+        "description": ""
+      },
+      "mfaAuthenticationInformationType": {
+        "title": "mfaAuthenticationInformationType",
+        "type": "object",
+        "properties": {
+          "methods": {
+            "$ref": "#/components/schemas/methodsType"
+          }
+        },
+        "description": ""
+      },
+      "methodsType": {
+        "title": "methodsType",
+        "type": "object",
+        "properties": {
+          "callerId": {
+            "$ref": "../../commonschemas/schemas.json#/trueOrFalseTypeOptional"
+          },
+          "hardToken": {
+            "$ref": "../../commonschemas/schemas.json#/trueOrFalseTypeOptional"
+          },
+          "oneTimePass": {
+            "$ref": "../../commonschemas/schemas.json#/trueOrFalseTypeOptional"
+          },
+          "siteImage": {
+            "$ref": "../../commonschemas/schemas.json#/trueOrFalseTypeOptional"
+          },
+          "softToken": {
+            "$ref": "../../commonschemas/schemas.json#/trueOrFalseTypeOptional"
+          },
+          "trustedPC": {
+            "$ref": "../../commonschemas/schemas.json#/trueOrFalseTypeOptional"
+          }
+        }
+      },
+      "mfaCustomerAuthenticationCustomerRepositoryType": {
+        "title": "mfaCustomerAuthenticationCustomerRepositoryType",
+        "type": "object",
+        "properties": {
+          "methods": {
+            "$ref": "#/components/schemas/methodsType"
+          }
+        },
+        "description": ""
+      },
+      "tns_personalComputerInfoType": {
+        "title": "tns_personalComputerInfoType",
+        "required": [
+          "trustedPC"
+        ],
+        "type": "object",
+        "properties": {
+          "trustedPC": {
+            "$ref": "#/components/schemas/tns_trustedPCInfoType"
+          }
+        },
+        "description": ""
+      },
+      "tns_trustedPCInfoType": {
+        "title": "tns_trustedPCInfoType",
+        "required": [
+          "machineLabel",
+          "pcData"
+        ],
+        "type": "object",
+        "properties": {
+          "machineLabel": {
+            "type": "string"
+          },
+          "pcData": {
+            "$ref": "#/components/schemas/tns_pcDataType"
+          }
+        },
+        "description": ""
+      },
+      "tns_pcDataType": {
+        "title": "tns_pcDataType",
+        "required": [
+          "applicationData"
+        ],
+        "type": "object",
+        "properties": {
+          "applicationData": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_applicationDataType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_applicationDataType": {
+        "title": "tns_applicationDataType",
+        "required": [
+          "name",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_mfaTrustedPCInfoType": {
+        "title": "tns_mfaTrustedPCInfoType",
+        "type": "object",
+        "properties": {
+          "detail": {
+            "$ref": "#/components/schemas/tns_detailType1"
+          }
+        },
+        "description": ""
+      },
+      "tns_detailType1": {
+        "title": "tns_detailType1",
+        "type": "object",
+        "properties": {
+          "machineName": {
+            "type": "string",
+            "description": "Machine User Giving Name"
+          },
+          "machineNonce": {
+            "type": "string",
+            "description": "Machine Secret Code"
+          },
+          "sequenceNonce": {
+            "type": "string",
+            "description": "Machine Sequence Authenticate Code"
+          },
+          "isRegister": {
+            "$ref": "#/components/schemas/tns_isRegister",
+            "description": "Register On Entrust (True/False)"
+          }
+        },
+        "description": ""
+      },
+      "CustomerInquiryType": {
+        "title": "CustomerInquiryType",
+        "type": "object",
+        "properties": {
+          "maxAllowCallerId": {
+            "type": "integer",
+            "description": "Maximum Number Allow Of Caller Id Numbers",
+            "format": "int32",
+            "default": 0
+          },
+          "maxAllowOneTimePass": {
+            "type": "integer",
+            "description": "Maximum Number Allow Of OTP Numbers",
+            "format": "int32",
+            "default": 0
+          },
+          "maxAllowInternational": {
+            "type": "integer",
+            "description": "Maximum Number Allow of International Numbers",
+            "format": "int32",
+            "default": 0
+          },
+          "maxAllowTrustedPC": {
+            "type": "integer",
+            "description": "Maximum Number Allow of Trusted Pcâ€™ss",
+            "format": "int32",
+            "default": 0
+          },
+          "maxAllowSiteImage": {
+            "type": "integer",
+            "description": "Maximum Number Allow of Site Image",
+            "format": "int32",
+            "default": 0
+          },
+          "maxAllowHardToken": {
+            "type": "integer",
+            "description": "Maximum Number Allow of Hard Token",
+            "format": "int32",
+            "default": 0
+          },
+          "maxAllowSoftToken": {
+            "type": "integer",
+            "description": "Maximum Number Allow of Soft Token",
+            "format": "int32",
+            "default": 0
+          },
+          "mfaContactInformation": {
+            "$ref": "#/components/schemas/mfaContactInformationType"
+          },
+          "mfaAuthenticationInformation": {
+            "$ref": "#/components/schemas/mfaAuthenticationInformationType"
+          },
+          "mfaCustomerAuthenticationCustomerRepository": {
+            "$ref": "#/components/schemas/mfaCustomerAuthenticationCustomerRepositoryType"
+          },
+          "mfaEntrustInformation": {
+            "$ref": "#/components/schemas/mfaEntrustInformationType"
+          }
+        },
+        "description": ""
+      },
+      "OTPType": {
+        "title": "OTPType",
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Security Code Encrypted value using EAI Password\n\t\t\t\t\t\talgorithm\n\n\t\t\t\t\t\t(Only if the IsSendSMSNotification is false)"
+          },
+          "referenceId": {
+            "type": "string",
+            "description": "OTP unique reference number"
+          },
+          "otp": {
+            "type": "string"
+          },
+          "isSendSMSNotification": {
+            "$ref": "#/components/schemas/isSendSMSNotificationType"
+          }
+        },
+        "description": ""
+      },
+      "tns_OnBoardSiteImageResonseType": {
+        "title": "tns_OnBoardSiteImageResonseType",
+        "type": "object",
+        "properties": {
+          "journalId": {
+            "type": "string",
+            "description": "Financial Journal Number\n\n\t\t\t\t\t\t(Only If Fee are apply)"
+          },
+          "scheduleTxnCode": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          "numberOfMessage": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          }
+        },
+        "description": ""
+      },
+      "tns_OnBoardPCTrustType": {
+        "title": "tns_OnBoardPCTrustType",
+        "required": [
+          "mfaTrustedPCInfo"
+        ],
+        "type": "object",
+        "properties": {
+          "mfaTrustedPCInfo": {
+            "$ref": "#/components/schemas/tns_mfaTrustedPCInfoType"
+          },
+          "journalId": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_OnBoardTokenType": {
+        "title": "tns_OnBoardTokenType",
+        "required": [
+          "serialNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "serialNumber": {
+            "type": "string",
+            "description": "Token Serial Number"
+          },
+          "activationCode": {
+            "type": "string",
+            "description": "Activation Code\n\t\t\t\t\t\t(Only For SOFT Token)"
+          },
+          "journalId": {
+            "type": "string",
+            "description": "Financial Journal Number\n\t\t\t\t\t\t(Only If Fee are apply)",
+            "default": "0"
+          }
+        },
+        "description": ""
+      },
+      "tns_workFlowNotificationType": {
+        "title": "tns_workFlowNotificationType",
+        "type": "object",
+        "properties": {
+          "requestId": {
+            "type": "string",
+            "description": "Request Id"
+          },
+          "requestNo": {
+            "type": "string",
+            "description": "Request No"
+          },
+          "requestType": {
+            "type": "string",
+            "description": "Request Type"
+          },
+          "requestorUserNotes": {
+            "type": "string",
+            "description": "Requestor User Notes"
+          },
+          "responseStatus": {
+            "type": "string",
+            "description": "Response Status"
+          },
+          "responseUserId": {
+            "type": "string",
+            "description": "Response UserId"
+          },
+          "responseUserRoleId": {
+            "type": "string",
+            "description": "Response User RoleId"
+          },
+          "responseUserNotes": {
+            "type": "string",
+            "description": "Response User Notes"
+          },
+          "itemKey": {
+            "type": "string",
+            "description": "Item Key"
+          }
+        },
+        "description": ""
+      },
+      "tns_personalComputerInformationType": {
+        "title": "tns_personalComputerInformationType",
+        "type": "object",
+        "properties": {
+          "trustedPC": {
+            "$ref": "#/components/schemas/tns_trustedPCType"
+          }
+        },
+        "description": ""
+      },
+      "tns_trustedPCType": {
+        "title": "tns_trustedPCType",
+        "required": [
+          "machineNounce",
+          "sequenceNounce",
+          "pcData"
+        ],
+        "type": "object",
+        "properties": {
+          "machineNounce": {
+            "type": "string",
+            "description": "Machine Entrust Identification"
+          },
+          "sequenceNounce": {
+            "type": "string",
+            "description": "Machine Key Information"
+          },
+          "pcData": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_pcDataType1"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_pcDataType1": {
+        "title": "tns_pcDataType1",
+        "type": "object",
+        "properties": {
+          "applicationData": {
+            "$ref": "#/components/schemas/tns_applicationDataType1"
+          }
+        },
+        "description": ""
+      },
+      "tns_applicationDataType1": {
+        "title": "tns_applicationDataType1",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Variable Data Name"
+          },
+          "value": {
+            "type": "string",
+            "description": "Variable Data Value"
+          }
+        },
+        "description": ""
+      },
+      "machinesType": {
+        "title": "machinesType",
+        "type": "object",
+        "properties": {
+          "personalComputerInformation": {
+            "$ref": "#/components/schemas/personalComputerInformationType1"
+          }
+        },
+        "description": ""
+      },
+      "personalComputerInformationType1": {
+        "title": "personalComputerInformationType1",
+        "type": "object",
+        "properties": {
+          "trustedPC": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/trustedPCType1"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "trustedPCType1": {
+        "title": "trustedPCType1",
+        "type": "object",
+        "properties": {
+          "pcData": {
+            "$ref": "#/components/schemas/pcDataType2"
+          },
+          "machineLabel": {
+            "type": "string"
+          },
+          "machineNonce": {
+            "type": "string"
+          },
+          "sequenceNonce": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "pcDataType2": {
+        "title": "pcDataType2",
+        "type": "object",
+        "properties": {
+          "applicationData": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/applicationDataType2"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "applicationDataType2": {
+        "title": "applicationDataType2",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "authenticationType": {
+        "title": "authenticationType",
+        "type": "object",
+        "properties": {
+          "tokens": {
+            "$ref": "#/components/schemas/tokensType"
+          }
+        },
+        "description": ""
+      },
+      "tokensType": {
+        "title": "tokensType",
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tokenType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tokenType": {
+        "title": "tokenType",
+        "type": "object",
+        "properties": {
+          "state": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "activationCode": {
+            "type": "string"
+          },
+          "activationState": {
+            "type": "string"
+          },
+          "comment": {
+            "type": "string"
+          },
+          "lastUsed": {
+            "type": "string"
+          },
+          "serialNumber": {
+            "type": "string"
+          },
+          "set": {
+            "type": "string"
+          },
+          "vendor": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "siteImageType": {
+        "title": "siteImageType",
+        "type": "object",
+        "properties": {
+          "imageFileName": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_UpdateCustomerResponseType": {
+        "title": "tns_UpdateCustomerResponseType",
+        "type": "object",
+        "properties": {
+          "msghdr": {
+            "$ref": "#/components/schemas/tns_msghdrType1"
+          },
+          "isSendSMSNotification": {
+            "$ref": "#/components/schemas/isSendSMSNotificationType"
+          }
+        },
+        "description": ""
+      },
+      "tns_msghdrType1": {
+        "title": "tns_msghdrType1",
+        "type": "object",
+        "properties": {
+          "msgDateTime": {
+            "pattern": "((0[1-9])|([12][0-9])|(3[01]))/((0[1-9])|(1[012]))/((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))|()",
+            "type": "string"
+          },
+          "sessionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "channelId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "functionId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "language": {
+            "type": "string"
+          },
+          "resCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "resDesc": {
+            "type": "string"
+          },
+          "resField": {
+            "type": "string"
+          },
+          "terminalId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "description": ""
+      },
+      "AuthenticateTokenType": {
+        "title": "AuthenticateTokenType",
+        "type": "object",
+        "description": "Empty success response."
+      },
+      "tns_AuthenticateIBSCreationRequest": {
+        "title": "tns_AuthenticateIBSCreationRequest",
+        "type": "object",
+        "properties": {
+          "shortCIF": {
+            "pattern": "([0-9]){8}|([0]){1}",
+            "type": "string"
+          },
+          "userIdentity": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_AuthenticateIBSCreationResponse": {
+        "title": "tns_AuthenticateIBSCreationResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/tns_AuthenticateIBSResponseType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_AuthenticateIBSRetrieveRequest": {
+        "title": "tns_AuthenticateIBSRetrieveRequest",
+        "type": "object",
+        "properties": {
+          "tokenId": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_AuthenticateIBSRetrieveResponse": {
+        "title": "tns_AuthenticateIBSRetrieveResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/tns_AuthenticateIBSResponseType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_AuthenticateIBSResponseType": {
+        "title": "tns_AuthenticateIBSResponseType",
+        "type": "object",
+        "properties": {
+          "tokenId": {
+            "type": "string"
+          },
+          "sequenceId": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+          },
+          "status": {
+            "$ref": "#/components/schemas/tns_status"
+          },
+          "createdDate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "description": ""
+      },
+      "tns_mfaTokenInformationType": {
+        "title": "tns_mfaTokenInformationType",
+        "required": [
+          "mfaTokenFlag",
+          "tokenType",
+          "tokenStatusCd"
+        ],
+        "type": "object",
+        "properties": {
+          "mfaTokenFlag": {
+            "type": "string",
+            "description": "MFA Token Flag"
+          },
+          "tokenType": {
+            "type": "string",
+            "description": "Token Type"
+          },
+          "tokenStatusCd": {
+            "type": "string",
+            "description": "Token Status Code"
+          }
+        },
+        "description": ""
+      },
+      "tns_mfaTrustedPCInformationType": {
+        "title": "tns_mfaTrustedPCInformationType",
+        "required": [
+          "mfaTrustedPcFlag"
+        ],
+        "type": "object",
+        "properties": {
+          "mfaTrustedPcFlag": {
+            "type": "string",
+            "description": "MFA TrustedPc Flag"
+          }
+        },
+        "description": ""
+      },
+      "tns_mfaSiteImageInformationType": {
+        "title": "tns_mfaSiteImageInformationType",
+        "required": [
+          "mfaSiteImageFlag"
+        ],
+        "type": "object",
+        "properties": {
+          "mfaSiteImageFlag": {
+            "type": "string",
+            "description": "MFA SiteImage Flag"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserCreationRequest": {
+        "title": "tns_UserCreationRequest",
+        "type": "object",
+        "properties": {
+          "ecnId": {
+            "maxLength": 8,
+            "minLength": 8,
+            "type": "string"
+          },
+          "userName": {
+            "maxLength": 100,
+            "type": "string"
+          },
+          "userGroup": {
+            "type": "string",
+            "default": "Party_Users"
+          },
+          "group": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserCreationResponse": {
+        "title": "tns_UserCreationResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_TokenCreationRequest": {
+        "title": "tns_TokenCreationRequest",
+        "required": [
+          "tokenType"
+        ],
+        "type": "object",
+        "properties": {
+          "ecnId": {
+            "maxLength": 8,
+            "minLength": 8,
+            "type": "string"
+          },
+          "tokenType": {
+            "type": "string"
+          },
+          "serialNumber": {
+            "type": "string"
+          },
+          "group": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_TokenCreationResponse": {
+        "title": "tns_TokenCreationResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/tns_MFATokenCreateResponseType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_TokenUnAssignmentRequest": {
+        "title": "tns_TokenUnAssignmentRequest",
+        "required": [
+          "serialNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "ecnId": {
+            "maxLength": 8,
+            "minLength": 8,
+            "type": "string"
+          },
+          "serialNumber": {
+            "type": "string"
+          },
+          "group": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_TokenUnAssignmentResponse": {
+        "title": "tns_TokenUnAssignmentResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_TokenReSyncRequest": {
+        "title": "tns_TokenReSyncRequest",
+        "required": [
+          "tokenSerialNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "ecnId": {
+            "maxLength": 8,
+            "minLength": 8,
+            "type": "string"
+          },
+          "tokenSerialNumber": {
+            "type": "string"
+          },
+          "tokenPassCode1": {
+            "type": "string"
+          },
+          "tokenPassCode2": {
+            "type": "string"
+          },
+          "group": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_TokenReSyncResponse": {
+        "title": "tns_TokenReSyncResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_MFATokenCreateResponseType": {
+        "title": "tns_MFATokenCreateResponseType",
+        "required": [
+          "serialNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "serialNumber": {
+            "type": "string"
+          },
+          "activationCode": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_PVNRetrievalRequest": {
+        "title": "tns_PVNRetrievalRequest",
+        "type": "object",
+        "properties": {
+          "ecnId": {
+            "maxLength": 8,
+            "minLength": 8,
+            "type": "string"
+          },
+          "group": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_PVNRetrievalResponse": {
+        "title": "tns_PVNRetrievalResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/tns_PVNRetrievalResponseType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_PVNRetrievalResponseType": {
+        "title": "tns_PVNRetrievalResponseType",
+        "required": [
+          "pvn"
+        ],
+        "type": "object",
+        "properties": {
+          "pvn": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_PVNUpdateRequest": {
+        "title": "tns_PVNUpdateRequest",
+        "type": "object",
+        "properties": {
+          "ecnId": {
+            "maxLength": 8,
+            "minLength": 8,
+            "type": "string"
+          },
+          "newPVN": {
+            "type": "string"
+          },
+          "group": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "operationMode": {
+            "$ref": "#/components/schemas/tns_operationMode",
+            "description": "Must be one of: CREATE RESET"
+          },
+          "isAutoGenerate": {
+            "type": "boolean",
+            "description": "Must be:\n\t\t\t\t\t\t\tTrue\n\t\t\t\t\t\t\tFalse"
+          },
+          "isChangeRequired": {
+            "type": "boolean",
+            "description": "Must be:\n\t\t\t\t\t\t\tTrue\n\t\t\t\t\t\t\tFalse"
+          }
+        },
+        "description": ""
+      },
+      "tns_PVNUpdateResponse": {
+        "title": "tns_PVNUpdateResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserEnableRequest": {
+        "title": "tns_UserEnableRequest",
+        "type": "object",
+        "properties": {
+          "ecnId": {
+            "maxLength": 8,
+            "minLength": 8,
+            "type": "string"
+          },
+          "group": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserEnableResponse": {
+        "title": "tns_UserEnableResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserDisableRequest": {
+        "title": "tns_UserDisableRequest",
+        "type": "object",
+        "properties": {
+          "ecnId": {
+            "maxLength": 8,
+            "minLength": 8,
+            "type": "string"
+          },
+          "group": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserDisableResponse": {
+        "title": "tns_UserDisableResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_NewPVNRequest": {
+        "title": "tns_NewPVNRequest",
+        "required": [
+          "oldPVN",
+          "newPVN",
+          "tokenCode"
+        ],
+        "type": "object",
+        "properties": {
+          "ecnId": {
+            "maxLength": 8,
+            "minLength": 8,
+            "type": "string"
+          },
+          "oldPVN": {
+            "type": "string"
+          },
+          "newPVN": {
+            "type": "string"
+          },
+          "tokenCode": {
+            "type": "string"
+          },
+          "group": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_NewPVNResponse": {
+        "title": "tns_NewPVNResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_PVNAutoGenerationRequest": {
+        "title": "tns_PVNAutoGenerationRequest",
+        "type": "object",
+        "properties": {
+          "ecnId": {
+            "maxLength": 8,
+            "minLength": 8,
+            "type": "string"
+          },
+          "group": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "setChangeRequired": {
+            "type": "boolean"
+          }
+        },
+        "description": ""
+      },
+      "tns_PVNAutoGenerationResponse": {
+        "title": "tns_PVNAutoGenerationResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/tns_PVNAutoGenerationResponseType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_PVNAutoGenerationResponseType": {
+        "title": "tns_PVNAutoGenerationResponseType",
+        "required": [
+          "pvn"
+        ],
+        "type": "object",
+        "properties": {
+          "pvn": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserDeleteRequest": {
+        "title": "tns_UserDeleteRequest",
+        "type": "object",
+        "properties": {
+          "ecnId": {
+            "maxLength": 8,
+            "minLength": 8,
+            "type": "string"
+          },
+          "group": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_UserDeleteResponse": {
+        "title": "tns_UserDeleteResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_TokenDetailsRequest": {
+        "title": "tns_TokenDetailsRequest",
+        "type": "object",
+        "properties": {
+          "ecnId": {
+            "maxLength": 8,
+            "minLength": 8,
+            "type": "string"
+          },
+          "group": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_TokenDetailsResponse": {
+        "title": "tns_TokenDetailsResponse",
+        "type": "object",
+        "properties": {
+          "userState": {
+            "type": "string"
+          },
+          "tokens": {
+            "$ref": "#/components/schemas/tns_TokenDetailsType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_TokenDetailsType": {
+        "title": "tns_TokenDetailsType",
+        "type": "object",
+        "properties": {
+          "userTokenInfo": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_userTokenInfo"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "tns_UserRegistrationRequest": {
+        "title": "tns_UserRegistrationRequest",
+        "required": [
+          "id",
+          "group",
+          "tokenType"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "userName": {
+            "maxLength": 100,
+            "type": "string"
+          },
+          "group": {
+            "type": "string"
+          },
+          "tokenType": {
+            "$ref": "#/components/schemas/tokenType"
+          },
+          "serialNumber": {
+            "type": "string"
+          },
+          "generatePVN": {
+            "type": "boolean"
+          },
+          "isPVNChangeRequired": {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "description": ""
+      },
+      "tns_UserRegistrationResponse": {
+        "title": "tns_UserRegistrationResponse",
+        "type": "object",
+        "properties": {
+          "userRegistrationDetails": {
+            "$ref": "#/components/schemas/tns_MFAUserRegistrationResponseType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_MFAUserRegistrationResponseType": {
+        "title": "tns_MFAUserRegistrationResponseType",
+        "required": [
+          "serialNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "serialNumber": {
+            "type": "string"
+          },
+          "activationCode": {
+            "type": "string"
+          },
+          "pvn": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_TokenModificationRequest": {
+        "title": "tns_TokenModificationRequest",
+        "required": [
+          "id",
+          "group",
+          "tokenType",
+          "newSerialNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "group": {
+            "type": "string"
+          },
+          "tokenType": {
+            "$ref": "#/components/schemas/tokenType"
+          },
+          "oldSerialNumber": {
+            "type": "string"
+          },
+          "newSerialNumber": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_TokenModificationResponse": {
+        "title": "tns_TokenModificationResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "boolean"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_SetTokenStateRequest": {
+        "title": "tns_SetTokenStateRequest",
+        "required": [
+          "id",
+          "group"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "group": {
+            "type": "string"
+          },
+          "vendorId": {
+            "type": "string"
+          },
+          "serialNumber": {
+            "type": "string"
+          },
+          "state": {
+            "$ref": "#/components/schemas/tns_state"
+          },
+          "sync": {
+            "type": "boolean",
+            "description": "Must be:\n\t\t\t\t\t\t\tTrue\n\t\t\t\t\t\t\tFalse"
+          },
+          "passCode1": {
+            "type": "string"
+          },
+          "passCode2": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_SetTokenStateResponse": {
+        "title": "tns_SetTokenStateResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/tns_SetTokenStateResponseType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_SetTokenStateResponseType": {
+        "title": "tns_SetTokenStateResponseType",
+        "required": [
+          "serialNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "serialNumber": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_OnBoardCustomerRequest": {
+        "title": "tns_OnBoardCustomerRequest",
+        "required": [
+          "operationMode",
+          "ecnId"
+        ],
+        "type": "object",
+        "properties": {
+          "operationMode": {
+            "type": "string",
+            "description": "Operation Mode - Get MFA information\n\t\t\t\t\t\t\tmode - Maintain MFA information mode"
+          },
+          "ecnId": {
+            "maxLength": 8,
+            "minLength": 8,
+            "type": "string",
+            "description": "Short Customer Information Number"
+          },
+          "partyId": {
+            "type": "string",
+            "description": "Party ID"
+          },
+          "screenName": {
+            "type": "string",
+            "description": "Screen Name"
+          },
+          "mfaContactInformation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_mfaContactInformationType1"
+            },
+            "description": ""
+          },
+          "mfaTokenInformation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_mfaTokenInformationType2"
+            },
+            "description": ""
+          },
+          "mfaTrustedPCInformation": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_mfaTrustedPCInformationType2"
+            },
+            "description": ""
+          }
+        },
+        "description": "Customer Onboarding for Multi Factor\n\t\t\t\tAuthentication\n\t\t\t\tcreate, update the CCR\n\t\t\t\tdatabase and Entrust application"
+      },
+      "tns_mfaTrustedPCInformationType2": {
+        "title": "tns_mfaTrustedPCInformationType2",
+        "type": "object",
+        "properties": {
+          "machineNonce": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_mfaTokenInformationType2": {
+        "title": "tns_mfaTokenInformationType2",
+        "required": [
+          "operationMode"
+        ],
+        "type": "object",
+        "properties": {
+          "operationMode": {
+            "$ref": "#/components/schemas/tns_operationMode",
+            "description": "Must be: CREATE CANCEL DELETE"
+          },
+          "tokenType": {
+            "$ref": "#/components/schemas/tokenType",
+            "description": "Must be one of: HARD SOFT"
+          },
+          "serialNumber": {
+            "type": "string",
+            "description": "Token Serial Number"
+          },
+          "fromAccountId": {
+            "maxLength": 24,
+            "minLength": 14,
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})",
+            "type": "string",
+            "description": "Account Number To Debit"
+          },
+          "feeAmount": {
+            "type": "number",
+            "description": "Fee Amount",
+            "default": 0
+          }
+        },
+        "description": ""
+      },
+      "tns_OnBoardCustomerResponse": {
+        "title": "tns_OnBoardCustomerResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/CustomerInquiryType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_EntrustUserDetailsRequest": {
+        "title": "tns_EntrustUserDetailsRequest",
+        "type": "object",
+        "properties": {
+          "ecnId": {
+            "maxLength": 8,
+            "minLength": 8,
+            "type": "string"
+          },
+          "group": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_EntrustUserDetailsResponse": {
+        "title": "tns_EntrustUserDetailsResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/tns_EntrustUserDetailsType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_EntrustUserDetailsType": {
+        "title": "tns_EntrustUserDetailsType",
+        "required": [
+          "userId",
+          "userGroup",
+          "userState"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "userGroup": {
+            "type": "string"
+          },
+          "userState": {
+            "type": "string"
+          },
+          "tokens": {
+            "$ref": "#/components/schemas/tns_TokenDetailsType"
+          }
+        },
+        "description": ""
+      },
+      "tns_GetOTPATMRequest": {
+        "title": "tns_GetOTPATMRequest",
+        "required": [
+          "accountId"
+        ],
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "maxLength": 24,
+            "minLength": 14,
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})",
+            "type": "string"
+          },
+          "purposeType": {
+            "$ref": "#/components/schemas/purposeType",
+            "description": "\"LOGIN\" \nDescEnglish=\"Login Authentication\"\nDescArabic=\"Login Authentication\" \n\"TRFOWN\"\nDescEnglish=\"Transfer\nBetween My Accounts\"\n\"TRFNCB\"\nDescEnglish=\"Transfer Within NCB\"\n\"TRFEWALLET\" \nDescEnglish=\"e-Wallet Transfer\"\n\"TRFLOC\" DescEnglish=\"Local Transfer\"\n\"TRFINT\"\nDescEnglish=\"International Transfer\"\n \"ADDBENNCB\"\nDescEnglish=\"Adding an NCB Beneficiary\"\n\"ADDBENEWALLET\"\nDescEnglish=\"Adding an\ne-Wallet Beneficiary\"\n \"ADDBENLOC\"\nDescEnglish=\"Adding a Local\nBeneficiary\"\n\"ADDBENINT\"\nDescEnglish=\"Adding an International\nBeneficiary\"\n\"ALAMI\"\nDescEnglish=\"Subscribe/Unsubscribe\n3alamy Program\"\n\"PAYCRECARDOWN\"\nDescEnglish=\"Own Credit Card Payment\"\n\"PAYCRECARDOTH\" DescEnglish=\"Other NCB\nCredit Card Payment\" \n\"CASHADVOWN\"\nDescEnglish=\"Cash Advance\nto Personal\nAccount\"\n\"CASHADVOTHER\" DescEnglish=\"Cash\nAdvance to NCB Beneficiary\"\n\"DEBATMREISSUE\"\nDescEnglish=\"Debit\nCard Reissue\" \n\"DEVATMLINK\" DescEnglish=\"Debit Card\nChange Linked Account\" \n\"PAYAUTOLEASE\"\nDescEnglish=\"Auto Lease Payment\"\n\"SADADREG\"\nDescEnglish=\"Registered SADAD Bill Payment\"\n\"SADADNOREG\" DescEnglish=\"No\nRegister SADAD Bill\npayment\"\n\"SADADBILLACT\" DescEnglish=\"SADAD\nBill\nActivation\" \n\"PAYSAWA\" DescEnglish=\"SAWA LANA\nPayment\" \n\"ADDSAWA\" DescEnglish=\"Adding SAWA\nLANA\nMobile\" \n\"SADADPAY\" DescEnglish=\"MOI Payment\"\n\"SADADMOIREG\"\nDescEnglish=\"Adding MOI\nBeneficiary\" \n\"INVSER\"\nDescEnglish=\"Investment Services\"\n\"IPOSER\"\nDescEnglish=\"IPO Services\"\n\"TRFREM\"\nDescEnglish=\"Quick Pay\nTransfer\" \n\"ADDREMBEN\" DescEnglish=\"Quick\nPay\nBeneficiary\" \n\"SMSSER\" DescEnglish=\"SMS\nNotification Activation and Update\"\n\"RESETTXNOIN\" DescEnglish=\"Resetting\nTransaction\nPassword\" \n\"RESETIVRPIN\"\nDescEnglish=\"Resetting IVR PIN\"\n\"SITESER\" DescEnglish=\"SiteKey\nservices\"\n\"TRUSPCSER\"\nDescEnglish=\"Trusted PC\nservices\" \n\"AUTHNUMB\" DescEnglish=\"Authenticated\nNumber\"\n\"TOKENSER\" DescEnglish=\"Token services\"\n\"NONE\"\nDescEnglish=\"No purposeType\nwill be retrieved\"\nDescArabic=\"No purposeType will be retrieved\"\nFRGTUSRID = \"Forgot UserID\"\nFRGTUSRPass = \"Forgot Password\"\nELECTRONICREG DescEnglish=\" Registration to Electronic Services \"\n\"NCBCOTP\" DescEnglish=\"Login Authentication\"\n\"MFAPPLN\"\nDescEnglish=\"MF Pricing Details\" DescArabic=\"Arabic MF Pricing\nDetails \"\n\"PFAPPLN\" DescEnglish=\"PF Pricing Details\"\nDescArabic=\"Arabic PF Pricing\nDetails \"\n\"THMRSUBSR\"\nDescEnglish=\"Thimar Subscription\" \n\"THMRMODF\" DescEnglish=\"Thimar Modification\"\n\"THMRCANCL\" DescEnglish=\"Thimar\nCancelation\" \n\"FUNDINTRANSFER\"\nDescEnglish=\"Fund-in Transfer\"\n\"DEBITCARDSTOP\"\nDescEnglish=\"Debit Card Stop\" \n\"SADADAUTOSUB\" DescEnglish=\"Sadad Automation Bill\nSubscribe\" \n\"SADADAUTOUNSUB\" DescEnglish=\"Sadad\nAutomation Bill Unsubscribe\"\n\"SADADOLPREG\"\nDescEnglish=\"Registration in SADAD online bill payment service\"\n\"SADADOLPUPD\" DescEnglish=\"Update SADAD online bill\npayment information\" \n\"OLPFNDIN\"\nDescEnglish=\"Transfer to Light Account\"\n\"OLPFNDOUT\"\nDescEnglish=\"Transfer from Light Account\" \n\"FATXNOTUSR\" DescEnglish=\"You\nhave a new AlahliOnline notification\" \n\"SAOLPPAY\"\nDescEnglish=\"Online Purchase\" \n\"SAOLPCHGPWD\" DescEnglish=\"Change SADAD OLP\nPassword\"\n\"ADPOSDTL\" DescEnglish=\"Adjust POS Daily\nTransactions Limit\" \n\"ENAVIEWPIN\"\nDescEnglish=\"Enable User to view Credit Card PIN\"\n\"FRGTPVN\"\nDescEnglish=\"Forgot PVN\" \n\"TOKACT\" DescEnglish=\"Token Activation\"\n\"CCSTCHG\"\nDescEnglish=\"Change Credit Settlement Percentage\"\n\"STPBLKCC\" DescEnglish=\"Stop Credit Card\"\n\"ATMCARDNEWISSUE\" \nDescEnglish=\"New Card Issuance\" \n\"ATMCARDREISSUE\" DescEnglish=\"Card Re-issuance\" \n\"ATMCARDADDISSUE\" \nDescEnglish=\"Additional Card Issuance\"\t\t\t\t\t\n\"CCSSHP\" DescEnglish=\"Hemayati Programs Subscription\" \n\"CCSUHP\" DescEnglish=\"Hemayati Program Modification\" \n\"CCSUCCL\" DescEnglish=\"Change Credit Card Limit\" \n\"CCSACCP\" DescEnglish=\"Assign Credit Card PIN\" \n\"CCSATIP\" DescEnglish=\"ALA DOFAAT Installment\" \n\"CCSRCC\" DescEnglish=\"Reissuing Credit Card\" \n\"ALAHLIMOBILEFINGERPRINT\" DescEnglish=\"Fingerprint Registration\" \n\"ALAHLIMOBILEPIN\"  DescEnglish=\"Login PIN Registration\"\n\"CREATEHOUSELBRACCT\" DescEnglish=\"house labor account creation\" \n\"LINKHOUSELBRACCT\" DescEnglish=\"linking house labor account\" \n\"DELINKHOUSELBRACCT\"  DescEnglish=\"delinking house labor account\"\n\"MLTICURPRPDTXN\"  DescEnglish=\"Multi Currency Prepaid Card Transaction\"\n\"LOANTOPUP\"  DescEnglish=\"Loan Top up\"\n\"APPLEWATCH\" DescEnglish=\"Apple Watch\" \n\"AUTOLEASETXN\" DescEnglish=\" Auto lease transaction \" \n\"REALESTFINSER\" DescEnglish=\" Real estate finance services \""
+          }
+        },
+        "description": ""
+      },
+      "tns_GetOTPATMResponse": {
+        "title": "tns_GetOTPATMResponse",
+        "type": "object",
+        "properties": {
+          "OTPDetails": {
+            "$ref": "#/components/schemas/tns_OTPForAccountIdResponseType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "tns_OTPForAccountIdResponseType": {
+        "title": "tns_OTPForAccountIdResponseType",
+        "required": [
+          "code",
+          "otp",
+          "referenceId",
+          "isSendSMSNotification",
+          "mobileNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "otp": {
+            "type": "string"
+          },
+          "referenceId": {
+            "type": "string"
+          },
+          "isSendSMSNotification": {
+            "type": "boolean"
+          },
+          "mobileNumber": {
+            "pattern": "[0-9]{9,15}",
+            "type": "string"
+          },
+          "ecnId": {
+            "maxLength": 8,
+            "minLength": 0,
+            "type": "string",
+            "description": "Ecn Identification.\n\t\t\t\tValid values are :\n\t\t\t\t23747091,\n\t\t\t\t12948435, 11408939 etc"
+          }
+        },
+        "description": ""
+      },
+      "Q1_PostalAddress": {
+        "title": "Q1_PostalAddress",
+        "type": "object",
+        "properties": {
+          "addressLine1": {
+            "maxLength": 70,
+            "minLength": 0,
+            "type": "string"
+          },
+          "addressLine2": {
+            "maxLength": 70,
+            "minLength": 0,
+            "type": "string"
+          },
+          "addressLine3": {
+            "maxLength": 70,
+            "minLength": 0,
+            "type": "string"
+          },
+          "city": {
+            "maxLength": 35,
+            "minLength": 0,
+            "type": "string"
+          },
+          "region": {
+            "maxLength": 35,
+            "minLength": 0,
+            "type": "string"
+          },
+          "postalCode": {
+            "maxLength": 16,
+            "minLength": 0,
+            "type": "string"
+          },
+          "country": {
+            "pattern": "([A-Z]{2,2})|()",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_Money": {
+        "title": "Q1_Money",
+        "required": [
+          "isoCurrencyCode"
+        ],
+        "type": "object",
+        "properties": {
+          "isoCurrencyCode": {
+            "pattern": "[A-Z]{3,3}",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_MoneyOptional": {
+        "title": "Q1_MoneyOptional",
+        "required": [
+          "isoCurrencyCode"
+        ],
+        "type": "object",
+        "properties": {
+          "isoCurrencyCode": {
+            "pattern": "([A-Z]{3,3})|()",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_Cursor": {
+        "title": "Q1_Cursor",
+        "required": [
+          "position",
+          "noOfRows"
+        ],
+        "type": "object",
+        "properties": {
+          "position": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "noOfRows": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "description": ""
+      },
+      "Q1_Biller": {
+        "title": "Q1_Biller",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "xml": {
+                "name": "id",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "Q1_DocumentType": {
+        "title": "Q1_DocumentType",
+        "required": [
+          "documentId",
+          "documentSubId",
+          "totalPages",
+          "documentType",
+          "archivedDate",
+          "page"
+        ],
+        "type": "object",
+        "properties": {
+          "documentId": {
+            "maxLength": 7,
+            "type": "string"
+          },
+          "documentSubId": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "documentType": {
+            "type": "string"
+          },
+          "archivedDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          },
+          "page": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Q1_PageType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "Q1_PageType": {
+        "title": "Q1_PageType",
+        "required": [
+          "pageNo",
+          "pageExt",
+          "pageContent"
+        ],
+        "type": "object",
+        "properties": {
+          "pageNo": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageExt": {
+            "type": "string"
+          },
+          "pageContent": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_BillCycle": {
+        "title": "Q1_BillCycle",
+        "enum": [
+          "New",
+          "XXX",
+          "YYY"
+        ],
+        "type": "string",
+        "description": "Valid Values : New, XXX, YYY"
+      },
+      "Q1_Flag": {
+        "title": "Q1_Flag",
+        "enum": [
+          "Y",
+          "N"
+        ],
+        "type": "string",
+        "description": "Valid Values : Y or N"
+      },
+      "Q1_OfferToTag": {
+        "title": "Q1_OfferToTag",
+        "enum": [
+          "Yes",
+          "No"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "Q1_CustomerId": {
+        "title": "Q1_CustomerId",
+        "required": [
+          "id",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_CustomerId2": {
+        "title": "Q1_CustomerId2",
+        "required": [
+          "id",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_Parameter": {
+        "title": "Q1_Parameter",
+        "required": [
+          "name",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_TransactionType": {
+        "title": "Q1_TransactionType",
+        "enum": [
+          "BIANNUALCYCLE",
+          "TODAY",
+          "CYCLETODATE",
+          "CTD"
+        ],
+        "type": "string",
+        "description": "Valid values are BIANNUALCYCLE, TODAY,\n\t\t\t\tCYCLETODATE, CTD etc"
+      },
+      "Q1_BeneficiaryId": {
+        "title": "Q1_BeneficiaryId",
+        "required": [
+          "id",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "minimum": 0.0,
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_DeviceDetails": {
+        "title": "Q1_DeviceDetails",
+        "required": [
+          "machineNonce",
+          "sequenceNonce",
+          "machineLabel",
+          "machineProperties",
+          "createDate",
+          "lastUsedDate",
+          "expiryDate"
+        ],
+        "type": "object",
+        "properties": {
+          "machineNonce": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "sequenceNonce": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "machineLabel": {
+            "type": "string"
+          },
+          "machineProperties": {
+            "$ref": "#/components/schemas/Q1_MachineProperties"
+          },
+          "createDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          },
+          "lastUsedDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          },
+          "expiryDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_AuthenticationDeviceDetails": {
+        "title": "Q1_AuthenticationDeviceDetails",
+        "required": [
+          "machineNonce",
+          "sequenceNonce",
+          "machineLabel",
+          "machineProperties"
+        ],
+        "type": "object",
+        "properties": {
+          "machineNonce": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "sequenceNonce": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "machineLabel": {
+            "type": "string"
+          },
+          "machineProperties": {
+            "$ref": "#/components/schemas/Q1_MachineProperties"
+          }
+        },
+        "description": ""
+      },
+      "Q1_MachineProperties": {
+        "title": "Q1_MachineProperties",
+        "required": [
+          "applicationData"
+        ],
+        "type": "object",
+        "properties": {
+          "applicationData": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Q1_ApplicationData"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "Q1_ApplicationData": {
+        "title": "Q1_ApplicationData",
+        "required": [
+          "name",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "value": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_AuthenticationInfo": {
+        "title": "Q1_AuthenticationInfo",
+        "required": [
+          "methods"
+        ],
+        "type": "object",
+        "properties": {
+          "methods": {
+            "$ref": "#/components/schemas/Q1_Methods"
+          }
+        },
+        "description": ""
+      },
+      "Q1_Methods": {
+        "title": "Q1_Methods",
+        "required": [
+          "hardToken",
+          "softToken",
+          "siteImage",
+          "trustedPC",
+          "callerId",
+          "oneTimePass"
+        ],
+        "type": "object",
+        "properties": {
+          "hardToken": {
+            "type": "boolean"
+          },
+          "softToken": {
+            "type": "boolean"
+          },
+          "siteImage": {
+            "type": "boolean"
+          },
+          "trustedPC": {
+            "type": "boolean"
+          },
+          "callerId": {
+            "type": "boolean"
+          },
+          "oneTimePass": {
+            "type": "boolean"
+          }
+        },
+        "description": ""
+      },
+      "Q1_TokenDetails": {
+        "title": "Q1_TokenDetails",
+        "required": [
+          "userId",
+          "userName",
+          "userGroup",
+          "vendorId",
+          "serialNumber",
+          "tokenType",
+          "signatureSupported",
+          "loadDate",
+          "lastUsedDate"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "userName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "userGroup": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "vendorId": {
+            "type": "string"
+          },
+          "serialNumber": {
+            "type": "string"
+          },
+          "tokenType": {
+            "type": "string"
+          },
+          "signatureSupported": {
+            "type": "boolean"
+          },
+          "loadDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          },
+          "lastUsedDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_AccountDetails": {
+        "title": "Q1_AccountDetails",
+        "required": [
+          "accountId",
+          "balance",
+          "overdraft",
+          "balanceSAR",
+          "availableSAR",
+          "averageLastSixMonths",
+          "isoCurrencyCode",
+          "division",
+          "statusCode",
+          "accountType",
+          "glClassificationCode"
+        ],
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "maxLength": 24,
+            "minLength": 14,
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})",
+            "type": "string"
+          },
+          "balance": {
+            "$ref": "#/components/schemas/Q1_Money"
+          },
+          "overdraft": {
+            "$ref": "#/components/schemas/Q1_Money"
+          },
+          "balanceSAR": {
+            "$ref": "#/components/schemas/Q1_Money"
+          },
+          "availableSAR": {
+            "$ref": "#/components/schemas/Q1_Money"
+          },
+          "averageLastSixMonths": {
+            "$ref": "#/components/schemas/Q1_Money"
+          },
+          "isoCurrencyCode": {
+            "pattern": "[A-Z]{3,3}",
+            "type": "string"
+          },
+          "division": {
+            "type": "string"
+          },
+          "statusCode": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "accountType": {
+            "maxLength": 4,
+            "type": "string"
+          },
+          "glClassificationCode": {
+            "maxLength": 40,
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_Gender": {
+        "title": "Q1_Gender",
+        "enum": [
+          "M",
+          "F"
+        ],
+        "type": "string",
+        "description": "Valid values are : M , F etc"
+      },
+      "Q1_trueOrFalseType": {
+        "title": "Q1_trueOrFalseType",
+        "enum": [
+          "true",
+          "false",
+          "True",
+          "False"
+        ],
+        "type": "string",
+        "description": "Valid values are : true, false, True, False"
+      },
+      "Q1_YorNType": {
+        "title": "Q1_YorNType",
+        "enum": [
+          "Y",
+          "N"
+        ],
+        "type": "string",
+        "description": "Valid values are : Y, N"
+      },
+      "Q1_YorNTypeOptional": {
+        "title": "Q1_YorNTypeOptional",
+        "enum": [
+          "Y",
+          "N"
+        ],
+        "type": "string",
+        "description": "Optional.\n\t\t\t\tValid values are : Y, N"
+      },
+      "Q1_contactlessIndicatorTypeOptional": {
+        "title": "Q1_contactlessIndicatorTypeOptional",
+        "enum": [
+          "Y",
+          "N",
+          "V"
+        ],
+        "type": "string",
+        "description": "Optional.\n\t\t\t\tValid values are : Y, N, V"
+      },
+      "Q1_CustomerChannelType": {
+        "title": "Q1_CustomerChannelType",
+        "enum": [
+          "BOTH",
+          "MOBILE",
+          "AOL"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "Q1_ErrorCategoryType": {
+        "title": "Q1_ErrorCategoryType",
+        "enum": [
+          "BUSINESS",
+          "SYSTEM"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "Q1_CommonServiceFaultType": {
+        "title": "Q1_CommonServiceFaultType",
+        "required": [
+          "category",
+          "code",
+          "message",
+          "detail"
+        ],
+        "type": "object",
+        "properties": {
+          "category": {
+            "$ref": "#/components/schemas/Q1_ErrorCategoryType"
+          },
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_ServicesStatusType": {
+        "title": "Q1_ServicesStatusType",
+        "enum": [
+          "ACTIVE",
+          "DISABLE_USER",
+          "DISABLE_ADMIN",
+          "DELETED"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "Q1_ServiceLevelType": {
+        "title": "Q1_ServiceLevelType",
+        "enum": [
+          "INQUIRY",
+          "FULL"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "Q1_CustomerStatusType": {
+        "title": "Q1_CustomerStatusType",
+        "required": [
+          "userId",
+          "aol",
+          "mobile",
+          "emergencyCash"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "aol": {
+            "$ref": "#/components/schemas/Q1_AolStatusType"
+          },
+          "mobile": {
+            "$ref": "#/components/schemas/Q1_MobileStatusType"
+          },
+          "emergencyCash": {
+            "$ref": "#/components/schemas/Q1_EmergencyCashStatus"
+          }
+        },
+        "description": ""
+      },
+      "Q1_AolStatusType": {
+        "title": "Q1_AolStatusType",
+        "required": [
+          "createdBy",
+          "createdDate",
+          "lastLoginDate",
+          "serviceLevel",
+          "serviceStatus",
+          "passwordRevoked"
+        ],
+        "type": "object",
+        "properties": {
+          "createdBy": {
+            "type": "string"
+          },
+          "createdDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string"
+          },
+          "lastLoginDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string"
+          },
+          "serviceLevel": {
+            "$ref": "#/components/schemas/Q1_ServiceLevelType"
+          },
+          "serviceStatus": {
+            "$ref": "#/components/schemas/Q1_ServicesStatusType"
+          },
+          "passwordRevoked": {
+            "type": "boolean"
+          }
+        },
+        "description": ""
+      },
+      "Q1_MobileStatusType": {
+        "title": "Q1_MobileStatusType",
+        "required": [
+          "registeredBy",
+          "registeredDate",
+          "lastLoginDate",
+          "serviceLevel",
+          "serviceStatus"
+        ],
+        "type": "object",
+        "properties": {
+          "registeredBy": {
+            "type": "string"
+          },
+          "registeredDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string"
+          },
+          "lastLoginDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string"
+          },
+          "serviceLevel": {
+            "$ref": "#/components/schemas/Q1_ServiceLevelType"
+          },
+          "serviceStatus": {
+            "$ref": "#/components/schemas/Q1_ServicesStatusType"
+          }
+        },
+        "description": ""
+      },
+      "Q1_EmergencyCashStatus": {
+        "title": "Q1_EmergencyCashStatus",
+        "required": [
+          "registrationDate",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "registrationDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_TransactionInfo": {
+        "title": "Q1_TransactionInfo",
+        "required": [
+          "transactionType"
+        ],
+        "type": "object",
+        "properties": {
+          "transactionId": {
+            "type": "string"
+          },
+          "relatedTransactionId": {
+            "type": "string"
+          },
+          "transactionType": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_ClientInfo": {
+        "title": "Q1_ClientInfo",
+        "required": [
+          "clientId"
+        ],
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_SecurityInfo": {
+        "title": "Q1_SecurityInfo",
+        "required": [
+          "username",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_CreationInfo": {
+        "title": "Q1_CreationInfo",
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string"
+          },
+          "branch": {
+            "maxLength": 5,
+            "type": "string"
+          },
+          "institution": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "teller": {
+            "maxLength": 8,
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_RequestHeader": {
+        "title": "Q1_RequestHeader",
+        "type": "object",
+        "properties": {
+          "transactionInfo": {
+            "$ref": "#/components/schemas/Q1_TransactionInfo"
+          },
+          "clientInfo": {
+            "$ref": "#/components/schemas/Q1_ClientInfo"
+          },
+          "securityInfo": {
+            "$ref": "#/components/schemas/Q1_SecurityInfo"
+          },
+          "creationInfo": {
+            "$ref": "#/components/schemas/Q1_CreationInfo"
+          }
+        },
+        "description": ""
+      },
+      "Q1_ErrorInfo": {
+        "title": "Q1_ErrorInfo",
+        "required": [
+          "level"
+        ],
+        "type": "object",
+        "properties": {
+          "level": {
+            "$ref": "#/components/schemas/Q1_level"
+          },
+          "code": {
+            "type": "string"
+          },
+          "context": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "details": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "Q1_ReplyHeader": {
+        "title": "Q1_ReplyHeader",
+        "type": "object",
+        "properties": {
+          "transactionInfo": {
+            "$ref": "#/components/schemas/Q1_TransactionInfo"
+          },
+          "clientInfo": {
+            "$ref": "#/components/schemas/Q1_ClientInfo"
+          },
+          "errorInfo": {
+            "$ref": "#/components/schemas/Q1_ErrorInfo"
+          }
+        },
+        "description": ""
+      },
+      "AuthenticateIBSCreationRequest": {
+        "title": "AuthenticateIBSCreationRequest",
+        "required": [
+          "AuthenticateIBSCreationRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "AuthenticateIBSCreationRequest": {
+            "$ref": "#/components/schemas/tns_AuthenticateIBSCreationRequest"
+          }
+        }
+      },
+      "AuthenticateIBSCreationResponse": {
+        "title": "AuthenticateIBSCreationResponse",
+        "required": [
+          "AuthenticateIBSCreationResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "AuthenticateIBSCreationResponse": {
+            "$ref": "#/components/schemas/tns_AuthenticateIBSCreationResponse"
+          }
+        }
+      },
+      "AuthenticateIBSRetrieveRequest": {
+        "title": "AuthenticateIBSRetrieveRequest",
+        "required": [
+          "AuthenticateIBSRetrieveRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "AuthenticateIBSRetrieveRequest": {
+            "$ref": "#/components/schemas/tns_AuthenticateIBSRetrieveRequest"
+          }
+        }
+      },
+      "AuthenticateIBSRetrieveResponse": {
+        "title": "AuthenticateIBSRetrieveResponse",
+        "required": [
+          "AuthenticateIBSRetrieveResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "AuthenticateIBSRetrieveResponse": {
+            "$ref": "#/components/schemas/tns_AuthenticateIBSRetrieveResponse"
+          }
+        }
+      },
+      "AuthenticateTokenRequest": {
+        "title": "AuthenticateTokenRequest",
+        "required": [
+          "AuthenticateTokenRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "AuthenticateTokenRequest": {
+            "$ref": "#/components/schemas/AuthenticateTokenRequestType"
+          }
+        }
+      },
+      "AuthenticateTokenResponse": {
+        "title": "AuthenticateTokenResponse",
+        "required": [
+          "AuthenticateTokenResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "AuthenticateTokenResponse": {
+            "$ref": "#/components/schemas/AuthenticateTokenResponseType"
+          }
+        }
+      },
+      "CustomerInquiryRequest": {
+        "title": "CustomerInquiryRequest",
+        "required": [
+          "CustomerInquiryRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "CustomerInquiryRequest": {
+            "$ref": "#/components/schemas/CustomerInquiryRequestType"
+          }
+        }
+      },
+      "CustomerInquiryResponse": {
+        "title": "CustomerInquiryResponse",
+        "required": [
+          "CustomerInquiryResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "CustomerInquiryResponse": {
+            "$ref": "#/components/schemas/CustomerInquiryResponseType"
+          }
+        }
+      },
+      "EntrustUserDetailsRequest": {
+        "title": "EntrustUserDetailsRequest",
+        "required": [
+          "EntrustUserDetailsRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "EntrustUserDetailsRequest": {
+            "$ref": "#/components/schemas/tns_EntrustUserDetailsRequest"
+          }
+        }
+      },
+      "EntrustUserDetailsResponse": {
+        "title": "EntrustUserDetailsResponse",
+        "required": [
+          "EntrustUserDetailsResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "EntrustUserDetailsResponse": {
+            "$ref": "#/components/schemas/tns_EntrustUserDetailsResponse"
+          }
+        }
+      },
+      "GetOTPATMRequest": {
+        "title": "GetOTPATMRequest",
+        "required": [
+          "GetOTPATMRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "GetOTPATMRequest": {
+            "$ref": "#/components/schemas/tns_GetOTPATMRequest"
+          }
+        }
+      },
+      "GetOTPATMResponse": {
+        "title": "GetOTPATMResponse",
+        "required": [
+          "GetOTPATMResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "GetOTPATMResponse": {
+            "$ref": "#/components/schemas/tns_GetOTPATMResponse"
+          }
+        }
+      },
+      "NewPVNRequest": {
+        "title": "NewPVNRequest",
+        "required": [
+          "NewPVNRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "NewPVNRequest": {
+            "$ref": "#/components/schemas/tns_NewPVNRequest"
+          }
+        }
+      },
+      "NewPVNResponse": {
+        "title": "NewPVNResponse",
+        "required": [
+          "NewPVNResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "NewPVNResponse": {
+            "$ref": "#/components/schemas/tns_NewPVNResponse"
+          }
+        }
+      },
+      "OnBoardCustomerRequest": {
+        "title": "OnBoardCustomerRequest",
+        "required": [
+          "OnBoardCustomerRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "OnBoardCustomerRequest": {
+            "$ref": "#/components/schemas/tns_OnBoardCustomerRequest"
+          }
+        }
+      },
+      "OnBoardCustomerResponse": {
+        "title": "OnBoardCustomerResponse",
+        "required": [
+          "OnBoardCustomerResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "OnBoardCustomerResponse": {
+            "$ref": "#/components/schemas/tns_OnBoardCustomerResponse"
+          }
+        }
+      },
+      "OnBoardPCTrustRequest": {
+        "title": "OnBoardPCTrustRequest",
+        "required": [
+          "OnBoardPCTrustRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "OnBoardPCTrustRequest": {
+            "$ref": "#/components/schemas/tns_OnBoardPCTrustRequest"
+          }
+        }
+      },
+      "OnBoardPCTrustResponse": {
+        "title": "OnBoardPCTrustResponse",
+        "required": [
+          "OnBoardPCTrustResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "OnBoardPCTrustResponse": {
+            "$ref": "#/components/schemas/tns_OnBoardPCTrustResponse"
+          }
+        }
+      },
+      "OnBoardSiteImageRequest": {
+        "title": "OnBoardSiteImageRequest",
+        "required": [
+          "OnBoardSiteImageRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "OnBoardSiteImageRequest": {
+            "$ref": "#/components/schemas/tns_OnBoardSiteImageRequest"
+          }
+        }
+      },
+      "OnBoardSiteImageResponse": {
+        "title": "OnBoardSiteImageResponse",
+        "required": [
+          "OnBoardSiteImageResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "OnBoardSiteImageResponse": {
+            "$ref": "#/components/schemas/tns_OnBoardSiteImageResponse"
+          }
+        }
+      },
+      "OnBoardTokenRequest": {
+        "title": "OnBoardTokenRequest",
+        "required": [
+          "OnBoardTokenRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "OnBoardTokenRequest": {
+            "$ref": "#/components/schemas/tns_OnBoardTokenRequest"
+          }
+        }
+      },
+      "OnBoardTokenResponse": {
+        "title": "OnBoardTokenResponse",
+        "required": [
+          "OnBoardTokenResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "OnBoardTokenResponse": {
+            "$ref": "#/components/schemas/tns_OnBoardTokenResponse"
+          }
+        }
+      },
+      "OTPRequest": {
+        "title": "OTPRequest",
+        "required": [
+          "OTPRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "OTPRequest": {
+            "$ref": "#/components/schemas/OTPRequestType"
+          }
+        }
+      },
+      "OTPResponse": {
+        "title": "OTPResponse",
+        "required": [
+          "OTPResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "OTPResponse": {
+            "$ref": "#/components/schemas/OTPResponseType"
+          }
+        }
+      },
+      "PVNAutoGenerationRequest": {
+        "title": "PVNAutoGenerationRequest",
+        "required": [
+          "PVNAutoGenerationRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "PVNAutoGenerationRequest": {
+            "$ref": "#/components/schemas/tns_PVNAutoGenerationRequest"
+          }
+        }
+      },
+      "PVNAutoGenerationResponse": {
+        "title": "PVNAutoGenerationResponse",
+        "required": [
+          "PVNAutoGenerationResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "PVNAutoGenerationResponse": {
+            "$ref": "#/components/schemas/tns_PVNAutoGenerationResponse"
+          }
+        }
+      },
+      "PVNRetrievalRequest": {
+        "title": "PVNRetrievalRequest",
+        "required": [
+          "PVNRetrievalRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "PVNRetrievalRequest": {
+            "$ref": "#/components/schemas/tns_PVNRetrievalRequest"
+          }
+        }
+      },
+      "PVNRetrievalResponse": {
+        "title": "PVNRetrievalResponse",
+        "required": [
+          "PVNRetrievalResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "PVNRetrievalResponse": {
+            "$ref": "#/components/schemas/tns_PVNRetrievalResponse"
+          }
+        }
+      },
+      "PVNUpdateRequest": {
+        "title": "PVNUpdateRequest",
+        "required": [
+          "PVNUpdateRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "PVNUpdateRequest": {
+            "$ref": "#/components/schemas/tns_PVNUpdateRequest"
+          }
+        }
+      },
+      "PVNUpdateResponse": {
+        "title": "PVNUpdateResponse",
+        "required": [
+          "PVNUpdateResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "PVNUpdateResponse": {
+            "$ref": "#/components/schemas/tns_PVNUpdateResponse"
+          }
+        }
+      },
+      "Q1_level": {
+        "title": "Q1_level",
+        "enum": [
+          "SUCCESS",
+          "WARNING",
+          "FAILURE"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "SetTokenStateRequest": {
+        "title": "SetTokenStateRequest",
+        "required": [
+          "SetTokenStateRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "SetTokenStateRequest": {
+            "$ref": "#/components/schemas/tns_SetTokenStateRequest"
+          }
+        }
+      },
+      "SetTokenStateResponse": {
+        "title": "SetTokenStateResponse",
+        "required": [
+          "SetTokenStateResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "SetTokenStateResponse": {
+            "$ref": "#/components/schemas/tns_SetTokenStateResponse"
+          }
+        }
+      },
+      "tns_action": {
+        "title": "tns_action",
+        "enum": [
+          "UPDATE",
+          "INSERT",
+          "DELETE",
+          "EXISTING"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "tns_fieldName": {
+        "title": "tns_fieldName",
+        "enum": [
+          "PHONE_NO_1",
+          "PHONE_NO_2",
+          "PHONE_NO_3",
+          "MOBILE_NO_1",
+          "MOBILE_NO_2",
+          "MOBILE_NO_3"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "tns_isRegister": {
+        "title": "tns_isRegister",
+        "enum": [
+          "true",
+          "false"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "isSendSMSNotificationType": {
+        "title": "isSendSMSNotificationType",
+        "enum": [
+          "true",
+          "false"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "tns_operationMode": {
+        "title": "tns_operationMode",
+        "enum": [
+          "EXECUTE",
+          "MAINTAIN",
+          "INITIATE"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "purposeType": {
+        "title": "purposeType",
+        "enum": [
+          "LOGIN",
+          "TRFOWN",
+          "TRFNCB",
+          "TRFEWALLET",
+          "TRFLOC",
+          "TRFINT",
+          "ADDBENNCB",
+          "ADDBENEWALLET",
+          "ADDBENLOC",
+          "ADDBENINT",
+          "ALAMI",
+          "PAYCRECARDOWN",
+          "PAYCRECARDOTH",
+          "CASHADVOWN",
+          "CASHADVOTHER",
+          "DEBATMREISSUE",
+          "DEVATMLINK",
+          "PAYAUTOLEASE",
+          "SADADREG",
+          "SADADNOREG",
+          "SADADBILLACT",
+          "PAYSAWA",
+          "ADDSAWA",
+          "SADADPAY",
+          "SADADMOIREG",
+          "INVSER",
+          "IPOSER",
+          "TRFREM",
+          "ADDREMBEN",
+          "SMSSER",
+          "RESETTXNOIN",
+          "RESETIVRPIN",
+          "SITESER",
+          "TRUSPCSER",
+          "AUTHNUMB",
+          "TOKENSER",
+          "DEBITCARDSTOP",
+          "ATMCASHWITHDRAWAL",
+          "ATMCASHWITHDRAWALRESIGTRATION",
+          "NONE",
+          "FUNDINTRANSFER",
+          "FRGTUSRID",
+          "MFAPPLN",
+          "PFAPPLN",
+          "THMRSUBSR",
+          "THMRMODF",
+          "THMRCANCL",
+          "CCLISMS",
+          "CCASMS",
+          "NCBCOTP",
+          "FRGTUSRPass",
+          "ELECTRONICREG",
+          "BENADDREQO",
+          "MOTRANREQO",
+          "SADADAUTOSUB",
+          "SADADAUTOUNSUB",
+          "SADADOLPREG",
+          "SADADOLPUPD",
+          "OLPFNDIN",
+          "OLPFNDOUT",
+          "FATXNOTUSR",
+          "SAOLPPAY",
+          "CHGUSERID",
+          "SAOLPCHGPWD",
+          "ADPOSDTL",
+          "ENAVIEWPIN",
+          "FRGTPVN",
+          "TOKACT",
+          "CCSTCHG",
+          "INCPOSLIMIT",
+          "CCACTIVATE",
+          "STPBLKCC",
+          "PRFLUPDT",
+          "CHANGECCPIN",
+          "REQSUPCARD",
+          "CCSTMADDS",
+          "CCSMSNOTIF",
+          "DEBITCARDSER",
+          "OPENCRACC",
+          "ATMCARDNEWISSUE",
+          "ATMCARDREISSUE",
+          "ATMCARDADDISSUE",
+          "CCSSHP",
+          "CCSUHP",
+          "CCSUCCL",
+          "CCSACCP",
+          "CCSATIP",
+          "CCSRCC",
+          "ALAHLIMOBILEPIN",
+          "ALAHLIMOBILEFINGERPRINT",
+          "ALAHLIMOBILEPINMODIFICATION",
+          "CREATEHOUSELBRACCT",
+          "LINKHOUSELBRACCT",
+          "DELINKHOUSELBRACCT",
+          "MLTICURPRPDTXN",
+          "LOANTOPUP",
+          "APPLEWATCH",
+          "AUTOLEASETXN",
+          "REALESTFINSER",
+          "MODBENNCB",
+          "MODBENLOC",
+          "MODBENINT",
+          "PAYBULK",
+          "ADDSADADBILL",
+          "PAYSADADBILL",
+          "SADADBULKREG",
+          "PAYBULKSADAD",
+          "PAYBULKMOI",
+          "ALAHLIECORPREG",
+          "PAYROLLREG",
+          "POSREG",
+          "CREATEBULKVIRACC",
+          "BULKALVIRACCUPDT",
+          "CREATEINVACC",
+          "ADDCASHCONC",
+          "MODCASHCONC",
+          "MODREMBEN",
+          "INVCARAMCOPYMT",
+          "PAYROLLFILEUPD",
+          "DTDEBFUPD",
+          "BULKTXNTRANS",
+          "BULKFTRANS",
+          "ADDSWEEPROLE",
+          "TRFSOOWN",
+          "TRFSONCB",
+          "TRFSOLOC",
+          "TRFSOINT",
+          "SADADMULPAY",
+          "TRFOWNSCHD",
+          "TRFNCBSCHD",
+          "TRFLOCSCHD",
+          "TRFINTSCHD",
+          "MOIREFUND",
+          "OTSADADPAY",
+          "UPDCUSTMOBILENUM",
+          "ISSUEMADAVC",
+          "APPLYLG",
+          "CCSTPR",
+          "OTINVOICEPAY",
+          "ACTQPAYCUST",
+          "ARAMCOREGISTERBILL",
+          "ADDBENNCBCINV",
+          "SADADMODIFYBILL",
+          "ACTIVATEBENEFICIARY",
+          "CCUNBLOCKPIN",
+          "CCUSMS",
+          "ATMBLOCKLOST",
+          "ATMBLOCKSTOLEN",
+          "CCLINKACCTOCA",
+          "CCPAYMETHOD",
+          "LOSLOANSRV",
+          "MADAECOMSRV",
+          "OUTTRFMOB",
+          "SUBTRFMOB",
+          "USUBTRFMOB",
+          "ESALPAYER",
+          "CCOLAREV",
+          "CERTAXRES",
+          "ALAHLIETRADEREG",
+          "UPDCCMOBILENUM",
+          "AUTHSIMAHCHK",
+          "AUTHAPPRAISALFEE",
+          "AUTHADMINFEE",
+          "AUTHESIGN",
+          "POSGENISSUE",
+          "PAYROLLGENISSUE",
+          "ECORPGENISSUE",
+          "ETRADECREATION",
+          "ECORPMAINTAINANCE",
+          "LOANINQUIRIES",
+          "FINANCEAPPCREATION",
+          "SIGNTAYSEERCNTRACT",
+          "REGISTRATION",
+          "REMITTANCEPOS",
+          "UPDCRREGEXP",
+          "POSREFUNDAMT",
+          "UPDCUSTINFO",
+          "ADDEPAYMERCHNT",
+          "RESETPWD",
+          "ACTMERCHNT",
+          "REFNDAMTMADA",
+          "CREATETARVELNOTICE",
+          "AMENDTARVELNOTICE",
+          "CNFRMFRAUDTXN",
+          "UNBLOCKCARD",
+          "SELLCOMMODITY",
+          "REGPREPAIDCARD",
+          "UPLDPREPAIDCARDFILE",
+          "INQPREPAIDCARDFILE",
+          "UPDMOBILENUM",
+          "UPDTCOMMPREF",
+          "IPSQTLLIMIT",
+          "ADDMODIFYALIAS",
+          "ONBOARDING",
+          "TRANSAUTH",
+          "PFNEW",
+          "UPDSNBECORPWRKF",
+          "CREATESNBECORPUSER",
+          "UPDSNBECORPAUTHROLE",
+          "UPDSNBECORPUSERINFO",
+          "ONBOARDSNBECORPUSERTOETRADE",
+          "LINKDEBITACARDACCT",
+          "UNLINKDEBITACARDACCT",
+          "CHANGEDAILYLIMITTXN",
+          "VIEWMADACARDDETAILS",
+          "VIEWCREDITCARDDETAILS",
+          "INITIATERTPREQUEST",
+          "APPROVEINCOMINGRTP",
+          "REJECTINCOMINGRTP",
+          "REMOVETRUSTEDDEVICE"
+        ],
+        "type": "string",
+        "description": "\"LOGIN\" \nDescEnglish=\"Login Authentication\"\nDescArabic=\"Login Authentication\" \n\"TRFOWN\"\nDescEnglish=\"Transfer\nBetween My Accounts\"\n\"TRFNCB\"\nDescEnglish=\"Transfer Within NCB\"\n\"TRFEWALLET\" \nDescEnglish=\"e-Wallet Transfer\"\n\"TRFLOC\" DescEnglish=\"Local Transfer\"\n\"TRFINT\"\nDescEnglish=\"International Transfer\"\n \"ADDBENNCB\"\nDescEnglish=\"Adding an NCB Beneficiary\"\n\"ADDBENEWALLET\"\nDescEnglish=\"Adding an\ne-Wallet Beneficiary\"\n \"ADDBENLOC\"\nDescEnglish=\"Adding a Local\nBeneficiary\"\n\"ADDBENINT\"\nDescEnglish=\"Adding an International\nBeneficiary\"\n\"ALAMI\"\nDescEnglish=\"Subscribe/Unsubscribe\n3alamy Program\"\n\"PAYCRECARDOWN\"\nDescEnglish=\"Own Credit Card Payment\"\n\"PAYCRECARDOTH\" DescEnglish=\"Other NCB\nCredit Card Payment\" \n\"CASHADVOWN\"\nDescEnglish=\"Cash Advance\nto Personal\nAccount\"\n\"CASHADVOTHER\" DescEnglish=\"Cash\nAdvance to NCB Beneficiary\"\n\"DEBATMREISSUE\"\nDescEnglish=\"Debit\nCard Reissue\" \n\"DEVATMLINK\" DescEnglish=\"Debit Card\nChange Linked Account\" \n\"PAYAUTOLEASE\"\nDescEnglish=\"Auto Lease Payment\"\n\"SADADREG\"\nDescEnglish=\"Registered SADAD Bill Payment\"\n\"SADADNOREG\" DescEnglish=\"No\nRegister SADAD Bill\npayment\"\n\"SADADBILLACT\" DescEnglish=\"SADAD\nBill\nActivation\" \n\"PAYSAWA\" DescEnglish=\"SAWA LANA\nPayment\" \n\"ADDSAWA\" DescEnglish=\"Adding SAWA\nLANA\nMobile\" \n\"SADADPAY\" DescEnglish=\"MOI Payment\"\n\"SADADMOIREG\"\nDescEnglish=\"Adding MOI\nBeneficiary\" \n\"INVSER\"\nDescEnglish=\"Investment Services\"\n\"IPOSER\"\nDescEnglish=\"IPO Services\"\n\"TRFREM\"\nDescEnglish=\"Quick Pay\nTransfer\" \n\"ADDREMBEN\" DescEnglish=\"Quick\nPay\nBeneficiary\" \n\"SMSSER\" DescEnglish=\"SMS\nNotification Activation and Update\"\n\"RESETTXNOIN\" DescEnglish=\"Resetting\nTransaction\nPassword\" \n\"RESETIVRPIN\"\nDescEnglish=\"Resetting IVR PIN\"\n\"SITESER\" DescEnglish=\"SiteKey\nservices\"\n\"TRUSPCSER\"\nDescEnglish=\"Trusted PC\nservices\" \n\"AUTHNUMB\" DescEnglish=\"Authenticated\nNumber\"\n\"TOKENSER\" DescEnglish=\"Token services\"\n\"NONE\"\nDescEnglish=\"No purposeType\nwill be retrieved\"\nDescArabic=\"No purposeType will be retrieved\"\nFRGTUSRID = \"Forgot UserID\"\nFRGTUSRPass = \"Forgot Password\"\nELECTRONICREG DescEnglish=\" Registration to Electronic Services \"\n\"NCBCOTP\" DescEnglish=\"Login Authentication\"\n\"MFAPPLN\"\nDescEnglish=\"MF Pricing Details\" DescArabic=\"Arabic MF Pricing\nDetails \"\n\"PFAPPLN\" DescEnglish=\"PF Pricing Details\"\nDescArabic=\"Arabic PF Pricing\nDetails \"\n\"THMRSUBSR\"\nDescEnglish=\"Thimar Subscription\" \n\"THMRMODF\" DescEnglish=\"Thimar Modification\"\n\"THMRCANCL\" DescEnglish=\"Thimar\nCancelation\" \n\"FUNDINTRANSFER\"\nDescEnglish=\"Fund-in Transfer\"\n\"DEBITCARDSTOP\"\nDescEnglish=\"Debit Card Stop\" \n\"SADADAUTOSUB\" DescEnglish=\"Sadad Automation Bill\nSubscribe\" \n\"SADADAUTOUNSUB\" DescEnglish=\"Sadad\nAutomation Bill Unsubscribe\"\n\"SADADOLPREG\"\nDescEnglish=\"Registration in SADAD online bill payment service\"\n\"SADADOLPUPD\" DescEnglish=\"Update SADAD online bill\npayment information\" \n\"OLPFNDIN\"\nDescEnglish=\"Transfer to Light Account\"\n\"OLPFNDOUT\"\nDescEnglish=\"Transfer from Light Account\" \n\"FATXNOTUSR\" DescEnglish=\"You\nhave a new AlahliOnline notification\" \n\"SAOLPPAY\"\nDescEnglish=\"Online Purchase\" \n\"SAOLPCHGPWD\" DescEnglish=\"Change SADAD OLP\nPassword\"\n\"ADPOSDTL\" DescEnglish=\"Adjust POS Daily\nTransactions Limit\" \n\"ENAVIEWPIN\"\nDescEnglish=\"Enable User to view Credit Card PIN\"\n\"FRGTPVN\"\nDescEnglish=\"Forgot PVN\" \n\"TOKACT\" DescEnglish=\"Token Activation\"\n\"CCSTCHG\"\nDescEnglish=\"Change Credit Settlement Percentage\"\n\"STPBLKCC\" DescEnglish=\"Stop Credit Card\"\n\"ATMCARDNEWISSUE\" \nDescEnglish=\"New Card Issuance\" \n\"ATMCARDREISSUE\" DescEnglish=\"Card Re-issuance\" \n\"ATMCARDADDISSUE\" \nDescEnglish=\"Additional Card Issuance\"\t\t\t\t\t\n\"CCSSHP\" DescEnglish=\"Hemayati Programs Subscription\" \n\"CCSUHP\" DescEnglish=\"Hemayati Program Modification\" \n\"CCSUCCL\" DescEnglish=\"Change Credit Card Limit\" \n\"CCSACCP\" DescEnglish=\"Assign Credit Card PIN\" \n\"CCSATIP\" DescEnglish=\"ALA DOFAAT Installment\" \n\"CCSRCC\" DescEnglish=\"Reissuing Credit Card\" \n\"ALAHLIMOBILEFINGERPRINT\" DescEnglish=\"Fingerprint Registration\" \n\"ALAHLIMOBILEPIN\"  DescEnglish=\"Login PIN Registration\"\n\"CREATEHOUSELBRACCT\" DescEnglish=\"house labor account creation\" \n\"LINKHOUSELBRACCT\" DescEnglish=\"linking house labor account\" \n\"DELINKHOUSELBRACCT\"  DescEnglish=\"delinking house labor account\"\n\"MLTICURPRPDTXN\"  DescEnglish=\"Multi Currency Prepaid Card Transaction\"\n\"LOANTOPUP\"  DescEnglish=\"Loan Top up\"\n\"APPLEWATCH\" DescEnglish=\"Apple Watch\" \n\"AUTOLEASETXN\" DescEnglish=\" Auto lease transaction \" \n\"REALESTFINSER\" DescEnglish=\" Real estate finance services \""
+      },
+      "tns_state": {
+        "title": "tns_state",
+        "enum": [
+          "PENDING",
+          "CURRENT",
+          "HOLD",
+          "HOLD_PENDING",
+          "CANCELED",
+          "UNKNOWN"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "tns_status": {
+        "title": "tns_status",
+        "enum": [
+          "P",
+          "A"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "tns_userTokenInfo": {
+        "title": "tns_userTokenInfo",
+        "required": [
+          "userId",
+          "userGroup",
+          "vendorId",
+          "serialNumber",
+          "tokenType",
+          "state",
+          "activationState",
+          "activationCode",
+          "signatureSupported",
+          "loadDate",
+          "lastUsedDate",
+          "set",
+          "comment"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string"
+          },
+          "userGroup": {
+            "type": "string"
+          },
+          "vendorId": {
+            "type": "string"
+          },
+          "serialNumber": {
+            "type": "string"
+          },
+          "tokenType": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "activationState": {
+            "type": "string"
+          },
+          "activationCode": {
+            "type": "string"
+          },
+          "signatureSupported": {
+            "type": "string"
+          },
+          "loadDate": {
+            "type": "string"
+          },
+          "lastUsedDate": {
+            "type": "string"
+          },
+          "set": {
+            "type": "string"
+          },
+          "comment": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "TokenCreationRequest": {
+        "title": "TokenCreationRequest",
+        "required": [
+          "TokenCreationRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "TokenCreationRequest": {
+            "$ref": "#/components/schemas/tns_TokenCreationRequest"
+          }
+        }
+      },
+      "TokenCreationResponse": {
+        "title": "TokenCreationResponse",
+        "required": [
+          "TokenCreationResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "TokenCreationResponse": {
+            "$ref": "#/components/schemas/tns_TokenCreationResponse"
+          }
+        }
+      },
+      "TokenModificationRequest": {
+        "title": "TokenModificationRequest",
+        "required": [
+          "TokenModificationRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "TokenModificationRequest": {
+            "$ref": "#/components/schemas/tns_TokenModificationRequest"
+          }
+        }
+      },
+      "TokenModificationResponse": {
+        "title": "TokenModificationResponse",
+        "required": [
+          "TokenModificationResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "TokenModificationResponse": {
+            "$ref": "#/components/schemas/tns_TokenModificationResponse"
+          }
+        }
+      },
+      "TokenReSyncRequest": {
+        "title": "TokenReSyncRequest",
+        "required": [
+          "TokenReSyncRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "TokenReSyncRequest": {
+            "$ref": "#/components/schemas/tns_TokenReSyncRequest"
+          }
+        }
+      },
+      "TokenReSyncResponse": {
+        "title": "TokenReSyncResponse",
+        "required": [
+          "TokenReSyncResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "TokenReSyncResponse": {
+            "$ref": "#/components/schemas/tns_TokenReSyncResponse"
+          }
+        }
+      },
+      "TokenUnAssignmentRequest": {
+        "title": "TokenUnAssignmentRequest",
+        "required": [
+          "TokenUnAssignmentRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "TokenUnAssignmentRequest": {
+            "$ref": "#/components/schemas/tns_TokenUnAssignmentRequest"
+          }
+        }
+      },
+      "TokenUnAssignmentResponse": {
+        "title": "TokenUnAssignmentResponse",
+        "required": [
+          "TokenUnAssignmentResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "TokenUnAssignmentResponse": {
+            "$ref": "#/components/schemas/tns_TokenUnAssignmentResponse"
+          }
+        }
+      },
+      "UpdateCustomerRequest": {
+        "title": "UpdateCustomerRequest",
+        "required": [
+          "UpdateCustomerRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "UpdateCustomerRequest": {
+            "$ref": "#/components/schemas/tns_UpdateCustomerRequest"
+          }
+        }
+      },
+      "UpdateCustomerResponse": {
+        "title": "UpdateCustomerResponse",
+        "required": [
+          "UpdateCustomerResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "UpdateCustomerResponse": {
+            "$ref": "#/components/schemas/tns_UpdateCustomerResponse"
+          }
+        }
+      },
+      "UserCreationRequest": {
+        "title": "UserCreationRequest",
+        "required": [
+          "UserCreationRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "UserCreationRequest": {
+            "$ref": "#/components/schemas/tns_UserCreationRequest"
+          }
+        }
+      },
+      "UserCreationResponse": {
+        "title": "UserCreationResponse",
+        "required": [
+          "UserCreationResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "UserCreationResponse": {
+            "$ref": "#/components/schemas/tns_UserCreationResponse"
+          }
+        }
+      },
+      "UserDeleteRequest": {
+        "title": "UserDeleteRequest",
+        "required": [
+          "UserDeleteRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "UserDeleteRequest": {
+            "$ref": "#/components/schemas/tns_UserDeleteRequest"
+          }
+        }
+      },
+      "UserDeleteResponse": {
+        "title": "UserDeleteResponse",
+        "required": [
+          "UserDeleteResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "UserDeleteResponse": {
+            "$ref": "#/components/schemas/tns_UserDeleteResponse"
+          }
+        }
+      },
+      "UserDisableRequest": {
+        "title": "UserDisableRequest",
+        "required": [
+          "UserDisableRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "UserDisableRequest": {
+            "$ref": "#/components/schemas/tns_UserDisableRequest"
+          }
+        }
+      },
+      "UserDisableResponse": {
+        "title": "UserDisableResponse",
+        "required": [
+          "UserDisableResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "UserDisableResponse": {
+            "$ref": "#/components/schemas/tns_UserDisableResponse"
+          }
+        }
+      },
+      "UserEnableRequest": {
+        "title": "UserEnableRequest",
+        "required": [
+          "UserEnableRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "UserEnableRequest": {
+            "$ref": "#/components/schemas/tns_UserEnableRequest"
+          }
+        }
+      },
+      "UserEnableResponse": {
+        "title": "UserEnableResponse",
+        "required": [
+          "UserEnableResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "UserEnableResponse": {
+            "$ref": "#/components/schemas/tns_UserEnableResponse"
+          }
+        }
+      },
+      "UserRegistrationRequest": {
+        "title": "UserRegistrationRequest",
+        "required": [
+          "UserRegistrationRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "UserRegistrationRequest": {
+            "$ref": "#/components/schemas/tns_UserRegistrationRequest"
+          }
+        }
+      },
+      "UserRegistrationResponse": {
+        "title": "UserRegistrationResponse",
+        "required": [
+          "UserRegistrationResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "UserRegistrationResponse": {
+            "$ref": "#/components/schemas/tns_UserRegistrationResponse"
+          }
+        }
+      },
+      "wsse_UsernameToken": {
+        "title": "wsse_UsernameToken",
+        "required": [
+          "Username",
+          "Password"
+        ],
+        "type": "object",
+        "properties": {
+          "Username": {
+            "type": "string"
+          },
+          "Password": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "tns_AmountOptional": {
+        "oneOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      },
+      "Q1_AmountOptional": {
+        "$ref": "#/components/schemas/tns_AmountOptional"
+      }
+    },
+    "securitySchemes": {
+      "mwsecurity": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "mwsecurity": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "MFA APIs",
+      "description": ""
+    }
+  ]
+}

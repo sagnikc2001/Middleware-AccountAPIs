@@ -1,0 +1,1820 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch0="http://ws.core.cortex.com/domain/services/generic" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ws.core.cortex.com/domain/services/generic" targetNamespace="http://ws.core.cortex.com/domain/services/generic">
+<wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns:reqHdr="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:rspHdr="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:svcns="http://ws.core.cortex.com/domain/services/generic" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://ws.core.cortex.com/domain/services/generic">
+<xs:annotation>
+<xs:appinfo> Generic Web Service </xs:appinfo>
+</xs:annotation>
+<xs:import namespace="http://ws.core.cortex.com/domain/common/reqhdr"/>
+<xs:import namespace="http://ws.core.cortex.com/domain/common/rsphdr"/>
+<xs:import namespace="http://ws.core.cortex.com/domain/types"/>
+<xs:element name="GenericServiceRequest">
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="reqHdr:RequestHeader"/>
+<xs:element name="GenericServiceRequestDetails" type="svcns:GenericServiceRequestDetailsType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:complexType name="GenericServiceRequestDetailsType">
+<xs:sequence>
+<xs:element name="RequestCode">
+<xs:annotation>
+<xs:documentation>Request code to identify which service is being used </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="32"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="AdditionalFields" type="ctxtypes:AdditionalFieldsType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="GenericServiceResponse">
+<xs:complexType>
+<xs:sequence>
+<xs:element ref="rspHdr:ResponseHeader"/>
+<xs:element minOccurs="0" name="GenericServiceResponseDetails" type="svcns:GenericServiceResponseDetailsType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:complexType name="GenericServiceResponseDetailsType">
+<xs:sequence>
+<xs:element minOccurs="0" name="AdditionalFieldsList" type="svcns:AdditionalFieldsType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="AdditionalFieldsType">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalFields" type="ctxtypes:AdditionalFieldsType"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:currId="http://ws.core.cortex.com/domain/id/currId" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.core.cortex.com/domain/id/currId">
+<xs:complexType name="CurrencyListType">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Currency" type="currId:CurrencyType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="Currency" type="currId:CurrencyType"/>
+<xs:complexType name="CurrencyType">
+<xs:annotation>
+<xs:documentation> Identifier for a currency. Can be either the ISO numeric code or ISO Alpha Code </xs:documentation>
+</xs:annotation>
+<xs:sequence>
+<xs:element minOccurs="0" name="CurrCode">
+<xs:annotation>
+<xs:documentation> Numeric ISO code identifying the currency </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:minLength value="3"/>
+<xs:maxLength value="3"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="AlphaCode">
+<xs:annotation>
+<xs:documentation> ISO Alpha Code identifying the currency </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:minLength value="3"/>
+<xs:maxLength value="3"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns:currId="http://ws.core.cortex.com/domain/id/currId" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.core.cortex.com/domain/types">
+<xs:import namespace="http://ws.core.cortex.com/domain/id/currId"/>
+<xs:simpleType name="CortexDate">
+<xs:annotation>
+<xs:documentation> Date type used for any date field used in the webservices. The format is yyyy-MM-dd </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:minLength value="10"/>
+<xs:maxLength value="10"/>
+<xs:pattern value="[1-2][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9]"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="CortexTime">
+<xs:annotation>
+<xs:documentation>Time type used for any time field in the webservices. The format is HHmmss where HH is the current hour in 24 hours format, MM are the minutes and SS are the seconds. Left Padded with 0 up to six characters </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:minLength value="6"/>
+<xs:maxLength value="6"/>
+<xs:pattern value="[0-2][0-9][0-5][0-9][0-5][0-9]"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="Stan">
+<xs:annotation>
+<xs:documentation>System Audit Trace Number.</xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:long">
+<xs:maxInclusive value="999999"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="Rrn">
+<xs:annotation>
+<xs:documentation>Retrieval Reference Number</xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="12"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ActionCode">
+<xs:annotation>
+<xs:documentation>Action code identifying the result of a transaction. </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:enumeration value="0">
+<xs:annotation>
+<xs:documentation>Approved</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="1">
+<xs:annotation>
+<xs:documentation>Declined - No Pick Up</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="2">
+<xs:annotation>
+<xs:documentation>Decline - Pick Up</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="9">
+<xs:annotation>
+<xs:documentation>System Error</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ResponseCode">
+<xs:annotation>
+<xs:documentation>Response Code providing additional details about the response. To get the list of supported values, use the GetNumericDescription with the below tag: - r0: to get the list of supported values for action code 0 - r1: to get the list of supported values for action code 1 - r2: to get the list of supported values for action code 2 - r9: to get the list of supported values for action code 9 </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:maxLength value="2"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ApprovalCode">
+<xs:annotation>
+<xs:documentation>Approval code also known as authorization code generated for approved transactions </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="9"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="RejectionReason">
+<xs:annotation>
+<xs:documentation>Rejection reason of a transaction (detailed). The list of supported values can be retrieved using the GetNumericDescription service with description type as 'rj' </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:short"/>
+</xs:simpleType>
+<xs:simpleType name="CardExpiryDate">
+<xs:annotation>
+<xs:documentation>Card Expiry Date. Format is configured for all services </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="10"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="YesNoFlag">
+<xs:annotation>
+<xs:documentation> Flag indicating if a specific option is enabled or disabled </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:enumeration value="Y">
+<xs:annotation>
+<xs:documentation>Flag Enabled</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="N">
+<xs:annotation>
+<xs:documentation>Flag Disabled</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+<xs:complexType name="AdditionalFieldsType">
+<xs:annotation>
+<xs:documentation>List additional fields requested for the application </xs:documentation>
+</xs:annotation>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" minOccurs="0" name="AdditionalField" type="ctxtypes:AdditionalFieldType">
+<xs:annotation>
+<xs:documentation>Additional fields to be used in the request instead of adding on each time new field in the request </xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="AdditionalFieldType">
+<xs:all>
+<xs:element name="Code">
+<xs:annotation>
+<xs:documentation>Code of the additional field</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string"/>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="Value">
+<xs:annotation>
+<xs:documentation>Value to be set for the field. In case not returned or empty, it means the field value is not set </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string"/>
+</xs:simpleType>
+</xs:element>
+</xs:all>
+</xs:complexType>
+<xs:simpleType name="CortexTimeStamp">
+<xs:annotation>
+<xs:documentation> Timestamp type used for any timestamp/date time field in the webservices. The format is yyyy-MM-dd-HH:mm:ss.SSS </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:minLength value="23"/>
+<xs:maxLength value="23"/>
+<xs:pattern value="[1-2][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9]-[0-2][0-9]:[0-5][0-9]:[0-5][0-9].[0-9][0-9][0-9]"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:complexType name="Money">
+<xs:annotation>
+<xs:documentation> Any amounts used in the webservices use the money type which is the combination of the amount and currency. To get the list of supported ISO currency codes, use the GetCurrencyList service </xs:documentation>
+</xs:annotation>
+<xs:all>
+<xs:element name="Amount">
+<xs:annotation>
+<xs:documentation> Amount for the money object </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:decimal"/>
+</xs:simpleType>
+</xs:element>
+<xs:element ref="currId:Currency">
+<xs:annotation>
+<xs:documentation> Currency of the amount </xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:all>
+</xs:complexType>
+<xs:complexType name="MoneyOptionalAmount">
+<xs:annotation>
+<xs:documentation> Same as money but with the amount as optional. Used in cases where the currency is required but the amount is optional </xs:documentation>
+</xs:annotation>
+<xs:all>
+<xs:element minOccurs="0" name="Amount">
+<xs:annotation>
+<xs:documentation> Amount for the money object </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:decimal"/>
+</xs:simpleType>
+</xs:element>
+<xs:element ref="currId:Currency">
+<xs:annotation>
+<xs:documentation> Currency of the amount </xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:all>
+</xs:complexType>
+<xs:simpleType name="Amount">
+<xs:annotation>
+<xs:documentation>Amount field</xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:decimal"/>
+</xs:simpleType>
+<xs:complexType name="CtxLocaleDescrList">
+<xs:annotation>
+<xs:documentation> List of Locale descriptions defined cortex for a specific element </xs:documentation>
+</xs:annotation>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="CtxLocaleDescr" type="ctxtypes:CtxLocaleDescrType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CtxLocaleDescrType">
+<xs:annotation>
+<xs:documentation> Locale description having the defined cortex locale, description and short description </xs:documentation>
+</xs:annotation>
+<xs:all>
+<xs:element name="Locale">
+<xs:annotation>
+<xs:documentation> Local of the description </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:minLength value="2"/>
+<xs:maxLength value="20"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="ShortDescription">
+<xs:annotation>
+<xs:documentation> Short description of the element </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="20"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="Description">
+<xs:annotation>
+<xs:documentation> Full description of the element </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="128"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+</xs:all>
+</xs:complexType>
+<xs:complexType name="DescriptionList">
+<xs:annotation>
+<xs:documentation> List of all description values available for a specific entity </xs:documentation>
+</xs:annotation>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Description" type="ctxtypes:DescriptionType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="DescriptionType">
+<xs:annotation>
+<xs:documentation> Description in a specific language </xs:documentation>
+</xs:annotation>
+<xs:all>
+<xs:element name="Language">
+<xs:annotation>
+<xs:documentation> Language of the description </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:minLength value="2"/>
+<xs:maxLength value="2"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="Description">
+<xs:annotation>
+<xs:documentation> Description in the specified language </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="160"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+</xs:all>
+</xs:complexType>
+<xs:complexType name="PageSetupType">
+<xs:annotation>
+<xs:documentation> Page setup required (number of records per page and the page number required) </xs:documentation>
+</xs:annotation>
+<xs:all>
+<xs:element name="PageSize">
+<xs:annotation>
+<xs:documentation> Number of results supported in a single page </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:int"/>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="PageNumber">
+<xs:annotation>
+<xs:documentation> The requested page number starting with 1 for the first page. If not specified, it will be defaulted to 1 </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:int"/>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="ReturnCount">
+<xs:annotation>
+<xs:documentation> Specifies if the count and page details are required in the response. If set to true, the PagingDetails tag will be returned in the response holding the total number of results, current number of results in the requested page, current page number and total page number. If not specified, defaults to true. This tag is introduced to enhance performance and response time in case the total count is not really required </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:boolean"/>
+</xs:simpleType>
+</xs:element>
+</xs:all>
+</xs:complexType>
+<xs:complexType name="PagingDetailsType">
+<xs:annotation>
+<xs:documentation> Details of the paging returned in the response </xs:documentation>
+</xs:annotation>
+<xs:all>
+<xs:element name="PageSize">
+<xs:annotation>
+<xs:documentation> Number of results supported in a single page. Echoed back from the request </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:int"/>
+</xs:simpleType>
+</xs:element>
+<xs:element name="TotalNumberOfResults">
+<xs:annotation>
+<xs:documentation> Total number of results for the request </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:int"/>
+</xs:simpleType>
+</xs:element>
+<xs:element name="CurrentNumberOfResults">
+<xs:annotation>
+<xs:documentation> Current of number of results returned in the response </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:int"/>
+</xs:simpleType>
+</xs:element>
+<xs:element name="TotalNumberOfPages">
+<xs:annotation>
+<xs:documentation> Total number of pages for the all results satisfying the critieria of the request </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:int"/>
+</xs:simpleType>
+</xs:element>
+<xs:element name="CurrentPageNumber">
+<xs:annotation>
+<xs:documentation> Current page number for the results </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:int"/>
+</xs:simpleType>
+</xs:element>
+</xs:all>
+</xs:complexType>
+<xs:complexType name="TransactionTypeListType">
+<xs:annotation>
+<xs:documentation> A list of services (transaction types) defined and used in Cortex </xs:documentation>
+</xs:annotation>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="TransactionType" type="ctxtypes:TransactionTypeType">
+<xs:annotation>
+<xs:documentation> Start tag for the list of individual denied transaction types </xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:simpleType name="BatchClassType">
+<xs:annotation>
+<xs:documentation>Value indicating if a card batch is instant or bulk... </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:short">
+<xs:enumeration value="1">
+<xs:annotation>
+<xs:documentation>Bulk Issuance</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="3">
+<xs:annotation>
+<xs:documentation>Instant Issuance</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+<xs:complexType name="TransactionTypeType">
+<xs:annotation>
+<xs:documentation> A single transaction type </xs:documentation>
+</xs:annotation>
+<xs:all>
+<xs:element name="TransactionCode" type="ctxtypes:TransactionCodeType"/>
+</xs:all>
+</xs:complexType>
+<xs:simpleType name="TransactionCodeType">
+<xs:annotation>
+<xs:documentation> Code identifying the transaction type. To get the list of supported transaction types with their description, the GetNumericDescription service can be used with description type as tx </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:short"/>
+</xs:simpleType>
+<xs:simpleType name="AccountDerivationMethod">
+<xs:annotation>
+<xs:documentation>Used for requests where the account is not specified but the card is and the processing requires an account to be selected. It defines how the account will be selected based on the card specified </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:short">
+<xs:enumeration value="1">
+<xs:annotation>
+<xs:documentation>Use the default account card</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="2">
+<xs:annotation>
+<xs:documentation>Use the account linked to the card with the request currency and if no match found, reject the request </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="3">
+<xs:annotation>
+<xs:documentation>Use the account linked to the card with the request currency and if no match found, use the default account </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+<xs:complexType name="AmountRangeType">
+<xs:all>
+<xs:annotation>
+<xs:documentation>Range of amount (low/high) mainly used for inquiry services. Both amount from and to can be specified or only one of them. </xs:documentation>
+</xs:annotation>
+<xs:element minOccurs="0" name="AmountFrom">
+<xs:annotation>
+<xs:documentation>Lower amount value for the range </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:decimal"/>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="AmountTo">
+<xs:annotation>
+<xs:documentation>Higher amount value for the range </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:decimal"/>
+</xs:simpleType>
+</xs:element>
+</xs:all>
+</xs:complexType>
+<xs:simpleType name="CreditTransactionAction">
+<xs:annotation>
+<xs:documentation>Action for a new credit transaction. Defaulted to C - Create only if not specified </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:enumeration value="C">
+<xs:annotation>
+<xs:documentation>Create only - do not post. Posting will be done at EOD </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="P">
+<xs:annotation>
+<xs:documentation>Create and post. The credit balance will be updated but the authorization system will not be notified. The authorization balance will not be updated. In case the End of Day processing is running, the posting will be skipped </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="U">
+<xs:annotation>
+<xs:documentation>Create, post and upload. Both the credit account and authorization balances will be updated. In case the End of Day processing is running, the posting will be skipped </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="V">
+<xs:annotation>
+<xs:documentation>Validate. This action does the checks on the account, risk and returns any fee that might be applicable on the request </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="InstitutionCodeType">
+<xs:annotation>
+<xs:documentation>Unique code identifying an institution in cortex </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="4"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="AccountNumberType">
+<xs:annotation>
+<xs:documentation>Account number in cortex</xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="28"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ApprovalCodeType">
+<xs:annotation>
+<xs:documentation>Approval code type in cortex</xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="9"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:complexType name="IIDListType">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="IID" type="ctxtypes:IIDType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:simpleType name="IIDType">
+<xs:annotation>
+<xs:documentation>ID identifying an issuer acquirer (can be a bin, ICA...) </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="11"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:complexType name="MccListType">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Mcc" type="ctxtypes:MccType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:simpleType name="MccType">
+<xs:annotation>
+<xs:documentation>Merchant category code of the acquirer that of the merchant. To get the list of supported values, use the GetNumericDescription service with description type 'ab' </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:short"/>
+</xs:simpleType>
+<xs:simpleType name="TransactionResponseSourceType">
+<xs:annotation>
+<xs:documentation>Code identifying the source of the authorization (approved the authorization). i.e. I - cortex genauth, N - network. To get the list of supported values, use the GetStringDescription service with description type as 'rspsrc' </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="1"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:complexType name="MessageClassListType">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="MessageClass" type="ctxtypes:MessageClassType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:simpleType name="MessageClassType">
+<xs:annotation>
+<xs:documentation>Identifies if the transaction is an authorization transaction, financial, reversal.. </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:enumeration value="1">
+<xs:annotation>
+<xs:documentation>Authorization Transaction</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="2">
+<xs:annotation>
+<xs:documentation>Financial Transaction</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="3">
+<xs:annotation>
+<xs:documentation>File Update</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="4">
+<xs:annotation>
+<xs:documentation>Reversal</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="5">
+<xs:annotation>
+<xs:documentation>Reconciliation</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="6">
+<xs:annotation>
+<xs:documentation>Administration</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="7">
+<xs:annotation>
+<xs:documentation>Fee</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="8">
+<xs:annotation>
+<xs:documentation>Network Management</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="SubTransactionCodeType">
+<xs:annotation>
+<xs:documentation>Sub-transaction codes are defined per top level transaction code. Currently following are defined: - Sub-transaction codes for txn code 00: 00 – Default logic (same as empty value) 01 – Transit, Debt Recovery 02 – Incremental Authorization 03 – Transit, Unknown 04 – Transit, Prefunded 05 – Transit, Real-Time Authorized 06 – Transit, Post-Authorized Aggregated 07 – Transit, Authorized Agg Split Clear 08 – Transit, Other 09 – Transit, Post-Authorized Agg Maestro PayPass 10 – Network Installment - Sub-transaction codes for txn code 10: 00 – Default logic (same as empty value) 01 – VMT Account Funding txn - Sub-transaction codes for txn code 26: 00 – Default logic (same as empty value) 01 – VMT OCT/Fast Funds - Sub-transaction codes for txn code 93: 00 – Default logic (same as empty value) 01 – Purchase Account Status Inquiry 02 – Payment Account Status Inquiry 03 – MoneySend Payment Account Status Inquiry - Sub-transaction codes for txn code 99: 00 – Eligibility 01 – Activation request 02 – Activation code notification - Sub-transaction codes for txn code 109: 01 – ATC Update </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="2"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="TransactionReferenceNumberType">
+<xs:annotation>
+<xs:documentation>Transaction reference number as defined by the payment network e.g. VISA 62.2 or MasterCard 63. For MasterCard Incremental Authorizations, this field is populated from 48.63 This value is the same for all transactions in transaction life cycle i.e. authorization, incremental authorization, advice, chargeback and representment. </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="25"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="CardAcceptorLocationType">
+<xs:annotation>
+<xs:documentation>Card acceptor location of the transaction identifying the name of the merchant and the location where a transaction was executed. </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="64"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:complexType name="CardAcceptorIdListType">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="CardAcceptorId" type="ctxtypes:CardAcceptorIdType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:simpleType name="CardAcceptorIdType">
+<xs:annotation>
+<xs:documentation>Card acceptor ID. Uniquely identifies card acceptor within acquirer. Required if card acceptor/terminal not uniquely identified by termcode. </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="15"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="CardAcceptorNameType">
+<xs:annotation>
+<xs:documentation>Card acceptor name or ATM location; first part of the card acceptor location field (DE#043) MasterCard uses only 22 characters </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="40"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="CardAcceptorNameCityType">
+<xs:annotation>
+<xs:documentation>City of card acceptor; second part of the card acceptor location field (DE#043) </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="40"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:complexType name="DateRangeType">
+<xs:all>
+<xs:annotation>
+<xs:documentation>Range of dates mainly used for inquiry services. Both dates from and to can be specified or only one of them. (depending on the service) </xs:documentation>
+</xs:annotation>
+<xs:element minOccurs="0" name="DateFrom" type="ctxtypes:CortexDate">
+<xs:annotation>
+<xs:documentation>From date value for the range </xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element minOccurs="0" name="DateTo" type="ctxtypes:CortexDate">
+<xs:annotation>
+<xs:documentation>to date value for the range </xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:all>
+</xs:complexType>
+<xs:complexType name="TimeRangeType">
+<xs:all>
+<xs:annotation>
+<xs:documentation>Range of times mainly used for inquiry services. Both time from and to can be specified or only one of them (depending on the service) </xs:documentation>
+</xs:annotation>
+<xs:element minOccurs="0" name="TimeFrom" type="ctxtypes:CortexTime">
+<xs:annotation>
+<xs:documentation>From Time value for the range</xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element minOccurs="0" name="TimeTo" type="ctxtypes:CortexTime">
+<xs:annotation>
+<xs:documentation>To Time value for the range</xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:all>
+</xs:complexType>
+<xs:complexType name="ShortListType">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Value">
+<xs:annotation>
+<xs:documentation>Single short value</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:short"/>
+</xs:simpleType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="StringListType">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="Value">
+<xs:annotation>
+<xs:documentation>Single short value</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string"/>
+</xs:simpleType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:simpleType name="SearchLevelType">
+<xs:restriction base="xs:short">
+<xs:enumeration value="0">
+<xs:annotation>
+<xs:documentation>Search for entries on the account specified only or the card specified only </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="1">
+<xs:annotation>
+<xs:documentation>Search for entries on the default account linked to the card specified not only on the specified card. Applicable only when the account is not specified </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="2">
+<xs:annotation>
+<xs:documentation>Search for entries on all accounts linked to the card specified. Applicable only when the account is not specified </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+<xs:complexType name="ItemTypeListType">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="ItemType" type="ctxtypes:ItemTypeType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:simpleType name="ItemTypeType">
+<xs:annotation>
+<xs:documentation>Specifies the type of the item/transaction. A predefined list of values exists and custom items might be created. The pre-defined list of supported values is the following: 1= Transaction 2= Card-related fee 3= Card-related commission 4= Interest 5= Payment 6= Late payment penalty 7= Over limit penalty 8= Credit adjustment 9= Debit adjustment 10= Account-related fee 11 = Payment plan credit adjustment. Used to mark the movement of a item to a payment plan when the plan is initialized 12 = Payment plan debit adjustment. The corresponding debit to the item type ‘11’ 13 = Due installment (Interest) 14 = Due installment (principle) 15 = Due installment credit adjustment. This is the matching credit to item type ‘14’. 16 = Credit for a cancelled payment plan. This is a credit to the not due installment balance to mark the cancellation of a payment plan. 17 = Debit for a cancelled payment plan. This is a debit to a standard balance component of the account to mark the cancellation of a payment plan. This is the matching debit to item type ‘16’ 20=Targeted payment To get the full list of item types along with their description, please use the GetNumericDescription service with the description type as 'ccsity' </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:short"/>
+</xs:simpleType>
+<xs:simpleType name="CreditDebitType">
+<xs:annotation>
+<xs:documentation>This flag indicates if the transaction is a credit or debit one. In some cases where the transaction is suspended or not yet posted, the value will be U - Undefined </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:enumeration value="C">
+<xs:annotation>
+<xs:documentation>Credit</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="D">
+<xs:annotation>
+<xs:documentation>Debit</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="U">
+<xs:annotation>
+<xs:documentation>Undefined</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+<xs:complexType name="ItemCategoryListType">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="ItemCategory" type="ctxtypes:ItemCategoryType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="ItemCategoryType">
+<xs:annotation>
+<xs:documentation>Used to categorize the transaction. The values are customer specific </xs:documentation>
+</xs:annotation>
+<xs:sequence>
+<xs:element name="CategoryCode">
+<xs:annotation>
+<xs:documentation>Code identifying the category</xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="255"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="LocaleDescriptionsList" type="ctxtypes:CtxLocaleDescrList">
+<xs:annotation>
+<xs:documentation>Locale descriptions in case configured for the item category </xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:simpleType name="StatusType">
+<xs:annotation>
+<xs:documentation>Status type used for either card/account/application status </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:minLength value="2"/>
+<xs:maxLength value="2"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="TypeCodeType">
+<xs:annotation>
+<xs:documentation>Type used for either account/application type </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:minLength value="2"/>
+<xs:maxLength value="2"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:complexType name="TxnSearchOrderType">
+<xs:sequence>
+<xs:element minOccurs="0" name="DateLocalAsc">
+<xs:annotation>
+<xs:documentation>Specifies that the transactions should be ordered by local date ascending (oldest to newest). Should be skipped in case date local desc is specified </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:boolean"/>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="DateLocalDesc">
+<xs:annotation>
+<xs:documentation>Specifies that the transactions should be ordered by local date descending (newest to oldest). Should be skipped in case date local asc is specified </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:boolean"/>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="TimeLocalAsc">
+<xs:annotation>
+<xs:documentation>Specifies that the transactions should be ordered by local time ascending (oldest to newest). Should be skipped in case time local desc is specified </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:boolean"/>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="TimeLocalDesc">
+<xs:annotation>
+<xs:documentation>Specifies that the transactions should be ordered by local time descending (newest to oldest). Should be skipped in case time local asc is specified </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:boolean"/>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="PostingDateAsc">
+<xs:annotation>
+<xs:documentation>Specifies that the transactions should be ordered by posting date ascending (oldest to newest). Should be skipped in case posting date desc is specified </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:boolean"/>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="PostingDateDesc">
+<xs:annotation>
+<xs:documentation>Specifies that the transactions should be ordered by the posting date descending (newest to oldest). Should be skipped in case posting date asc is specified </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:boolean"/>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="TransactionAmountAsc">
+<xs:annotation>
+<xs:documentation>Specifies that the transactions should be ordered by the transaction amount ascending (smallest to largest). Should be skipped in case transaction amount desc is specified </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:boolean"/>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="TransactionAmountDesc">
+<xs:annotation>
+<xs:documentation>Specifies that the transactions should be ordered by the transaction amount descending (largest to smallest). Should be skipped in case transaction amount asc is specified </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:boolean"/>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="BillingAmountAsc">
+<xs:annotation>
+<xs:documentation>Specifies that the transactions should be ordered by the billing amount ascending (smallest to largest). Should be skipped in case billing amount desc is specified </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:boolean"/>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="BillingAmountDesc">
+<xs:annotation>
+<xs:documentation>Specifies that the transactions should be ordered by the billing amount descending (largest to smallest). Should be skipped in case billing amount asc is specified </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:boolean"/>
+</xs:simpleType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:simpleType name="PinTypeType">
+<xs:annotation>
+<xs:documentation> Specifies the type of the pin. As multiple pins are supported by Cortex, this will identify the usage of the pin </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:short">
+<xs:enumeration value="1">
+<xs:annotation>
+<xs:documentation>Default PIN (used at ATM and POS) </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="2">
+<xs:annotation>
+<xs:documentation>Secondary PIN (can be used as Mobile Pin) </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="CreditItemApplicationRuleType">
+<xs:annotation>
+<xs:documentation>Specifies if the transaction was applied on the due balance or not due balance of the credit account </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:short">
+<xs:enumeration value="0">
+<xs:annotation>
+<xs:documentation>All - N/A. Applied on both due and not due </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="1">
+<xs:annotation>
+<xs:documentation>Not Due Side</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="2">
+<xs:annotation>
+<xs:documentation>Due Side</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="PanType">
+<xs:annotation>
+<xs:documentation>Clear or encrypted card number/PAN </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:minLength value="10"/>
+<xs:maxLength value="512"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="VPanType">
+<xs:annotation>
+<xs:documentation>Virtual PAN </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="32"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="BranchCodeType">
+<xs:annotation>
+<xs:documentation>Code identifying a branch under an institution </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="8"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="CardProductCodeType">
+<xs:annotation>
+<xs:documentation>Code identifying a product</xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="4"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="PaymentPlanFeeBasisType">
+<xs:annotation>
+<xs:documentation>Indicates the basis of the calculation of the fees for a payment plan </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:enumeration value="D">
+<xs:annotation>
+<xs:documentation>Daily</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="M">
+<xs:annotation>
+<xs:documentation>Monthly (30 days)</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="Y">
+<xs:annotation>
+<xs:documentation>Annual (365 days)</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="y">
+<xs:annotation>
+<xs:documentation>Annual (360 days)</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="A">
+<xs:annotation>
+<xs:documentation>True Annual (366 for leap years / 365 for none leap years) </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="I">
+<xs:annotation>
+<xs:documentation>Applicable on Each Installment </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="F">
+<xs:annotation>
+<xs:documentation>Percentage on full amount</xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="PaymentPlanInterestCalculationMethodType">
+<xs:annotation>
+<xs:documentation>Specifies how the rate amount is applied and how the fee is calculated on a payment plan </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:short">
+<xs:enumeration value="1">
+<xs:annotation>
+<xs:documentation>Debit on every installment, percentage applicable on full plan amount </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="2">
+<xs:annotation>
+<xs:documentation>Debit on every installment, percentage applicable on outstanding plan amount </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="3">
+<xs:annotation>
+<xs:documentation>Debit on plan creation, percentage applicable on full plan amount </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="4">
+<xs:annotation>
+<xs:documentation>Debit on plan creation, percentage applicable on outstanding plan amount </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="PaymentPlanFixedAmountCalculationMethodType">
+<xs:annotation>
+<xs:documentation>Specifies how the fixed amount fee is applied </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:short">
+<xs:enumeration value="1">
+<xs:annotation>
+<xs:documentation>Debit on every installment </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="2">
+<xs:annotation>
+<xs:documentation>Debit on plan creation </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="PaymentPlanRemainingFeeActionType">
+<xs:annotation>
+<xs:documentation>Specifies what will happen with the remaining fee when the plan is prematurely canceled or closed </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:short">
+<xs:enumeration value="1">
+<xs:annotation>
+<xs:documentation>Remaining fee will be applied (not reversed in case already applied) </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="2">
+<xs:annotation>
+<xs:documentation>Remaining fee will not be applied (reversed in case already applied) </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+<xs:complexType name="PaymentPlanFeeRateDetailsType">
+<xs:annotation>
+<xs:documentation>Details of the rate based fee applicable on the payment plan </xs:documentation>
+</xs:annotation>
+<xs:sequence>
+<xs:element name="RateBasis" type="ctxtypes:PaymentPlanFeeBasisType">
+<xs:annotation>
+<xs:documentation>Basis of interest rate </xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="InterestRateCalculationMethod" type="ctxtypes:PaymentPlanInterestCalculationMethodType">
+<xs:annotation>
+<xs:documentation>Specifies how the payment plan interest rate is calculated </xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="InterestRate">
+<xs:annotation>
+<xs:documentation>Interest rate % on the amount of the payment plan. It determines the interest added to the payment plan amount based on the rate divisor and the interest rate calculation method. For example if the amount of the transaction is 1000 and the rate is 5% with a rate divisor as I (Every Installment) and the rate calculation method is 2, the interest amount will be 50 each month and the total amount of the plan will become 10000 + (50 x number of installments). </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:decimal"/>
+</xs:simpleType>
+</xs:element>
+<xs:element name="InterestRateCancellationMethod" type="ctxtypes:PaymentPlanRemainingFeeActionType">
+<xs:annotation>
+<xs:documentation>Specifies what will be done with the remaining interest if the plan is canceled </xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="InterestRateFullPaymentMethod" type="ctxtypes:PaymentPlanRemainingFeeActionType">
+<xs:annotation>
+<xs:documentation>Specifies what will be done with the remaining interest if the plan is fully paid before the expected end date </xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="TotalFeeRateAmount">
+<xs:annotation>
+<xs:documentation>Total fee rate amount. If no other details are set, it means the fee is taken up-front and not on each installment </xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element minOccurs="0" name="SingleInstallmentRateFeeAmount">
+<xs:annotation>
+<xs:documentation>Fee rate amount applicable on every installment. Only available in case the calculation method specifies rate on full plan amount </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:decimal"/>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="LastInstallmentRateFeeAmount">
+<xs:annotation>
+<xs:documentation>Fee rate amount applicable on the last installment. Only available in case the calculation method specifies rate on full plan amount </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:decimal"/>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="InstallmentsRateFeeDetails" type="ctxtypes:InstallmentsRateFeeDetailsType">
+<xs:annotation>
+<xs:documentation>Holds the rate applicable on each installment which will be different. Only available in case the calculation method specifies rate on outstanding plan amount </xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="InstallmentsRateFeeDetailsType">
+<xs:annotation>
+<xs:documentation>Details of the rate fee applicable on each installment </xs:documentation>
+</xs:annotation>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="InstallmentsRateFee" type="ctxtypes:InstallmentsRateFeeType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="InstallmentsRateFeeType">
+<xs:annotation>
+<xs:documentation>Details of the rate applicable on an individual installment </xs:documentation>
+</xs:annotation>
+<xs:sequence>
+<xs:element name="InstallmentNumber">
+<xs:annotation>
+<xs:documentation>Installment number this fee applies on </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:short"/>
+</xs:simpleType>
+</xs:element>
+<xs:element name="ExpectedDate" type="ctxtypes:CortexDate">
+<xs:annotation>
+<xs:documentation>Date of the installment </xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="FeeRateAmount">
+<xs:annotation>
+<xs:documentation>Applicable rate amount for this installment </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:decimal"/>
+</xs:simpleType>
+</xs:element>
+<xs:element name="OutstandingBalance">
+<xs:annotation>
+<xs:documentation>Outstanding balance the rate applied on to get the fee rate amount </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:decimal"/>
+</xs:simpleType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="PaymentPlanFixedFeeDetailsType">
+<xs:annotation>
+<xs:documentation>Fixed fee amount applicable on a payment plan. </xs:documentation>
+</xs:annotation>
+<xs:sequence>
+<xs:element name="FixedAmountBasis" type="ctxtypes:PaymentPlanFeeBasisType">
+<xs:annotation>
+<xs:documentation>Basis of fixed amount fee </xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="FixedAmountCalculationMethod" type="ctxtypes:PaymentPlanFixedAmountCalculationMethodType">
+<xs:annotation>
+<xs:documentation>Specifies how the payment plan fixed amount fee is applied </xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="FixedAmount">
+<xs:annotation>
+<xs:documentation>Configured fixed amount. The calculation depends on the fixed amount basis. i.e. if the basis is I (on every installment) and the fixed amount is 10, a fixed fee of 10 is applied on every installment </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:decimal"/>
+</xs:simpleType>
+</xs:element>
+<xs:element name="FixedAmountFeeCancellationMethod" type="ctxtypes:PaymentPlanRemainingFeeActionType">
+<xs:annotation>
+<xs:documentation>Specifies what will be done with the remaining fee if the plan is canceled </xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="FixedAmountFeeFullPaymentMethod" type="ctxtypes:PaymentPlanRemainingFeeActionType">
+<xs:annotation>
+<xs:documentation>Specifies what will be done with the remaining fee if the plan is fully paid before the expected end date </xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="TotalFixedFeeAmount">
+<xs:annotation>
+<xs:documentation>Total fixed amount fee. If no other details are set, it means the fee is taken up-front and not on each installment </xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element minOccurs="0" name="SingleInstallmentFixedFeeAmount">
+<xs:annotation>
+<xs:documentation>Fixed fee amount applicable on every installment. </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:decimal"/>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="LastInstallmentFixedFeeAmount">
+<xs:annotation>
+<xs:documentation>Fixed fee amount applicable on the last installment. </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:decimal"/>
+</xs:simpleType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CardAuthorizationParametersType">
+<xs:annotation>
+<xs:documentation>Flags on card level for card specific rules and rejections. Each position will have a usage which is customer specific. Refer to the implementation team for customer specific usage </xs:documentation>
+</xs:annotation>
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="CardAuthorizationParameter" type="ctxtypes:CardAuthorizationParameterType"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CardAuthorizationParameterType">
+<xs:sequence>
+<xs:element name="Position">
+<xs:annotation>
+<xs:documentation>Position of the card authorization parameters. Up to 32 positions are supported </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:short">
+<xs:minInclusive value="1"/>
+<xs:maxInclusive value="32"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="Value">
+<xs:annotation>
+<xs:documentation>Value of the specified position </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="1"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:simpleType name="NewCcsItemExternalAccountActionType">
+<xs:annotation>
+<xs:documentation>Specifies the action to be done with the external account details for new CCS Item requests </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:enumeration value="L">
+<xs:annotation>
+<xs:documentation>Log only - the details will only be logged for reporting purposes </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="V">
+<xs:annotation>
+<xs:documentation>Validate - in case specified, a validation will be done between the specified account number and the direct debit account number linked to the account. If different, the action will be rejected </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="P">
+<xs:annotation>
+<xs:documentation>Post to external account immediately - an attempt to credit/debit an external account will be done on the spot regardless if end of day is running or not and if the item is posted in Cortex </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="U">
+<xs:annotation>
+<xs:documentation>Post to external account immediately and update the blocked amount in cortex in case the item is not posted in Cortex - an attempt to credit/debit an external account will be done on the spot regardless if end of day is running or not and if the item is posted in Cortex or not. If the item is not posted in Cortex, the blocked amount will be increased (only allowed/applicable for debit items - credit items do not affect the blocked amount) </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="A">
+<xs:annotation>
+<xs:documentation>Post to external account only when the item in Cortex is posted </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ChargeProfileCodeType">
+<xs:annotation>
+<xs:documentation>Code identifying a charge profile in Cortex </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="4"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="CreditSchemeCodeType">
+<xs:annotation>
+<xs:documentation>Code identifying a credit scheme profile in Cortex </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="10"/>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="CycleBaseType">
+<xs:annotation>
+<xs:documentation>Identifies the cycle base used to calculate a cycle </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:short">
+<xs:enumeration value="0">
+<xs:annotation>
+<xs:documentation>No Cycle - applies on every request </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="1">
+<xs:annotation>
+<xs:documentation>Day - the cycle would be multiplier * days </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="2">
+<xs:annotation>
+<xs:documentation>Week - the cycle would be multiplier * weeks </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="3">
+<xs:annotation>
+<xs:documentation>Month - the cycle would be multiplier * month </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="4">
+<xs:annotation>
+<xs:documentation>Year - the cycle would be multiplier * year </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="CycleStartType">
+<xs:annotation>
+<xs:documentation>Identifies how a cycle start is determined </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:short">
+<xs:enumeration value="0">
+<xs:annotation>
+<xs:documentation>Next day of previous cycle. That is the cycle start will be previous cycle end + 1. in case this is the first cycle, the current date is used as cycle start </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="1">
+<xs:annotation>
+<xs:documentation>First day of the cycle. For daily, it's the current date. For weekly, it will be monday. Monthly, the first day of the month. yearly the 1st of January </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="2">
+<xs:annotation>
+<xs:documentation>Sliding - If the previous cycle is expired, the current date will be used as a start of cycle regardless of the previous cycle end date </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+<xs:enumeration value="3">
+<xs:annotation>
+<xs:documentation>Fixed day and/or month. Only allowed for weekly, monthly and yearly based cycles. In this case, the cycle start should be set </xs:documentation>
+</xs:annotation>
+</xs:enumeration>
+</xs:restriction>
+</xs:simpleType>
+<xs:complexType name="TransactionCategoryListType">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="TransactionCategory" type="ctxtypes:TransactionCategory"/>
+</xs:sequence>
+</xs:complexType>
+<xs:simpleType name="TransactionCategory">
+<xs:annotation>
+<xs:documentation>Specifies the Transaction category A transaction belongs to. A custom list of values exists Cash Advance Cash Withdrawal Credit Card Fund Transfer Credit Card Payment POS Purchase SADAD Payment SAWA Recharge </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="32"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns:hdrUsrdata="http://ws.core.cortex.com/domain/common/hdrusrdata" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.core.cortex.com/domain/common/hdrusrdata">
+<xs:element name="HeaderUserDataList" type="hdrUsrdata:HeaderUserDataListType"/>
+<xs:complexType name="HeaderUserDataListType">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="HeaderUserData" type="hdrUsrdata:HeaderUserDataType">
+<xs:annotation>
+<xs:documentation> Customer specific header user data </xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="HeaderUserDataType">
+<xs:sequence>
+<xs:element name="Tag">
+<xs:annotation>
+<xs:documentation> Tag for the customer specific user data </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string"/>
+</xs:simpleType>
+</xs:element>
+<xs:element name="Value">
+<xs:annotation>
+<xs:documentation> Value for the tag </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string"/>
+</xs:simpleType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns:security="http://ws.core.cortex.com/domain/common/security" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.core.cortex.com/domain/common/security">
+<xs:element name="Security" type="security:SecurityType"/>
+<xs:complexType name="SecurityType">
+<xs:sequence>
+<xs:element name="User">
+<xs:annotation>
+<xs:documentation> User name requesting the service. This will be validated and if not configured or not allowed for this service, the request will be rejected </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:minLength value="3"/>
+<xs:maxLength value="20"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="Password">
+<xs:annotation>
+<xs:documentation> Password of the user requesting the service. This will be validated and if incorrect, the request will be rejected </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:minLength value="3"/>
+<xs:maxLength value="20"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns:hdrUsrData="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:reqHdr="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:security="http://ws.core.cortex.com/domain/common/security" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.core.cortex.com/domain/common/reqhdr">
+<xs:import namespace="http://ws.core.cortex.com/domain/types"/>
+<xs:import namespace="http://ws.core.cortex.com/domain/common/hdrusrdata"/>
+<xs:import namespace="http://ws.core.cortex.com/domain/common/security"/>
+<xs:element name="RequestHeader" type="reqHdr:RequestHeaderType"/>
+<xs:complexType name="RequestHeaderType">
+<xs:sequence>
+<xs:element name="Version">
+<xs:annotation>
+<xs:documentation> Specifies the version of the header used. Current supported values are 1.0.0. Echoed back in the response header </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:enumeration value="1.0.0"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="MsgUid">
+<xs:simpleType>
+<xs:annotation>
+<xs:documentation> Unique message ID identifying a specific message. Echoed back in the response header </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:minLength value="36"/>
+<xs:maxLength value="36"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="Source">
+<xs:annotation>
+<xs:documentation> Source of the request. Echoed back in the response header </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:minLength value="2"/>
+<xs:maxLength value="32"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="ServiceId">
+<xs:annotation>
+<xs:documentation> Service Id of the service being called. Echoed back in the response header. </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:minLength value="2"/>
+<xs:maxLength value="32"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="ReqDateTime" type="ctxtypes:CortexTimeStamp">
+<xs:annotation>
+<xs:documentation> Request Date and Time echoed back in the response in the format yyyy-MM-dd-HH:mm:ss.SSS </xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element minOccurs="0" name="Locale">
+<xs:annotation>
+<xs:documentation>Locale required for the localized response message. In case not specified, the localized response message will not be returned in the response. In case specified but invalid or no localized messages are setup for this locale message, the default English message will be returned in the localized response message </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string"/>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" ref="security:Security">
+<xs:annotation>
+<xs:documentation>Security holding the user and password of the requester of the service. Only mandatory in case the security is enabled for the services </xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element minOccurs="0" ref="hdrUsrData:HeaderUserDataList">
+<xs:annotation>
+<xs:documentation>Header user data for customer specific usage. This field will be echoed back as is in the response if present, mainly used for fields from the request that might be needed in the response for the customer's internal usage. No validation is done on these fields. In some rare cases, these can hold customer specific tags </xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns:hdrUsrData="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:rspHdr="http://ws.core.cortex.com/domain/common/rsphdr" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.core.cortex.com/domain/common/rsphdr">
+<xs:import namespace="http://ws.core.cortex.com/domain/types"/>
+<xs:import namespace="http://ws.core.cortex.com/domain/common/hdrusrdata"/>
+<xs:element name="ResponseHeader" type="rspHdr:ResponseHeaderType"/>
+<xs:complexType name="ResponseHeaderType">
+<xs:sequence>
+<xs:element name="Version">
+<xs:annotation>
+<xs:documentation> Specifies the version of the header used. Current supported values are 1.0.0. Echoed back from the request header </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:enumeration value="1.0.0"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="MsgUid">
+<xs:simpleType>
+<xs:annotation>
+<xs:documentation> Unique message ID identifying a specific message. Echoed back from the request header </xs:documentation>
+</xs:annotation>
+<xs:restriction base="xs:string">
+<xs:minLength value="36"/>
+<xs:maxLength value="36"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="Source">
+<xs:annotation>
+<xs:documentation> Source of the request. Echoed back from the request header </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:minLength value="2"/>
+<xs:maxLength value="16"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="ServiceId">
+<xs:annotation>
+<xs:documentation> Service Id of the service called. Echoed back from the request header </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:minLength value="2"/>
+<xs:maxLength value="32"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="ReqDateTime" type="ctxtypes:CortexTimeStamp">
+<xs:annotation>
+<xs:documentation> Request Date and Time echoed back from the request </xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="RspDateTime" type="ctxtypes:CortexTimeStamp">
+<xs:annotation>
+<xs:documentation> Response Date and Time in the format yyyy-MM-dd-HH:mm:ss.SSS </xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element name="ResponseCode">
+<xs:annotation>
+<xs:documentation> Response code of the request processing. This value is unique for each error. A response code of 000 indicates a successful operation. Any other response code indicates an error. The value 999 indicates an unknown system error </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:minLength value="2"/>
+<xs:maxLength value="6"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="ResponseType">
+<xs:annotation>
+<xs:documentation> Indicates the type of the response code. Supported values are - Validation Error: Returned when invalid elements are received in the request - Business Error: Indicates a business logic error (i.e. request operation on a card that does not exist) - System Error: Indicates a system error (i.e. Database Error) - Success: Indicates a successful request </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:minLength value="7"/>
+<xs:maxLength value="20"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="ProcessingTime">
+<xs:annotation>
+<xs:documentation> Time taken by the web-service to do the processing and reply in milli seconds </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="20"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name="ResponseDescription">
+<xs:annotation>
+<xs:documentation> Description of the request result and the response code. Gives additional details about the result of the operation </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="516"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" name="LocalizedResponseDescription" type="rspHdr:LocalizedResponseDescriptionType">
+<xs:annotation>
+<xs:documentation>Only returned when a locale is specified in the request. </xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element minOccurs="0" name="CustomerSpecificResponseDescriptionList" type="rspHdr:CustomerSpecificResponseDescriptionListType">
+<xs:annotation>
+<xs:documentation>List of customer specific response description in case configured </xs:documentation>
+</xs:annotation>
+</xs:element>
+<xs:element minOccurs="0" ref="hdrUsrData:HeaderUserDataList">
+<xs:annotation>
+<xs:documentation>Header user data for customer specific usage. This field will be echoed back as is in the response if present, mainly used for fields from the request that might be needed in the response for the customer's internal usage. No validation is done on these fields. In some rare cases, these can hold customer specific tags </xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="LocalizedResponseDescriptionType">
+<xs:sequence>
+<xs:element name="Locale">
+<xs:annotation>
+<xs:documentation>Locale echoed back from the request regardless if it was valid or not </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string"/>
+</xs:simpleType>
+</xs:element>
+<xs:element name="LocalizedDescription">
+<xs:annotation>
+<xs:documentation>Localized description of the response. In case the locale specified is invalid or the no localized messages are defined for the locale specified, this will hold the same value as the ResponseDescription </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string">
+<xs:minLength value="1"/>
+<xs:maxLength value="516"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CustomerSpecificResponseDescriptionListType">
+<xs:sequence>
+<xs:element maxOccurs="unbounded" name="CustomerSpecificResponseDescription" type="rspHdr:CustomerSpecificResponseDescriptionType">
+<xs:annotation>
+<xs:documentation>Customer specific descriptions in case configured </xs:documentation>
+</xs:annotation>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="CustomerSpecificResponseDescriptionType">
+<xs:sequence>
+<xs:element name="Locale">
+<xs:annotation>
+<xs:documentation>Locale for the message returned under this tag </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string"/>
+</xs:simpleType>
+</xs:element>
+<xs:element name="ResponseDescription">
+<xs:annotation>
+<xs:documentation>Customer specific response description in the locale specified under this tag </xs:documentation>
+</xs:annotation>
+<xs:simpleType>
+<xs:restriction base="xs:string"/>
+</xs:simpleType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+</wsdl:types>
+<wsdl:message name="GenericServiceRequest">
+<wsdl:part element="tns:GenericServiceRequest" name="GenericServiceRequest"> </wsdl:part>
+</wsdl:message>
+<wsdl:message name="GenericServiceResponse">
+<wsdl:part element="tns:GenericServiceResponse" name="GenericServiceResponse"> </wsdl:part>
+</wsdl:message>
+<wsdl:portType name="GenericServicePort">
+<wsdl:operation name="GenericService">
+<wsdl:input message="tns:GenericServiceRequest" name="GenericServiceRequest"> </wsdl:input>
+<wsdl:output message="tns:GenericServiceResponse" name="GenericServiceResponse"> </wsdl:output>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="GenericServicePortSoap11" type="tns:GenericServicePort">
+<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="GenericService">
+<soap:operation soapAction=""/>
+<wsdl:input name="GenericServiceRequest">
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="GenericServiceResponse">
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="GenericServicePortService">
+<wsdl:port binding="tns:GenericServicePortSoap11" name="GenericServicePortSoap11">
+<soap:address location="https://10.60.117.80:9443/ctxws/GenericService"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>

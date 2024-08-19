@@ -1,0 +1,122 @@
+<wsdl:definitions xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://btc-networks.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://btc-networks.com/">
+<wsdl:types>
+	<s:schema elementFormDefault="qualified" targetNamespace="http://btc-networks.com/">
+		<s:element name="ProductCallBackService">
+			<s:complexType>
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="ActivationCBRequest" type="tns:ProductCallBackRequestType"/>
+				</s:sequence>
+			</s:complexType>
+		</s:element>
+		<s:complexType name="ProductCallBackRequestType">
+			<s:sequence>
+				<s:element minOccurs="0" maxOccurs="1" name="Header" type="tns:WebServiceHeader"/>
+				<s:element minOccurs="0" maxOccurs="1" name="ProductRequest" type="tns:ProductCallBackType"/>
+			</s:sequence>
+		</s:complexType>
+		<s:complexType name="WebServiceHeader">
+			<s:sequence>
+				<s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string"/>
+				<s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string"/>
+			</s:sequence>
+		</s:complexType>
+		<s:complexType name="ProductCallBackType">
+			<s:sequence>
+				<s:element minOccurs="0" maxOccurs="1" name="CIF" type="s:string"/>
+				<s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string"/>
+				<s:element minOccurs="0" maxOccurs="1" name="Language" type="s:string"/>
+				<s:element minOccurs="0" maxOccurs="1" name="Channel" type="s:string"/>
+				<s:element minOccurs="0" maxOccurs="1" name="ProductType" type="s:string"/>
+				<s:element minOccurs="0" maxOccurs="1" name="ProductCode" type="s:string"/>
+				<s:element minOccurs="0" maxOccurs="1" name="Attribute1" type="s:string"/>
+				<s:element minOccurs="0" maxOccurs="1" name="Attribute2" type="s:string"/>
+				<s:element minOccurs="0" maxOccurs="1" name="Attribute3" type="s:string"/>
+				<s:element minOccurs="0" maxOccurs="1" name="Attribute4" type="s:string"/>
+				<s:element minOccurs="0" maxOccurs="1" name="Attribute5" type="s:string"/>
+				<s:element minOccurs="0" maxOccurs="1" name="Attribute6" type="s:string"/>
+				<s:element minOccurs="0" maxOccurs="1" name="Attribute7" type="s:string"/>
+				<s:element minOccurs="0" maxOccurs="1" name="Attribute8" type="s:string"/>
+				<s:element minOccurs="0" maxOccurs="1" name="Attribute9" type="s:string"/>
+				<s:element minOccurs="0" maxOccurs="1" name="Attribute10" type="s:string"/>
+				<s:element minOccurs="0" maxOccurs="1" name="Attribute11" type="s:string"/>
+				<s:element minOccurs="0" maxOccurs="1" name="Attribute12" type="s:string"/>
+				<s:element minOccurs="0" maxOccurs="1" name="Attribute13" type="s:string"/>
+				<s:element minOccurs="0" maxOccurs="1" name="Attribute14" type="s:string"/>
+				<s:element minOccurs="0" maxOccurs="1" name="Attribute15" type="s:string"/>
+			</s:sequence>
+		</s:complexType>
+		<s:element name="ProductCallBackServiceResponse">
+			<s:complexType>
+				<s:sequence>
+					<s:element minOccurs="0" maxOccurs="1" name="ProductCallBackServiceResult" type="tns:ProductCallBackResponseType"/>
+				</s:sequence>
+			</s:complexType>
+		</s:element>
+		<s:complexType name="ProductCallBackResponseType">
+			<s:sequence>
+				<s:element minOccurs="0" maxOccurs="1" name="Fault" type="tns:FaultType"/>
+				<s:element minOccurs="0" maxOccurs="1" name="success" type="tns:ProductCallBackResponseSuccessType"/>
+			</s:sequence>
+		</s:complexType>
+		<s:complexType name="FaultType">
+			<s:sequence>
+				<s:element minOccurs="0" maxOccurs="1" name="ErrorNumber" type="s:string"/>
+				<s:element minOccurs="0" maxOccurs="1" name="ErrorDescription" type="s:string"/>
+				<s:element minOccurs="0" maxOccurs="1" name="HostSystem" type="s:string"/>
+				<s:element minOccurs="0" maxOccurs="1" name="HostErrorNumber" type="s:string"/>
+				<s:element minOccurs="0" maxOccurs="1" name="HostErrorDescription" type="s:string"/>
+			</s:sequence>
+		</s:complexType>
+		<s:complexType name="ProductCallBackResponseSuccessType">
+			<s:sequence>
+				<s:element minOccurs="0" maxOccurs="1" name="ReferenceNumber" type="s:string"/>
+				<s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string"/>
+			</s:sequence>
+		</s:complexType>
+	</s:schema>
+</wsdl:types>
+<wsdl:message name="ProductCallBackServiceSoapIn">
+	<wsdl:part name="parameters" element="tns:ProductCallBackService"/>
+</wsdl:message>
+<wsdl:message name="ProductCallBackServiceSoapOut">
+	<wsdl:part name="parameters" element="tns:ProductCallBackServiceResponse"/>
+</wsdl:message>
+<wsdl:portType name="Service1Soap">
+	<wsdl:operation name="ProductCallBackService">
+		<wsdl:input message="tns:ProductCallBackServiceSoapIn"/>
+		<wsdl:output message="tns:ProductCallBackServiceSoapOut"/>
+	</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="Service1Soap" type="tns:Service1Soap">
+	<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+	<wsdl:operation name="ProductCallBackService">
+		<soap:operation soapAction="http://btc-networks.com/ProductCallBackService" style="document"/>
+		<wsdl:input>
+			<soap:body use="literal"/>
+		</wsdl:input>
+		<wsdl:output>
+			<soap:body use="literal"/>
+		</wsdl:output>
+	</wsdl:operation>
+</wsdl:binding>
+<wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
+	<soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+	<wsdl:operation name="ProductCallBackService">
+		<soap12:operation soapAction="http://btc-networks.com/ProductCallBackService" style="document"/>
+		<wsdl:input>
+			<soap12:body use="literal"/>
+		</wsdl:input>
+		<wsdl:output>
+			<soap12:body use="literal"/>
+		</wsdl:output>
+	</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="Service1">
+	<wsdl:port name="Service1Soap" binding="tns:Service1Soap">
+		<soap:address location="http://10.61.109.60/ProductCallBack/ProductCallBack.asmx"/>
+	</wsdl:port>
+	<wsdl:port name="Service1Soap12" binding="tns:Service1Soap12">
+		<soap12:address location="http://10.61.109.60/ProductCallBack/ProductCallBack.asmx"/>
+	</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>

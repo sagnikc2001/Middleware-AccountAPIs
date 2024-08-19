@@ -1,0 +1,7428 @@
+{
+	"openapi": "3.0.3",
+	"info": {
+		"title": "ODS API",
+		"version": "1.0",
+		"description": "Retrieves records from Operation Data-source (ODS) database"
+	},
+	"servers": [
+		{
+			"url": "https://mw-api-3scale-apicast-staging.apps.com:443/api/connector/db/odsdb"
+		}
+	],
+	"paths": {
+		"/v1/GetCustomerOneView": {
+			"post": {
+				"tags": [
+					"ODS API"
+				],
+				"description": "Retrieves customer's products (current/gold account,credit card ..) and  provides one view of all banking products  ",
+				"operationId": "GetCustomerOneView",
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "JWT bearer token",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "ServiceHeader",
+						"in": "header",
+						"description": "having channel details , locale",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"$ref": "../../../commonschemas/header.json#/ServiceHeader"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "",
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CustomerOneViewRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successfully retrieved the response",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CustomerOneViewResponse"
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"400": {
+						"description": "400 Bad Request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CustomerOneViewResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "401 Unauthorized Request"
+					},
+					"404": {
+						"description": "404 API Not Found"
+					},
+					"405": {
+						"description": "405 Method Not Allowed"
+					},
+					"429": {
+						"description": "429 Too Many Requests"
+					},
+					"500": {
+						"description": "500 Internal Server Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CustomerOneViewResponse"
+								}
+							}
+						}
+					},
+					"503": {
+						"description": "503 Service Unavailable"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/v1/GetCustomerDetails": {
+			"post": {
+				"tags": [
+					"ODS API"
+				],
+				"description": "Retrieves customer details such as name, address, language ... ",
+				"operationId": "GetCustomerDetails",
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "JWT bearer token",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "ServiceHeader",
+						"in": "header",
+						"description": "having channel details , locale",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"$ref": "../../../commonschemas/header.json#/ServiceHeader"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "",
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CustomerDetailsRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successfully retrieved the response",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CustomerDetailsResponse"
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"400": {
+						"description": "400 Bad Request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CustomerDetailsResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "401 Unauthorized Request"
+					},
+					"404": {
+						"description": "404 API Not Found"
+					},
+					"405": {
+						"description": "405 Method Not Allowed"
+					},
+					"429": {
+						"description": "429 Too Many Requests"
+					},
+					"500": {
+						"description": "500 Internal Server Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CustomerDetailsResponse"
+								}
+							}
+						}
+					},
+					"503": {
+						"description": "503 Service Unavailable"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/v1/GetCifByWatheeq": {
+			"post": {
+				"tags": [
+					"ODS API"
+				],
+				"description": "Retrieves CIF number from Database",
+				"operationId": "callProcedure To GetCifByWatheeq",
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "JWT bearer token",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "ServiceHeader",
+						"in": "header",
+						"description": "having channel details , locale",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"$ref": "../../../commonschemas/header.json#/ServiceHeader"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "",
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CifByWatheeqRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successfully retrieved the response",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CifByWatheeqResponse"
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"400": {
+						"description": "400 Bad Request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CifByWatheeqResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "401 Unauthorized Request"
+					},
+					"404": {
+						"description": "404 API Not Found"
+					},
+					"405": {
+						"description": "405 Method Not Allowed"
+					},
+					"429": {
+						"description": "429 Too Many Requests"
+					},
+					"500": {
+						"description": "500 Internal Server Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CifByWatheeqResponse"
+								}
+							}
+						}
+					},
+					"503": {
+						"description": "503 Service Unavailable"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/v1/GetCifDetailsByIDs": {
+			"post": {
+				"tags": [
+					"ODS API"
+				],
+				"description": "Retrieves CIF from Database",
+				"operationId": "GetCifDetailsByIDs",
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "JWT bearer token",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "ServiceHeader",
+						"in": "header",
+						"description": "having channel details , locale",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"$ref": "../../../commonschemas/header.json#/ServiceHeader"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "",
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CifDetailsByIDsRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successfully retrieved the response",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CifDetailsByIDsResponse"
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"400": {
+						"description": "400 Bad Request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CifDetailsByIDsResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "401 Unauthorized Request"
+					},
+					"404": {
+						"description": "404 API Not Found"
+					},
+					"405": {
+						"description": "405 Method Not Allowed"
+					},
+					"429": {
+						"description": "429 Too Many Requests"
+					},
+					"500": {
+						"description": "500 Internal Server Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CifDetailsByIDsResponse"
+								}
+							}
+						}
+					},
+					"503": {
+						"description": "503 Service Unavailable"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/v1/GetAccountType": {
+			"post": {
+				"tags": [
+					"ODS API"
+				],
+				"description": "Retrieves Account Type such as Deposit,GL,Loan,CIF   ",
+				"operationId": "GetAccountType",
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "JWT bearer token",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "ServiceHeader",
+						"in": "header",
+						"description": "having channel details , locale",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"$ref": "../../../commonschemas/header.json#/ServiceHeader"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "",
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/AccountTypeRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successfully retrieved the response",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/AccountTypeResponse"
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"400": {
+						"description": "400 Bad Request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/AccountTypeResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "401 Unauthorized Request"
+					},
+					"404": {
+						"description": "404 API Not Found"
+					},
+					"405": {
+						"description": "405 Method Not Allowed"
+					},
+					"429": {
+						"description": "429 Too Many Requests"
+					},
+					"500": {
+						"description": "500 Internal Server Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/AccountTypeResponse"
+								}
+							}
+						}
+					},
+					"503": {
+						"description": "503 Service Unavailable"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/v1/GetRetailCustomerDetails": {
+			"post": {
+				"tags": [
+					"ODS API"
+				],
+				"description": "This operation retrieves the retail customer details",
+				"operationId": "GetRetailCustomerDetails",
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "JWT bearer token",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "ServiceHeader",
+						"in": "header",
+						"description": "having channel details , locale",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"$ref": "../../../commonschemas/header.json#/ServiceHeader"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "",
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/RetailCustomerDetailsRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successfully retrieved the response",
+						"headers": {},
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/RetailCustomerDetailsResponse"
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"400": {
+						"description": "400 Bad Request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/RetailCustomerDetailsResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "401 Unauthorized Request"
+					},
+					"404": {
+						"description": "404 API Not Found"
+					},
+					"405": {
+						"description": "405 Method Not Allowed"
+					},
+					"429": {
+						"description": "429 Too Many Requests"
+					},
+					"500": {
+						"description": "500 Internal Server Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/RetailCustomerDetailsResponse"
+								}
+							}
+						}
+					},
+					"503": {
+						"description": "503 Service Unavailable"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/v1/GetCorporateCustomerDetails": {
+			"post": {
+				"tags": [
+					"ODS API"
+				],
+				"description": "This operation retrives the corporate customer details",
+				"operationId": "GetCorporateCustomerDetails",
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "JWT bearer token",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "ServiceHeader",
+						"in": "header",
+						"description": "",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"$ref": "../../../commonschemas/header.json#/ServiceHeader"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "",
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CorporateCustomerDetailsRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successfully retrieved the response",
+						"headers": {},
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CorporateCustomerDetailsResponse"
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"400": {
+						"description": "400 Bad Request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CorporateCustomerDetailsResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "401 Unauthorized Request"
+					},
+					"404": {
+						"description": "404 API Not Found"
+					},
+					"405": {
+						"description": "405 Method Not Allowed"
+					},
+					"429": {
+						"description": "429 Too Many Requests"
+					},
+					"500": {
+						"description": "500 Internal Server Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CorporateCustomerDetailsResponse"
+								}
+							}
+						}
+					},
+					"503": {
+						"description": "503 Service Unavailable"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/v1/FindCif": {
+			"post": {
+				"tags": [
+					"ODS API"
+				],
+				"description": "Retrieves CIF number From Database",
+				"operationId": "Get CIF From DB",
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "JWT bearer token",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "ServiceHeader",
+						"in": "header",
+						"description": "having channel details , locale",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"$ref": "../../../commonschemas/header.json#/ServiceHeader"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "",
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CifRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successfully retrieved the response",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CifResponse"
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"400": {
+						"description": "400 Bad Request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CifResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "401 Unauthorized Request"
+					},
+					"404": {
+						"description": "404 API Not Found"
+					},
+					"405": {
+						"description": "405 Method Not Allowed"
+					},
+					"429": {
+						"description": "429 Too Many Requests"
+					},
+					"500": {
+						"description": "500 Internal Server Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CifResponse"
+								}
+							}
+						}
+					},
+					"503": {
+						"description": "503 Service Unavailable"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/v1/GetPayrollAccounts": {
+			"post": {
+				"tags": [
+					"ODS API"
+				],
+				"description": "Retrieves PayRoll Accounts From DB",
+				"operationId": "Get PayRoll Accounts From DB",
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "JWT bearer token",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "ServiceHeader",
+						"in": "header",
+						"description": "having channel details , locale",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"$ref": "../../../commonschemas/header.json#/ServiceHeader"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "",
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/PayrollAcoountRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successfully retrieved the response",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/PayrollAcoountResponse"
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"400": {
+						"description": "400 Bad Request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/PayrollAcoountResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "401 Unauthorized Request"
+					},
+					"404": {
+						"description": "404 API Not Found"
+					},
+					"405": {
+						"description": "405 Method Not Allowed"
+					},
+					"429": {
+						"description": "429 Too Many Requests"
+					},
+					"500": {
+						"description": "500 Internal Server Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/PayrollAcoountResponse"
+								}
+							}
+						}
+					},
+					"503": {
+						"description": "503 Service Unavailable"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/v1/GetLookupTables": {
+			"post": {
+				"tags": [
+					"ODS API"
+				],
+				"description": "Retrieves Lookup Tables",
+				"operationId": "GetLookupTables",
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "JWT bearer token",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "ServiceHeader",
+						"in": "header",
+						"description": "having channel details , locale",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"$ref": "../../../commonschemas/header.json#/ServiceHeader"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "",
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/LookupTablesRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successfully retrieved the response",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/LookupTablesResponse"
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"400": {
+						"description": "400 Bad Request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/LookupTablesResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "401 Unauthorized Request"
+					},
+					"404": {
+						"description": "404 API Not Found"
+					},
+					"405": {
+						"description": "405 Method Not Allowed"
+					},
+					"429": {
+						"description": "429 Too Many Requests"
+					},
+					"500": {
+						"description": "500 Internal Server Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/LookupTablesResponse"
+								}
+							}
+						}
+					},
+					"503": {
+						"description": "503 Service Unavailable"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/v2/GetLookupTables": {
+			"post": {
+				"tags": [
+					"ODS API"
+				],
+				"description": "Retrieves Lookup Tables version 2",
+				"operationId": "GetLookupTables",
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "JWT bearer token",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "ServiceHeader",
+						"in": "header",
+						"description": "having channel details , locale",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"$ref": "../../../commonschemas/header.json#/ServiceHeader"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "",
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/GetLookupTablesRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successfully retrieved the response",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetLookupTablesResponse"
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"400": {
+						"description": "400 Bad Request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetLookupTablesResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "401 Unauthorized Request"
+					},
+					"404": {
+						"description": "404 API Not Found"
+					},
+					"405": {
+						"description": "405 Method Not Allowed"
+					},
+					"429": {
+						"description": "429 Too Many Requests"
+					},
+					"500": {
+						"description": "500 Internal Server Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GetLookupTablesResponse"
+								}
+							}
+						}
+					},
+					"503": {
+						"description": "503 Service Unavailable"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/v1/GetPFADetails": {
+			"post": {
+				"tags": [
+					"ODS API"
+				],
+				"description": "Retrieves PFA details From DB",
+				"operationId": "GetPFADetails",
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "JWT bearer token",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "ServiceHeader",
+						"in": "header",
+						"description": "having channel details , locale",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"$ref": "../../../commonschemas/header.json#/ServiceHeader"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "",
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/PFADetailsRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successfully retrieved the response",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/PFADetailsResponse"
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"400": {
+						"description": "400 Bad Request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/PFADetailsResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "401 Unauthorized Request"
+					},
+					"404": {
+						"description": "404 API Not Found"
+					},
+					"405": {
+						"description": "405 Method Not Allowed"
+					},
+					"429": {
+						"description": "429 Too Many Requests"
+					},
+					"500": {
+						"description": "500 Internal Server Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/PFADetailsResponse"
+								}
+							}
+						}
+					},
+					"503": {
+						"description": "503 Service Unavailable"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/v1/GetCIFDetailsByMobile": {
+			"post": {
+				"tags": [
+					"ODS API"
+				],
+				"description": "Retrieves CIF from Database",
+				"operationId": "GetCIFDetailsByMobile",
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "JWT bearer token",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "ServiceHeader",
+						"in": "header",
+						"description": "having channel details , locale",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"$ref": "../../../commonschemas/header.json#/ServiceHeader"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "",
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CIFDetailsByMobileRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successfully retrieved the response",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CIFDetailsByMobileResponse"
+								}
+							}
+						}
+					},
+					"204": {
+						"description": "No Content"
+					},
+					"400": {
+						"description": "400 Bad Request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CIFDetailsByMobileResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "401 Unauthorized Request"
+					},
+					"404": {
+						"description": "404 API Not Found"
+					},
+					"405": {
+						"description": "405 Method Not Allowed"
+					},
+					"429": {
+						"description": "429 Too Many Requests"
+					},
+					"500": {
+						"description": "500 Internal Server Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CIFDetailsByMobileResponse"
+								}
+							}
+						}
+					},
+					"503": {
+						"description": "503 Service Unavailable"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/v1/GetCustomerInformation": {
+			"post": {
+				"tags": [
+					"ODS API"
+				],
+				"summary": "GetCustomerInformation",
+				"operationId": "GetCustomerInformation",
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "JWT bearer token",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "ServiceHeader",
+						"in": "header",
+						"description": "having channel details , locale",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"$ref": "../../../commonschemas/header.json#/ServiceHeader"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "",
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CustomerInformationRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successfully retrieved the response",
+						"headers": {},
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CustomerInformationResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "401 Unauthorized Request"
+					},
+					"404": {
+						"description": "404 API Not Found"
+					},
+					"405": {
+						"description": "405 Method Not Allowed"
+					},
+					"429": {
+						"description": "429 Too Many Requests"
+					},
+					"500": {
+						"description": "500 Internal Server Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CustomerInformationResponse"
+								}
+							}
+						}
+					},
+					"503": {
+						"description": "503 Service Unavailable"
+					}
+				},
+				"deprecated": false
+			}
+		},
+		"/v1/GetCustAcctsCumulativeBal": {
+			"post": {
+				"tags": [
+					"ODS API"
+				],
+				"summary": "GetCustAcctsCumulativeBal",
+				"description": "This Operation will fetch Cumulative Balance of\n\t\t\t\tall the active Omni Accounts and Current Accounts linked to a CIF",
+				"operationId": "GetCustAcctsCumulativeBal",
+				"parameters": [
+					{
+						"name": "Authorization",
+						"in": "header",
+						"description": "JWT bearer token",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"type": "string"
+						}
+					},
+					{
+						"name": "ServiceHeader",
+						"in": "header",
+						"description": "having channel details , locale",
+						"required": true,
+						"style": "simple",
+						"schema": {
+							"$ref": "../../../commonschemas/header.json#/ServiceHeader"
+						}
+					}
+				],
+				"requestBody": {
+					"description": "",
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CustAcctsCumulativeBalRequest"
+							}
+						}
+					},
+					"required": true
+				},
+				"responses": {
+					"200": {
+						"description": "Successfully retrieved the response",
+						"headers": {},
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CustAcctsCumulativeBalResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "400 Bad request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CustAcctsCumulativeBalResponse"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "401 Unauthorized Request"
+					},
+					"404": {
+						"description": "404 API Not Found"
+					},
+					"405": {
+						"description": "405 Method Not Allowed"
+					},
+					"429": {
+						"description": "429 Too Many Requests"
+					},
+					"500": {
+						"description": "500 Internal Server Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CustAcctsCumulativeBalResponse"
+								}
+							}
+						}
+					},
+					"503": {
+						"description": "503 Service Unavailable"
+					}
+				},
+				"deprecated": false
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"PFADetailsRequest": {
+				"title": "PFADetailsRequest",
+				"description": "PFA Details Request",
+				"type": "object",
+				"properties": {
+					"PFADetailsRequest": {
+						"$ref": "#/components/schemas/PFADetailsRequestType"
+					}
+				}
+			},
+			"PFADetailsRequestType": {
+				"title": "PFADetailsRequestType",
+				"description": "PFA Details Request Type",
+				"type": "object",
+				"properties": {
+					"cif": {
+						"description": "CIF",
+						"type": "string"
+					}
+				}
+			},
+			"PFADetailsResponse": {
+				"title": "PFADetailsResponse",
+				"description": "PFA Details Response",
+				"type": "object",
+				"properties": {
+					"PFADetailsResponse": {
+						"$ref": "#/components/schemas/PFADetailsResponseType"
+					}
+				}
+			},
+			"PFADetailsResponseType": {
+				"title": "PFADetailsResponseType",
+				"description": "PFADetailsResponseType",
+				"type": "object",
+				"properties": {
+					"pfaDetails": {
+						"$ref": "#/components/schemas/PFADetailsType"
+					}
+				}
+			},
+			"PFADetailsType": {
+				"title": "PFADetailsType",
+				"description": "PFA Details Type",
+				"type": "object",
+				"properties": {
+					"CIF_NUMBER": {
+						"description": "CIF NUMBER",
+						"type": "string"
+					},
+					"CURRENT_BALANCE": {
+						"description": "CURRENT BALANCE",
+						"type": "string"
+					},
+					"BALANCE_AVG_MONTHLY": {
+						"description": "BALANCE AVG MONTHLY",
+						"type": "string"
+					},
+					"BALANCE_AVG_6_MONTH": {
+						"description": "BALANCE AVG 6 MONTH",
+						"type": "string"
+					},
+					"INVESTMENT_BALANCE": {
+						"description": "INVESTMENT BALANCE",
+						"type": "string"
+					},
+					"KHAYRAT_BALANCE": {
+						"description": "KHAYRAT BALANCE",
+						"type": "string"
+					},
+					"PFA": {
+						"description": "PFA",
+						"type": "string"
+					},
+					"CREDIT_CARD_FLAG": {
+						"description": "CREDIT CARD FLAG",
+						"type": "string"
+					},
+					"MUTUAL_FUND_FLAG": {
+						"description": "MUTUAL FUND FLAG",
+						"type": "string"
+					},
+					"TAKAFUL_FLAG": {
+						"description": "TAKAFUL FLAG",
+						"type": "string"
+					},
+					"IVR_FLAG": {
+						"description": "IVR FLAG",
+						"type": "string"
+					},
+					"PAYROLL_FLAG": {
+						"description": "PAYROLL FLAG",
+						"type": "string"
+					},
+					"NCB_STAFF_FLAG": {
+						"description": "NCB STAFF FLAG",
+						"type": "string"
+					},
+					"LAST_CUST_CREDIT_DT": {
+						"description": "LAST CUST CREDIT DT",
+						"type": "string"
+					},
+					"LAST_CUST_DEBIT_DT": {
+						"description": "LAST CUST DEBIT DT",
+						"type": "string"
+					},
+					"ETL_LOAD_DATE": {
+						"description": "ETL LOAD DATE",
+						"type": "string"
+					},
+					"AUTO_LEASE_FLAG": {
+						"description": "AUTO LEASE FLAG",
+						"type": "string"
+					},
+					"PERSONAL_FINANCE_FLAG": {
+						"description": "PERSONAL FINANCE FLAG",
+						"type": "string"
+					},
+					"RESIDENTIAL_FINANCE_FLAG": {
+						"description": "RESIDENTIAL FINANCE FLAG",
+						"type": "string"
+					},
+					"DEPOSIT_ACCOUNT_FLAG": {
+						"description": "DEPOSIT ACCOUNT FLAG",
+						"type": "string"
+					},
+					"PAYROLL_ACCOUNT_NUMBER": {
+						"description": "PAYROLL_ ACCOUNT NUMBER",
+						"type": "string"
+					}
+				}
+			},
+			"RetailCustomerDetailsRequest": {
+				"title": "RetailCustomerDetailsRequest",
+				"description": "Retail Customer Details Request",
+				"type": "object",
+				"properties": {
+					"RetailCustomerDetailsRequest": {
+						"$ref": "#/components/schemas/RetailCustomerDetailsRequestType"
+					}
+				}
+			},
+			"RetailCustomerDetailsRequestType": {
+				"title": "RetailCustomerDetailsRequestType",
+				"description": "Retail Customer Details Request Type",
+				"type": "object",
+				"properties": {
+					"id": {
+						"description": "ID",
+						"type": "string"
+					},
+					"cif": {
+						"description": "CIF",
+						"type": "string"
+					},
+					"account": {
+						"description": "ACCOUNT",
+						"type": "string"
+					},
+					"optionIncome": {
+						"description": "OPTION INCOME",
+						"type": "string"
+					},
+					"optionWassel": {
+						"description": "OPTION WASSEL",
+						"type": "string"
+					},
+					"branch": {
+						"description": "BRANCH",
+						"type": "string"
+					},
+					"teller": {
+						"description": "TELLER",
+						"type": "string"
+					},
+					"channel": {
+						"description": "CHANNEL",
+						"type": "string"
+					},
+					"serviceName": {
+						"description": "SERVICE NAME",
+						"type": "string"
+					}
+				}
+			},
+			"RetailCustomerDetailsResponse": {
+				"title": "RetailCustomerDetailsResponse",
+				"description": "Retail Customer Details Response",
+				"type": "object",
+				"properties": {
+					"RetailCustomerDetailsResponse": {
+						"$ref": "#/components/schemas/RetailCustomerDetailsType"
+					}
+				}
+			},
+			"RetailCustomerDetailsResponseTypes": {
+				"title": "RetailCustomerDetailsResponseTypes",
+				"description": "Retail Customer Details Response Types",
+				"type": "object",
+				"properties": {
+					"success": {
+						"$ref": "#/components/schemas/RetailCustomerDetailsSuccessType"
+					},
+					"fault": {
+						"$ref": "../../../commonschemas/fault.json#/FaultType"
+					}
+				}
+			},
+			"RetailCustomerDetailsSuccessType": {
+				"title": "RetailCustomerDetailsSuccessType",
+				"type": "object",
+				"description": "Retail Customer Details Success Type",
+				"properties": {
+					"retailCustomerDetails": {
+						"$ref": "#/components/schemas/RetailCustomerDetailsType"
+					}
+				}
+			},
+			"RetailCustomerDetailsType": {
+				"title": "RetailCustomerDetailsType",
+				"type": "object",
+				"description": "Retail Customer Details Type",
+				"properties": {
+					"retailCustomerDetails": {
+						"$ref": "#/components/schemas/RetailCustomerDetailsType1"
+					},
+					"customerIdDetails": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/CustomerIdDetailsType1"
+						}
+					}
+				}
+			},
+			"RetailCustomerDetailsType1": {
+				"title": "RetailCustomerDetailsType1",
+				"description": "Retail Customer Details Type1",
+				"type": "object",
+				"properties": {
+					"BLACKLIST_STATUS_CD": {
+						"type": "string",
+						"description": "BLACKLIST STATUS CD"
+					},
+					"BUSINESS_DIVISION_CD": {
+						"type": "string",
+						"description": "BUSINESS DIVISION CD"
+					},
+					"CUSTOMER_TYPE_CD": {
+						"type": "string",
+						"description": "CUSTOMER TYPE CD"
+					},
+					"CUSTOMER_STATUS_CD": {
+						"type": "string",
+						"description": "CUSTOMER STATUS CD"
+					},
+					"MERGE_STATUS": {
+						"type": "string",
+						"description": "MERGE STATUS"
+					},
+					"CUSTOMER_SUB_TYPE_CD": {
+						"type": "string",
+						"description": "CUSTOMER SUB TYPE CD"
+					},
+					"CREATION_BRANCH_CODE": {
+						"type": "string",
+						"description": "CREATION BRANCH CODE"
+					},
+					"CUST_CREATE_DT": {
+						"type": "string",
+						"description": "CUST CREATE DT"
+					},
+					"CIF_NUMBER": {
+						"type": "string",
+						"description": "CIF NUMBER"
+					},
+					"CUSTOMER_FAMILY_NAME": {
+						"type": "string",
+						"description": "CUSTOMER FAMILY NAME"
+					},
+					"CUSTOMER_FIRST_NAME": {
+						"type": "string",
+						"description": "CUSTOMER FIRST NAME"
+					},
+					"CUSTOMER_FULL_NAME": {
+						"type": "string",
+						"description": "CUSTOMER FULL NAME"
+					},
+					"LANGUAGE_CD": {
+						"type": "string",
+						"description": "LANGUAGE CD"
+					},
+					"CUSTOMER_LAST_NAME": {
+						"type": "string",
+						"description": "CUSTOMER LAST NAME"
+					},
+					"LEGAL_ENTITY_CD": {
+						"type": "string",
+						"description": "LEGAL ENTITY CD"
+					},
+					"BRANCH_NUMBER_CREATED": {
+						"type": "string",
+						"description": "BRANCH NUMBER CREATED"
+					},
+					"CUSTOMER_MIDDLE_NAME": {
+						"type": "string",
+						"description": "CUSTOMER MIDDLE NAME"
+					},
+					"NATIONALITY_CD": {
+						"type": "string",
+						"description": "NATIONALITY CD"
+					},
+					"OCCUPANCY": {
+						"type": "string",
+						"description": "OCCUPANCY"
+					},
+					"RELATIONSHIP_MANAGER_ID": {
+						"type": "string",
+						"description": "RELATIONSHIP MANAGER ID"
+					},
+					"RELATIONSHIP_MANAGER_NAME": {
+						"type": "string",
+						"description": "RELATIONSHIP MANAGER NAME"
+					},
+					"RELATIONSHIP_MANAGER_NAME_AR": {
+						"type": "string",
+						"description": "RELATIONSHIP MANAGER NAME AR"
+					},
+					"PROGRAM_CD": {
+						"type": "string",
+						"description": "PROGRAM CD"
+					},
+					"RESIDENCY_CD": {
+						"type": "string",
+						"description": "RESIDENCY CD"
+					},
+					"SAMA_APPROVAL_NUMBER": {
+						"type": "string",
+						"description": "SAMA APPROVAL NUMBER"
+					},
+					"SAMA_FLAG": {
+						"type": "string",
+						"description": "SAMA FLAG"
+					},
+					"SAMA_NO": {
+						"type": "string",
+						"description": "SAMA NO"
+					},
+					"TITLE_CD": {
+						"type": "string",
+						"description": "TITLE CD"
+					},
+					"LAST_MAINT_DT": {
+						"type": "string",
+						"description": "LAST MAINT DT"
+					},
+					"SUB_LEGAL_ENTITY_CD": {
+						"type": "string",
+						"description": "SUB LEGAL ENTITY CD"
+					},
+					"REGISTRATION_STATUS_CD": {
+						"type": "string",
+						"description": "REGISTRATION STATUS CD"
+					},
+					"KYC_STATUS_CD": {
+						"type": "string",
+						"description": "KYC STATUS CD"
+					},
+					"HIGH_RISK_IND": {
+						"type": "string",
+						"description": "HIGH RISK IND"
+					},
+					"RESIDENCY_PROOF_FLAG": {
+						"type": "string",
+						"description": "RESIDENCY PROOF FLAG"
+					},
+					"LANG_FAMILY_NAME": {
+						"type": "string",
+						"description": "LANG FAMILY NAME"
+					},
+					"LANG_FIRST_NAME": {
+						"type": "string",
+						"description": "LANG FIRST NAME"
+					},
+					"LANG_FULL_NAME": {
+						"type": "string",
+						"description": "LANG FULL NAME"
+					},
+					"LANG_LAST_NAME": {
+						"type": "string",
+						"description": "LANG LAST NAME"
+					},
+					"LANG_MIDDLE_NAME": {
+						"type": "string",
+						"description": "LANG MIDDLE NAME"
+					},
+					"ADDRESS_TYPE_CD": {
+						"type": "string",
+						"description": "ADDRESS TYPE CD"
+					},
+					"ADDRESS_IND": {
+						"type": "string",
+						"description": "ADDRESS IND"
+					},
+					"APARTMENT_NO": {
+						"type": "string",
+						"description": "APARTMENT NO"
+					},
+					"BASIC_NO": {
+						"type": "string",
+						"description": "BASIC NO"
+					},
+					"CITY": {
+						"type": "string",
+						"description": "CITY"
+					},
+					"COUNTRY_CD": {
+						"type": "string",
+						"description": "COUNTRY CD"
+					},
+					"DISTRICT": {
+						"type": "string",
+						"description": "DISTRICT"
+					},
+					"LANG_CD": {
+						"type": "string",
+						"description": "LANG CD"
+					},
+					"PO_REGION": {
+						"type": "string",
+						"description": "PO REGION"
+					},
+					"PO_BOX": {
+						"type": "string",
+						"description": "PO BOX"
+					},
+					"POSTAL_CD": {
+						"type": "string",
+						"description": "POSTAL CD"
+					},
+					"STREET": {
+						"type": "string",
+						"description": "STREET"
+					},
+					"UNIT_NO": {
+						"type": "string",
+						"description": "UNIT NO"
+					},
+					"ADDITIONAL_NO": {
+						"type": "string",
+						"description": "ADDITIONAL NO"
+					},
+					"ADDRESS1": {
+						"type": "string",
+						"description": "ADDRESS1"
+					},
+					"ADDRESS2": {
+						"type": "string",
+						"description": "ADDRESS2"
+					},
+					"CONTACT_TYPE_CD": {
+						"type": "string",
+						"description": "CONTACT TYPE CD"
+					},
+					"PHONE_NO": {
+						"type": "string",
+						"description": "PHONE NO"
+					},
+					"PHONE_EXT": {
+						"type": "string",
+						"description": "PHONE EXT"
+					},
+					"MOBILE_NO": {
+						"type": "string",
+						"description": "MOBILE NO"
+					},
+					"FAX_NO": {
+						"type": "string",
+						"description": "FAX NO"
+					},
+					"FAX_EXT": {
+						"type": "string",
+						"description": "FAX EXT"
+					},
+					"EMAIL": {
+						"type": "string",
+						"description": "EMAIL"
+					},
+					"EMAIL_WEBSITE": {
+						"type": "string",
+						"description": "EMAIL WEBSITE"
+					},
+					"JOB_TITLE": {
+						"type": "string",
+						"description": "JOB TITLE"
+					},
+					"CONTACT_TYPE_CD2": {
+						"type": "string",
+						"description": "CONTACT TYPE CD2"
+					},
+					"PHONE_NO2": {
+						"type": "string",
+						"description": "PHONE NO2"
+					},
+					"PHONE_EXT2": {
+						"type": "string",
+						"description": "PHONE EXT2"
+					},
+					"MOBILE_NO2": {
+						"type": "string",
+						"description": "MOBILE NO2"
+					},
+					"FAX_NO2": {
+						"type": "string",
+						"description": "FAX NO2"
+					},
+					"FAX_EXT2": {
+						"type": "string",
+						"description": "FAX EXT2"
+					},
+					"EMAIL2": {
+						"type": "string",
+						"description": "EMAIL2"
+					},
+					"EMAIL_WEBSITE2": {
+						"type": "string",
+						"description": "EMAIL WEBSITE2"
+					},
+					"JOB_TITLE2": {
+						"type": "string",
+						"description": "JOB TITLE2"
+					},
+					"CONTACT_TYPE_CD3": {
+						"type": "string",
+						"description": "CONTACT TYPE CD3"
+					},
+					"MOBILE_NO3": {
+						"type": "string",
+						"description": "MOBILE NO3"
+					},
+					"EMAIL3": {
+						"type": "string",
+						"description": "EMAIL3"
+					},
+					"CREDIT_RATING": {
+						"type": "string",
+						"description": "CREDIT RATING"
+					},
+					"INDUSTRY_CD": {
+						"type": "string",
+						"description": "INDUSTRY CD"
+					},
+					"PRIM_REVENUE_SRC_CD": {
+						"type": "string",
+						"description": "PRIM REVENUE SRC CD"
+					},
+					"MON_INC_PAY_METHD_CD": {
+						"type": "string",
+						"description": "MON INC PAY METHD CD"
+					},
+					"COUNTRY_BIRTH": {
+						"type": "string",
+						"description": "COUNTRY BIRTH"
+					},
+					"FATCA_CLASS_CD": {
+						"type": "string",
+						"description": "FATCA CLASS CD"
+					},
+					"ADD_INCOME_PROOF_CD": {
+						"type": "string",
+						"description": "ADD INCOME PROOF CD"
+					},
+					"PEP_FLG": {
+						"type": "string",
+						"description": "PEP FLG"
+					},
+					"ADD_INCOME_ADD_WDESC": {
+						"type": "string",
+						"description": "ADD INCOME ADD WDESC"
+					},
+					"ADD_INCOME_INV_FLG": {
+						"type": "string",
+						"description": "ADD INCOME INV FLG"
+					},
+					"ADD_INCOME_OTHER_DESC": {
+						"type": "string",
+						"description": "ADD INCOME OTHER DESC"
+					},
+					"ADD_INCOME_OTHER_FLG": {
+						"type": "string",
+						"description": "ADD INCOME OTHER FLG"
+					},
+					"ADD_INCOME_ADD_WORK_FLG": {
+						"type": "string",
+						"description": "ADD INCOME ADD WORK FLG"
+					},
+					"ADD_INCOME_ALLOWANCE_FLG": {
+						"type": "string",
+						"description": "ADD INCOME ALLOWANCE FLG"
+					},
+					"ADD_INCOME_BONUS_FLG": {
+						"type": "string",
+						"description": "ADD INCOME BONUS FLG"
+					},
+					"ADD_INCOME_COMMISSION_FLG": {
+						"type": "string",
+						"description": "ADD INCOME COMMISSION FLG"
+					},
+					"ADD_INCOME_OVERTIME_FLG": {
+						"type": "string",
+						"description": "ADD INCOME OVERTIME FLG"
+					},
+					"ADD_INCOME_RENT_FLG": {
+						"type": "string",
+						"description": "ADD INCOME RENT FLG"
+					},
+					"ADD_INCOME_TRADE_FLG": {
+						"type": "string",
+						"description": "ADD INCOME TRADE FLG"
+					},
+					"ANNUAL_INCOME": {
+						"type": "string",
+						"description": "ANNUAL INCOME"
+					},
+					"AVG_MNTLY_INCOME_CD": {
+						"type": "string",
+						"description": "AVG MNTLY INCOME CD"
+					},
+					"CREDIT_RATING_CD": {
+						"type": "string",
+						"description": "CREDIT RATING CD"
+					},
+					"BIRTH_DATE": {
+						"type": "string",
+						"description": "BIRTH DATE"
+					},
+					"BIRTH_DATE_HIJRI": {
+						"type": "string",
+						"description": "BIRTH DATE HIJRI"
+					},
+					"EDUCATION_CD": {
+						"type": "string",
+						"description": "EDUCATION CD"
+					},
+					"EDUCATION_CD_1": {
+						"type": "string",
+						"description": "EDUCATION CD 1"
+					},
+					"EMPLOYER_CD": {
+						"type": "string",
+						"description": "EMPLOYER CD"
+					},
+					"EMPLOYER_NAME": {
+						"type": "string",
+						"description": "EMPLOYER NAME"
+					},
+					"EMPLOYMENT_DATE": {
+						"type": "string",
+						"description": "EMPLOYMENT DATE"
+					},
+					"EMPLOYMENT_DATE_HIJRI": {
+						"type": "string",
+						"description": "EMPLOYMENT DATE HIJRI"
+					},
+					"EMPLOYMENT_IND": {
+						"type": "string",
+						"description": "EMPLOYMENT IND"
+					},
+					"EMPLOYMENT_TYPE_CD": {
+						"type": "string",
+						"description": "EMPLOYMENT TYPE CD"
+					},
+					"GENDER": {
+						"type": "string",
+						"description": "GENDER"
+					},
+					"MARITAL_STATUS_CD": {
+						"type": "string",
+						"description": "MARITAL STATUS CD"
+					},
+					"MONTHLY_SALARY": {
+						"type": "string",
+						"description": "MONTHLY SALARY"
+					},
+					"NCB_EMPLOYEE_IND": {
+						"type": "string",
+						"description": "NCB EMPLOYEE IND"
+					},
+					"NUMBER_OF_DEPENDENTS": {
+						"type": "string",
+						"description": "NUMBER OF DEPENDENTS"
+					},
+					"OCCUPATION_CD": {
+						"type": "string",
+						"description": "OCCUPATION CD"
+					},
+					"PLACE_OF_BIRTH": {
+						"type": "string",
+						"description": "PLACE OF BIRTH"
+					},
+					"TOT_MONTHLY_INCOME_CD": {
+						"type": "string",
+						"description": "TOT MONTHLY INCOME CD"
+					},
+					"NA_VERIFICATION_FLAG": {
+						"type": "string",
+						"description": "NA VERIFICATION FLAG"
+					},
+					"NA_ADDRESS_TYPE": {
+						"type": "string",
+						"description": "NA ADDRESS TYPE"
+					},
+					"NA_ADDRESS_IND": {
+						"type": "string",
+						"description": "NA ADDRESS IND"
+					},
+					"NA_APARTMENT_NO": {
+						"type": "string",
+						"description": "NA APARTMENT NO"
+					},
+					"NA_BUILDING_NO": {
+						"type": "string",
+						"description": "NA BUILDING NO"
+					},
+					"NA_CITY_CD": {
+						"type": "string",
+						"description": "NA CITY CD"
+					},
+					"NA_COUNTRY": {
+						"type": "string",
+						"description": "NA COUNTRY"
+					},
+					"NA_DISTRICT": {
+						"type": "string",
+						"description": "NA DISTRICT"
+					},
+					"NA_LANG_CD": {
+						"type": "string",
+						"description": "NA LANG CD"
+					},
+					"NA_REGION_CD": {
+						"type": "string",
+						"description": "NA REGION CD"
+					},
+					"NA_PO_BOX": {
+						"type": "string",
+						"description": "NA PO BOX"
+					},
+					"NA_POSTAL_CD": {
+						"type": "string",
+						"description": "NA POSTAL CD"
+					},
+					"NA_STREET": {
+						"type": "string",
+						"description": "NA STREET"
+					},
+					"NA_UNIT_NO": {
+						"type": "string",
+						"description": "NA UNIT NO"
+					},
+					"NA_ADDITIONAL_NO": {
+						"type": "string",
+						"description": "NA ADDITIONAL NO"
+					},
+					"NA_CUSTOMER_CONSENT": {
+						"type": "string",
+						"description": "NA CUSTOMER CONSENT"
+					},
+					"NA_FATCA_STATUS_FLG": {
+						"type": "string",
+						"description": "NA FATCA STATUS FLG"
+					},
+					"JOB_SECTOR_CD": {
+						"type": "string",
+						"description": "JOB SECTOR CD"
+					},
+					"BUSINESS_ACTIVITY": {
+						"type": "string",
+						"description": "BUSINESS ACTIVITY"
+					}
+				}
+			},
+			"CustomerIdDetailsType1": {
+				"title": "CustomerIdDetailsType1",
+				"description": "Customer Id Details Type1",
+				"type": "object",
+				"properties": {
+					"ID_NUMBER": {
+						"type": "string",
+						"description": "ID NUMBER"
+					},
+					"ID_TYPE_CD": {
+						"type": "string",
+						"description": "ID TYPE CD"
+					},
+					"ID_EXPIRY_DATE": {
+						"type": "string",
+						"description": "ID EXPIRY DATE"
+					},
+					"ID_EXPIRY_DATE_HIJRI": {
+						"type": "string",
+						"description": "ID EXPIRY DATE HIJRI"
+					},
+					"ID_ISSUE_DATE": {
+						"type": "string",
+						"description": "ID ISSUE DATE"
+					},
+					"ID_ISSUE_DATE_HIJRI": {
+						"type": "string",
+						"description": "ID ISSUE DATE HIJRI"
+					},
+					"ID_ISSUE_PLACE": {
+						"type": "string",
+						"description": "ID ISSUE PLACE"
+					},
+					"ID_COUNTRY_CD": {
+						"type": "string",
+						"description": "ID COUNTRY CD"
+					}
+				}
+			},
+			"CorporateCustomerDetailsRequest": {
+				"title": "CorporateCustomerDetailsRequest",
+				"description": "Corporate Customer Details Request",
+				"type": "object",
+				"properties": {
+					"CorporateCustomerDetailsRequest": {
+						"$ref": "#/components/schemas/CorporateCustomerDetailsRequestType"
+					}
+				}
+			},
+			"CorporateCustomerDetailsRequestType": {
+				"title": "CorporateCustomerDetailsRequestType",
+				"description": "Corporate Customer Details Request Type",
+				"type": "object",
+				"properties": {
+					"id": {
+						"description": "ID",
+						"type": "string"
+					},
+					"cif": {
+						"description": "CIF",
+						"type": "string"
+					},
+					"account": {
+						"description": "ACCOUNT",
+						"type": "string"
+					},
+					"optionIncome": {
+						"description": "OPTION INCOME",
+						"type": "string"
+					},
+					"optionWassel": {
+						"description": "OPTION WASSEL",
+						"type": "string"
+					},
+					"branch": {
+						"description": "BRANCH",
+						"type": "string"
+					},
+					"teller": {
+						"description": "TELLER",
+						"type": "string"
+					},
+					"channel": {
+						"description": "CHANNEL",
+						"type": "string"
+					},
+					"serviceName": {
+						"description": "SERVICE NAME",
+						"type": "string"
+					}
+				}
+			},
+			"CorporateCustomerDetailsResponse": {
+				"title": "CorporateCustomerDetailsResponse",
+				"description": "Corporate Customer Details Response",
+				"type": "object",
+				"properties": {
+					"CorporateCustomerDetailsResponse": {
+						"$ref": "#/components/schemas/CorporateCustomerDetailsType"
+					}
+				}
+			},
+			"CorporateCustomerDetailsResponseTypes": {
+				"title": "CorporateCustomerDetailsResponseTypes",
+				"description": "Corporate Customer Details Response Types",
+				"type": "object",
+				"properties": {
+					"success": {
+						"$ref": "#/components/schemas/CorporateCustomerDetailsSuccessType"
+					},
+					"fault": {
+						"$ref": "../../../commonschemas/fault.json#/FaultType"
+					}
+				}
+			},
+			"CorporateCustomerDetailsSuccessType": {
+				"title": "CorporateCustomerDetailsSuccessType",
+				"description": "Corporate Customer Details Success Type",
+				"type": "object",
+				"properties": {
+					"corporateCustomerDetails": {
+						"$ref": "#/components/schemas/CorporateCustomerDetailsType"
+					}
+				}
+			},
+			"CorporateCustomerDetailsType": {
+				"title": "CorporateCustomerDetailsType",
+				"description": "Corporate Customer Details Type",
+				"type": "object",
+				"properties": {
+					"corporateDetails": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/CorporateDetailsType1"
+						}
+					},
+					"customerIdDetails": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/CustomerIdDetailsType1"
+						}
+					},
+					"ownershipDetails": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/OwnershipDetailsType"
+						}
+					}
+				}
+			},
+			"CorporateDetailsType1": {
+				"title": "CorporateDetailsType1",
+				"description": "Corporate Details Type1",
+				"type": "object",
+				"properties": {
+					"BLACKLIST_STATUS_CD": {
+						"type": "string",
+						"description": "BLACKLIST STATUS CD"
+					},
+					"BUSINESS_DIVISION_CD": {
+						"type": "string",
+						"description": "BUSINESS DIVISION CD"
+					},
+					"CUSTOMER_TYPE_CD": {
+						"type": "string",
+						"description": "CUSTOMER TYPE CD"
+					},
+					"CUSTOMER_STATUS_CD": {
+						"type": "string",
+						"description": "CUSTOMER STATUS CD"
+					},
+					"MERGE_STATUS": {
+						"type": "string",
+						"description": "MERGE STATUS"
+					},
+					"CUSTOMER_SUB_TYPE_CD": {
+						"type": "string",
+						"description": "CREATION BRANCH CODE"
+					},
+					"CREATION_BRANCH_CODE": {
+						"type": "string",
+						"description": "CREATION BRANCH CODE"
+					},
+					"CUST_CREATE_DT": {
+						"type": "string",
+						"description": "CUST CREATE DT"
+					},
+					"CIF_NUMBER": {
+						"type": "string",
+						"description": "CIF NUMBER"
+					},
+					"CUSTOMER_FAMILY_NAME": {
+						"type": "string",
+						"description": "CUSTOMER FAMILY NAME"
+					},
+					"CUSTOMER_FIRST_NAME": {
+						"type": "string",
+						"description": "CUSTOMER FIRST NAME"
+					},
+					"CUSTOMER_FULL_NAME": {
+						"type": "string",
+						"description": "CUSTOMER FULL NAME"
+					},
+					"LANGUAGE_CD": {
+						"type": "string",
+						"description": "LANGUAGE CD"
+					},
+					"CUSTOMER_LAST_NAME": {
+						"type": "string",
+						"description": "CUSTOMER LAST NAME"
+					},
+					"LEGAL_ENTITY_CD": {
+						"type": "string",
+						"description": "LEGAL ENTITY CD"
+					},
+					"BRANCH_NUMBER_CREATED": {
+						"type": "string",
+						"description": "BRANCH NUMBER CREATED"
+					},
+					"CUSTOMER_MIDDLE_NAME": {
+						"type": "string",
+						"description": "CUSTOMER MIDDLE NAME"
+					},
+					"NATIONALITY_CD": {
+						"type": "string",
+						"description": "NATIONALITY CD"
+					},
+					"OCCUPANCY": {
+						"type": "string",
+						"description": "OCCUPANCY"
+					},
+					"RELATIONSHIP_MANAGER_ID": {
+						"type": "string",
+						"description": "RELATIONSHIP MANAGER ID"
+					},
+					"RELATIONSHIP_MANAGER_NAME": {
+						"type": "string",
+						"description": "RELATIONSHIP MANAGER NAME"
+					},
+					"RELATIONSHIP_MANAGER_NAME_AR": {
+						"type": "string",
+						"description": "RELATIONSHIP MANAGER NAME AR"
+					},
+					"PROGRAM_CD": {
+						"type": "string",
+						"description": "PROGRAM CD"
+					},
+					"RESIDENCY_CD": {
+						"type": "string",
+						"description": "RESIDENCY CD"
+					},
+					"SAMA_APPROVAL_NUMBER": {
+						"type": "string",
+						"description": "SAMA APPROVAL NUMBER"
+					},
+					"SAMA_FLAG": {
+						"type": "string",
+						"description": "SAMA FLAG"
+					},
+					"SAMA_NO": {
+						"type": "string",
+						"description": "SAMA NO"
+					},
+					"TITLE_CD": {
+						"type": "string",
+						"description": "TITLE CD"
+					},
+					"LAST_MAINT_DT": {
+						"type": "string",
+						"description": "LAST MAINT DT"
+					},
+					"SUB_LEGAL_ENTITY_CD": {
+						"type": "string",
+						"description": "SUB LEGAL ENTITY CD"
+					},
+					"REGISTRATION_STATUS_CD": {
+						"type": "string",
+						"description": "REGISTRATION STATUS CD"
+					},
+					"KYC_STATUS_CD": {
+						"type": "string",
+						"description": "KYC STATUS CD"
+					},
+					"HIGH_RISK_IND": {
+						"type": "string",
+						"description": "HIGH RISK IND"
+					},
+					"RESIDENCY_PROOF_FLAG": {
+						"type": "string",
+						"description": "RESIDENCY PROOF FLAG"
+					},
+					"LANG_FAMILY_NAME": {
+						"type": "string",
+						"description": "LANG FAMILY NAME"
+					},
+					"LANG_FIRST_NAME": {
+						"type": "string",
+						"description": "LANG FIRST NAME"
+					},
+					"LANG_FULL_NAME": {
+						"type": "string",
+						"description": "LANG FULL NAME"
+					},
+					"LANG_LAST_NAME": {
+						"type": "string",
+						"description": "LANG LAST NAME"
+					},
+					"LANG_MIDDLE_NAME": {
+						"type": "string",
+						"description": "LANG MIDDLE NAME"
+					},
+					"ADDRESS_TYPE_CD": {
+						"type": "string",
+						"description": "ADDRESS TYPE CD"
+					},
+					"ADDRESS_IND": {
+						"type": "string",
+						"description": "ADDRESS IND"
+					},
+					"APARTMENT_NO": {
+						"type": "string",
+						"description": "APARTMENT NO"
+					},
+					"BASIC_NO": {
+						"type": "string",
+						"description": "BASIC NO"
+					},
+					"CITY": {
+						"type": "string",
+						"description": "CITY"
+					},
+					"COUNTRY_CD": {
+						"type": "string",
+						"description": "COUNTRY CD"
+					},
+					"DISTRICT": {
+						"type": "string",
+						"description": "DISTRICT"
+					},
+					"LANG_CD": {
+						"type": "string",
+						"description": "LANG CD"
+					},
+					"PO_REGION": {
+						"type": "string",
+						"description": "PO REGION"
+					},
+					"PO_BOX": {
+						"type": "string",
+						"description": "PO BOX"
+					},
+					"POSTAL_CD": {
+						"type": "string",
+						"description": "POSTAL CD"
+					},
+					"STREET": {
+						"type": "string",
+						"description": "STREET"
+					},
+					"UNIT_NO": {
+						"type": "string",
+						"description": "UNIT NO"
+					},
+					"ADDITIONAL_NO": {
+						"type": "string",
+						"description": "ADDITIONAL NO"
+					},
+					"ADDRESS1": {
+						"type": "string",
+						"description": "ADDRESS1"
+					},
+					"ADDRESS2": {
+						"type": "string",
+						"description": "ADDRESS2"
+					},
+					"CONTACT_TYPE_CD": {
+						"type": "string",
+						"description": "CONTACT TYPE CD"
+					},
+					"PHONE_NO": {
+						"type": "string",
+						"description": "PHONE NO"
+					},
+					"PHONE_EXT": {
+						"type": "string",
+						"description": "PHONE EXT"
+					},
+					"MOBILE_NO": {
+						"type": "string",
+						"description": "MOBILE NO"
+					},
+					"FAX_NO": {
+						"type": "string",
+						"description": "FAX NO"
+					},
+					"FAX_EXT": {
+						"type": "string",
+						"description": "FAX EXT"
+					},
+					"EMAIL": {
+						"type": "string",
+						"description": "EMAIL"
+					},
+					"EMAIL_WEBSITE": {
+						"type": "string",
+						"description": "EMAIL WEBSITE"
+					},
+					"JOB_TITLE": {
+						"type": "string",
+						"description": "JOB TITLE"
+					},
+					"CONTACT_TYPE_CD2": {
+						"type": "string",
+						"description": "CONTACT TYPE CD2"
+					},
+					"PHONE_NO2": {
+						"type": "string",
+						"description": "PHONE NO2"
+					},
+					"PHONE_EXT2": {
+						"type": "string",
+						"description": "PHONE EXT2"
+					},
+					"MOBILE_NO2": {
+						"type": "string",
+						"description": "MOBILE NO2"
+					},
+					"FAX_NO2": {
+						"type": "string",
+						"description": "FAX NO2"
+					},
+					"FAX_EXT2": {
+						"type": "string",
+						"description": "FAX EXT2"
+					},
+					"EMAIL2": {
+						"type": "string",
+						"description": "EMAIL2"
+					},
+					"EMAIL_WEBSITE2": {
+						"type": "string",
+						"description": "EMAIL WEBSITE2"
+					},
+					"JOB_TITLE2": {
+						"type": "string",
+						"description": "JOB TITLE2"
+					},
+					"CONTACT_TYPE_CD3": {
+						"type": "string",
+						"description": "CONTACT TYPE CD3"
+					},
+					"MOBILE_NO3": {
+						"type": "string",
+						"description": "MOBILE NO3"
+					},
+					"EMAIL3": {
+						"type": "string",
+						"description": "EMAIL3"
+					},
+					"CREDIT_RATING": {
+						"type": "string",
+						"description": "CREDIT RATING"
+					},
+					"INDUSTRY_CD": {
+						"type": "string",
+						"description": "INDUSTRY CD"
+					},
+					"PRIM_REVENUE_SRC_CD": {
+						"type": "string",
+						"description": "PRIM REVENUE SRC CD"
+					},
+					"MON_INC_PAY_METHD_CD": {
+						"type": "string",
+						"description": "MON INC PAY METHD CD"
+					},
+					"COUNTRY_BIRTH": {
+						"type": "string",
+						"description": "COUNTRY BIRTH"
+					},
+					"ADD_INCOME_PROOF_CD": {
+						"type": "string",
+						"description": "ADD INCOME PROOF CD"
+					},
+					"PEP_FLG": {
+						"type": "string",
+						"description": "PEP FLG"
+					},
+					"ADD_INCOME_ADD_WDESC": {
+						"type": "string",
+						"description": "ADD INCOME ADD WDESC"
+					},
+					"ADD_INCOME_COMPANIES_FLG": {
+						"type": "string",
+						"description": "ADD INCOME COMPANIES FLG"
+					},
+					"ADD_INCOME_INV_FLG": {
+						"type": "string",
+						"description": "ADD INCOME INV FLG"
+					},
+					"ADD_INCOME_OTHER_DESC": {
+						"type": "string",
+						"description": "ADD INCOME OTHER DESC"
+					},
+					"ADD_INCOME_OTHER_FLG": {
+						"type": "string",
+						"description": "ADD INCOME OTHER FLG"
+					},
+					"ADD_INCOME_TRADE_FLG": {
+						"type": "string",
+						"description": "ADD INCOME TRADE FLG"
+					},
+					"ADVISING_BANK": {
+						"type": "string",
+						"description": "ADVISING BANK"
+					},
+					"ACTIVITY_CD": {
+						"type": "string",
+						"description": "ACTIVITY CD"
+					},
+					"CORP_AUTHZD_CAP_STK": {
+						"type": "string",
+						"description": "CORP AUTHZD CAP STK"
+					},
+					"CORP_INIT_DEPOSIT": {
+						"type": "string",
+						"description": "CORP INIT DEPOSIT"
+					},
+					"CORP_LATEST_ANUL_SAL": {
+						"type": "string",
+						"description": "CORP LATEST ANUL SAL"
+					},
+					"CORP_OTHR_ASSET_VAL": {
+						"type": "string",
+						"description": "CORP OTHR ASSET VAL"
+					},
+					"GOLD_BUS_IND": {
+						"type": "string",
+						"description": "GOLD BUS IND"
+					},
+					"CORP_OVERVIEW": {
+						"type": "string",
+						"description": "CORP OVERVIEW"
+					},
+					"HQ_BRANCH_IND": {
+						"type": "string",
+						"description": "HQ BRANCH IND"
+					},
+					"CORP_PAID_CAP_STK": {
+						"type": "string",
+						"description": "CORP PAID CAP STK"
+					},
+					"CREDIT_RATING_CD": {
+						"type": "string",
+						"description": "CREDIT RATING CD"
+					},
+					"ESTABLISHMENT_DATE": {
+						"type": "string",
+						"description": "ESTABLISHMENT DATE"
+					},
+					"ESTABLISHMENT_DATE_HIJRI": {
+						"type": "string",
+						"description": "ESTABLISHMENT DATE HIJRI"
+					},
+					"IMPORT_EXPORT_IND": {
+						"type": "string",
+						"description": "IMPORT EXPORT IND"
+					},
+					"NUMBER_OF_EMPLOYEES": {
+						"type": "string",
+						"description": "NUMBER OF EMPLOYEES"
+					},
+					"PUBLIC_PRIVATE_OWNSHP_FLG": {
+						"type": "string",
+						"description": "PUBLIC PRIVATE OWNSHP FLG"
+					},
+					"RISK_DEGREE": {
+						"type": "string",
+						"description": "RISK DEGREE"
+					},
+					"RISK_RATING_AGENCY_CD": {
+						"type": "string",
+						"description": "RISK RATING AGENCY CD"
+					},
+					"REIMBURSEMENT_BANK": {
+						"type": "string",
+						"description": "REIMBURSEMENT BANK"
+					},
+					"SUB_INDUSTRY": {
+						"type": "string",
+						"description": "SUB INDUSTRY"
+					},
+					"SWIFT_CD": {
+						"type": "string",
+						"description": "SWIFT CD"
+					},
+					"SWIFT_COUNTRY_CD": {
+						"type": "string",
+						"description": "SWIFT COUNTRY CD"
+					},
+					"SWIFT_ID": {
+						"type": "string",
+						"description": "SWIFT ID"
+					},
+					"SWIFT_MEMBER": {
+						"type": "string",
+						"description": "SWIFT MEMBER"
+					},
+					"NUM_BRANCHES_IN_KSA": {
+						"type": "string",
+						"description": "NUM BRANCHES IN KSA"
+					},
+					"NUM_BRANCHES_OUT_KSA": {
+						"type": "string",
+						"description": "NUM BRANCHES OUT KSA"
+					},
+					"BUS_START_DATE": {
+						"type": "string",
+						"description": "BUS START DATE"
+					},
+					"ANNUAL_SALES_VOL": {
+						"type": "string",
+						"description": "ANNUAL SALES VOL"
+					},
+					"PRODUCT_GOODS_TYPE": {
+						"type": "string",
+						"description": "PRODUCT GOODS TYPE"
+					},
+					"MON_REV_INFO": {
+						"type": "string",
+						"description": "MON REV INFO"
+					},
+					"RCV_REV_CASH_IND": {
+						"type": "string",
+						"description": "RCV REV CASH IND"
+					},
+					"RCV_REV_CHQ_IND": {
+						"type": "string",
+						"description": "RCV REV CHQ IND"
+					},
+					"RCV_REV_POS_IND": {
+						"type": "string",
+						"description": "RCV REV POS IND"
+					},
+					"RCV_REV_INTERNAL_TRANS_IND": {
+						"type": "string",
+						"description": "RCV REV INTERNAL TRANS IND"
+					},
+					"RCV_REV_LCL_TRANS_IND": {
+						"type": "string",
+						"description": "RCV REV LCL TRANS IND"
+					},
+					"RCV_REV_INTNL_TRANS_IND": {
+						"type": "string",
+						"description": "RCV REV INTNL TRANS IND"
+					},
+					"RCV_REV_OTH_IND": {
+						"type": "string",
+						"description": "RCV REV OTH IND"
+					},
+					"ADD_INCOME_NONE_FLG": {
+						"type": "string",
+						"description": "ADD INCOME NONE FLG"
+					},
+					"OTH_INFO_CORP_FINANCIAL": {
+						"type": "string",
+						"description": "OTH INFO CORP FINANCIAL"
+					},
+					"FATCA_CLASS_CD": {
+						"type": "string",
+						"description": "FATCA CLASS CD"
+					},
+					"W8_EXPIRY_DATE": {
+						"type": "string",
+						"description": "W8 EXPIRY DATE"
+					},
+					"NA_VERIFICATION_FLAG": {
+						"type": "string",
+						"description": "NA VERIFICATION FLAG"
+					},
+					"NA_ADDRESS_TYPE": {
+						"type": "string",
+						"description": "NA ADDRESS TYPE"
+					},
+					"NA_ADDRESS_IND": {
+						"type": "string",
+						"description": "NA ADDRESS IND"
+					},
+					"NA_APARTMENT_NO": {
+						"type": "string",
+						"description": "NA APARTMENT NO"
+					},
+					"NA_BUILDING_NO": {
+						"type": "string",
+						"description": "NA BUILDING NO"
+					},
+					"NA_CITY_CD": {
+						"type": "string",
+						"description": "NA CITY CD"
+					},
+					"NA_COUNTRY": {
+						"type": "string",
+						"description": "NA COUNTRY"
+					},
+					"NA_DISTRICT": {
+						"type": "string",
+						"description": "NA DISTRICT"
+					},
+					"NA_LANG_CD": {
+						"type": "string",
+						"description": "NA LANG CD"
+					},
+					"NA_REGION_CD": {
+						"type": "string",
+						"description": "NA REGION CD"
+					},
+					"NA_PO_BOX": {
+						"type": "string",
+						"description": "NA PO BOX"
+					},
+					"NA_POSTAL_CD": {
+						"type": "string",
+						"description": "NA POSTAL CD"
+					},
+					"NA_STREET": {
+						"type": "string",
+						"description": "NA STREET"
+					},
+					"NA_UNIT_NO": {
+						"type": "string",
+						"description": "NA UNIT NO"
+					},
+					"NA_ADDITIONAL_NO": {
+						"type": "string",
+						"description": "NA ADDITIONAL NO"
+					},
+					"NA_CUSTOMER_CONSENT": {
+						"type": "string",
+						"description": "NA CUSTOMER CONSENT"
+					},
+					"NA_FATCA_STATUS_FLG": {
+						"type": "string",
+						"description": "NA FATCA STATUS FLG"
+					},
+					"AUTH_CAPITAL_AMT": {
+						"type": "string",
+						"description": "AUTH CAPITAL AMT"
+					},
+					"PAID_CAPITAL_AMT": {
+						"type": "string",
+						"description": "PAID CAPITAL AMT"
+					},
+					"CORP_BUSINESS_ID_TYPE_CD": {
+						"type": "string",
+						"description": "CORP BUSINESS ID TYPE CD"
+					}
+				}
+			},
+			"OwnershipDetailsType": {
+				"title": "OwnershipDetailsType",
+				"description": "Ownership Details Type",
+				"type": "object",
+				"properties": {
+					"PARTY_RELATION_CD": {
+						"type": "string",
+						"description": "PARTY RELATION CD"
+					},
+					"PERCENTAGE": {
+						"type": "string",
+						"description": "PERCENTAGE"
+					},
+					"REL_PTY_ADDRESS1": {
+						"type": "string",
+						"description": "REL PTY ADDRESS1"
+					},
+					"REL_PTY_ADDRESS2": {
+						"type": "string",
+						"description": "REL PTY ADDRESS2"
+					},
+					"REL_PTY_ADDRESS_IND": {
+						"type": "string",
+						"description": "REL PTY ADDRESS IND"
+					},
+					"REL_PTY_BASIC_NO": {
+						"type": "string",
+						"description": "REL PTY BASIC NO"
+					},
+					"REL_PTY_CITY": {
+						"type": "string",
+						"description": "REL PTY CITY"
+					},
+					"REL_PTY_COUNTRY_CD": {
+						"type": "string",
+						"description": "REL PTY COUNTRY CD"
+					},
+					"REL_PTY_DISTRICT": {
+						"type": "string",
+						"description": "REL PTY DISTRICT"
+					},
+					"REL_PTY_CIF_NO": {
+						"type": "string",
+						"description": "REL PTY CIF NO"
+					},
+					"REL_PTY_DATE_OF_BIRTH": {
+						"type": "string",
+						"description": "REL PTY DATE OF BIRTH"
+					},
+					"REL_PTY_ECN_ID": {
+						"type": "string",
+						"description": "REL PTY ECN ID"
+					},
+					"REL_PTY_GENDER_CD": {
+						"type": "string",
+						"description": "REL PTY GENDER CD"
+					},
+					"REL_PTY_OCCUPATION_CD": {
+						"type": "string",
+						"description": "REL PTY OCCUPATION CD"
+					},
+					"REL_PTY_PO_BOX": {
+						"type": "string",
+						"description": "REL PTY PO BOX"
+					},
+					"REL_PTY_POSTAL_CD": {
+						"type": "string",
+						"description": "REL PTY POSTAL CD"
+					},
+					"REL_PTY_STREET": {
+						"type": "string",
+						"description": "REL PTY STREET"
+					},
+					"REL_PTY_UNIT_NO": {
+						"type": "string",
+						"description": "REL PTY UNIT NO"
+					},
+					"REL_PTY_FIRST_NAME": {
+						"type": "string",
+						"description": "REL PTY FIRST NAME"
+					},
+					"REL_PTY_FAMILY_NAME": {
+						"type": "string",
+						"description": "REL PTY FAMILY NAME"
+					},
+					"REL_PTY_NAME": {
+						"type": "string",
+						"description": "REL PTY NAME"
+					},
+					"REL_PTY_ID_TYPE_CD": {
+						"type": "string",
+						"description": "REL PTY ID TYPE CD"
+					},
+					"REL_PTY_ID_NUMBER": {
+						"type": "string",
+						"description": "REL PTY ID NUMBER"
+					},
+					"REL_PTY_ID_ISSUE_PLACE": {
+						"type": "string",
+						"description": "REL PTY ID ISSUE PLACE"
+					},
+					"REL_PTY_ID_ISSUE_DT": {
+						"type": "string",
+						"description": "REL PTY ID ISSUE DT"
+					},
+					"REL_PTY_ID_ISSUE_DT_HIJRI": {
+						"type": "string",
+						"description": "REL PTY ID ISSUE DT HIJRI"
+					},
+					"REL_PTY_ID_EXPIRY_DT": {
+						"type": "string",
+						"description": "REL PTY ID EXPIRY DT"
+					},
+					"REL_PTY_ID_EXPIRY_DT_HIJRI": {
+						"type": "string",
+						"description": "REL PTY ID EXPIRY DT HIJRI"
+					},
+					"REL_PTY_MOBILE_NO": {
+						"type": "string",
+						"description": "REL PTY MOBILE NO"
+					},
+					"REL_PTY_PHONE_NO": {
+						"type": "string",
+						"description": "REL PTY PHONE NO"
+					},
+					"REL_PTY_FAX_NO": {
+						"type": "string",
+						"description": "REL PTY FAX NO"
+					},
+					"REL_PTY_START_DATE": {
+						"type": "string",
+						"description": "REL PTY START DATE"
+					},
+					"REL_PTY_STATUS_CD ": {
+						"type": "string",
+						"description": "REL PTY STATUS CD "
+					},
+					"REL_PTY_EMAIL": {
+						"type": "string",
+						"description": "REL PTY EMAIL"
+					}
+				}
+			},
+			"CustomerOneViewRequest": {
+				"type": "object",
+				"properties": {
+					"CustomerOneViewRequest": {
+						"$ref": "#/components/schemas/CustomerOneViewRequestType"
+					}
+				}
+			},
+			"CustomerOneViewRequestType": {
+				"type": "object",
+				"properties": {
+					"cif": {
+						"type": "string"
+					},
+					"options": {
+						"type": "string"
+					},
+					"excludeClosedAccounts": {
+						"type": "string"
+					},
+					"language": {
+						"type": "string"
+					},
+					"branch": {
+						"type": "string"
+					},
+					"tellerId": {
+						"type": "string"
+					},
+					"channelId": {
+						"type": "string"
+					},
+					"serviceName": {
+						"type": "string"
+					},
+					"mergerPendingAccountFlag": {
+						"type": "string"
+					}
+				}
+			},
+			"CustomerOneViewResponse": {
+				"type": "object",
+				"properties": {
+					"CustomerOneViewResponse": {
+						"$ref": "#/components/schemas/CustomerOneViewResponseType"
+					}
+				}
+			},
+			"CustomerOneViewResponseType": {
+				"type": "object",
+				"properties": {
+					"portfolio": {
+						"type": "object",
+						"properties": {
+							"account": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/OneViewAccountType"
+								}
+							}
+						}
+					},
+					"creditAccount": {
+						"type": "object",
+						"properties": {
+							"account": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/OneViewAccountType"
+								}
+							}
+						}
+					},
+					"creditCard": {
+						"type": "object",
+						"properties": {
+							"account": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/OneViewAccountType"
+								}
+							}
+						}
+					},
+					"investment": {
+						"type": "object",
+						"properties": {
+							"account": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/OneViewAccountType"
+								}
+							}
+						}
+					},
+					"investmentAccount": {
+						"type": "object",
+						"properties": {
+							"account": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/OneViewAccountType"
+								}
+							}
+						}
+					},
+					"atm": {
+						"type": "object",
+						"properties": {
+							"account": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/OneViewAccountType"
+								}
+							}
+						}
+					},
+					"current": {
+						"type": "object",
+						"properties": {
+							"account": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/OneViewAccountType"
+								}
+							}
+						}
+					},
+					"ncbcia": {
+						"type": "object",
+						"properties": {
+							"account": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/OneViewAccountType"
+								}
+							}
+						}
+					},
+					"ewallet": {
+						"type": "object",
+						"properties": {
+							"account": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/OneViewAccountType"
+								}
+							}
+						}
+					},
+					"othersAccounts": {
+						"type": "object",
+						"properties": {
+							"account": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/OneViewAccountType"
+								}
+							}
+						}
+					},
+					"sadadOLP": {
+						"type": "object",
+						"properties": {
+							"account": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/OneViewAccountType"
+								}
+							}
+						}
+					},
+					"callAccount": {
+						"type": "object",
+						"properties": {
+							"account": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/OneViewAccountType"
+								}
+							}
+						}
+					},
+					"goldAccount": {
+						"type": "object",
+						"properties": {
+							"account": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/OneViewAccountType"
+								}
+							}
+						}
+					},
+					"loan": {
+						"type": "object",
+						"properties": {
+							"account": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/OneViewAccountType"
+								}
+							}
+						}
+					},
+					"segment": {
+						"type": "object",
+						"properties": {
+							"account": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/OneViewAccountType"
+								}
+							}
+						}
+					},
+					"treasury": {
+						"type": "object",
+						"properties": {
+							"account": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/OneViewAccountType"
+								}
+							}
+						}
+					},
+					"investmentNCBCAccount": {
+						"type": "object",
+						"properties": {
+							"account": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/OneViewAccountType"
+								}
+							}
+						}
+					},
+					"autoLeasing": {
+						"type": "object",
+						"properties": {
+							"account": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/OneViewAccountType"
+								}
+							}
+						}
+					},
+					"consumerDurables": {
+						"type": "object",
+						"properties": {
+							"account": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/OneViewAccountType"
+								}
+							}
+						}
+					},
+					"takaful": {
+						"type": "object",
+						"properties": {
+							"account": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/OneViewAccountType"
+								}
+							}
+						}
+					},
+					"timeDeposit": {
+						"type": "object",
+						"properties": {
+							"account": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/OneViewAccountType"
+								}
+							}
+						}
+					},
+					"alKhayrat": {
+						"type": "object",
+						"properties": {
+							"account": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/OneViewAccountType"
+								}
+							}
+						}
+					},
+					"notification": {
+						"type": "object",
+						"properties": {
+							"account": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/OneViewAccountType"
+								}
+							}
+						}
+					},
+					"lead": {
+						"type": "object",
+						"properties": {
+							"account": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/LeadType"
+								}
+							}
+						}
+					},
+					"extra": {
+						"type": "object",
+						"properties": {
+							"account": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/OneViewAccountType"
+								}
+							}
+						}
+					}
+				}
+			},
+			"PortfolioValueType": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"PORTFOLIO_NUMBER": {
+							"type": "string"
+						},
+						"CASH": {
+							"type": "string"
+						},
+						"MARKET_VALUE": {
+							"type": "string"
+						},
+						"TOTAL_VALUE": {
+							"type": "string"
+						},
+						"COST_VALUE": {
+							"type": "string"
+						},
+						"CURRENCY_CD": {
+							"type": "string"
+						},
+						"PRODUCT_SUB_CATEGORY_CD": {
+							"type": "string"
+						}
+					}
+				}
+			},
+			"AutoLeaseInstallmentType": {
+				"type": "array",
+				"items": {
+					"type": "object",
+					"properties": {
+						"ACCOUNT_NUMBER": {
+							"type": "string"
+						},
+						"TOTAL_INST_1": {
+							"type": "string"
+						},
+						"TOTAL_INST_2": {
+							"type": "string"
+						},
+						"TOTAL_INST_3": {
+							"type": "string"
+						},
+						"TOTAL_INST_4": {
+							"type": "string"
+						},
+						"TOTAL_INST_5": {
+							"type": "string"
+						},
+						"TOTAL_INST_6": {
+							"type": "string"
+						},
+						"TOTAL_INST_7": {
+							"type": "string"
+						},
+						"TOTAL_INST_8": {
+							"type": "string"
+						},
+						"TOTAL_INST_9": {
+							"type": "string"
+						},
+						"TOTAL_INST_10": {
+							"type": "string"
+						},
+						"TOTAL_INST_11": {
+							"type": "string"
+						},
+						"TOTAL_INST_12": {
+							"type": "string"
+						},
+						"TOTAL_INST_13": {
+							"type": "string"
+						},
+						"TOTAL_INST_14": {
+							"type": "string"
+						},
+						"TOTAL_INST_15": {
+							"type": "string"
+						}
+					}
+				}
+			},
+			"LeadType": {
+				"type": "object",
+				"properties": {
+					"LEAD_ID": {
+						"type": "string"
+					},
+					"PRODUCT_NAME": {
+						"type": "string"
+					},
+					"STATUS_CD": {
+						"type": "string"
+					},
+					"PRIORITY": {
+						"type": "string"
+					},
+					"TAG": {
+						"type": "string"
+					},
+					"IVR_FLG": {
+						"type": "string"
+					},
+					"AOL_FLG": {
+						"type": "string"
+					},
+					"AMBL_FLG": {
+						"type": "string"
+					},
+					"DESC_EN": {
+						"type": "string"
+					},
+					"DESC_AR": {
+						"type": "string"
+					},
+					"SKIP_COUNTER": {
+						"type": "string"
+					},
+					"BU_ID": {
+						"type": "string"
+					},
+					"CIF_NUMBER": {
+						"type": "string"
+					},
+					"CREATED_DT": {
+						"type": "string"
+					},
+					"LAST_UPDATE_DT": {
+						"type": "string"
+					},
+					"PRODUCT_SUB_CATEGORY_CD": {
+						"type": "string"
+					}
+				}
+			},
+			"OneViewAccountType": {
+				"type": "object",
+				"properties": {
+					"ACCOUNT_NUMBER": {
+						"type": "string"
+					},
+					"PRODUCT_SUB_CATEGORY_CD": {
+						"type": "string"
+					},
+					"ACCOUNT_ACCESS_IND": {
+						"type": "string"
+					},
+					"ACCOUNT_TYPE_CD": {
+						"type": "string"
+					},
+					"ACCOUNT_STATUS_CD": {
+						"type": "string"
+					},
+					"ACCOUNT_SEGMENT_CD": {
+						"type": "string"
+					},
+					"GL_CLASS_CD": {
+						"type": "string"
+					},
+					"INSTITUTION_NUMBER": {
+						"type": "string"
+					},
+					"CIF_NUMBER": {
+						"type": "string"
+					},
+					"CURRENCY_CD": {
+						"type": "string"
+					},
+					"BRANCH_NUMBER": {
+						"type": "string"
+					},
+					"OPEN_DT": {
+						"type": "string"
+					},
+					"TOTAL_CREDIT_LIMIT_AMT": {
+						"type": "string"
+					},
+					"BALANCE_AMT": {
+						"type": "string"
+					},
+					"PRODUCT_SUB_CATEGORY_DESC": {
+						"type": "string"
+					},
+					"ACCOUNT_STATUS_CD_DESC": {
+						"type": "string"
+					},
+					"ACCOUNT_STATUS_CD_DESC_EN": {
+						"type": "string"
+					},
+					"ACCOUNT_STATUS_CD_DESC_AR": {
+						"type": "string"
+					},
+					"RENEWAL_DT": {
+						"type": "string"
+					},
+					"INTEREST_CATEGORY_CD": {
+						"type": "string"
+					},
+					"INTEREST_CATEGORY_DESC": {
+						"type": "string"
+					},
+					"ACCOUNT_DIAMOND_FLAG": {
+						"type": "string"
+					},
+					"ACCOUNT_TYPE_CD_DESC": {
+						"type": "string"
+					},
+					"ACCOUNT_TYPE_CD_DESC_EN": {
+						"type": "string"
+					},
+					"ACCOUNT_TYPE_CD_DESC_AR": {
+						"type": "string"
+					},
+					"BALANCE_AVAILABLE_AMT": {
+						"type": "string"
+					},
+					"BALANCE_AVAILABLE_AMT_SAR": {
+						"type": "string"
+					},
+					"CASH_ADVANCE_AVAILABLE_AMT": {
+						"type": "string"
+					},
+					"BALANCE_SIX_MONTH_AVG_AMT": {
+						"type": "string"
+					},
+					"BALANCE_AMT_SAR": {
+						"type": "string"
+					},
+					"CALL_ACCT_INT_AVAILABLE_AMT": {
+						"type": "string"
+					},
+					"CALL_ACCT_PROFIT_RATE": {
+						"type": "string"
+					},
+					"CREDIT_RETURN_DT": {
+						"type": "string"
+					},
+					"DIVISION_CD": {
+						"type": "string"
+					},
+					"HOLD_VALUE_AMT": {
+						"type": "string"
+					},
+					"PAYROLL_IND": {
+						"type": "string"
+					},
+					"CASH_ADVANCE_IND": {
+						"type": "string"
+					},
+					"LAST_CUST_DEBIT_DT": {
+						"type": "string"
+					},
+					"MAX_BAL_INTEREST_AMT": {
+						"type": "string"
+					},
+					"MIN_BAL_INTEREST_AMT": {
+						"type": "string"
+					},
+					"OD_EXPIRY_DT_1": {
+						"type": "string"
+					},
+					"OD_EXPIRY_DT_2": {
+						"type": "string"
+					},
+					"OD_EXPIRY_DT_3": {
+						"type": "string"
+					},
+					"OD_EXPIRY_DT_4": {
+						"type": "string"
+					},
+					"OD_LIMIT_AMT": {
+						"type": "string"
+					},
+					"OD_LIMIT_AMT_1": {
+						"type": "string"
+					},
+					"OD_LIMIT_AMT_2": {
+						"type": "string"
+					},
+					"OD_LIMIT_AMT_3": {
+						"type": "string"
+					},
+					"OD_LIMIT_AMT_4": {
+						"type": "string"
+					},
+					"OD_LIMIT_PURPOSE_CD": {
+						"type": "string"
+					},
+					"SPECIAL_ACCOUNT_IND": {
+						"type": "string"
+					},
+					"UNCLEARED_CHQ_AMT": {
+						"type": "string"
+					},
+					"UNCLAIMED_CLOSE_DT": {
+						"type": "string"
+					},
+					"ACCRUED_INTEREST_AMT": {
+						"type": "string"
+					},
+					"UNEARNED_INTEREST_AMT": {
+						"type": "string"
+					},
+					"THEO_PRIN_BAL_AMT": {
+						"type": "string"
+					},
+					"CAP_UNPD_INT_AMT": {
+						"type": "string"
+					},
+					"THEO_CAP_UNPD_INT_AMT": {
+						"type": "string"
+					},
+					"TOTAL_AMOUNT_PAID": {
+						"type": "string"
+					},
+					"PORTFOLIO_SPA_NUMBER": {
+						"type": "string"
+					},
+					"PORTFOLIO_NUMBER": {
+						"type": "string"
+					},
+					"IBAN_NUMBER": {
+						"type": "string"
+					},
+					"IS_GOLD": {
+						"type": "string"
+					},
+					"IS_GOLD_DESC_EN": {
+						"type": "string"
+					},
+					"IS_GOLD_DESC_AR": {
+						"type": "string"
+					},
+					"IS_PLATINUM": {
+						"type": "string"
+					},
+					"IS_PLATINUM_DESC_EN": {
+						"type": "string"
+					},
+					"IS_PLATINUM_DESC_AR": {
+						"type": "string"
+					},
+					"IS_NCB_STAFF": {
+						"type": "string"
+					},
+					"IS_NCB_STAFF_DESC_EN": {
+						"type": "string"
+					},
+					"IS_NCB_STAFF_DESC_AR": {
+						"type": "string"
+					},
+					"IS_RETAIL": {
+						"type": "string"
+					},
+					"IS_RETAIL_DESC_EN": {
+						"type": "string"
+					},
+					"IS_RETAIL_DESC_AR": {
+						"type": "string"
+					},
+					"IS_MAZIAH": {
+						"type": "string"
+					},
+					"IS_MAZIAH_DESC_EN": {
+						"type": "string"
+					},
+					"IS_MAZIAH_DESC_AR": {
+						"type": "string"
+					},
+					"IS_MAZIAH_MALES": {
+						"type": "string"
+					},
+					"IS_MAZIAH_MALES_DESC_EN": {
+						"type": "string"
+					},
+					"IS_MAZIAH_MALES_DESC_AR": {
+						"type": "string"
+					},
+					"IS_MAZIAH_LADIES": {
+						"type": "string"
+					},
+					"IS_MAZIAH_LADIES_DESC_EN": {
+						"type": "string"
+					},
+					"IS_MAZIAH_LADIES_DESC_AR": {
+						"type": "string"
+					},
+					"IS_IKHTYAR": {
+						"type": "string"
+					},
+					"IS_IKHTYAR_DESC_EN": {
+						"type": "string"
+					},
+					"IS_IKHTYAR_DESC_AR": {
+						"type": "string"
+					},
+					"IS_AJYAL": {
+						"type": "string"
+					},
+					"IS_AJYAL_DESC_EN": {
+						"type": "string"
+					},
+					"IS_AJYAL_DESC_AR": {
+						"type": "string"
+					},
+					"IS_ASHBAL": {
+						"type": "string"
+					},
+					"IS_ASHBAL_DESC_EN": {
+						"type": "string"
+					},
+					"IS_ASHBAL_DESC_AR": {
+						"type": "string"
+					},
+					"IS_ISLAMIC": {
+						"type": "string"
+					},
+					"IS_ISLAMIC_DESC_EN": {
+						"type": "string"
+					},
+					"IS_ISLAMIC_DESC_AR": {
+						"type": "string"
+					},
+					"IS_TREASURY": {
+						"type": "string"
+					},
+					"IS_TREASURY_DESC_EN": {
+						"type": "string"
+					},
+					"IS_TREASURY_DESC_AR": {
+						"type": "string"
+					},
+					"IS_CORPORATE": {
+						"type": "string"
+					},
+					"IS_CORPORATE_DESC_EN": {
+						"type": "string"
+					},
+					"IS_CORPORATE_DESC_AR": {
+						"type": "string"
+					},
+					"IS_PAYROLL": {
+						"type": "string"
+					},
+					"IS_PAYROLL_DESC_EN": {
+						"type": "string"
+					},
+					"IS_PAYROLL_DESC_AR": {
+						"type": "string"
+					},
+					"IS_SMALL_BUS_TAJIR": {
+						"type": "string"
+					},
+					"IS_SMALL_BUS_TAJIR_DESC_EN": {
+						"type": "string"
+					},
+					"IS_SMALL_BUS_TAJIR_DESC_AR": {
+						"type": "string"
+					},
+					"IS_SMALL_BUS_TAJIR_GOLD": {
+						"type": "string"
+					},
+					"IS_SML_BUS_TAJIR_GOLD_DESC_EN": {
+						"type": "string"
+					},
+					"IS_SML_BUS_TAJIR_GOLD_DESC_AR": {
+						"type": "string"
+					},
+					"IS_SMALL_BUS_TAJIR_PLATINUM": {
+						"type": "string"
+					},
+					"IS_SML_BS_TAJIR_PLTNM_DSC_EN": {
+						"type": "string"
+					},
+					"IS_SML_BS_TAJIR_PLTNM_DSC_AR": {
+						"type": "string"
+					},
+					"IS_SMALL_BUS_TAJIR_DIAMOND": {
+						"type": "string"
+					},
+					"IS_SML_BS_TAJIR_DIAMOND_DSC_EN": {
+						"type": "string"
+					},
+					"IS_SML_BS_TAJIR_DIMND_DSC_AR": {
+						"type": "string"
+					},
+					"IS_SMALL_BUS_SPECIAL_RELATIONS": {
+						"type": "string"
+					},
+					"IS_SML_BUS_SPCL_RELDESC_EN": {
+						"type": "string"
+					},
+					"IS_SML_BUS_SPCL_RELDESC_AR": {
+						"type": "string"
+					},
+					"IS_EWALLET": {
+						"type": "string"
+					},
+					"IS_EWALLET_DESC_EN": {
+						"type": "string"
+					},
+					"IS_EWALLET_DESC_AR": {
+						"type": "string"
+					},
+					"IS_NCBC": {
+						"type": "string"
+					},
+					"IS_NCBC_DESC_EN": {
+						"type": "string"
+					},
+					"IS_NCBC_DESC_AR": {
+						"type": "string"
+					},
+					"IS_PRIVATE": {
+						"type": "string"
+					},
+					"IS_PRIVATE_DESC_EN": {
+						"type": "string"
+					},
+					"IS_PRIVATE_DESC_AR": {
+						"type": "string"
+					},
+					"IS_NORMAL": {
+						"type": "string"
+					},
+					"IS_NORMAL_DESC_EN": {
+						"type": "string"
+					},
+					"IS_NORMAL_DESC_AR": {
+						"type": "string"
+					},
+					"IS_MAZAYA_MONTHLY": {
+						"type": "string"
+					},
+					"IS_MAZAYA_MONTHLY_DESC_EN": {
+						"type": "string"
+					},
+					"IS_MAZAYA_MONTHLY_DESC_AR": {
+						"type": "string"
+					},
+					"IS_SMALL_BUS_CHAMBER_COMMERCE": {
+						"type": "string"
+					},
+					"IS_SML_BUS_CHMBR_COMRC_DESC_EN": {
+						"type": "string"
+					},
+					"IS_SML_BUS_CHMBR_COMRC_DESC_AR": {
+						"type": "string"
+					},
+					"IS_SMALL_BUS_TCF": {
+						"type": "string"
+					},
+					"IS_SMALL_BUS_TCF_DESC_EN": {
+						"type": "string"
+					},
+					"IS_SMALL_BUS_TCF_DESC_AR": {
+						"type": "string"
+					},
+					"IS_SMAL_BUS_LGP": {
+						"type": "string"
+					},
+					"IS_SMAL_BUS_LGP_DESC_EN": {
+						"type": "string"
+					},
+					"IS_SMAL_BUS_LGP_DESC_AR": {
+						"type": "string"
+					},
+					"IS_SMALL_BUS_LTP": {
+						"type": "string"
+					},
+					"IS_SMALL_BUS_LTP_DESC_EN": {
+						"type": "string"
+					},
+					"IS_SMALL_BUS_LTP_DESC_AR": {
+						"type": "string"
+					},
+					"IS_AFAAQ": {
+						"type": "string"
+					},
+					"IS_AFAAQ_DESC_EN": {
+						"type": "string"
+					},
+					"IS_AFAAQ_DESC_AR": {
+						"type": "string"
+					},
+					"IS_AFAAQ_EXEC": {
+						"type": "string"
+					},
+					"IS_AFAAQ_EXEC_DESC_EN": {
+						"type": "string"
+					},
+					"IS_AFAAQ_EXEC_DESC_AR": {
+						"type": "string"
+					},
+					"IS_AFAAQ_INS": {
+						"type": "string"
+					},
+					"IS_AFAAQ_INS_DESC_EN": {
+						"type": "string"
+					},
+					"IS_AFAAQ_INS_DESC_AR": {
+						"type": "string"
+					},
+					"IS_AFAAQ_EXEC_INS": {
+						"type": "string"
+					},
+					"IS_AFAAQ_EXEC_INS_DESC_EN": {
+						"type": "string"
+					},
+					"IS_AFAAQ_EXEC_INS_DESC_AR": {
+						"type": "string"
+					},
+					"IS_ASRIYYAH": {
+						"type": "string"
+					},
+					"IS_ASRIYYAH_DESC_EN": {
+						"type": "string"
+					},
+					"IS_ASRIYYAH_DESC_AR": {
+						"type": "string"
+					},
+					"IS_ELITE": {
+						"type": "string"
+					},
+					"IS_ELITE_DESC_EN": {
+						"type": "string"
+					},
+					"IS_ELITE_DESC_AR": {
+						"type": "string"
+					},
+					"IS_DIGITAL": {
+						"type": "string"
+					},
+					"IS_DIGITAL_DESC_EN": {
+						"type": "string"
+					},
+					"IS_DIGITAL_DESC_AR": {
+						"type": "string"
+					},
+					"CARD_NUMBER": {
+						"type": "string"
+					},
+					"CARD_EXPIRY_DT": {
+						"type": "string"
+					},
+					"CARD_TYPE_DESC": {
+						"type": "string"
+					},
+					"CARD_STATUS_CD": {
+						"type": "string"
+					},
+					"CARD_STATUS_DESC": {
+						"type": "string"
+					},
+					"CREDIT_STATUS_VALUE": {
+						"type": "string"
+					},
+					"CARD_TYPE_CD": {
+						"type": "string"
+					},
+					"CREDIT_CARD_TYPE_DESC": {
+						"type": "string"
+					},
+					"CREDIT_CARD_EXPIRY_DT": {
+						"type": "string"
+					},
+					"CREDIT_CARD_ISSUE_DT": {
+						"type": "string"
+					},
+					"CREDIT_CARD_STATUS_CD": {
+						"type": "string"
+					},
+					"CREDIT_CARD_STATUS_DESC": {
+						"type": "string"
+					},
+					"FUNDING_ACCOUNT_NUMBER": {
+						"type": "string"
+					},
+					"CARD_LIMIT_AMT": {
+						"type": "string"
+					},
+					"CORTEX_PAN": {
+						"type": "string"
+					},
+					"CARD_INDICATOR": {
+						"type": "string"
+					},
+					"AVAILABLE_CREDIT": {
+						"type": "string"
+					},
+					"OVERDUE_AMT": {
+						"type": "string"
+					},
+					"DELINQUENCY_LEVEL": {
+						"type": "string"
+					},
+					"SYSTEM_BLOCK_CD": {
+						"type": "string"
+					},
+					"USER_BLOCK_CD": {
+						"type": "string"
+					},
+					"CARD_PURCHASE_LIMIT_AMT": {
+						"type": "string"
+					},
+					"CARD_TRANSFER_LIMIT_AMT": {
+						"type": "string"
+					},
+					"CARD_TOTAL_WITHDRAW_LIMIT_AMT": {
+						"type": "string"
+					},
+					"TCHK_WDL_LIMIT": {
+						"type": "string"
+					},
+					"TRADEX_FUND_CD": {
+						"type": "string"
+					},
+					"ACCUMULATED_UNITS_NO": {
+						"type": "string"
+					},
+					"STATUS_REDEMPTION_CD": {
+						"type": "string"
+					},
+					"STATUS_SUBSCRIPTION_CD": {
+						"type": "string"
+					},
+					"STATUS_SWITCH_CD": {
+						"type": "string"
+					},
+					"UNIT_PRICE_AMT": {
+						"type": "string"
+					},
+					"TRADEX_FUND_NAME": {
+						"type": "string"
+					},
+					"VALUATION_DT": {
+						"type": "string"
+					},
+					"GOLD_ACCOUNT": {
+						"type": "string"
+					},
+					"ACCOUNT_SUBTYPE_CD": {
+						"type": "string"
+					},
+					"JNT_FLG": {
+						"type": "string"
+					},
+					"SAMBA_ACCOUNT_NUMBER": {
+						"type": "string"
+					},
+					"MIGRATION_DT": {
+						"type": "string"
+					},
+					"MIGRATED_FLAG": {
+						"type": "string"
+					},
+					"NUMBEROFDRIVERS": {
+						"type": "string"
+					},
+					"CARBRAND": {
+						"type": "string"
+					},
+					"CARMODEL": {
+						"type": "string"
+					},
+					"CARMODELYEAR": {
+						"type": "string"
+					},
+					"EARLY_STLMT_REASON": {
+						"type": "string"
+					},
+					"PARTYNOTIFID": {
+						"type": "string"
+					},
+					"NOTIFICATION": {
+						"type": "string"
+					},
+					"STARTDATE": {
+						"type": "string"
+					},
+					"CATEGORY": {
+						"type": "string"
+					},
+					"LNM": {
+						"type": "string"
+					},
+					"ANM": {
+						"type": "string"
+					},
+					"LMSG": {
+						"type": "string"
+					},
+					"AMSG": {
+						"type": "string"
+					},
+					"PRIORITY": {
+						"type": "string"
+					},
+					"SEVERITY": {
+						"type": "string"
+					},
+					"NUMDAYS": {
+						"type": "string"
+					},
+					"portfolioValue": {
+						"$ref": "#/components/schemas/PortfolioValueType"
+					},
+					"autoLeaseInstallments": {
+						"$ref": "#/components/schemas/AutoLeaseInstallmentType"
+					}
+				}
+			},
+			"CustomerDetailsRequest": {
+				"type": "object",
+				"properties": {
+					"CustomerDetailsRequest": {
+						"$ref": "#/components/schemas/CustomerDetailsRequestType"
+					}
+				}
+			},
+			"CustomerDetailsRequestType": {
+				"type": "object",
+				"properties": {
+					"cif": {
+						"type": "string"
+					},
+					"account": {
+						"type": "string"
+					},
+					"branch": {
+						"type": "string"
+					},
+					"teller": {
+						"type": "string"
+					},
+					"incomeOption": {
+						"type": "string"
+					},
+					"wasselOption": {
+						"type": "string"
+					},
+					"serviceName": {
+						"type": "string"
+					},
+					"channel": {
+						"type": "string"
+					}
+				}
+			},
+			"CustomerDetailsResponse": {
+				"type": "object",
+				"properties": {
+					"CustomerDetailsResponse": {
+						"$ref": "#/components/schemas/CustomerDetailsResponseType"
+					}
+				}
+			},
+			"CustomerDetailsResponseType": {
+				"type": "object",
+				"properties": {
+					"P_LANG": {
+						"type": "string"
+					},
+					"P_ACCT_INDICATOR": {
+						"type": "string"
+					},
+					"P_NATIONALITY": {
+						"type": "string"
+					},
+					"P_NATIONALITY_DESC": {
+						"type": "string"
+					},
+					"P_NOTICE_IND": {
+						"type": "string"
+					},
+					"P_PRIM_ACCT": {
+						"type": "string"
+					},
+					"P_MSGS_PENDING": {
+						"type": "string"
+					},
+					"P_NO_OF_MESSAGES": {
+						"type": "string"
+					},
+					"P_PROGRAM_CODE": {
+						"type": "string"
+					},
+					"P_DESC": {
+						"type": "string"
+					},
+					"P_SHORT_DESC": {
+						"type": "string"
+					},
+					"P_INDUSTRY_CODE": {
+						"type": "string"
+					},
+					"P_CUSTOMER_STATUS": {
+						"type": "string"
+					},
+					"P_CUSTOMER_TYPE": {
+						"type": "string"
+					},
+					"P_KYC_VYC_FLAG": {
+						"type": "string"
+					},
+					"P_KYC_LAST_UPDATE": {
+						"type": "string"
+					},
+					"P_ATM_FLAG": {
+						"type": "string"
+					},
+					"P_GRUP_CODE": {
+						"type": "string"
+					},
+					"P_LOCKER_HOLDER": {
+						"type": "string"
+					},
+					"P_TFN_IND": {
+						"type": "string"
+					},
+					"P_BUS_SECTOR_CODE": {
+						"type": "string"
+					},
+					"P_SEC_ACCESS_IND": {
+						"type": "string"
+					},
+					"P_ENGLISH_NAME": {
+						"type": "string"
+					},
+					"P_ARABIC_NAME": {
+						"type": "string"
+					},
+					"P_LOAN_FLAG": {
+						"type": "string"
+					},
+					"P_ID": {
+						"type": "string"
+					},
+					"P_ID_HEX": {
+						"type": "string"
+					},
+					"P_ID_TYPE": {
+						"type": "string"
+					},
+					"P_BIRTH_DATE_1": {
+						"type": "string"
+					},
+					"P_BIRTH_DATE_HIJRI": {
+						"type": "string"
+					},
+					"P_BIRTH_DATE_GRGN": {
+						"type": "string"
+					},
+					"P_BIRTH_PLACE": {
+						"type": "string"
+					},
+					"P_SEX_CODE": {
+						"type": "string"
+					},
+					"P_MARITAL_STATUS": {
+						"type": "string"
+					},
+					"P_DEPENDENTS": {
+						"type": "string"
+					},
+					"P_EMPLOYER_ADDR": {
+						"type": "string"
+					},
+					"P_EMPLOYER_PADD1": {
+						"type": "string"
+					},
+					"P_ID_ISSUE_DATE": {
+						"type": "string"
+					},
+					"P_ID_ISSUE_DATE_GREGN": {
+						"type": "string"
+					},
+					"P_ID_ISSUE_DATE_HIJRI": {
+						"type": "string"
+					},
+					"P_ID_ISSUE_PLAC": {
+						"type": "string"
+					},
+					"P_ID_EXPIRY_DATE": {
+						"type": "string"
+					},
+					"P_PAGER_NO": {
+						"type": "string"
+					},
+					"P_MOBILE_NO": {
+						"type": "string"
+					},
+					"P_EMPLOYER_CODE": {
+						"type": "string"
+					},
+					"P_NAME1": {
+						"type": "string"
+					},
+					"P_NAME2": {
+						"type": "string"
+					},
+					"P_NAME3": {
+						"type": "string"
+					},
+					"P_NAME4": {
+						"type": "string"
+					},
+					"P_CUST_NAME": {
+						"type": "string"
+					},
+					"P_ADD1": {
+						"type": "string"
+					},
+					"P_ADD2": {
+						"type": "string"
+					},
+					"P_ADD3": {
+						"type": "string"
+					},
+					"P_ADD4": {
+						"type": "string"
+					},
+					"P_POSTCODE": {
+						"type": "string"
+					},
+					"P_TITLE_CODE": {
+						"type": "string"
+					},
+					"P_SALUTATION_DESC": {
+						"type": "string"
+					},
+					"P_PHONE_NO_RES": {
+						"type": "string"
+					},
+					"P_PHONE_EXT_RES": {
+						"type": "string"
+					},
+					"P_PHONE_NO_BUS": {
+						"type": "string"
+					},
+					"P_PHONE_EXT_BUS": {
+						"type": "string"
+					},
+					"P_FAX_NO": {
+						"type": "string"
+					},
+					"P_FAX_NO_BUS": {
+						"type": "string"
+					},
+					"P_FAX_EXT_BUS": {
+						"type": "string"
+					},
+					"P_ALT_NAME1": {
+						"type": "string"
+					},
+					"P_ALT_NAME2": {
+						"type": "string"
+					},
+					"P_ALT_NAME3": {
+						"type": "string"
+					},
+					"P_ALT_NAME4": {
+						"type": "string"
+					},
+					"P_CUST_ALT_NAME": {
+						"type": "string"
+					},
+					"P_ALT_ADD1": {
+						"type": "string"
+					},
+					"P_ALT_ADD2": {
+						"type": "string"
+					},
+					"P_ALT_ADD3": {
+						"type": "string"
+					},
+					"P_ALT_ADD4": {
+						"type": "string"
+					},
+					"P_ALT_POSTCODE": {
+						"type": "string"
+					},
+					"P_ALT_PHONE_NO_RES": {
+						"type": "string"
+					},
+					"P_ALT_PHONE_NO_BUS": {
+						"type": "string"
+					},
+					"P_ALT_FAX_NO": {
+						"type": "string"
+					},
+					"P_INCOME": {
+						"type": "string"
+					},
+					"P_OTHER_INCOME": {
+						"type": "string"
+					},
+					"P_ADDITIONAL_INCOME": {
+						"type": "string"
+					},
+					"P_LEGAL_ENTITY": {
+						"type": "string"
+					},
+					"P_PROFESSION_CODE": {
+						"type": "string"
+					},
+					"P_PASSPORT_CTRY": {
+						"type": "string"
+					},
+					"P_NCBC_FLAG": {
+						"type": "string"
+					},
+					"P_RES_COUNTRY_CODE": {
+						"type": "string"
+					},
+					"P_OCCUPANCY": {
+						"type": "string"
+					},
+					"P_SECURITY_NAME": {
+						"type": "string"
+					},
+					"P_REL_MANAGER": {
+						"type": "string"
+					},
+					"P_REL_MANAGER_NAME_EN": {
+						"type": "string"
+					},
+					"P_REL_MANAGER_NAME_AR": {
+						"type": "string"
+					},
+					"P_CONTACT_TM": {
+						"type": "string"
+					},
+					"P_ADDRESS_TYPE": {
+						"type": "string"
+					},
+					"P_WASSEL_ADD1": {
+						"type": "string"
+					},
+					"P_WASSEL_ADD2": {
+						"type": "string"
+					},
+					"P_WASSEL_ADD3": {
+						"type": "string"
+					},
+					"P_WASSEL_ADD4": {
+						"type": "string"
+					},
+					"P_WASSEL_ADD5": {
+						"type": "string"
+					},
+					"P_SAMA_APPR_NO": {
+						"type": "string"
+					},
+					"P_VIP_CODE": {
+						"type": "string"
+					},
+					"P_HOME_BRANCH_NO": {
+						"type": "string"
+					},
+					"P_CORP_GROUP_CODE": {
+						"type": "string"
+					},
+					"P_IVR_FLAG": {
+						"type": "string"
+					},
+					"P_SAMA_FLAG": {
+						"type": "string"
+					},
+					"P_CK_CUST_LMT_IND": {
+						"type": "string"
+					},
+					"P_CK_CUST_PA_LMT_IND": {
+						"type": "string"
+					},
+					"P_CK_INDU_LMT_IND": {
+						"type": "string"
+					},
+					"P_CK_CNTY_LMT_IND": {
+						"type": "string"
+					},
+					"P_CK_SECTOR_LMT_IND": {
+						"type": "string"
+					},
+					"P_PREF_HOME_BRCH": {
+						"type": "string"
+					},
+					"P_CNTRL_FILE_NO": {
+						"type": "string"
+					},
+					"P_CNTRL_RSRV_NO": {
+						"type": "string"
+					},
+					"P_ERR_CD": {
+						"type": "string"
+					},
+					"P_ERR_MSG": {
+						"type": "string"
+					},
+					"P_ID_EXPIRY_DATE_HIJRI": {
+						"type": "string"
+					},
+					"P_ID_EXPIRY_DATE_GRGN": {
+						"type": "string"
+					},
+					"P_ENTITY_NAME": {
+						"type": "string"
+					},
+					"BRANCH": {
+						"type": "string"
+					},
+					"CUSTOMERSEGMENTCODE": {
+						"type": "string"
+					},
+					"STREET": {
+						"type": "string"
+					},
+					"DISTRICT": {
+						"type": "string"
+					},
+					"BUILDINGNUMBER": {
+						"type": "string"
+					},
+					"UNITNUMBER": {
+						"type": "string"
+					},
+					"CITYCODE": {
+						"type": "string"
+					},
+					"CITYNAMEENGLISH": {
+						"type": "string"
+					},
+					"CITYNAMEARABIC": {
+						"type": "string"
+					},
+					"REGIONCODE": {
+						"type": "string"
+					},
+					"ADDITIONALNO": {
+						"type": "string"
+					},
+					"POBOX": {
+						"type": "string"
+					},
+					"NATIONALADDRESSVERIFICATION": {
+						"type": "string"
+					},
+					"CUSTOMERCONSENT": {
+						"type": "string"
+					},
+					"COUNTRY": {
+						"type": "string"
+					},
+					"FATCASTATUSFLAG": {
+						"type": "string"
+					},
+					"UNIFIEDMOBILEFLAG": {
+						"type": "string"
+					},
+					"OCCUPATIONDESC": {
+						"type": "string"
+					},
+					"BIRTHCOUNTRY": {
+						"type": "string"
+					},
+					"WESSAMCODINGDT": {
+						"type": "string"
+					},
+					"P_NCB_STAFF": {
+						"type": "string"
+					},
+					"YAQEEN_FLAG": {
+						"type": "string"
+					},
+					"E_KYC_FLAG": {
+						"type": "string"
+					}
+				}
+			},
+			"AccountTypeRequest": {
+				"type": "object",
+				"properties": {
+					"AccountTypeRequest": {
+						"$ref": "#/components/schemas/AccountTypeRequestType"
+					}
+				}
+			},
+			"AccountTypeRequestType": {
+				"type": "object",
+				"properties": {
+					"accountNumber": {
+						"description": "Account Number",
+						"type": "string"
+					}
+				}
+			},
+			"AccountTypeResponse": {
+				"type": "object",
+				"properties": {
+					"AccountTypeResponse": {
+						"$ref": "#/components/schemas/AccountTypeResponseType"
+					}
+				}
+			},
+			"AccountTypeResponseType": {
+				"type": "object",
+				"properties": {
+					"cust_acct_no": {
+						"type": "string"
+					},
+					"prim_acct": {
+						"type": "string"
+					},
+					"account_system": {
+						"description": "Type of Account such as Deposit,GL,Loan,CIF ",
+						"type": "string"
+					},
+					"bancs_ind": {
+						"type": "string"
+					},
+					"acct_type": {
+						"type": "string",
+						"description": "Account Type code such as 00,etc"
+					}
+				}
+			},
+			"CifByWatheeqRequest": {
+				"type": "object",
+				"properties": {
+					"CifByWatheeqRequest": {
+						"$ref": "#/components/schemas/CifByWatheeqRequestType"
+					}
+				}
+			},
+			"CifByWatheeqRequestType": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"idType": {
+						"type": "string"
+					},
+					"option": {
+						"description": "option type from db",
+						"type": "string"
+					}
+				}
+			},
+			"CifByWatheeqResponse": {
+				"type": "object",
+				"properties": {
+					"CifByWatheeqResponse": {
+						"$ref": "#/components/schemas/CifByWatheeqResponseType"
+					}
+				}
+			},
+			"CifByWatheeqResponseType": {
+				"title": "GetCifByWatheeqResponse",
+				"type": "object",
+				"properties": {
+					"success": {
+						"$ref": "#/components/schemas/GetCifByWatheeqSuccessResponseType"
+					},
+					"fault": {
+						"$ref": "../../../commonschemas/fault.json#/FaultType"
+					}
+				}
+			},
+			"GetCifByWatheeqSuccessResponseType": {
+				"type": "object",
+				"properties": {
+					"cif": {
+						"type": "string"
+					},
+					"idType": {
+						"type": "string"
+					}
+				}
+			},
+			"CifDetailsByIDsRequest": {
+				"type": "object",
+				"properties": {
+					"CifDetailsByIDsRequest": {
+						"$ref": "#/components/schemas/CifDetailsByIDsRequestType"
+					}
+				}
+			},
+			"CifDetailsByIDsRequestType": {
+				"type": "object",
+				"properties": {
+					"primaryId": {
+						"type": "string"
+					},
+					"primaryIdType": {
+						"type": "string"
+					},
+					"secondaryId": {
+						"type": "string"
+					},
+					"secondaryIdType": {
+						"type": "string"
+					},
+					"accountNo": {
+						"type": "string"
+					},
+					"accountType": {
+						"type": "string"
+					}
+				}
+			},
+			"CifDetailsByIDsResponse": {
+				"type": "object",
+				"properties": {
+					"CifDetailsByIDsResponse": {
+						"$ref": "#/components/schemas/CifDetailsByIDsResponseType"
+					}
+				}
+			},
+			"CifDetailsByIDsResponseType": {
+				"title": "CifDetailsByIDsResponse",
+				"type": "object",
+				"properties": {
+					"success": {
+						"$ref": "#/components/schemas/CifDetailsByIDsSuccessResponseType"
+					},
+					"fault": {
+						"$ref": "../../../commonschemas/fault.json#/FaultType"
+					}
+				}
+			},
+			"CifDetailsByIDsSuccessResponseType": {
+				"type": "object",
+				"properties": {
+					"cif": {
+						"type": "string"
+					},
+					"idRelationshipCode": {
+						"type": "string"
+					}
+				}
+			},
+			"CifRequest": {
+				"type": "object",
+				"properties": {
+					"CifRequest": {
+						"$ref": "#/components/schemas/CifRequestType"
+					}
+				}
+			},
+			"CifRequestType": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string"
+					},
+					"idType": {
+						"type": "string"
+					},
+					"option": {
+						"type": "string"
+					}
+				}
+			},
+			"CifResponse": {
+				"type": "object",
+				"properties": {
+					"CifResponse": {
+						"$ref": "#/components/schemas/CifResponseType"
+					}
+				}
+			},
+			"CifResponseType": {
+				"title": "CifResponse",
+				"type": "object",
+				"properties": {
+					"success": {
+						"$ref": "#/components/schemas/CifSuccessResponseType"
+					},
+					"fault": {
+						"$ref": "../../../commonschemas/fault.json#/FaultType"
+					}
+				}
+			},
+			"CifSuccessResponseType": {
+				"type": "object",
+				"properties": {
+					"cif": {
+						"type": "string"
+					},
+					"PKBFlag": {
+						"type": "string"
+					}
+				}
+			},
+			"PayrollAcoountRequest": {
+				"title": "PayrollAccountRequest",
+				"type": "object",
+				"properties": {
+					"PayrollAccountRequest": {
+						"$ref": "#/components/schemas/PayrollAcoountRequestType"
+					}
+				}
+			},
+			"PayrollAcoountRequestType": {
+				"type": "object",
+				"properties": {
+					"cif": {
+						"type": "string"
+					},
+					"languageCode": {
+						"type": "string"
+					}
+				}
+			},
+			"PayrollAcoountResponse": {
+				"title": "PayrollAccountResponse",
+				"type": "object",
+				"properties": {
+					"PayrollAccountResponse": {
+						"$ref": "#/components/schemas/PayrollAcoountResponseType"
+					}
+				}
+			},
+			"PayrollAcoountResponseType": {
+				"type": "object",
+				"properties": {
+					"current": {
+						"type": "object",
+						"properties": {
+							"account": {
+								"type": "array",
+								"items": {
+									"$ref": "#/components/schemas/AccountType"
+								}
+							}
+						}
+					},
+					"segment": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/SegmentType"
+						}
+					}
+				}
+			},
+			"AccountType": {
+				"type": "object",
+				"properties": {
+					"ACCOUNT_NUMBER": {
+						"type": "string"
+					},
+					"PRODUCT_SUB_CATEGORY_CD": {
+						"type": "string"
+					},
+					"ACCOUNT_ACCESS_IND": {
+						"type": "string"
+					},
+					"ACCOUNT_TYPE_CD": {
+						"type": "string"
+					},
+					"ACCOUNT_STATUS_CD": {
+						"type": "string"
+					},
+					"ACCOUNT_SEGMENT_CD": {
+						"type": "string"
+					},
+					"GL_CLASS_CD": {
+						"type": "string"
+					},
+					"INSTITUTION_NUMBER": {
+						"type": "string"
+					},
+					"CIF_NUMBER": {
+						"type": "string"
+					},
+					"CURRENCY_CD": {
+						"type": "string"
+					},
+					"BRANCH_NUMBER": {
+						"type": "string"
+					},
+					"OPEN_DT": {
+						"type": "string"
+					},
+					"TOTAL_CREDIT_LIMIT_AMT": {
+						"type": "string"
+					},
+					"BALANCE_AMT": {
+						"type": "string"
+					},
+					"PRODUCT_SUB_CATEGORY_DESC": {
+						"type": "string"
+					},
+					"ACCOUNT_STATUS_CD_DESC": {
+						"type": "string"
+					},
+					"RENEWAL_DT": {
+						"type": "string"
+					},
+					"INTEREST_CATEGORY_CD": {
+						"type": "string"
+					},
+					"INTEREST_CATEGORY_DESC": {
+						"type": "string"
+					},
+					"ACCOUNT_DIAMOND_FLAG": {
+						"type": "string"
+					},
+					"ACCOUNT_TYPE_CD_DESC": {
+						"type": "string"
+					},
+					"BALANCE_AVAILABLE_AMT": {
+						"type": "string"
+					},
+					"BALANCE_AVAILABLE_AMT_SAR": {
+						"type": "string"
+					},
+					"CASH_ADVANCE_AVAILABLE_AMT": {
+						"type": "string"
+					},
+					"BALANCE_SIX_MONTH_AVG_AMT": {
+						"type": "string"
+					},
+					"BALANCE_AMT_SAR": {
+						"type": "string"
+					},
+					"CALL_ACCT_INT_AVAILABLE_AMT": {
+						"type": "string"
+					},
+					"CALL_ACCT_PROFIT_RATE": {
+						"type": "string"
+					},
+					"CREDIT_RETURN_DT": {
+						"type": "string"
+					},
+					"DIVISION_CD": {
+						"type": "string"
+					},
+					"HOLD_VALUE_AMT": {
+						"type": "string"
+					},
+					"PAYROLL_IND": {
+						"type": "string"
+					},
+					"CASH_ADVANCE_IND": {
+						"type": "string"
+					},
+					"LAST_CUST_DEBIT_DT": {
+						"type": "string"
+					},
+					"MAX_BAL_INTEREST_AMT": {
+						"type": "string"
+					},
+					"MIN_BAL_INTEREST_AMT": {
+						"type": "string"
+					},
+					"OD_EXPIRY_DT_1": {
+						"type": "string"
+					},
+					"OD_EXPIRY_DT_2": {
+						"type": "string"
+					},
+					"OD_EXPIRY_DT_3": {
+						"type": "string"
+					},
+					"OD_EXPIRY_DT_4": {
+						"type": "string"
+					},
+					"OD_LIMIT_AMT": {
+						"type": "string"
+					},
+					"OD_LIMIT_AMT_1": {
+						"type": "string"
+					},
+					"OD_LIMIT_AMT_2": {
+						"type": "string"
+					},
+					"OD_LIMIT_AMT_3": {
+						"type": "string"
+					},
+					"OD_LIMIT_AMT_4": {
+						"type": "string"
+					},
+					"OD_LIMIT_PURPOSE_CD": {
+						"type": "string"
+					},
+					"SPECIAL_ACCOUNT_IND": {
+						"type": "string"
+					},
+					"UNCLEARED_CHQ_AMT": {
+						"type": "string"
+					},
+					"UNCLAIMED_CLOSE_DT": {
+						"type": "string"
+					},
+					"ACCRUED_INTEREST_AMT": {
+						"type": "string"
+					},
+					"GOLD_ACCOUNT": {
+						"type": "string"
+					},
+					"ACCOUNT_SUBTYPE_CD": {
+						"type": "string"
+					}
+				}
+			},
+			"SegmentType": {
+				"type": "object",
+				"properties": {
+					"CIF_NUMBER": {
+						"type": "string"
+					},
+					"IS_GOLD": {
+						"type": "string"
+					},
+					"IS_GOLD_DESC_EN": {
+						"type": "string"
+					},
+					"IS_GOLD_DESC_AR": {
+						"type": "string"
+					},
+					"IS_PLATINUM": {
+						"type": "string"
+					},
+					"IS_PLATINUM_DESC_EN": {
+						"type": "string"
+					},
+					"IS_PLATINUM_DESC_AR": {
+						"type": "string"
+					},
+					"IS_NCB_STAFF": {
+						"type": "string"
+					},
+					"IS_NCB_STAFF_DESC_EN": {
+						"type": "string"
+					},
+					"IS_NCB_STAFF_DESC_AR": {
+						"type": "string"
+					},
+					"IS_RETAIL": {
+						"type": "string"
+					},
+					"IS_RETAIL_DESC_EN": {
+						"type": "string"
+					},
+					"IS_RETAIL_DESC_AR": {
+						"type": "string"
+					},
+					"IS_MAZIAH": {
+						"type": "string"
+					},
+					"IS_MAZIAH_DESC_EN": {
+						"type": "string"
+					},
+					"IS_MAZIAH_DESC_AR": {
+						"type": "string"
+					},
+					"IS_MAZIAH_MALES": {
+						"type": "string"
+					},
+					"IS_MAZIAH_MALES_DESC_EN": {
+						"type": "string"
+					},
+					"IS_MAZIAH_MALES_DESC_AR": {
+						"type": "string"
+					},
+					"IS_MAZIAH_LADIES": {
+						"type": "string"
+					},
+					"IS_MAZIAH_LADIES_DESC_EN": {
+						"type": "string"
+					},
+					"IS_MAZIAH_LADIES_DESC_AR": {
+						"type": "string"
+					},
+					"IS_IKHTYAR": {
+						"type": "string"
+					},
+					"IS_IKHTYAR_DESC_EN": {
+						"type": "string"
+					},
+					"IS_IKHTYAR_DESC_AR": {
+						"type": "string"
+					},
+					"IS_AJYAL": {
+						"type": "string"
+					},
+					"IS_AJYAL_DESC_EN": {
+						"type": "string"
+					},
+					"IS_AJYAL_DESC_AR": {
+						"type": "string"
+					},
+					"IS_ASHBAL": {
+						"type": "string"
+					},
+					"IS_ASHBAL_DESC_EN": {
+						"type": "string"
+					},
+					"IS_ASHBAL_DESC_AR": {
+						"type": "string"
+					},
+					"IS_ISLAMIC": {
+						"type": "string"
+					},
+					"IS_ISLAMIC_DESC_EN": {
+						"type": "string"
+					},
+					"IS_ISLAMIC_DESC_AR": {
+						"type": "string"
+					},
+					"IS_TREASURY": {
+						"type": "string"
+					},
+					"IS_TREASURY_DESC_EN": {
+						"type": "string"
+					},
+					"IS_TREASURY_DESC_AR": {
+						"type": "string"
+					},
+					"IS_CORPORATE": {
+						"type": "string"
+					},
+					"IS_CORPORATE_DESC_EN": {
+						"type": "string"
+					},
+					"IS_CORPORATE_DESC_AR": {
+						"type": "string"
+					},
+					"IS_SMALL_BUS_TAJIR": {
+						"type": "string"
+					},
+					"IS_SMALL_BUS_TAJIR_DESC_EN": {
+						"type": "string"
+					},
+					"IS_SMALL_BUS_TAJIR_DESC_AR": {
+						"type": "string"
+					},
+					"IS_SMALL_BUS_TAJIR_GOLD": {
+						"type": "string"
+					},
+					"IS_SML_BUS_TAJIR_GOLD_DESC_EN": {
+						"type": "string"
+					},
+					"IS_SML_BUS_TAJIR_GOLD_DESC_AR": {
+						"type": "string"
+					},
+					"IS_SMALL_BUS_TAJIR_PLATINUM": {
+						"type": "string"
+					},
+					"IS_SML_BS_TAJIR_PLTNM_DSC_EN": {
+						"type": "string"
+					},
+					"IS_SML_BS_TAJIR_PLTNM_DSC_AR": {
+						"type": "string"
+					},
+					"IS_SMALL_BUS_TAJIR_DIAMOND": {
+						"type": "string"
+					},
+					"IS_SML_BS_TAJIR_DIAMOND_DSC_EN": {
+						"type": "string"
+					},
+					"IS_SML_BS_TAJIR_DIAMOND_DSC_AR": {
+						"type": "string"
+					},
+					"IS_SMALL_BUS_SPECIAL_RELATIONS": {
+						"type": "string"
+					},
+					"IS_SML_BUS_SPCL_RELDESC_EN": {
+						"type": "string"
+					},
+					"IS_SML_BUS_SPCL_RELDESC_AR": {
+						"type": "string"
+					},
+					"IS_EWALLET": {
+						"type": "string"
+					},
+					"IS_EWALLET_DESC_EN": {
+						"type": "string"
+					},
+					"IS_EWALLET_DESC_AR": {
+						"type": "string"
+					},
+					"IS_NCBC": {
+						"type": "string"
+					},
+					"IS_NCBC_DESC_EN": {
+						"type": "string"
+					},
+					"IS_NCBC_DESC_AR": {
+						"type": "string"
+					},
+					"IS_PRIVATE": {
+						"type": "string"
+					},
+					"IS_PRIVATE_DESC_EN": {
+						"type": "string"
+					},
+					"IS_PRIVATE_DESC_AR": {
+						"type": "string"
+					},
+					"IS_NORMAL": {
+						"type": "string"
+					},
+					"IS_NORMAL_DESC_EN": {
+						"type": "string"
+					},
+					"IS_NORMAL_DESC_AR": {
+						"type": "string"
+					},
+					"IS_MAZAYA_MONTHLY": {
+						"type": "string"
+					},
+					"IS_MAZAYA_MONTHLY_DESC_EN": {
+						"type": "string"
+					},
+					"IS_MAZAYA_MONTHLY_DESC_AR": {
+						"type": "string"
+					},
+					"IS_SMALL_BUS_CHAMBER_COMMERCE": {
+						"type": "string"
+					},
+					"IS_SML_BUS_CHMBR_COMRC_DESC_EN": {
+						"type": "string"
+					},
+					"IS_SML_BUS_CHMBR_COMRC_DESC_AR": {
+						"type": "string"
+					},
+					"IS_SMALL_BUS_TCF": {
+						"type": "string"
+					},
+					"IS_SMALL_BUS_TCF_DESC_EN": {
+						"type": "string"
+					},
+					"IS_SMALL_BUS_TCF_DESC_AR": {
+						"type": "string"
+					},
+					"IS_SMAL_BUS_LGP": {
+						"type": "string"
+					},
+					"IS_SMAL_BUS_LGP_DESC_EN": {
+						"type": "string"
+					},
+					"IS_SMAL_BUS_LGP_DESC_AR": {
+						"type": "string"
+					},
+					"IS_SMALL_BUS_LTP": {
+						"type": "string"
+					},
+					"IS_SMALL_BUS_LTP_DESC_EN": {
+						"type": "string"
+					},
+					"IS_SMALL_BUS_LTP_DESC_AR": {
+						"type": "string"
+					},
+					"IS_AFAAQ": {
+						"type": "string"
+					},
+					"IS_AFAAQ_DESC_EN": {
+						"type": "string"
+					},
+					"IS_AFAAQ_DESC_AR": {
+						"type": "string"
+					},
+					"IS_AFAAQ_EXEC": {
+						"type": "string"
+					},
+					"IS_AFAAQ_EXEC_DESC_EN": {
+						"type": "string"
+					},
+					"IS_AFAAQ_EXEC_DESC_AR": {
+						"type": "string"
+					},
+					"IS_AFAAQ_INS": {
+						"type": "string"
+					},
+					"IS_AFAAQ_INS_DESC_EN": {
+						"type": "string"
+					},
+					"IS_AFAAQ_INS_DESC_AR": {
+						"type": "string"
+					},
+					"IS_AFAAQ_EXEC_INS": {
+						"type": "string"
+					},
+					"IS_AFAAQ_EXEC_INS_DESC_EN": {
+						"type": "string"
+					},
+					"IS_AFAAQ_EXEC_INS_DESC_AR": {
+						"type": "string"
+					},
+					"IS_ASRIYYAH_DESC_EN": {
+						"type": "string"
+					},
+					"IS_ASRIYYAH_DESC_AR": {
+						"type": "string"
+					},
+					"IS_ELITE": {
+						"type": "string"
+					},
+					"IS_ELITE_DESC_EN": {
+						"type": "string"
+					},
+					"IS_ELITE_DESC_AR": {
+						"type": "string"
+					},
+					"IS_DIGITAL": {
+						"type": "string"
+					},
+					"IS_DIGITAL_DESC_EN": {
+						"type": "string"
+					},
+					"IS_DIGITAL_DESC_AR": {
+						"type": "string"
+					},
+					"IS_PAYROLL": {
+						"type": "string"
+					}
+				}
+			},
+			"LookupTablesRequest": {
+				"title": "LookupTablesRequest",
+				"type": "object",
+				"properties": {
+					"LookupTablesRequest": {
+						"$ref": "#/components/schemas/LookupTablesRequestType"
+					}
+				}
+			},
+			"LookupTablesResponse": {
+				"title": "LookupTablesResponse",
+				"type": "object",
+				"properties": {
+					"LookupTableResponse": {
+						"$ref": "#/components/schemas/LookupTablesResponseType"
+					}
+				}
+			},
+			"LookupTablesRequestType": {
+				"title": "LookupTablesRequestType",
+				"type": "object",
+				"properties": {
+					"tableName": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						}
+					}
+				}
+			},
+			"LookupTablesResponseType": {
+				"title": "LookupTablesResponseType",
+				"type": "object",
+				"properties": {
+					"success": {
+						"$ref": "#/components/schemas/LookupTablesResponseSuccessType"
+					},
+					"fault": {
+						"$ref": "../../../commonschemas/fault.json#/FaultType"
+					}
+				}
+			},
+			"LookupTablesResponseSuccessType": {
+				"title": "LookupTablesResponseSuccessType",
+				"type": "object",
+				"properties": {
+					"table": {
+						"$ref": "#/components/schemas/TableType"
+					}
+				}
+			},
+			"TableType": {
+				"title": "TableType",
+				"type": "object",
+				"properties": {
+					"tableName": {
+						"type": "string"
+					},
+					"record": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/TableDataType"
+						}
+					}
+				}
+			},
+			"TableDataType": {
+				"title": "TableDataType",
+				"type": "object",
+				"properties": {
+					"data": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/DataType"
+						}
+					}
+				}
+			},
+			"DataType": {
+				"title": "DataType",
+				"type": "object",
+				"properties": {
+					"columnName": {
+						"type": "string",
+						"description": "Column Name of  Table"
+					},
+					"columnData": {
+						"type": "string",
+						"description": "Column Data of  Table"
+					}
+				}
+			},
+			"GetLookupTablesRequest": {
+				"title": "GetLookupTablesRequest",
+				"required": [
+					"LookupTablesRequest"
+				],
+				"type": "object",
+				"properties": {
+					"LookupTablesRequest": {
+						"$ref": "#/components/schemas/GetLookupTablesRequestType"
+					}
+				}
+			},
+			"GetLookupTablesResponse": {
+				"title": "GetLookupTablesResponse",
+				"required": [
+					"LookupTablesResponse"
+				],
+				"type": "object",
+				"properties": {
+					"LookupTablesResponse": {
+						"$ref": "#/components/schemas/GetLookupTablesResponseType"
+					}
+				}
+			},
+			"GetLookupTablesRequestType": {
+				"title": "GetLookupTablesRequestType",
+				"type": "object",
+				"properties": {
+					"tableName": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						},
+						"description": "Table Name"
+					},
+					"source": {
+						"type": "string"
+					}
+				},
+				"description": ""
+			},
+			"GetLookupTablesResponseType": {
+				"title": "GetLookupTablesResponseType",
+				"type": "object",
+				"properties": {
+					"success": {
+						"$ref": "#/components/schemas/GetLookupTablesType"
+					},
+					"fault": {
+						"$ref": "../../../commonschemas/fault.json#/FaultType"
+					}
+				},
+				"description": ""
+			},
+			"GetLookupTablesType": {
+				"title": "GetLookupTablesType",
+				"type": "object",
+				"properties": {
+					"LKPTBL": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpTableType"
+						},
+						"description": ""
+					},
+					"tables": {
+						"$ref": "#/components/schemas/TablesType"
+					}
+				},
+				"description": ""
+			},
+			"TablesType": {
+				"title": "TablesType",
+				"type": "object",
+				"properties": {
+					"table": {
+						"type": "array",
+						"items": {
+							"type": "string"
+						},
+						"description": ""
+					}
+				},
+				"description": ""
+			},
+			"lkpTableType": {
+				"title": "lkpTableType",
+				"type": "object",
+				"properties": {
+					"TableName": {
+						"type": "string",
+						"description": "Table Name"
+					},
+					"TableData": {
+						"$ref": "#/components/schemas/tableDataType1"
+					}
+				},
+				"description": ""
+			},
+			"tableDataType1": {
+				"title": "tableDataType1",
+				"type": "object",
+				"properties": {
+					"LKPDS": {
+						"$ref": "#/components/schemas/lkpdsType"
+					}
+				},
+				"description": ""
+			},
+			"lkpdsType": {
+				"title": "lkpdsType",
+				"type": "object",
+				"properties": {
+					"LKPMTA": {
+						"$ref": "#/components/schemas/lkpMtaType"
+					},
+					"LKP_CITY": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpCityType"
+						},
+						"description": ""
+					},
+					"LKP_NATIONALITY": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpNationalityType"
+						},
+						"description": ""
+					},
+					"LKP_ID_TYPE": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpIdType"
+						},
+						"description": ""
+					},
+					"LKP_MARITAL_STATUS": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpMartialStatusType"
+						},
+						"description": ""
+					},
+					"LKP_EDUCATION_LEVEL": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpEducationalLevel"
+						},
+						"description": ""
+					},
+					"LKP_EMP_IND": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpEmpIndType"
+						},
+						"description": ""
+					},
+					"LKP_OCCUPATION": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpOccupationType"
+						},
+						"description": ""
+					},
+					"LKP_BUSINESS_ACTIVITY": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpBusinessAcitivityType"
+						},
+						"description": ""
+					},
+					"LKP_AMOUNT_RANGE": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpAmountRange"
+						},
+						"description": ""
+					},
+					"LKP_OCCUPANCY": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpOccupancyType"
+						},
+						"description": ""
+					},
+					"LKP_EMPIND_REVSRC_INCPAY_LNK": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpEmpIndRevsrcIncpaylnk"
+						},
+						"description": ""
+					},
+					"LKP_MAJORS": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpMajorsType"
+						},
+						"description": ""
+					},
+					"LKP_COLLEGES": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpCollegesType"
+						},
+						"description": ""
+					},
+					"LKP_HOBBIES": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpHobbiesType"
+						},
+						"description": ""
+					},
+					"LKP_INDUSTRY": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpIndustryType"
+						},
+						"description": ""
+					},
+					"LKP_SUB_INDUSTRY": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpSubIndustryType"
+						},
+						"description": ""
+					},
+					"LKP_MON_INC_PAY_METHOD": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpMonIncPayMethodType"
+						},
+						"description": ""
+					},
+					"LKP_PRI_REV_SRC": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpPriRevSrcType"
+						},
+						"description": ""
+					},
+					"LKP_CURRENCY": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpCurrencyType"
+						},
+						"description": ""
+					},
+					"LKP_COUNTRY": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpCountryType"
+						},
+						"description": ""
+					},
+					"LKP_TITLE": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpTitleType"
+						},
+						"description": ""
+					},
+					"LKP_LEGAL_ENTITY": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpLegalEntityType"
+						},
+						"description": ""
+					},
+					"LKP_SUB_LEGAL_ENTITY": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpSubLegalEntityType"
+						},
+						"description": ""
+					},
+					"LKP_CHEQUE_BOOK_TYPE": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpChequeBookType"
+						},
+						"description": ""
+					},
+					"LKP_BRANCH": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpBranchType"
+						},
+						"description": ""
+					},
+					"LKP_CHEQUE_BOOK_AUTO_REORDER": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpChequeBookAutoReorderType"
+						},
+						"description": ""
+					},
+					"LKP_RESIDENCY": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpResidencyType"
+						},
+						"description": ""
+					},
+					"LKP_OTHER_BANK": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpOtherBankType"
+						},
+						"description": ""
+					},
+					"LKP_ACCT_TYPE": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpAcctType"
+						},
+						"description": ""
+					},
+					"LKP_REASON": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpReasonType"
+						},
+						"description": ""
+					},
+					"SPCL_INST_ASSIGN": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/spclInstAssignType"
+						},
+						"description": ""
+					},
+					"SPCL_INST": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/spclInstType"
+						},
+						"description": ""
+					},
+					"LKP_NATIONALITY_LINKING": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpNationalityLinkingType"
+						},
+						"description": ""
+					},
+					"LKP_LEGAL_ENTITY_IDS": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpLegalEntityIdsType"
+						},
+						"description": ""
+					},
+					"LKP_LANGUAGE": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpLanguageType"
+						},
+						"description": ""
+					},
+					"LKP_CALENDAR": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpCalendarType"
+						},
+						"description": ""
+					},
+					"LKP_PARTY_STATUS": {
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/lkpPartyStatusType"
+						},
+						"description": ""
+					}
+				},
+				"description": ""
+			},
+			"lkpMtaType": {
+				"title": "lkpMtaType",
+				"type": "object",
+				"properties": {
+					"Key": {
+						"type": "string"
+					},
+					"ADescCol": {
+						"type": "string",
+						"description": "A Desc Col ??"
+					},
+					"LDescCol": {
+						"type": "string",
+						"description": "L Desc Col ??"
+					}
+				},
+				"description": ""
+			},
+			"lkpCityType": {
+				"title": "lkpCityType",
+				"type": "object",
+				"properties": {
+					"CITY_CD": {
+						"type": "string",
+						"description": "TITLE_CD ??"
+					},
+					"CC_CODE": {
+						"type": "string"
+					},
+					"L_NM": {
+						"type": "string",
+						"description": "L_NM ??"
+					},
+					"A_NM": {
+						"type": "string",
+						"description": "A_NM ??"
+					},
+					"CRT_DATE": {
+						"type": "string",
+						"description": "CRT_DATE ??",
+						"format": "date-time"
+					},
+					"CRT_USR": {
+						"type": "string"
+					}
+				},
+				"description": ""
+			},
+			"lkpNationalityType": {
+				"title": "lkpNationalityType",
+				"type": "object",
+				"properties": {
+					"NATIONALITY_CD": {
+						"type": "string",
+						"description": "TITLE_CD ??"
+					},
+					"L_NM": {
+						"type": "string",
+						"description": "L_NM ??"
+					},
+					"A_NM": {
+						"type": "string",
+						"description": "A_NM ??"
+					},
+					"CRT_DATE": {
+						"type": "string",
+						"description": "CRT_DATE ??",
+						"format": "date-time"
+					},
+					"CRT_USR": {
+						"type": "string"
+					},
+					"COUNTRY_CD": {
+						"pattern": "([A-Z]{2,2})|()",
+						"type": "string"
+					},
+					"SANCTION_FLG": {
+						"$ref": "../../../commonschemas/schemas.json#/YorNTypeOptional"
+					},
+					"REMARKS": {
+						"type": "string"
+					},
+					"LAST_MAINT_DATE": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"LAST_MAINT_USR": {
+						"type": "string"
+					}
+				},
+				"description": ""
+			},
+			"lkpIdType": {
+				"title": "lkpIdType",
+				"type": "object",
+				"properties": {
+					"ID_TYPE_CD": {
+						"type": "string",
+						"description": "TITLE_CD ??"
+					},
+					"L_NM": {
+						"type": "string",
+						"description": "L_NM ??"
+					},
+					"A_NM": {
+						"type": "string",
+						"description": "A_NM ??"
+					},
+					"LAST_MAINT_DATE": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"CRT_DATE": {
+						"type": "string",
+						"description": "CRT_DATE ??",
+						"format": "date-time"
+					},
+					"LAST_MAINT_USR": {
+						"type": "string"
+					},
+					"CRT_USR": {
+						"type": "string"
+					},
+					"MAX_ID_NO_LENGTH": {
+						"type": "integer",
+						"format": "int32"
+					},
+					"YEARS_OF_EXPIRY": {
+						"type": "number",
+						"default": 0
+					},
+					"NUMERIC_ONLY_FLG": {
+						"$ref": "../../../commonschemas/schemas.json#/YorNTypeOptional"
+					},
+					"SPCL_CASE_RELATED_FLG": {
+						"$ref": "../../../commonschemas/schemas.json#/YorNTypeOptional"
+					},
+					"EXCLUDED_LEGAL_ENTITY_CD": {
+						"type": "string"
+					},
+					"IS_IND": {
+						"$ref": "../../../commonschemas/schemas.json#/YorNTypeOptional"
+					}
+				},
+				"description": ""
+			},
+			"lkpMartialStatusType": {
+				"title": "lkpMartialStatusType",
+				"type": "object",
+				"properties": {
+					"MARITAL_STATUS_CD": {
+						"type": "string",
+						"description": "TITLE_CD ??"
+					},
+					"L_NM": {
+						"type": "string",
+						"description": "L_NM ??"
+					},
+					"A_NM": {
+						"type": "string",
+						"description": "A_NM ??"
+					},
+					"CRT_DATE": {
+						"type": "string",
+						"description": "CRT_DATE ??",
+						"format": "date-time"
+					},
+					"CRT_USR": {
+						"type": "string"
+					}
+				},
+				"description": ""
+			},
+			"lkpEducationalLevel": {
+				"title": "lkpEducationalLevel",
+				"type": "object",
+				"properties": {
+					"EDUCATION_LEVEL_CD": {
+						"type": "string",
+						"description": "TITLE_CD ??"
+					},
+					"L_NM": {
+						"type": "string",
+						"description": "L_NM ??"
+					},
+					"A_NM": {
+						"type": "string",
+						"description": "A_NM ??"
+					},
+					"CRT_DATE": {
+						"type": "string",
+						"description": "CRT_DATE ??",
+						"format": "date-time"
+					},
+					"CRT_USR": {
+						"type": "string"
+					}
+				},
+				"description": ""
+			},
+			"lkpEmpIndType": {
+				"title": "lkpEmpIndType",
+				"type": "object",
+				"properties": {
+					"EMP_IND_CD": {
+						"type": "string",
+						"description": "TITLE_CD ??"
+					},
+					"L_NM": {
+						"type": "string",
+						"description": "L_NM ??"
+					},
+					"A_NM": {
+						"type": "string",
+						"description": "A_NM ??"
+					},
+					"CRT_DATE": {
+						"type": "string",
+						"description": "CRT_DATE ??",
+						"format": "date-time"
+					},
+					"CRT_USR": {
+						"type": "string"
+					}
+				},
+				"description": ""
+			},
+			"lkpOccupationType": {
+				"title": "lkpOccupationType",
+				"type": "object",
+				"properties": {
+					"OCCUPATION_CD": {
+						"type": "string",
+						"description": "TITLE_CD ??"
+					},
+					"L_NM": {
+						"type": "string",
+						"description": "L_NM ??"
+					},
+					"A_NM": {
+						"type": "string",
+						"description": "A_NM ??"
+					},
+					"LAST_MAINT_DATE": {
+						"type": "string"
+					},
+					"LAST_MAINT_USR": {
+						"type": "string"
+					},
+					"CRT_DATE": {
+						"type": "string",
+						"description": "CRT_DATE ??",
+						"format": "date-time"
+					},
+					"CRT_USR": {
+						"type": "string"
+					},
+					"ACTIVE_FLG": {
+						"$ref": "../../../commonschemas/schemas.json#/YorNTypeOptional"
+					}
+				},
+				"description": ""
+			},
+			"lkpBusinessAcitivityType": {
+				"title": "lkpBusinessAcitivityType",
+				"type": "object",
+				"properties": {
+					"ACTIVITY_CD": {
+						"type": "integer",
+						"description": "TITLE_CD ??",
+						"format": "int32",
+						"default": 0
+					},
+					"L_NM": {
+						"type": "string",
+						"description": "L_NM ??"
+					},
+					"A_NM": {
+						"type": "string",
+						"description": "A_NM ??"
+					},
+					"CRT_DATE": {
+						"type": "string",
+						"description": "CRT_DATE ??",
+						"format": "date-time"
+					},
+					"CRT_USR": {
+						"type": "string"
+					}
+				},
+				"description": ""
+			},
+			"lkpAmountRange": {
+				"title": "lkpAmountRange",
+				"type": "object",
+				"properties": {
+					"RANGE_CD": {
+						"type": "integer",
+						"description": "TITLE_CD ??",
+						"format": "int32",
+						"default": 0
+					},
+					"USED_TABLE": {
+						"type": "string"
+					},
+					"L_NM": {
+						"type": "string",
+						"description": "L_NM ??"
+					},
+					"A_NM": {
+						"type": "string",
+						"description": "A_NM ??"
+					},
+					"SRC_SYS_VALUE": {
+						"type": "string"
+					},
+					"PURPOSE": {
+						"type": "string"
+					},
+					"LAST_MAINT_DATE": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"LAST_MAINT_USR": {
+						"type": "string"
+					},
+					"CRT_DATE": {
+						"type": "string",
+						"description": "CRT_DATE ??",
+						"format": "date-time"
+					},
+					"CRT_USR": {
+						"type": "string"
+					},
+					"MIN_VALUE": {
+						"type": "string"
+					},
+					"MAX_VALUE": {
+						"type": "string"
+					},
+					"PARTY_SUB_TYPE_CD": {
+						"type": "string"
+					}
+				},
+				"description": ""
+			},
+			"lkpOccupancyType": {
+				"title": "lkpOccupancyType",
+				"type": "object",
+				"properties": {
+					"OCCUPANCY_CD": {
+						"type": "string",
+						"description": "TITLE_CD ??"
+					},
+					"L_NM": {
+						"type": "string",
+						"description": "L_NM ??"
+					},
+					"A_NM": {
+						"type": "string",
+						"description": "A_NM ??"
+					},
+					"CRT_DATE": {
+						"type": "string",
+						"description": "CRT_DATE ??",
+						"format": "date-time"
+					},
+					"CRT_USR": {
+						"type": "string"
+					}
+				},
+				"description": ""
+			},
+			"lkpEmpIndRevsrcIncpaylnk": {
+				"title": "lkpEmpIndRevsrcIncpaylnk",
+				"type": "object",
+				"properties": {
+					"RECORD_ID": {
+						"type": "integer",
+						"description": "TITLE_CD ??",
+						"format": "int32",
+						"default": 0
+					},
+					"EMP_IND_CD": {
+						"type": "integer",
+						"format": "int32",
+						"default": 0
+					},
+					"PRI_REV_SRC_CD": {
+						"type": "integer",
+						"description": "L_NM ??",
+						"format": "int32",
+						"default": 0
+					},
+					"MON_INC_PAY_METHOD_CD": {
+						"type": "integer",
+						"description": "A_NM ??",
+						"format": "int32",
+						"default": 0
+					},
+					"CRT_DATE": {
+						"type": "string",
+						"description": "CRT_DATE ??",
+						"format": "date-time"
+					},
+					"CRT_USR": {
+						"type": "string"
+					}
+				},
+				"description": ""
+			},
+			"lkpMajorsType": {
+				"title": "lkpMajorsType",
+				"type": "object",
+				"properties": {
+					"MAJOR_CD": {
+						"type": "string",
+						"description": "TITLE_CD ??"
+					},
+					"L_NM": {
+						"type": "string",
+						"description": "L_NM ??"
+					},
+					"A_NM": {
+						"type": "string",
+						"description": "A_NM ??"
+					},
+					"CRT_USR": {
+						"type": "string"
+					},
+					"CRT_DATE": {
+						"type": "string",
+						"description": "CRT_DATE ??"
+					}
+				},
+				"description": ""
+			},
+			"lkpCollegesType": {
+				"title": "lkpCollegesType",
+				"type": "object",
+				"properties": {
+					"COLLEGE_CD": {
+						"type": "integer",
+						"description": "TITLE_CD ??",
+						"format": "int32"
+					},
+					"L_NM": {
+						"type": "string",
+						"description": "L_NM ??"
+					},
+					"A_NM": {
+						"type": "string",
+						"description": "A_NM ??"
+					},
+					"CRT_USR": {
+						"type": "string"
+					},
+					"CRT_DATE": {
+						"type": "string",
+						"description": "CRT_DATE ??"
+					}
+				},
+				"description": ""
+			},
+			"lkpHobbiesType": {
+				"title": "lkpHobbiesType",
+				"type": "object",
+				"properties": {
+					"HOBBY_CD": {
+						"type": "string",
+						"description": "TITLE_CD ??"
+					},
+					"L_NM": {
+						"type": "string",
+						"description": "L_NM ??"
+					},
+					"A_NM": {
+						"type": "string",
+						"description": "A_NM ??"
+					},
+					"CRT_USR": {
+						"type": "string"
+					},
+					"CRT_DATE": {
+						"type": "string",
+						"description": "CRT_DATE ??"
+					}
+				},
+				"description": ""
+			},
+			"lkpIndustryType": {
+				"title": "lkpIndustryType",
+				"type": "object",
+				"properties": {
+					"INDUSTRY_CD": {
+						"type": "string",
+						"description": "TITLE_CD ??"
+					},
+					"L_NM": {
+						"type": "string",
+						"description": "L_NM ??"
+					},
+					"A_NM": {
+						"type": "string",
+						"description": "A_NM ??"
+					}
+				},
+				"description": ""
+			},
+			"lkpSubIndustryType": {
+				"title": "lkpSubIndustryType",
+				"type": "object",
+				"properties": {
+					"INDUSTRY_CD": {
+						"type": "string",
+						"description": "TITLE_CD ??"
+					},
+					"SUB_INDUSTRY_CD": {
+						"type": "string"
+					},
+					"L_NM": {
+						"type": "string",
+						"description": "L_NM ??"
+					},
+					"A_NM": {
+						"type": "string",
+						"description": "A_NM ??"
+					},
+					"CRT_USR": {
+						"type": "string"
+					},
+					"CRT_DATE": {
+						"type": "string",
+						"description": "CRT_DATE ??"
+					}
+				},
+				"description": ""
+			},
+			"lkpMonIncPayMethodType": {
+				"title": "lkpMonIncPayMethodType",
+				"type": "object",
+				"properties": {
+					"MON_INC_PAY_METHOD_CD": {
+						"type": "integer",
+						"description": "TITLE_CD ??",
+						"format": "int32"
+					},
+					"L_NM": {
+						"type": "string",
+						"description": "L_NM ??"
+					},
+					"A_NM": {
+						"type": "string",
+						"description": "A_NM ??"
+					},
+					"CRT_USR": {
+						"type": "string"
+					},
+					"CRT_DATE": {
+						"type": "string",
+						"description": "CRT_DATE ??"
+					}
+				},
+				"description": ""
+			},
+			"lkpPriRevSrcType": {
+				"title": "lkpPriRevSrcType",
+				"type": "object",
+				"properties": {
+					"PRI_REV_SRC_CD": {
+						"type": "integer",
+						"description": "TITLE_CD ??",
+						"format": "int32"
+					},
+					"L_NM": {
+						"type": "string",
+						"description": "L_NM ??"
+					},
+					"A_NM": {
+						"type": "string",
+						"description": "A_NM ??"
+					},
+					"CRT_USR": {
+						"type": "string"
+					},
+					"CRT_DATE": {
+						"type": "string",
+						"description": "CRT_DATE ??"
+					}
+				},
+				"description": ""
+			},
+			"lkpCurrencyType": {
+				"title": "lkpCurrencyType",
+				"type": "object",
+				"properties": {
+					"CURR_CD": {
+						"type": "string",
+						"description": "TITLE_CD ??"
+					},
+					"L_NM": {
+						"type": "string",
+						"description": "L_NM ??"
+					},
+					"A_NM": {
+						"type": "string",
+						"description": "A_NM ??"
+					},
+					"LAST_MAINT_DATE": {
+						"type": "string"
+					},
+					"CRT_DATE": {
+						"type": "string",
+						"description": "CRT_DATE ??"
+					},
+					"LAST_MAINT_USR": {
+						"type": "string"
+					},
+					"CRT_USR": {
+						"type": "string"
+					},
+					"MID_RATE": {
+						"type": "string"
+					},
+					"RATE_UNITS": {
+						"type": "string"
+					},
+					"TRANSFER_IND": {
+						"type": "string"
+					}
+				},
+				"description": ""
+			},
+			"lkpCountryType": {
+				"title": "lkpCountryType",
+				"type": "object",
+				"properties": {
+					"COUNTRY_CD": {
+						"type": "string",
+						"description": "TITLE_CD ??"
+					},
+					"L_NM": {
+						"type": "string",
+						"description": "L_NM ??"
+					},
+					"A_NM": {
+						"type": "string",
+						"description": "A_NM ??"
+					},
+					"LAST_MAINT_DATE": {
+						"type": "string"
+					},
+					"CRT_DATE": {
+						"type": "string",
+						"description": "CRT_DATE ??"
+					},
+					"CRT_USR": {
+						"type": "string"
+					}
+				},
+				"description": ""
+			},
+			"lkpTitleType": {
+				"title": "lkpTitleType",
+				"type": "object",
+				"properties": {
+					"TITLE_CD": {
+						"type": "string",
+						"description": "TITLE_CD ??"
+					},
+					"L_NM": {
+						"type": "string",
+						"description": "L_NM ??"
+					},
+					"A_NM": {
+						"type": "string",
+						"description": "A_NM ??"
+					},
+					"CRT_DATE": {
+						"type": "string",
+						"description": "CRT_DATE ??"
+					},
+					"CRT_USR": {
+						"type": "string"
+					},
+					"LAST_MAINT_DATE": {
+						"type": "string"
+					},
+					"LAST_MAINT_USR": {
+						"type": "string"
+					},
+					"INDV_BUS_IND": {
+						"type": "string"
+					},
+					"GENDER_CD": {
+						"type": "string"
+					},
+					"WARNING_FLG": {
+						"$ref": "../../../commonschemas/schemas.json#/YorNTypeOptional"
+					}
+				},
+				"description": ""
+			},
+			"lkpLegalEntityType": {
+				"title": "lkpLegalEntityType",
+				"type": "object",
+				"properties": {
+					"LEGAL_ENTITY_CD": {
+						"type": "string",
+						"description": "TITLE_CD ??"
+					},
+					"L_NM": {
+						"type": "string",
+						"description": "L_NM ??"
+					},
+					"A_NM": {
+						"type": "string",
+						"description": "A_NM ??"
+					},
+					"CRT_DATE": {
+						"type": "string",
+						"description": "CRT_DATE ??"
+					},
+					"CRT_USR": {
+						"type": "string"
+					},
+					"LAST_MAINT_DATE": {
+						"type": "string"
+					},
+					"LAST_MAINT_USR": {
+						"type": "string"
+					},
+					"SAMA_APPROV_REQ_IND": {
+						"type": "string"
+					},
+					"INDV_BUS_IND": {
+						"type": "string"
+					},
+					"ALLOWED_FOREIGN_CURR_FLG": {
+						"$ref": "../../../commonschemas/schemas.json#/YorNTypeOptional"
+					},
+					"ACTIVE_FLG": {
+						"$ref": "../../../commonschemas/schemas.json#/YorNTypeOptional"
+					},
+					"CUSTOMER_TYPE": {
+						"type": "string"
+					}
+				},
+				"description": ""
+			},
+			"lkpSubLegalEntityType": {
+				"title": "lkpSubLegalEntityType",
+				"type": "object",
+				"properties": {
+					"LEGAL_ENTITY_CD": {
+						"type": "string",
+						"description": "TITLE_CD ??"
+					},
+					"SUB_LEGAL_ENTITY_CD": {
+						"type": "string"
+					},
+					"L_NM": {
+						"type": "string",
+						"description": "L_NM ??"
+					},
+					"A_NM": {
+						"type": "string",
+						"description": "A_NM ??"
+					},
+					"SAMA_APPROVAL_FLG": {
+						"$ref": "../../../commonschemas/schemas.json#/YorNTypeOptional",
+						"description": "CRT_DATE ??"
+					},
+					"PARTY_SUB_TYPE_CD": {
+						"type": "string"
+					},
+					"FOREIGN_CURR_FLG": {
+						"$ref": "../../../commonschemas/schemas.json#/YorNTypeOptional"
+					},
+					"SPECIAL_CASE_FLG": {
+						"$ref": "../../../commonschemas/schemas.json#/YorNTypeOptional"
+					},
+					"JOINTLY_SIGNATURES_FLG": {
+						"$ref": "../../../commonschemas/schemas.json#/YorNTypeOptional"
+					},
+					"MAIN_BRANCHES_FLG": {
+						"$ref": "../../../commonschemas/schemas.json#/YorNTypeOptional"
+					},
+					"CRT_DATE": {
+						"type": "string"
+					},
+					"CRT_USR": {
+						"type": "string"
+					},
+					"LAST_MAINT_USR": {
+						"type": "string"
+					},
+					"LAST_MAINT_DATE": {
+						"type": "string"
+					},
+					"ACTIVE_FLG": {
+						"$ref": "../../../commonschemas/schemas.json#/YorNTypeOptional"
+					},
+					"SIGNATURE_SCOPE_FLG": {
+						"$ref": "../../../commonschemas/schemas.json#/YorNTypeOptional"
+					},
+					"ATM_SCOPE_FLG": {
+						"$ref": "../../../commonschemas/schemas.json#/YorNTypeOptional"
+					},
+					"IVR_SCOPE_FLG": {
+						"$ref": "../../../commonschemas/schemas.json#/YorNTypeOptional"
+					},
+					"CHEQUE_SCOPE_FLG": {
+						"$ref": "../../../commonschemas/schemas.json#/YorNTypeOptional"
+					},
+					"OWNERS_MAND_FLG": {
+						"$ref": "../../../commonschemas/schemas.json#/YorNTypeOptional"
+					},
+					"CHEQUE_CAT_CD": {
+						"type": "string"
+					}
+				},
+				"description": ""
+			},
+			"lkpChequeBookType": {
+				"title": "lkpChequeBookType",
+				"type": "object",
+				"properties": {
+					"CHEQUE_BOOK_TYPE_CD": {
+						"type": "string",
+						"description": "TITLE_CD ??"
+					},
+					"L_NM": {
+						"type": "string",
+						"description": "L_NM ??"
+					},
+					"A_NM": {
+						"type": "string",
+						"description": "A_NM ??"
+					},
+					"CRT_DATE": {
+						"type": "string",
+						"description": "CRT_DATE ??"
+					},
+					"CRT_USR": {
+						"type": "string"
+					},
+					"DEFAULT_FLG": {
+						"$ref": "../../../commonschemas/schemas.json#/YorNTypeOptional"
+					}
+				},
+				"description": ""
+			},
+			"lkpBranchType": {
+				"title": "lkpBranchType",
+				"type": "object",
+				"properties": {
+					"BRANCH_CD": {
+						"type": "string",
+						"description": "TITLE_CD ??"
+					},
+					"L_NM": {
+						"type": "string",
+						"description": "L_NM ??"
+					},
+					"A_NM": {
+						"type": "string",
+						"description": "A_NM ??"
+					},
+					"L_ADDR": {
+						"type": "string"
+					},
+					"A_ADDR": {
+						"type": "string"
+					},
+					"SUB_BRANCH_NO": {
+						"type": "string"
+					},
+					"LAST_MAINT_DATE": {
+						"type": "string"
+					},
+					"LAST_MAINT_USR": {
+						"type": "string"
+					},
+					"FXD_SGMNT_CD": {
+						"type": "string"
+					},
+					"REGION_CD": {
+						"type": "string"
+					},
+					"CRT_DATE": {
+						"type": "string",
+						"description": "CRT_DATE ??"
+					},
+					"CRT_USR": {
+						"type": "string"
+					},
+					"CITY": {
+						"type": "string"
+					},
+					"PO_BOX": {
+						"type": "string"
+					},
+					"COUNTRY_CD": {
+						"type": "string"
+					},
+					"ISLAMIC_FLG": {
+						"$ref": "../../../commonschemas/schemas.json#/YorNTypeOptional"
+					},
+					"MAIN_BRANCH_FLG": {
+						"$ref": "../../../commonschemas/schemas.json#/YorNTypeOptional"
+					},
+					"SUB_BRANCH_FLG": {
+						"$ref": "../../../commonschemas/schemas.json#/YorNTypeOptional"
+					},
+					"CHANGE_BRANCH_FLG": {
+						"$ref": "../../../commonschemas/schemas.json#/YorNTypeOptional"
+					},
+					"EXCLUDED_BRANCH_CD": {
+						"type": "string"
+					},
+					"AREA_CD": {
+						"type": "string"
+					},
+					"ALLOW_BRANCH_EMV_FLG": {
+						"$ref": "../../../commonschemas/schemas.json#/YorNTypeOptional"
+					},
+					"ENABLE_THREADING_FLG": {
+						"$ref": "../../../commonschemas/schemas.json#/YorNTypeOptional"
+					}
+				},
+				"description": ""
+			},
+			"lkpChequeBookAutoReorderType": {
+				"title": "lkpChequeBookAutoReorderType",
+				"type": "object",
+				"properties": {
+					"AUTO_REORD_CD": {
+						"type": "string",
+						"description": "TITLE_CD ??"
+					},
+					"L_NM": {
+						"type": "string",
+						"description": "L_NM ??"
+					},
+					"A_NM": {
+						"type": "string",
+						"description": "A_NM ??"
+					}
+				},
+				"description": ""
+			},
+			"lkpResidencyType": {
+				"title": "lkpResidencyType",
+				"type": "object",
+				"properties": {
+					"RESIDENCY_CD": {
+						"type": "string"
+					},
+					"L_NM": {
+						"type": "string"
+					},
+					"A_NM": {
+						"type": "string"
+					},
+					"CRT_DATE": {
+						"type": "string"
+					},
+					"CRT_USR": {
+						"type": "string"
+					}
+				},
+				"description": ""
+			},
+			"lkpOtherBankType": {
+				"title": "lkpOtherBankType",
+				"type": "object",
+				"properties": {
+					"OTHER_BANK_CD": {
+						"type": "string"
+					},
+					"L_NM": {
+						"type": "string"
+					},
+					"A_NM": {
+						"type": "string"
+					},
+					"CRT_DATE": {
+						"type": "string"
+					},
+					"CRT_USR": {
+						"type": "string"
+					},
+					"LOCAL_INTL_FLG": {
+						"type": "string"
+					}
+				},
+				"description": ""
+			},
+			"lkpAcctType": {
+				"title": "lkpAcctType",
+				"type": "object",
+				"properties": {
+					"ACCT_TYPE_CD": {
+						"type": "string"
+					},
+					"L_NM": {
+						"type": "string"
+					},
+					"A_NM": {
+						"type": "string"
+					},
+					"CRT_DATE": {
+						"type": "string"
+					},
+					"CRT_USR": {
+						"type": "string"
+					}
+				},
+				"description": ""
+			},
+			"lkpReasonType": {
+				"title": "lkpReasonType",
+				"type": "object",
+				"properties": {
+					"REASON_CD": {
+						"type": "string"
+					},
+					"L_NM": {
+						"type": "string"
+					},
+					"A_NM": {
+						"type": "string"
+					},
+					"SRC_VALUE": {
+						"type": "string"
+					},
+					"USED_TABLE": {
+						"type": "string"
+					},
+					"CRT_DATE": {
+						"type": "string"
+					},
+					"CRT_USR": {
+						"type": "string"
+					},
+					"PURPOSE": {
+						"type": "string"
+					}
+				},
+				"description": ""
+			},
+			"spclInstAssignType": {
+				"title": "spclInstAssignType",
+				"type": "object",
+				"properties": {
+					"SI_ASSIGN_ID": {
+						"type": "string"
+					},
+					"RANK": {
+						"type": "string"
+					},
+					"LEGAL_ENTITY_CD": {
+						"type": "string"
+					},
+					"SI_ID": {
+						"type": "string"
+					},
+					"SUB_LEGAL_ENTITY_CD": {
+						"type": "string"
+					},
+					"CRT_DATE": {
+						"type": "string"
+					},
+					"CRT_USR": {
+						"type": "string"
+					}
+				},
+				"description": ""
+			},
+			"spclInstType": {
+				"title": "spclInstType",
+				"type": "object",
+				"properties": {
+					"SI_ID": {
+						"type": "string"
+					},
+					"LAST_MAINT_DATE": {
+						"type": "string"
+					},
+					"LAST_MAINT_USR": {
+						"type": "string"
+					},
+					"ACTIVE_FLG": {
+						"$ref": "../../../commonschemas/schemas.json#/YorNTypeOptional"
+					},
+					"L_NM": {
+						"type": "string"
+					},
+					"A_NM": {
+						"type": "string"
+					},
+					"SI_CD": {
+						"type": "string"
+					},
+					"L_LABEL": {
+						"type": "string"
+					},
+					"A_LABEL": {
+						"type": "string"
+					},
+					"CRT_DATE": {
+						"type": "string"
+					},
+					"CRT_USR": {
+						"type": "string"
+					}
+				},
+				"description": ""
+			},
+			"lkpNationalityLinkingType": {
+				"title": "lkpNationalityLinkingType",
+				"type": "object",
+				"properties": {
+					"LINKING_ID": {
+						"type": "string"
+					},
+					"SUB_LEGAL_ENTITY_CD": {
+						"type": "string"
+					},
+					"NATIONALITY_CD": {
+						"type": "string"
+					},
+					"EXCLUDED_NATIONALITY_CD": {
+						"type": "string"
+					},
+					"CRT_DATE": {
+						"type": "string"
+					},
+					"CRT_USR": {
+						"type": "string"
+					},
+					"LAST_MAINT_DATE": {
+						"type": "string"
+					},
+					"LAST_MAINT_USR": {
+						"type": "string"
+					}
+				},
+				"description": ""
+			},
+			"lkpLegalEntityIdsType": {
+				"title": "lkpLegalEntityIdsType",
+				"type": "object",
+				"properties": {
+					"RECORD_ID": {
+						"type": "string"
+					},
+					"LEGAL_ENTITY_CD": {
+						"type": "string"
+					},
+					"SUB_LEGAL_ENTITY_CD": {
+						"type": "string"
+					},
+					"ID_TYPE_CD": {
+						"type": "string"
+					},
+					"ADD_ID_TYPE_CD": {
+						"type": "string"
+					},
+					"EXPIRY_DATE_REQ_IND": {
+						"$ref": "../../../commonschemas/schemas.json#/YorNTypeOptional"
+					},
+					"SAMA_REQ_FLG": {
+						"$ref": "../../../commonschemas/schemas.json#/YorNTypeOptional"
+					},
+					"ADD_ID_MAND_FLG": {
+						"$ref": "../../../commonschemas/schemas.json#/YorNTypeOptional"
+					},
+					"LAST_MAINT_DATE": {
+						"type": "string"
+					},
+					"LAST_MAINT_USR": {
+						"type": "string"
+					},
+					"CRT_DATE": {
+						"type": "string"
+					},
+					"CRT_USR": {
+						"type": "string"
+					},
+					"ID_EXPIRY_FREEZE_PERIOD": {
+						"type": "string"
+					},
+					"ACCT_EXPIRY_FREEZE_PERIOD": {
+						"type": "string"
+					},
+					"ACTIVE_FLG": {
+						"$ref": "../../../commonschemas/schemas.json#/YorNTypeOptional"
+					}
+				},
+				"description": ""
+			},
+			"lkpLanguageType": {
+				"title": "lkpLanguageType",
+				"type": "object",
+				"properties": {
+					"LANG_CD": {
+						"type": "string"
+					},
+					"L_NM": {
+						"type": "string"
+					},
+					"A_NM": {
+						"type": "string"
+					},
+					"LAST_MAINT_DATE": {
+						"type": "string"
+					},
+					"LAST_MAINT_USR": {
+						"type": "string"
+					},
+					"CRT_USR": {
+						"type": "string"
+					},
+					"CRT_DATE": {
+						"type": "string"
+					}
+				},
+				"description": ""
+			},
+			"lkpCalendarType": {
+				"title": "lkpCalendarType",
+				"type": "object",
+				"properties": {
+					"CALENDAR_CD": {
+						"type": "string"
+					},
+					"L_NM": {
+						"type": "string"
+					},
+					"A_NM": {
+						"type": "string"
+					},
+					"CRT_USR": {
+						"type": "string"
+					},
+					"CRT_DATE": {
+						"type": "string"
+					}
+				},
+				"description": ""
+			},
+			"lkpPartyStatusType": {
+				"title": "lkpPartyStatusType",
+				"type": "object",
+				"properties": {
+					"PARTY_STATUS_CD": {
+						"type": "string",
+						"description": "PARTY_STATUS_CD ??"
+					},
+					"L_NM": {
+						"type": "string",
+						"description": "L_NM ??"
+					},
+					"A_NM": {
+						"type": "string",
+						"description": "A_NM ??"
+					},
+					"CRT_DATE": {
+						"type": "string",
+						"description": "CRT_DATE ??"
+					},
+					"CRT_USR": {
+						"type": "string"
+					}
+				},
+				"description": ""
+			},
+			"CIFDetailsByMobileRequest": {
+				"type": "object",
+				"properties": {
+					"CIFDetailsByMobileRequest": {
+						"$ref": "#/components/schemas/CIFDetailsByMobileRequestType"
+					}
+				}
+			},
+			"CIFDetailsByMobileRequestType": {
+				"type": "object",
+				"properties": {
+					"mobileNo": {
+						"type": "string"
+					}
+				}
+			},
+			"CIFDetailsByMobileResponse": {
+				"type": "object",
+				"properties": {
+					"CIFDetailsByMobileResponse": {
+						"$ref": "#/components/schemas/CIFDetailsByMobileResponseType"
+					}
+				}
+			},
+			"CIFDetailsByMobileResponseType": {
+				"title": "CIFDetailsByMobileResponse",
+				"type": "object",
+				"properties": {
+					"success": {
+						"$ref": "#/components/schemas/CIFDetailsByMobileSuccessResponseType"
+					},
+					"fault": {
+						"$ref": "../../../commonschemas/fault.json#/FaultType"
+					}
+				}
+			},
+			"CIFDetailsByMobileSuccessResponseType": {
+				"type": "object",
+				"properties": {
+					"cif": {
+						"type": "string"
+					}
+				}
+			},
+			"CustomerInformationRequest": {
+				"title": "CustomerInformationRequest",
+				"required": [
+					"CustomerInformationRequest"
+				],
+				"type": "object",
+				"properties": {
+					"CustomerInformationRequest": {
+						"$ref": "#/components/schemas/CustomerInformationRequestType"
+					}
+				}
+			},
+			"CustomerInformationRequestType": {
+				"title": "CustomerInformationRequest",
+				"required": [
+					"searchOption"
+				],
+				"type": "object",
+				"properties": {
+					"searchOption": {
+						"$ref": "#/components/schemas/SearchOption",
+						"description": "Search Option"
+					},
+					"cif": {
+						"type": "string",
+						"description": "CIF Customer Information Number"
+					},
+					"phinenoPhoneNumber": {
+						"type": "string",
+						"description": "PHINENO Phone number"
+					},
+					"branchNumber": {
+						"type": "string"
+					},
+					"identificationNumber": {
+						"type": "integer",
+						"description": "ID Identification Number",
+						"format": "int32"
+					},
+					"accountNumber": {
+						"type": "string",
+						"description": "ACCNO AccountNumber"
+					},
+					"firstName": {
+						"type": "string",
+						"description": "FIRST NAME"
+					},
+					"lastName": {
+						"maxLength": 25,
+						"minLength": 0,
+						"type": "string",
+						"description": "LAST NAME"
+					},
+					"emailAddress": {
+						"type": "string",
+						"description": "EmailAddress"
+					}
+				},
+				"description": ""
+			},
+			"CustomerInformationResponse": {
+				"title": "CustomerInformationResponse",
+				"required": [
+					"CustomerInformationResponse"
+				],
+				"type": "object",
+				"properties": {
+					"CustomerInformationResponse": {
+						"$ref": "#/components/schemas/CustomerInformationResponseType"
+					}
+				}
+			},
+			"CustomerInformationResponseType": {
+				"title": "CustomerInformationResponseType",
+				"type": "object",
+				"properties": {
+					"success": {
+						"$ref": "#/components/schemas/CustomerInfoType"
+					}
+				},
+				"description": ""
+			},
+			"CustomerInfoType": {
+				"title": "CustomerInfoType",
+				"required": [
+					"PARTYID",
+					"PARTYNUMBER",
+					"PARTYNAME"
+				],
+				"type": "object",
+				"properties": {
+					"PARTYID": {
+						"type": "string",
+						"description": "Party Identification Number"
+					},
+					"PARTYNUMBER": {
+						"type": "integer",
+						"description": "Party Number",
+						"format": "int32"
+					},
+					"PARTYNAME": {
+						"type": "string",
+						"description": "Party Name"
+					}
+				},
+				"description": ""
+			},
+			"SearchOption": {
+				"title": "SearchOption",
+				"enum": [
+					"CIF",
+					"PHINENO",
+					"BRANCHNO",
+					"ID",
+					"ACCNO",
+					"FIRSTNAME",
+					"LASTNAME",
+					"EMAIL"
+				],
+				"type": "string",
+				"description": ""
+			},
+			"CustAcctsCumulativeBalRequest": {
+				"title": "CustAcctsCumulativeBalRequest",
+				"required": [
+					"CustAcctsCumulativeBalRequest"
+				],
+				"type": "object",
+				"properties": {
+					"CustAcctsCumulativeBalRequest": {
+						"$ref": "#/components/schemas/CustAcctsCumulativeBalRequestType"
+					}
+				}
+			},
+			"CustAcctsCumulativeBalRequestType": {
+				"title": "CustAcctsCumulativeBalRequestType",
+				"type": "object",
+				"properties": {
+					"cifNumber": {
+						"$ref": "../../../commonschemas/schemas.json#/ShortCIFOptional",
+						"type": "string"
+					},
+					"type": {
+						"$ref": "#/components/schemas/CustomerAccountType"
+					}
+				},
+				"description": ""
+			},
+			"CustomerAccountType": {
+				"title": "CustomerAccountType",
+				"type": "object",
+				"properties": {
+					"isDep": {
+						"type": "string",
+						"description": "Is Deposit --- Possible Values : Y / N"
+					}
+				},
+				"description": ""
+			},
+			"CustAcctsCumulativeBalResponse": {
+				"title": "CustAcctsCumulativeBalResponse",
+				"required": [
+					"CustAcctsCumulativeBalResponse"
+				],
+				"type": "object",
+				"properties": {
+					"CustAcctsCumulativeBalResponse": {
+						"$ref": "#/components/schemas/CustAcctsCumulativeBalResponseType"
+					}
+				}
+			},
+			"CustAcctsCumulativeBalResponseType": {
+				"title": "CustAcctsCumulativeBalResponseType",
+				"type": "object",
+				"properties": {
+					"success": {
+						"$ref": "#/components/schemas/CustAcctsCumulativeBalResponseSuccessType"
+					}
+				},
+				"description": ""
+			},
+			"CustAcctsCumulativeBalResponseSuccessType": {
+				"title": "CustAcctsCumulativeBalResponseSuccessType",
+				"type": "object",
+				"properties": {
+					"CUMILATIVEBALANCE": {
+						"type": "number",
+						"format": "double",
+						"description": "Cumulative Balance of all the active Omni\r\n\t\t\t\t\t\tAccounts and Current Accounts linked to a CIF"
+					}
+				},
+				"description": ""
+			}
+		}
+	},
+	"tags": [
+		{
+			"name": "ODS API",
+			"description": ""
+		}
+	]
+}

@@ -1,0 +1,87 @@
+---
+swagger: "2.0"
+info:
+  x-ibm-name: "download-quotation"
+  title: "download quotation"
+  version: "1.0.0"
+schemes:
+- "https"
+host: "$(catalog.host)"
+basePath: "/download"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+securityDefinitions:
+  clientSecretHeader:
+    type: "apiKey"
+    description: ""
+    in: "header"
+    name: "X-IBM-Client-Secret"
+  clientIdHeader:
+    type: "apiKey"
+    in: "header"
+    name: "X-IBM-Client-Id"
+security:
+- clientIdHeader: []
+  clientSecretHeader: []
+x-ibm-configuration:
+  testable: false
+  enforced: true
+  cors:
+    enabled: true
+  assembly:
+    execute:
+    - invoke:
+        target-url: "$(target-url)"
+        verb: "POST"
+        title: "Invoke"
+  phase: "realized"
+paths:
+  /quotation:
+    post:
+      responses:
+        200:
+          description: "200 OK"
+      parameters:
+      - name: "Request"
+        required: false
+        in: "body"
+        schema:
+          $ref: "#/definitions/InputRequest"
+definitions:
+  InputRequest:
+    description: ""
+    type: "object"
+    properties:
+      RQRequestReferenceNo:
+        type: "string"
+      DocRequestReferenceNo:
+        type: "string"
+      GQRequestReferenceNo:
+        type: "string"
+      ApplicationID:
+        type: "string"
+      FileType:
+        type: "number"
+    example: "{\"RQRequestReferenceNo\":\"323132\",\"DocRequestReferenceNo\":\"323132\"\
+      ,\"GQRequestReferenceNo\":\"REQ323133\",\"ApplicationID\":\"\",\"FileType\"\
+      :1}"
+  OutputResponse:
+    description: ""
+    type: "object"
+    properties:
+      DocRequestReferenceNo:
+        type: "string"
+      DocResponseReferenceNo:
+        type: "string"
+      DocumentMedia:
+        type: "number"
+      DocumentType:
+        type: "string"
+      Status:
+        type: "string"
+    example: "{\"DocRequestReferenceNo\":\"323132\",\"DocResponseReferenceNo\":\"\
+      323132\",\"DocumentMedia\":12345,\"DocumentType\":\"PDF\",\"Status\":\"TRUE\"\
+      }"
+tags: []

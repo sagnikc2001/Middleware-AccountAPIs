@@ -1,0 +1,60 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://web.cse.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="CSEProcessRequestService" targetNamespace="http://web.cse.com/">
+  <wsdl:types xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://web.cse.com/" xmlns="" version="1.0" targetNamespace="http://web.cse.com/">
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://web.cse.com/" xmlns="" name="processRequestResponse">
+        <xs:sequence>
+          <xs:element name="return" type="xs:string" minOccurs="0" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://web.cse.com/" xmlns="" name="processRequestResponse" type="tns:processRequestResponse" />
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://web.cse.com/" xmlns="" name="cseBusinessBean">
+        <xs:sequence>
+          <xs:element name="INPUTMESSAGE" type="xs:string" minOccurs="0" />
+          <xs:element name="NOTES" type="xs:string" minOccurs="0" />
+          <xs:element name="PASSWORD" type="xs:string" minOccurs="0" />
+          <xs:element name="REFERENCE1" type="xs:string" minOccurs="0" />
+          <xs:element name="REFERENCE2" type="xs:string" minOccurs="0" />
+          <xs:element name="REFERENCE3" type="xs:string" minOccurs="0" />
+          <xs:element name="SECURITYKEY" type="xs:string" minOccurs="0" />
+          <xs:element name="SERVICEID" type="xs:string" minOccurs="0" />
+          <xs:element name="USERID" type="xs:string" minOccurs="0" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://web.cse.com/" xmlns="" name="processRequest">
+        <xs:sequence>
+          <xs:element name="arg0" type="tns:cseBusinessBean" minOccurs="0" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://web.cse.com/" xmlns="" name="processRequest" type="tns:processRequest" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="processRequest">
+    <wsdl:part xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="parameters" element="tns:processRequest" />
+  </wsdl:message>
+  <wsdl:message xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="processRequestResponse">
+    <wsdl:part xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="parameters" element="tns:processRequestResponse" />
+  </wsdl:message>
+  <wsdl:portType xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="CSEProcessRequest">
+    <wsdl:operation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="processRequest">
+      <wsdl:input xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" message="tns:processRequest" />
+      <wsdl:output xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" message="tns:processRequestResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="CSEProcessRequestPortBinding" type="tns:CSEProcessRequest">
+    <soap:binding xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="processRequest">
+      <soap:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="" />
+      <wsdl:input xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal" />
+      </wsdl:input>
+      <wsdl:output xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="CSEProcessRequestService">
+    <wsdl:port xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="CSEProcessRequestPort" binding="tns:CSEProcessRequestPortBinding">
+      <soap:address xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" location="com.eibus.web.soap.Gateway.wcp" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

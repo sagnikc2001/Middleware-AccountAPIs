@@ -1,0 +1,35 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://schemas.norkom.com/wsdl/RealTimeLogicServices" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ExternalServices" targetNamespace="http://schemas.norkom.com/wsdl/RealTimeLogicServices">
+  <wsdl:types xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" />
+  <wsdl:message xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="RealTimeLogicEjbEndpoint_processMessage">
+    <wsdl:part xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="messageId" type="xsd:string" />
+    <wsdl:part xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="messageType" type="xsd:string" />
+    <wsdl:part xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="messageFunctionSequence" type="xsd:string" />
+    <wsdl:part xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="messageData" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="RealTimeLogicEjbEndpoint_processMessageResponse">
+    <wsdl:part xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="result" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="RealTimeLogicEjbEndpoint">
+    <wsdl:operation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="processMessage">
+      <wsdl:input xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" message="tns:RealTimeLogicEjbEndpoint_processMessage" />
+      <wsdl:output xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" message="tns:RealTimeLogicEjbEndpoint_processMessageResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="RealTimeLogicEjbEndpointBinding" type="tns:RealTimeLogicEjbEndpoint">
+    <soap:binding xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="processMessage">
+      <soap:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="" />
+      <wsdl:input xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal" namespace="http://schemas.norkom.com/wsdl/RealTimeLogicServices" />
+      </wsdl:input>
+      <wsdl:output xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal" namespace="http://schemas.norkom.com/wsdl/RealTimeLogicServices" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="RealTimeLogicService">
+    <wsdl:port xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="ServicesManagerPort" binding="tns:RealTimeLogicEjbEndpointBinding">
+      <soap:address xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" location="com.eibus.web.soap.Gateway.wcp" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

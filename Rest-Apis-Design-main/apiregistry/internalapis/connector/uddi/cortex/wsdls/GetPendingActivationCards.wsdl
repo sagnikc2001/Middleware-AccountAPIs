@@ -1,0 +1,1822 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="Cortex_GetPendingActivationCards" targetNamespace="http://ws.core.cortex.com/domain/services/getpactcrds">
+  <wsdl:types xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:accId="http://ws.core.cortex.com/domain/id/accId" xmlns:cardId="http://ws.core.cortex.com/domain/id/cardId" xmlns:crddet="http://ws.core.cortex.com/domain/types/crddet" xmlns:crdhist="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns:custId="http://ws.core.cortex.com/domain/id/custId" xmlns:reqHdr="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:rspHdr="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:svcns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://ws.core.cortex.com/domain/services/getpactcrds">
+      <xs:annotation>
+        <xs:appinfo>
+Service to get the list of pending activation cards for a
+specific customer or account. It is also possible to filter the cards
+by bulk/instant issuance creation events. If requested additional
+event details will be returned in the response.
+</xs:appinfo>
+      </xs:annotation>
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/reqhdr" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/rsphdr" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/cardId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/accId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/custId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/crddet" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/crdhistdet" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/currId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/hdrusrdata" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/security" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/cardidrsp" />
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:svcns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:rspHdr="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:reqHdr="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:custId="http://ws.core.cortex.com/domain/id/custId" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns:crdhist="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:crddet="http://ws.core.cortex.com/domain/types/crddet" xmlns:cardId="http://ws.core.cortex.com/domain/id/cardId" xmlns:accId="http://ws.core.cortex.com/domain/id/accId" xmlns="" name="GetPendingActivationCardsRequest">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="reqHdr:RequestHeader" />
+            <xs:element name="GetPendingActivationCardsRequestDetails" type="svcns:GetPendingActivationCardsRequestDetailsType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:svcns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:rspHdr="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:reqHdr="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:custId="http://ws.core.cortex.com/domain/id/custId" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns:crdhist="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:crddet="http://ws.core.cortex.com/domain/types/crddet" xmlns:cardId="http://ws.core.cortex.com/domain/id/cardId" xmlns:accId="http://ws.core.cortex.com/domain/id/accId" xmlns="" name="GetPendingActivationCardsRequestDetailsType">
+        <xs:sequence>
+          <xs:element minOccurs="0" ref="custId:CustomerIdentifier">
+            <xs:annotation>
+              <xs:documentation>Customer to get the list of pending activation
+cards for. If specified, neither account or card can be specified.
+If more than one entry are specified, the request will be rejected
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" ref="accId:AccountIdentifier">
+            <xs:annotation>
+              <xs:documentation>Account to get the list of pending activation
+cards for. If specified, neither customer or card can be
+specified. If more than one entry are specified, the request will
+be rejected
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" ref="cardId:CardIdentifier">
+            <xs:annotation>
+              <xs:documentation>Card to check if pending activation. If not
+pending activation, the details will not be returned in the
+response. If specified, neither customer or account can be
+specified.
+If more than one entry are specified, the request will
+be rejected
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="ReturnPrintingEventDetails">
+            <xs:annotation>
+              <xs:documentation>Specifies if the printing event details are
+required in the response (date/time/additional data/user if
+any...). In case not specified, defaulted to false
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:boolean" />
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="PrintingMethodFilter" type="ctxtypes:BatchClassType">
+            <xs:annotation>
+              <xs:documentation>Used to specify if only the bulk issuance,
+instant issuance or both cards are required. If not specified,
+both bulk and instant issuance cards are returned
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:svcns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:rspHdr="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:reqHdr="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:custId="http://ws.core.cortex.com/domain/id/custId" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns:crdhist="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:crddet="http://ws.core.cortex.com/domain/types/crddet" xmlns:cardId="http://ws.core.cortex.com/domain/id/cardId" xmlns:accId="http://ws.core.cortex.com/domain/id/accId" xmlns="" name="GetPendingActivationCardsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element ref="rspHdr:ResponseHeader" />
+            <xs:element minOccurs="0" name="GetPendingActivationCardsResponseDetails" type="svcns:GetPendingActivationCardsResponseDetailsType" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:svcns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:rspHdr="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:reqHdr="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:custId="http://ws.core.cortex.com/domain/id/custId" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns:crdhist="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:crddet="http://ws.core.cortex.com/domain/types/crddet" xmlns:cardId="http://ws.core.cortex.com/domain/id/cardId" xmlns:accId="http://ws.core.cortex.com/domain/id/accId" xmlns="" name="GetPendingActivationCardsResponseDetailsType">
+        <xs:sequence>
+          <xs:element name="Count">
+            <xs:annotation>
+              <xs:documentation>Number of entries returned
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:long" />
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="PendingActivationCardList" type="svcns:PendingActivationCardListType">
+            <xs:annotation>
+              <xs:documentation>List of pending activation cards in case found
+for the specified criteria
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:svcns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:rspHdr="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:reqHdr="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:custId="http://ws.core.cortex.com/domain/id/custId" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns:crdhist="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:crddet="http://ws.core.cortex.com/domain/types/crddet" xmlns:cardId="http://ws.core.cortex.com/domain/id/cardId" xmlns:accId="http://ws.core.cortex.com/domain/id/accId" xmlns="" name="PendingActivationCardListType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="PendingActivationCard" type="svcns:PendingActivationCardType">
+            <xs:annotation>
+              <xs:documentation>Single card entry</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:svcns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:rspHdr="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:reqHdr="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:custId="http://ws.core.cortex.com/domain/id/custId" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns:crdhist="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:crddet="http://ws.core.cortex.com/domain/types/crddet" xmlns:cardId="http://ws.core.cortex.com/domain/id/cardId" xmlns:accId="http://ws.core.cortex.com/domain/id/accId" xmlns="" name="PendingActivationCardType">
+        <xs:sequence>
+          <xs:element name="CardDetails" type="crddet:CardDetailsType" />
+          <xs:element minOccurs="0" name="CardHistoryDetails" type="crdhist:CardHistoryDetailsType">
+            <xs:annotation>
+              <xs:documentation>History entry for the card printing. Only
+returned in case specified in the request
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:currId="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.core.cortex.com/domain/id/currId">
+      <xs:import namespace="http://ws.core.cortex.com/domain/services/getpactcrds" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/hdrusrdata" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/security" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/reqhdr" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/rsphdr" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/cardId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/accId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/custId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/cardidrsp" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/crddet" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/crdhistdet" />
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:currId="http://ws.core.cortex.com/domain/id/currId" xmlns="" name="Currency" type="currId:CurrencyType" />
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:currId="http://ws.core.cortex.com/domain/id/currId" xmlns="" name="CurrencyType">
+        <xs:annotation>
+          <xs:documentation>
+Identifier for a currency. Can be either the ISO
+numeric code or ISO Alpha Code
+</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CurrCode">
+            <xs:annotation>
+              <xs:documentation>
+Numeric ISO code identifying the currency
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="3" />
+                <xs:maxLength value="3" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="AlphaCode">
+            <xs:annotation>
+              <xs:documentation>
+ISO Alpha Code identifying the currency
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="3" />
+                <xs:maxLength value="3" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns:currId="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.core.cortex.com/domain/types">
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/currId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/services/getpactcrds" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/hdrusrdata" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/security" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/reqhdr" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/rsphdr" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/cardId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/accId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/custId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/cardidrsp" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/crddet" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/crdhistdet" />
+      <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:currId="http://ws.core.cortex.com/domain/id/currId" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns="" name="CortexDate">
+        <xs:annotation>
+          <xs:documentation>
+Date type used for any date field used in the
+webservices. The format is yyyy-MM-dd
+</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:minLength value="10" />
+          <xs:maxLength value="10" />
+          <xs:pattern value="[1-2][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9]" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:currId="http://ws.core.cortex.com/domain/id/currId" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns="" name="CardExpiryDate">
+        <xs:annotation>
+          <xs:documentation>Card Expiry Date in the format MMYY
+</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:minLength value="4" />
+          <xs:maxLength value="4" />
+          <xs:pattern value="[0-1][0-9][0-9][0-9]" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:currId="http://ws.core.cortex.com/domain/id/currId" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns="" name="YesNoFlag">
+        <xs:annotation>
+          <xs:documentation>
+Flag indicating if a specific option is enabled or
+disabled
+</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Y">
+            <xs:annotation>
+              <xs:documentation>Flag Enabled</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="N">
+            <xs:annotation>
+              <xs:documentation>Flag Disabled</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:currId="http://ws.core.cortex.com/domain/id/currId" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns="" name="CortexTimeStamp">
+        <xs:annotation>
+          <xs:documentation>
+Timestamp type used for any timestamp/date time
+field in the webservices. The format is yyyy-MM-dd-HH:mm:ss.SSS
+</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+          <xs:minLength value="23" />
+          <xs:maxLength value="23" />
+          <xs:pattern value="[1-2][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9]-[0-2][0-9]:[0-5][0-9]:[0-5][0-9].[0-9][0-9][0-9]" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:currId="http://ws.core.cortex.com/domain/id/currId" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns="" name="Money">
+        <xs:annotation>
+          <xs:documentation>
+Any amounts used in the webservices use the money
+type which is the combination of the amount and currency. To get the
+list of supported ISO currency codes, use the GetCurrencyList
+service
+</xs:documentation>
+        </xs:annotation>
+        <xs:all>
+          <xs:element name="Amount">
+            <xs:annotation>
+              <xs:documentation>
+Amount required
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:decimal" />
+            </xs:simpleType>
+          </xs:element>
+          <xs:element ref="currId:Currency">
+            <xs:annotation>
+              <xs:documentation>
+Currency of the amount
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:currId="http://ws.core.cortex.com/domain/id/currId" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns="" name="CtxLocaleDescrList">
+        <xs:annotation>
+          <xs:documentation>
+List of Locale descriptions defined cortex for a
+specific element
+</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="CtxLocaleDescr" type="ctxtypes:CtxLocaleDescrType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:currId="http://ws.core.cortex.com/domain/id/currId" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns="" name="CtxLocaleDescrType">
+        <xs:annotation>
+          <xs:documentation>
+Locale description having the defined cortex
+locale, description and short description
+</xs:documentation>
+        </xs:annotation>
+        <xs:all>
+          <xs:element name="Locale">
+            <xs:annotation>
+              <xs:documentation>
+Local of the description
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="2" />
+                <xs:maxLength value="20" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="ShortDescription">
+            <xs:annotation>
+              <xs:documentation>
+Short description of the element
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="20" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="Description">
+            <xs:annotation>
+              <xs:documentation>
+Full description of the element
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="128" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:currId="http://ws.core.cortex.com/domain/id/currId" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns="" name="DescriptionList">
+        <xs:annotation>
+          <xs:documentation>
+List of all description values available for a
+specific entity
+</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="Description" type="ctxtypes:DescriptionType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:currId="http://ws.core.cortex.com/domain/id/currId" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns="" name="DescriptionType">
+        <xs:annotation>
+          <xs:documentation>
+Description in a specific language
+</xs:documentation>
+        </xs:annotation>
+        <xs:all>
+          <xs:element name="Language">
+            <xs:annotation>
+              <xs:documentation>
+Language of the description
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="2" />
+                <xs:maxLength value="2" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="Description">
+            <xs:annotation>
+              <xs:documentation>
+Description in the specified language
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="160" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:currId="http://ws.core.cortex.com/domain/id/currId" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns="" name="PageSetupType">
+        <xs:annotation>
+          <xs:documentation>
+Page setup required (number of records per page and
+the page number required)
+</xs:documentation>
+        </xs:annotation>
+        <xs:all>
+          <xs:element name="PageSize">
+            <xs:annotation>
+              <xs:documentation>
+Number of results supported in a single page
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:int" />
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="PageNumber">
+            <xs:annotation>
+              <xs:documentation>
+The requested page number starting with 1 for the
+first page. If not specified, it will be defaulted to 1
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:int" />
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="ReturnCount">
+            <xs:annotation>
+              <xs:documentation>
+Specifies if the count and page details are
+required in the response. If set to true, the PagingDetails tag
+will be returned in the response holding the total number of
+results, current number of results in the requested page, current
+page number and total page number. If not specified, defaults to
+true. This tag is introduced to enhance performance and response
+time in case the total count is not really required
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:boolean" />
+            </xs:simpleType>
+          </xs:element>
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:currId="http://ws.core.cortex.com/domain/id/currId" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns="" name="PagingDetailsType">
+        <xs:annotation>
+          <xs:documentation>
+Details of the paging returned in the response
+</xs:documentation>
+        </xs:annotation>
+        <xs:all>
+          <xs:element name="PageSize">
+            <xs:annotation>
+              <xs:documentation>
+Number of results supported in a single page.
+Echoed back from the request
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:int" />
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="TotalNumberOfResults">
+            <xs:annotation>
+              <xs:documentation>
+Total number of results for the request
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:int" />
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="CurrentNumberOfResults">
+            <xs:annotation>
+              <xs:documentation>
+Current of number of results returned in the
+response
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:int" />
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="TotalNumberOfPages">
+            <xs:annotation>
+              <xs:documentation>
+Total number of pages for the all results
+satisfying the critieria of the request
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:int" />
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="CurrentPageNumber">
+            <xs:annotation>
+              <xs:documentation>
+Current page number for the results
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:int" />
+            </xs:simpleType>
+          </xs:element>
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:currId="http://ws.core.cortex.com/domain/id/currId" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns="" name="TransactionTypeListType">
+        <xs:annotation>
+          <xs:documentation>
+A list of services (transaction types) defined and
+used in Cortex
+</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="TransactionType" type="ctxtypes:TransactionTypeType">
+            <xs:annotation>
+              <xs:documentation>
+Start tag for the list of individual denied
+transaction types
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:currId="http://ws.core.cortex.com/domain/id/currId" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns="" name="BatchClassType">
+        <xs:annotation>
+          <xs:documentation>Value indicating if a card batch is instant or
+bulk...
+</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:short">
+          <xs:enumeration value="1">
+            <xs:annotation>
+              <xs:documentation>Bulk Issuance</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="3">
+            <xs:annotation>
+              <xs:documentation>Instant Issuance</xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:currId="http://ws.core.cortex.com/domain/id/currId" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns="" name="TransactionTypeType">
+        <xs:annotation>
+          <xs:documentation>
+A single transaction type
+</xs:documentation>
+        </xs:annotation>
+        <xs:all>
+          <xs:element name="TransactionCode">
+            <xs:annotation>
+              <xs:documentation>
+Code identifying the transaction type. To get the
+list of supported transaction types with their description, the
+GetNumericDescription service can be used with description type as
+tx
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:short" />
+            </xs:simpleType>
+          </xs:element>
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:currId="http://ws.core.cortex.com/domain/id/currId" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns="" name="AmountRangeType">
+        <xs:all>
+          <xs:annotation>
+            <xs:documentation>Range of amount (low/high) mainly used for inquiry
+services. Both amount from and to can be specified or only one of
+them.
+</xs:documentation>
+          </xs:annotation>
+          <xs:element minOccurs="0" name="AmountFrom">
+            <xs:annotation>
+              <xs:documentation>Lower amount value for the range
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:decimal" />
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="AmountTo">
+            <xs:annotation>
+              <xs:documentation>Higher amount value for the range
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:decimal" />
+            </xs:simpleType>
+          </xs:element>
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:currId="http://ws.core.cortex.com/domain/id/currId" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns="" name="DateRangeType">
+        <xs:all>
+          <xs:annotation>
+            <xs:documentation>Range of dates mainly used for inquiry
+services.
+Both dates from and to can be specified or only one of
+them.
+(depending on the service)
+</xs:documentation>
+          </xs:annotation>
+          <xs:element minOccurs="0" name="DateFrom" type="ctxtypes:CortexDate">
+            <xs:annotation>
+              <xs:documentation>From date value for the range
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="DateTo" type="ctxtypes:CortexDate">
+            <xs:annotation>
+              <xs:documentation>to date value for the range
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:all>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns:hdrUsrdata="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.core.cortex.com/domain/common/hdrusrdata">
+      <xs:import namespace="http://ws.core.cortex.com/domain/services/getpactcrds" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/currId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/security" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/reqhdr" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/rsphdr" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/cardId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/accId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/custId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/cardidrsp" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/crddet" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/crdhistdet" />
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:hdrUsrdata="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns="" name="HeaderUserDataList" type="hdrUsrdata:HeaderUserDataListType" />
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:hdrUsrdata="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns="" name="HeaderUserDataListType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="HeaderUserData" type="hdrUsrdata:HeaderUserDataType">
+            <xs:annotation>
+              <xs:documentation>
+Customer specific header user data
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:hdrUsrdata="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns="" name="HeaderUserDataType">
+        <xs:sequence>
+          <xs:element name="Tag">
+            <xs:annotation>
+              <xs:documentation>
+Tag for the customer specific user data
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string" />
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="Value">
+            <xs:annotation>
+              <xs:documentation>
+Value for the tag
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string" />
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:security="http://ws.core.cortex.com/domain/common/security" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.core.cortex.com/domain/common/security">
+      <xs:import namespace="http://ws.core.cortex.com/domain/services/getpactcrds" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/currId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/hdrusrdata" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/reqhdr" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/rsphdr" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/cardId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/accId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/custId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/cardidrsp" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/crddet" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/crdhistdet" />
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:security="http://ws.core.cortex.com/domain/common/security" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns="" name="Security" type="security:SecurityType" />
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:security="http://ws.core.cortex.com/domain/common/security" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns="" name="SecurityType">
+        <xs:sequence>
+          <xs:element name="User">
+            <xs:annotation>
+              <xs:documentation>
+User name requesting the service. This will be
+validated and if not configured or not allowed for this service,
+the request will be rejected
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="3" />
+                <xs:maxLength value="20" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="Password">
+            <xs:annotation>
+              <xs:documentation>
+Password of the user requesting the service. This
+will be validated and if incorrect, the request will be rejected
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="3" />
+                <xs:maxLength value="20" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns:hdrUsrData="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:reqHdr="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:security="http://ws.core.cortex.com/domain/common/security" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.core.cortex.com/domain/common/reqhdr">
+      <xs:import namespace="http://ws.core.cortex.com/domain/types" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/hdrusrdata" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/security" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/services/getpactcrds" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/currId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/rsphdr" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/cardId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/accId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/custId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/cardidrsp" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/crddet" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/crdhistdet" />
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:security="http://ws.core.cortex.com/domain/common/security" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:reqHdr="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:hdrUsrData="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns="" name="RequestHeader" type="reqHdr:RequestHeaderType" />
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:security="http://ws.core.cortex.com/domain/common/security" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:reqHdr="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:hdrUsrData="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns="" name="RequestHeaderType">
+        <xs:sequence>
+          <xs:element name="Version">
+            <xs:annotation>
+              <xs:documentation>
+Specifies the version of the header used. Current
+supported values are 1.0.0. Echoed back in the response header
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:enumeration value="1.0.0" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="MsgUid">
+            <xs:simpleType>
+              <xs:annotation>
+                <xs:documentation>
+Unique message ID identifying a specific
+message. Echoed back in the response header
+</xs:documentation>
+              </xs:annotation>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="36" />
+                <xs:maxLength value="36" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="Source">
+            <xs:annotation>
+              <xs:documentation>
+Source of the request. Echoed back in the
+response header
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="2" />
+                <xs:maxLength value="32" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="ServiceId">
+            <xs:annotation>
+              <xs:documentation>
+Service Id of the service being called. Echoed
+back in the response header.
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="2" />
+                <xs:maxLength value="32" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="ReqDateTime" type="ctxtypes:CortexTimeStamp">
+            <xs:annotation>
+              <xs:documentation>
+Request Date and Time echoed back in the
+response
+in the format yyyy-MM-dd-HH:mm:ss.SSS
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="Locale">
+            <xs:annotation>
+              <xs:documentation>Locale required for the localized response
+message. In case not specified, the localized response message
+will not be returned in the response. In case specified but
+invalid or no localized messages are setup for this locale
+message, the default English message will be returned in the
+localized response message
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string" />
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" ref="security:Security">
+            <xs:annotation>
+              <xs:documentation>Security holding the user and password of the
+requester of the service. Only mandatory in case the security is
+enabled for the services
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" ref="hdrUsrData:HeaderUserDataList">
+            <xs:annotation>
+              <xs:documentation>Header user data for customer specific usage.
+This field will be echoed back as is in the response if present,
+mainly used for fields from the request that might be needed in
+the response for the customer's internal usage. No validation is
+done on these fields. In some rare cases, these can hold customer
+specific tags
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns:hdrUsrData="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:rspHdr="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.core.cortex.com/domain/common/rsphdr">
+      <xs:import namespace="http://ws.core.cortex.com/domain/types" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/hdrusrdata" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/services/getpactcrds" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/currId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/security" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/reqhdr" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/cardId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/accId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/custId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/cardidrsp" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/crddet" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/crdhistdet" />
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:rspHdr="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:hdrUsrData="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns="" name="ResponseHeader" type="rspHdr:ResponseHeaderType" />
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:rspHdr="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:hdrUsrData="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns="" name="ResponseHeaderType">
+        <xs:sequence>
+          <xs:element name="Version">
+            <xs:annotation>
+              <xs:documentation>
+Specifies the version of the header used. Current
+supported values are 1.0.0. Echoed back from the request header
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:enumeration value="1.0.0" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="MsgUid">
+            <xs:simpleType>
+              <xs:annotation>
+                <xs:documentation>
+Unique message ID identifying a specific
+message. Echoed back from the request header
+</xs:documentation>
+              </xs:annotation>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="36" />
+                <xs:maxLength value="36" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="Source">
+            <xs:annotation>
+              <xs:documentation>
+Source of the request. Echoed back from the
+request header
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="2" />
+                <xs:maxLength value="16" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="ServiceId">
+            <xs:annotation>
+              <xs:documentation>
+Service Id of the service called. Echoed back
+from the request header
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="2" />
+                <xs:maxLength value="32" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="ReqDateTime" type="ctxtypes:CortexTimeStamp">
+            <xs:annotation>
+              <xs:documentation>
+Request Date and Time echoed back from the
+request
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="RspDateTime" type="ctxtypes:CortexTimeStamp">
+            <xs:annotation>
+              <xs:documentation>
+Response Date and Time in the format
+yyyy-MM-dd-HH:mm:ss.SSS
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="ResponseCode">
+            <xs:annotation>
+              <xs:documentation>
+Response code of the request processing. This
+value is unique for each error. A response code of 000 indicates a
+successful operation. Any other response code indicates an error.
+The value 999 indicates an unknown system error
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="2" />
+                <xs:maxLength value="6" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="ResponseType">
+            <xs:annotation>
+              <xs:documentation>
+Indicates the type of the response code.
+Supported values are
+- Validation Error: Returned when invalid
+elements are received in the request
+- Business Error: Indicates a
+business logic error (i.e. request operation on a card that does
+not exist)
+- System Error: Indicates a system error (i.e. Database
+Error)
+- Success: Indicates a successful request
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="7" />
+                <xs:maxLength value="20" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="ProcessingTime">
+            <xs:annotation>
+              <xs:documentation>
+Time taken by the web-service to do the
+processing and reply in milli seconds
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="20" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="ResponseDescription">
+            <xs:annotation>
+              <xs:documentation>
+Description of the request result and the
+response code. Gives additional details about the result of the
+operation
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="516" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="LocalizedResponseDescription" type="rspHdr:LocalizedResponseDescriptionType">
+            <xs:annotation>
+              <xs:documentation>Only returned when a locale is specified in the
+request.
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" name="CustomerSpecificResponseDescriptionList" type="rspHdr:CustomerSpecificResponseDescriptionListType">
+            <xs:annotation>
+              <xs:documentation>List of customer specific response description in
+case configured
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element minOccurs="0" ref="hdrUsrData:HeaderUserDataList">
+            <xs:annotation>
+              <xs:documentation>Header user data for customer specific usage.
+This field will be echoed back as is in the response if present,
+mainly used for fields from the request that might be needed in
+the response for the customer's internal usage. No validation is
+done on these fields. In some rare cases, these can hold customer
+specific tags
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:rspHdr="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:hdrUsrData="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns="" name="LocalizedResponseDescriptionType">
+        <xs:sequence>
+          <xs:element name="Locale">
+            <xs:annotation>
+              <xs:documentation>Locale echoed back from the request regardless if
+it was valid or not
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string" />
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="LocalizedDescription">
+            <xs:annotation>
+              <xs:documentation>Localized description of the response. In case
+the locale specified is invalid or the no localized messages are
+defined for the locale specified, this will hold the same value as
+the ResponseDescription
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="516" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:rspHdr="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:hdrUsrData="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns="" name="CustomerSpecificResponseDescriptionListType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="CustomerSpecificResponseDescription" type="rspHdr:CustomerSpecificResponseDescriptionType">
+            <xs:annotation>
+              <xs:documentation>Customer specific descriptions in case configured
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:rspHdr="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:hdrUsrData="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns="" name="CustomerSpecificResponseDescriptionType">
+        <xs:sequence>
+          <xs:element name="Locale">
+            <xs:annotation>
+              <xs:documentation>Locale for the message returned under this tag
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string" />
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="ResponseDescription">
+            <xs:annotation>
+              <xs:documentation>Customer specific response description in the
+locale specified under this tag
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string" />
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cardId="http://ws.core.cortex.com/domain/id/cardId" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.core.cortex.com/domain/id/cardId">
+      <xs:import namespace="http://ws.core.cortex.com/domain/types" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/services/getpactcrds" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/currId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/hdrusrdata" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/security" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/reqhdr" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/rsphdr" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/accId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/custId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/cardidrsp" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/crddet" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/crdhistdet" />
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns:cardId="http://ws.core.cortex.com/domain/id/cardId" xmlns="" name="CardIdentifier" type="cardId:CardIdentifierType" />
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns:cardId="http://ws.core.cortex.com/domain/id/cardId" xmlns="" name="CardIdentifierType">
+        <xs:annotation>
+          <xs:documentation>
+Identifier for a in cortex. Either PAN or VPAN need
+to be specified. The sequence number can be skipped. The card expiry
+date can be used to identify which card plastic is required. In case
+not specified, the latest card with the specified PAN or VPAN will
+be taken into consideration
+</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Pan">
+            <xs:annotation>
+              <xs:documentation>
+Clear or Encrypted Card Number. In case in clear,
+cortex will encrypt the PAN before doing any other processing as
+all card numbers are encrypted in the database.
+External encryption
+can be configured in case a different encryption
+algorithm than the
+cortex core one is used in the communications.
+This is
+implementation specific.
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="10" />
+                <xs:maxLength value="512" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="Vpan">
+            <xs:simpleType>
+              <xs:annotation>
+                <xs:documentation>
+Virtual Card Number generated by Cortex for a
+card. It is possible to have the VPAN encrypted using an external
+encryption algorithm. This is implementation specific
+</xs:documentation>
+              </xs:annotation>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="10" />
+                <xs:maxLength value="512" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="SequenceNumber">
+            <xs:annotation>
+              <xs:documentation>
+Card Sequence Number. If not specified, defaulted
+to 0
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:short" />
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="ExpiryDate" type="ctxtypes:CortexDate">
+            <xs:annotation>
+              <xs:documentation>
+Card Expiry Date. Use to Identify the plastic on
+which the operation is required. In case not specified, the latest
+card is assumed to be the requested one
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:accId="http://ws.core.cortex.com/domain/id/accId" xmlns:currId="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.core.cortex.com/domain/id/accId">
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/currId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/services/getpactcrds" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/hdrusrdata" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/security" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/reqhdr" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/rsphdr" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/cardId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/custId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/cardidrsp" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/crddet" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/crdhistdet" />
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:currId="http://ws.core.cortex.com/domain/id/currId" xmlns:accId="http://ws.core.cortex.com/domain/id/accId" xmlns="" name="AccountIdentifier" type="accId:AccountIdentifierType" />
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:currId="http://ws.core.cortex.com/domain/id/currId" xmlns:accId="http://ws.core.cortex.com/domain/id/accId" xmlns="" name="AccountIdentifierType">
+        <xs:annotation>
+          <xs:documentation>
+Identifier for an account in cortex. The account
+number with the institution are enough. The currency code can be
+included for additional verification
+</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element name="AccountNumber">
+            <xs:annotation>
+              <xs:documentation>
+Account Number Identifying an account
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="5" />
+                <xs:maxLength value="28" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="InstitutionCode">
+            <xs:simpleType>
+              <xs:annotation>
+                <xs:documentation>
+Institution Code the account belongs to
+</xs:documentation>
+              </xs:annotation>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="4" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" ref="currId:Currency">
+            <xs:annotation>
+              <xs:documentation>
+currency of the account. Usually the account
+number and institution code
+are enough. If specified, the account
+is also verified that it has
+this currency. The list of supported
+ISO currency codes, use the
+GetCurrencyList service
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:custId="http://ws.core.cortex.com/domain/id/custId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.core.cortex.com/domain/id/custId">
+      <xs:import namespace="http://ws.core.cortex.com/domain/services/getpactcrds" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/currId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/hdrusrdata" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/security" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/reqhdr" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/rsphdr" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/cardId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/accId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/cardidrsp" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/crddet" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/crdhistdet" />
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:custId="http://ws.core.cortex.com/domain/id/custId" xmlns="" name="CustomerIdentifier" type="custId:CustomerIdentifierType" />
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:custId="http://ws.core.cortex.com/domain/id/custId" xmlns="" name="CustomerIdentifierType">
+        <xs:annotation>
+          <xs:documentation>
+Identifier for a customer. One of the below
+combination is required to identify a customer
+- ID number and
+Institution Code
+- Customer Code and Institution Code
+- External
+Customer Code (usually used as the CIF) and Institution Code
+If all
+are specified, a check is done to make sure they are all linked
+</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IdNumber">
+            <xs:annotation>
+              <xs:documentation>
+ID Number of the customer.
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="12" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="CustomerCode">
+            <xs:annotation>
+              <xs:documentation>
+Cortex customer code.
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="12" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="ExternalCustomerCode">
+            <xs:annotation>
+              <xs:documentation>
+External Customer code. Usually holds the Bank's
+CIF
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="20" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="InstitutionCode">
+            <xs:annotation>
+              <xs:documentation>
+Institution code the customer belongs to
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="4" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:typns="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.core.cortex.com/domain/types/cardidrsp">
+      <xs:import namespace="http://ws.core.cortex.com/domain/types" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/services/getpactcrds" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/currId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/hdrusrdata" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/security" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/reqhdr" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/rsphdr" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/cardId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/accId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/custId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/crddet" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/crdhistdet" />
+      <xs:element xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:typns="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns="" name="ResponseCardIdentifier" type="typns:ResponseCardIdentifierType" />
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:typns="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns="" name="ResponseCardIdentifierType">
+        <xs:sequence>
+          <xs:element name="Pan">
+            <xs:annotation>
+              <xs:documentation>Encrypted card number (can be either using cortex
+encryption algorithm or an external encryption algorithm
+implementation specific)
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="512" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="MaskedPan">
+            <xs:annotation>
+              <xs:documentation>Masked Card Number
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="19" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="VPan">
+            <xs:annotation>
+              <xs:documentation>Virtual card number generated by cortex for the
+card in case configured so. In case configured, it will be
+encrypted using an external encryption algorithm
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="512" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="Seqno">
+            <xs:annotation>
+              <xs:documentation>Card sequence number
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:short" />
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cardIdRsp="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:typns="http://ws.core.cortex.com/domain/types/crddet" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.core.cortex.com/domain/types/crddet">
+      <xs:import namespace="http://ws.core.cortex.com/domain/types" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/cardidrsp" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/services/getpactcrds" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/currId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/hdrusrdata" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/security" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/reqhdr" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/rsphdr" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/cardId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/accId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/custId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/crdhistdet" />
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:typns="http://ws.core.cortex.com/domain/types/crddet" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns:cardIdRsp="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns="" name="CardDetailsType">
+        <xs:sequence>
+          <xs:element ref="cardIdRsp:ResponseCardIdentifier" />
+          <xs:element name="ExpiryDate" type="ctxtypes:CortexDate">
+            <xs:annotation>
+              <xs:documentation>Card expiry date
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="EffectiveDate" type="ctxtypes:CortexDate">
+            <xs:annotation>
+              <xs:documentation>Effective date of the card
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="CardStatus">
+            <xs:annotation>
+              <xs:documentation>Status of the card. To get the list of
+supported
+values, use the GetCardStatusList service
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="2" />
+                <xs:maxLength value="2" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="OldPlasticExpiryDate" type="ctxtypes:CortexDate">
+            <xs:annotation>
+              <xs:documentation>Old plastic card expiry in case an old plastic
+exists (in case of renewal)
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="OldPlasticCardStatus">
+            <xs:annotation>
+              <xs:documentation>Old plastic card status in case an old plastic
+exists (in case of renewal). To get the list of
+supported values,
+use the GetCardStatusList service
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="2" />
+                <xs:maxLength value="2" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="EmbossingName">
+            <xs:annotation>
+              <xs:documentation>Embossing name used for the card
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="50" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="Title">
+            <xs:annotation>
+              <xs:documentation>Card holder title</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="10" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="FirstName">
+            <xs:annotation>
+              <xs:documentation>Card holder first name</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="50" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="LastName">
+            <xs:annotation>
+              <xs:documentation>Card holder last name</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="50" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="Additional">
+            <xs:annotation>
+              <xs:documentation>Specifies if this is a primary or additional card
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:boolean" />
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="BatchNumber">
+            <xs:annotation>
+              <xs:documentation>Batch number the card is added to
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:long" />
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="ServiceCode">
+            <xs:annotation>
+              <xs:documentation>Service code of the card
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="3" />
+                <xs:maxLength value="3" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="Kinship">
+            <xs:annotation>
+              <xs:documentation>Relationship to the primary card in case this is
+an additional card
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="10" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="UserData">
+            <xs:annotation>
+              <xs:documentation>Customer specific data. Used for customer
+specific purposes
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="30" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="UserData1">
+            <xs:annotation>
+              <xs:documentation>Customer specific data 1. Used for customer
+specific purposes
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="32" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="UserData2">
+            <xs:annotation>
+              <xs:documentation>Customer specific data 2. Used for customer
+specific purposes
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="32" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="UserData3">
+            <xs:annotation>
+              <xs:documentation>Customer specific data 3. Used for customer
+specific purposes
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="32" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="UserData4">
+            <xs:annotation>
+              <xs:documentation>Customer specific data 4. Used for customer
+specific purposes
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="32" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="UserData5">
+            <xs:annotation>
+              <xs:documentation>Customer specific data 5. Used for customer
+specific purposes
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="255" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:typns="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://ws.core.cortex.com/domain/types/crdhistdet">
+      <xs:import namespace="http://ws.core.cortex.com/domain/types" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/services/getpactcrds" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/currId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/hdrusrdata" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/security" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/reqhdr" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/common/rsphdr" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/cardId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/accId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/id/custId" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/cardidrsp" />
+      <xs:import namespace="http://ws.core.cortex.com/domain/types/crddet" />
+      <xs:complexType xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:typns="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:tns="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:sch9="http://ws.core.cortex.com/domain/id/custId" xmlns:sch8="http://ws.core.cortex.com/domain/id/accId" xmlns:sch7="http://ws.core.cortex.com/domain/id/cardId" xmlns:sch6="http://ws.core.cortex.com/domain/common/rsphdr" xmlns:sch5="http://ws.core.cortex.com/domain/common/reqhdr" xmlns:sch4="http://ws.core.cortex.com/domain/common/security" xmlns:sch3="http://ws.core.cortex.com/domain/common/hdrusrdata" xmlns:sch2="http://ws.core.cortex.com/domain/types" xmlns:sch12="http://ws.core.cortex.com/domain/types/crdhistdet" xmlns:sch11="http://ws.core.cortex.com/domain/types/crddet" xmlns:sch10="http://ws.core.cortex.com/domain/types/cardidrsp" xmlns:sch1="http://ws.core.cortex.com/domain/id/currId" xmlns:sch0="http://ws.core.cortex.com/domain/services/getpactcrds" xmlns:ctxtypes="http://ws.core.cortex.com/domain/types" xmlns="" name="CardHistoryDetailsType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BatchNumber">
+            <xs:annotation>
+              <xs:documentation>Batch number the card was placed due to this
+event. Not available if the event did not cause the card to be
+moved or placed in a specific issuance batch
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:long" />
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="EventType">
+            <xs:annotation>
+              <xs:documentation>Event type done on the card (same as the values
+supported in the request)
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:short" />
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="EventSource">
+            <xs:annotation>
+              <xs:documentation>Source of the event. This is a numeric value that
+determines the source of an action and will be assigned by
+channel. For services where this value is not set, it will
+defaulted to an internal value. Predefined values are as below
+1 -
+Manage pin web-service
+2 - Issuer Directives web-service
+3 - Reset
+pin tries web-service
+4 - Update Card status web-service
+5 - Check
+Card pin web-service
+6 - Pre-generate card web-service
+7 - Card
+web-service
+8 - Account web-service
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:short" />
+            </xs:simpleType>
+          </xs:element>
+          <xs:element name="EventDateAndTime" type="ctxtypes:CortexTimeStamp">
+            <xs:annotation>
+              <xs:documentation>Event date and time</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="CortexSystemDate" type="ctxtypes:CortexDate">
+            <xs:annotation>
+              <xs:documentation>System date the event occurred on
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="Reason">
+            <xs:annotation>
+              <xs:documentation>Reason of the action. This is usually entered by
+the user that did the action. If not entered by the user, it's
+defaulted to an internal value by cortex
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="64" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="EventNotes">
+            <xs:annotation>
+              <xs:documentation>Event notes entered by the user before initiating
+the event. When no value is entered by the user or the event is a
+system generated one, this value will not be available
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="255" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="FeeWaiver">
+            <xs:annotation>
+              <xs:documentation>Specifies if the fee is waivered for the event or
+not. If not specified, defaulted to 0 - no waiver
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:short">
+                <xs:enumeration value="0">
+                  <xs:annotation>
+                    <xs:documentation>No Fee Waiver</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+                <xs:enumeration value="1">
+                  <xs:annotation>
+                    <xs:documentation>Fee Waivered</xs:documentation>
+                  </xs:annotation>
+                </xs:enumeration>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="OldStatusCode">
+            <xs:annotation>
+              <xs:documentation>Old card status before the event. Only available
+in case the event caused the card status to be changed. To get the
+list of supported values, please use the GetCardStatusList service
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="2" />
+                <xs:maxLength value="2" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="NewStatusCode">
+            <xs:annotation>
+              <xs:documentation>New card status after the event. Only available
+in case the event caused the card status to be changed. To get the
+list of supported values, please use the GetCardStatusList service
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="2" />
+                <xs:maxLength value="2" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="WhySet">
+            <xs:annotation>
+              <xs:documentation>Reason the card status has been changed for the
+card part of this event. This can be set by the user or system
+generated. Only available in case the event caused a change in the
+card status
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="60" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="WhoSet">
+            <xs:annotation>
+              <xs:documentation>User or process that did the card status change.
+Only available in case the event caused a change in the card
+status.
+</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:minLength value="1" />
+                <xs:maxLength value="15" />
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:element>
+          <xs:element minOccurs="0" name="CardExpiryDate" type="ctxtypes:CortexDate">
+            <xs:annotation>
+              <xs:documentation>Plastic expiry date on which the status change
+was done. Used to identify which plastic has the status change
+applied on. Only available in case the event resulted in a status
+change for the card
+</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="GetPendingActivationCardsRequest">
+    <wsdl:part xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="GetPendingActivationCardsRequest" element="sch0:GetPendingActivationCardsRequest" />
+  </wsdl:message>
+  <wsdl:message xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="GetPendingActivationCardsResponse">
+    <wsdl:part xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="GetPendingActivationCardsResponse" element="sch0:GetPendingActivationCardsResponse" />
+  </wsdl:message>
+  <wsdl:portType xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="GetPendingActivationCardsPort">
+    <wsdl:operation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="GetPendingActivationCards">
+      <wsdl:input xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="GetPendingActivationCardsRequest" message="sch0:GetPendingActivationCardsRequest" />
+      <wsdl:output xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="GetPendingActivationCardsResponse" message="sch0:GetPendingActivationCardsResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="GetPendingActivationCardsPortSoap11" type="sch0:GetPendingActivationCardsPort">
+    <soap:binding xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="GetPendingActivationCards">
+      <soap:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="" />
+      <wsdl:input xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal" />
+      </wsdl:input>
+      <wsdl:output xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="GetPendingActivationCardsPortService">
+    <wsdl:port xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="GetPendingActivationCardsPortSoap11" binding="sch0:GetPendingActivationCardsPortSoap11">
+      <soap:address xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" location="com.eibus.web.soap.Gateway.wcp" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

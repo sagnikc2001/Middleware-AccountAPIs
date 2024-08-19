@@ -1,0 +1,619 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://siebel.com/CustomUI" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsse="http://schemas.xmlsoap.org/ws/2002/07/secext" name="SiebelServicesArabic" targetNamespace="http://siebel.com/CustomUI">
+  <wsdl:types xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://siebel.com/CustomUI" xmlns:xsdLocal1="http://www.siebel.com/xml/Service%20Request%20Attachment" xmlns="" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://siebel.com/CustomUI">
+      <xsd:import namespace="http://www.siebel.com/xml/Service%20Request%20Attachment" />
+      <xsd:import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" />
+      <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/Service%20Request%20Attachment" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="CreateAOL_Output">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ErrorCode" type="xsd:string" />
+            <xsd:element name="ErrorMessage" type="xsd:string" />
+            <xsd:element name="SRNumber" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/Service%20Request%20Attachment" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="CreatePOS_Input">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="xsdLocal1:ListOfServiceRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/Service%20Request%20Attachment" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="CreatePOS_Output">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ErrorCode" type="xsd:string" />
+            <xsd:element name="ErrorMessage" type="xsd:string" />
+            <xsd:element name="SRNumber" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/Service%20Request%20Attachment" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="CreateAOL_Input">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CIFNumber" type="xsd:string" />
+            <xsd:element name="SRDescription" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+      <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" name="Security">
+        <complexType>
+          <sequence>
+            <element name="UsernameToken">
+              <complexType>
+                <sequence>
+                  <element name="Username" type="xsd:string" />
+                  <element name="Password" type="xsd:string" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://siebel.com/CustomUI" xmlns:xsdLocal1="http://www.siebel.com/xml/Service%20Request%20Attachment" xmlns="" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.siebel.com/xml/Service%20Request%20Attachment">
+      <xsd:annotation>
+        <xsd:documentation>Copyright (C) 2001-2004 Siebel Systems, Inc. All
+rights reserved. Siebel XSD Generation</xsd:documentation>
+      </xsd:annotation>
+      <xsd:import namespace="http://siebel.com/CustomUI" />
+      <xsd:complexType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/Service%20Request%20Attachment" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="ListOfServiceRequestAttachment2">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="ServiceRequestAttachment" type="xsdLocal1:ServiceRequestAttachment" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/Service%20Request%20Attachment" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="ListOfServiceRequest">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="ServiceRequest" type="xsdLocal1:ServiceRequest" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/Service%20Request%20Attachment" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="ListOfServiceRequestTopElmt">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="ListOfServiceRequest" type="xsdLocal1:ListOfServiceRequest" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/Service%20Request%20Attachment" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="ServiceRequestAttachment">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="AttachmentComments" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="1" name="AttachmentFileExtension" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="1" name="AttachmentFileName" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="1" name="AttachmentFileBuffer" type="xsd:base64Binary" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/Service%20Request%20Attachment" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="ListOfServiceRequest" type="xsdLocal1:ListOfServiceRequest" />
+      <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/Service%20Request%20Attachment" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="ListOfServiceRequestAttachment" type="xsdLocal1:ListOfServiceRequestAttachment" />
+      <xsd:complexType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/Service%20Request%20Attachment" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="ListOfServiceRequestAttachment">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="ServiceRequest" type="xsdLocal1:ServiceRequest" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/Service%20Request%20Attachment" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="ServiceRequest">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="SRNumber" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="ListOfServiceRequestAttachment2" type="xsdLocal1:ListOfServiceRequestAttachment2" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/Service%20Request%20Attachment" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="ListOfServiceRequestAttachmentTopElmt">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="ListOfServiceRequestAttachment" type="xsdLocal1:ListOfServiceRequestAttachment" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://siebel.com/CustomUI" xmlns:xsdLocal1="http://www.siebel.com/xml/Service%20Request%20Attachment" xmlns="" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://siebel.com/CustomUI">
+      <xsd:import namespace="http://www.siebel.com/xml/Service%20Request%20Attachment" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/ws/2002/07/secext" />
+      <xsd:import namespace="http://corp.alahli.com/middlewareservices/header/1.0/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/ws/2002/07/secext" />
+      <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/Service%20Request%20Attachment" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="UpsertAttachment_Input">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="xsdLocal1:ListOfServiceRequestAttachment" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/Service%20Request%20Attachment" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="UpsertAttachment_Output">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ErrorCode" type="xsd:string" />
+            <xsd:element name="ErrorMessage" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/Service%20Request%20Attachment" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="UpdateSRStatus_Input">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="SRNumber" type="xsd:string" />
+            <xsd:element name="Status" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/Service%20Request%20Attachment" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="UpdateSRStatus_Output">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ErrorCode" type="xsd:string" />
+            <xsd:element name="ErrorMessage" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.xmlsoap.org/ws/2002/07/secext" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://schemas.xmlsoap.org/ws/2002/07/secext">
+      <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.xmlsoap.org/ws/2002/07/secext" name="Security">
+        <complexType>
+          <sequence>
+            <element name="UsernameToken">
+              <complexType>
+                <sequence>
+                  <element name="Username" type="xsd:string" />
+                  <element name="Password" type="xsd:string" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://corp.alahli.com/middlewareservices/header/1.0/" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://corp.alahli.com/middlewareservices/header/1.0/">
+      <element xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://corp.alahli.com/middlewareservices/header/1.0/" name="ServiceHeader">
+        <complexType>
+          <sequence>
+            <element name="loggerContext" type="xsd:string" />
+            <element name="transactionCode" type="xsd:string" />
+            <element name="retryTransaction" type="xsd:boolean" />
+            <element name="tellerId" type="xsd:string" />
+            <element name="terminalId" type="xsd:string" />
+            <element name="workstationId" type="xsd:string" />
+            <element name="override" type="xsd:boolean" />
+            <element name="correction" type="xsd:string" />
+            <element name="supervisor" type="xsd:string" />
+            <element name="supervisorId" type="xsd:string" />
+            <element name="overrideCode" type="xsd:string" />
+            <element name="employeeId" type="xsd:string" />
+            <element name="branchId" type="xsd:string" />
+            <element name="functionId" type="xsd:string" />
+            <element name="channelId" type="xsd:string" />
+            <element name="bancsPwd" type="xsd:string" />
+            <element name="languageCode" type="xsd:string" />
+            <xsd:element name="authenticationType" maxOccurs="1" minOccurs="0" default="NONE">
+              <xsd:annotation>
+                <xsd:documentation>
+							Can be: NONE, OTP, TOKEN
+						</xsd:documentation>
+              </xsd:annotation>
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:enumeration value="NONE" />
+                  <xsd:enumeration value="OTP" />
+                  <xsd:enumeration value="TOKEN" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:element>
+            <element name="IvrTransactionID" type="xsd:string" maxOccurs="1" minOccurs="0" />
+          </sequence>
+        </complexType>
+      </element>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.xmlsoap.org/ws/2002/07/secext" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://schemas.xmlsoap.org/ws/2002/07/secext">
+      <element xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.xmlsoap.org/ws/2002/07/secext" name="Security">
+        <complexType>
+          <sequence>
+            <element name="UsernameToken">
+              <complexType>
+                <sequence>
+                  <element name="Username" type="xsd:string" />
+                  <element name="Password" type="xsd:string" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.xmlsoap.org/ws/2002/07/secext" xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://schemas.xmlsoap.org/ws/2002/07/secext">
+      <element xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://schemas.xmlsoap.org/ws/2002/07/secext" name="Security">
+        <complexType>
+          <sequence>
+            <element name="UsernameToken">
+              <complexType>
+                <sequence>
+                  <element name="Username" type="xsd:string" />
+                  <element name="Password" type="xsd:string" />
+                </sequence>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://siebel.com/CustomUI" xmlns:xsdLocal1="http://www.siebel.com/xml/Service%20Request%20Search%20History" xmlns="" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://siebel.com/CustomUI">
+      <xsd:import namespace="http://www.siebel.com/xml/Service%20Request%20Search%20History" />
+      <xsd:import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="cws-guid:f76401ae-0e5c-11e3-f290-444ec2611db4?cwsdlstore=cws" />
+      <xsd:import namespace="http://www.siebel.com/xml/Service%20Request%20Attachment" />
+      <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/Service%20Request%20Search%20History" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="SearchSR_Input">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="SRNumber" type="xsd:string" />
+            <xsd:element name="SrStatus" type="xsd:string" />
+            <xsd:element name="CIFNumber" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/Service%20Request%20Search%20History" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="SearchSR_Output">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ErrorCode" type="xsd:string" />
+            <xsd:element name="ErrorMessage" type="xsd:string" />
+            <xsd:element ref="xsdLocal1:ListOfServiceRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://siebel.com/CustomUI" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20Service%20Request%20Output" xmlns="" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://siebel.com/CustomUI">
+      <xsd:import namespace="http://www.siebel.com/xml/NCB%20Service%20Request%20Output" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/ws/2002/07/secext" schemaLocation="cws-guid:8bfc138e-5606-11e3-f120-84feaf8113bd?cwsdlstore=cws" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/ws/2002/07/secext" schemaLocation="cws-guid:db7cb057-01c1-11e5-f94e-c1cdef1917aa?cwsdlstore=cws" />
+      <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20Service%20Request%20Output" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="SearchPOS_Output">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CIF" type="xsd:string" />
+            <xsd:element name="Description" type="xsd:string" />
+            <xsd:element name="ErroMessage" type="xsd:string" />
+            <xsd:element name="ErrorCode" type="xsd:string" />
+            <xsd:element name="Problem" type="xsd:string" />
+            <xsd:element name="Status" type="xsd:string" />
+            <xsd:element name="SubArea" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20Service%20Request%20Output" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="SearchPOS_Input">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="SRNumber" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20Service%20Request%20Output" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="ServiceRequestDetail_Input">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="SRNumber" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20Service%20Request%20Output" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="ServiceRequestDetail_Output">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ErrorCode" type="xsd:string" />
+            <xsd:element name="ErrorMessage" type="xsd:string" />
+            <xsd:element ref="xsdLocal1:ListOfServiceRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://siebel.com/CustomUI" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20Service%20Request%20History%20Input" xmlns:xsdLocal2="http://www.siebel.com/xml/Service%20Request%20Search%20History" xmlns="" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://siebel.com/CustomUI">
+      <xsd:import namespace="http://www.siebel.com/xml/Service%20Request%20Search%20History" />
+      <xsd:import namespace="http://www.siebel.com/xml/NCB%20Service%20Request%20History%20Input" />
+      <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal2="http://www.siebel.com/xml/Service%20Request%20Search%20History" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20Service%20Request%20History%20Input" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="HistoryPage_Input">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="xsdLocal1:ListOfInput" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal2="http://www.siebel.com/xml/Service%20Request%20Search%20History" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20Service%20Request%20History%20Input" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="HistoryPage_Output">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ErrorCode" type="xsd:string" />
+            <xsd:element name="ErrorMessage" type="xsd:string" />
+            <xsd:element name="LastPage" type="xsd:string" />
+            <xsd:element ref="xsdLocal2:ListOfServiceRequest" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://siebel.com/CustomUI" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback" xmlns:xsdLocal2="http://www.siebel.com/xml/NCB%20Campaign%20Response" xmlns="" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://siebel.com/CustomUI">
+      <xsd:import namespace="http://www.siebel.com/xml/NCB%20Campaign%20Response" />
+      <xsd:import namespace="http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback" />
+      <xsd:import namespace="http://corp.alahli.com/middlewareservices/header/1.0/" schemaLocation="cws-guid:efc1b1d6-6144-11e5-f94e-c1cde72257a4?cwsdlstore=cws" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/ws/2002/07/secext" schemaLocation="cws-guid:0050568c-42e8-a1ed-8786-8f727a5fb72f?cwsdlstore=cws" />
+      <xsd:element xmlns:xsdLocal2="http://www.siebel.com/xml/NCB%20Campaign%20Response" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="UebFeedback_Input">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="xsdLocal1:UebNpsFeedback" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element xmlns:xsdLocal2="http://www.siebel.com/xml/NCB%20Campaign%20Response" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="UebFeedback_Output">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ErrorCode" type="xsd:string" />
+            <xsd:element name="ErrorMessage" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element xmlns:xsdLocal2="http://www.siebel.com/xml/NCB%20Campaign%20Response" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="InsertResponse_Input">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element ref="xsdLocal2:ListOfNcbCampaignResponse" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element xmlns:xsdLocal2="http://www.siebel.com/xml/NCB%20Campaign%20Response" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="InsertResponse_Output">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ErrorCode" type="xsd:string" />
+            <xsd:element name="ErrorMessage" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://siebel.com/CustomUI" xmlns:xsdLocal1="http://www.siebel.com/xml/Service%20Request%20Search%20History" xmlns:xsdLocal2="http://www.siebel.com/xml/Service%20Request%20Search%20History" xmlns="" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.siebel.com/xml/Service%20Request%20Search%20History">
+      <xsd:annotation>
+        <xsd:documentation>Copyright (C) 2001-2004 Siebel Systems, Inc. All rights reserved. Siebel XSD Generation</xsd:documentation>
+      </xsd:annotation>
+      <xsd:import namespace="http://www.siebel.com/xml/NCB%20Service%20Request%20History%20Input" />
+      <xsd:import namespace="http://siebel.com/CustomUI" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/ws/2002/07/secext" schemaLocation="cws-guid:db7cb057-01c1-11e5-f94e-c1cdef1917aa?cwsdlstore=cws" />
+      <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/Service%20Request%20Search%20History" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="ListOfServiceRequest" type="xsdLocal1:ListOfServiceRequest" />
+      <xsd:complexType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/Service%20Request%20Search%20History" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="ListOfServiceRequestTopElmt">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="ListOfServiceRequest" type="xsdLocal1:ListOfServiceRequest" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/Service%20Request%20Search%20History" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="ListOfServiceRequest">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="ServiceRequest" type="xsdLocal1:ServiceRequest" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/Service%20Request%20Search%20History" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="ServiceRequest">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="CreatedTime" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="CreatedDate" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Abstract" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="PlannedCompletionDate" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="MobileNumber" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="ClosedDate" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="SRDescription" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="SRArea" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="SRType" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="SRSubArea" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="SRService" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="SRNumber" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="SRClassification" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Status" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://siebel.com/CustomUI" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20Service%20Request%20History%20Input" xmlns:xsdLocal2="http://www.siebel.com/xml/Service%20Request%20Search%20History" xmlns="" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.siebel.com/xml/NCB%20Service%20Request%20History%20Input">
+      <xsd:annotation>
+        <xsd:documentation>Copyright (C) 2001-2004 Siebel Systems, Inc. All
+rights reserved. Siebel XSD Generation</xsd:documentation>
+      </xsd:annotation>
+      <xsd:import namespace="http://corp.alahli.com/middlewareservices/header/1.0/" schemaLocation="cws-guid:efc1b1d6-6144-11e5-f94e-c1cde72257a4?cwsdlstore=cws" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/ws/2002/07/secext" schemaLocation="cws-guid:db7cb057-01c1-11e5-f94e-c1cdef1917aa?cwsdlstore=cws" />
+      <xsd:import namespace="http://siebel.com/CustomUI" />
+      <xsd:import namespace="http://www.siebel.com/xml/Service%20Request%20Search%20History" />
+      <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal2="http://www.siebel.com/xml/Service%20Request%20Search%20History" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20Service%20Request%20History%20Input" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="ListOfInput" type="xsdLocal1:ListOfInput" />
+      <xsd:complexType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal2="http://www.siebel.com/xml/Service%20Request%20Search%20History" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20Service%20Request%20History%20Input" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="ListOfInputTopElmt">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="ListOfInput" type="xsdLocal1:ListOfInput" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal2="http://www.siebel.com/xml/Service%20Request%20Search%20History" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20Service%20Request%20History%20Input" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="ListOfInput">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="Input" type="xsdLocal1:Input" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal2="http://www.siebel.com/xml/Service%20Request%20Search%20History" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20Service%20Request%20History%20Input" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="Input">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="ListOfCIF" type="xsdLocal1:ListOfCIF" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Type" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Area" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="SubArea" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Service" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Status" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="SRNumber" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="CreatedFrom" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="CreatedTo" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="PageSize" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="PageStartNum" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="ReferenceNumber" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal2="http://www.siebel.com/xml/Service%20Request%20Search%20History" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20Service%20Request%20History%20Input" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="ListOfCIF">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="CIF" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://siebel.com/CustomUI" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20Service%20Request%20Output" xmlns="" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.siebel.com/xml/NCB%20Service%20Request%20Output">
+      <xsd:annotation>
+        <xsd:documentation>Copyright (C) 2001-2004 Siebel Systems, Inc. All
+rights reserved. Siebel XSD Generation</xsd:documentation>
+      </xsd:annotation>
+      <xsd:import namespace="http://corp.alahli.com/middlewareservices/header/1.0/" schemaLocation="cws-guid:efc1b1d6-6144-11e5-f94e-c1cde72257a4?cwsdlstore=cws" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/ws/2002/07/secext" schemaLocation="cws-guid:db7cb057-01c1-11e5-f94e-c1cdef1917aa?cwsdlstore=cws" />
+      <xsd:import namespace="http://siebel.com/CustomUI" />
+      <xsd:element xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20Service%20Request%20Output" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="ListOfServiceRequest" type="xsdLocal1:ListOfServiceRequest" />
+      <xsd:complexType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20Service%20Request%20Output" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="ListOfServiceRequestTopElmt">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="ListOfServiceRequest" type="xsdLocal1:ListOfServiceRequest" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20Service%20Request%20Output" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="ListOfServiceRequest">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="ServiceRequest" type="xsdLocal1:ServiceRequest" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20Service%20Request%20Output" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="ServiceRequest">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Type" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Area" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="SubArea" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Service" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="DupFlg" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Attrib1" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Attrib2" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Attrib3" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Attrib4" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Attrib5" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Attrib6" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Attrib7" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Attrib8" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Attrib9" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Attrib10" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Attrib11" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Attrib12" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Attrib13" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Attrib14" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Attrib15" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Attrib16" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Attrib17" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Attrib18" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Attrib19" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Attrib20" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Attrib21" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Attrib22" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Attrib23" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Attrib24" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Attrib25" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Attrib26" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Attrib27" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Attrib28" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Attrib29" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Attrib30" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="CreditCard" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="CIF" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Source" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="MobileNumber" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="Status" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="SRDescription" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="ListOfServiceRequestAttachment" type="xsdLocal1:ListOfServiceRequestAttachment" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20Service%20Request%20Output" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="ListOfServiceRequestAttachment">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="ServiceRequestAttachment" type="xsdLocal1:ServiceRequestAttachment" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20Service%20Request%20Output" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="ServiceRequestAttachment">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="AttachmentComments" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="1" name="AttachmentFileExtension" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="1" name="AttachmentFileName" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="1" name="AttachmentFileBuffer" type="xsd:base64Binary" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://siebel.com/CustomUI" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback" xmlns:xsdLocal2="http://www.siebel.com/xml/NCB%20Campaign%20Response" xmlns="" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.siebel.com/xml/NCB%20Campaign%20Response">
+      <xsd:annotation>
+        <xsd:documentation>Copyright (C) 2001-2004 Siebel Systems, Inc. All rights reserved. Siebel XSD Generation</xsd:documentation>
+      </xsd:annotation>
+      <xsd:import namespace="http://siebel.com/CustomUI" />
+      <xsd:import namespace="http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/ws/2002/07/secext" schemaLocation="cws-guid:0050568c-42e8-a1ed-8786-8f727a5fb72f?cwsdlstore=cws" />
+      <xsd:element xmlns:xsdLocal2="http://www.siebel.com/xml/NCB%20Campaign%20Response" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="ListOfNcbCampaignResponse" type="xsdLocal2:ListOfNcbCampaignResponse" />
+      <xsd:complexType xmlns:xsdLocal2="http://www.siebel.com/xml/NCB%20Campaign%20Response" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="ListOfNcbCampaignResponseTopElmt">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="ListOfNcbCampaignResponse" type="xsdLocal2:ListOfNcbCampaignResponse" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType xmlns:xsdLocal2="http://www.siebel.com/xml/NCB%20Campaign%20Response" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="ListOfNcbCampaignResponse">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="NcbCampaignResponse" type="xsdLocal2:NcbCampaignResponse" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType xmlns:xsdLocal2="http://www.siebel.com/xml/NCB%20Campaign%20Response" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="NcbCampaignResponse">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="Answer" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="CampConId" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="CampaignId" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="QuestionId" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="ResponseDate" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="ListOfAnswer" type="xsdLocal2:ListOfAnswer" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType xmlns:xsdLocal2="http://www.siebel.com/xml/NCB%20Campaign%20Response" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="ListOfAnswer">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="AnswerId" type="xsdLocal2:AnswerId" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType xmlns:xsdLocal2="http://www.siebel.com/xml/NCB%20Campaign%20Response" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="AnswerId" />
+    </xsd:schema>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://siebel.com/CustomUI" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback" xmlns:xsdLocal2="http://www.siebel.com/xml/NCB%20Campaign%20Response" xmlns="" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback">
+      <xsd:annotation>
+        <xsd:documentation>Copyright (C) 2001-2004 Siebel Systems, Inc. All rights reserved. Siebel XSD Generation</xsd:documentation>
+      </xsd:annotation>
+      <xsd:import namespace="http://siebel.com/CustomUI" />
+      <xsd:import namespace="http://www.siebel.com/xml/NCB%20Campaign%20Response" />
+      <xsd:element xmlns:xsdLocal2="http://www.siebel.com/xml/NCB%20Campaign%20Response" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="UebNpsFeedback" type="xsdLocal1:UebNpsFeedback" />
+      <xsd:complexType xmlns:xsdLocal2="http://www.siebel.com/xml/NCB%20Campaign%20Response" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="UebNpsFeedbackTopElmt">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="1" name="UebNpsFeedback" type="xsdLocal1:UebNpsFeedback" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType xmlns:xsdLocal2="http://www.siebel.com/xml/NCB%20Campaign%20Response" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="UebNpsFeedback">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="CIF" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="SRNumber" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="SRStatus" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="1" name="ResponseList" type="xsdLocal1:ResponseList" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="CampaignId" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType xmlns:xsdLocal2="http://www.siebel.com/xml/NCB%20Campaign%20Response" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="ResponseList">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" minOccurs="1" name="Response" type="xsdLocal1:Response" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType xmlns:xsdLocal2="http://www.siebel.com/xml/NCB%20Campaign%20Response" xmlns:xsdLocal1="http://www.siebel.com/xml/NCB%20NPS%20UEB%20Feedback" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://siebel.com/CustomUI" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="" name="Response">
+        <xsd:sequence>
+          <xsd:element maxOccurs="1" minOccurs="0" name="AnswerId" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="AnswerText" type="xsd:string" />
+          <xsd:element maxOccurs="1" minOccurs="0" name="QuestionId" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="CreatePOS_Input">
+    <wsdl:part xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="CreatePOS_Input" element="tns:CreatePOS_Input" />
+  </wsdl:message>
+  <wsdl:message xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="CreatePOS_Output">
+    <wsdl:part xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="CreatePOS_Output" element="tns:CreatePOS_Output" />
+  </wsdl:message>
+  <wsdl:message xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="Security">
+    <wsdl:part xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="header" element="wsse:Security" />
+  </wsdl:message>
+  <wsdl:portType xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="ServiceRequestPOS">
+    <wsdl:operation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="CreatePOS">
+      <wsdl:input xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" message="tns:CreatePOS_Input" />
+      <wsdl:output xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" message="tns:CreatePOS_Output" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="ServiceRequestPOS" type="tns:ServiceRequestPOS">
+    <soap:binding xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="CreatePOS">
+      <soap:operation xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="document/http://siebel.com/CustomUI:CreatePOS" />
+      <wsdl:input xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal" />
+        <soap:header xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" message="tns:Security" part="header" use="literal" />
+      </wsdl:input>
+      <wsdl:output xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <soap:body xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="NCB_spcCreate_spcSR">
+    <wsdl:port xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="ServiceRequestPOS" binding="tns:ServiceRequestPOS">
+      <soap:address xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" location="com.eibus.web.soap.Gateway.wcp" />
+    </wsdl:port>
+  </wsdl:service>
+  <wsdl:service xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="NCB_spcSearch_spcSR">
+    <wsdl:port xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="ServiceRequestPOS" binding="tns:ServiceRequestPOS">
+      <soap:address xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" location="com.eibus.web.soap.Gateway.wcp" />
+    </wsdl:port>
+    <wsdl:port xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="ServiceRequestDetail" binding="tns:ServiceRequestDetail">
+      <soap:address xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" location="com.eibus.web.soap.Gateway.wcp" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

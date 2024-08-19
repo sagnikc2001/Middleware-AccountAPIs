@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="quickpay" targetNamespace="http://com.tcs.bancs.rm/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://com.tcs.bancs.rm/" xmlns:transactionEnquiry="http://com.tcs.bancs.rm/TransactionInquiryService" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:header="http://com.tcs.bancs.rm/header/" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:mgTransaction="http://com.tcs.bancs.rm/MGTransactionService">
+  <wsdl:types>
+    <xsd:schema>
+			<xsd:import namespace="http://com.tcs.bancs.rm/" schemaLocation="RemittanceService.xsd"/>
+			<xsd:import namespace="http://com.tcs.bancs.rm/TransactionInquiryService" schemaLocation="TransactionInquiryService.xsd"/>
+			<xsd:import namespace="http://com.tcs.bancs.rm/MGTransactionService" schemaLocation="MGTransactionService.xsd"/>
+			<xsd:import namespace="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" schemaLocation="./securityHeader.xsd"/>
+			<xsd:import namespace="http://com.tcs.bancs.rm/header/" schemaLocation="./serviceHeader.xsd"/>
+		</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="DetailInquiryResponse">
+    <wsdl:part name="body" element="transactionEnquiry:DetailInquiryResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TransactionEnquiryRequest">
+    <wsdl:part name="body" element="transactionEnquiry:TransactionEnquiryRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ValidateTransferRequest">
+    <wsdl:part name="body" element="tns:ValidateTransferRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AmendMGTransactionResponse">
+    <wsdl:part name="body" element="mgTransaction:AmendMGTransactionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReverseTransferRequest">
+    <wsdl:part name="body" element="tns:ReverseTransferRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="StatusInquiryResponse">
+    <wsdl:part name="body" element="transactionEnquiry:StatusInquiryResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TransactionInquiryResponse">
+    <wsdl:part name="body" element="tns:TransactionInquiryResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ValidateActiveTransactionRequest">
+    <wsdl:part name="body" element="tns:ValidateActiveTransactionRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="StatusInquiryRequest">
+    <wsdl:part name="body" element="transactionEnquiry:StatusInquiryRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ValidateMGTransferResponse">
+    <wsdl:part name="body" element="mgTransaction:ValidateMGTransferResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="Security">
+    <wsdl:part name="header" element="wsse:Security">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ValidateTransferResponse">
+    <wsdl:part name="body" element="tns:ValidateTransferResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="MGTransferRequest">
+    <wsdl:part name="body" element="mgTransaction:MGTransferRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SendSmsRequest">
+    <wsdl:part name="body" element="mgTransaction:SendSmsRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TransactionInquiryRequest">
+    <wsdl:part name="body" element="tns:TransactionInquiryRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TransferResponse">
+    <wsdl:part name="body" element="tns:TransferResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TransactionStatusUpdateResponse">
+    <wsdl:part name="body" element="tns:TransactionStatusUpdateResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DetailInquiryRequest">
+    <wsdl:part name="body" element="transactionEnquiry:DetailInquiryRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AcceptDealRequest">
+    <wsdl:part name="body" element="tns:AcceptDealRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TransactionCancelResponse">
+    <wsdl:part name="body" element="tns:TransactionCancelResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ValidateMGTransferRequest">
+    <wsdl:part name="body" element="mgTransaction:ValidateMGTransferRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TransactionStatusUpdateRequest">
+    <wsdl:part name="body" element="tns:TransactionStatusUpdateRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AmendMGTransactionRequest">
+    <wsdl:part name="body" element="mgTransaction:AmendMGTransactionRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="IsMGTxnAmendableResponse">
+    <wsdl:part name="body" element="mgTransaction:IsMGTxnAmendableResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SendSmsResponse">
+    <wsdl:part name="body" element="mgTransaction:SendSmsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ServiceHeader">
+    <wsdl:part name="header" element="header:ServiceHeader">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TransactionCancelRequest">
+    <wsdl:part name="body" element="tns:TransactionCancelRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ValidateActiveTransactionResponse">
+    <wsdl:part name="body" element="tns:ValidateActiveTransactionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TransactionEnquiryResponse">
+    <wsdl:part name="body" element="transactionEnquiry:TransactionEnquiryResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="IsMGTxnAmendableRequest">
+    <wsdl:part name="body" element="mgTransaction:IsMGTxnAmendableRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="MGTransferResponse">
+    <wsdl:part name="body" element="mgTransaction:MGTransferResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ReverseTransferResponse">
+    <wsdl:part name="body" element="tns:ReverseTransferResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TransferRequest">
+    <wsdl:part name="body" element="tns:TransferRequest">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AcceptDealResponse">
+    <wsdl:part name="body" element="tns:AcceptDealResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="RemittanceService">
+    <wsdl:operation name="ValidateTransfer">
+      <wsdl:input message="tns:ValidateTransferRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:ValidateTransferResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Transfer">
+      <wsdl:input message="tns:TransferRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:TransferResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StatusInquiry">
+      <wsdl:input message="tns:StatusInquiryRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:StatusInquiryResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DetailInquiry">
+      <wsdl:input message="tns:DetailInquiryRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:DetailInquiryResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReverseTransfer">
+      <wsdl:input message="tns:ReverseTransferRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:ReverseTransferResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcceptDeal">
+      <wsdl:input message="tns:AcceptDealRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:AcceptDealResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionEnquiry">
+      <wsdl:input message="tns:TransactionEnquiryRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:TransactionEnquiryResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionInquiry">
+      <wsdl:input message="tns:TransactionInquiryRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:TransactionInquiryResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionCancel">
+      <wsdl:input message="tns:TransactionCancelRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:TransactionCancelResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateActiveTransaction">
+      <wsdl:input message="tns:ValidateActiveTransactionRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:ValidateActiveTransactionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionStatusUpdate">
+      <wsdl:input message="tns:TransactionStatusUpdateRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:TransactionStatusUpdateResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSms">
+      <wsdl:input message="tns:SendSmsRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:SendSmsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AmendMGTransaction">
+      <wsdl:input message="tns:AmendMGTransactionRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:AmendMGTransactionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsMGTxnAmendable">
+      <wsdl:input message="tns:IsMGTxnAmendableRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:IsMGTxnAmendableResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateMGTransfer">
+      <wsdl:input message="tns:ValidateMGTransferRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:ValidateMGTransferResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MGTransfer">
+      <wsdl:input message="tns:MGTransferRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:MGTransferResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RemittanceService" type="tns:RemittanceService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ValidateTransfer">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/ValidateTransfer"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:Security" part="header" use="literal">
+        </soap:header>
+        <soap:header message="tns:ServiceHeader" part="header" use="literal">
+        </soap:header>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Transfer">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/Transfer"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:Security" part="header" use="literal">
+        </soap:header>
+        <soap:header message="tns:ServiceHeader" part="header" use="literal">
+        </soap:header>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StatusInquiry">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/StatusInquiry"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:Security" part="header" use="literal">
+        </soap:header>
+        <soap:header message="tns:ServiceHeader" part="header" use="literal">
+        </soap:header>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DetailInquiry">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/DetailInquiry"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:Security" part="header" use="literal">
+        </soap:header>
+        <soap:header message="tns:ServiceHeader" part="header" use="literal">
+        </soap:header>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionEnquiry">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/TransactionEnquiry"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:Security" part="header" use="literal">
+        </soap:header>
+        <soap:header message="tns:ServiceHeader" part="header" use="literal">
+        </soap:header>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReverseTransfer">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/ReverseTransfer"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:Security" part="header" use="literal">
+        </soap:header>
+        <soap:header message="tns:ServiceHeader" part="header" use="literal">
+        </soap:header>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AcceptDeal">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/AcceptDeal"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:Security" part="header" use="literal">
+        </soap:header>
+        <soap:header message="tns:ServiceHeader" part="header" use="literal">
+        </soap:header>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionInquiry">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/TransactionInquiry"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:Security" part="header" use="literal">
+        </soap:header>
+        <soap:header message="tns:ServiceHeader" part="header" use="literal">
+        </soap:header>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionCancel">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/TransactionCancel"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:Security" part="header" use="literal">
+        </soap:header>
+        <soap:header message="tns:ServiceHeader" part="header" use="literal">
+        </soap:header>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateActiveTransaction">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/ValidateActiveTransaction"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:Security" part="header" use="literal">
+        </soap:header>
+        <soap:header message="tns:ServiceHeader" part="header" use="literal">
+        </soap:header>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TransactionStatusUpdate">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/TransactionStatusUpdate"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:Security" part="header" use="literal">
+        </soap:header>
+        <soap:header message="tns:ServiceHeader" part="header" use="literal">
+        </soap:header>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSms">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/SendSms"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:Security" part="header" use="literal">
+        </soap:header>
+        <soap:header message="tns:ServiceHeader" part="header" use="literal">
+        </soap:header>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AmendMGTransaction">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/AmendMGTransaction"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:Security" part="header" use="literal">
+        </soap:header>
+        <soap:header message="tns:ServiceHeader" part="header" use="literal">
+        </soap:header>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsMGTxnAmendable">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/IsMGTxnAmendable"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:Security" part="header" use="literal">
+        </soap:header>
+        <soap:header message="tns:ServiceHeader" part="header" use="literal">
+        </soap:header>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateMGTransfer">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/ValidateMGTransfer"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:Security" part="header" use="literal">
+        </soap:header>
+        <soap:header message="tns:ServiceHeader" part="header" use="literal">
+        </soap:header>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MGTransfer">
+      <soap:operation soapAction="http://com.tcs.bancs.rm/MGTransfer"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+        <soap:header message="tns:Security" part="header" use="literal">
+        </soap:header>
+        <soap:header message="tns:ServiceHeader" part="header" use="literal">
+        </soap:header>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RemittanceService">
+    <wsdl:port name="RemittanceService" binding="tns:RemittanceService">
+      <soap:address location="http://rhlux2617:9080/TCS_RM_BeneficiaryRefData/RemittanceService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

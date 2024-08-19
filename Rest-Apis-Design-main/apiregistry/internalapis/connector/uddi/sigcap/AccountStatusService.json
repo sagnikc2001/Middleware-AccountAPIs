@@ -1,0 +1,338 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "SigCap Service",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://mw-api-3scale-apicast-staging.apps.com:443/api/connector/uddi/sigcap"
+    }
+  ],
+  "paths": {
+    "/v1/RequestAccountStatus": {
+      "post": {
+        "tags": [
+          "RequestAccountStatus"
+        ],
+        "summary": "RequestAccountStatus",
+        "operationId": "RequestAccountStatus",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/xml": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/RequestAccountStatusSoapIn"
+                  },
+                  {
+                    "xml": {
+                      "name": "RequestAccountStatusSoapIn",
+                      "attribute": false,
+                      "wrapped": false
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/RequestAccountStatusSoapOut"
+                    },
+                    {
+                      "xml": {
+                        "name": "RequestAccountStatusSoapOut",
+                        "attribute": false,
+                        "wrapped": false
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "RequestAccountStatus1": {
+        "title": "RequestAccountStatus1",
+        "type": "object",
+        "properties": {
+          "AccountStatus": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Request_AccountStatus"
+              },
+              {
+                "xml": {
+                  "name": "AccountStatus",
+                  "namespace": "http://tempuri.org/",
+                  "prefix": "tns",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "RequestAccountStatus",
+          "namespace": "http://tempuri.org/",
+          "prefix": "tns",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Request_AccountStatus": {
+        "title": "Request_AccountStatus",
+        "type": "object",
+        "properties": {
+          "REF_ID": {
+            "type": "string",
+            "xml": {
+              "name": "REF_ID",
+              "namespace": "http://tempuri.org/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "APPNAME": {
+            "type": "string",
+            "xml": {
+              "name": "APPNAME",
+              "namespace": "http://tempuri.org/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "USER_ID": {
+            "type": "string",
+            "xml": {
+              "name": "USER_ID",
+              "namespace": "http://tempuri.org/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "PASSWORD": {
+            "type": "string",
+            "xml": {
+              "name": "PASSWORD",
+              "namespace": "http://tempuri.org/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "ACCNUM": {
+            "type": "string",
+            "xml": {
+              "name": "ACCNUM",
+              "namespace": "http://tempuri.org/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "Request_AccountStatus",
+          "namespace": "http://tempuri.org/",
+          "prefix": "tns",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "RequestAccountStatusResponse": {
+        "title": "RequestAccountStatusResponse",
+        "type": "object",
+        "properties": {
+          "RequestAccountStatusResult": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Response_AccountStatus"
+              },
+              {
+                "xml": {
+                  "name": "RequestAccountStatusResult",
+                  "namespace": "http://tempuri.org/",
+                  "prefix": "tns",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "RequestAccountStatusResponse",
+          "namespace": "http://tempuri.org/",
+          "prefix": "tns",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Response_AccountStatus": {
+        "title": "Response_AccountStatus",
+        "type": "object",
+        "properties": {
+          "TYPE": {
+            "type": "string",
+            "xml": {
+              "name": "TYPE",
+              "namespace": "http://tempuri.org/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "STATUS_CODE": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true,
+            "xml": {
+              "name": "STATUS_CODE",
+              "namespace": "http://tempuri.org/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "DESCRIPTION": {
+            "type": "string",
+            "xml": {
+              "name": "DESCRIPTION",
+              "namespace": "http://tempuri.org/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "ACCOUNT_TYPE": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/eAccountType"
+              },
+              {
+                "xml": {
+                  "name": "ACCOUNT_TYPE",
+                  "namespace": "http://tempuri.org/",
+                  "prefix": "tns",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "CUSTOMER_ID": {
+            "type": "string",
+            "xml": {
+              "name": "CUSTOMER_ID",
+              "namespace": "http://tempuri.org/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "STATION_ID": {
+            "type": "string",
+            "xml": {
+              "name": "STATION_ID",
+              "namespace": "http://tempuri.org/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "Response_AccountStatus",
+          "namespace": "http://tempuri.org/",
+          "prefix": "tns",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "eAccountType": {
+        "title": "eAccountType",
+        "enum": [
+          "Account",
+          "CIF",
+          "Linked"
+        ],
+        "type": "string",
+        "description": "",
+        "xml": {
+          "name": "eAccountType",
+          "namespace": "http://tempuri.org/",
+          "prefix": "tns",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "RequestAccountStatusSoapIn": {
+        "title": "RequestAccountStatusSoapIn",
+        "required": [
+          "RequestAccountStatus"
+        ],
+        "type": "object",
+        "properties": {
+          "RequestAccountStatus": {
+            "$ref": "#/components/schemas/RequestAccountStatus1"
+          }
+        }
+      },
+      "RequestAccountStatusSoapOut": {
+        "title": "RequestAccountStatusSoapOut",
+        "required": [
+          "RequestAccountStatusResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "RequestAccountStatusResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/RequestAccountStatusResponse"
+              },
+              {
+                "xml": {
+                  "name": "RequestAccountStatusResponse",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "xml": {
+          "name": "RequestAccountStatusSoapOut",
+          "attribute": false,
+          "wrapped": false
+        }
+      }
+    }
+  }
+}

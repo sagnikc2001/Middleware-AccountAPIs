@@ -1,0 +1,203 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"x-ibm-name": "get-quotation",
+		"title": "get quotation",
+		"version": "1.0.0",
+		"description": ""
+	},
+	"schemes": [
+		"https"
+	],
+	"basePath": "/api/connector/http/rasan/get",
+	"consumes": [
+		"application/json"
+	],
+	"produces": [
+		"application/json"
+	],
+	"securityDefinitions": {
+		"clientSecretHeader": {
+			"type": "apiKey",
+			"description": "",
+			"in": "header",
+			"name": "X-IBM-Client-Secret"
+		},
+		"clientIdHeader": {
+			"type": "apiKey",
+			"in": "header",
+			"name": "X-IBM-Client-Id"
+		}
+	},
+	"security": [
+		{
+			"clientIdHeader": [],
+			"clientSecretHeader": []
+		}
+	],
+	"x-ibm-configuration": {
+		"testable": false,
+		"enforced": true,
+		"phase": "realized"
+	},
+	"paths": {
+		"/quotation": {
+			"post": {
+				"responses": {
+					"200": {
+						"description": "200 OK"
+					}
+				},
+				"parameters": [
+					{
+						"name": "Request",
+						"required": false,
+						"in": "body",
+						"schema": {
+							"$ref": "#/definitions/InputRequest"
+						}
+					}
+				]
+			}
+		}
+	},
+	"definitions": {
+		"InputRequest": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"GQRequestReferenceNo": {
+					"type": "string"
+				},
+				"RQRequestReferenceNo": {
+					"type": "string"
+				},
+				"DeductibleAmount": {
+					"type": "number"
+				},
+				"SelectedFeatures": {
+					"type": "array",
+					"items": {
+						"properties": {
+							"featureId": {
+								"type": "string"
+							}
+						}
+					}
+				},
+				"CustomizedParameter": {
+					"type": "array",
+					"items": {
+						"properties": {
+							"key": {
+								"type": "string"
+							},
+							"value1": {
+								"type": "string"
+							},
+							"value2": {
+								"type": "string"
+							},
+							"value3": {
+								"type": "string"
+							}
+						}
+					}
+				}
+			},
+			"example": "{\"GQRequestReferenceNo\":\"GQHaR0106\",\"RQRequestReferenceNo\":\"HAR00023\",\"DeductibleAmount\":5000,\"SelectedFeatures\":null,\"CustomizedParameter\":null}"
+		},
+		"OutputResponse": {
+			"description": "",
+			"type": "object",
+			"properties": {
+				"GQRequestReferenceNo": {
+					"type": "string"
+				},
+				"GQResponseReferenceNo": {
+					"type": "string"
+				},
+				"Status": {
+					"type": "boolean"
+				},
+				"Errors": {
+					"type": "string"
+				},
+				"DeductibleAmount": {
+					"type": "number"
+				},
+				"QuotationsList": {
+					"type": "array",
+					"items": {
+						"properties": {
+							"InsuranceCompanyCode": {
+								"type": "number"
+							},
+							"UniqueQuoteNo": {
+								"type": "string"
+							},
+							"BasePremium": {
+								"type": "number"
+							},
+							"VATonBasePremium": {
+								"type": "number"
+							},
+							"NETonBasePremium": {
+								"type": "number"
+							},
+							"Discounts": {
+								"type": "number"
+							},
+							"GrossPremium": {
+								"type": "number"
+							},
+							"VATonGrossPremium": {
+								"type": "number"
+							},
+							"NETonGrossPremium": {
+								"type": "number"
+							},
+							"DeductibleReferenceNo": {
+								"type": "string"
+							},
+							"isLeastPrice": {
+								"type": "boolean"
+							},
+							"QuotationApprovalExpiryDate": {
+								"type": "string"
+							},
+							"QuotationExpiryDate": {
+								"type": "string"
+							},
+							"PolicyPremiumFeatures": {
+								"type": "array",
+								"items": {
+									"properties": {
+										"FeatureID": {
+											"type": "string"
+										},
+										"FeatureTypeID": {
+											"type": "string"
+										},
+										"FeatureAmount": {
+											"type": "string"
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"tags": [],
+	"x-ibm-endpoints": [
+		{
+			"endpointUrl": "https://uatapi.alahli.com/uat-api-organization/b2b",
+			"type": [
+				"development"
+			]
+		}
+	]
+}

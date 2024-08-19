@@ -1,0 +1,662 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "MW CurrencyRate APIs",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://mw-api-3scale-apicast-staging.apps.com:443/api/currency"
+    }
+  ],
+  "paths": {
+    "/v1/GetCurrencyRates": {
+      "post": {
+        "tags": [
+          "CurrencyRate APIs"
+        ],
+        "description": "This operation fetch currency rate from the treasury system.",
+        "operationId": "GetCurrencyRates",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT bearer token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "having channel details , locale",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CurrencyRatesRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CurrencyRatesResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CurrencyRatesResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized Request"
+          },
+          "404": {
+            "description": "404 API Not Found"
+          },
+          "405": {
+            "description": "405 Method Not Allowed"
+          },
+          "429": {
+            "description": "429 Too Many Requests"
+          },
+          "500": {
+            "description": "500 Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CurrencyRatesResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503 Service Unavailable"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/GetTreasuryFxRate": {
+      "post": {
+        "tags": [
+          "CurrencyRate APIs"
+        ],
+        "description": "GetTreasuryFxRate",
+        "operationId": "GetTreasuryFxRate",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT bearer token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "having channel details , locale",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TreasuryFxRateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TreasuryFxRateResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TreasuryFxRateResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized Request"
+          },
+          "404": {
+            "description": "404 API Not found"
+          },
+          "405": {
+            "description": "405 Method Not Allowed"
+          },
+          "429": {
+            "description": "429 Too Many Requests"
+          },
+          "500": {
+            "description": "500 Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TreasuryFxRateResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503 Service Unavailable"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/ConvertCurrency": {
+      "post": {
+        "tags": [
+          "CurrencyRate APIs"
+        ],
+        "description": "ConvertCurrency",
+        "operationId": "ConvertCurrency",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT bearer token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "having channel details , locale",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConvertCurrencyRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConvertCurrencyResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConvertCurrencyResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized Request"
+          },
+          "404": {
+            "description": "404 API Not found"
+          },
+          "405": {
+            "description": "405 Method Not Allowed"
+          },
+          "429": {
+            "description": "429 Too Many Requests"
+          },
+          "500": {
+            "description": "500 Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConvertCurrencyResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503 Service Unavailable"
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CurrencyRatesRequestType": {
+        "title": "CurrencyRatesRequestType",
+        "required": [
+          "isoCurrencyCode"
+        ],
+        "type": "object",
+        "properties": {
+          "isoCurrencyCode": {
+            "type": "array",
+            "items": {
+              "$ref": "../../commonschemas/schemas.json#/ISOCurrencyCode"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "CurrencyRatesResponseType": {
+        "title": "CurrencyRatesResponseType",
+        "type": "object",
+        "properties": {
+          "currency": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Currency"
+            },
+            "description": ""
+          },
+          "fault": {
+            "type": "array",
+            "items": {
+              "$ref": "../../commonschemas/fault.json#/FaultType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "Currency": {
+        "title": "Currency",
+        "required": [
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "sequenceNumber": {
+            "minimum": 0,
+            "type": "number",
+            "format": "double",
+            "maxLength": 3
+          },
+          "code": {
+            "maxLength": 3,
+            "type": "string"
+          },
+          "version": {
+            "maxLength": 4,
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "midRate": {
+            "minimum": 0,
+            "type": "number",
+            "format": "double"
+          },
+          "units": {
+            "maxLength": 4,
+            "type": "string"
+          },
+          "type": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Type"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "Type": {
+        "title": "Type",
+        "type": "object",
+        "properties": {
+          "code": {
+            "maxLength": 2,
+            "type": "string"
+          },
+          "name": {
+            "maxLength": 10,
+            "type": "string"
+          },
+          "buy": {
+            "minimum": 0,
+            "type": "number",
+            "format": "double"
+          },
+          "sell": {
+            "minimum": 0,
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "description": ""
+      },
+      "TreasuryFxRateRequestType": {
+        "title": "TreasuryFxRateRequestType",
+        "required": [
+          "buyCurrency",
+          "sellCurrency"
+        ],
+        "type": "object",
+        "properties": {
+          "buyCurrency": {
+            "$ref": "../../commonschemas/schemas.json#/ISOCurrencyCode"
+          },
+          "sellCurrency": {
+            "$ref": "../../commonschemas/schemas.json#/ISOCurrencyCode"
+          },
+          "mode": {
+            "maxLength": 3,
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "TreasuryFxRateResponseType1": {
+        "title": "TreasuryFxRateResponseType1",
+        "type": "object",
+        "properties": {
+          "FxRate": {
+            "$ref": "#/components/schemas/FxRateType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "FxRateType": {
+        "title": "FxRateType",
+        "required": [
+          "costRate",
+          "buyRate",
+          "sellRate",
+          "goodOrderPair",
+          "isHoliday"
+        ],
+        "type": "object",
+        "properties": {
+          "costRate": {
+            "$ref": "../../commonschemas/schemas.json#/Amount"
+          },
+          "buyRate": {
+            "$ref": "../../commonschemas/schemas.json#/Amount"
+          },
+          "sellRate": {
+            "$ref": "../../commonschemas/schemas.json#/Amount"
+          },
+          "goodOrderPair": {
+            "maxLength": 8,
+            "type": "string"
+          },
+          "isHoliday": {
+            "$ref": "#/components/schemas/isHoliday"
+          }
+        },
+        "description": ""
+      },
+      "ConvertCurrencyRequestType": {
+        "title": "ConvertCurrencyRequestType",
+        "required": [
+          "fromCurrency",
+          "toCurrency",
+          "rateType"
+        ],
+        "type": "object",
+        "properties": {
+          "fromCurrency": {
+            "$ref": "../../commonschemas/schemas.json#/ISOCurrencyCode",
+            "description": "FromCurrency is the FROM currency\n        \t\t\t\t\t\t\tISO code"
+          },
+          "toCurrency": {
+            "$ref": "../../commonschemas/schemas.json#/ISOCurrencyCode",
+            "description": "ToCurrency is the TOcurrency ISO\n        \t\t\t\t\t\t\tcode"
+          },
+          "rateType": {
+            "$ref": "#/components/schemas/rateType",
+            "description": "RateType is the rate type to use\n\n        \t\t\t\t\t\t\tCOST use bank’s cost rate\n\n        \t\t\t\t\t\t\tCASH use cash rate\n\n        \t\t\t\t\t\t\tDRAFT use draft rate\n\n        \t\t\t\t\t\t\tTELEX use telex rate\n\n        \t\t\t\t\t\t\tTRAVLCHK use Traveler’s Check rate"
+          },
+          "fromAmount": {
+            "$ref": "../../commonschemas/schemas.json#/Amount",
+            "description": "FromAmount Is the Desired amount to\n        \t\t\t\t\t\t\tstart with",
+            "default": 0.0
+          },
+          "toAmount": {
+            "$ref": "../../commonschemas/schemas.json#/Amount"
+          }
+        },
+        "description": ""
+      },
+      "ConvertCurrencyResponseType": {
+        "title": "ConvertCurrencyResponseType",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/CurrencyConvertResponseType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "CurrencyConvertResponseType": {
+        "title": "CurrencyConvertResponseType",
+        "required": [
+          "fromRate",
+          "fromAmount",
+          "toRate",
+          "toAmount"
+        ],
+        "type": "object",
+        "properties": {
+          "fromRate": {
+            "type": "number",
+            "format": "double",
+            "description": "omRate is the rate be given"
+          },
+          "fromAmount": {
+            "$ref": "../../commonschemas/schemas.json#/Amount",
+            "description": "FromAmount Is the Desired amount to start with"
+          },
+          "toRate": {
+            "type": "number",
+            "format": "double",
+            "description": "ToRate is the rate given"
+          },
+          "toAmount": {
+            "$ref": "../../commonschemas/schemas.json#/Amount",
+            "description": "ToAmount is the amount"
+          }
+        },
+        "description": ""
+      },
+      "ConvertCurrencyRequest": {
+        "title": "ConvertCurrencyRequest",
+        "required": [
+          "ConvertCurrencyRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "ConvertCurrencyRequest": {
+            "$ref": "#/components/schemas/ConvertCurrencyRequestType"
+          }
+        }
+      },
+      "ConvertCurrencyResponse": {
+        "title": "ConvertCurrencyResponse",
+        "required": [
+          "ConvertCurrencyResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "ConvertCurrencyResponse": {
+            "$ref": "#/components/schemas/ConvertCurrencyResponseType"
+          }
+        }
+      },
+      "CurrencyRatesRequest": {
+        "title": "CurrencyRatesRequest",
+        "required": [
+          "CurrencyRatesRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "CurrencyRatesRequest": {
+            "$ref": "#/components/schemas/CurrencyRatesRequestType"
+          }
+        }
+      },
+      "CurrencyRatesResponse": {
+        "title": "CurrencyRatesResponse",
+        "required": [
+          "CurrencyRatesResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "CurrencyRatesResponse": {
+            "$ref": "#/components/schemas/CurrencyRatesResponseType"
+          }
+        }
+      },
+      "isHoliday": {
+        "title": "isHoliday",
+        "enum": [
+          "Y",
+          "N"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "rateType": {
+        "title": "rateType",
+        "enum": [
+          "COST",
+          "CASH",
+          "DRAFT",
+          "TELEX",
+          "TRAVLCHK"
+        ],
+        "type": "string",
+        "description": ""
+      },
+      "TreasuryFxRateResponseChoice0": {
+        "title": "TreasuryFxRateResponseChoice0",
+        "type": "object",
+        "properties": {
+          "FxRate": {
+            "$ref": "#/components/schemas/FxRateType"
+          }
+        }
+      },
+      "TreasuryFxRateResponseChoice1": {
+        "title": "TreasuryFxRateResponseChoice1",
+        "type": "object",
+        "properties": {
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        }
+      },
+      "TreasuryFxRateRequest": {
+        "title": "TreasuryFxRateRequest",
+        "required": [
+          "TreasuryFxRateRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "TreasuryFxRateRequest": {
+            "$ref": "#/components/schemas/TreasuryFxRateRequestType"
+          }
+        }
+      },
+      "TreasuryFxRateResponse": {
+        "title": "TreasuryFxRateResponse",
+        "required": [
+          "TreasuryFxRateResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "TreasuryFxRateResponse": {
+            "$ref": "#/components/schemas/TreasuryFxRateResponseType"
+          }
+        }
+      },
+      "TreasuryFxRateResponseType": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/TreasuryFxRateResponseChoice0"
+          },
+          {
+            "$ref": "#/components/schemas/TreasuryFxRateResponseChoice1"
+          }
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "CurrencyRate APIs",
+      "description": ""
+    }
+  ]
+}

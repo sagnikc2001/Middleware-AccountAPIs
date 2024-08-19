@@ -1,0 +1,2313 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Cortex Service",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://mw-api-3scale-apicast-staging.apps.com:443/api/connector/uddi/cortex"
+    }
+  ],
+  "paths": {
+    "/v1/GetPendingActivationCards": {
+      "post": {
+        "tags": [
+          "GetPendingActivationCards"
+        ],
+        "summary": "GetPendingActivationCards",
+        "operationId": "GetPendingActivationCards",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/xml": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/tns_GetPendingActivationCardsRequest"
+                  },
+                  {
+                    "xml": {
+                      "name": "GetPendingActivationCardsRequest",
+                      "attribute": false,
+                      "wrapped": false
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/tns_GetPendingActivationCardsResponse"
+                    },
+                    {
+                      "xml": {
+                        "name": "GetPendingActivationCardsResponse",
+                        "attribute": false,
+                        "wrapped": false
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "tns_GetPendingActivationCardsRequest": {
+        "title": "tns_GetPendingActivationCardsRequest",
+        "required": [
+          "RequestHeader",
+          "GetPendingActivationCardsRequestDetails"
+        ],
+        "type": "object",
+        "properties": {
+          "RequestHeader": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/sch5_RequestHeaderType"
+              },
+              {
+                "xml": {
+                  "name": "RequestHeader",
+                  "namespace": "http://ws.core.cortex.com/domain/common/reqhdr",
+                  "prefix": "sch5",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "GetPendingActivationCardsRequestDetails": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_GetPendingActivationCardsRequestDetailsType"
+              },
+              {
+                "xml": {
+                  "name": "GetPendingActivationCardsRequestDetails",
+                  "namespace": "http://ws.core.cortex.com/domain/services/getpactcrds",
+                  "prefix": "tns",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "GetPendingActivationCardsRequest",
+          "namespace": "http://ws.core.cortex.com/domain/services/getpactcrds",
+          "prefix": "tns",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "tns_GetPendingActivationCardsRequestDetailsType": {
+        "title": "tns_GetPendingActivationCardsRequestDetailsType",
+        "type": "object",
+        "properties": {
+          "CustomerIdentifier": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/sch9_CustomerIdentifierType"
+              },
+              {
+                "description": "Customer to get the list of pending activation\ncards for. If specified, neither account or card can be specified.\nIf more than one entry are specified, the request will be rejected",
+                "xml": {
+                  "name": "CustomerIdentifier",
+                  "namespace": "http://ws.core.cortex.com/domain/id/custId",
+                  "prefix": "sch9",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "AccountIdentifier": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/sch8_AccountIdentifierType"
+              },
+              {
+                "description": "Account to get the list of pending activation\ncards for. If specified, neither customer or card can be\nspecified. If more than one entry are specified, the request will\nbe rejected",
+                "xml": {
+                  "name": "AccountIdentifier",
+                  "namespace": "http://ws.core.cortex.com/domain/id/accId",
+                  "prefix": "sch8",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "CardIdentifier": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/sch7_CardIdentifierType"
+              },
+              {
+                "description": "Card to check if pending activation. If not\npending activation, the details will not be returned in the\nresponse. If specified, neither customer or account can be\nspecified.\nIf more than one entry are specified, the request will\nbe rejected",
+                "xml": {
+                  "name": "CardIdentifier",
+                  "namespace": "http://ws.core.cortex.com/domain/id/cardId",
+                  "prefix": "sch7",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "ReturnPrintingEventDetails": {
+            "type": "boolean",
+            "description": "Specifies if the printing event details are\nrequired in the response (date/time/additional data/user if\nany...). In case not specified, defaulted to false",
+            "xml": {
+              "name": "ReturnPrintingEventDetails",
+              "namespace": "http://ws.core.cortex.com/domain/services/getpactcrds",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "PrintingMethodFilter": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/sch2_BatchClassType"
+              },
+              {
+                "description": "Used to specify if only the bulk issuance,\ninstant issuance or both cards are required. If not specified,\nboth bulk and instant issuance cards are returned",
+                "xml": {
+                  "name": "PrintingMethodFilter",
+                  "namespace": "http://ws.core.cortex.com/domain/services/getpactcrds",
+                  "prefix": "tns",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "GetPendingActivationCardsRequestDetailsType",
+          "namespace": "http://ws.core.cortex.com/domain/services/getpactcrds",
+          "prefix": "tns",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "tns_GetPendingActivationCardsResponse": {
+        "title": "tns_GetPendingActivationCardsResponse",
+        "required": [
+          "ResponseHeader"
+        ],
+        "type": "object",
+        "properties": {
+          "ResponseHeader": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/sch6_ResponseHeaderType"
+              },
+              {
+                "xml": {
+                  "name": "ResponseHeader",
+                  "namespace": "http://ws.core.cortex.com/domain/common/rsphdr",
+                  "prefix": "sch6",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "GetPendingActivationCardsResponseDetails": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_GetPendingActivationCardsResponseDetailsType"
+              },
+              {
+                "xml": {
+                  "name": "GetPendingActivationCardsResponseDetails",
+                  "namespace": "http://ws.core.cortex.com/domain/services/getpactcrds",
+                  "prefix": "tns",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "GetPendingActivationCardsResponse",
+          "namespace": "http://ws.core.cortex.com/domain/services/getpactcrds",
+          "prefix": "tns",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "tns_GetPendingActivationCardsResponseDetailsType": {
+        "title": "tns_GetPendingActivationCardsResponseDetailsType",
+        "required": [
+          "Count"
+        ],
+        "type": "object",
+        "properties": {
+          "Count": {
+            "type": "integer",
+            "description": "Number of entries returned",
+            "format": "int64",
+            "xml": {
+              "name": "Count",
+              "namespace": "http://ws.core.cortex.com/domain/services/getpactcrds",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "PendingActivationCardList": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_PendingActivationCardListType"
+              },
+              {
+                "description": "List of pending activation cards in case found\nfor the specified criteria",
+                "xml": {
+                  "name": "PendingActivationCardList",
+                  "namespace": "http://ws.core.cortex.com/domain/services/getpactcrds",
+                  "prefix": "tns",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "GetPendingActivationCardsResponseDetailsType",
+          "namespace": "http://ws.core.cortex.com/domain/services/getpactcrds",
+          "prefix": "tns",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "tns_PendingActivationCardListType": {
+        "title": "tns_PendingActivationCardListType",
+        "required": [
+          "PendingActivationCard"
+        ],
+        "type": "object",
+        "properties": {
+          "PendingActivationCard": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/tns_PendingActivationCardType"
+            },
+            "description": "Single card entry",
+            "xml": {
+              "namespace": "http://ws.core.cortex.com/domain/services/getpactcrds",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "PendingActivationCardListType",
+          "namespace": "http://ws.core.cortex.com/domain/services/getpactcrds",
+          "prefix": "tns",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "tns_PendingActivationCardType": {
+        "title": "tns_PendingActivationCardType",
+        "required": [
+          "CardDetails"
+        ],
+        "type": "object",
+        "properties": {
+          "CardDetails": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/sch11_CardDetailsType"
+              },
+              {
+                "xml": {
+                  "name": "CardDetails",
+                  "namespace": "http://ws.core.cortex.com/domain/services/getpactcrds",
+                  "prefix": "tns",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "CardHistoryDetails": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/typns_CardHistoryDetailsType"
+              },
+              {
+                "description": "History entry for the card printing. Only\nreturned in case specified in the request",
+                "xml": {
+                  "name": "CardHistoryDetails",
+                  "namespace": "http://ws.core.cortex.com/domain/services/getpactcrds",
+                  "prefix": "tns",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "PendingActivationCard",
+          "namespace": "http://ws.core.cortex.com/domain/services/getpactcrds",
+          "prefix": "tns",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "currId_CurrencyType": {
+        "title": "currId_CurrencyType",
+        "type": "object",
+        "properties": {
+          "CurrCode": {
+            "maxLength": 3,
+            "minLength": 3,
+            "type": "string",
+            "description": "Numeric ISO code identifying the currency",
+            "xml": {
+              "name": "CurrCode",
+              "namespace": "http://ws.core.cortex.com/domain/id/currId",
+              "prefix": "currId",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "AlphaCode": {
+            "maxLength": 3,
+            "minLength": 3,
+            "type": "string",
+            "description": "ISO Alpha Code identifying the currency",
+            "xml": {
+              "name": "AlphaCode",
+              "namespace": "http://ws.core.cortex.com/domain/id/currId",
+              "prefix": "currId",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "Identifier for a currency. Can be either the ISO\nnumeric code or ISO Alpha Code",
+        "xml": {
+          "name": "CurrencyType",
+          "namespace": "http://ws.core.cortex.com/domain/id/currId",
+          "prefix": "currId",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "sch2_YesNoFlag": {
+        "title": "sch2_YesNoFlag",
+        "enum": [
+          "Y",
+          "N"
+        ],
+        "type": "string",
+        "description": "Flag indicating if a specific option is enabled or\ndisabled",
+        "xml": {
+          "name": "YesNoFlag",
+          "namespace": "http://ws.core.cortex.com/domain/types",
+          "prefix": "sch2",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "sch2_Money": {
+        "title": "sch2_Money",
+        "required": [
+          "Amount",
+          "Currency"
+        ],
+        "type": "object",
+        "properties": {
+          "Amount": {
+            "type": "number",
+            "description": "Amount required",
+            "xml": {
+              "name": "Amount",
+              "namespace": "http://ws.core.cortex.com/domain/types",
+              "prefix": "sch2",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Currency": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/currId_CurrencyType"
+              },
+              {
+                "description": "Currency of the amount",
+                "xml": {
+                  "name": "Currency",
+                  "namespace": "http://ws.core.cortex.com/domain/id/currId",
+                  "prefix": "currId",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "Any amounts used in the webservices use the money\ntype which is the combination of the amount and currency. To get the\nlist of supported ISO currency codes, use the GetCurrencyList\nservice",
+        "xml": {
+          "name": "Money",
+          "namespace": "http://ws.core.cortex.com/domain/types",
+          "prefix": "sch2",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "sch2_CtxLocaleDescrList": {
+        "title": "sch2_CtxLocaleDescrList",
+        "required": [
+          "CtxLocaleDescr"
+        ],
+        "type": "object",
+        "properties": {
+          "CtxLocaleDescr": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/sch2_CtxLocaleDescrType"
+            },
+            "description": "",
+            "xml": {
+              "namespace": "http://ws.core.cortex.com/domain/types",
+              "prefix": "sch2",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "List of Locale descriptions defined cortex for a\nspecific element",
+        "xml": {
+          "name": "CtxLocaleDescrList",
+          "namespace": "http://ws.core.cortex.com/domain/types",
+          "prefix": "sch2",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "sch2_CtxLocaleDescrType": {
+        "title": "sch2_CtxLocaleDescrType",
+        "required": [
+          "Locale",
+          "ShortDescription",
+          "Description"
+        ],
+        "type": "object",
+        "properties": {
+          "Locale": {
+            "maxLength": 20,
+            "minLength": 2,
+            "type": "string",
+            "description": "Local of the description",
+            "xml": {
+              "name": "Locale",
+              "namespace": "http://ws.core.cortex.com/domain/types",
+              "prefix": "sch2",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "ShortDescription": {
+            "maxLength": 20,
+            "minLength": 1,
+            "type": "string",
+            "description": "Short description of the element",
+            "xml": {
+              "name": "ShortDescription",
+              "namespace": "http://ws.core.cortex.com/domain/types",
+              "prefix": "sch2",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Description": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string",
+            "description": "Full description of the element",
+            "xml": {
+              "name": "Description",
+              "namespace": "http://ws.core.cortex.com/domain/types",
+              "prefix": "sch2",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "Locale description having the defined cortex\nlocale, description and short description",
+        "xml": {
+          "name": "CtxLocaleDescrType",
+          "namespace": "http://ws.core.cortex.com/domain/types",
+          "prefix": "sch2",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "sch2_DescriptionList": {
+        "title": "sch2_DescriptionList",
+        "required": [
+          "Description"
+        ],
+        "type": "object",
+        "properties": {
+          "Description": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/sch2_DescriptionType"
+            },
+            "description": "",
+            "xml": {
+              "namespace": "http://ws.core.cortex.com/domain/types",
+              "prefix": "sch2",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "List of all description values available for a\nspecific entity",
+        "xml": {
+          "name": "DescriptionList",
+          "namespace": "http://ws.core.cortex.com/domain/types",
+          "prefix": "sch2",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "sch2_DescriptionType": {
+        "title": "sch2_DescriptionType",
+        "required": [
+          "Language",
+          "Description"
+        ],
+        "type": "object",
+        "properties": {
+          "Language": {
+            "maxLength": 2,
+            "minLength": 2,
+            "type": "string",
+            "description": "Language of the description",
+            "xml": {
+              "name": "Language",
+              "namespace": "http://ws.core.cortex.com/domain/types",
+              "prefix": "sch2",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Description": {
+            "maxLength": 160,
+            "minLength": 1,
+            "type": "string",
+            "description": "Description in the specified language",
+            "xml": {
+              "name": "Description",
+              "namespace": "http://ws.core.cortex.com/domain/types",
+              "prefix": "sch2",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "Description in a specific language",
+        "xml": {
+          "name": "DescriptionType",
+          "namespace": "http://ws.core.cortex.com/domain/types",
+          "prefix": "sch2",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "sch2_PageSetupType": {
+        "title": "sch2_PageSetupType",
+        "required": [
+          "PageSize"
+        ],
+        "type": "object",
+        "properties": {
+          "PageSize": {
+            "type": "integer",
+            "description": "Number of results supported in a single page",
+            "format": "int32",
+            "xml": {
+              "name": "PageSize",
+              "namespace": "http://ws.core.cortex.com/domain/types",
+              "prefix": "sch2",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "PageNumber": {
+            "type": "integer",
+            "description": "The requested page number starting with 1 for the\nfirst page. If not specified, it will be defaulted to 1",
+            "format": "int32",
+            "xml": {
+              "name": "PageNumber",
+              "namespace": "http://ws.core.cortex.com/domain/types",
+              "prefix": "sch2",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "ReturnCount": {
+            "type": "boolean",
+            "description": "Specifies if the count and page details are\nrequired in the response. If set to true, the PagingDetails tag\nwill be returned in the response holding the total number of\nresults, current number of results in the requested page, current\npage number and total page number. If not specified, defaults to\ntrue. This tag is introduced to enhance performance and response\ntime in case the total count is not really required",
+            "xml": {
+              "name": "ReturnCount",
+              "namespace": "http://ws.core.cortex.com/domain/types",
+              "prefix": "sch2",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "Page setup required (number of records per page and\nthe page number required)",
+        "xml": {
+          "name": "PageSetupType",
+          "namespace": "http://ws.core.cortex.com/domain/types",
+          "prefix": "sch2",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "sch2_PagingDetailsType": {
+        "title": "sch2_PagingDetailsType",
+        "required": [
+          "PageSize",
+          "TotalNumberOfResults",
+          "CurrentNumberOfResults",
+          "TotalNumberOfPages",
+          "CurrentPageNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "PageSize": {
+            "type": "integer",
+            "description": "Number of results supported in a single page.\nEchoed back from the request",
+            "format": "int32",
+            "xml": {
+              "name": "PageSize",
+              "namespace": "http://ws.core.cortex.com/domain/types",
+              "prefix": "sch2",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "TotalNumberOfResults": {
+            "type": "integer",
+            "description": "Total number of results for the request",
+            "format": "int32",
+            "xml": {
+              "name": "TotalNumberOfResults",
+              "namespace": "http://ws.core.cortex.com/domain/types",
+              "prefix": "sch2",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "CurrentNumberOfResults": {
+            "type": "integer",
+            "description": "Current of number of results returned in the\nresponse",
+            "format": "int32",
+            "xml": {
+              "name": "CurrentNumberOfResults",
+              "namespace": "http://ws.core.cortex.com/domain/types",
+              "prefix": "sch2",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "TotalNumberOfPages": {
+            "type": "integer",
+            "description": "Total number of pages for the all results\nsatisfying the critieria of the request",
+            "format": "int32",
+            "xml": {
+              "name": "TotalNumberOfPages",
+              "namespace": "http://ws.core.cortex.com/domain/types",
+              "prefix": "sch2",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "CurrentPageNumber": {
+            "type": "integer",
+            "description": "Current page number for the results",
+            "format": "int32",
+            "xml": {
+              "name": "CurrentPageNumber",
+              "namespace": "http://ws.core.cortex.com/domain/types",
+              "prefix": "sch2",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "Details of the paging returned in the response",
+        "xml": {
+          "name": "PagingDetailsType",
+          "namespace": "http://ws.core.cortex.com/domain/types",
+          "prefix": "sch2",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "sch2_TransactionTypeListType": {
+        "title": "sch2_TransactionTypeListType",
+        "required": [
+          "TransactionType"
+        ],
+        "type": "object",
+        "properties": {
+          "TransactionType": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/sch2_TransactionTypeType"
+            },
+            "description": "Start tag for the list of individual denied\ntransaction types",
+            "xml": {
+              "namespace": "http://ws.core.cortex.com/domain/types",
+              "prefix": "sch2",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "A list of services (transaction types) defined and\nused in Cortex",
+        "xml": {
+          "name": "TransactionTypeListType",
+          "namespace": "http://ws.core.cortex.com/domain/types",
+          "prefix": "sch2",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "sch2_BatchClassType": {
+        "title": "sch2_BatchClassType",
+        "enum": [
+          1,
+          3
+        ],
+        "type": "integer",
+        "description": "Value indicating if a card batch is instant or\nbulk...",
+        "xml": {
+          "name": "BatchClassType",
+          "namespace": "http://ws.core.cortex.com/domain/types",
+          "prefix": "sch2",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "sch2_TransactionTypeType": {
+        "title": "sch2_TransactionTypeType",
+        "required": [
+          "TransactionCode"
+        ],
+        "type": "object",
+        "properties": {
+          "TransactionCode": {
+            "type": "integer",
+            "description": "Code identifying the transaction type. To get the\nlist of supported transaction types with their description, the\nGetNumericDescription service can be used with description type as\ntx",
+            "format": "int32",
+            "xml": {
+              "name": "TransactionCode",
+              "namespace": "http://ws.core.cortex.com/domain/types",
+              "prefix": "sch2",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "A single transaction type",
+        "xml": {
+          "name": "TransactionTypeType",
+          "namespace": "http://ws.core.cortex.com/domain/types",
+          "prefix": "sch2",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "sch2_AmountRangeType": {
+        "title": "sch2_AmountRangeType",
+        "type": "object",
+        "properties": {
+          "AmountFrom": {
+            "type": "number",
+            "description": "Lower amount value for the range",
+            "xml": {
+              "name": "AmountFrom",
+              "namespace": "http://ws.core.cortex.com/domain/types",
+              "prefix": "sch2",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "AmountTo": {
+            "type": "number",
+            "description": "Higher amount value for the range",
+            "xml": {
+              "name": "AmountTo",
+              "namespace": "http://ws.core.cortex.com/domain/types",
+              "prefix": "sch2",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "Range of amount (low/high) mainly used for inquiry\nservices. Both amount from and to can be specified or only one of\nthem.",
+        "xml": {
+          "name": "AmountRangeType",
+          "namespace": "http://ws.core.cortex.com/domain/types",
+          "prefix": "sch2",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "sch2_DateRangeType": {
+        "title": "sch2_DateRangeType",
+        "type": "object",
+        "properties": {
+          "DateFrom": {
+            "maxLength": 10,
+            "minLength": 10,
+            "pattern": "[1-2][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9]",
+            "type": "string",
+            "description": "From date value for the range",
+            "xml": {
+              "name": "DateFrom",
+              "namespace": "http://ws.core.cortex.com/domain/types",
+              "prefix": "sch2",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "DateTo": {
+            "maxLength": 10,
+            "minLength": 10,
+            "pattern": "[1-2][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9]",
+            "type": "string",
+            "description": "to date value for the range",
+            "xml": {
+              "name": "DateTo",
+              "namespace": "http://ws.core.cortex.com/domain/types",
+              "prefix": "sch2",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "Range of dates mainly used for inquiry\nservices.\nBoth dates from and to can be specified or only one of\nthem.\n(depending on the service)",
+        "xml": {
+          "name": "DateRangeType",
+          "namespace": "http://ws.core.cortex.com/domain/types",
+          "prefix": "sch2",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "hdrUsrData_HeaderUserDataListType": {
+        "title": "hdrUsrData_HeaderUserDataListType",
+        "required": [
+          "HeaderUserData"
+        ],
+        "type": "object",
+        "properties": {
+          "HeaderUserData": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/hdrUsrData_HeaderUserDataType"
+            },
+            "description": "Customer specific header user data",
+            "xml": {
+              "namespace": "http://ws.core.cortex.com/domain/common/hdrusrdata",
+              "prefix": "hdrUsrData",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "HeaderUserDataListType",
+          "namespace": "http://ws.core.cortex.com/domain/common/hdrusrdata",
+          "prefix": "hdrUsrData",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "hdrUsrData_HeaderUserDataType": {
+        "title": "hdrUsrData_HeaderUserDataType",
+        "required": [
+          "Tag",
+          "Value"
+        ],
+        "type": "object",
+        "properties": {
+          "Tag": {
+            "type": "string",
+            "description": "Tag for the customer specific user data",
+            "xml": {
+              "name": "Tag",
+              "namespace": "http://ws.core.cortex.com/domain/common/hdrusrdata",
+              "prefix": "hdrUsrData",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Value": {
+            "type": "string",
+            "description": "Value for the tag",
+            "xml": {
+              "name": "Value",
+              "namespace": "http://ws.core.cortex.com/domain/common/hdrusrdata",
+              "prefix": "hdrUsrData",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "HeaderUserData",
+          "namespace": "http://ws.core.cortex.com/domain/common/hdrusrdata",
+          "prefix": "hdrUsrData",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "security_SecurityType": {
+        "title": "security_SecurityType",
+        "required": [
+          "User",
+          "Password"
+        ],
+        "type": "object",
+        "properties": {
+          "User": {
+            "maxLength": 20,
+            "minLength": 3,
+            "type": "string",
+            "description": "User name requesting the service. This will be\nvalidated and if not configured or not allowed for this service,\nthe request will be rejected",
+            "xml": {
+              "name": "User",
+              "namespace": "http://ws.core.cortex.com/domain/common/security",
+              "prefix": "security",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Password": {
+            "maxLength": 20,
+            "minLength": 3,
+            "type": "string",
+            "description": "Password of the user requesting the service. This\nwill be validated and if incorrect, the request will be rejected",
+            "xml": {
+              "name": "Password",
+              "namespace": "http://ws.core.cortex.com/domain/common/security",
+              "prefix": "security",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "SecurityType",
+          "namespace": "http://ws.core.cortex.com/domain/common/security",
+          "prefix": "security",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "sch5_RequestHeaderType": {
+        "title": "sch5_RequestHeaderType",
+        "required": [
+          "Version",
+          "MsgUid",
+          "Source",
+          "ServiceId",
+          "ReqDateTime"
+        ],
+        "type": "object",
+        "properties": {
+          "Version": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/sch5_Version"
+              },
+              {
+                "description": "Specifies the version of the header used. Current\nsupported values are 1.0.0. Echoed back in the response header",
+                "xml": {
+                  "name": "Version",
+                  "namespace": "http://ws.core.cortex.com/domain/common/reqhdr",
+                  "prefix": "sch5",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "MsgUid": {
+            "maxLength": 36,
+            "minLength": 36,
+            "type": "string",
+            "description": "Unique message ID identifying a specific\nmessage. Echoed back in the response header",
+            "xml": {
+              "name": "MsgUid",
+              "namespace": "http://ws.core.cortex.com/domain/common/reqhdr",
+              "prefix": "sch5",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Source": {
+            "maxLength": 32,
+            "minLength": 2,
+            "type": "string",
+            "description": "Source of the request. Echoed back in the\nresponse header",
+            "xml": {
+              "name": "Source",
+              "namespace": "http://ws.core.cortex.com/domain/common/reqhdr",
+              "prefix": "sch5",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "ServiceId": {
+            "maxLength": 32,
+            "minLength": 2,
+            "type": "string",
+            "description": "Service Id of the service being called. Echoed\nback in the response header.",
+            "xml": {
+              "name": "ServiceId",
+              "namespace": "http://ws.core.cortex.com/domain/common/reqhdr",
+              "prefix": "sch5",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "ReqDateTime": {
+            "maxLength": 23,
+            "minLength": 23,
+            "pattern": "[1-2][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9]-[0-2][0-9]:[0-5][0-9]:[0-5][0-9].[0-9][0-9][0-9]",
+            "type": "string",
+            "description": "Request Date and Time echoed back in the\nresponse\nin the format yyyy-MM-dd-HH:mm:ss.SSS",
+            "xml": {
+              "name": "ReqDateTime",
+              "namespace": "http://ws.core.cortex.com/domain/common/reqhdr",
+              "prefix": "sch5",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Locale": {
+            "type": "string",
+            "description": "Locale required for the localized response\nmessage. In case not specified, the localized response message\nwill not be returned in the response. In case specified but\ninvalid or no localized messages are setup for this locale\nmessage, the default English message will be returned in the\nlocalized response message",
+            "xml": {
+              "name": "Locale",
+              "namespace": "http://ws.core.cortex.com/domain/common/reqhdr",
+              "prefix": "sch5",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Security": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/security_SecurityType"
+              },
+              {
+                "description": "Security holding the user and password of the\nrequester of the service. Only mandatory in case the security is\nenabled for the services",
+                "xml": {
+                  "name": "Security",
+                  "namespace": "http://ws.core.cortex.com/domain/common/security",
+                  "prefix": "security",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "HeaderUserDataList": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/hdrUsrData_HeaderUserDataListType"
+              },
+              {
+                "description": "Header user data for customer specific usage.\nThis field will be echoed back as is in the response if present,\nmainly used for fields from the request that might be needed in\nthe response for the customer's internal usage. No validation is\ndone on these fields. In some rare cases, these can hold customer\nspecific tags",
+                "xml": {
+                  "name": "HeaderUserDataList",
+                  "namespace": "http://ws.core.cortex.com/domain/common/hdrusrdata",
+                  "prefix": "hdrUsrData",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "RequestHeaderType",
+          "namespace": "http://ws.core.cortex.com/domain/common/reqhdr",
+          "prefix": "sch5",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "sch6_ResponseHeaderType": {
+        "title": "sch6_ResponseHeaderType",
+        "required": [
+          "Version",
+          "MsgUid",
+          "Source",
+          "ServiceId",
+          "ReqDateTime",
+          "RspDateTime",
+          "ResponseCode",
+          "ResponseType",
+          "ProcessingTime",
+          "ResponseDescription"
+        ],
+        "type": "object",
+        "properties": {
+          "Version": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/sch6_Version"
+              },
+              {
+                "description": "Specifies the version of the header used. Current\nsupported values are 1.0.0. Echoed back from the request header",
+                "xml": {
+                  "name": "Version",
+                  "namespace": "http://ws.core.cortex.com/domain/common/rsphdr",
+                  "prefix": "sch6",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "MsgUid": {
+            "maxLength": 36,
+            "minLength": 36,
+            "type": "string",
+            "description": "Unique message ID identifying a specific\nmessage. Echoed back from the request header",
+            "xml": {
+              "name": "MsgUid",
+              "namespace": "http://ws.core.cortex.com/domain/common/rsphdr",
+              "prefix": "sch6",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Source": {
+            "maxLength": 16,
+            "minLength": 2,
+            "type": "string",
+            "description": "Source of the request. Echoed back from the\nrequest header",
+            "xml": {
+              "name": "Source",
+              "namespace": "http://ws.core.cortex.com/domain/common/rsphdr",
+              "prefix": "sch6",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "ServiceId": {
+            "maxLength": 32,
+            "minLength": 2,
+            "type": "string",
+            "description": "Service Id of the service called. Echoed back\nfrom the request header",
+            "xml": {
+              "name": "ServiceId",
+              "namespace": "http://ws.core.cortex.com/domain/common/rsphdr",
+              "prefix": "sch6",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "ReqDateTime": {
+            "maxLength": 23,
+            "minLength": 23,
+            "pattern": "[1-2][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9]-[0-2][0-9]:[0-5][0-9]:[0-5][0-9].[0-9][0-9][0-9]",
+            "type": "string",
+            "description": "Request Date and Time echoed back from the\nrequest",
+            "xml": {
+              "name": "ReqDateTime",
+              "namespace": "http://ws.core.cortex.com/domain/common/rsphdr",
+              "prefix": "sch6",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "RspDateTime": {
+            "maxLength": 23,
+            "minLength": 23,
+            "pattern": "[1-2][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9]-[0-2][0-9]:[0-5][0-9]:[0-5][0-9].[0-9][0-9][0-9]",
+            "type": "string",
+            "description": "Response Date and Time in the format\nyyyy-MM-dd-HH:mm:ss.SSS",
+            "xml": {
+              "name": "RspDateTime",
+              "namespace": "http://ws.core.cortex.com/domain/common/rsphdr",
+              "prefix": "sch6",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "ResponseCode": {
+            "maxLength": 6,
+            "minLength": 2,
+            "type": "string",
+            "description": "Response code of the request processing. This\nvalue is unique for each error. A response code of 000 indicates a\nsuccessful operation. Any other response code indicates an error.\nThe value 999 indicates an unknown system error",
+            "xml": {
+              "name": "ResponseCode",
+              "namespace": "http://ws.core.cortex.com/domain/common/rsphdr",
+              "prefix": "sch6",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "ResponseType": {
+            "maxLength": 20,
+            "minLength": 7,
+            "type": "string",
+            "description": "Indicates the type of the response code.\nSupported values are\n- Validation Error: Returned when invalid\nelements are received in the request\n- Business Error: Indicates a\nbusiness logic error (i.e. request operation on a card that does\nnot exist)\n- System Error: Indicates a system error (i.e. Database\nError)\n- Success: Indicates a successful request",
+            "xml": {
+              "name": "ResponseType",
+              "namespace": "http://ws.core.cortex.com/domain/common/rsphdr",
+              "prefix": "sch6",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "ProcessingTime": {
+            "maxLength": 20,
+            "minLength": 1,
+            "type": "string",
+            "description": "Time taken by the web-service to do the\nprocessing and reply in milli seconds",
+            "xml": {
+              "name": "ProcessingTime",
+              "namespace": "http://ws.core.cortex.com/domain/common/rsphdr",
+              "prefix": "sch6",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "ResponseDescription": {
+            "maxLength": 516,
+            "minLength": 1,
+            "type": "string",
+            "description": "Description of the request result and the\nresponse code. Gives additional details about the result of the\noperation",
+            "xml": {
+              "name": "ResponseDescription",
+              "namespace": "http://ws.core.cortex.com/domain/common/rsphdr",
+              "prefix": "sch6",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "LocalizedResponseDescription": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/sch6_LocalizedResponseDescriptionType"
+              },
+              {
+                "description": "Only returned when a locale is specified in the\nrequest.",
+                "xml": {
+                  "name": "LocalizedResponseDescription",
+                  "namespace": "http://ws.core.cortex.com/domain/common/rsphdr",
+                  "prefix": "sch6",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "CustomerSpecificResponseDescriptionList": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/sch6_CustomerSpecificResponseDescriptionListType"
+              },
+              {
+                "description": "List of customer specific response description in\ncase configured",
+                "xml": {
+                  "name": "CustomerSpecificResponseDescriptionList",
+                  "namespace": "http://ws.core.cortex.com/domain/common/rsphdr",
+                  "prefix": "sch6",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "HeaderUserDataList": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/hdrUsrData_HeaderUserDataListType"
+              },
+              {
+                "description": "Header user data for customer specific usage.\nThis field will be echoed back as is in the response if present,\nmainly used for fields from the request that might be needed in\nthe response for the customer's internal usage. No validation is\ndone on these fields. In some rare cases, these can hold customer\nspecific tags",
+                "xml": {
+                  "name": "HeaderUserDataList",
+                  "namespace": "http://ws.core.cortex.com/domain/common/hdrusrdata",
+                  "prefix": "hdrUsrData",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "ResponseHeaderType",
+          "namespace": "http://ws.core.cortex.com/domain/common/rsphdr",
+          "prefix": "sch6",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "sch6_LocalizedResponseDescriptionType": {
+        "title": "sch6_LocalizedResponseDescriptionType",
+        "required": [
+          "Locale",
+          "LocalizedDescription"
+        ],
+        "type": "object",
+        "properties": {
+          "Locale": {
+            "type": "string",
+            "description": "Locale echoed back from the request regardless if\nit was valid or not",
+            "xml": {
+              "name": "Locale",
+              "namespace": "http://ws.core.cortex.com/domain/common/rsphdr",
+              "prefix": "sch6",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "LocalizedDescription": {
+            "maxLength": 516,
+            "minLength": 1,
+            "type": "string",
+            "description": "Localized description of the response. In case\nthe locale specified is invalid or the no localized messages are\ndefined for the locale specified, this will hold the same value as\nthe ResponseDescription",
+            "xml": {
+              "name": "LocalizedDescription",
+              "namespace": "http://ws.core.cortex.com/domain/common/rsphdr",
+              "prefix": "sch6",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "LocalizedResponseDescriptionType",
+          "namespace": "http://ws.core.cortex.com/domain/common/rsphdr",
+          "prefix": "sch6",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "sch6_CustomerSpecificResponseDescriptionListType": {
+        "title": "sch6_CustomerSpecificResponseDescriptionListType",
+        "required": [
+          "CustomerSpecificResponseDescription"
+        ],
+        "type": "object",
+        "properties": {
+          "CustomerSpecificResponseDescription": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/sch6_CustomerSpecificResponseDescriptionType"
+            },
+            "description": "Customer specific descriptions in case configured",
+            "xml": {
+              "namespace": "http://ws.core.cortex.com/domain/common/rsphdr",
+              "prefix": "sch6",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "CustomerSpecificResponseDescriptionListType",
+          "namespace": "http://ws.core.cortex.com/domain/common/rsphdr",
+          "prefix": "sch6",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "sch6_CustomerSpecificResponseDescriptionType": {
+        "title": "sch6_CustomerSpecificResponseDescriptionType",
+        "required": [
+          "Locale",
+          "ResponseDescription"
+        ],
+        "type": "object",
+        "properties": {
+          "Locale": {
+            "type": "string",
+            "description": "Locale for the message returned under this tag",
+            "xml": {
+              "name": "Locale",
+              "namespace": "http://ws.core.cortex.com/domain/common/rsphdr",
+              "prefix": "sch6",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "ResponseDescription": {
+            "type": "string",
+            "description": "Customer specific response description in the\nlocale specified under this tag",
+            "xml": {
+              "name": "ResponseDescription",
+              "namespace": "http://ws.core.cortex.com/domain/common/rsphdr",
+              "prefix": "sch6",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "CustomerSpecificResponseDescription",
+          "namespace": "http://ws.core.cortex.com/domain/common/rsphdr",
+          "prefix": "sch6",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "sch7_CardIdentifierType": {
+        "title": "sch7_CardIdentifierType",
+        "type": "object",
+        "properties": {
+          "Pan": {
+            "maxLength": 512,
+            "minLength": 10,
+            "type": "string",
+            "description": "Clear or Encrypted Card Number. In case in clear,\ncortex will encrypt the PAN before doing any other processing as\nall card numbers are encrypted in the database.\nExternal encryption\ncan be configured in case a different encryption\nalgorithm than the\ncortex core one is used in the communications.\nThis is\nimplementation specific.",
+            "xml": {
+              "name": "Pan",
+              "namespace": "http://ws.core.cortex.com/domain/id/cardId",
+              "prefix": "sch7",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Vpan": {
+            "maxLength": 512,
+            "minLength": 10,
+            "type": "string",
+            "description": "Virtual Card Number generated by Cortex for a\ncard. It is possible to have the VPAN encrypted using an external\nencryption algorithm. This is implementation specific",
+            "xml": {
+              "name": "Vpan",
+              "namespace": "http://ws.core.cortex.com/domain/id/cardId",
+              "prefix": "sch7",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "SequenceNumber": {
+            "type": "integer",
+            "description": "Card Sequence Number. If not specified, defaulted\nto 0",
+            "format": "int32",
+            "xml": {
+              "name": "SequenceNumber",
+              "namespace": "http://ws.core.cortex.com/domain/id/cardId",
+              "prefix": "sch7",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "ExpiryDate": {
+            "maxLength": 10,
+            "minLength": 10,
+            "pattern": "[1-2][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9]",
+            "type": "string",
+            "description": "Card Expiry Date. Use to Identify the plastic on\nwhich the operation is required. In case not specified, the latest\ncard is assumed to be the requested one",
+            "xml": {
+              "name": "ExpiryDate",
+              "namespace": "http://ws.core.cortex.com/domain/id/cardId",
+              "prefix": "sch7",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "Identifier for a in cortex. Either PAN or VPAN need\nto be specified. The sequence number can be skipped. The card expiry\ndate can be used to identify which card plastic is required. In case\nnot specified, the latest card with the specified PAN or VPAN will\nbe taken into consideration",
+        "xml": {
+          "name": "CardIdentifierType",
+          "namespace": "http://ws.core.cortex.com/domain/id/cardId",
+          "prefix": "sch7",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "sch8_AccountIdentifierType": {
+        "title": "sch8_AccountIdentifierType",
+        "required": [
+          "AccountNumber",
+          "InstitutionCode"
+        ],
+        "type": "object",
+        "properties": {
+          "AccountNumber": {
+            "maxLength": 28,
+            "minLength": 5,
+            "type": "string",
+            "description": "Account Number Identifying an account",
+            "xml": {
+              "name": "AccountNumber",
+              "namespace": "http://ws.core.cortex.com/domain/id/accId",
+              "prefix": "sch8",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "InstitutionCode": {
+            "maxLength": 4,
+            "minLength": 1,
+            "type": "string",
+            "description": "Institution Code the account belongs to",
+            "xml": {
+              "name": "InstitutionCode",
+              "namespace": "http://ws.core.cortex.com/domain/id/accId",
+              "prefix": "sch8",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Currency": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/currId_CurrencyType"
+              },
+              {
+                "description": "currency of the account. Usually the account\nnumber and institution code\nare enough. If specified, the account\nis also verified that it has\nthis currency. The list of supported\nISO currency codes, use the\nGetCurrencyList service",
+                "xml": {
+                  "name": "Currency",
+                  "namespace": "http://ws.core.cortex.com/domain/id/currId",
+                  "prefix": "currId",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "Identifier for an account in cortex. The account\nnumber with the institution are enough. The currency code can be\nincluded for additional verification",
+        "xml": {
+          "name": "AccountIdentifierType",
+          "namespace": "http://ws.core.cortex.com/domain/id/accId",
+          "prefix": "sch8",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "sch9_CustomerIdentifierType": {
+        "title": "sch9_CustomerIdentifierType",
+        "required": [
+          "InstitutionCode"
+        ],
+        "type": "object",
+        "properties": {
+          "IdNumber": {
+            "maxLength": 12,
+            "minLength": 1,
+            "type": "string",
+            "description": "ID Number of the customer.",
+            "xml": {
+              "name": "IdNumber",
+              "namespace": "http://ws.core.cortex.com/domain/id/custId",
+              "prefix": "sch9",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "CustomerCode": {
+            "maxLength": 12,
+            "minLength": 1,
+            "type": "string",
+            "description": "Cortex customer code.",
+            "xml": {
+              "name": "CustomerCode",
+              "namespace": "http://ws.core.cortex.com/domain/id/custId",
+              "prefix": "sch9",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "ExternalCustomerCode": {
+            "maxLength": 20,
+            "minLength": 1,
+            "type": "string",
+            "description": "External Customer code. Usually holds the Bank's\nCIF",
+            "xml": {
+              "name": "ExternalCustomerCode",
+              "namespace": "http://ws.core.cortex.com/domain/id/custId",
+              "prefix": "sch9",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "InstitutionCode": {
+            "maxLength": 4,
+            "minLength": 1,
+            "type": "string",
+            "description": "Institution code the customer belongs to",
+            "xml": {
+              "name": "InstitutionCode",
+              "namespace": "http://ws.core.cortex.com/domain/id/custId",
+              "prefix": "sch9",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "Identifier for a customer. One of the below\ncombination is required to identify a customer\n- ID number and\nInstitution Code\n- Customer Code and Institution Code\n- External\nCustomer Code (usually used as the CIF) and Institution Code\nIf all\nare specified, a check is done to make sure they are all linked",
+        "xml": {
+          "name": "CustomerIdentifierType",
+          "namespace": "http://ws.core.cortex.com/domain/id/custId",
+          "prefix": "sch9",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "cardIdRsp_ResponseCardIdentifierType": {
+        "title": "cardIdRsp_ResponseCardIdentifierType",
+        "required": [
+          "Pan",
+          "MaskedPan",
+          "Seqno"
+        ],
+        "type": "object",
+        "properties": {
+          "Pan": {
+            "maxLength": 512,
+            "minLength": 1,
+            "type": "string",
+            "description": "Encrypted card number (can be either using cortex\nencryption algorithm or an external encryption algorithm\nimplementation specific)",
+            "xml": {
+              "name": "Pan",
+              "namespace": "http://ws.core.cortex.com/domain/types/cardidrsp",
+              "prefix": "cardIdRsp",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "MaskedPan": {
+            "maxLength": 19,
+            "minLength": 1,
+            "type": "string",
+            "description": "Masked Card Number",
+            "xml": {
+              "name": "MaskedPan",
+              "namespace": "http://ws.core.cortex.com/domain/types/cardidrsp",
+              "prefix": "cardIdRsp",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "VPan": {
+            "maxLength": 512,
+            "minLength": 1,
+            "type": "string",
+            "description": "Virtual card number generated by cortex for the\ncard in case configured so. In case configured, it will be\nencrypted using an external encryption algorithm",
+            "xml": {
+              "name": "VPan",
+              "namespace": "http://ws.core.cortex.com/domain/types/cardidrsp",
+              "prefix": "cardIdRsp",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Seqno": {
+            "type": "integer",
+            "description": "Card sequence number",
+            "format": "int32",
+            "xml": {
+              "name": "Seqno",
+              "namespace": "http://ws.core.cortex.com/domain/types/cardidrsp",
+              "prefix": "cardIdRsp",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "ResponseCardIdentifierType",
+          "namespace": "http://ws.core.cortex.com/domain/types/cardidrsp",
+          "prefix": "cardIdRsp",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "sch11_CardDetailsType": {
+        "title": "sch11_CardDetailsType",
+        "required": [
+          "ResponseCardIdentifier",
+          "ExpiryDate",
+          "EffectiveDate",
+          "CardStatus",
+          "OldPlasticExpiryDate",
+          "OldPlasticCardStatus",
+          "EmbossingName",
+          "FirstName",
+          "LastName",
+          "Additional",
+          "BatchNumber"
+        ],
+        "type": "object",
+        "properties": {
+          "ResponseCardIdentifier": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/cardIdRsp_ResponseCardIdentifierType"
+              },
+              {
+                "xml": {
+                  "name": "ResponseCardIdentifier",
+                  "namespace": "http://ws.core.cortex.com/domain/types/cardidrsp",
+                  "prefix": "cardIdRsp",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "ExpiryDate": {
+            "maxLength": 10,
+            "minLength": 10,
+            "pattern": "[1-2][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9]",
+            "type": "string",
+            "description": "Card expiry date",
+            "xml": {
+              "name": "ExpiryDate",
+              "namespace": "http://ws.core.cortex.com/domain/types/crddet",
+              "prefix": "sch11",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "EffectiveDate": {
+            "maxLength": 10,
+            "minLength": 10,
+            "pattern": "[1-2][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9]",
+            "type": "string",
+            "description": "Effective date of the card",
+            "xml": {
+              "name": "EffectiveDate",
+              "namespace": "http://ws.core.cortex.com/domain/types/crddet",
+              "prefix": "sch11",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "CardStatus": {
+            "maxLength": 2,
+            "minLength": 2,
+            "type": "string",
+            "description": "Status of the card. To get the list of\nsupported\nvalues, use the GetCardStatusList service",
+            "xml": {
+              "name": "CardStatus",
+              "namespace": "http://ws.core.cortex.com/domain/types/crddet",
+              "prefix": "sch11",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "OldPlasticExpiryDate": {
+            "maxLength": 10,
+            "minLength": 10,
+            "pattern": "[1-2][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9]",
+            "type": "string",
+            "description": "Old plastic card expiry in case an old plastic\nexists (in case of renewal)",
+            "xml": {
+              "name": "OldPlasticExpiryDate",
+              "namespace": "http://ws.core.cortex.com/domain/types/crddet",
+              "prefix": "sch11",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "OldPlasticCardStatus": {
+            "maxLength": 2,
+            "minLength": 2,
+            "type": "string",
+            "description": "Old plastic card status in case an old plastic\nexists (in case of renewal). To get the list of\nsupported values,\nuse the GetCardStatusList service",
+            "xml": {
+              "name": "OldPlasticCardStatus",
+              "namespace": "http://ws.core.cortex.com/domain/types/crddet",
+              "prefix": "sch11",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "EmbossingName": {
+            "maxLength": 50,
+            "minLength": 1,
+            "type": "string",
+            "description": "Embossing name used for the card",
+            "xml": {
+              "name": "EmbossingName",
+              "namespace": "http://ws.core.cortex.com/domain/types/crddet",
+              "prefix": "sch11",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Title": {
+            "maxLength": 10,
+            "minLength": 1,
+            "type": "string",
+            "description": "Card holder title",
+            "xml": {
+              "name": "Title",
+              "namespace": "http://ws.core.cortex.com/domain/types/crddet",
+              "prefix": "sch11",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "FirstName": {
+            "maxLength": 50,
+            "minLength": 1,
+            "type": "string",
+            "description": "Card holder first name",
+            "xml": {
+              "name": "FirstName",
+              "namespace": "http://ws.core.cortex.com/domain/types/crddet",
+              "prefix": "sch11",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "LastName": {
+            "maxLength": 50,
+            "minLength": 1,
+            "type": "string",
+            "description": "Card holder last name",
+            "xml": {
+              "name": "LastName",
+              "namespace": "http://ws.core.cortex.com/domain/types/crddet",
+              "prefix": "sch11",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Additional": {
+            "type": "boolean",
+            "description": "Specifies if this is a primary or additional card",
+            "xml": {
+              "name": "Additional",
+              "namespace": "http://ws.core.cortex.com/domain/types/crddet",
+              "prefix": "sch11",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "BatchNumber": {
+            "type": "integer",
+            "description": "Batch number the card is added to",
+            "format": "int64",
+            "xml": {
+              "name": "BatchNumber",
+              "namespace": "http://ws.core.cortex.com/domain/types/crddet",
+              "prefix": "sch11",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "ServiceCode": {
+            "maxLength": 3,
+            "minLength": 3,
+            "type": "string",
+            "description": "Service code of the card",
+            "xml": {
+              "name": "ServiceCode",
+              "namespace": "http://ws.core.cortex.com/domain/types/crddet",
+              "prefix": "sch11",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Kinship": {
+            "maxLength": 10,
+            "minLength": 1,
+            "type": "string",
+            "description": "Relationship to the primary card in case this is\nan additional card",
+            "xml": {
+              "name": "Kinship",
+              "namespace": "http://ws.core.cortex.com/domain/types/crddet",
+              "prefix": "sch11",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "UserData": {
+            "maxLength": 30,
+            "minLength": 1,
+            "type": "string",
+            "description": "Customer specific data. Used for customer\nspecific purposes",
+            "xml": {
+              "name": "UserData",
+              "namespace": "http://ws.core.cortex.com/domain/types/crddet",
+              "prefix": "sch11",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "UserData1": {
+            "maxLength": 32,
+            "minLength": 1,
+            "type": "string",
+            "description": "Customer specific data 1. Used for customer\nspecific purposes",
+            "xml": {
+              "name": "UserData1",
+              "namespace": "http://ws.core.cortex.com/domain/types/crddet",
+              "prefix": "sch11",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "UserData2": {
+            "maxLength": 32,
+            "minLength": 1,
+            "type": "string",
+            "description": "Customer specific data 2. Used for customer\nspecific purposes",
+            "xml": {
+              "name": "UserData2",
+              "namespace": "http://ws.core.cortex.com/domain/types/crddet",
+              "prefix": "sch11",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "UserData3": {
+            "maxLength": 32,
+            "minLength": 1,
+            "type": "string",
+            "description": "Customer specific data 3. Used for customer\nspecific purposes",
+            "xml": {
+              "name": "UserData3",
+              "namespace": "http://ws.core.cortex.com/domain/types/crddet",
+              "prefix": "sch11",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "UserData4": {
+            "maxLength": 32,
+            "minLength": 1,
+            "type": "string",
+            "description": "Customer specific data 4. Used for customer\nspecific purposes",
+            "xml": {
+              "name": "UserData4",
+              "namespace": "http://ws.core.cortex.com/domain/types/crddet",
+              "prefix": "sch11",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "UserData5": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string",
+            "description": "Customer specific data 5. Used for customer\nspecific purposes",
+            "xml": {
+              "name": "UserData5",
+              "namespace": "http://ws.core.cortex.com/domain/types/crddet",
+              "prefix": "sch11",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "CardDetailsType",
+          "namespace": "http://ws.core.cortex.com/domain/types/crddet",
+          "prefix": "sch11",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "typns_CardHistoryDetailsType": {
+        "title": "typns_CardHistoryDetailsType",
+        "required": [
+          "EventType",
+          "EventDateAndTime",
+          "CortexSystemDate",
+          "Reason"
+        ],
+        "type": "object",
+        "properties": {
+          "BatchNumber": {
+            "type": "integer",
+            "description": "Batch number the card was placed due to this\nevent. Not available if the event did not cause the card to be\nmoved or placed in a specific issuance batch",
+            "format": "int64",
+            "xml": {
+              "name": "BatchNumber",
+              "namespace": "http://ws.core.cortex.com/domain/types/crdhistdet",
+              "prefix": "typns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "EventType": {
+            "type": "integer",
+            "description": "Event type done on the card (same as the values\nsupported in the request)",
+            "format": "int32",
+            "xml": {
+              "name": "EventType",
+              "namespace": "http://ws.core.cortex.com/domain/types/crdhistdet",
+              "prefix": "typns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "EventSource": {
+            "type": "integer",
+            "description": "Source of the event. This is a numeric value that\ndetermines the source of an action and will be assigned by\nchannel. For services where this value is not set, it will\ndefaulted to an internal value. Predefined values are as below\n1 -\nManage pin web-service\n2 - Issuer Directives web-service\n3 - Reset\npin tries web-service\n4 - Update Card status web-service\n5 - Check\nCard pin web-service\n6 - Pre-generate card web-service\n7 - Card\nweb-service\n8 - Account web-service",
+            "format": "int32",
+            "xml": {
+              "name": "EventSource",
+              "namespace": "http://ws.core.cortex.com/domain/types/crdhistdet",
+              "prefix": "typns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "EventDateAndTime": {
+            "maxLength": 23,
+            "minLength": 23,
+            "pattern": "[1-2][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9]-[0-2][0-9]:[0-5][0-9]:[0-5][0-9].[0-9][0-9][0-9]",
+            "type": "string",
+            "description": "Event date and time",
+            "xml": {
+              "name": "EventDateAndTime",
+              "namespace": "http://ws.core.cortex.com/domain/types/crdhistdet",
+              "prefix": "typns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "CortexSystemDate": {
+            "maxLength": 10,
+            "minLength": 10,
+            "pattern": "[1-2][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9]",
+            "type": "string",
+            "description": "System date the event occurred on",
+            "xml": {
+              "name": "CortexSystemDate",
+              "namespace": "http://ws.core.cortex.com/domain/types/crdhistdet",
+              "prefix": "typns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Reason": {
+            "maxLength": 64,
+            "minLength": 1,
+            "type": "string",
+            "description": "Reason of the action. This is usually entered by\nthe user that did the action. If not entered by the user, it's\ndefaulted to an internal value by cortex",
+            "xml": {
+              "name": "Reason",
+              "namespace": "http://ws.core.cortex.com/domain/types/crdhistdet",
+              "prefix": "typns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "EventNotes": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string",
+            "description": "Event notes entered by the user before initiating\nthe event. When no value is entered by the user or the event is a\nsystem generated one, this value will not be available",
+            "xml": {
+              "name": "EventNotes",
+              "namespace": "http://ws.core.cortex.com/domain/types/crdhistdet",
+              "prefix": "typns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "FeeWaiver": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/typns_FeeWaiver"
+              },
+              {
+                "description": "Specifies if the fee is waivered for the event or\nnot. If not specified, defaulted to 0 - no waiver",
+                "xml": {
+                  "name": "FeeWaiver",
+                  "namespace": "http://ws.core.cortex.com/domain/types/crdhistdet",
+                  "prefix": "typns",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "OldStatusCode": {
+            "maxLength": 2,
+            "minLength": 2,
+            "type": "string",
+            "description": "Old card status before the event. Only available\nin case the event caused the card status to be changed. To get the\nlist of supported values, please use the GetCardStatusList service",
+            "xml": {
+              "name": "OldStatusCode",
+              "namespace": "http://ws.core.cortex.com/domain/types/crdhistdet",
+              "prefix": "typns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "NewStatusCode": {
+            "maxLength": 2,
+            "minLength": 2,
+            "type": "string",
+            "description": "New card status after the event. Only available\nin case the event caused the card status to be changed. To get the\nlist of supported values, please use the GetCardStatusList service",
+            "xml": {
+              "name": "NewStatusCode",
+              "namespace": "http://ws.core.cortex.com/domain/types/crdhistdet",
+              "prefix": "typns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "WhySet": {
+            "maxLength": 60,
+            "minLength": 1,
+            "type": "string",
+            "description": "Reason the card status has been changed for the\ncard part of this event. This can be set by the user or system\ngenerated. Only available in case the event caused a change in the\ncard status",
+            "xml": {
+              "name": "WhySet",
+              "namespace": "http://ws.core.cortex.com/domain/types/crdhistdet",
+              "prefix": "typns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "WhoSet": {
+            "maxLength": 15,
+            "minLength": 1,
+            "type": "string",
+            "description": "User or process that did the card status change.\nOnly available in case the event caused a change in the card\nstatus.",
+            "xml": {
+              "name": "WhoSet",
+              "namespace": "http://ws.core.cortex.com/domain/types/crdhistdet",
+              "prefix": "typns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "CardExpiryDate": {
+            "maxLength": 10,
+            "minLength": 10,
+            "pattern": "[1-2][0-9][0-9][0-9]-[0-1][0-9]-[0-3][0-9]",
+            "type": "string",
+            "description": "Plastic expiry date on which the status change\nwas done. Used to identify which plastic has the status change\napplied on. Only available in case the event resulted in a status\nchange for the card",
+            "xml": {
+              "name": "CardExpiryDate",
+              "namespace": "http://ws.core.cortex.com/domain/types/crdhistdet",
+              "prefix": "typns",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "CardHistoryDetailsType",
+          "namespace": "http://ws.core.cortex.com/domain/types/crdhistdet",
+          "prefix": "typns",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "sch5_Version": {
+        "title": "sch5_Version",
+        "enum": [
+          "1.0.0"
+        ],
+        "type": "string",
+        "description": "",
+        "xml": {
+          "name": "Version",
+          "namespace": "http://ws.core.cortex.com/domain/common/reqhdr",
+          "prefix": "sch5",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "sch6_Version": {
+        "title": "sch6_Version",
+        "enum": [
+          "1.0.0"
+        ],
+        "type": "string",
+        "description": "",
+        "xml": {
+          "name": "Version",
+          "namespace": "http://ws.core.cortex.com/domain/common/rsphdr",
+          "prefix": "sch6",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "typns_FeeWaiver": {
+        "title": "typns_FeeWaiver",
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "description": "",
+        "xml": {
+          "name": "FeeWaiver",
+          "namespace": "http://ws.core.cortex.com/domain/types/crdhistdet",
+          "prefix": "typns",
+          "attribute": false,
+          "wrapped": false
+        }
+      }
+    }
+  }
+}

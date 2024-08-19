@@ -1,0 +1,4598 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "MW MarketPlace APIs",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://mw-api-3scale-apicast-staging.apps.com:443/api/marketplace"
+    }
+  ],
+  "paths": {
+    "/UpdateIVRCallStatus": {
+      "post": {
+        "tags": [
+          "MarketPlace APIs Stage"
+        ],
+        "summary": "UpdateIVRCallStatus",
+        "description": "The updateIVRCallStatus API is used to receive the outcome of an IVR call. IVR \n\t\t\t will send call update using this API for when an outcome is generated for a call attempt. The call\n\t\t\t  is tracked by the unique identifier that was initially generated and passed by Marketplace.",
+        "operationId": "UpdateIVRCallStatus",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          },
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/xml": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/UpdateIVRCallStatusRequest"
+                  },
+                  {
+                    "xml": {
+                      "name": "UpdateIVRCallStatusRequest",
+                      "attribute": false,
+                      "wrapped": false
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/UpdateIVRCallStatusResponse"
+                    },
+                    {
+                      "xml": {
+                        "name": "UpdateIVRCallStatusResponse",
+                        "attribute": false,
+                        "wrapped": false
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/ReceiveLeaseApplicationStatus": {
+      "post": {
+        "tags": [
+          "MarketPlace APIs Stage"
+        ],
+        "summary": "ReceiveLeaseApplicationStatus",
+        "description": "The receiveLeaseApplicationStatus API is used to push the details of a lease application\n\t\t\tfrom LOS system to Marketplace.LOS will send updates whenever the status of a lease application changes to\n\t\t\t  certain status values.",
+        "operationId": "ReceiveLeaseApplicationStatus",
+        "parameters": [
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/header_ServiceHeader"
+            }
+          },
+          {
+            "name": "Security",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "#/components/schemas/wsse_Security"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/xml": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/ReceiveLeaseApplicationStatusRequest"
+                  },
+                  {
+                    "xml": {
+                      "name": "ReceiveLeaseApplicationStatusRequest",
+                      "attribute": false,
+                      "wrapped": false
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/ReceiveLeaseApplicationStatusResponse"
+                    },
+                    {
+                      "xml": {
+                        "name": "ReceiveLeaseApplicationStatusResponse",
+                        "attribute": false,
+                        "wrapped": false
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/GetQuotation": {
+      "post": {
+        "tags": [
+          "MarketPlace APIs"
+        ],
+        "summary": "This Operation retrieves Quotation",
+        "operationId": "GetQuotation",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT bearer token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "having channel details , locale",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GetQuotationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetQuotationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetQuotationResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized Request"
+          },
+          "404": {
+            "description": "404 API Not Found"
+          },
+          "405": {
+            "description": "405 Method Not Allowed"
+          },
+          "429": {
+            "description": "429 Too Many Requests"
+          },
+          "500": {
+            "description": "500 Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetQuotationResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503 Service Unavailable"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/RequestQuotation": {
+      "patch": {
+        "tags": [
+          "MarketPlace APIs"
+        ],
+        "summary": "This operation used to Request Quotation",
+        "operationId": "RequestQuotation",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT bearer token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "having channel details , locale",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequestQuotationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestQuotationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestQuotationResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized Request"
+          },
+          "404": {
+            "description": "404 API Not Found"
+          },
+          "405": {
+            "description": "405 Method Not Allowed"
+          },
+          "429": {
+            "description": "429 Too Many Requests"
+          },
+          "500": {
+            "description": "500 Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestQuotationResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503 Service Unavailable"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/ApproveQuotation": {
+      "post": {
+        "tags": [
+          "MarketPlace APIs"
+        ],
+        "summary": "This operation used to Approve Quotation",
+        "operationId": "ApproveQuotation",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT bearer token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "having channel details , locale",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ApproveQuotationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApproveQuotationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApproveQuotationResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized Request"
+          },
+          "404": {
+            "description": "404 API Not Found"
+          },
+          "405": {
+            "description": "405 Method Not Allowed"
+          },
+          "429": {
+            "description": "429 Too Many Requests"
+          },
+          "500": {
+            "description": "500 Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApproveQuotationResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503 Service Unavailable"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/v1/DownloadQuotation": {
+      "post": {
+        "tags": [
+          "MarketPlace APIs"
+        ],
+        "summary": "This operation used to Download Quotation",
+        "operationId": "DownloadQuotation",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "JWT bearer token",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ServiceHeader",
+            "in": "header",
+            "description": "having channel details , locale",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "$ref": "../../commonschemas/header.json#/ServiceHeader"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DownloadQuotationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DownloadQuotationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "400 Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DownloadQuotationResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized Request"
+          },
+          "404": {
+            "description": "404 API Not Found"
+          },
+          "405": {
+            "description": "405 Method Not Allowed"
+          },
+          "429": {
+            "description": "429 Too Many Requests"
+          },
+          "500": {
+            "description": "500 Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DownloadQuotationResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "503 Service Unavailable"
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "tns1_FaultType": {
+        "title": "tns1_FaultType",
+        "required": [
+          "number",
+          "description"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "xml": {
+              "name": "type",
+              "namespace": "http://testing/middlewareservices/fault/1.0/",
+              "prefix": "tns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "number": {
+            "type": "integer",
+            "format": "int32",
+            "xml": {
+              "name": "number",
+              "namespace": "http://testing/middlewareservices/fault/1.0/",
+              "prefix": "tns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "description": {
+            "type": "string",
+            "xml": {
+              "name": "description",
+              "namespace": "http://testing/middlewareservices/fault/1.0/",
+              "prefix": "tns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "retryAfter": {
+            "type": "string",
+            "xml": {
+              "name": "retryAfter",
+              "namespace": "http://testing/middlewareservices/fault/1.0/",
+              "prefix": "tns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "system": {
+            "type": "string",
+            "xml": {
+              "name": "system",
+              "namespace": "http://testing/middlewareservices/fault/1.0/",
+              "prefix": "tns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "nativeError": {
+            "type": "string",
+            "xml": {
+              "name": "nativeError",
+              "namespace": "http://testing/middlewareservices/fault/1.0/",
+              "prefix": "tns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "nativeDescription": {
+            "type": "string",
+            "xml": {
+              "name": "nativeDescription",
+              "namespace": "http://testing/middlewareservices/fault/1.0/",
+              "prefix": "tns1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "FaultType",
+          "namespace": "http://testing/middlewareservices/fault/1.0/",
+          "prefix": "tns1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "header_ServiceHeader": {
+        "title": "header_ServiceHeader",
+        "required": [
+          "loggerContext",
+          "transactionCode",
+          "retryTransaction",
+          "tellerId",
+          "terminalId",
+          "workstationId",
+          "override",
+          "correction",
+          "supervisor",
+          "supervisorId",
+          "overrideCode",
+          "employeeId",
+          "branchId",
+          "functionId",
+          "channelId",
+          "bancsPwd",
+          "languageCode"
+        ],
+        "type": "object",
+        "properties": {
+          "loggerContext": {
+            "type": "string",
+            "xml": {
+              "name": "loggerContext",
+              "namespace": "http://testing/middlewareservices/header/1.0/",
+              "prefix": "header",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "transactionCode": {
+            "type": "string",
+            "xml": {
+              "name": "transactionCode",
+              "namespace": "http://testing/middlewareservices/header/1.0/",
+              "prefix": "header",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "retryTransaction": {
+            "type": "boolean",
+            "xml": {
+              "name": "retryTransaction",
+              "namespace": "http://testing/middlewareservices/header/1.0/",
+              "prefix": "header",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "tellerId": {
+            "type": "string",
+            "xml": {
+              "name": "tellerId",
+              "namespace": "http://testing/middlewareservices/header/1.0/",
+              "prefix": "header",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "terminalId": {
+            "type": "string",
+            "xml": {
+              "name": "terminalId",
+              "namespace": "http://testing/middlewareservices/header/1.0/",
+              "prefix": "header",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "workstationId": {
+            "type": "string",
+            "xml": {
+              "name": "workstationId",
+              "namespace": "http://testing/middlewareservices/header/1.0/",
+              "prefix": "header",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "override": {
+            "type": "boolean",
+            "xml": {
+              "name": "override",
+              "namespace": "http://testing/middlewareservices/header/1.0/",
+              "prefix": "header",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "correction": {
+            "type": "string",
+            "xml": {
+              "name": "correction",
+              "namespace": "http://testing/middlewareservices/header/1.0/",
+              "prefix": "header",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "supervisor": {
+            "type": "string",
+            "xml": {
+              "name": "supervisor",
+              "namespace": "http://testing/middlewareservices/header/1.0/",
+              "prefix": "header",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "supervisorId": {
+            "type": "string",
+            "xml": {
+              "name": "supervisorId",
+              "namespace": "http://testing/middlewareservices/header/1.0/",
+              "prefix": "header",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "overrideCode": {
+            "type": "string",
+            "xml": {
+              "name": "overrideCode",
+              "namespace": "http://testing/middlewareservices/header/1.0/",
+              "prefix": "header",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "employeeId": {
+            "type": "string",
+            "xml": {
+              "name": "employeeId",
+              "namespace": "http://testing/middlewareservices/header/1.0/",
+              "prefix": "header",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "branchId": {
+            "type": "string",
+            "xml": {
+              "name": "branchId",
+              "namespace": "http://testing/middlewareservices/header/1.0/",
+              "prefix": "header",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "functionId": {
+            "type": "string",
+            "xml": {
+              "name": "functionId",
+              "namespace": "http://testing/middlewareservices/header/1.0/",
+              "prefix": "header",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "channelId": {
+            "type": "string",
+            "xml": {
+              "name": "channelId",
+              "namespace": "http://testing/middlewareservices/header/1.0/",
+              "prefix": "header",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "bancsPwd": {
+            "type": "string",
+            "xml": {
+              "name": "bancsPwd",
+              "namespace": "http://testing/middlewareservices/header/1.0/",
+              "prefix": "header",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "languageCode": {
+            "type": "string",
+            "xml": {
+              "name": "languageCode",
+              "namespace": "http://testing/middlewareservices/header/1.0/",
+              "prefix": "header",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "authenticationType": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/header_authenticationType"
+              },
+              {
+                "description": "Can be: NONE, OTP, TOKEN",
+                "xml": {
+                  "name": "authenticationType",
+                  "namespace": "http://testing/middlewareservices/header/1.0/",
+                  "prefix": "header",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "IvrTransactionID": {
+            "type": "string",
+            "xml": {
+              "name": "IvrTransactionID",
+              "namespace": "http://testing/middlewareservices/header/1.0/",
+              "prefix": "header",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "ServiceHeader",
+          "namespace": "http://testing/middlewareservices/header/1.0/",
+          "prefix": "header",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "wsse_Security": {
+        "title": "wsse_Security",
+        "required": [
+          "UsernameToken"
+        ],
+        "type": "object",
+        "properties": {
+          "UsernameToken": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/wsse_UsernameToken"
+              },
+              {
+                "xml": {
+                  "name": "UsernameToken",
+                  "namespace": "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd",
+                  "prefix": "wsse",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "Security",
+          "namespace": "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd",
+          "prefix": "wsse",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "tns_UpdateIVRCallStatusRequest": {
+        "title": "tns_UpdateIVRCallStatusRequest",
+        "required": [
+          "applicationNumber",
+          "callReferenceNumber",
+          "callType",
+          "callOutcome"
+        ],
+        "type": "object",
+        "properties": {
+          "applicationNumber": {
+            "type": "string",
+            "description": "Unique identifier of the lease application",
+            "xml": {
+              "name": "applicationNumber",
+              "namespace": "http://testing/middlewareservices/marketplaceservice/1.0/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "callReferenceNumber": {
+            "type": "string",
+            "description": "Unique identifier of the call that was generated by Marketplace",
+            "xml": {
+              "name": "callReferenceNumber",
+              "namespace": "http://testing/middlewareservices/marketplaceservice/1.0/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "callType": {
+            "type": "string",
+            "description": "Type of the call done by IVR\n\t\t\t\t\t\t\t\tExpected values: VERIFICATION or APPROVAL",
+            "xml": {
+              "name": "callType",
+              "namespace": "http://testing/middlewareservices/marketplaceservice/1.0/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "callOutcome": {
+            "type": "string",
+            "description": "Outcome of the IVR call\n\t\t\t\t\t\t\tExpected values: APPROVED or REJECTED or NOANSWER",
+            "xml": {
+              "name": "callOutcome",
+              "namespace": "http://testing/middlewareservices/marketplaceservice/1.0/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "UpdateIVRCallStatusRequest",
+          "namespace": "http://testing/middlewareservices/marketplaceservice/1.0/",
+          "prefix": "tns",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "tns_UpdateIVRCallStatusResponse": {
+        "title": "tns_UpdateIVRCallStatusResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string",
+            "xml": {
+              "name": "success",
+              "namespace": "http://testing/middlewareservices/marketplaceservice/1.0/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns1_FaultType"
+              },
+              {
+                "xml": {
+                  "name": "fault",
+                  "namespace": "http://testing/middlewareservices/fault/1.0/",
+                  "prefix": "tns1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "UpdateIVRCallStatusResponse",
+          "namespace": "http://testing/middlewareservices/marketplaceservice/1.0/",
+          "prefix": "tns",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "tns_ReceiveLeaseApplicationStatusRequest": {
+        "title": "tns_ReceiveLeaseApplicationStatusRequest",
+        "required": [
+          "applicationNumber",
+          "applicationStatus"
+        ],
+        "type": "object",
+        "properties": {
+          "applicationNumber": {
+            "type": "string",
+            "description": "Unique identifier of the lease application",
+            "xml": {
+              "name": "applicationNumber",
+              "namespace": "http://testing/middlewareservices/marketplaceservice/1.0/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "applicationStatus": {
+            "type": "string",
+            "description": "Status of the lease application",
+            "xml": {
+              "name": "applicationStatus",
+              "namespace": "http://testing/middlewareservices/marketplaceservice/1.0/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "ReceiveLeaseApplicationStatusRequest",
+          "namespace": "http://testing/middlewareservices/marketplaceservice/1.0/",
+          "prefix": "tns",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "tns_ReceiveLeaseApplicationStatusResponse": {
+        "title": "tns_ReceiveLeaseApplicationStatusResponse",
+        "type": "object",
+        "properties": {
+          "success": {
+            "type": "string",
+            "xml": {
+              "name": "success",
+              "namespace": "http://testing/middlewareservices/marketplaceservice/1.0/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "fault": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns1_FaultType"
+              },
+              {
+                "xml": {
+                  "name": "fault",
+                  "namespace": "http://testing/middlewareservices/fault/1.0/",
+                  "prefix": "tns1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "ReceiveLeaseApplicationStatusResponse",
+          "namespace": "http://testing/middlewareservices/marketplaceservice/1.0/",
+          "prefix": "tns",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "GetQuotationRequestType": {
+        "title": "GetQuotationRequestType",
+        "type": "object",
+        "properties": {
+          "gqRequestReferenceNo": {
+            "maxLength": 13,
+            "type": "string",
+            "description": "Add Quotation Request reference number generated by ULS"
+          },
+          "rqRequestReferenceNo": {
+            "maxLength": 13,
+            "type": "string",
+            "description": "request Quotation Request reference number generated by ULS"
+          },
+          "deductibleAmount": {
+            "$ref": "../../commonschemas/schemas.json#/AmountOptional",
+            "description": "Deductible Amount"
+          },
+          "selectedFeatures": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SelectedFeaturesType"
+            }
+          },
+          "customizedParameter": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomizedParameterType"
+            }
+          }
+        },
+        "description": ""
+      },
+      "SelectedFeaturesType": {
+        "title": "SelectedFeaturesType",
+        "type": "object",
+        "properties": {
+          "featureId": {
+            "type": "string",
+            "description": "ID of the policy feature based on the Policy Features master table"
+          }
+        }
+      },
+      "CustomizedParameterType": {
+        "title": "CustomizedParameterType",
+        "type": "object",
+        "properties": {
+          "key": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Custom Parameter Key Name"
+          },
+          "value1": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Custom Parameter Value One"
+          },
+          "value2": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Custom Parameter Value One"
+          },
+          "value3": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Custom Parameter Value One"
+          }
+        }
+      },
+      "GetQuotationResponseType": {
+        "title": "GetQuotationResponseType",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/GetQuotationSuccessType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "GetQuotationSuccessType": {
+        "title": "GetQuotationSuccessType",
+        "type": "object",
+        "properties": {
+          "gqRequestReferenceNo": {
+            "maxLength": 13,
+            "type": "string",
+            "description": "Add Quotation Request reference number generated by ULS"
+          },
+          "gqResponseReferenceNo": {
+            "maxLength": 13,
+            "type": "string",
+            "description": "GQ Response Reference No"
+          },
+          "deductibleAmount": {
+            "$ref": "../../commonschemas/schemas.json#/AmountOptional",
+            "description": "Deductible Amount"
+          },
+          "quotationsList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/QuotationsListType"
+            }
+          },
+          "status": {
+            "type": "boolean"
+          },
+          "errors": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "QuotationsListType": {
+        "title": "QuotationsListType",
+        "type": "object",
+        "properties": {
+          "insuranceCompanyCode": {
+            "maxLength": 3,
+            "type": "string",
+            "description": "Insurance Company Code"
+          },
+          "quoteReferenceNo": {
+            "maxLength": 15,
+            "type": "string",
+            "description": "Quote Reference No"
+          },
+          "quotationApprovalExpiryDate": {
+            "maxLength": 20,
+            "type": "string",
+            "description": "Quotation Approval Expiry Date"
+          },
+          "quotationExpiryDate": {
+            "maxLength": 20,
+            "type": "string",
+            "description": "Quotation Expiry Date"
+          },
+          "basePremium": {
+            "$ref": "../../commonschemas/schemas.json#/AmountOptional",
+            "description": "Base Premium"
+          },
+          "vatOnBasePremium": {
+            "$ref": "../../commonschemas/schemas.json#/AmountOptional",
+            "description": "VAT on Base Premium"
+          },
+          "netOnBasePremium": {
+            "$ref": "../../commonschemas/schemas.json#/AmountOptional",
+            "description": "NET on Base Premium"
+          },
+          "discounts": {
+            "$ref": "../../commonschemas/schemas.json#/AmountOptional",
+            "description": "Discounts"
+          },
+          "grossPremium": {
+            "$ref": "../../commonschemas/schemas.json#/AmountOptional",
+            "description": "Gross Premium"
+          },
+          "vatOnGrossPremium": {
+            "$ref": "../../commonschemas/schemas.json#/AmountOptional",
+            "description": "VAT on Gross Premium"
+          },
+          "netOnGrossPremium": {
+            "$ref": "../../commonschemas/schemas.json#/AmountOptional",
+            "description": "NET on Gross Premium"
+          },
+          "deductibleReferenceNo": {
+            "maxLength": 20,
+            "type": "string",
+            "description": "Deductible Reference No"
+          },
+          "isLeastPrice": {
+            "type": "string",
+            "description": "is Least Price"
+          },
+          "policyPremiumFeatures": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PolicyPremiumFeaturesType"
+            },
+            "description": ""
+          }
+        },
+        "description": ""
+      },
+      "PolicyPremiumFeaturesType": {
+        "title": "PolicyPremiumFeaturesType",
+        "type": "object",
+        "properties": {
+          "featureId": {
+            "type": "string",
+            "description": "Feature ID"
+          },
+          "featureTypeId": {
+            "type": "string",
+            "description": "Feature Type ID"
+          },
+          "featureAmount": {
+            "$ref": "../../commonschemas/schemas.json#/AmountOptional",
+            "description": "Feature Amount"
+          }
+        },
+        "description": ""
+      },
+      "RequestQuotationRequestType": {
+        "title": "RequestQuotationRequest",
+        "type": "object",
+        "properties": {
+          "rqRequestReferenceNumber": {
+            "maxLength": 13,
+            "type": "string",
+            "description": "request Quotation Request reference number generated by ULS"
+          },
+          "applicationId": {
+            "maxLength": 13,
+            "type": "string",
+            "description": "Application ID generated by ULS."
+          },
+          "applicationTenure": {
+            "maxLength": 2,
+            "type": "string",
+            "description": "Leasing period in months."
+          },
+          "employeeId": {
+            "maxLength": 10,
+            "type": "string",
+            "description": "The ULS agent/user ID"
+          },
+          "branchCode": {
+            "maxLength": 10,
+            "type": "string",
+            "description": "Branch/Channel of Generating Leasing Application Branches"
+          },
+          "lesseeId": {
+            "maxLength": 10,
+            "type": "string",
+            "description": "The Lessee ID (National ID Number,Iqama ID Number). National ID Number: 1XXXXXXXXX Iqama ID Number:2XXXXXXXXX"
+          },
+          "lesseeDateOfBirthG": {
+            "maxLength": 10,
+            "type": "string",
+            "description": "Lessee Date of Birth in “Gregorian” format (dd-MM-yyyy). (if “LesseeID” starts with 2 then) YES else null"
+          },
+          "lesseeDateOfBirthH": {
+            "maxLength": 10,
+            "type": "string",
+            "description": "Lessee Date of Birth in “Hijri” format(dd-MM-yyyy).(if “LesseeID” starts with 1 then) YES else null"
+          },
+          "lesseeEducation": {
+            "maxLength": 25,
+            "type": "string",
+            "description": "Policyholder Education (Qualification)."
+          },
+          "lesseeChildrenBelow16": {
+            "maxLength": 2,
+            "type": "string",
+            "description": "Number of children below 16 year old"
+          },
+          "lesseeWorkCompanyName": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Lessee Work Company Name"
+          },
+          "lesseeWorkCityId": {
+            "maxLength": 3,
+            "type": "string",
+            "description": "Lessee Work City ID"
+          },
+          "lesseeLicenseType": {
+            "maxLength": 2,
+            "type": "string",
+            "description": "LesseeLicenseType"
+          },
+          "lesseeLicenseOwnYears": {
+            "maxLength": 2,
+            "type": "string",
+            "description": "Lessee License Own Years"
+          },
+          "lesseeCountriesValidLicense": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LesseeCountriesValidLicense"
+            },
+            "description": "Lessee Countries Valid License"
+          },
+          "lesseeNoOfClaims": {
+            "type": "string",
+            "description": "Number of Claims with Lessee liability in last 5 years"
+          },
+          "lesseeNoOfAccidents": {
+            "type": "string",
+            "description": "Number of Accidents with Lessee liability in last 5 years"
+          },
+          "lesseeTrafficViolationsCode": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Lessee traffic violations ID’s"
+          },
+          "lesseeHealthConditionsCode": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Lessee Health Conditions per License"
+          },
+          "vehicleInfoType": {
+            "maxLength": 2,
+            "type": "string",
+            "description": "1: Vehicle Generic Info 2: Vehicle Sequence ID 3: Vehicle Custom Number"
+          },
+          "vehicleSequenceNumber": {
+            "maxLength": 12,
+            "type": "string",
+            "description": "Vehicle Sequence Number which is written in the registration Card (Istemarh) of vehicle.if VehicleInfoType = 2 then Yes else Null"
+          },
+          "vehicleCustomId": {
+            "maxLength": 12,
+            "type": "string",
+            "description": "Vehicle custom Card in case the vehicle imported or still Not having a Registration Card. if VehicleInfoType = 3 then Yes else Null"
+          },
+          "vehicleMakeCodeTria": {
+            "maxLength": 5,
+            "type": "string",
+            "description": "LESSOR will send Make Code based on ELM Vehicle Make code (e.g., تويوتا, tهوندا , etc.).if VehicleInfoType = 1 then Yes else Null"
+          },
+          "vehicleMakeCodeLessor": {
+            "maxLength": 10,
+            "type": "string",
+            "description": "Vehicle Make code (e.g., TOYOTA,FORD, etc.).if VehicleInfoType = 1 then Yes else Null"
+          },
+          "vehicleModelCodeTria": {
+            "maxLength": 5,
+            "type": "string",
+            "description": "LESSOR will send Model Code based on ELM Vehicle Model code (e.g., Camry,Avalon, etc.).if VehicleInfoType = 1 then Yes else Null"
+          },
+          "vehicleModelCodeLessor": {
+            "maxLength": 10,
+            "type": "string",
+            "description": "Lessor will send LESSOR Model Code. if VehicleInfoType = 1 then Yes else Null"
+          },
+          "assetId": {
+            "maxLength": 5,
+            "type": "string",
+            "description": "Lessor will send unique identifier of the vehicle."
+          },
+          "manufactureYear": {
+            "maxLength": 4,
+            "type": "string",
+            "description": "Manufacture Year"
+          },
+          "vehicleColorCode": {
+            "maxLength": 3,
+            "type": "string",
+            "description": "Vehicle Color code (e.g., Black,White, etc.)."
+          },
+          "vehicleSumInsured": {
+            "maxLength": 6,
+            "type": "string",
+            "description": "Vehicle Value. This information is taken from LESSOR System"
+          },
+          "vehicleExpectedMileageYear": {
+            "maxLength": 6,
+            "type": "string",
+            "description": "Vehicle Expected Mileage per Year in KM (kilometres)"
+          },
+          "vehicleTransmission": {
+            "maxLength": 2,
+            "type": "string",
+            "description": "1 : Automatic 2 : Manual Transmission"
+          },
+          "vehicleNightParking": {
+            "maxLength": 2,
+            "type": "string",
+            "description": "Where Vehicle Parked at Night 1 :Street 2: HomeLane 3 : Garage"
+          },
+          "vehicleModifications": {
+            "maxLength": 150,
+            "type": "string",
+            "description": "Vehicle extra modification as per customer entry"
+          },
+          "driverDetails": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DriverDetailsType"
+            },
+            "description": ""
+          },
+          "repairMethod": {
+            "type": "string",
+            "description": "Repair Method"
+          },
+          "depreciationByYear": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DepreciationByYearType"
+            },
+            "description": "Depreciation By Year"
+          },
+          "depreciationType": {
+            "type": "string",
+            "description": "1: Straight-line 2: Reducing balance"
+          },
+          "fixedDepreciation": {
+            "type": "boolean",
+            "description": "Indicate if Depreciation percentage Is the same for all years"
+          },
+          "purposeOfVehicleUseId": {
+            "type": "string",
+            "description": "Purpose of Vehicle Use ID"
+          },
+          "customizedParameter": {
+            "type": "string",
+            "description": "Customized Parameter"
+          },
+          "lesseeVehicleUsagePercentage": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "DepreciationByYearType": {
+        "title": "DepreciationByYearType",
+        "type": "object",
+        "properties": {
+          "year": {
+            "type": "string",
+            "description": "Year"
+          },
+          "depreciationPercentage": {
+            "type": "string",
+            "description": "Depreciation Percentage"
+          }
+        },
+        "description": ""
+      },
+      "DriverDetailsType": {
+        "title": "DriverDetailsType",
+        "type": "object",
+        "properties": {
+          "driverId": {
+            "maxLength": 10,
+            "type": "string",
+            "description": "Driving ID"
+          },
+          "driverRelation": {
+            "type": "string",
+            "description": "This Parameter is added to describe the relationshipbe tween the policy holder and the driver(s) the possible values are : 1: Father 2: Mother 3: Husband 4: Wife 5: Sun 6: Daughter 7: Brother 8: Sister 9: Employee 10: Sponsored"
+          },
+          "VehicleUsagePercentage": {
+            "maxLength": 3,
+            "type": "string",
+            "description": "This driver percentage of vehicle usage 1.25 2. 50 3. 75 4. 100"
+          },
+          "driverDateOfBirthG": {
+            "maxLength": 10,
+            "type": "string",
+            "description": "Driver Date of Birth in “Gregorian” format(dd-MM-yyyy)."
+          },
+          "driverDateOfBirthH": {
+            "maxLength": 10,
+            "type": "string",
+            "description": "Driver Date of Birth in “Hijri” format(dd-MM-yyyy)."
+          },
+          "driverEducation": {
+            "maxLength": 25,
+            "type": "string",
+            "description": "Driving Education"
+          },
+          "driverChildrenBelow16": {
+            "maxLength": 2,
+            "type": "string",
+            "description": "Driving Children Below16"
+          },
+          "driverWorkCompanyName": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Driving DriverWorkCompanyName"
+          },
+          "driverWorkCityId": {
+            "maxLength": 3,
+            "type": "string",
+            "description": "In which city driver works."
+          },
+          "driverHomeAddressCity": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Driving Home Address City"
+          },
+          "driverHomeAddress": {
+            "maxLength": 100,
+            "type": "string",
+            "description": "Driving Home Address"
+          },
+          "countriesValidDrivingLicense": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CountriesValidDrivingLicenseType"
+            },
+            "description": "Countries Valid Driving License"
+          },
+          "driverLicenseType": {
+            "maxLength": 2,
+            "type": "string",
+            "description": "Driver License Type."
+          },
+          "driverLicenseOwnYears": {
+            "maxLength": 2,
+            "type": "string",
+            "description": "Driver License Owning Years"
+          },
+          "driverNoOfClaims": {
+            "type": "string",
+            "description": "Number of Claims with driver liability in last 5 years"
+          },
+          "driverNoOfAccidents": {
+            "type": "string",
+            "description": "Number of Accidents with driver liability in last 5 years"
+          },
+          "driverTrafficViolationsCode": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Driving Traffic Violations Code"
+          },
+          "driverHealthConditionsCode": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Driver traffic violations ID’s"
+          }
+        },
+        "description": ""
+      },
+      "CountriesValidDrivingLicenseType": {
+        "title": "CountriesValidDrivingLicenseType",
+        "type": "object",
+        "properties": {
+          "drivingLicenseCountryId": {
+            "maxLength": 3,
+            "type": "string",
+            "description": "The country code where the driving license issued"
+          },
+          "drivingLicenseYears": {
+            "maxLength": 2,
+            "type": "string",
+            "description": "Number of years driver had the driver license"
+          }
+        },
+        "description": ""
+      },
+      "LesseeCountriesValidLicense": {
+        "title": "LesseeCountriesValidLicense",
+        "type": "object",
+        "properties": {
+          "drivingLicenseCountryId": {
+            "maxLength": 3,
+            "type": "string",
+            "description": "The country code where the driving license issued"
+          },
+          "drivingLicenseYears": {
+            "maxLength": 2,
+            "type": "string",
+            "description": "Number of years driver had the driver license"
+          }
+        },
+        "description": ""
+      },
+      "RequestQuotationResponseType": {
+        "title": "RequestQuotationResponseType",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/RequestQuotationSuccessType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "RequestQuotationSuccessType": {
+        "title": "RequestQuotationSuccessType",
+        "type": "object",
+        "properties": {
+          "rqRequestReferenceNumber": {
+            "maxLength": 13,
+            "type": "string",
+            "description": "request Quotation Request reference number generated by ULS"
+          },
+          "rqResponseReferenceNumber": {
+            "maxLength": 13,
+            "type": "string",
+            "description": "RQ Response Reference No"
+          },
+          "lesseeId": {
+            "maxLength": 10,
+            "type": "string",
+            "description": "Lessee ID"
+          },
+          "arabicFirstName": {
+            "maxLength": 150,
+            "type": "string",
+            "description": "Arabic First Name"
+          },
+          "arabicMiddleName": {
+            "maxLength": 150,
+            "type": "string",
+            "description": "Arabic Middle Name"
+          },
+          "arabicLastName": {
+            "maxLength": 150,
+            "type": "string",
+            "description": "Arabic Last Name"
+          },
+          "englishFirstName": {
+            "maxLength": 150,
+            "type": "string",
+            "description": "English First Name"
+          },
+          "englishMiddleName": {
+            "maxLength": 150,
+            "type": "string",
+            "description": "English Middle Name"
+          },
+          "englishLastName": {
+            "maxLength": 150,
+            "type": "string",
+            "description": "English Last Name"
+          },
+          "lesseeNationalityId": {
+            "maxLength": 3,
+            "type": "string",
+            "description": "Lessee Nationality ID"
+          },
+          "lesseeOccupation": {
+            "maxLength": 100,
+            "type": "string",
+            "description": "Lessee Occupation"
+          },
+          "lesseeGender": {
+            "type": "string",
+            "description": "Lessee Gender"
+          },
+          "lesseeMaritalStatus": {
+            "type": "string",
+            "description": "Lessee Marital Status"
+          },
+          "lesseeNationalAddress": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LesseeNationalAddressType"
+            },
+            "description": "Lessee National Address"
+          },
+          "driverDetails": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DriverDetailsType2"
+            },
+            "description": "Driver Details"
+          },
+          "status": {
+            "type": "string",
+            "description": "Status"
+          },
+          "errors": {
+            "type": "string",
+            "description": "Errors"
+          }
+        },
+        "description": ""
+      },
+      "LesseeNationalAddressType": {
+        "title": "LesseeNationalAddressType",
+        "type": "object",
+        "properties": {
+          "buildingNumber": {
+            "maxLength": 4,
+            "type": "string",
+            "description": "Building Number"
+          },
+          "street": {
+            "maxLength": 200,
+            "type": "string",
+            "description": "Street"
+          },
+          "district": {
+            "maxLength": 100,
+            "type": "string",
+            "description": "District"
+          },
+          "city": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "City"
+          },
+          "zipCode": {
+            "maxLength": 5,
+            "type": "string",
+            "description": "Zip Code"
+          },
+          "additionalNumber": {
+            "maxLength": 4,
+            "type": "string",
+            "description": "Additional Number"
+          }
+        },
+        "description": ""
+      },
+      "DriverDetailsType2": {
+        "title": "DriverDetailsType2",
+        "type": "object",
+        "properties": {
+          "driverId": {
+            "maxLength": 10,
+            "type": "string",
+            "description": "Driver ID"
+          },
+          "arabicFirstName": {
+            "maxLength": 150,
+            "type": "string",
+            "description": "Arabic First Name"
+          },
+          "arabicMiddleName": {
+            "maxLength": 150,
+            "type": "string",
+            "description": "Arabic Middle Name"
+          },
+          "arabicLastName": {
+            "maxLength": 150,
+            "type": "string",
+            "description": "Arabic Last Name"
+          },
+          "englishFirstName": {
+            "maxLength": 150,
+            "type": "string",
+            "description": "English First Name"
+          },
+          "englishMiddleName": {
+            "maxLength": 150,
+            "type": "string",
+            "description": "English Middle Name"
+          },
+          "englishLastName": {
+            "maxLength": 150,
+            "type": "string",
+            "description": "English Last Name"
+          },
+          "driverNationalityId": {
+            "maxLength": 3,
+            "type": "string",
+            "description": "Driver Nationality ID"
+          },
+          "driverOccupation": {
+            "maxLength": 100,
+            "type": "string",
+            "description": "Driver Occupation"
+          },
+          "driverGender": {
+            "type": "string",
+            "description": "Driver Gender"
+          },
+          "driverMaritalStatus": {
+            "type": "string",
+            "description": "Driver Marital Status"
+          }
+        },
+        "description": ""
+      },
+      "ApproveQuotationRequestType": {
+        "title": "ApproveQuotationRequestType",
+        "type": "object",
+        "description": "",
+        "properties": {
+          "aqRequestReferenceNumber": {
+            "maxLength": 13,
+            "type": "string",
+            "description": "Request reference number generated by ULS."
+          },
+          "rqRequestReferenceNumber": {
+            "maxLength": 13,
+            "type": "string",
+            "description": "requestQuotation Request reference number generated by ULS"
+          },
+          "gqResponseReferenceNumber": {
+            "maxLength": 13,
+            "type": "string",
+            "description": "GetQuotation Response reference number generated by ULS"
+          },
+          "insuranceCompanyCode": {
+            "maxLength": 3,
+            "type": "string",
+            "description": "Code of Insurance Company offering the Quotation"
+          },
+          "quoteReferenceNumber": {
+            "maxLength": 15,
+            "type": "string",
+            "description": "Unique reference number generated by Insurance company system for each policy quote request"
+          },
+          "contractNumber": {
+            "maxLength": 15,
+            "type": "string",
+            "description": "Contract number can have at most one quotation approved at any time."
+          },
+          "deductibleAmount": {
+            "$ref": "../../commonschemas/schemas.json#/AmountOptional",
+            "description": "The deductible amount in SAR"
+          },
+          "basePremium": {
+            "$ref": "../../commonschemas/schemas.json#/AmountOptional",
+            "description": "The base premium of the policy based on the deductible amount in SAR."
+          },
+          "vatOnBasePremium": {
+            "$ref": "../../commonschemas/schemas.json#/AmountOptional",
+            "description": "The total Vat amount in SAR for the base premium."
+          },
+          "netOnBasePremium": {
+            "$ref": "../../commonschemas/schemas.json#/AmountOptional",
+            "description": "The base premium with Vat in SAR"
+          },
+          "discounts": {
+            "$ref": "../../commonschemas/schemas.json#/AmountOptional",
+            "description": "The total discount provided by IC in the quotation (NCD, Loyalty)."
+          },
+          "grossPremium": {
+            "$ref": "../../commonschemas/schemas.json#/AmountOptional",
+            "description": "Equal to Base Premium - discount + total of DynamicPremiumFeatureAmount"
+          },
+          "vatOnGrossPremium": {
+            "$ref": "../../commonschemas/schemas.json#/AmountOptional",
+            "description": "The total Vat amount in SAR for the Gross premium."
+          },
+          "netOnGrossPremium": {
+            "$ref": "../../commonschemas/schemas.json#/AmountOptional",
+            "description": "The Gross Premium with Vat in SAR"
+          },
+          "deductibleReferenceNumber": {
+            "maxLength": 20,
+            "type": "string",
+            "description": "Unique reference number generated by Insurance company system could be used for each deductible."
+          },
+          "policyPremiumFeatures": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PolicyPremiumFeaturesType2"
+            },
+            "description": "Policy Premium Features"
+          },
+          "email": {
+            "maxLength": 256,
+            "type": "string",
+            "description": "Lesee Email"
+          },
+          "mobileNumber": {
+            "maxLength": 10,
+            "type": "string",
+            "description": "Lesee Mobile Number"
+          },
+          "customizedParameter": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomizedParameterType2"
+            },
+            "description": ""
+          }
+        }
+      },
+      "CustomizedParameterType2": {
+        "title": "CustomizedParameterType2",
+        "type": "object",
+        "properties": {
+          "key": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Custom Parameter Key Name"
+          },
+          "value1": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Custom Parameter Value One"
+          },
+          "value2": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Custom Parameter Value One"
+          },
+          "value3": {
+            "maxLength": 50,
+            "type": "string",
+            "description": "Custom Parameter Value One"
+          },
+          "value4": {
+            "maxLength": 50,
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "PolicyPremiumFeaturesType2": {
+        "title": "PolicyPremiumFeaturesType2",
+        "type": "object",
+        "properties": {
+          "featureId": {
+            "type": "string",
+            "description": "This indicates the ID of the policy feature ."
+          },
+          "featureTypeId": {
+            "type": "string",
+            "description": "This indicate the feature type: 1 : Priced 2 : Free"
+          },
+          "featureAmount": {
+            "$ref": "../../commonschemas/schemas.json#/AmountOptional",
+            "description": "Feature price if it’s premium feature. (if FeatureTypeID == 1) then YES else null"
+          }
+        },
+        "description": ""
+      },
+      "ApproveQuotationResponseType": {
+        "title": "ApproveQuotationResponseType",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/ApproveQuotationSuccessType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "ApproveQuotationSuccessType": {
+        "title": "ApproveQuotationSuccessType",
+        "type": "object",
+        "properties": {
+          "aqRequestReferenceNumber": {
+            "maxLength": 13,
+            "type": "string",
+            "description": "Request reference number generated by ULS for “Approve Quotation” response."
+          },
+          "aqResponseReferenceNumber": {
+            "maxLength": 13,
+            "type": "string",
+            "description": "Response reference number generated by ULS for “Approve Quotation”  ."
+          },
+          "status": {
+            "type": "boolean",
+            "description": "status"
+          },
+          "error": {
+            "type": "string",
+            "description": "Error"
+          }
+        },
+        "description": ""
+      },
+      "DownloadQuotationRequestType": {
+        "title": "DownloadQuotationRequestType",
+        "type": "object",
+        "properties": {
+          "rqRequestReferenceNumber": {
+            "maxLength": 13,
+            "type": "string",
+            "description": "Request reference number generated by TRIA for “RequestQuotation” request."
+          },
+          "docRequestReferenceNumber": {
+            "maxLength": 13,
+            "type": "string",
+            "description": "Unique Request reference number generated by ULS for “DocumentDownload” request."
+          },
+          "gqRequestReferenceNumber": {
+            "maxLength": 13,
+            "type": "string",
+            "description": "Request reference number generated by TRIA for “GetQuotation” request."
+          },
+          "applicationId": {
+            "maxLength": 13,
+            "type": "string",
+            "description": "Application ID generated by ULS."
+          },
+          "fileType": {
+            "type": "integer",
+            "description": "File Type .CancellationReasonID : CancellationReasonEnglishName : CancellationReasonArabicName  1  : Insurance Form     :   نموذج التأمين and    2  :  Policy Schedule   :  وثيقة التأمين",
+            "format": "int32"
+          },
+          "lesseeId": {
+            "type": "string"
+          }
+        },
+        "description": ""
+      },
+      "DownloadQuotationResponseType": {
+        "title": "DownloadQuotationResponseType",
+        "type": "object",
+        "properties": {
+          "success": {
+            "$ref": "#/components/schemas/DownloadQuotationSuccessType"
+          },
+          "fault": {
+            "$ref": "../../commonschemas/fault.json#/FaultType"
+          }
+        },
+        "description": ""
+      },
+      "DownloadQuotationSuccessType": {
+        "title": "DownloadQuotationSuccessType",
+        "type": "object",
+        "properties": {
+          "docRequestReferenceNumber": {
+            "maxLength": 13,
+            "type": "string",
+            "description": "Doc Request Reference Number"
+          },
+          "docResponseReferenceNumber": {
+            "maxLength": 13,
+            "type": "string",
+            "description": "Doc Response Reference Number"
+          },
+          "documentMedia": {
+            "type": "string",
+            "description": "Document Media"
+          },
+          "documentType": {
+            "maxLength": 5,
+            "type": "string",
+            "description": "Document Type"
+          },
+          "status": {
+            "type": "boolean",
+            "description": "Status"
+          },
+          "errors": {
+            "type": "string",
+            "description": "Errors"
+          }
+        },
+        "description": ""
+      },
+      "Q1_PostalAddress": {
+        "title": "Q1_PostalAddress",
+        "type": "object",
+        "properties": {
+          "addressLine1": {
+            "maxLength": 70,
+            "minLength": 0,
+            "type": "string",
+            "xml": {
+              "name": "addressLine1",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "addressLine2": {
+            "maxLength": 70,
+            "minLength": 0,
+            "type": "string",
+            "xml": {
+              "name": "addressLine2",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "addressLine3": {
+            "maxLength": 70,
+            "minLength": 0,
+            "type": "string",
+            "xml": {
+              "name": "addressLine3",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "city": {
+            "maxLength": 35,
+            "minLength": 0,
+            "type": "string",
+            "xml": {
+              "name": "city",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "region": {
+            "maxLength": 35,
+            "minLength": 0,
+            "type": "string",
+            "xml": {
+              "name": "region",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "postalCode": {
+            "maxLength": 16,
+            "minLength": 0,
+            "type": "string",
+            "xml": {
+              "name": "postalCode",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "country": {
+            "pattern": "([A-Z]{2,2})|()",
+            "type": "string",
+            "xml": {
+              "name": "country",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "PostalAddress",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_Money": {
+        "title": "Q1_Money",
+        "required": [
+          "isoCurrencyCode"
+        ],
+        "type": "object",
+        "properties": {
+          "isoCurrencyCode": {
+            "pattern": "[A-Z]{3,3}",
+            "type": "string",
+            "xml": {
+              "name": "isoCurrencyCode",
+              "prefix": "Q1",
+              "attribute": true,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "Money",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_MoneyOptional": {
+        "title": "Q1_MoneyOptional",
+        "required": [
+          "isoCurrencyCode"
+        ],
+        "type": "object",
+        "properties": {
+          "isoCurrencyCode": {
+            "pattern": "([A-Z]{3,3})|()",
+            "type": "string",
+            "xml": {
+              "name": "isoCurrencyCode",
+              "prefix": "Q1",
+              "attribute": true,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "MoneyOptional",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_Cursor": {
+        "title": "Q1_Cursor",
+        "required": [
+          "position",
+          "noOfRows"
+        ],
+        "type": "object",
+        "properties": {
+          "position": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32",
+            "xml": {
+              "name": "position",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "noOfRows": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32",
+            "xml": {
+              "name": "noOfRows",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "Cursor",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_Biller": {
+        "title": "Q1_Biller",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "xml": {
+                "name": "id",
+                "attribute": false,
+                "wrapped": false
+              }
+            },
+            "description": "",
+            "xml": {
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "Biller",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_DocumentType": {
+        "title": "Q1_DocumentType",
+        "required": [
+          "documentId",
+          "documentSubId",
+          "totalPages",
+          "documentType",
+          "archivedDate",
+          "page"
+        ],
+        "type": "object",
+        "properties": {
+          "documentId": {
+            "maxLength": 7,
+            "type": "string",
+            "xml": {
+              "name": "documentId",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "documentSubId": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32",
+            "xml": {
+              "name": "documentSubId",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "totalPages": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32",
+            "xml": {
+              "name": "totalPages",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "documentType": {
+            "type": "string",
+            "xml": {
+              "name": "documentType",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "archivedDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string",
+            "xml": {
+              "name": "archivedDate",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "page": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Q1_PageType"
+            },
+            "description": "",
+            "xml": {
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "DocumentType",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_PageType": {
+        "title": "Q1_PageType",
+        "required": [
+          "pageNo",
+          "pageExt",
+          "pageContent"
+        ],
+        "type": "object",
+        "properties": {
+          "pageNo": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32",
+            "xml": {
+              "name": "pageNo",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "pageExt": {
+            "type": "string",
+            "xml": {
+              "name": "pageExt",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "pageContent": {
+            "type": "string",
+            "xml": {
+              "name": "pageContent",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "PageType",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_BillCycle": {
+        "title": "Q1_BillCycle",
+        "enum": [
+          "New",
+          "XXX",
+          "YYY"
+        ],
+        "type": "string",
+        "description": "Valid Values : New, XXX, YYY",
+        "xml": {
+          "name": "BillCycle",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_PaymentType": {
+        "title": "Q1_PaymentType",
+        "enum": [
+          "POST",
+          "RCHG",
+          "RNEW"
+        ],
+        "type": "string",
+        "description": "Valid Values : POST, RCHG, RNEW",
+        "xml": {
+          "name": "PaymentType",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_Flag": {
+        "title": "Q1_Flag",
+        "enum": [
+          "Y",
+          "N"
+        ],
+        "type": "string",
+        "description": "Valid Values : Y or N",
+        "xml": {
+          "name": "Flag",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_ServiceType": {
+        "title": "Q1_ServiceType",
+        "enum": [
+          "AUTL",
+          "CCRD",
+          "CIP",
+          "ENTR",
+          "GOVT",
+          "GSM",
+          "LLIN",
+          "LLHT",
+          "SMDI",
+          "UTIL",
+          "ISPS",
+          "GOFT",
+          "Private",
+          "MDIA",
+          "TRAN",
+          "EDUC",
+          "BKSV",
+          "LOAN",
+          "ELCT",
+          "PCIN",
+          "EXAM",
+          "WATR",
+          "CDUR",
+          "PHON",
+          "INSR",
+          "MED",
+          "TUIT"
+        ],
+        "type": "string",
+        "description": "Valid Values :\n\t\t\t\tAUTL,CCRD,CIP,ENTR,GOVT,GSM,LLIN,LLHT,SMDI,UTIL,ISPS,GOFT,\n\t\t\t\tPrivate,MDIA,TRAN,EDUC,BKSV,LOAN,ELCT,PCIN,EXAM,WATR,CDUR,PHON,INSR,MED,TUIT",
+        "xml": {
+          "name": "ServiceType",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_OfferToTag": {
+        "title": "Q1_OfferToTag",
+        "enum": [
+          "Yes",
+          "No"
+        ],
+        "type": "string",
+        "description": "",
+        "xml": {
+          "name": "OfferToTag",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_CustomerId": {
+        "title": "Q1_CustomerId",
+        "required": [
+          "id",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32",
+            "xml": {
+              "name": "id",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "type": {
+            "type": "string",
+            "xml": {
+              "name": "type",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "CustomerId",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_CustomerId2": {
+        "title": "Q1_CustomerId2",
+        "required": [
+          "id",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "xml": {
+              "name": "id",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "type": {
+            "type": "string",
+            "xml": {
+              "name": "type",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "CustomerId2",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_Parameter": {
+        "title": "Q1_Parameter",
+        "required": [
+          "name",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "xml": {
+              "name": "name",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "value": {
+            "type": "string",
+            "xml": {
+              "name": "value",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "Parameter",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_TransactionType": {
+        "title": "Q1_TransactionType",
+        "enum": [
+          "BIANNUALCYCLE",
+          "TODAY",
+          "CYCLETODATE",
+          "CTD"
+        ],
+        "type": "string",
+        "description": "Valid values are BIANNUALCYCLE, TODAY,\n\t\t\t\tCYCLETODATE, CTD etc",
+        "xml": {
+          "name": "TransactionType",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_BeneficiaryId": {
+        "title": "Q1_BeneficiaryId",
+        "required": [
+          "id",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "minimum": 0,
+            "type": "integer",
+            "format": "int32",
+            "xml": {
+              "name": "id",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "type": {
+            "type": "string",
+            "xml": {
+              "name": "type",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "BeneficiaryId",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_DeviceDetails": {
+        "title": "Q1_DeviceDetails",
+        "required": [
+          "machineNonce",
+          "sequenceNonce",
+          "machineLabel",
+          "machineProperties",
+          "createDate",
+          "lastUsedDate",
+          "expiryDate"
+        ],
+        "type": "object",
+        "properties": {
+          "machineNonce": {
+            "minLength": 1,
+            "type": "string",
+            "xml": {
+              "name": "machineNonce",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "sequenceNonce": {
+            "minLength": 1,
+            "type": "string",
+            "xml": {
+              "name": "sequenceNonce",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "machineLabel": {
+            "type": "string",
+            "xml": {
+              "name": "machineLabel",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "machineProperties": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_MachineProperties"
+              },
+              {
+                "xml": {
+                  "name": "machineProperties",
+                  "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+                  "prefix": "Q1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "createDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string",
+            "xml": {
+              "name": "createDate",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "lastUsedDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string",
+            "xml": {
+              "name": "lastUsedDate",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "expiryDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string",
+            "xml": {
+              "name": "expiryDate",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "DeviceDetails",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_AuthenticationDeviceDetails": {
+        "title": "Q1_AuthenticationDeviceDetails",
+        "required": [
+          "machineNonce",
+          "sequenceNonce",
+          "machineLabel",
+          "machineProperties"
+        ],
+        "type": "object",
+        "properties": {
+          "machineNonce": {
+            "minLength": 1,
+            "type": "string",
+            "xml": {
+              "name": "machineNonce",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "sequenceNonce": {
+            "minLength": 1,
+            "type": "string",
+            "xml": {
+              "name": "sequenceNonce",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "machineLabel": {
+            "type": "string",
+            "xml": {
+              "name": "machineLabel",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "machineProperties": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_MachineProperties"
+              },
+              {
+                "xml": {
+                  "name": "machineProperties",
+                  "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+                  "prefix": "Q1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "AuthenticationDeviceDetails",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_MachineProperties": {
+        "title": "Q1_MachineProperties",
+        "required": [
+          "applicationData"
+        ],
+        "type": "object",
+        "properties": {
+          "applicationData": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Q1_ApplicationData"
+            },
+            "description": "",
+            "xml": {
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "MachineProperties",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_ApplicationData": {
+        "title": "Q1_ApplicationData",
+        "required": [
+          "name",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "minLength": 1,
+            "type": "string",
+            "xml": {
+              "name": "name",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "value": {
+            "minLength": 1,
+            "type": "string",
+            "xml": {
+              "name": "value",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "ApplicationData",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_AuthenticationInfo": {
+        "title": "Q1_AuthenticationInfo",
+        "required": [
+          "methods"
+        ],
+        "type": "object",
+        "properties": {
+          "methods": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Methods"
+              },
+              {
+                "xml": {
+                  "name": "methods",
+                  "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+                  "prefix": "Q1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "AuthenticationInfo",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_Methods": {
+        "title": "Q1_Methods",
+        "required": [
+          "hardToken",
+          "softToken",
+          "siteImage",
+          "trustedPC",
+          "callerId",
+          "oneTimePass"
+        ],
+        "type": "object",
+        "properties": {
+          "hardToken": {
+            "type": "boolean",
+            "xml": {
+              "name": "hardToken",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "softToken": {
+            "type": "boolean",
+            "xml": {
+              "name": "softToken",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "siteImage": {
+            "type": "boolean",
+            "xml": {
+              "name": "siteImage",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "trustedPC": {
+            "type": "boolean",
+            "xml": {
+              "name": "trustedPC",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "callerId": {
+            "type": "boolean",
+            "xml": {
+              "name": "callerId",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "oneTimePass": {
+            "type": "boolean",
+            "xml": {
+              "name": "oneTimePass",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "Methods",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_TokenDetails": {
+        "title": "Q1_TokenDetails",
+        "required": [
+          "userId",
+          "userName",
+          "userGroup",
+          "vendorId",
+          "serialNumber",
+          "tokenType",
+          "signatureSupported",
+          "loadDate",
+          "lastUsedDate"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "minLength": 1,
+            "type": "string",
+            "xml": {
+              "name": "userId",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "userName": {
+            "minLength": 1,
+            "type": "string",
+            "xml": {
+              "name": "userName",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "userGroup": {
+            "minLength": 1,
+            "type": "string",
+            "xml": {
+              "name": "userGroup",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "vendorId": {
+            "type": "string",
+            "xml": {
+              "name": "vendorId",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "serialNumber": {
+            "type": "string",
+            "xml": {
+              "name": "serialNumber",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "tokenType": {
+            "type": "string",
+            "xml": {
+              "name": "tokenType",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "signatureSupported": {
+            "type": "boolean",
+            "xml": {
+              "name": "signatureSupported",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "loadDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string",
+            "xml": {
+              "name": "loadDate",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "lastUsedDate": {
+            "pattern": "((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))",
+            "type": "string",
+            "xml": {
+              "name": "lastUsedDate",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "TokenDetails",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_AccountDetails": {
+        "title": "Q1_AccountDetails",
+        "required": [
+          "accountId",
+          "balance",
+          "overdraft",
+          "balanceSAR",
+          "availableSAR",
+          "averageLastSixMonths",
+          "isoCurrencyCode",
+          "division",
+          "statusCode",
+          "accountType",
+          "glClassificationCode"
+        ],
+        "type": "object",
+        "properties": {
+          "accountId": {
+            "maxLength": 24,
+            "minLength": 14,
+            "pattern": "([0-9]{14})|(SA[0-9]{4}[a-zA-Z0-9]{18})",
+            "type": "string",
+            "xml": {
+              "name": "accountId",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "balance": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Money"
+              },
+              {
+                "xml": {
+                  "name": "balance",
+                  "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+                  "prefix": "Q1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "overdraft": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Money"
+              },
+              {
+                "xml": {
+                  "name": "overdraft",
+                  "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+                  "prefix": "Q1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "balanceSAR": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Money"
+              },
+              {
+                "xml": {
+                  "name": "balanceSAR",
+                  "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+                  "prefix": "Q1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "availableSAR": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Money"
+              },
+              {
+                "xml": {
+                  "name": "availableSAR",
+                  "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+                  "prefix": "Q1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "averageLastSixMonths": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_Money"
+              },
+              {
+                "xml": {
+                  "name": "averageLastSixMonths",
+                  "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+                  "prefix": "Q1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "isoCurrencyCode": {
+            "pattern": "[A-Z]{3,3}",
+            "type": "string",
+            "xml": {
+              "name": "isoCurrencyCode",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "division": {
+            "type": "string",
+            "xml": {
+              "name": "division",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "statusCode": {
+            "maxLength": 3,
+            "type": "string",
+            "xml": {
+              "name": "statusCode",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "accountType": {
+            "maxLength": 4,
+            "type": "string",
+            "xml": {
+              "name": "accountType",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "glClassificationCode": {
+            "maxLength": 40,
+            "type": "string",
+            "xml": {
+              "name": "glClassificationCode",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "AccountDetails",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_Gender": {
+        "title": "Q1_Gender",
+        "enum": [
+          "M",
+          "F"
+        ],
+        "type": "string",
+        "description": "Valid values are : M , F etc",
+        "xml": {
+          "name": "Gender",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_trueOrFalseType": {
+        "title": "Q1_trueOrFalseType",
+        "enum": [
+          "true",
+          "false",
+          "True",
+          "False"
+        ],
+        "type": "string",
+        "description": "Valid values are : true, false, True, False",
+        "xml": {
+          "name": "trueOrFalseType",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_trueOrFalseTypeOptional": {
+        "title": "Q1_trueOrFalseTypeOptional",
+        "enum": [
+          "true",
+          "false",
+          "True",
+          "False"
+        ],
+        "type": "string",
+        "description": "Optional.\n\t\t\t\tValid values are : true, false, True,\n\t\t\t\tFalse etc",
+        "xml": {
+          "name": "trueOrFalseTypeOptional",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_YorNType": {
+        "title": "Q1_YorNType",
+        "enum": [
+          "Y",
+          "N"
+        ],
+        "type": "string",
+        "description": "Valid values are : Y, N",
+        "xml": {
+          "name": "YorNType",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_YorNTypeOptional": {
+        "title": "Q1_YorNTypeOptional",
+        "enum": [
+          "Y",
+          "N"
+        ],
+        "type": "string",
+        "description": "Optional.\n\t\t\t\tValid values are : Y, N",
+        "xml": {
+          "name": "YorNTypeOptional",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_CustomerChannelType": {
+        "title": "Q1_CustomerChannelType",
+        "enum": [
+          "BOTH",
+          "MOBILE",
+          "AOL"
+        ],
+        "type": "string",
+        "description": "",
+        "xml": {
+          "name": "CustomerChannelType",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_ErrorCategoryType": {
+        "title": "Q1_ErrorCategoryType",
+        "enum": [
+          "BUSINESS",
+          "SYSTEM"
+        ],
+        "type": "string",
+        "description": "",
+        "xml": {
+          "name": "ErrorCategoryType",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_CommonServiceFaultType": {
+        "title": "Q1_CommonServiceFaultType",
+        "required": [
+          "category",
+          "code",
+          "message",
+          "detail"
+        ],
+        "type": "object",
+        "properties": {
+          "category": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ErrorCategoryType"
+              },
+              {
+                "xml": {
+                  "name": "category",
+                  "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+                  "prefix": "Q1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "code": {
+            "type": "string",
+            "xml": {
+              "name": "code",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "message": {
+            "type": "string",
+            "xml": {
+              "name": "message",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "detail": {
+            "type": "string",
+            "xml": {
+              "name": "detail",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "CommonServiceFaultType",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_ServicesStatusType": {
+        "title": "Q1_ServicesStatusType",
+        "enum": [
+          "ACTIVE",
+          "DISABLE_USER",
+          "DISABLE_ADMIN",
+          "DELETED"
+        ],
+        "type": "string",
+        "description": "",
+        "xml": {
+          "name": "ServicesStatusType",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_ServiceLevelType": {
+        "title": "Q1_ServiceLevelType",
+        "enum": [
+          "INQUIRY",
+          "FULL"
+        ],
+        "type": "string",
+        "description": "",
+        "xml": {
+          "name": "ServiceLevelType",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_CustomerStatusType": {
+        "title": "Q1_CustomerStatusType",
+        "required": [
+          "userId",
+          "aol",
+          "mobile",
+          "emergencyCash"
+        ],
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "xml": {
+              "name": "userId",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "aol": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_AolStatusType"
+              },
+              {
+                "xml": {
+                  "name": "aol",
+                  "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+                  "prefix": "Q1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "mobile": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_MobileStatusType"
+              },
+              {
+                "xml": {
+                  "name": "mobile",
+                  "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+                  "prefix": "Q1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "emergencyCash": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_EmergencyCashStatus"
+              },
+              {
+                "xml": {
+                  "name": "emergencyCash",
+                  "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+                  "prefix": "Q1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "CustomerStatusType",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_AolStatusType": {
+        "title": "Q1_AolStatusType",
+        "required": [
+          "createdBy",
+          "createdDate",
+          "lastLoginDate",
+          "serviceLevel",
+          "serviceStatus",
+          "passwordRevoked"
+        ],
+        "type": "object",
+        "properties": {
+          "createdBy": {
+            "type": "string",
+            "xml": {
+              "name": "createdBy",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "createdDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string",
+            "xml": {
+              "name": "createdDate",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "lastLoginDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string",
+            "xml": {
+              "name": "lastLoginDate",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "serviceLevel": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ServiceLevelType"
+              },
+              {
+                "xml": {
+                  "name": "serviceLevel",
+                  "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+                  "prefix": "Q1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "serviceStatus": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ServicesStatusType"
+              },
+              {
+                "xml": {
+                  "name": "serviceStatus",
+                  "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+                  "prefix": "Q1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "passwordRevoked": {
+            "type": "boolean",
+            "xml": {
+              "name": "passwordRevoked",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "AolStatusType",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_MobileStatusType": {
+        "title": "Q1_MobileStatusType",
+        "required": [
+          "registeredBy",
+          "registeredDate",
+          "lastLoginDate",
+          "serviceLevel",
+          "serviceStatus"
+        ],
+        "type": "object",
+        "properties": {
+          "registeredBy": {
+            "type": "string",
+            "xml": {
+              "name": "registeredBy",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "registeredDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string",
+            "xml": {
+              "name": "registeredDate",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "lastLoginDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string",
+            "xml": {
+              "name": "lastLoginDate",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "serviceLevel": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ServiceLevelType"
+              },
+              {
+                "xml": {
+                  "name": "serviceLevel",
+                  "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+                  "prefix": "Q1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "serviceStatus": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ServicesStatusType"
+              },
+              {
+                "xml": {
+                  "name": "serviceStatus",
+                  "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+                  "prefix": "Q1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "MobileStatusType",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_EmergencyCashStatus": {
+        "title": "Q1_EmergencyCashStatus",
+        "required": [
+          "registrationDate",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "registrationDate": {
+            "pattern": "(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9].[0-9])|()|(((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9])",
+            "type": "string",
+            "xml": {
+              "name": "registrationDate",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "status": {
+            "type": "string",
+            "xml": {
+              "name": "status",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "EmergencyCashStatus",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_TransactionInfo": {
+        "title": "Q1_TransactionInfo",
+        "required": [
+          "transactionType"
+        ],
+        "type": "object",
+        "properties": {
+          "transactionId": {
+            "type": "string",
+            "xml": {
+              "name": "transactionId",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "relatedTransactionId": {
+            "type": "string",
+            "xml": {
+              "name": "relatedTransactionId",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "transactionType": {
+            "type": "string",
+            "xml": {
+              "name": "transactionType",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "timestamp": {
+            "type": "string",
+            "xml": {
+              "name": "timestamp",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "TransactionInfo",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_ClientInfo": {
+        "title": "Q1_ClientInfo",
+        "required": [
+          "clientId"
+        ],
+        "type": "object",
+        "properties": {
+          "clientId": {
+            "type": "string",
+            "xml": {
+              "name": "clientId",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "ClientInfo",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_SecurityInfo": {
+        "title": "Q1_SecurityInfo",
+        "required": [
+          "username",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "xml": {
+              "name": "username",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "password": {
+            "type": "string",
+            "xml": {
+              "name": "password",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "SecurityInfo",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_CreationInfo": {
+        "title": "Q1_CreationInfo",
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "xml": {
+              "name": "date",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "branch": {
+            "maxLength": 5,
+            "type": "string",
+            "xml": {
+              "name": "branch",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "institution": {
+            "maxLength": 3,
+            "type": "string",
+            "xml": {
+              "name": "institution",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "teller": {
+            "maxLength": 8,
+            "type": "string",
+            "xml": {
+              "name": "teller",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "CreationInfo",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_RequestHeader": {
+        "title": "Q1_RequestHeader",
+        "type": "object",
+        "properties": {
+          "transactionInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_TransactionInfo"
+              },
+              {
+                "xml": {
+                  "name": "transactionInfo",
+                  "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+                  "prefix": "Q1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "clientInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ClientInfo"
+              },
+              {
+                "xml": {
+                  "name": "clientInfo",
+                  "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+                  "prefix": "Q1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "securityInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_SecurityInfo"
+              },
+              {
+                "xml": {
+                  "name": "securityInfo",
+                  "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+                  "prefix": "Q1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "creationInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_CreationInfo"
+              },
+              {
+                "xml": {
+                  "name": "creationInfo",
+                  "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+                  "prefix": "Q1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "RequestHeader",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_ErrorInfo": {
+        "title": "Q1_ErrorInfo",
+        "required": [
+          "level"
+        ],
+        "type": "object",
+        "properties": {
+          "level": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_level"
+              },
+              {
+                "xml": {
+                  "name": "level",
+                  "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+                  "prefix": "Q1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "code": {
+            "type": "string",
+            "xml": {
+              "name": "code",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "context": {
+            "type": "string",
+            "xml": {
+              "name": "context",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "message": {
+            "type": "string",
+            "xml": {
+              "name": "message",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "details": {
+            "type": "string",
+            "xml": {
+              "name": "details",
+              "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+              "prefix": "Q1",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "ErrorInfo",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_ReplyHeader": {
+        "title": "Q1_ReplyHeader",
+        "type": "object",
+        "properties": {
+          "transactionInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_TransactionInfo"
+              },
+              {
+                "xml": {
+                  "name": "transactionInfo",
+                  "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+                  "prefix": "Q1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "clientInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ClientInfo"
+              },
+              {
+                "xml": {
+                  "name": "clientInfo",
+                  "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+                  "prefix": "Q1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          },
+          "errorInfo": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Q1_ErrorInfo"
+              },
+              {
+                "xml": {
+                  "name": "errorInfo",
+                  "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+                  "prefix": "Q1",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "ReplyHeader",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ApproveQuotationRequest": {
+        "title": "ApproveQuotationRequest",
+        "required": [
+          "ApproveQuotationRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "ApproveQuotationRequest": {
+            "$ref": "#/components/schemas/ApproveQuotationRequestType"
+          }
+        }
+      },
+      "ApproveQuotationResponse": {
+        "title": "ApproveQuotationResponse",
+        "required": [
+          "ApproveQuotationResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "ApproveQuotationResponse": {
+            "$ref": "#/components/schemas/ApproveQuotationResponseType"
+          }
+        }
+      },
+      "DownloadQuotationRequest": {
+        "title": "DownloadQuotationRequest",
+        "required": [
+          "DownloadQuotationRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "DownloadQuotationRequest": {
+            "$ref": "#/components/schemas/DownloadQuotationRequestType"
+          }
+        }
+      },
+      "DownloadQuotationResponse": {
+        "title": "DownloadQuotationResponse",
+        "required": [
+          "DownloadQuotationResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "DownloadQuotationResponse": {
+            "$ref": "#/components/schemas/DownloadQuotationResponseType"
+          }
+        }
+      },
+      "GetQuotationRequest": {
+        "title": "GetQuotationRequest",
+        "required": [
+          "GetQuotationRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "GetQuotationRequest": {
+            "$ref": "#/components/schemas/GetQuotationRequestType"
+          }
+        }
+      },
+      "GetQuotationResponse": {
+        "title": "GetQuotationResponse",
+        "required": [
+          "GetQuotationResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "GetQuotationResponse": {
+            "$ref": "#/components/schemas/GetQuotationResponseType"
+          }
+        }
+      },
+      "header_authenticationType": {
+        "title": "header_authenticationType",
+        "enum": [
+          "NONE",
+          "OTP",
+          "TOKEN"
+        ],
+        "type": "string",
+        "description": "",
+        "xml": {
+          "name": "authenticationType",
+          "namespace": "http://testing/middlewareservices/header/1.0/",
+          "prefix": "header",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "Q1_level": {
+        "title": "Q1_level",
+        "enum": [
+          "SUCCESS",
+          "WARNING",
+          "FAILURE"
+        ],
+        "type": "string",
+        "description": "",
+        "xml": {
+          "name": "level",
+          "namespace": "http://testing/schemas/middleware/temporaltypes/2012/10/29/",
+          "prefix": "Q1",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "ReceiveLeaseApplicationStatusRequest": {
+        "title": "ReceiveLeaseApplicationStatusRequest",
+        "required": [
+          "ReceiveLeaseApplicationStatusRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "ReceiveLeaseApplicationStatusRequest": {
+            "$ref": "#/components/schemas/tns_ReceiveLeaseApplicationStatusRequest"
+          }
+        }
+      },
+      "ReceiveLeaseApplicationStatusResponse": {
+        "title": "ReceiveLeaseApplicationStatusResponse",
+        "required": [
+          "ReceiveLeaseApplicationStatusResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "ReceiveLeaseApplicationStatusResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_ReceiveLeaseApplicationStatusResponse"
+              },
+              {
+                "xml": {
+                  "name": "ReceiveLeaseApplicationStatusResponse",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "xml": {
+          "name": "ReceiveLeaseApplicationStatusResponse",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "RequestQuotationRequest": {
+        "title": "RequestQuotationRequest",
+        "required": [
+          "RequestQuotationRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "RequestQuotationRequest": {
+            "$ref": "#/components/schemas/RequestQuotationRequestType"
+          }
+        }
+      },
+      "RequestQuotationResponse": {
+        "title": "RequestQuotationResponse",
+        "required": [
+          "RequestQuotationResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "RequestQuotationResponse": {
+            "$ref": "#/components/schemas/RequestQuotationResponseType"
+          }
+        }
+      },
+      "UpdateIVRCallStatusRequest": {
+        "title": "UpdateIVRCallStatusRequest",
+        "required": [
+          "UpdateIVRCallStatusRequest"
+        ],
+        "type": "object",
+        "properties": {
+          "UpdateIVRCallStatusRequest": {
+            "$ref": "#/components/schemas/tns_UpdateIVRCallStatusRequest"
+          }
+        }
+      },
+      "UpdateIVRCallStatusResponse": {
+        "title": "UpdateIVRCallStatusResponse",
+        "required": [
+          "UpdateIVRCallStatusResponse"
+        ],
+        "type": "object",
+        "properties": {
+          "UpdateIVRCallStatusResponse": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/tns_UpdateIVRCallStatusResponse"
+              },
+              {
+                "xml": {
+                  "name": "UpdateIVRCallStatusResponse",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "xml": {
+          "name": "UpdateIVRCallStatusResponse",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "wsse_UsernameToken": {
+        "title": "wsse_UsernameToken",
+        "required": [
+          "Username",
+          "Password"
+        ],
+        "type": "object",
+        "properties": {
+          "Username": {
+            "type": "string",
+            "xml": {
+              "name": "Username",
+              "namespace": "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd",
+              "prefix": "wsse",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "Password": {
+            "type": "string",
+            "xml": {
+              "name": "Password",
+              "namespace": "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd",
+              "prefix": "wsse",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "UsernameToken",
+          "namespace": "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd",
+          "prefix": "wsse",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "tns_AmountOptionalType": {
+        "oneOf": [
+          {
+            "type": "number"
+          },
+          {
+            "type": "string"
+          }
+        ]
+      },
+      "Q1_AmountOptional": {
+        "$ref": "#/components/schemas/tns_AmountOptionalType"
+      }
+    },
+    "securitySchemes": {
+      "mwsecurity": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "mwsecurity": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "MarketPlace APIs",
+      "description": ""
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://com.tcs.bancs.rm/fault/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.tcs.bancs.rm/fault/" elementFormDefault="qualified">
+<xsd:element name="fault" type="tns:FaultType"/>
+<xsd:complexType name="FaultType">
+<xsd:sequence>
+<xsd:element name="number" type="int"/>
+<xsd:element name="description" type="string"/>
+<xsd:element name="retryAfter" type="string" minOccurs="0"/>
+<xsd:element name="system" type="string" minOccurs="0"/>
+<xsd:element name="nativeError" type="string" minOccurs="0"/>
+<xsd:element name="nativeDescription" type="string" minOccurs="0"/>
+</xsd:sequence>
+</xsd:complexType>
+</schema>

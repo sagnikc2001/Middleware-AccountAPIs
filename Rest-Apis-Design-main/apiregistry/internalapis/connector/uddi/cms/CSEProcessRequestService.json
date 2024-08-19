@@ -1,0 +1,233 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "CMS Service",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://mw-api-3scale-apicast-staging.apps.com:443/api/connector/uddi/cms"
+    }
+  ],
+  "paths": {
+    "/v1/processRequest": {
+      "post": {
+        "tags": [
+          "processRequest"
+        ],
+        "summary": "processRequest",
+        "operationId": "processRequest",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/xml": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/processRequest"
+                  },
+                  {
+                    "xml": {
+                      "name": "processRequest",
+                      "attribute": false,
+                      "wrapped": false
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/processRequestResponse"
+                    },
+                    {
+                      "xml": {
+                        "name": "processRequestResponse",
+                        "attribute": false,
+                        "wrapped": false
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "processRequestResponse": {
+        "title": "processRequestResponse",
+        "type": "object",
+        "properties": {
+          "return": {
+            "type": "string",
+            "xml": {
+              "name": "return",
+              "namespace": "http://web.cse.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "processRequestResponse",
+          "namespace": "http://web.cse.com/",
+          "prefix": "tns",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "cseBusinessBean": {
+        "title": "cseBusinessBean",
+        "type": "object",
+        "properties": {
+          "INPUTMESSAGE": {
+            "type": "string",
+            "xml": {
+              "name": "INPUTMESSAGE",
+              "namespace": "http://web.cse.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "NOTES": {
+            "type": "string",
+            "xml": {
+              "name": "NOTES",
+              "namespace": "http://web.cse.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "PASSWORD": {
+            "type": "string",
+            "xml": {
+              "name": "PASSWORD",
+              "namespace": "http://web.cse.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "REFERENCE1": {
+            "type": "string",
+            "xml": {
+              "name": "REFERENCE1",
+              "namespace": "http://web.cse.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "REFERENCE2": {
+            "type": "string",
+            "xml": {
+              "name": "REFERENCE2",
+              "namespace": "http://web.cse.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "REFERENCE3": {
+            "type": "string",
+            "xml": {
+              "name": "REFERENCE3",
+              "namespace": "http://web.cse.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "SECURITYKEY": {
+            "type": "string",
+            "xml": {
+              "name": "SECURITYKEY",
+              "namespace": "http://web.cse.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "SERVICEID": {
+            "type": "string",
+            "xml": {
+              "name": "SERVICEID",
+              "namespace": "http://web.cse.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          },
+          "USERID": {
+            "type": "string",
+            "xml": {
+              "name": "USERID",
+              "namespace": "http://web.cse.com/",
+              "prefix": "tns",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "cseBusinessBean",
+          "namespace": "http://web.cse.com/",
+          "prefix": "tns",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "processRequest": {
+        "title": "processRequest",
+        "type": "object",
+        "properties": {
+          "arg0": {
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/cseBusinessBean"
+              },
+              {
+                "xml": {
+                  "name": "arg0",
+                  "namespace": "http://web.cse.com/",
+                  "prefix": "tns",
+                  "attribute": false,
+                  "wrapped": false
+                }
+              }
+            ]
+          }
+        },
+        "description": "",
+        "xml": {
+          "name": "processRequest",
+          "namespace": "http://web.cse.com/",
+          "prefix": "tns",
+          "attribute": false,
+          "wrapped": false
+        }
+      }
+    }
+  }
+}

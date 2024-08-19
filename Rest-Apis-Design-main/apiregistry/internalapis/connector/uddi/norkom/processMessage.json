@@ -1,0 +1,122 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Norkom SSS Service",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "https://mw-api-3scale-apicast-staging.apps.com:443/api/connector/uddi/norkom"
+    }
+  ],
+  "paths": {
+    "/v1/processMessage": {
+      "post": {
+        "tags": [
+          "processMessage"
+        ],
+        "summary": "processMessage",
+        "operationId": "processMessage",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/xml": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/RealTimeLogicEjbEndpoint_processMessage"
+                  },
+                  {
+                    "xml": {
+                      "name": "processMessage",
+                      "namespace": "http://schemas.norkom.com/wsdl/RealTimeLogicServices",
+                      "attribute": false,
+                      "wrapped": false
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the response",
+            "headers": {},
+            "content": {
+              "application/xml": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/RealTimeLogicEjbEndpoint_processMessageResponse"
+                    },
+                    {
+                      "xml": {
+                        "name": "processMessageResponse",
+                        "attribute": false,
+                        "wrapped": false
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "RealTimeLogicEjbEndpoint_processMessageResponse": {
+        "title": "RealTimeLogicEjbEndpoint_processMessageResponse",
+        "required": [
+          "result"
+        ],
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "string",
+            "xml": {
+              "name": "result",
+              "attribute": false,
+              "wrapped": false
+            }
+          }
+        },
+        "xml": {
+          "name": "RealTimeLogicEjbEndpoint_processMessageResponse",
+          "attribute": false,
+          "wrapped": false
+        }
+      },
+      "RealTimeLogicEjbEndpoint_processMessage": {
+        "title": "RealTimeLogicEjbEndpoint_processMessage",
+        "required": [
+          "messageId",
+          "messageType",
+          "messageFunctionSequence",
+          "messageData"
+        ],
+        "type": "object",
+        "properties": {
+          "messageId": {
+            "type": "string"
+          },
+          "messageType": {
+            "type": "string"
+          },
+          "messageFunctionSequence": {
+            "type": "string"
+          },
+          "messageData": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

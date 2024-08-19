@@ -49,7 +49,6 @@ public class AmendAccountStatusRouteBuilder extends RouteBuilder{
 		.to("{{BANCSDBConnector.host}}{{BANCSDBConnector.contextPath}}"+"/v1/InquiryAccountStatusProcedure?bridgeEndpoint=true")
 		.choice()
 			.when().jsonpath("$.InquiryAccountStatusResponse[?(@.success != null && @.success.size()>0)]")
-			.log("Log1 - ${body}")
 				.to("bean:amendAccountStatusService?method=prepareInquireAccountStatusAmendmentFinalResponse")
 				.setHeader("Content-Type", constant("application/json"))
 		.otherwise()

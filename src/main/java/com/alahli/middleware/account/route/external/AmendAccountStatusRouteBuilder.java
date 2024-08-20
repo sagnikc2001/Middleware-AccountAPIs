@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import com.alahli.middleware.account.models.AccountStatusAmendment;
 import com.alahli.middleware.account.models.backends.bancs.InquireAccountStatusRequest;
+import com.alahli.middleware.account.models.backends.bancs.InquireAccountStatusResponse;
 import com.alahli.middleware.account.models.backends.bancs.UpdateAccountStatusRequest;
 
 @Component
@@ -33,39 +34,41 @@ public class AmendAccountStatusRouteBuilder extends RouteBuilder{
 		from("direct:AmendAccountStatus").routeId("AmendAccountStatus")
 		.setHeader("system", constant("MW"))
 		.to("bean:amendAccountStatusService?method=setAccountStatusAmendmentRequestIn")
+		.log("Before choice - ${body}")
 		.choice()
 			.when().jsonpath("$.AccountStatusAmendmentRequest[?(@.operationMode == 'R')]")
 				.to("direct:InquireAccountStatus")
 			.when().jsonpath("$.AccountStatusAmendmentRequest[?(@.operationMode == 'U')]")
 				.to("direct:UpdateAccountStatus")	
 		.otherwise()
-			.to("bean:oUtils?method=prepareFaultNodeStr(\"AccountStatusAmendmentResponse\",\"MANDATORYVALUE\",\"\",\"\",\"\",\"sysOrAppWithoutBkndError\",${exchange})");
+			.to("bean:oUtils?method=prepareFaultNodeStr(\"AccountStatusAmendmentResponse\",\"MANDATORYVALUE\",\"Invalid Operational Mode\",\"\",\"\",\"validationsCust\",${exchange})");
 		
 		
 		from("direct:InquireAccountStatus").routeId("InquireAccountStatus")
 		.to("bean:amendAccountStatusService?method=prepareInquireAccountStatusRequestBackend")
 		.marshal(new JacksonDataFormat(InquireAccountStatusRequest.class))
-		.setHeader("Content-Type", constant("application/json"))
+		.setHeader("system",constant("BANCSDB"))
 		.to("{{BANCSDBConnector.host}}{{BANCSDBConnector.contextPath}}"+"/v1/InquiryAccountStatusProcedure?bridgeEndpoint=true")
 		.choice()
-			.when().jsonpath("$.InquiryAccountStatusResponse[?(@.success != null && @.success.size()>0)]")
-				.to("bean:amendAccountStatusService?method=prepareInquireAccountStatusAmendmentFinalResponse")
-				.setHeader("Content-Type", constant("application/json"))
+			.when().jsonpath("$.InquireAccountStatusResponse[?(@.ERROR.size()>0)]")
+				.to("bean:oUtils?method=prepareFaultNodeStr(\"AccountStatusAmendmentResponse\",\"BANCSDB\",\"\",\"\",\"\",\"sysOrAppWithBkndError\",${exchange})")
 		.otherwise()
-			.to("bean:oUtils?method=prepareFaultNodeStr('AccountStatusAmendmentResponse','RECORDNOTFOUND','','','','sysOrAppWithoutBkndError',${exchange})");
+			.unmarshal(new JacksonDataFormat(InquireAccountStatusResponse.class))
+			.to("bean:amendAccountStatusService?method=prepareInquireAccountStatusAmendmentFinalResponse")
+		.endChoice();	
 		
 		
 		from("direct:UpdateAccountStatus").routeId("UpdateAccountStatus")
 		.to("bean:amendAccountStatusService?method=prepareUpdateAccountStatusRequestBackend")
 		.marshal(new JacksonDataFormat(UpdateAccountStatusRequest.class))
-		.setHeader("Content-Type", constant("application/json"))
+		.setHeader("system",constant("BANCSDB"))
 		.to("{{BANCSDBConnector.host}}{{BANCSDBConnector.contextPath}}"+"/v1/UpdateAccountStatusProcedure?bridgeEndpoint=true")
 		.choice()
-			.when().jsonpath("$.UpdateAccountStatusResponse['status']['updateStatus']")
-				.to("bean:amendAccountStatusService?method=prepareUpdateAccountStatusAmendmentFinalResponse")
-				.setHeader("Content-Type", constant("application/json"))
+			.when().jsonpath("$.UpdateAccountStatusResponse[?(@.ERROR.size()>0)]")
+				.to("bean:oUtils?method=prepareFaultNodeStr(\"AccountStatusAmendmentResponse\",\"BANCSDB\",\"\",\"\",\"\",\"sysOrAppWithBkndError\",${exchange})")
 		.otherwise()
-			.to("bean:oUtils?method=prepareFaultNodeStr('AccountStatusAmendmentResponse','RECORDNOTFOUND','','','','sysOrAppWithoutBkndError',${exchange})");	
+			.to("bean:amendAccountStatusService?method=prepareUpdateAccountStatusAmendmentFinalResponse")
+		.endChoice();
 		
 	}
 

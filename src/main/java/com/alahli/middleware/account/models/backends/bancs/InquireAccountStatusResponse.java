@@ -28,5 +28,5 @@ public class InquireAccountStatusResponse {
 	public String toString() {
 		return "InquireAccountStatusResponse [inquireAccountStatusResponse=" + inquireAccountStatusResponse + "]";
 	}
-    
+
 }

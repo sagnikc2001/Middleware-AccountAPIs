@@ -1,0 +1,8 @@
+{
+	"UpdateAccountStatusResponse": {
+		"status": {
+			"updateStatus": true,
+			"accntNumber1": "ACC1234567890"
+		}
+	}
+}

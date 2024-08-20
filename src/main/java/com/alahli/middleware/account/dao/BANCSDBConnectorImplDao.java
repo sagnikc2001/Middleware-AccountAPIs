@@ -67,7 +67,7 @@ public class BANCSDBConnectorImplDao {
 
 			ObjectNode oInquiryAccountStatusResponseNode = JsonNodeFactory.instance.objectNode();
 			ObjectNode oInquiryAccountStatusResponse = oInquiryAccountStatusResponseNode
-					.putObject("InquiryAccountStatusResponse");
+					.putObject("InquireAccountStatusResponse");
 			ObjectNode oSuccess = oInquiryAccountStatusResponse.putObject("success");
 
 			while (rs.next()) {
@@ -78,6 +78,12 @@ public class BANCSDBConnectorImplDao {
 
 					oSuccess.put(columnName, columnValue);
 				}
+			}
+
+			if (oSuccess.size() < 1) {
+				oInquiryAccountStatusResponse.remove("success");
+				ObjectNode oError = oInquiryAccountStatusResponse.putObject("ERROR");
+				oError.put("errorMsg", "ERROR");
 			}
 
 			return oInquiryAccountStatusResponseNode;
@@ -113,7 +119,8 @@ public class BANCSDBConnectorImplDao {
 	 * @param body The JSON body containing update data from client, including
 	 *             accntNumber1, etc.
 	 * @param ex   The Exchange object for handling exceptions
-	 * @return JSON response containing Inquire Account Response containing updateStatus
+	 * @return JSON response containing Inquire Account Response containing
+	 *         updateStatus
 	 * @throws Exception If there is an error during database connection or
 	 *                   procedure execution
 	 */
@@ -227,15 +234,16 @@ public class BANCSDBConnectorImplDao {
 			ObjectNode oUpdateAccountStatusResponseNode = JsonNodeFactory.instance.objectNode();
 			ObjectNode oUpdateAccountStatusResponse = oUpdateAccountStatusResponseNode
 					.putObject("UpdateAccountStatusResponse");
-			ObjectNode oStatus = oUpdateAccountStatusResponse.putObject("status");
 
 			if (rowsAffected > 0) {
-				oStatus.put("updateStatus", true);
+				ObjectNode oSuccess = oUpdateAccountStatusResponse.putObject("success");
+				oSuccess.put("updateStatus", true);
+				oSuccess.put("accntNumber1", accntNumber1);
 			} else {
-				oStatus.put("updateStatus", false);
+				ObjectNode oError = oUpdateAccountStatusResponse.putObject("ERROR");
+				oError.put("updateStatus", false);
+				oError.put("accntNumber1", accntNumber1);
 			}
-			
-			oStatus.put("accntNumber1", accntNumber1);
 
 			return oUpdateAccountStatusResponseNode;
 

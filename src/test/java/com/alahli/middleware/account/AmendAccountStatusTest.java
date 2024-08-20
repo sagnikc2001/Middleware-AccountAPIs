@@ -157,7 +157,7 @@ public class AmendAccountStatusTest {
 		String faultResponse = producerTemplate.requestBodyAndHeaders("direct:AmendAccountStatus",
 				oInquiryAccountStatusAmendmentRequest_Fault, headers, String.class);
 
-		Assertions.assertTrue(faultResponse.contains("Record not found"));
+		Assertions.assertTrue(faultResponse.contains("BANCS Database Error"));
 
 	}
 
@@ -254,7 +254,7 @@ public class AmendAccountStatusTest {
 		String faultResponse = producerTemplate.requestBodyAndHeaders("direct:AmendAccountStatus",
 				oInquiryAccountStatusAmendmentRequest_Fault, headers, String.class);
 
-		Assertions.assertTrue(faultResponse.contains("Record not found"));
+		Assertions.assertTrue(faultResponse.contains("BANCS Database Error"));
 	}
 
 	@Test

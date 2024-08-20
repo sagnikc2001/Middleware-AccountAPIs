@@ -7,26 +7,26 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "Transaction"
+    "success"
 })
 public class InquireAccountStatusResponseType {
 
-    @JsonProperty("Transaction")
-    private InquireAccountStatusResponseTransaction transaction;
+    @JsonProperty("success")
+    private InquireAccountStatusSuccess success;
 
-    @JsonProperty("Transaction")
-    public InquireAccountStatusResponseTransaction getTransaction() {
-        return transaction;
+    @JsonProperty("success")
+    public InquireAccountStatusSuccess getSuccess() {
+        return success;
     }
 
-    @JsonProperty("Transaction")
-    public void setTransaction(InquireAccountStatusResponseTransaction transaction) {
-        this.transaction = transaction;
+    @JsonProperty("success")
+    public void setSuccess(InquireAccountStatusSuccess success) {
+        this.success = success;
     }
 
 	@Override
 	public String toString() {
-		return "InquireAccountStatusResponseType [transaction=" + transaction + "]";
+		return "InquireAccountStatusResponseType [success=" + success + "]";
 	}
     
 }

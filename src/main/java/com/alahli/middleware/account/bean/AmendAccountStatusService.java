@@ -14,8 +14,12 @@ import com.alahli.middleware.account.models.AccountStatusAmendmentSuccess;
 import com.alahli.middleware.account.models.ServiceHeader;
 import com.alahli.middleware.account.models.backends.bancs.InquireAccountStatusRequest;
 import com.alahli.middleware.account.models.backends.bancs.InquireAccountStatusRequestType;
+import com.alahli.middleware.account.models.backends.bancs.InquireAccountStatusResponse;
+import com.alahli.middleware.account.models.backends.bancs.InquireAccountStatusResponseType;
+import com.alahli.middleware.account.models.backends.bancs.InquireAccountStatusSuccess;
 import com.alahli.middleware.account.models.backends.bancs.UpdateAccountStatusRequest;
 import com.alahli.middleware.account.models.backends.bancs.UpdateAccountStatusRequestType;
+import com.alahli.middleware.account.models.backends.bancs.UpdateAccountStatusResponse;
 import com.alahli.middleware.account.utils.AccountUtils;
 import com.alahli.middleware.utility.Utils.StringUtil;
 import com.alahli.middleware.utility.Utils.Utils;
@@ -79,18 +83,14 @@ public class AmendAccountStatusService {
 	/**
 	 * Prepare final response by mapping the retrieved response from the external api
 	 * 
-	 * @param ex Exchange body
+	 * @param InquireAccountStatusResponse class
 	 * @return AccountStatusAmendment class
 	 * @throws Exception
 	 */
-	public AccountStatusAmendment prepareInquireAccountStatusAmendmentFinalResponse(Exchange ex) throws Exception {
-
-		JsonNode oInquiryAccountStatusResponseNode = objectMapper.readTree(ex.getIn().getBody(String.class));
-
-		JsonNode oInquiryAccountStatusResponseJson = oInquiryAccountStatusResponseNode
-				.get("InquiryAccountStatusResponse");
+	public AccountStatusAmendment prepareInquireAccountStatusAmendmentFinalResponse(InquireAccountStatusResponse oInquireAccountStatusResponse) throws Exception {
 		
-		JsonNode oSuccessNode = oInquiryAccountStatusResponseJson.get("success");
+		InquireAccountStatusResponseType oInquireAccountStatusResponseType = oInquireAccountStatusResponse.getInquireAccountStatusResponse();
+		InquireAccountStatusSuccess oInquireAccountStatusSuccess = oInquireAccountStatusResponseType.getSuccess();
 
 		AccountStatusAmendment oAccountStatusAmendment = new AccountStatusAmendment();
 		AccountStatusAmendmentResponse oAccountStatusAmendmentResponse = new AccountStatusAmendmentResponse();
@@ -99,47 +99,47 @@ public class AmendAccountStatusService {
 		oAccountStatusAmendment.setoAccountStatusAmendmentResponse(oAccountStatusAmendmentResponse);
 		oAccountStatusAmendmentResponse.setSuccess(success);
 
-		success.setAccountNumber(oSuccessNode.get("ACCNT_NUMBER").asText());
-		success.setCurrentStatus(oSuccessNode.get("CURRENT_STATUS").asText());
-		success.setNewStatus(oSuccessNode.get("NEW_STATUS").asText());
-		success.setCurrentKYCStatus(oSuccessNode.get("CURR_KYC_STATUS").asText());
-		success.setNewKYCStatus(oSuccessNode.get("NEW_KYC_STATUS").asText());
-		success.setCurrentSamaStatus(oSuccessNode.get("CURR_SAMA_STATUS").asText());
-		success.setNewSamaStatus(oSuccessNode.get("NEW_SAMA_STATUS").asText());
-		success.setReasonAccountStatus(oSuccessNode.get("REASON_ACCT_STATUS").asText());
-		success.setReasonSamaStatus(oSuccessNode.get("REASON_SAMA_STATUS").asText());
-		success.setReasonKYCStatus(oSuccessNode.get("REASON_KYC_STATUS").asText());
-		success.setKycUnfreezeDate(oSuccessNode.get("KYC_UNFREEZE_DATE").asText());
-		success.setLetterNumber(oSuccessNode.get("LETTER_NO").asText());
-		success.setLetterDate(oSuccessNode.get("LETTER_DATE").asText());
-		success.setBlockDate(oSuccessNode.get("BLOCK_DATE").asText());
-		success.setNote(oSuccessNode.get("NOTE").asText());
-		success.setInacStat(oSuccessNode.get("INAC_STAT").asText());
-		success.setEnfBlockStatus(oSuccessNode.get("ENF_BLOCK_STATUS").asText());
-		success.setSsuBlockStatus(oSuccessNode.get("SSU_BLOCK_STATUS").asText());
-		success.setLegalBlockStatus(oSuccessNode.get("LEGAL_BLOCK_STATUS").asText());
-		success.setEffENFBlockDate(oSuccessNode.get("EFF_ENF_BLOCK_DATE").asText());
-		success.setEffENFBlockDateFlag(oSuccessNode.get("EFF_ENF_BLOCK_DATE_FLAG").asText());
-		success.setEffSSUBlockDate(oSuccessNode.get("EFF_SSU_BLOCK_DATE").asText());
-		success.setEffSSUBlockDateFlag(oSuccessNode.get("EFF_SSU_BLOCK_DATE_FLAG").asText());
-		success.setEffLegalBlockDate(oSuccessNode.get("EFF_LEGAL_BLOCK_DATE").asText());
-		success.setEffLegalBlockDateFlag(oSuccessNode.get("EFF_LEGAL_BLOCK_DATE_FLAG").asText());
-		success.setEnfBlockReasonStat(oSuccessNode.get("ENF_BLOCK_REASON_STAT").asText());
-		success.setSsuBlockReasonStat(oSuccessNode.get("SSU_BLOCK_REASON_STAT").asText());
-		success.setLegalBlockReasonStat(oSuccessNode.get("LEGAL_BLOCK_REASON_STAT").asText());
-		success.setEnfStopPeriod(oSuccessNode.get("ENF_STOP_PERIOD").asText());
-		success.setSsuStopPeriod(oSuccessNode.get("SSU_STOP_PERIOD").asText());
-		success.setEnfBlockDate(oSuccessNode.get("ENF_BLOCK_DATE").asText());
-		success.setSsuBlockLetterNumber(oSuccessNode.get("SSU_BLOCK_LETTER_NO").asText());
-		success.setLegalBlockLetterNumber(oSuccessNode.get("LEGAL_BLOCK_LETTER_NO").asText());
-		success.setSsuBlockLetterDate(oSuccessNode.get("SSU_BLOCK_LTTR_DATE").asText());
-		success.setLegalBlockLetterDate(oSuccessNode.get("LEGAL_BLOCK_LTTR_DATE").asText());
-		success.setSsuBlockNote(oSuccessNode.get("SSU_BLOCK_NOTE").asText());
-		success.setLegalBlockNote(oSuccessNode.get("LEGAL_BLOCK_NOTE").asText());
-		success.setLastAccountStatDate(oSuccessNode.get("LST_ACCT_STAT_DATE").asText());
-		success.setHighRiskAccount(oSuccessNode.get("HIGH_RISK_ACCT").asText());
-		success.setFatcaFreeze(oSuccessNode.get("FATCA_FREZE").asText());
-		success.setWorkFlowFlag(oSuccessNode.get("WORK_FLOW_FLAG").asText());
+		success.setAccountNumber(oInquireAccountStatusSuccess.getAccntNumber());
+		success.setCurrentStatus(oInquireAccountStatusSuccess.getCurrentStatus());
+		success.setNewStatus(oInquireAccountStatusSuccess.getNewStatus());
+		success.setCurrentKYCStatus(oInquireAccountStatusSuccess.getCurrKycStatus());
+		success.setNewKYCStatus(oInquireAccountStatusSuccess.getNewKycStatus());
+		success.setCurrentSamaStatus(oInquireAccountStatusSuccess.getCurrSamaStatus());
+		success.setNewSamaStatus(oInquireAccountStatusSuccess.getNewSamaStatus());
+		success.setReasonAccountStatus(oInquireAccountStatusSuccess.getReasonAcctStatus());
+		success.setReasonSamaStatus(oInquireAccountStatusSuccess.getReasonSamaStatus());
+		success.setReasonKYCStatus(oInquireAccountStatusSuccess.getReasonKycStatus());
+		success.setKycUnfreezeDate(oInquireAccountStatusSuccess.getKycUnfreezeDate());
+		success.setLetterNumber(oInquireAccountStatusSuccess.getLetterNo());
+		success.setLetterDate(oInquireAccountStatusSuccess.getLetterDate());
+		success.setBlockDate(oInquireAccountStatusSuccess.getBlockDate());
+		success.setNote(oInquireAccountStatusSuccess.getNote());
+		success.setInacStat(oInquireAccountStatusSuccess.getInacStat());
+		success.setEnfBlockStatus(oInquireAccountStatusSuccess.getEnfBlockStatus());
+		success.setSsuBlockStatus(oInquireAccountStatusSuccess.getSsuBlockStatus());
+		success.setLegalBlockStatus(oInquireAccountStatusSuccess.getLegalBlockStatus());
+		success.setEffENFBlockDate(oInquireAccountStatusSuccess.getEffEnfBlockDate());
+		success.setEffENFBlockDateFlag(oInquireAccountStatusSuccess.getEffEnfBlockDateFlag());
+		success.setEffSSUBlockDate(oInquireAccountStatusSuccess.getEffSsuBlockDate());
+		success.setEffSSUBlockDateFlag(oInquireAccountStatusSuccess.getEffSsuBlockDateFlag());
+		success.setEffLegalBlockDate(oInquireAccountStatusSuccess.getEffLegalBlockDate());
+		success.setEffLegalBlockDateFlag(oInquireAccountStatusSuccess.getEffLegalBlockDateFlag());
+		success.setEnfBlockReasonStat(oInquireAccountStatusSuccess.getEnfBlockReasonStat());
+		success.setSsuBlockReasonStat(oInquireAccountStatusSuccess.getSsuBlockReasonStat());
+		success.setLegalBlockReasonStat(oInquireAccountStatusSuccess.getLegalBlockReasonStat());
+		success.setEnfStopPeriod(oInquireAccountStatusSuccess.getEnfStopPeriod());
+		success.setSsuStopPeriod(oInquireAccountStatusSuccess.getSsuStopPeriod());
+		success.setEnfBlockDate(oInquireAccountStatusSuccess.getEnfBlockDate());
+		success.setSsuBlockLetterNumber(oInquireAccountStatusSuccess.getSsuBlockLetterNo());
+		success.setLegalBlockLetterNumber(oInquireAccountStatusSuccess.getLegalBlockLetterNo());
+		success.setSsuBlockLetterDate(oInquireAccountStatusSuccess.getSsuBlockLttrDate());
+		success.setLegalBlockLetterDate(oInquireAccountStatusSuccess.getLegalBlockLttrDate());
+		success.setSsuBlockNote(oInquireAccountStatusSuccess.getSsuBlockNote());
+		success.setLegalBlockNote(oInquireAccountStatusSuccess.getLegalBlockNote());
+		success.setLastAccountStatDate(oInquireAccountStatusSuccess.getLstAcctStatDate());
+		success.setHighRiskAccount(oInquireAccountStatusSuccess.getHighRiskAcct());
+		success.setFatcaFreeze(oInquireAccountStatusSuccess.getFatcaFreze());
+		success.setWorkFlowFlag(oInquireAccountStatusSuccess.getWorkFlowFlag());
 
 		return oAccountStatusAmendment;
 	}
@@ -207,11 +207,11 @@ public class AmendAccountStatusService {
 	/**
 	 * Prepare final response by mapping the retrieved response from the external api
 	 * 
-	 * @param ex Exchange body
+	 * @param Exchange
 	 * @return AccountStatusAmendment class
 	 * @throws Exception
 	 */
-	public AccountStatusAmendment prepareUpdateAccountStatusAmendmentFinalResponse() throws Exception {
+	public AccountStatusAmendment prepareUpdateAccountStatusAmendmentFinalResponse(Exchange ex) throws Exception {
 		
 		AccountStatusAmendment oAccountStatusAmendment = new AccountStatusAmendment();
 		AccountStatusAmendmentResponse oAccountStatusAmendmentResponse = new AccountStatusAmendmentResponse();

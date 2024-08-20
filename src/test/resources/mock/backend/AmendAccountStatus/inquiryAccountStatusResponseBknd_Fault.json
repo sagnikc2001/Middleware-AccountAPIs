@@ -1,6 +1,7 @@
 {
-	"InquiryAccountStatusResponse": {
-		"success": {
-		}
-	}
+    "InquireAccountStatusResponse": {
+        "ERROR": {
+            "errorMsg": "ERROR"
+        }
+    }
 }

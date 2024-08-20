@@ -1,7 +1,8 @@
 {
 	"UpdateAccountStatusResponse": {
-		"status": {
-			"updateStatus": false
+		"ERROR": {
+			"updateStatus": false,
+			"accntNumber1": "ACC123456789"
 		}
 	}
 }

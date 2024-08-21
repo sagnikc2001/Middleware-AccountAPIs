@@ -34,7 +34,6 @@ public class AmendAccountStatusRouteBuilder extends RouteBuilder{
 		from("direct:AmendAccountStatus").routeId("AmendAccountStatus")
 		.setHeader("system", constant("MW"))
 		.to("bean:amendAccountStatusService?method=setAccountStatusAmendmentRequestIn")
-		.log("Before choice - ${body}")
 		.choice()
 			.when().jsonpath("$.AccountStatusAmendmentRequest[?(@.operationMode == 'R')]")
 				.to("direct:InquireAccountStatus")
@@ -45,7 +44,7 @@ public class AmendAccountStatusRouteBuilder extends RouteBuilder{
 		
 		
 		from("direct:InquireAccountStatus").routeId("InquireAccountStatus")
-		.to("bean:amendAccountStatusService?method=prepareInquireAccountStatusRequestBackend")
+		.to("bean:amendAccountStatusService?method=setInquireAccountStatusRequestBackendOut")
 		.marshal(new JacksonDataFormat(InquireAccountStatusRequest.class))
 		.setHeader("system",constant("BANCSDB"))
 		.to("{{BANCSDBConnector.host}}{{BANCSDBConnector.contextPath}}"+"/v1/InquiryAccountStatusProcedure?bridgeEndpoint=true")
@@ -54,12 +53,12 @@ public class AmendAccountStatusRouteBuilder extends RouteBuilder{
 				.to("bean:oUtils?method=prepareFaultNodeStr(\"AccountStatusAmendmentResponse\",\"BANCSDB\",\"\",\"\",\"\",\"sysOrAppWithBkndError\",${exchange})")
 		.otherwise()
 			.unmarshal(new JacksonDataFormat(InquireAccountStatusResponse.class))
-			.to("bean:amendAccountStatusService?method=prepareInquireAccountStatusAmendmentFinalResponse")
+			.to("bean:amendAccountStatusService?method=setInquireAccountStatusAmendmentResponseOut")
 		.endChoice();	
 		
 		
 		from("direct:UpdateAccountStatus").routeId("UpdateAccountStatus")
-		.to("bean:amendAccountStatusService?method=prepareUpdateAccountStatusRequestBackend")
+		.to("bean:amendAccountStatusService?method=setUpdateAccountStatusRequestBackendOut")
 		.marshal(new JacksonDataFormat(UpdateAccountStatusRequest.class))
 		.setHeader("system",constant("BANCSDB"))
 		.to("{{BANCSDBConnector.host}}{{BANCSDBConnector.contextPath}}"+"/v1/UpdateAccountStatusProcedure?bridgeEndpoint=true")
@@ -67,7 +66,7 @@ public class AmendAccountStatusRouteBuilder extends RouteBuilder{
 			.when().jsonpath("$.UpdateAccountStatusResponse[?(@.ERROR.size()>0)]")
 				.to("bean:oUtils?method=prepareFaultNodeStr(\"AccountStatusAmendmentResponse\",\"BANCSDB\",\"\",\"\",\"\",\"sysOrAppWithBkndError\",${exchange})")
 		.otherwise()
-			.to("bean:amendAccountStatusService?method=prepareUpdateAccountStatusAmendmentFinalResponse")
+			.to("bean:amendAccountStatusService?method=setUpdateAccountStatusAmendmentResponseOut")
 		.endChoice();
 		
 	}
